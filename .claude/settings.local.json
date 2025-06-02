@@ -1,3 +1,9 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(cp:*)"
+    ]
+  },
   "enableAllProjectMcpServers": false
 }
