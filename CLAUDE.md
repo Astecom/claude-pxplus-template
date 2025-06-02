@@ -486,7 +486,7 @@ Example (replace <PXPLUS_EXECUTABLE_PATH> with the actual path):
 **IMPORTANT**: The `.claude/pxplus-docs/` directory contains comprehensive PxPlus documentation extracted from the official sources. You MUST use this documentation when working with PxPlus functions and directives.
 
 ### Documentation Index
-**A comprehensive documentation index is available at `.claude/docs-index.md`**. This index provides:
+# **A comprehensive documentation index is available at `.claude/docs-index.md`**. This index provides:
 - Quick reference to the most common lookups (directives, functions, variables, parameters)
 - Complete directory structure with file counts
 - Category-based organization for easy navigation
@@ -500,15 +500,15 @@ Example (replace <PXPLUS_EXECUTABLE_PATH> with the actual path):
 
 ### MANDATORY Documentation Lookup Rules
 
-1. **ALWAYS look up unfamiliar functions/directives**: When encountering a PxPlus function or directive you're not 100% certain about, you MUST use the Agent tool to search the documentation.
+# 1. **ALWAYS look up unfamiliar functions/directives**: When encountering a PxPlus function or directive you're not 100% certain about, you MUST use the Agent tool to search the documentation.
 
-2. **Use the Agent tool for documentation searches**: The Agent tool is optimized for searching through the documentation efficiently. DO NOT manually browse files.
+# 2. **Use the Agent tool for documentation searches**: The Agent tool is optimized for searching through the documentation efficiently. DO NOT manually browse files.
 
-3. **Priority for lookups**:
-   - When writing code that uses a function/directive
-   - When explaining how a function/directive works
-   - When debugging issues related to specific functions/directives
-   - When the user asks about any PxPlus feature
+# 3. **Priority for lookups**:
+#   - When writing code that uses a function/directive
+#   - When explaining how a function/directive works
+#   - When debugging issues related to specific functions/directives
+#   - When the user asks about any PxPlus feature
 
 ### How to Look Up Documentation
 
