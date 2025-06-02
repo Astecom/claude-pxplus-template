@@ -1,0 +1,18 @@
+# Mnemonics
+
+**'*I'** |  **_Input Conversion Table_**  
+---|---  
+  
+**Definition**
+
+##  Format
+
+**'*I'** =_table$_
+
+##  Description
+
+**'*I'** (_asterisk uppercase letter i_) is used to create a 256-character terminal input conversion table. As each character is received from an input device, it is translated into a new character based on this table, if defined.
+
+An incoming character is translated to its numeric value in an ASCII table (0 - 255), and this value is used as an _offset_ into the 256-character table defined by **'*I'**. The _character at that offset_ will be used for input instead of the original incoming character.
+
+For additional information regarding the use of special mnemonics (i.e. **'@@'** , **'*C'** , **'*I'** , **'*O'** , **'*R'** , **'*X'** , **'AT'** , **'GD'** , **'WX'**) when creating a device driver, see **[Dynamic Information in Mnemonics](dynamic_information_in_mnemonics.md)** or **[Device Drivers](../PxPlus%20User%20Guide/Appendix%20of%20Miscellaneous%20Topics/Device%20Drivers/Overview.md)**.
