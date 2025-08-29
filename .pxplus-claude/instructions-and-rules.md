@@ -52,61 +52,65 @@ PxPlus (formerly ProvideX) is a business application development language. When 
 ### Modern Object-Oriented PxPlus
 
 ```pxplus
-DEF CLASS "ClassName" CREATE REQUIRED DELETE REQUIRED
-    LIKE "parent/class"  ! Optional inheritance
-    
-    ! Properties
-    PROPERTY propertyname$ SET ERR
-    PROPERTY HIDE __private_property$
-    PROPERTY readonly_prop$ GET ERR  ! Read-only property
-    
-    LOCAL variable$, numeric_var
-    
-    ! Constructor
-    FUNCTION CREATE()CONSTRUCTOR
-        ! Initialization code
-    END FUNCTION
-    
-    ! Public method with overloading
-    FUNCTION methodname(param1$)method_name
-        ! Implementation
-        RETURN result
-    END FUNCTION
-    
-    FUNCTION methodname(param1$, param2)method_name
-        ! Overloaded implementation
-        RETURN result
-    END FUNCTION
-    
-    ! Private method
-    FUNCTION LOCAL private_method()private_method
-        ! Implementation
-    END FUNCTION
-    
-    ! Hidden method (not visible outside class)
-    FUNCTION HIDE internal_method()internal_method
-        ! Implementation
-    END FUNCTION
-    
+DEF CLASS "ClassName" CREATE REQUIRED DELETE REQUIRED 
+LIKE "parent/class" ! Optional inheritance
+! Properties
+PROPERTY propertyname$ SET ERR
+PROPERTY HIDE __private_property$
+PROPERTY readonly_prop$ SET ERR ! Read-only property
+LOCAL variable$,numeric_var
+! Public method with overloading
+! IMPORTANT: Functions MUST have a label after parentheses!
+FUNCTION methodname(param1$)METHOD_NAME_LABEL ! Label required!
+FUNCTION methodname(param1$,param2)METHOD_NAME_LABEL ! Overloaded
+! String functions need $ suffix on function name
+FUNCTION get_name$()GET_NAME_LABEL ! Returns string
+FUNCTION get_count()GET_COUNT_LABEL ! Returns numeric
+! Private method
+FUNCTION LOCAL private_method()PRIVATE_METHOD_LABEL
+! Hidden method (not visible outside class)
+FUNCTION HIDE internal_method()INTERNAL_METHOD_LABEL
 END DEF
-
 ! Object lifecycle methods
 ON_CREATE:
-    ! Code executed when object is created
-    RETURN
-
+! Code executed when object is created
+RETURN 
 ON_DELETE:
-    ! Code executed when object is deleted
-    RETURN
+! Code executed when object is deleted
+RETURN 
+! IMPORTANT: Method implementations go OUTSIDE the class definition!
+METHOD_NAME_LABEL:
+ENTER (param1$),(param2$="")
+! Implementation for methodname
+! Access properties directly (no THIS prefix)
+LET propertyname$=param1$
+RETURN result
+GET_NAME_LABEL:
+! String function implementation
+RETURN propertyname$
+GET_COUNT_LABEL:
+! Numeric function implementation
+RETURN numeric_var
+PRIVATE_METHOD_LABEL:
+! Private method implementation
+RETURN 
+INTERNAL_METHOD_LABEL:
+! Hidden method implementation
+RETURN
 ```
 
 Object usage:
 ```pxplus
 ! Manual object lifecycle management
 obj = NEW("ClassName")
-result = obj'methodname("param", 123)
+result = obj'methodname("param", 123)  ! No CALL needed
 obj'propertyname$ = "value"
 DELETE OBJECT obj  ! or DROP OBJECT obj
+
+! IMPORTANT - Property access inside class:
+! WRONG: THIS'property or LET THIS'property = value
+! CORRECT: Direct access without prefix: property = value
+! Call own methods: _obj'method() not THIS'method()
 
 ! Automatic cleanup when program exits
 obj = NEW("ClassName" FOR PROGRAM)
@@ -146,11 +150,10 @@ PROCESS_DATA:
 
 ```pxplus
 ! IF/THEN/ELSE
-IF condition \
-    THEN statement \
-    ELSE other_statement
+! Single-line format (no backslashes needed)
+IF condition THEN statement ELSE other_statement
 
-! Multi-line IF
+! Multi-line IF (use curly braces, not backslashes)
 IF condition THEN {
     statement1
     statement2
@@ -174,9 +177,13 @@ SWITCH expression$
 END SWITCH
 
 ! Loops
-FOR i = 1 TO 10
-    ! code
-NEXT i
+! CRITICAL: PxPlus FOR-NEXT loops ALWAYS execute at least once!
+! Guard loops that might not need to run:
+IF count > 0 THEN {
+    FOR i = 1 TO count
+        ! code
+    NEXT i
+}
 
 FOR i = 1 TO 10 STEP 2
     ! code
@@ -187,6 +194,22 @@ WHILE condition
     IF special_case THEN BREAK
     IF skip_iteration THEN CONTINUE
 WEND
+
+! CRITICAL: NO RETURN allowed inside FOR loops!
+! WRONG: FOR i = 1 TO 10
+!           IF condition THEN RETURN value
+!        NEXT i
+! CORRECT: Use flag and BREAK instead:
+LOCAL result_found, result_value
+result_found = 0
+FOR i = 1 TO count
+    IF condition THEN {
+        result_value = value
+        result_found = 1
+        BREAK
+    }
+NEXT i
+IF result_found THEN RETURN result_value
 
 ! Associative array iteration
 FOR element$ INDEX key$ FROM array[]
@@ -227,6 +250,14 @@ OPEN (1,ERR=*NEXT) "file.dat"  ! Continue on error
 READ (1,DOM=*NEXT) record$      ! Continue if no match
 EXTRACT (1,BSY=*SAME) record$   ! Retry if busy
 
+! In error handlers:
+! WRONG: RESUME LABEL
+! CORRECT: GOTO LABEL
+ERROR_HANDLER:
+    error_msg$ = MSG(ERR)
+    PRINT "Error: ", error_msg$
+    GOTO CLEANUP  ! Use GOTO, not RESUME
+
 ! Common error handling patterns
 ERR=*NEXT     ! Continue to next statement on error
 DOM=*NEXT     ! Continue if key not found (Domain error)
@@ -242,10 +273,9 @@ TIM=10        ! Timeout after 10 seconds
 OPEN (1) "filename.dat"                          ! Default open
 OPEN INPUT (chan) "file.txt"; chan = LFO         ! Read-only
 OPEN OUTPUT (chan) "file.txt"                    ! Write-only
-OPEN (UNT) "file.dat"                            ! Next available channel
-OPEN (UNT,IOL=*) "file.dat"                      ! With IOL from file
-OPEN (UNT,IOL=*) "file.dat" FOR PROGRAM          ! Auto-close when program ends
-OPEN (UNT,IOL=*) "file.dat" FOR PROGRAM; chan=LFO ! Common pattern - save channel
+! CORRECT PATTERN: Use UNT and save LFO immediately
+OPEN (UNT,IOL=*) "file.dat"; chan=LFO            ! Save LFO immediately!
+OPEN (UNT,IOL=*) "file.dat" FOR PROGRAM; chan=LFO ! Auto-close when program ends
 OPEN (UNT,IOL=IOL_VAR$) "file.dat"               ! With specific IOL
 OPEN (1,ERR=*NEXT,TIM=10) "file.dat"             ! With error handling and timeout
 
@@ -256,6 +286,8 @@ OPEN (1) "[lcl]program"                    ! Local program
 ! Read operations
 READ (chan) var1$, var2                     ! Sequential read
 READ (chan,KEY=key$) record$                ! Keyed read
+! IMPORTANT: Variables are auto-assigned from IOL
+! NEVER use channel'variable$ after READ
 READ (chan,KNO=0,KEY=key$) record$          ! Specific key number
 READ (chan,IND=index) record$               ! By index
 EXTRACT (chan,KEY=key$) record$             ! Read with lock
@@ -267,6 +299,14 @@ WRITE (chan) var1$, var2                    ! Sequential write
 WRITE (chan,KEY=key$) record$               ! Keyed write
 WRITE RECORD (chan,KEY=key$) record$        ! Write full record
 INSERT (chan,KEY=key$) record$              ! Insert new record
+
+! File creation pattern:
+! Use SERIAL to create, then OPEN LOCK for exclusive access
+SERIAL "output.html"
+ch = UNT
+OPEN LOCK (ch,ERR=ERROR_HANDLER)"output.html"
+WRITE (ch)content$
+CLOSE (ch)
 
 ! File positioning
 SELECT * FROM chan BEGIN key$ END end_key$  ! Select range
@@ -280,6 +320,40 @@ FIN(channel,"NUMREC")                      ! File information
 ! Close file
 CLOSE (chan)
 ```
+
+### Object Reference Management (CRITICAL)
+
+**PxPlus uses numeric references for objects (e.g., 100038)**
+- When object deleted, variables still hold the reference number
+- Accessing deleted reference = silent program termination
+- **WRONG:** Reusing object references
+```pxplus
+! WRONG - _obj will be deleted later!
+IF condition THEN {
+    result_list'Append(_obj)
+    RETURN result_list
+}
+```
+- **CORRECT:** Always create new objects
+```pxplus
+! CORRECT - create new object
+IF condition THEN {
+    new_obj = NEW("ClassName", params...)
+    result_list'Append(new_obj)
+    RETURN result_list
+}
+```
+
+**Symptoms of stale references:**
+- Program exits silently (no error)
+- Works for first item, fails on later ones
+- No error message displayed
+
+**Debugging stale references:**
+- Use SET_PARAM 'NE'=1 and 'PC'=0
+- Add SETERR ERROR_HANDLER
+- Print object refs before use
+- Watch for early loop exits
 
 ### String Operations
 
@@ -324,6 +398,9 @@ IF POS(substring$ = string$) THEN ...        ! Contains
 ```pxplus
 ! Parameter passing
 ENTER param1$, param2, param3$
+! Parentheses make parameters read-only (pass by value):
+ENTER param1$, (param2), param3$  ! param2 is read-only
+! IMPORTANT: Parentheses do NOT indicate optional parameters!
 
 ! Exit variations
 EXIT              ! Exit program/function
@@ -361,6 +438,8 @@ LET a=1; LET b=2; LET c$="test"
    - Arrays passed with `{ALL}`: `PROCESS "prog", array${ALL}`
 7. **Optional Parameters**: Use parentheses in ENTER: `ENTER param1$, (optional_param$)`
 8. **Multiple Return Values**: Via passed parameters or global variables
+9. **Array Property Access**: Store in local var first: `item = items[i]` then `item'property`
+10. **LOCAL Arrays**: Use separate statement: `LOCAL var` then `LOCAL DIM array[10]`
 
 ### Modern vs Traditional Style
 
@@ -483,9 +562,14 @@ Example (replace <pxplus_executable_path> with the actual path from the config):
 8. EXTRACT locks records - always have a plan to unlock
 9. Object variables need explicit deletion with DELETE OBJECT
 10. System variables (%) are global - be careful with naming
-
-- In PxPlus, READ or FIND statements require a complete key to locate a record. If the key is only partially filled (e.g. just the prefix of the key), READ and FIND will not work as intended.
-- Therefore, when working with a partial key, you need to use a SELECT ... NEXT RECORD loop instead.
+11. In PxPlus, READ or FIND statements require a complete key to locate a record
+12. When working with a partial key, use SELECT ... NEXT RECORD loop instead
+13. FOR-NEXT loops ALWAYS execute at least once - guard with IF when needed
+14. NO RETURN statements allowed inside FOR loops - use flag and BREAK instead
+15. Object references: Always create new objects, don't reuse references that will be deleted
+16. Comments: Use `!` not `rem`
+17. GOSUB: Separate variable assignment: `var$ = "value"; gosub LABEL`
+18. Print positioning: Use `'TEXT'(@x(x),@y(y),"text")` not `@(x,y),"text"`
 
 ## PxPlus Documentation Lookup
 
