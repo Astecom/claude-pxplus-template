@@ -1,23 +1,23 @@
 # PxPlus Documentation Index
 
-This index provides a comprehensive guide to the PxPlus documentation available in `.claude/pxplus-docs/`. Use this to quickly locate the documentation you need.
+This index provides a comprehensive guide to the PxPlus documentation available in `~/.pxplus-claude/pxplus-docs/` (in USER'S HOME DIRECTORY). Use this to quickly locate the documentation you need.
 
 ## Quick Reference - Most Common Lookups
 
 ### Core Language Elements
-- **Directives** (Commands): `.claude/pxplus-docs/directives/` - 233 files
+- **Directives** (Commands): `~/.pxplus-claude/pxplus-docs/directives/` - 233 files
   - Entry point: `directives.md`
   - Examples: `open.md`, `read.md`, `write.md`, `if.md`, `for.md`
   
-- **Functions**: `.claude/pxplus-docs/functions/` - 130 files
+- **Functions**: `~/.pxplus-claude/pxplus-docs/functions/` - 130 files
   - Entry point: `functions.md`
   - Examples: `str.md`, `num.md`, `len.md`, `pos.md`, `msk.md`
   
-- **System Variables**: `.claude/pxplus-docs/variables/` - 44 files
+- **System Variables**: `~/.pxplus-claude/pxplus-docs/variables/` - 44 files
   - Entry point: `variables.md`
   - Examples: `err.md`, `lfo.md`, `day.md`, `tim.md`
 
-- **System Parameters**: `.claude/pxplus-docs/parameters/` - 237 files
+- **System Parameters**: `~/.pxplus-claude/pxplus-docs/parameters/` - 237 files
   - Entry point: `parameters.md`
   - Examples: `ez.md`, `lc.md`, `bf.md`
 
@@ -111,12 +111,12 @@ Language Interfaces/ - Interfacing with other languages (63 files)
 ## How to Use This Index
 
 ### Looking up a specific directive:
-1. Go to `.claude/pxplus-docs/directives/`
+1. Go to `~/.pxplus-claude/pxplus-docs/directives/`
 2. Find the file named after the directive (e.g., `open.md` for OPEN)
 3. Some related directives are combined (e.g., `def_ctl~err~lfo~lfa.md`)
 
 ### Looking up a specific function:
-1. Go to `.claude/pxplus-docs/functions/`
+1. Go to `~/.pxplus-claude/pxplus-docs/functions/`
 2. Find the file named after the function (e.g., `str.md` for STR())
 3. Special characters in function names are replaced (e.g., `_at.md` for @)
 
@@ -165,10 +165,10 @@ Language Interfaces/ - Interfacing with other languages (63 files)
 
 When using the Agent tool to search documentation:
 
-1. **For specific items**: "Read the documentation for [FUNCTION/DIRECTIVE] from .claude/pxplus-docs/[type]/[name].md"
-2. **For topics**: "Search in .claude/pxplus-docs/ for documentation about [topic]"
-3. **For examples**: "Find examples of [feature] usage in .claude/pxplus-docs/"
-4. **For related items**: "Search for documentation files containing [keyword] in .claude/pxplus-docs/"
+1. **For specific items**: "Read the documentation for [FUNCTION/DIRECTIVE] from ~/.pxplus-claude/pxplus-docs/[type]/[name].md"
+2. **For topics**: "Search in ~/.pxplus-claude/pxplus-docs/ for documentation about [topic]"
+3. **For examples**: "Find examples of [feature] usage in ~/.pxplus-claude/pxplus-docs/"
+4. **For related items**: "Search for documentation files containing [keyword] in ~/.pxplus-claude/pxplus-docs/"
 
 ## Note on File Naming
 

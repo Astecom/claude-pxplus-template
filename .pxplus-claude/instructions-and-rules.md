@@ -2,9 +2,9 @@ This file contains must-read intructions regarding pxplus programming.
 
 ## PxPlus Configuration
 
-**Configuration File**: `.pxplus-claude/pxplus-config.json`
+**Configuration File**: `~/.pxplus-claude/pxplus-config.json` (in USER'S HOME DIRECTORY)
 
-**CRITICAL**: Check the `.pxplus-claude/pxplus-config.json` file for the PxPlus executable path. If the `pxplus_executable_path` is set to "NOT_SET", you must prompt the user to configure it.
+**CRITICAL**: Check the `~/.pxplus-claude/pxplus-config.json` file in the user's home directory for the PxPlus executable path. If the `pxplus_executable_path` is set to "NOT_SET", you must prompt the user to configure it.
 
 To set the PxPlus executable path, use the command:
 `/project:set-pxplus-path <path-to-pxplus-executable>`
@@ -12,7 +12,7 @@ To set the PxPlus executable path, use the command:
 Example: `/project:set-pxplus-path /usr/local/bin/pxplus`
 
 # **MANDATORY AGENT BEHAVIOR**: 
- - ALWAYS read the `.pxplus-claude/pxplus-config.json` file at the start of each request to check the current configuration
+ - ALWAYS read the `~/.pxplus-claude/pxplus-config.json` file from the user's HOME directory at the start of each request to check the current configuration
  - If pxplus_executable_path is "NOT_SET", you MUST IMMEDIATELY ask the user to set it BEFORE doing ANY work
  - Start your response with: "I notice the PxPlus executable path is not set. This is required for debugging and running PxPlus programs. Please set it using: `/project:set-pxplus-path <path-to-pxplus-executable>`"
  - Only proceed with the user's request AFTER they set the path or explicitly tell you to continue without it (not recommended)
@@ -21,7 +21,7 @@ Example: `/project:set-pxplus-path /usr/local/bin/pxplus`
 
 ## CRITICAL: PxPlus Documentation Usage
 
-**MANDATORY**: You have access to comprehensive PxPlus documentation in `.pxplus-claude/pxplus-docs/`. You MUST use the Agent tool to look up documentation for:
+**MANDATORY**: You have access to comprehensive PxPlus documentation in `~/.pxplus-claude/pxplus-docs/` (in USER'S HOME DIRECTORY). You MUST use the Agent tool to look up documentation for:
  - ANY PxPlus function or directive you use or want to use
  - When the user asks about PxPlus features
  - Before writing code using unfamiliar PxPlus syntax
@@ -513,7 +513,7 @@ and, or
 "<pxplus_executable_path>" "*tools/extEditor;ErrorCheck" -arg "./filename.pxprg"
 ```
 
-**IMPORTANT**: Always read the pxplus_executable_path from `.pxplus-claude/pxplus-config.json` before running any PxPlus commands.
+**IMPORTANT**: Always read the pxplus_executable_path from `~/.pxplus-claude/pxplus-config.json` before running any PxPlus commands.
 **IMPORTANT**: Always put the PxPlus executable path in quotes when running commands, as the path may contain spaces.
 **IMPORTANT**: If the pxplus_executable_path is "NOT_SET", always remind the user to set it so you can do debugging.
 
@@ -573,10 +573,10 @@ Example (replace <pxplus_executable_path> with the actual path from the config):
 
 ## PxPlus Documentation Lookup
 
-**IMPORTANT**: The `.pxplus-claude/pxplus-docs/` directory contains comprehensive PxPlus documentation extracted from the official sources. You MUST use this documentation when working with PxPlus functions and directives.
+**IMPORTANT**: The `~/.pxplus-claude/pxplus-docs/` directory (in USER'S HOME DIRECTORY) contains comprehensive PxPlus documentation extracted from the official sources. You MUST use this documentation when working with PxPlus functions and directives.
 
 ### Documentation Index
-**A comprehensive documentation index is available at `.pxplus-claude/docs-index.md`**. This index provides:
+**A comprehensive documentation index is available at `~/.pxplus-claude/docs-index.md`**. This index provides:
 - Quick reference to the most common lookups (directives, functions, variables, parameters)
 - Complete directory structure with file counts
 - Category-based organization for easy navigation
@@ -584,8 +584,8 @@ Example (replace <pxplus_executable_path> with the actual path from the config):
 - Quick links to essential documentation
 
 ### Documentation Structure
-- **Functions**: `.pxplus-claude/pxplus-docs/functions/` - Each function has its own .md file (e.g., `str.md` for STR() function)
-- **Directives**: `.pxplus-claude/pxplus-docs/directives/` - Each directive has its own .md file (e.g., `open.md` for OPEN directive)
+- **Functions**: `~/.pxplus-claude/pxplus-docs/functions/` - Each function has its own .md file (e.g., `str.md` for STR() function)
+- **Directives**: `~/.pxplus-claude/pxplus-docs/directives/` - Each directive has its own .md file (e.g., `open.md` for OPEN directive)
 - **Other Topics**: Various subdirectories containing guides on specific topics
 
 ### MANDATORY Documentation Lookup Rules
@@ -602,49 +602,49 @@ Example (replace <pxplus_executable_path> with the actual path from the config):
 
 ### How to Look Up Documentation
 
-**FIRST: Check the documentation index at `.pxplus-claude/docs-index.md`** to understand the documentation structure and find the right location for your lookup.
+**FIRST: Check the documentation index at `~/.pxplus-claude/docs-index.md`** to understand the documentation structure and find the right location for your lookup.
 
 **For Functions**:
 Use the Agent tool with a prompt like:
 ```
-Read the documentation for the STR() function from .pxplus-claude/pxplus-docs/functions/str.md and explain its syntax and usage
+Read the documentation for the STR() function from ~/.pxplus-claude/pxplus-docs/functions/str.md and explain its syntax and usage
 ```
 
 **For Directives**:
 Use the Agent tool with a prompt like:
 ```
-Read the documentation for the OPEN directive from .pxplus-claude/pxplus-docs/directives/open.md and show me all the available options
+Read the documentation for the OPEN directive from ~/.pxplus-claude/pxplus-docs/directives/open.md and show me all the available options
 ```
 
 **For General Topics**:
 Use the Agent tool to search for relevant documentation:
 ```
-Search in .pxplus-claude/pxplus-docs/ for documentation about error handling in PxPlus
+Search in ~/.pxplus-claude/pxplus-docs/ for documentation about error handling in PxPlus
 ```
 
 **For Quick Navigation**:
 Use the Agent tool to check the index:
 ```
-Read .pxplus-claude/docs-index.md to find where [topic] documentation is located
+Read ~/.pxplus-claude/docs-index.md to find where [topic] documentation is located
 ```
 
 ### Examples of When to Use Documentation
 
 1. **User asks about a function**:
    - User: "How does the MSK() function work?"
-   - Action: Use Agent to read `.pxplus-claude/pxplus-docs/functions/msk.md`
+   - Action: Use Agent to read `~/.pxplus-claude/pxplus-docs/functions/msk.md`
 
 2. **Writing code with unfamiliar syntax**:
    - Task: Need to use the FIN() function
-   - Action: Use Agent to read `.pxplus-claude/pxplus-docs/functions/fin.md` before writing code
+   - Action: Use Agent to read `~/.pxplus-claude/pxplus-docs/functions/fin.md` before writing code
 
 3. **Debugging syntax errors**:
    - Error: Issues with EXTRACT directive
-   - Action: Use Agent to read `.pxplus-claude/pxplus-docs/directives/extract.md` to verify correct syntax
+   - Action: Use Agent to read `~/.pxplus-claude/pxplus-docs/directives/extract.md` to verify correct syntax
 
 4. **Exploring PxPlus features**:
    - Task: Implement file mirroring
-   - Action: Use Agent to search for "mirroring" in `.pxplus-claude/pxplus-docs/`
+   - Action: Use Agent to search for "mirroring" in `~/.pxplus-claude/pxplus-docs/`
 
 ### Documentation Search Tips
 
