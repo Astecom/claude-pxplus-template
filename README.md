@@ -5,7 +5,7 @@ A template for using Claude Code with PxPlus (ProvideX) programming language sup
 ## Prerequisites
 
 - [Claude Code](https://claude.ai/code) installed and configured
-- PxPlus interpreter installed on your system
+- PxPlus installed on your system
 
 ## Installation
 
@@ -33,12 +33,6 @@ A template for using Claude Code with PxPlus (ProvideX) programming language sup
    ```
    /set-pxplus-path /usr/local/bin/pxplus
    ```
-
-## What's Included
-
-- **`.claude/CLAUDE.md`** - Project instructions that remind Claude to check PxPlus documentation
-- **`.pxplus-claude/instructions-and-rules.md`** - Comprehensive PxPlus programming guide and syntax rules
-- **`.pxplus-claude/pxplus-config.json`** - Configuration file for PxPlus executable path
 
 ## Usage
 
