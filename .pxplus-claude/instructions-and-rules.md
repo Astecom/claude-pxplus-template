@@ -522,6 +522,38 @@ Example (replace <pxplus_executable_path> with the actual path from the config):
 "/mnt/x/PVX Plus Technologies/PxPlus-64-2025-linux/pxplus" "*tools/extEditor;ErrorCheck" -arg "./show_time.pxprg"
 ```
 
+# Compiling PxPlus Programs
+
+**IMPORTANT**: You can compile PxPlus programs to create optimized compiled versions. This is similar to running tests - use the PxPlus executable path from the configuration.
+
+**Compile Command**:
+```bash
+"<pxplus_executable_path>" -cpl source_program.pxprg output_directory/compiled_program.pxprg
+```
+
+**Key Points for Compilation**:
+- Always read the `pxplus_executable_path` from `~/.pxplus-claude/pxplus-config.json` before compiling
+- Always put the PxPlus executable path in quotes when running commands, as the path may contain spaces
+- The `-cpl` flag tells PxPlus to compile the program
+- Specify the source file path and the output file path (including directory if needed)
+- Create the output directory first if it doesn't exist
+- Compiled programs run faster and provide some code protection
+
+**Example Compilation**:
+```bash
+# Create output directory if needed
+mkdir -p compiled_new
+
+# Compile the program (replace path with actual from config)
+"/mnt/e/PVX Plus Technologies/pxplus-linux/pxplus" -cpl program.pxprg compiled_new/program.pxprg
+```
+
+**When to Compile**:
+- When deploying programs to production
+- When optimizing performance-critical code
+- When the user explicitly requests compilation
+- After major code changes before distribution
+
 **Response Format**:
 - If there are errors: The error checker returns a JSON array with error details:
   ```json
