@@ -7,14 +7,14 @@ This file contains must-read intructions regarding pxplus programming.
 **CRITICAL**: Check the `~/.pxplus-claude/pxplus-config.json` file in the user's home directory for the PxPlus executable path. If the `pxplus_executable_path` is set to "NOT_SET", you must prompt the user to configure it.
 
 To set the PxPlus executable path, use the command:
-`/project:set-pxplus-path <path-to-pxplus-executable>`
+`/set-pxplus-path <path-to-pxplus-executable>`
 
-Example: `/project:set-pxplus-path /usr/local/bin/pxplus`
+Example: `/set-pxplus-path /usr/local/bin/pxplus`
 
 # **MANDATORY AGENT BEHAVIOR**: 
  - ALWAYS read the `~/.pxplus-claude/pxplus-config.json` file from the user's HOME directory at the start of each request to check the current configuration
  - If pxplus_executable_path is "NOT_SET", you MUST IMMEDIATELY ask the user to set it BEFORE doing ANY work
- - Start your response with: "I notice the PxPlus executable path is not set. This is required for debugging and running PxPlus programs. Please set it using: `/project:set-pxplus-path <path-to-pxplus-executable>`"
+ - Start your response with: "I notice the PxPlus executable path is not set. This is required for debugging and running PxPlus programs. Please set it using: `/set-pxplus-path <path-to-pxplus-executable>`"
  - Only proceed with the user's request AFTER they set the path or explicitly tell you to continue without it (not recommended)
  - If the user says to continue without setting it, warn them that debugging capabilities will be unavailable
  - For date time operations, ALWAYS use the DTE function
