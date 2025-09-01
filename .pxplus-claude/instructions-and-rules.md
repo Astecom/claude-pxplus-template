@@ -51,7 +51,7 @@ PxPlus (formerly ProvideX) is a business application development language. When 
 
 ### Modern Object-Oriented PxPlus
 
-```pxplus
+<code-snippet name="class-definition" lang="pxplus">
 DEF CLASS "ClassName" CREATE REQUIRED DELETE REQUIRED 
 LIKE "parent/class" ! Optional inheritance
 ! Properties
@@ -97,10 +97,10 @@ RETURN
 INTERNAL_METHOD_LABEL:
 ! Hidden method implementation
 RETURN
-```
+</code-snippet>
 
 Object usage:
-```pxplus
+<code-snippet name="object-usage" lang="pxplus">
 ! Manual object lifecycle management
 obj = NEW("ClassName")
 result = obj'methodname("param", 123)  ! No CALL needed
@@ -120,11 +120,11 @@ obj = NEW("ClassName" FOR PROGRAM)
 ! (used when creating objects inside another object)
 child_obj = NEW("ChildClass" FOR OBJECT)
 ! Object will be automatically deleted when parent object is deleted
-```
+</code-snippet>
 
 ### Traditional PxPlus Style
 
-```pxplus
+<code-snippet name="traditional-structure" lang="pxplus">
 ! Program structure
 PRECISION 6
 SET_PARAM 'EZ'=1
@@ -144,11 +144,11 @@ PROCESS_DATA:
         statement2
     }
     RETURN              ! Return to calling point (after GOSUB)
-```
+</code-snippet>
 
 ### Control Structures
 
-```pxplus
+<code-snippet name="control-structures" lang="pxplus">
 ! IF/THEN/ELSE
 ! Single-line format (no backslashes needed)
 IF condition THEN statement ELSE other_statement
@@ -224,12 +224,12 @@ NEXT
 ! Special exit controls
 EXITTO label      ! Exit to specific label
 EXITTO *CONTINUE  ! Continue loop iteration
-```
+</code-snippet>
 
 ### Error Handling
 
 Modern style:
-```pxplus
+<code-snippet name="error-handling-modern" lang="pxplus">
 TRY
     ! Code that might fail
 CATCH e
@@ -240,10 +240,10 @@ CATCH e
 FINALLY
     ! Cleanup code - always executes
 END_TRY
-```
+</code-snippet>
 
 Traditional style:
-```pxplus
+<code-snippet name="error-handling-traditional" lang="pxplus">
 ! Error directives
 statement; IF ERR THEN GOSUB ERROR_HANDLER
 OPEN (1,ERR=*NEXT) "file.dat"  ! Continue on error
@@ -264,11 +264,11 @@ DOM=*NEXT     ! Continue if key not found (Domain error)
 BSY=*SAME     ! Retry same operation if busy
 BSY=*NEXT     ! Continue if busy
 TIM=10        ! Timeout after 10 seconds
-```
+</code-snippet>
 
 ### File Operations
 
-```pxplus
+<code-snippet name="file-operations" lang="pxplus">
 ! Open file modes
 OPEN (1) "filename.dat"                          ! Default open
 OPEN INPUT (chan) "file.txt"; chan = LFO         ! Read-only
@@ -319,7 +319,7 @@ FIN(channel,"NUMREC")                      ! File information
 
 ! Close file
 CLOSE (chan)
-```
+</code-snippet>
 
 ### Object Reference Management (CRITICAL)
 
@@ -327,22 +327,22 @@ CLOSE (chan)
 - When object deleted, variables still hold the reference number
 - Accessing deleted reference = silent program termination
 - **WRONG:** Reusing object references
-```pxplus
+<code-snippet name="object-reference-wrong" lang="pxplus">
 ! WRONG - _obj will be deleted later!
 IF condition THEN {
     result_list'Append(_obj)
     RETURN result_list
 }
-```
+</code-snippet>
 - **CORRECT:** Always create new objects
-```pxplus
+<code-snippet name="object-reference-correct" lang="pxplus">
 ! CORRECT - create new object
 IF condition THEN {
     new_obj = NEW("ClassName", params...)
     result_list'Append(new_obj)
     RETURN result_list
 }
-```
+</code-snippet>
 
 **Symptoms of stale references:**
 - Program exits silently (no error)
@@ -357,7 +357,7 @@ IF condition THEN {
 
 ### String Operations
 
-```pxplus
+<code-snippet name="string-operations" lang="pxplus">
 ! Concatenation
 full$ = first$ + " " + last$
 
@@ -391,11 +391,11 @@ match_length = MSL                           ! Get match length
 ! String comparison
 IF string1$ = string2$ THEN ...              ! Exact match
 IF POS(substring$ = string$) THEN ...        ! Contains
-```
+</code-snippet>
 
 ### Common Functions and Directives
 
-```pxplus
+<code-snippet name="common-functions" lang="pxplus">
 ! Parameter passing
 ENTER param1$, param2, param3$
 ! Parentheses make parameters read-only (pass by value):
@@ -423,7 +423,7 @@ ROUND(value, 2)   ! Round to 2 decimals
 LET a=1, b=2, c$="test"    ! Comma-separated assignments in single LET
 ! Equivalent to:
 LET a=1; LET b=2; LET c$="test"
-```
+</code-snippet>
 
 ### Important Patterns
 
@@ -449,11 +449,11 @@ LET a=1; LET b=2; LET c$="test"
 
 ### Running PxPlus Programs
 
-```bash
+<code-snippet name="running-programs" lang="bash">
 # Typical execution (varies by installation)
 pxplus program.pxprg
 pvx program.pxprg
-```
+</code-snippet>
 
 # PxPlus Syntax Elements
 
@@ -509,27 +509,27 @@ and, or
 **Note**: Use the PxPlus executable path from `.pxplus-claude/pxplus-config.json`. If it's "NOT_SET", prompt the user to set it first.
 
 **Syntax Check Command**:
-```bash
+<code-snippet name="syntax-check-command" lang="bash">
 "<pxplus_executable_path>" "*tools/extEditor;ErrorCheck" -arg "./filename.pxprg"
-```
+</code-snippet>
 
 **IMPORTANT**: Always read the pxplus_executable_path from `~/.pxplus-claude/pxplus-config.json` before running any PxPlus commands.
 **IMPORTANT**: Always put the PxPlus executable path in quotes when running commands, as the path may contain spaces.
 **IMPORTANT**: If the pxplus_executable_path is "NOT_SET", always remind the user to set it so you can do debugging.
 
 Example (replace <pxplus_executable_path> with the actual path from the config):
-```bash
+<code-snippet name="syntax-check-example" lang="bash">
 "/mnt/x/PVX Plus Technologies/PxPlus-64-2025-linux/pxplus" "*tools/extEditor;ErrorCheck" -arg "./show_time.pxprg"
-```
+</code-snippet>
 
 # Compiling PxPlus Programs
 
 **IMPORTANT**: You can compile PxPlus programs to create optimized compiled versions. This is similar to running tests - use the PxPlus executable path from the configuration.
 
 **Compile Command**:
-```bash
+<code-snippet name="compile-command" lang="bash">
 "<pxplus_executable_path>" -cpl source_program.pxprg output_directory/compiled_program.pxprg
-```
+</code-snippet>
 
 **Key Points for Compilation**:
 - Always read the `pxplus_executable_path` from `~/.pxplus-claude/pxplus-config.json` before compiling
@@ -540,13 +540,13 @@ Example (replace <pxplus_executable_path> with the actual path from the config):
 - Compiled programs run faster and provide some code protection
 
 **Example Compilation**:
-```bash
+<code-snippet name="compile-example" lang="bash">
 # Create output directory if needed
 mkdir -p compiled_new
 
 # Compile the program (replace path with actual from config)
 "/mnt/e/PVX Plus Technologies/pxplus-linux/pxplus" -cpl program.pxprg compiled_new/program.pxprg
-```
+</code-snippet>
 
 **When to Compile**:
 - When deploying programs to production
@@ -556,9 +556,9 @@ mkdir -p compiled_new
 
 **Response Format**:
 - If there are errors: The error checker returns a JSON array with error details:
-  ```json
+  <code-snippet name="error-response-format" lang="json">
   [{row:9,column:13,text:"line:10(13) Error #20: Syntax error",type:"error"}]
-  ```
+  </code-snippet>
 - **If there are NO errors**: The command produces no output or may show terminal control characters. This means the syntax is correct.
 
 **Understanding the Response**:
@@ -638,27 +638,27 @@ mkdir -p compiled_new
 
 **For Functions**:
 Use the Agent tool with a prompt like:
-```
+<code-snippet name="lookup-function-docs" lang="text">
 Read the documentation for the STR() function from ~/.pxplus-claude/pxplus-docs/functions/str.md and explain its syntax and usage
-```
+</code-snippet>
 
 **For Directives**:
 Use the Agent tool with a prompt like:
-```
+<code-snippet name="lookup-directive-docs" lang="text">
 Read the documentation for the OPEN directive from ~/.pxplus-claude/pxplus-docs/directives/open.md and show me all the available options
-```
+</code-snippet>
 
 **For General Topics**:
 Use the Agent tool to search for relevant documentation:
-```
+<code-snippet name="search-general-docs" lang="text">
 Search in ~/.pxplus-claude/pxplus-docs/ for documentation about error handling in PxPlus
-```
+</code-snippet>
 
 **For Quick Navigation**:
 Use the Agent tool to check the index:
-```
+<code-snippet name="check-docs-index" lang="text">
 Read ~/.pxplus-claude/docs-index.md to find where [topic] documentation is located
-```
+</code-snippet>
 
 ### Examples of When to Use Documentation
 
