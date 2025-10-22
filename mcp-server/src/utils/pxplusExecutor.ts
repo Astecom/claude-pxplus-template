@@ -1,8 +1,8 @@
-import { exec } from 'child_process';
+import { execFile } from 'child_process';
 import { promisify } from 'util';
 import { config } from './config.js';
 
-const execAsync = promisify(exec);
+const execFileAsync = promisify(execFile);
 
 /**
  * PxPlus syntax error information
@@ -41,11 +41,12 @@ export async function runSyntaxCheck(filePath: string): Promise<SyntaxCheckResul
       };
     }
 
-    // Build the command - quote the executable path in case it contains spaces
-    const command = `"${executablePath}" "*tools/extEditor;ErrorCheck" -arg "${filePath}"`;
+    // Use execFile to avoid shell interpretation issues (cross-platform safe)
+    // Pass arguments as an array - no shell escaping needed
+    const args = ['*tools/extEditor;ErrorCheck', '-arg', filePath];
 
     // Execute the command
-    const { stdout, stderr } = await execAsync(command, {
+    const { stdout, stderr } = await execFileAsync(executablePath, args, {
       encoding: 'utf8',
       maxBuffer: 1024 * 1024 // 1MB buffer
     });
