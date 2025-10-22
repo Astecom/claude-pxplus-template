@@ -1,5 +1,6 @@
 import { ToolHandler } from '../types.js';
 import { testTool } from './testTool.js';
+import { syntaxCheckTool } from './syntaxCheck.js';
 
 /**
  * Tool Registry
@@ -7,7 +8,7 @@ import { testTool } from './testTool.js';
  */
 export const tools: ToolHandler[] = [
   testTool,
-  // Add more tools here as you create them
+  syntaxCheckTool,
 ];
 
 /**
