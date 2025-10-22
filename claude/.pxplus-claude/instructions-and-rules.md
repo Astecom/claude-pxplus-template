@@ -1,31 +1,18 @@
 This file contains must-read intructions regarding pxplus programming.
 
-## PxPlus Configuration
-
-**Configuration File**: `~/.pxplus-claude/pxplus-config.json` (in USER'S HOME DIRECTORY)
-
-**CRITICAL**: Check the `~/.pxplus-claude/pxplus-config.json` file in the user's home directory for the PxPlus executable path. If the `pxplus_executable_path` is set to "NOT_SET", you must prompt the user to configure it.
-
-To set the PxPlus executable path, use the command:
-`/set-pxplus-path <path-to-pxplus-executable>`
-
-Example: `/set-pxplus-path /usr/local/bin/pxplus`
-
-# **MANDATORY AGENT BEHAVIOR**: 
- - ALWAYS read the `~/.pxplus-claude/pxplus-config.json` file from the user's HOME directory at the start of each request to check the current configuration
- - If pxplus_executable_path is "NOT_SET", you MUST IMMEDIATELY ask the user to set it BEFORE doing ANY work
- - Start your response with: "I notice the PxPlus executable path is not set. This is required for debugging and running PxPlus programs. Please set it using: `/set-pxplus-path <path-to-pxplus-executable>`"
- - Only proceed with the user's request AFTER they set the path or explicitly tell you to continue without it (not recommended)
- - If the user says to continue without setting it, warn them that debugging capabilities will be unavailable
- - For date time operations, ALWAYS use the DTE function
-
 ## CRITICAL: PxPlus Documentation Usage
 
-**MANDATORY**: You have access to comprehensive PxPlus documentation in `~/.pxplus-claude/pxplus-docs/` (in USER'S HOME DIRECTORY). You MUST use the Agent tool to look up documentation for:
+**MANDATORY**: You have access to comprehensive PxPlus documentation via the `pxplus_search_docs` MCP tool. You MUST use this tool to look up documentation for:
  - ANY PxPlus function or directive you use or want to use
  - When the user asks about PxPlus features
  - Before writing code using unfamiliar PxPlus syntax
  - When debugging PxPlus-specific errors
+
+## PxPlus Syntax Checking
+
+Use the `pxplus_syntax_check` MCP tool to check PxPlus files for syntax errors after writing or modifying code.
+
+**Important**: For date time operations, ALWAYS use the DTE function.
 
 # Pxplus code generally looks like business basic, which is different from standard C-style.
 
@@ -504,79 +491,9 @@ and, or
 
 # Debugging PxPlus Code
 
-**IMPORTANT**: You have to check PxPlus files for syntax errors using the built-in error checking tool.
+**IMPORTANT**: Always check PxPlus files for syntax errors using the `pxplus_syntax_check` MCP tool after writing or modifying code.
 
-**Note**: Use the PxPlus executable path from `.pxplus-claude/pxplus-config.json`. If it's "NOT_SET", prompt the user to set it first.
-
-**Syntax Check Command**:
-<code-snippet name="syntax-check-command" lang="bash">
-"<pxplus_executable_path>" "*tools/extEditor;ErrorCheck" -arg "./filename.pxprg"
-</code-snippet>
-
-**IMPORTANT**: Always read the pxplus_executable_path from `~/.pxplus-claude/pxplus-config.json` before running any PxPlus commands.
-**IMPORTANT**: Always put the PxPlus executable path in quotes when running commands, as the path may contain spaces.
-**IMPORTANT**: If the pxplus_executable_path is "NOT_SET", always remind the user to set it so you can do debugging.
-
-Example (replace <pxplus_executable_path> with the actual path from the config):
-<code-snippet name="syntax-check-example" lang="bash">
-"/mnt/x/PVX Plus Technologies/PxPlus-64-2025-linux/pxplus" "*tools/extEditor;ErrorCheck" -arg "./show_time.pxprg"
-</code-snippet>
-
-# Compiling PxPlus Programs
-
-**IMPORTANT**: You can compile PxPlus programs to create optimized compiled versions. This is similar to running tests - use the PxPlus executable path from the configuration.
-
-**Compile Command**:
-<code-snippet name="compile-command" lang="bash">
-"<pxplus_executable_path>" -cpl source_program.pxprg output_directory/compiled_program.pxprg
-</code-snippet>
-
-**Key Points for Compilation**:
-- Always read the `pxplus_executable_path` from `~/.pxplus-claude/pxplus-config.json` before compiling
-- Always put the PxPlus executable path in quotes when running commands, as the path may contain spaces
-- The `-cpl` flag tells PxPlus to compile the program
-- Specify the source file path and the output file path (including directory if needed)
-- Create the output directory first if it doesn't exist
-- Compiled programs run faster and provide some code protection
-
-**Example Compilation**:
-<code-snippet name="compile-example" lang="bash">
-# Create output directory if needed
-mkdir -p compiled_new
-
-# Compile the program (replace path with actual from config)
-"/mnt/e/PVX Plus Technologies/pxplus-linux/pxplus" -cpl program.pxprg compiled_new/program.pxprg
-</code-snippet>
-
-**When to Compile**:
-- When deploying programs to production
-- When optimizing performance-critical code
-- When the user explicitly requests compilation
-- After major code changes before distribution
-
-**Response Format**:
-- If there are errors: The error checker returns a JSON array with error details:
-  <code-snippet name="error-response-format" lang="json">
-  [{row:9,column:13,text:"line:10(13) Error #20: Syntax error",type:"error"}]
-  </code-snippet>
-- **If there are NO errors**: The command produces no output or may show terminal control characters. This means the syntax is correct.
-
-**Understanding the Response**:
-- `row`: The line number where the error occurs (0-based index)
-- `column`: The column position of the error
-- `text`: Detailed error message including:
-  - `line:X(Y)` - Line X, column Y in the file
-  - Error number (e.g., `#20`)
-  - Error description (e.g., `Syntax error`)
-- `type`: Error severity (usually "error")
-
-**How to Use When Debugging**:
-1. After writing or modifying PxPlus code, run the syntax checker
-2. Parse the JSON response to identify errors
-3. Fix the errors at the specified line and column
-4. Re-run the checker to verify fixes
-
-**Common Error Numbers**:
+**Common Syntax Error Numbers**:
 - `#20`: Syntax error - general syntax issues
 - `#21`: Invalid label/line number
 - `#26`: Variable name error
@@ -622,65 +539,12 @@ mkdir -p compiled_new
 
 ### MANDATORY Documentation Lookup Rules
 
-1. **ALWAYS look up unfamiliar functions/directives**: When encountering a PxPlus function or directive you're not 100% certain about, you MUST use the Agent tool to search the documentation.
+1. **ALWAYS look up unfamiliar functions/directives**: When encountering a PxPlus function or directive you're not 100% certain about, you MUST use the `pxplus_search_docs` MCP tool to search the documentation.
 
-2. **Use the Agent tool for documentation searches**: The Agent tool is optimized for searching through the documentation efficiently. DO NOT manually browse files.
+2. **Use keywords or phrases**: Search with relevant keywords like "FUNCTION directive", "DIM array", "READ statement", etc.
 
 3. **Priority for lookups**:
    - When writing code that uses a function/directive
    - When explaining how a function/directive works
    - When debugging issues related to specific functions/directives
    - When the user asks about any PxPlus feature
-
-### How to Look Up Documentation
-
-**FIRST: Check the documentation index at `~/.pxplus-claude/docs-index.md`** to understand the documentation structure and find the right location for your lookup.
-
-**For Functions**:
-Use the Agent tool with a prompt like:
-<code-snippet name="lookup-function-docs" lang="text">
-Read the documentation for the STR() function from ~/.pxplus-claude/pxplus-docs/functions/str.md and explain its syntax and usage
-</code-snippet>
-
-**For Directives**:
-Use the Agent tool with a prompt like:
-<code-snippet name="lookup-directive-docs" lang="text">
-Read the documentation for the OPEN directive from ~/.pxplus-claude/pxplus-docs/directives/open.md and show me all the available options
-</code-snippet>
-
-**For General Topics**:
-Use the Agent tool to search for relevant documentation:
-<code-snippet name="search-general-docs" lang="text">
-Search in ~/.pxplus-claude/pxplus-docs/ for documentation about error handling in PxPlus
-</code-snippet>
-
-**For Quick Navigation**:
-Use the Agent tool to check the index:
-<code-snippet name="check-docs-index" lang="text">
-Read ~/.pxplus-claude/docs-index.md to find where [topic] documentation is located
-</code-snippet>
-
-### Examples of When to Use Documentation
-
-1. **User asks about a function**:
-   - User: "How does the MSK() function work?"
-   - Action: Use Agent to read `~/.pxplus-claude/pxplus-docs/functions/msk.md`
-
-2. **Writing code with unfamiliar syntax**:
-   - Task: Need to use the FIN() function
-   - Action: Use Agent to read `~/.pxplus-claude/pxplus-docs/functions/fin.md` before writing code
-
-3. **Debugging syntax errors**:
-   - Error: Issues with EXTRACT directive
-   - Action: Use Agent to read `~/.pxplus-claude/pxplus-docs/directives/extract.md` to verify correct syntax
-
-4. **Exploring PxPlus features**:
-   - Task: Implement file mirroring
-   - Action: Use Agent to search for "mirroring" in `~/.pxplus-claude/pxplus-docs/`
-
-### Documentation Search Tips
-
-- Function names in docs may have special characters (e.g., `_at.md` for @ function)
-- Some directives have combined documentation (e.g., `def_ctl~err~lfo~lfa.md`)
-- Use the Agent tool's ability to search multiple files when looking for concepts
-- The documentation includes examples, syntax, parameters, and error conditions
