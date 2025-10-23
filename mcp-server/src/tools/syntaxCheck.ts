@@ -1,0 +1,68 @@
+import { ToolHandler, ToolResponse } from '../types.js';
+import { runSyntaxCheck } from '../utils/pxplusExecutor.js';
+import { isPxPlusConfigured, getConfigError } from '../utils/config.js';
+
+/**
+ * PxPlus Syntax Check Tool
+ * Checks a PxPlus file for syntax errors using the PxPlus built-in error checker
+ */
+export const syntaxCheckTool: ToolHandler = {
+  name: 'pxplus_syntax_check',
+  description: 'Check a PxPlus file for syntax errors. Returns a list of errors with line numbers, column positions, and error descriptions. Requires PXPLUS_EXECUTABLE_PATH to be configured in .env file.',
+  inputSchema: {
+    type: 'object',
+    properties: {
+      filePath: {
+        type: 'string',
+        description: 'Absolute path to the PxPlus file to check (.pxprg, .txt, or other PxPlus file)'
+      }
+    },
+    required: ['filePath']
+  },
+  handler: async (args: { filePath: string }): Promise<ToolResponse> => {
+    try {
+      const { filePath } = args;
+
+      // Check if PxPlus is configured
+      if (!isPxPlusConfigured()) {
+        const configError = getConfigError();
+        return {
+          success: false,
+          error: configError || 'PxPlus is not configured'
+        };
+      }
+
+      // Run syntax check
+      const result = await runSyntaxCheck(filePath);
+
+      if (result.errorMessage) {
+        return {
+          success: false,
+          error: result.errorMessage,
+          data: {
+            rawOutput: result.rawOutput
+          }
+        };
+      }
+
+      // Return the results
+      return {
+        success: result.success,
+        data: {
+          hasErrors: result.errors.length > 0,
+          errorCount: result.errors.length,
+          errors: result.errors,
+          message: result.success
+            ? 'No syntax errors found'
+            : `Found ${result.errors.length} syntax error(s)`
+        }
+      };
+
+    } catch (error) {
+      return {
+        success: false,
+        error: error instanceof Error ? error.message : 'Unknown error occurred during syntax check'
+      };
+    }
+  }
+};
