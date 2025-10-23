@@ -35,17 +35,14 @@ jobs:
       - name: Create release package
         run: |
           # Create temporary directory for packaging
-          mkdir -p release-package/mcp-server
+          mkdir -p release-package
 
           # Copy claude directory (all contents)
           cp -r claude release-package/
 
-          # Copy MCP server files (only what's needed to run)
-          cp -r mcp-server/dist release-package/mcp-server/
-          cp mcp-server/package.json release-package/mcp-server/
-          cp mcp-server/package-lock.json release-package/mcp-server/
-          cp mcp-server/.env.example release-package/mcp-server/
-          cp mcp-server/README.md release-package/mcp-server/
+          # Copy MCP server files (everything except node_modules)
+          cp -r mcp-server release-package/
+          rm -rf release-package/mcp-server/node_modules
 
           # Create tarball
           cd release-package
