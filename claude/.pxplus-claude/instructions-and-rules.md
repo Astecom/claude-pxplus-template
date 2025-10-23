@@ -8,6 +8,30 @@ This file contains must-read intructions regarding pxplus programming.
  - Before writing code using unfamiliar PxPlus syntax
  - When debugging PxPlus-specific errors
 
+### Using pxplus_search_docs Effectively
+
+**Default Usage** (Lightweight, Fast):
+- By default, searches return only **snippets** (300 chars around your search term)
+- Use this for quick lookups and initial research
+- Example: `pxplus_search_docs(query: "MSGBOX function", limit: 2)`
+
+**When You Need Full Details** (includeFullContent):
+- Set `includeFullContent: true` to get complete documentation content
+- Content is automatically truncated to 3000 chars per result (configurable via `maxContentLength`)
+- Use this when:
+  - You need complete syntax details
+  - Understanding complex examples
+  - Researching advanced features
+  - Snippets don't provide enough context
+- Example: `pxplus_search_docs(query: "MSGBOX statement", limit: 1, includeFullContent: true)`
+
+**Avoiding Token Limit Errors**:
+- If you get "exceeds maximum allowed tokens" error:
+  - Reduce `limit` to 1-2 results
+  - Use more specific search queries
+  - Don't set `includeFullContent: true` unless absolutely necessary
+  - If using `includeFullContent`, reduce `maxContentLength` (e.g., 2000 instead of 3000)
+
 ## PxPlus Syntax Checking
 
 Use the `pxplus_syntax_check` MCP tool to check PxPlus files for syntax errors after writing or modifying code.

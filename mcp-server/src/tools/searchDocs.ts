@@ -117,13 +117,23 @@ export const searchDocsTool: ToolHandler = {
         type: 'number',
         description: 'Maximum number of results to return (default: 3)',
         default: 3
+      },
+      includeFullContent: {
+        type: 'boolean',
+        description: 'Include full documentation content (truncated to maxContentLength chars per result to avoid token limits). Default: false. Use this when you need complete documentation details, not just snippets.',
+        default: false
+      },
+      maxContentLength: {
+        type: 'number',
+        description: 'Maximum characters of content per result when includeFullContent is true (default: 3000). Prevents response from exceeding token limits.',
+        default: 3000
       }
     },
     required: ['query']
   },
-  handler: async (args: { query: string; limit?: number }): Promise<ToolResponse> => {
+  handler: async (args: { query: string; limit?: number; includeFullContent?: boolean; maxContentLength?: number }): Promise<ToolResponse> => {
     try {
-      const { query, limit = 10 } = args;
+      const { query, limit = 10, includeFullContent = false, maxContentLength = 3000 } = args;
 
       // Load index if not already loaded
       const loadResult = loadSearchIndex();
@@ -158,13 +168,21 @@ export const searchDocsTool: ToolHandler = {
           // Create snippet
           const snippet = createSnippet(doc.content, query, 300);
 
-          processedResults.push({
+          // Build result object
+          const result: any = {
             title: doc.title,
             path: doc.path,
             snippet: snippet,
             headings: doc.headings.slice(0, 5), // First 5 headings
-            fullContent: doc.content
-          });
+          };
+
+          // Optionally include full content (truncated to avoid token limits)
+          if (includeFullContent) {
+            result.fullContent = doc.content.substring(0, maxContentLength) +
+              (doc.content.length > maxContentLength ? '\n\n[Content truncated...]' : '');
+          }
+
+          processedResults.push(result);
 
           // Stop if we've reached the limit
           if (processedResults.length >= limit) break;
