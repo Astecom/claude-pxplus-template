@@ -520,23 +520,6 @@ and, or
 17. GOSUB: Separate variable assignment: `var$ = "value"; gosub LABEL`
 18. Print positioning: Use `'TEXT'(@x(x),@y(y),"text")` not `@(x,y),"text"`
 
-## PxPlus Documentation Lookup
-
-**IMPORTANT**: The `~/.pxplus-claude/pxplus-docs/` directory (in USER'S HOME DIRECTORY) contains comprehensive PxPlus documentation extracted from the official sources. You MUST use this documentation when working with PxPlus functions and directives.
-
-### Documentation Index
-**A comprehensive documentation index is available at `~/.pxplus-claude/docs-index.md`**. This index provides:
-- Quick reference to the most common lookups (directives, functions, variables, parameters)
-- Complete directory structure with file counts
-- Category-based organization for easy navigation
-- Search tips and usage patterns
-- Quick links to essential documentation
-
-### Documentation Structure
-- **Functions**: `~/.pxplus-claude/pxplus-docs/functions/` - Each function has its own .md file (e.g., `str.md` for STR() function)
-- **Directives**: `~/.pxplus-claude/pxplus-docs/directives/` - Each directive has its own .md file (e.g., `open.md` for OPEN directive)
-- **Other Topics**: Various subdirectories containing guides on specific topics
-
 ### MANDATORY Documentation Lookup Rules
 
 1. **ALWAYS look up unfamiliar functions/directives**: When encountering a PxPlus function or directive you're not 100% certain about, you MUST use the `pxplus_search_docs` MCP tool to search the documentation.
