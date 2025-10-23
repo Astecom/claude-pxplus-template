@@ -1,0 +1,21 @@
+# Themes and Visual Classes
+
+**Default Properties**|   
+---|---  
+  
+This table lists all the **_Default_** properties:
+
+**Property** |  **Description**  
+---|---  
+**Colors**  
+_Click the dotted_ _Query button or double click inside the cell to access_ **[Color Selections](../../Appendix/Color%20Selections.md)** _. Valid formats for color selections include predefined system colors (e.g. Light Red), Custom (RGB codes), HTML Hex Color Codes, User Defined colors (e.g. Color17) and string Expressions._ _After a color property is set, a tick in the selected color displays in the top left corner. A floating tip with a sample of the selected color displays when hovering the mouse over the color setting._ _(The color tick and color tip were added in PxPlus 2018.)  
+__(The Color Selections Query button and dialog were added in PxPlus 2020.)_  
+_Background_ |  Background color of the control in its default state.  
+_Foreground_ |  Foreground text color of the control in its default state.  
+**Font**  
+_Font_ |  Click the dotted Query button or double click inside the cell to specify font properties and attributes such as _Bold_ , _Italics_ , _Alignment_ (default: _Left Justify_), _Word Wrap_ , etc. See **[Font Properties](Font%20Properties.md)**. _(The Use 'Font Name' only check box option was added in PxPlus 2025.)_  
+  
+## See Also
+
+**[Themes](Themes.md)**  
+**[Visual Classes](Visual%20Classes.md)**
