@@ -70,7 +70,7 @@ jobs:
             ### Installation
             Run this command in your project directory:
             ```bash
-            curl -sSL https://raw.githubusercontent.com/${{ github.repository }}/main/install.sh | bash
+            bash -c "$(curl -sSL https://raw.githubusercontent.com/Astecom/claude-pxplus-template/master/install.sh)"
             ```
 
             ### What's Included
