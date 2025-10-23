@@ -9,8 +9,8 @@ const { Document } = FlexSearch;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Path to the docs index (from dist/tools/ back to src/data/)
-const INDEX_PATH = path.join(__dirname, '..', '..', 'src', 'data', 'docs-index.json');
+// Path to the docs index (from dist/tools/ to dist/data/)
+const INDEX_PATH = path.join(__dirname, '..', 'data', 'docs-index.json');
 
 // Cache for the search index
 let searchIndex: InstanceType<typeof Document> | null = null;

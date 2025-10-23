@@ -42,7 +42,6 @@ jobs:
 
           # Copy MCP server files (only what's needed to run)
           cp -r mcp-server/dist release-package/mcp-server/
-          cp -r mcp-server/src/data release-package/mcp-server/src/
           cp mcp-server/package.json release-package/mcp-server/
           cp mcp-server/package-lock.json release-package/mcp-server/
           cp mcp-server/.env.example release-package/mcp-server/

@@ -45,13 +45,11 @@ You should see `pxplus` in the list.
 
 ## Testing
 
-To test the server is working, start a conversation with Claude Code and ask:
+To test the MCP server, we can use the mcp inspector package
 
+```bash
+npx @modelcontextprotocol/inspector dist/index.js
 ```
-Use the test_echo tool to send a hello message
-```
-
-Claude should be able to call the `test_echo` tool and return your message.
 
 ## Rebuild After Changes
 

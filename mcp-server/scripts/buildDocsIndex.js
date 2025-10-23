@@ -22,7 +22,7 @@ const __dirname = path.dirname(__filename);
 
 // Paths
 const DOCS_DIR = path.join(__dirname, '..', '..', 'docs');
-const OUTPUT_DIR = path.join(__dirname, '..', 'src', 'data');
+const OUTPUT_DIR = path.join(__dirname, '..', 'dist', 'data');
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'docs-index.json');
 
 /**
