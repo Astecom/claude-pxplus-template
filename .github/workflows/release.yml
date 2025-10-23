@@ -1,0 +1,94 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # Triggers on version tags like v1.0.0, v1.2.3, etc.
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: mcp-server/package-lock.json
+
+      - name: Install dependencies
+        working-directory: mcp-server
+        run: npm ci
+
+      - name: Build documentation index
+        working-directory: mcp-server
+        run: npm run build-docs-index
+
+      - name: Build TypeScript
+        working-directory: mcp-server
+        run: npm run build
+
+      - name: Create release package
+        run: |
+          # Create temporary directory for packaging
+          mkdir -p release-package/mcp-server
+
+          # Copy claude directory (all contents)
+          cp -r claude release-package/
+
+          # Copy MCP server files (only what's needed to run)
+          cp -r mcp-server/dist release-package/mcp-server/
+          cp -r mcp-server/src/data release-package/mcp-server/src/
+          cp mcp-server/package.json release-package/mcp-server/
+          cp mcp-server/package-lock.json release-package/mcp-server/
+          cp mcp-server/.env.example release-package/mcp-server/
+          cp mcp-server/README.md release-package/mcp-server/
+
+          # Create tarball
+          cd release-package
+          tar -czf ../pxplus-template.tar.gz *
+          cd ..
+
+          # Show what we packaged
+          echo "Package contents:"
+          tar -tzf pxplus-template.tar.gz | head -20
+          echo "..."
+          echo "Total files: $(tar -tzf pxplus-template.tar.gz | wc -l)"
+          echo "Package size: $(du -h pxplus-template.tar.gz | cut -f1)"
+
+      - name: Extract version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Release ${{ steps.get_version.outputs.VERSION }}
+          body: |
+            ## PxPlus Claude Code Template ${{ steps.get_version.outputs.VERSION }}
+
+            ### Installation
+            Run this command in your project directory:
+            ```bash
+            curl -sSL https://raw.githubusercontent.com/${{ github.repository }}/main/install.sh | bash
+            ```
+
+            ### What's Included
+            - Claude configuration files (.pxplus-claude directory)
+            - CLAUDE.md template
+            - PxPlus MCP Server (pre-built with documentation index)
+
+            ### Requirements
+            - Node.js 18+
+            - npm
+            - Claude Code CLI
+          files: |
+            pxplus-template.tar.gz
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
