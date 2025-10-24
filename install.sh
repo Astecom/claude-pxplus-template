@@ -88,7 +88,20 @@ prompt_pxplus_path() {
     done
 }
 
-section "PxPlus Claude Template"
+cat << 'EOF'
+
+  █████╗ ███████╗████████╗███████╗ ██████╗ ██████╗ ███╗   ███╗
+ ██╔══██╗██╔════╝╚══██╔══╝██╔════╝██╔════╝██╔═══██╗████╗ ████║
+ ███████║███████╗   ██║   █████╗  ██║     ██║   ██║██╔████╔██║
+ ██╔══██║╚════██║   ██║   ██╔══╝  ██║     ██║   ██║██║╚██╔╝██║
+ ██║  ██║███████║   ██║   ███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║
+ ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝
+
+EOF
+printf '%s%s%s\n' "$BLUE" "                      https://astecom.nl" "$RESET"
+printf '\n%s%s%s\n' "$BOLD" "PxPlus Claude Template Installer" "$RESET"
+echo
+
 PROJECT_DIR=$(pwd)
 info "Directory: $PROJECT_DIR"
 

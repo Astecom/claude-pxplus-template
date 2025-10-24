@@ -15,10 +15,15 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/Astecom/claude-pxplus-tem
 
 Run the command from the root of any project that should use the template. The installer checks for Node.js 18+, npm, curl, and the Claude CLI before continuing.
 
+**Supported platforms:** Ubuntu, macOS, and WSL (Windows Subsystem for Linux)
+
+**To update to the latest version**, simply run the same command again from your project directory.
+
 ## What the installer sets up
 
 - Latest `.pxplus-claude` template copied into your home directory (shared across projects)
-- Project-level `instructions-and-rules.md` and `CLAUDE.md` populated with refreshable PxPlus guidance
+- Project-level `instructions-and-rules.md` created or updated with PxPlus guidance
+- Project-level `CLAUDE.md` either created or updated by appending PxPlus instructions (preserves any existing content)
 - MCP server dependencies installed and registered automatically with Claude Code
 
 When prompted, optionally provide the local PxPlus executable path so the MCP server can perform syntax checks. You can skip this step and update `~/.pxplus-claude/mcp-server/.env` later.
