@@ -72,12 +72,7 @@ jobs:
             ```bash
             bash -c "$(curl -sSL https://raw.githubusercontent.com/Astecom/claude-pxplus-template/master/install.sh)"
             ```
-
-            ### What's Included
-            - Claude configuration files (.pxplus-claude directory)
-            - CLAUDE.md template
-            - PxPlus MCP Server (pre-built with documentation index)
-
+            
             ### Requirements
             - Node.js 18+
             - npm

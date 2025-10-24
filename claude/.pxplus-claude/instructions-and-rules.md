@@ -47,7 +47,8 @@ Use the `pxplus_syntax_check` MCP tool to check PxPlus files for syntax errors a
 ### Language Overview
 PxPlus (formerly ProvideX) is a business application development language. When writing PxPlus code:
 - **NEVER include line numbers** in your code output
-- File extensions can be `.pvxprg`, `.txt`, or others - focus on content, not extension
+- File extensions can be `.pvxprg`, `.txt`, `.pvc` or others - focus on content, not extension
+- When creating files yourself, always use `.pvc` as the extension
 - PxPlus is case-insensitive but conventionally uses UPPERCASE for keywords
 
 ### Variable Conventions

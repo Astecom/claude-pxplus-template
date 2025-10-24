@@ -45,10 +45,11 @@ export const syntaxCheckTool: ToolHandler = {
         };
       }
 
-      // Return the raw JSON output from PxPlus directly
+      // Return the cleaned JSON output from PxPlus
       // The output is a JSON array of error objects with format:
       // [{"row": number, "column": number, "text": string, "type": string}, ...]
       // An empty array [] means no errors found
+      // Note: ANSI codes are stripped and keys are quoted for valid JSON
       return {
         success: result.success,
         data: {

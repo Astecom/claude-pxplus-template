@@ -41,9 +41,21 @@ export async function runSyntaxCheck(filePath: string): Promise<SyntaxCheckResul
       maxBuffer: 1024 * 1024 // 1MB buffer
     });
 
-    // Strip ANSI escape codes from the output (PxPlus sometimes includes terminal control codes)
-    // Then return the clean JSON directly to the AI
-    const cleanOutput = stripAnsi(stdout).trim() || '[]';
+    // Clean the output:
+    // 1. Strip ANSI escape codes (PxPlus includes terminal control codes like \u001b[!p)
+    let cleanOutput = stripAnsi(stdout);
+
+    // 2. Additional regex to catch any remaining ANSI codes that strip-ansi might miss
+    //    Pattern matches: ESC [ <parameters like !?0-9;> <final letter>
+    cleanOutput = cleanOutput.replace(/\x1b\[[!?0-9;]*[a-zA-Z]/g, '');
+
+    // 3. Trim whitespace
+    cleanOutput = cleanOutput.trim() || '[]';
+
+    // 4. Fix PxPlus JSON format - add quotes around unquoted keys
+    //    PxPlus returns: {row:8,column:0,...}
+    //    Valid JSON needs: {"row":8,"column":0,...}
+    cleanOutput = cleanOutput.replace(/([{,]\s*)(\w+)(:)/g, '$1"$2"$3');
 
     // Check if it's an empty array (no errors)
     const hasErrors = cleanOutput !== '[]' && cleanOutput.length > 2;
