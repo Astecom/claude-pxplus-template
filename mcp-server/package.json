@@ -21,7 +21,8 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
     "dotenv": "^16.4.5",
-    "flexsearch": "^0.7.43"
+    "flexsearch": "^0.7.43",
+    "strip-ansi": "^7.1.2"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",

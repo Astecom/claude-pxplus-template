@@ -1,26 +1,16 @@
 import { execFile } from 'child_process';
 import { promisify } from 'util';
+import stripAnsi from 'strip-ansi';
 import { config } from './config.js';
 
 const execFileAsync = promisify(execFile);
-
-/**
- * PxPlus syntax error information
- */
-export interface PxPlusSyntaxError {
-  row: number;
-  column: number;
-  text: string;
-  type: string;
-}
 
 /**
  * Result of a syntax check
  */
 export interface SyntaxCheckResult {
   success: boolean;
-  errors: PxPlusSyntaxError[];
-  rawOutput?: string;
+  output: string;
   errorMessage?: string;
 }
 
@@ -36,7 +26,7 @@ export async function runSyntaxCheck(filePath: string): Promise<SyntaxCheckResul
     if (!executablePath) {
       return {
         success: false,
-        errors: [],
+        output: '[]',
         errorMessage: 'PxPlus executable path is not configured'
       };
     }
@@ -51,29 +41,22 @@ export async function runSyntaxCheck(filePath: string): Promise<SyntaxCheckResul
       maxBuffer: 1024 * 1024 // 1MB buffer
     });
 
-    // Parse the JSON output
-    try {
-      const errors: PxPlusSyntaxError[] = JSON.parse(stdout || '[]');
+    // Strip ANSI escape codes from the output (PxPlus sometimes includes terminal control codes)
+    // Then return the clean JSON directly to the AI
+    const cleanOutput = stripAnsi(stdout).trim() || '[]';
 
-      return {
-        success: errors.length === 0,
-        errors,
-        rawOutput: stdout
-      };
-    } catch (parseError) {
-      // If JSON parsing fails, return the raw output
-      return {
-        success: false,
-        errors: [],
-        rawOutput: stdout,
-        errorMessage: `Failed to parse PxPlus output: ${parseError instanceof Error ? parseError.message : 'Unknown error'}`
-      };
-    }
+    // Check if it's an empty array (no errors)
+    const hasErrors = cleanOutput !== '[]' && cleanOutput.length > 2;
+
+    return {
+      success: !hasErrors,
+      output: cleanOutput
+    };
 
   } catch (error) {
     return {
       success: false,
-      errors: [],
+      output: '[]',
       errorMessage: error instanceof Error ? error.message : 'Unknown error occurred'
     };
   }

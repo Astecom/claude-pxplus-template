@@ -40,21 +40,22 @@ export const syntaxCheckTool: ToolHandler = {
           success: false,
           error: result.errorMessage,
           data: {
-            rawOutput: result.rawOutput
+            output: result.output
           }
         };
       }
 
-      // Return the results
+      // Return the raw JSON output from PxPlus directly
+      // The output is a JSON array of error objects with format:
+      // [{"row": number, "column": number, "text": string, "type": string}, ...]
+      // An empty array [] means no errors found
       return {
         success: result.success,
         data: {
-          hasErrors: result.errors.length > 0,
-          errorCount: result.errors.length,
-          errors: result.errors,
+          output: result.output,
           message: result.success
             ? 'No syntax errors found'
-            : `Found ${result.errors.length} syntax error(s)`
+            : 'Syntax errors found (see output)'
         }
       };
 
