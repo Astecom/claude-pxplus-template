@@ -38,6 +38,28 @@ Use the `pxplus_syntax_check` MCP tool to check PxPlus files for syntax errors a
 
 **Important**: For date time operations, ALWAYS use the DTE function.
 
+## Running PxPlus Applications
+
+Sometimes it's good practice to actually execute a PxPlus application yourself (as the AI agent) to verify it works correctly or to test its behavior. To do this:
+
+1. **Retrieve the PxPlus executable path**: Use the `pxplus_get_executable_path` MCP tool to get the configured path to the PxPlus executable
+2. **Execute the program**: Use the Bash tool to run the PxPlus executable, passing the program file as the first parameter
+
+**Example**:
+```
+# Get the executable path first
+Use pxplus_get_executable_path tool -> returns "/path/to/pxplus"
+
+# Then execute a PxPlus program
+bash: "/path/to/pxplus "myprogram.pvc"
+```
+
+**When to run programs yourself**:
+- After creating or modifying a program to verify it works
+- To test program behavior with specific inputs
+- To validate output or side effects
+- To diagnose runtime issues beyond syntax errors
+
 # Pxplus code generally looks like business basic, which is different from standard C-style.
 
 # **NEVER** assume you know the exact syntax or behavior of a PxPlus function/directive without checking the docs first.

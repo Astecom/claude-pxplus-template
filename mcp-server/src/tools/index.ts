@@ -3,6 +3,7 @@ import { testTool } from './testTool.js';
 import { syntaxCheckTool } from './syntaxCheck.js';
 import { searchDocsTool } from './searchDocs.js';
 import { compileTool } from './compileTool.js';
+import { getExecutablePathTool } from './getExecutablePath.js';
 
 /**
  * Tool Registry
@@ -13,6 +14,7 @@ export const tools: ToolHandler[] = [
   syntaxCheckTool,
   searchDocsTool,
   compileTool,
+  getExecutablePathTool,
 ];
 
 /**
