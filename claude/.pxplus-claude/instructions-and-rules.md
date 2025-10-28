@@ -70,7 +70,7 @@ bash: "/path/to/pxplus "myprogram.pvc"
 PxPlus (formerly ProvideX) is a business application development language. When writing PxPlus code:
 - **NEVER include line numbers** in your code output
 - File extensions can be `.pvxprg`, `.txt`, `.pvc` or others - focus on content, not extension
-- When creating files yourself, always use `.pvc` as the extension
+- For objects always use the `.pvc` extension.
 - PxPlus is case-insensitive but conventionally uses UPPERCASE for keywords
 
 ### Variable Conventions
@@ -468,9 +468,9 @@ LET a=1; LET b=2; LET c$="test"
 5. **Statement Separator**: Use `;` to separate multiple statements on one line
 6. **Parameter Passing**:
    - Default is by reference
-   - Use parentheses for by value: `CALL "prog", (var$)`
-   - Arrays passed with `{ALL}`: `PROCESS "prog", array${ALL}`
-7. **Optional Parameters**: Use parentheses in ENTER: `ENTER param1$, (optional_param$)`
+   - Use parentheses in ENTER for by-value (read-only): `ENTER param1$, (param2)`
+   - Arrays passed with `{ALL}`: `PROCESS "prog","screen_id", array${ALL}`
+7. **Optional Parameters**: Use parentheses in ENTER: `ENTER param1$, optional_param$=""`
 8. **Multiple Return Values**: Via passed parameters or global variables
 9. **Array Property Access**: Store in local var first: `item = items[i]` then `item'property`
 10. **LOCAL Arrays**: Use separate statement: `LOCAL var` then `LOCAL DIM array[10]`
@@ -565,7 +565,7 @@ and, or
 15. Object references: Always create new objects, don't reuse references that will be deleted
 16. Comments: Use `!` not `rem`
 17. GOSUB: Separate variable assignment: `var$ = "value"; gosub LABEL`
-18. Print positioning: Use `'TEXT'(@x(x),@y(y),"text")` not `@(x,y),"text"`
+18. Print positioning: Use `'TEXT'(@x(x,p),@y(y,p),"text")` not `@(x,y),"text"`
 
 ### MANDATORY Documentation Lookup Rules
 
