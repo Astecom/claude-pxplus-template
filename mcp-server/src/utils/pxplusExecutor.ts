@@ -61,10 +61,23 @@ export async function runSyntaxCheck(filePath: string): Promise<SyntaxCheckResul
     //    Pattern matches: ESC [ <parameters like !?0-9;> <final letter>
     cleanOutput = cleanOutput.replace(/\x1b\[[!?0-9;]*[a-zA-Z]/g, '');
 
-    // 3. Trim whitespace
-    cleanOutput = cleanOutput.trim() || '[]';
+    // 3. Strip control characters (like \u000f which appears in demo output)
+    cleanOutput = cleanOutput.replace(/[\x00-\x1F\x7F]/g, '');
 
-    // 4. Fix PxPlus JSON format - add quotes around unquoted keys
+    // 4. Extract JSON array from output
+    //    The output may contain a demo banner (from demo versions of PxPlus) followed by the JSON array.
+    //    We need to find and extract just the JSON array part: [] or [{...}]
+    //    Look for the last occurrence of a JSON array in the output
+    const jsonArrayMatch = cleanOutput.match(/\[[\s\S]*\](?![\s\S]*\[)/);
+
+    if (!jsonArrayMatch) {
+      // No JSON array found, assume no errors
+      cleanOutput = '[]';
+    } else {
+      cleanOutput = jsonArrayMatch[0].trim();
+    }
+
+    // 5. Fix PxPlus JSON format - add quotes around unquoted keys
     //    PxPlus returns: {row:8,column:0,...}
     //    Valid JSON needs: {"row":8,"column":0,...}
     cleanOutput = cleanOutput.replace(/([{,]\s*)(\w+)(:)/g, '$1"$2"$3');

@@ -565,7 +565,162 @@ and, or
 15. Object references: Always create new objects, don't reuse references that will be deleted
 16. Comments: Use `!` not `rem`
 17. GOSUB: Separate variable assignment: `var$ = "value"; gosub LABEL`
-18. Print positioning: Use `'TEXT'(@x(x,p),@y(y,p),"text")` not `@(x,y),"text"`
+18. Print positioning: Use `'TEXT'(@x(x,p),@y(y,p),"text")` not `@(x,y),"text"`, should only be used when it has to be sent to a printer.
+
+## Key Patterns to Follow when using classes
+
+### 1. Internal Variables Use LOCAL, Not PROPERTY
+```pxplus
+! CORRECT - Use LOCAL for internal/private variables:
+LOCAL json_request                ! Internal object reference
+LOCAL json_response               ! Internal object reference
+LOCAL response_headers$           ! Internal string
+
+! WRONG - Don't use PROPERTY HIDE for these:
+PROPERTY HIDE __rates$[]          ! This doesn't work!
+```
+
+### 2. Method Structure - Declare Variables BEFORE TRY Block
+```pxplus
+METHOD_LABEL:
+    ENTER param1$, (param2$="")   ! Optional params with defaults
+
+    ! Declare ALL local variables BEFORE TRY
+    LOCAL result$
+    LET result$ = ""              ! Initialize return value
+
+    TRY
+        ! ... method logic ...
+        ! Set result$ throughout
+        LET result$ = "success value"
+
+    CATCH
+        ! Handle error
+        LET result$ = ""
+
+    FINALLY
+        ! Cleanup resources
+        IF obj > 0 THEN DROP OBJECT obj
+
+    END_TRY
+
+    ! Return AFTER the TRY/CATCH/FINALLY completes
+    RETURN result$
+```
+
+### 3. NO EXIT or EXITTO in TRY Blocks
+```pxplus
+! WRONG:
+TRY
+    IF error THEN EXIT 99
+    IF error THEN EXITTO LABEL_END
+END_TRY
+
+! CORRECT - Just set result and let block complete:
+TRY
+    IF error THEN {
+        LET result$ = ""
+        ! Don't exit - let TRY block complete
+    } ELSE {
+        ! ... success logic ...
+        LET result$ = "data"
+    }
+CATCH
+    LET result$ = ""
+END_TRY
+
+RETURN result$
+```
+
+### 4. Use GOSUB for Internal Helper Routines
+```pxplus
+! Method can GOSUB to labels in same file:
+METHOD_LABEL:
+    GOSUB CLEAR_STATE
+    ! ... rest of method ...
+    RETURN result$
+
+! Internal helper - just a label with RETURN, not a FUNCTION:
+CLEAR_STATE:
+    LET last_error$ = ""
+    LET last_response$ = ""
+    RETURN
+```
+
+### 5. Don't Declare FUNCTION HIDE for GOSUB Targets
+```pxplus
+! WRONG - Don't declare internal GOSUBs as FUNCTIONs:
+FUNCTION HIDE __ClearError()CLEAR_ERROR_LABEL
+
+! CORRECT - Just use label with GOSUB/RETURN:
+! (no FUNCTION declaration needed)
+
+SOME_METHOD:
+    GOSUB CLEAR_ERROR_LABEL
+    RETURN
+
+CLEAR_ERROR_LABEL:
+    LET last_error$ = ""
+    RETURN
+```
+
+### 6. Arrays in Classes - Use LOCAL DIM
+```pxplus
+! In ON_CREATE or method:
+LOCAL rates$              ! Declare as LOCAL
+DIM rates$                ! Then DIM it as associative array
+
+! NOT:
+PROPERTY HIDE __rates$    ! Can't declare array properties
+DIM __rates$[10]          ! This causes errors
+```
+
+### 7. Calling Other Methods of Same Class
+```pxplus
+! Use _obj' to call another method in same class:
+VALIDATE_SIMPLE:
+    ENTER full_address$, region$
+    LOCAL result$
+    LET result$ = _obj'ValidateAddress$(full_address$, region$)
+    RETURN result$
+```
+
+### 8. Optional Parameters with Defaults
+```pxplus
+! Use parentheses with default value:
+METHOD_LABEL:
+    ENTER required_param$, (optional_param$="default")
+
+    ! Check if default is still there:
+    IF optional_param$ = "" THEN LET optional_param$ = "fallback"
+```
+
+### 9. NOT Operator with Properties
+```pxplus
+! WRONG - NOT without parentheses:
+IF NOT RatesAvailable THEN ...
+IF NOT __initialized THEN ...
+
+! CORRECT - Use NOT with parentheses:
+IF NOT(RatesAvailable) THEN ...
+IF NOT(__initialized) THEN ...
+
+! ALSO CORRECT - Compare to zero:
+IF RatesAvailable = 0 THEN ...
+IF __initialized = 0 THEN ...
+```
+
+### 10. FOR INDEX Loop Syntax for Associative Arrays
+```pxplus
+! WRONG:
+FOR rate$ INDEX currency$ FROM __rates$[ALL]
+
+! CORRECT:
+FOR currency$ INDEX rates${ALL}
+    LET rate$ = rates$[currency$]
+    ! ... use currency$ and rate$ ...
+NEXT
+```
 
 ### MANDATORY Documentation Lookup Rules
 
