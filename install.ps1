@@ -2,6 +2,9 @@
 
 $ErrorActionPreference = "Stop"
 
+# Prevent window from closing on error when run directly
+$Host.UI.RawUI.WindowTitle = "PxPlus Template Installer"
+
 # Color output functions
 function Write-Section { param([string]$Text) Write-Host "`n$Text" -ForegroundColor White }
 function Write-Info { param([string]$Text) Write-Host "  $Text" -ForegroundColor DarkGray }
@@ -25,7 +28,9 @@ function Cleanup {
 
 trap {
     Cleanup
-    throw
+    Write-Host "`nPress any key to exit..." -ForegroundColor Yellow
+    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+    exit 1
 }
 
 function Prompt-PxPlusPath {
@@ -115,10 +120,23 @@ try {
     $PrereqFailed = $true
 }
 
-# Check curl (Windows 10+ has it built-in)
+# Check curl (Windows 10+ has it built-in, but might be aliased to Invoke-WebRequest)
 try {
-    $curlVersion = curl --version 2>&1 | Select-Object -First 1
-    Write-Success "curl $curlVersion"
+    # Try to get the actual curl.exe path
+    $curlPath = Get-Command curl.exe -ErrorAction SilentlyContinue
+    if ($curlPath) {
+        $curlVersion = & curl.exe --version 2>&1 | Select-Object -First 1
+        Write-Success "curl $curlVersion"
+    } else {
+        # Fallback: check if curl alias exists (we can use Invoke-WebRequest as fallback)
+        $curlAlias = Get-Command curl -ErrorAction SilentlyContinue
+        if ($curlAlias) {
+            Write-Success "curl (PowerShell alias available)"
+        } else {
+            Write-Fail "curl not found."
+            $PrereqFailed = $true
+        }
+    }
 } catch {
     Write-Fail "curl not found."
     $PrereqFailed = $true
@@ -127,6 +145,8 @@ try {
 if ($PrereqFailed) {
     Write-Fail "Install the missing prerequisites and re-run this installer."
     Cleanup
+    Write-Host "`nPress any key to exit..." -ForegroundColor Yellow
+    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
     exit 1
 }
 
@@ -151,11 +171,20 @@ $ArchivePath = Join-Path $TempDir "pxplus-template.tar.gz"
 
 Write-Note "Fetching latest release..."
 try {
-    curl -L -s -S $ReleaseUrl -o $ArchivePath
-    if ($LASTEXITCODE -ne 0) { throw "Download failed" }
+    # Use curl.exe explicitly to avoid PowerShell alias issues
+    $curlExe = Get-Command curl.exe -ErrorAction SilentlyContinue
+    if ($curlExe) {
+        & curl.exe -L -s -S $ReleaseUrl -o $ArchivePath
+        if ($LASTEXITCODE -ne 0) { throw "Download failed" }
+    } else {
+        # Fallback to Invoke-WebRequest if curl.exe is not available
+        Invoke-WebRequest -Uri $ReleaseUrl -OutFile $ArchivePath -UseBasicParsing
+    }
 } catch {
     Write-Fail "Download failed. Check the repository releases."
     Cleanup
+    Write-Host "`nPress any key to exit..." -ForegroundColor Yellow
+    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
     exit 1
 }
 Write-Success "Download complete"
@@ -171,6 +200,8 @@ try {
 } catch {
     Write-Fail "Could not extract the release archive."
     Cleanup
+    Write-Host "`nPress any key to exit..." -ForegroundColor Yellow
+    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
     exit 1
 }
 Write-Success "Files unpacked"
@@ -181,11 +212,15 @@ $McpSource = Get-ChildItem -Path $ExtractDir -Directory -Recurse -Depth 3 | Wher
 if (-not $ClaudeSource) {
     Write-Fail "claude directory missing from release."
     Cleanup
+    Write-Host "`nPress any key to exit..." -ForegroundColor Yellow
+    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
     exit 1
 }
 if (-not $McpSource) {
     Write-Fail "mcp-server directory missing from release."
     Cleanup
+    Write-Host "`nPress any key to exit..." -ForegroundColor Yellow
+    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
     exit 1
 }
 
@@ -195,11 +230,15 @@ $ClaudeTemplateFile = Join-Path $ClaudeSource "CLAUDE.md"
 if (-not (Test-Path $ClaudeConfigSource)) {
     Write-Fail ".pxplus-claude directory missing from release."
     Cleanup
+    Write-Host "`nPress any key to exit..." -ForegroundColor Yellow
+    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
     exit 1
 }
 if (-not (Test-Path $ClaudeTemplateFile)) {
     Write-Fail "CLAUDE.md missing from release."
     Cleanup
+    Write-Host "`nPress any key to exit..." -ForegroundColor Yellow
+    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
     exit 1
 }
 
@@ -296,6 +335,8 @@ $EnvExample = Join-Path $McpInstallDir ".env.example"
 if (-not (Test-Path $EnvExample)) {
     Write-Fail ".env.example missing in MCP server directory."
     Cleanup
+    Write-Host "`nPress any key to exit..." -ForegroundColor Yellow
+    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
     exit 1
 }
 $EnvPath = Join-Path $McpInstallDir ".env"
@@ -328,6 +369,8 @@ try {
     Write-Fail "npm install failed (see log above)."
     Pop-Location
     Cleanup
+    Write-Host "`nPress any key to exit..." -ForegroundColor Yellow
+    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
     exit 1
 } finally {
     Pop-Location
