@@ -9,13 +9,31 @@ Collection of assets that bring PxPlus expertise into Claude Code. The repositor
 
 ## Installation
 
+Run the installer from the root of any project that should use the template. The installer checks for Node.js 18+, npm, curl, and the Claude CLI before continuing.
+
+### Linux / macOS / WSL
+
 ```bash
 bash -c "$(curl -sSL https://raw.githubusercontent.com/Astecom/claude-pxplus-template/master/install.sh)"
 ```
 
-Run the command from the root of any project that should use the template. The installer checks for Node.js 18+, npm, curl, and the Claude CLI before continuing.
+### Windows
 
-**Supported platforms:** Ubuntu, macOS, and WSL (Windows Subsystem for Linux)
+**Option 1: PowerShell (recommended)**
+```powershell
+irm https://raw.githubusercontent.com/Astecom/claude-pxplus-template/master/install.ps1 | iex
+```
+
+**Option 2: Command Prompt (CMD)**
+```cmd
+curl -L -o "%TEMP%\pxplus-install.ps1" https://raw.githubusercontent.com/Astecom/claude-pxplus-template/master/install.ps1 && powershell -ExecutionPolicy Bypass -File "%TEMP%\pxplus-install.ps1"
+```
+
+**Option 3: Local installation (if you've cloned the repository)**
+- PowerShell: `.\install.ps1`
+- CMD: `install.cmd`
+
+**Supported platforms:** Ubuntu, macOS, WSL (Windows Subsystem for Linux), and Windows 10/11
 
 **To update to the latest version**, simply run the same command again from your project directory.
 
