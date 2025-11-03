@@ -418,18 +418,48 @@ if (Test-Path $EnvPath) {
 Write-Section "Claude Registration"
 
 $McpServerEntry = Join-Path $McpInstallDir "dist\index.js"
+
+# Verify the index.js file exists before trying to register
+if (-not (Test-Path $McpServerEntry)) {
+    Write-Fail "MCP server index.js not found at: $McpServerEntry"
+    Write-Fail "Installation may have failed."
+    Cleanup
+    Write-Host "`nPress any key to exit..." -ForegroundColor Yellow
+    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+    exit 1
+}
+
 Write-Note "Registering pxplus MCP server..."
+Write-Info "MCP server location: $McpServerEntry"
+
+# Remove existing registration if present
 claude mcp remove pxplus *>$null
+
+# Quote the path properly for Claude CLI
+$quotedPath = "`"$McpServerEntry`""
 try {
-    $registerOutput = claude mcp add --transport stdio pxplus -- node $McpServerEntry 2>&1
-    if ($LASTEXITCODE -eq 0) {
+    # Use cmd.exe to properly handle the command with quotes
+    $registerCmd = "claude mcp add --transport stdio pxplus -- node $quotedPath"
+    $registerOutput = cmd.exe /c $registerCmd 2>&1
+
+    # Check both exit code and output
+    if ($LASTEXITCODE -ne 0 -or $registerOutput -match "error|failed") {
+        Write-Host "Registration output: $registerOutput" -ForegroundColor DarkGray
+        throw "Registration failed"
+    }
+
+    # Verify registration by listing MCPs
+    Write-Note "Verifying registration..."
+    $mcpList = claude mcp list 2>&1
+    if ($mcpList -match "pxplus") {
         Write-Success "Claude CLI now points to the PxPlus MCP server"
     } else {
-        throw "Registration failed"
+        Write-Warn "MCP registered but not appearing in list. This may be normal."
+        Write-Info "Try running: claude mcp list"
     }
 } catch {
     Write-Warn "Automatic registration failed."
-    Write-Info "Register manually with: claude mcp add --transport stdio pxplus -- node `"$McpServerEntry`""
+    Write-Info "Register manually with: claude mcp add --transport stdio pxplus -- node $quotedPath"
 }
 
 Write-Section "Complete"
