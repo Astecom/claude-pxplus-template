@@ -359,14 +359,17 @@ Write-Note "Installing npm dependencies..."
 $npmLogPath = Join-Path $TempDir "npm-install.log"
 Push-Location $McpInstallDir
 try {
-    npm install --production --silent > $npmLogPath 2>&1
+    # Remove --silent to show progress and errors
+    npm install --production 2>&1 | Tee-Object -FilePath $npmLogPath | Out-Null
     if ($LASTEXITCODE -ne 0) { throw "npm install failed" }
     Write-Success "Dependencies installed"
 } catch {
+    Write-Host "`n--- NPM Install Log ---" -ForegroundColor Red
     if (Test-Path $npmLogPath) {
         Get-Content $npmLogPath | Write-Host
     }
-    Write-Fail "npm install failed (see log above)."
+    Write-Host "--- End of Log ---`n" -ForegroundColor Red
+    Write-Fail "npm install failed. Check the log above for details."
     Pop-Location
     Cleanup
     Write-Host "`nPress any key to exit..." -ForegroundColor Yellow
