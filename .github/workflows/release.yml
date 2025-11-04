@@ -60,19 +60,35 @@ jobs:
         id: get_version
         run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
 
+      - name: Get previous tag
+        id: get_previous_tag
+        run: |
+          # Get all tags sorted by version, excluding the current tag
+          PREVIOUS_TAG=$(git tag --sort=-v:refname | grep -v "^${{ steps.get_version.outputs.VERSION }}$" | head -n 1)
+          echo "PREVIOUS_TAG=${PREVIOUS_TAG}" >> $GITHUB_OUTPUT
+          echo "Previous tag: ${PREVIOUS_TAG}"
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           name: Release ${{ steps.get_version.outputs.VERSION }}
           body: |
-            ## PxPlus Claude Code Template ${{ steps.get_version.outputs.VERSION }}
+            **Full Changelog**: https://github.com/Astecom/claude-pxplus-template/compare/${{ steps.get_previous_tag.outputs.PREVIOUS_TAG }}...${{ steps.get_version.outputs.VERSION }}
 
-            ### Installation
-            Run this command in your project directory:
+            ## Installation
+            Run in your project directory:
+            ### Linux / macOS / WSL
+
             ```bash
             bash -c "$(curl -sSL https://raw.githubusercontent.com/Astecom/claude-pxplus-template/master/install.sh)"
             ```
-            
+
+            ### Windows
+
+            ```powershell
+            irm https://raw.githubusercontent.com/Astecom/claude-pxplus-template/master/install.ps1 | iex
+            ```
+
             ### Requirements
             - Node.js 18+
             - npm
