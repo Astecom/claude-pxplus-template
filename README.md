@@ -19,19 +19,11 @@ bash -c "$(curl -sSL https://raw.githubusercontent.com/Astecom/claude-pxplus-tem
 
 ### Windows
 
-**Option 1: PowerShell (recommended)**
 ```powershell
 irm https://raw.githubusercontent.com/Astecom/claude-pxplus-template/master/install.ps1 | iex
 ```
 
-**Option 2: Command Prompt (CMD)**
-```cmd
-curl -L -o "%TEMP%\pxplus-install.ps1" https://raw.githubusercontent.com/Astecom/claude-pxplus-template/master/install.ps1 && powershell -ExecutionPolicy Bypass -File "%TEMP%\pxplus-install.ps1"
-```
-
-**Option 3: Local installation (if you've cloned the repository)**
-- PowerShell: `.\install.ps1`
-- CMD: `install.cmd`
+**Local installation (if you've cloned the repository):** `.\install.ps1`
 
 **Supported platforms:** Ubuntu, macOS, WSL (Windows Subsystem for Linux), and Windows 10/11
 

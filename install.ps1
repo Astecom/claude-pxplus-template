@@ -16,6 +16,7 @@ function Write-Fail { param([string]$Text) Write-Host "$Text" -ForegroundColor R
 $PreservedEnvFile = $null
 $HadPreservedEnv = $false
 $TempDir = $null
+$ClaudeCliPath = $null
 
 function Cleanup {
     if ($TempDir -and (Test-Path $TempDir)) {
@@ -113,7 +114,9 @@ try {
 
 # Check Claude CLI
 try {
-    $claudeCheck = claude --version 2>&1
+    $claudeCommand = Get-Command claude -ErrorAction Stop
+    $ClaudeCliPath = $claudeCommand.Source
+    $null = & $ClaudeCliPath --version 2>&1
     Write-Success "Claude CLI detected"
 } catch {
     Write-Fail "Claude CLI not found."
@@ -356,20 +359,36 @@ if ($HadPreservedEnv -and $PreservedEnvFile -and (Test-Path $PreservedEnvFile)) 
 }
 
 Write-Note "Installing npm dependencies..."
-$npmLogPath = Join-Path $TempDir "npm-install.log"
+
+# Verify package.json exists
+$packageJson = Join-Path $McpInstallDir "package.json"
+if (-not (Test-Path $packageJson)) {
+    Write-Fail "package.json not found in $McpInstallDir"
+    Write-Info "Available files:"
+    Get-ChildItem $McpInstallDir | ForEach-Object { Write-Info "  $($_.Name)" }
+    Cleanup
+    Write-Host "`nPress any key to exit..." -ForegroundColor Yellow
+    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+    exit 1
+}
+
 Push-Location $McpInstallDir
 try {
-    # Remove --silent to show progress and errors
-    npm install --production 2>&1 | Tee-Object -FilePath $npmLogPath | Out-Null
-    if ($LASTEXITCODE -ne 0) { throw "npm install failed" }
+    # Run npm install and capture combined output so we can surface errors
+    $npmOutput = & npm install --omit=dev 2>&1
+    $exitCode = $LASTEXITCODE
+
+    if ($exitCode -ne 0) {
+        Write-Host "`n--- NPM Install Output ---" -ForegroundColor Red
+        if ($npmOutput) {
+            $npmOutput | ForEach-Object { Write-Host $_ }
+        }
+        Write-Host "--- End of Output ---`n" -ForegroundColor Red
+        Write-Fail "npm install failed with exit code $exitCode"
+        throw "npm install failed"
+    }
     Write-Success "Dependencies installed"
 } catch {
-    Write-Host "`n--- NPM Install Log ---" -ForegroundColor Red
-    if (Test-Path $npmLogPath) {
-        Get-Content $npmLogPath | Write-Host
-    }
-    Write-Host "--- End of Log ---`n" -ForegroundColor Red
-    Write-Fail "npm install failed. Check the log above for details."
     Pop-Location
     Cleanup
     Write-Host "`nPress any key to exit..." -ForegroundColor Yellow
@@ -433,24 +452,41 @@ Write-Note "Registering pxplus MCP server..."
 Write-Info "MCP server location: $McpServerEntry"
 
 # Remove existing registration if present
-claude mcp remove pxplus *>$null
+if (-not $ClaudeCliPath) {
+    try {
+        $ClaudeCliPath = (Get-Command claude -ErrorAction Stop).Source
+    } catch {
+        $ClaudeCliPath = "claude"
+    }
+}
+
+try {
+    & $ClaudeCliPath mcp remove pxplus *> $null
+} catch {
+    # Ignore errors during cleanup
+}
 
 # Quote the path properly for Claude CLI
 $quotedPath = "`"$McpServerEntry`""
+$registerCommandForDisplay = "claude mcp add --transport stdio pxplus -- node $quotedPath"
+$registerArgs = @("mcp", "add", "--transport", "stdio", "pxplus", "--", "node", $McpServerEntry)
+$registerOutput = $null
 try {
-    # Use cmd.exe to properly handle the command with quotes
-    $registerCmd = "claude mcp add --transport stdio pxplus -- node $quotedPath"
-    $registerOutput = cmd.exe /c $registerCmd 2>&1
+    $registerOutput = & $ClaudeCliPath @registerArgs 2>&1
+    $exitCode = $LASTEXITCODE
 
-    # Check both exit code and output
-    if ($LASTEXITCODE -ne 0 -or $registerOutput -match "error|failed") {
-        Write-Host "Registration output: $registerOutput" -ForegroundColor DarkGray
+    if ($exitCode -ne 0) {
+        Write-Host "`n--- Claude CLI Output ---" -ForegroundColor Red
+        if ($registerOutput) {
+            $registerOutput | ForEach-Object { Write-Host $_ }
+        }
+        Write-Host "--- End of Output ---`n" -ForegroundColor Red
         throw "Registration failed"
     }
 
     # Verify registration by listing MCPs
     Write-Note "Verifying registration..."
-    $mcpList = claude mcp list 2>&1
+    $mcpList = & $ClaudeCliPath "mcp" "list" 2>&1
     if ($mcpList -match "pxplus") {
         Write-Success "Claude CLI now points to the PxPlus MCP server"
     } else {
@@ -459,7 +495,11 @@ try {
     }
 } catch {
     Write-Warn "Automatic registration failed."
-    Write-Info "Register manually with: claude mcp add --transport stdio pxplus -- node $quotedPath"
+    if ($registerOutput) {
+        Write-Info "Claude CLI output:"
+        $registerOutput | ForEach-Object { Write-Info "  $_" }
+    }
+    Write-Info "Register manually with: $registerCommandForDisplay"
 }
 
 Write-Section "Complete"
