@@ -7,6 +7,12 @@ import { getExecutablePathTool } from './getExecutablePath.js';
 import { runTool } from './runTool.js';
 
 /**
+ * pxplus_run is off by default: it is meant for bots that can't start PxPlus themselves (a BotOffice local app
+ * starts the server with this flag). Claude Code runs PxPlus itself, as the instructions describe.
+ */
+export const RUN_FLAG = '--enable-pxplus-run';
+
+/**
  * Tool Registry
  * Add new tools to this array to register them with the MCP server
  */
@@ -16,7 +22,7 @@ export const tools: ToolHandler[] = [
   searchDocsTool,
   compileTool,
   getExecutablePathTool,
-  runTool,
+  ...(process.argv.includes(RUN_FLAG) ? [runTool] : []),
 ];
 
 /**
