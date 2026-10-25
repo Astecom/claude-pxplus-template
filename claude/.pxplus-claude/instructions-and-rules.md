@@ -40,11 +40,7 @@ Use the `pxplus_syntax_check` MCP tool to check PxPlus files for syntax errors a
 
 ## Running PxPlus Applications
 
-Sometimes it's good practice to actually execute a PxPlus application yourself (as the AI agent) to verify it works correctly or to test its behavior.
-
-**On macOS, use the `pxplus_run` MCP tool**: give it a program file (relative to the project folder) or the code itself, optionally `args` (the program reads them with ARG(1), ARG(2), ...) and `timeoutSeconds`. It returns what the program printed and, if it stopped on an error, the error number, line and message. The run is locked in the macOS sandbox: the program can read the PxPlus installation and the project folder, write only the project folder, has no network, cannot start other programs (INVOKE, shell) and gets no keyboard input. The program is CALLed, so END returns normally.
-
-When a program needs more than that (files outside the project, network, INVOKE), or on Windows or Linux, run it yourself:
+Sometimes it's good practice to actually execute a PxPlus application yourself (as the AI agent) to verify it works correctly or to test its behavior. To do this:
 
 1. **Retrieve the PxPlus executable path**: Use the `pxplus_get_executable_path` MCP tool to get the configured path to the PxPlus executable
 2. **Execute the program**: Use the Bash tool to run the PxPlus executable, passing the program file as the first parameter

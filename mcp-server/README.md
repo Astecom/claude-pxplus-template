@@ -43,6 +43,16 @@ claude mcp list
 
 You should see `pxplus` in the list.
 
+## pxplus_run (off by default)
+
+`pxplus_run` runs a PxPlus program locked in the macOS sandbox and reports its output, or the error number, line and message. It is meant for bots that can't start PxPlus themselves (a BotOffice local app), so the server offers it only when started with `--enable-pxplus-run`:
+
+```bash
+node /absolute/path/to/mcp-server/dist/index.js --enable-pxplus-run
+```
+
+macOS only; Claude Code runs PxPlus itself, as the instructions describe.
+
 ## Testing
 
 To test the MCP server, we can use the mcp inspector package
