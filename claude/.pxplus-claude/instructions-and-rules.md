@@ -57,8 +57,8 @@ These tools work through the PxPlus `*dict` objects, as Data Dictionary Maintena
 - `pxplus_dict_apply(dir, operations)`: change the dictionary and its physical files; `dryRun: true` checks without changing anything. Only there when the MCP server is started with `--enable-dict-apply`
 
 Data files are the user's data:
-- **ALWAYS ask the user before** an operation that changes or deletes a file with records (`adjust_file`, `load_definition`, `delete_file`); the tool needs `confirm: true` for them. Show the `dryRun` result first
-- `adjust_file` takes fields over by name: a dropped or renamed column loses its data. A rename goes with `load_definition`. Never pass `allowDataLoss: true` without the user's explicit consent
+- Run `pxplus_dict_apply` with `dryRun: true` first and show the user the plan. Without `dryRun` the MCP server itself asks the user to agree (a form in Claude Code) before it changes anything; never try to get around that question
+- `adjust_file` takes fields over by name: a dropped or renamed column loses its data. A rename goes with `load_definition`. Pass `allowDataLoss: true` only when the user said the data may go
 - A file with an embedded IO program (for example a change logger) opens only when that program is found: pass `prefixProgram`, `prefix` or a `setup` program of the project. Without it the tool reports the error (Error #121)
 
 ## PxPlus Syntax Checking

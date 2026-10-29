@@ -51,7 +51,9 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   }
 
   try {
-    const result = await tool.handler(args || {});
+    const result = await tool.handler(args || {}, {
+      elicit: async (message, requestedSchema) => server.elicitInput({ message, requestedSchema: requestedSchema as any })
+    });
 
     return {
       content: [

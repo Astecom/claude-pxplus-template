@@ -9,7 +9,7 @@
  */
 
 import { execFileSync } from 'child_process';
-import { mkdtempSync, mkdirSync, rmSync, writeFileSync, existsSync } from 'fs';
+import { mkdtempSync, mkdirSync, rmSync, writeFileSync, existsSync, readFileSync } from 'fs';
 import { tmpdir } from 'os';
 import { join } from 'path';
 import { config } from '../dist/utils/config.js';
@@ -28,7 +28,11 @@ const check = (ok, text) => {
 
 const dir = mkdtempSync(join(tmpdir(), 'pxplus-dict-check-'));
 const io = join(dir, 'prog');
-const apply = (operations, extra = {}) => dictApplyTool.handler({ dir, operations, ...extra });
+// Most steps run as an automatic process allowed in the temporary folder; some ask a (pretend) person
+process.env.PXPLUS_DICT_AUTO = dir;
+process.env.PXPLUS_DICT_LOG = join(dir, 'changes.log');
+const apply = (operations, extra = {}, context) => dictApplyTool.handler({ dir, operations, ...extra }, context);
+const person = (action, agree) => ({ elicit: async message => { person.asked = message; return { action, content: agree === undefined ? undefined : { agree } }; } });
 const pxplus = code => {
   const file = join(dir, 'write.pxprg');
   writeFileSync(file, code.join('\n') + '\n');
@@ -62,41 +66,57 @@ try {
   const unknown = await apply([{ op: 'add_column', table: 'Klant', column: { name: 'X', type: 'S', length: 1, colour: 'red' } }]);
   check(!unknown.success && /Unknown column property "colour"/.test(unknown.error), 'an unknown property is refused');
 
-  const refused = await apply([
+  // A person decides when the folder is not allowed
+  delete process.env.PXPLUS_DICT_AUTO;
+  const plaatsOps = [
     { op: 'add_column', table: 'Klant', column: { name: 'Plaats', type: 'S', length: 20 } },
     { op: 'adjust_file', table: 'Klant' }
-  ]);
-  check(!refused.success && /3 record\(s\); adjust_file needs confirm/.test(refused.error), 'adjust_file on a file with records needs confirm');
+  ];
+  const plan = await apply(plaatsOps, { dryRun: true });
+  check(plan.success && plan.data.steps.length === 2 && plan.data.files.some(f => f.endsWith('klant')), `dryRun gives the plan and the files it changes (${JSON.stringify(plan.data?.files)})`);
+  const nobody = await apply(plaatsOps);
+  check(!nobody.success && /Nobody could agree/.test(nobody.error), 'without a person and outside PXPLUS_DICT_AUTO nothing changes');
+  const cancelled = await apply(plaatsOps, {}, person('cancel'));
+  check(!cancelled.success && /Nobody could agree/.test(cancelled.error) && /3 record/.test(person.asked), 'a cancelled question (headless client) changes nothing; the question names the records');
+  const declined = await apply(plaatsOps, {}, person('accept', false));
+  check(!declined.success && /did not agree/.test(declined.error), 'a person who does not agree: nothing changes');
+  const stillThree = (await dictReadTool.handler({ dir, table: 'Klant' })).data?.columns?.length;
+  check(stillThree === 3, `after the refusals the table still has 3 columns (${stillThree})`);
+  const agreed = await apply(plaatsOps, {}, person('accept', true));
+  check(agreed.success && agreed.data.agreedBy === 'person', `a person who agrees: the change is made (${agreed.error || agreed.data.agreedBy})`);
+  process.env.PXPLUS_DICT_AUTO = dir;
 
-  const plaats = await apply([{ op: 'adjust_file', table: 'Klant' }], { confirm: true });
-  check(plaats.success, `adjust_file adds the new column to the file (${plaats.error || plaats.data.steps[0]})`);
+  // An allowed folder, but a file outside it: a person must agree
+  const outside = join(tmpdir(), 'pxplus-dict-outside-' + process.pid);
+  const elsewhere = await apply([{ op: 'add_table', table: 'Buiten', physicalFile: outside, columns: [{ name: 'A', type: 'S', length: 2 }], indexes: [{ name: 'OpA', unique: true, segments: [{ column: 'A' }] }], createFile: true }]);
+  check(!elsewhere.success && /Nobody could agree/.test(elsewhere.error) && !existsSync(outside), 'a file outside PXPLUS_DICT_AUTO is not made without a person');
   const mismatch = await apply([
     { op: 'add_column', table: 'Klant', column: { name: 'Tijdelijk', type: 'S', length: 2 } },
     { op: 'load_definition', table: 'Klant' }
-  ], { dryRun: true, confirm: true });
+  ], { dryRun: true });
   check(!mismatch.success && /number of fields must stay the same/.test(mismatch.error), 'load_definition refuses when the fields differ');
 
   // Rename: adjust_file would lose the data of the old name, load_definition keeps it
   const renamed = await apply([
     { op: 'rename_column', table: 'Klant', column: 'Naam', newName: 'Naam2' },
     { op: 'adjust_file', table: 'Klant' }
-  ], { confirm: true });
+  ]);
   check(!renamed.success && /lose the data of NAAM\$/.test(renamed.error), `adjust_file refuses to lose the data of a renamed column (${renamed.error})`);
-  const loaded = await apply([{ op: 'load_definition', table: 'Klant' }], { confirm: true });
+  const loaded = await apply([{ op: 'load_definition', table: 'Klant' }]);
   check(loaded.success, `load_definition writes the rename into the file (${loaded.error || loaded.data.steps[0]})`);
 
   const changed = await apply([
     { op: 'update_column', table: 'Klant', column: 'Naam2', set: { length: 40, description: 'Naam van de klant' } },
     { op: 'add_index', table: 'Klant', index: { name: 'OpNaam', segments: [{ column: 'Naam2' }, { column: 'Nummer', descending: true }] } },
     { op: 'adjust_file', table: 'Klant' }
-  ], { confirm: true });
-  check(changed.success, `update column, add index and adjust_file with confirm (${changed.error || 'done'})`);
+  ]);
+  check(changed.success, `update column, add index and adjust_file (${changed.error || 'done'})`);
   const dropped = await apply([
     { op: 'drop_column', table: 'Klant', column: 'Saldo' },
     { op: 'adjust_file', table: 'Klant' }
-  ], { confirm: true });
+  ]);
   check(!dropped.success && /lose the data of SALDO/.test(dropped.error), 'dropping a column with data needs allowDataLoss');
-  const allowed = await apply([{ op: 'adjust_file', table: 'Klant', allowDataLoss: true }], { confirm: true });
+  const allowed = await apply([{ op: 'adjust_file', table: 'Klant', allowDataLoss: true }]);
   check(allowed.success && /without the data of SALDO/.test(allowed.data.steps[0]), `with allowDataLoss it goes on and says so (${allowed.error || allowed.data.steps[0]})`);
 
   const def = (await dictReadTool.handler({ dir, table: 'Klant' })).data || {};
@@ -127,7 +147,7 @@ try {
     { op: 'delete_file', table: 'Klant' },
     { op: 'drop_table', table: 'Klant' },
     { op: 'rename_table', table: 'Log', newName: 'Logboek' }
-  ], { confirm: true, prefixProgram: io + '/' });
+  ], { prefixProgram: io + '/' });
   const after = (await dictReadTool.handler({ dir })).data?.tables || [];
   check(removed.success && !existsSync(join(dir, 'klant')) && after.map(t => t.name).join() === 'Logboek',
     `delete_file, drop_table and rename_table (${removed.error || after.map(t => t.name).join()})`);
@@ -137,6 +157,9 @@ try {
 
   const wrong = await apply([{ op: 'drop_column', table: 'Logboek', column: 'Bestaatniet' }]);
   check(!wrong.success && /no column Bestaatniet/.test(wrong.error), 'an unknown column is reported');
+  const log = existsSync(join(dir, 'changes.log')) ? readFileSync(join(dir, 'changes.log'), 'utf8').trim().split('\n').map(l => JSON.parse(l)) : [];
+  check(log.length > 3 && log.some(e => e.agreedBy === 'person') && log.some(e => /^PXPLUS_DICT_AUTO /.test(e.agreedBy)),
+    `PXPLUS_DICT_LOG has every change and who agreed (${log.length} lines)`);
 } finally {
   rmSync(dir, { recursive: true, force: true });
 }

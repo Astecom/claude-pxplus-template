@@ -1,4 +1,6 @@
-import { ToolHandler, ToolResponse } from '../types.js';
+import { ToolHandler, ToolResponse, ToolContext } from '../types.js';
+import fs from 'fs';
+import path from 'path';
 import { isPxPlusConfigured, getConfigError } from '../utils/config.js';
 import { runDict, iolistNames, DictOptions, DictStep, DictResult, DEFAULT_DICT_TIMEOUT, MAX_DICT_TIMEOUT } from '../utils/pxplusDict.js';
 
@@ -342,6 +344,68 @@ function stepsOf(operation: any): DictStep[] {
   }
 }
 
+/**
+ * Folders where pxplus_dict_apply may change a dictionary and its files without asking a person: set by whoever
+ * starts the server (PXPLUS_DICT_AUTO, folders separated like PATH: ":" on macOS/Linux, ";" on Windows), never by
+ * the model. For automatic processes, e.g. the worktree of a pipeline run.
+ */
+function autoFolders(): string[] {
+  return (process.env.PXPLUS_DICT_AUTO || '').split(path.delimiter).map(f => f.trim()).filter(Boolean).map(f => path.resolve(f));
+}
+
+/**
+ * A path as it is compared: absolute, through symbolic links where it exists; on Windows without regard to case
+ */
+function comparable(target: string): string {
+  let full = path.resolve(target);
+  try {
+    full = fs.realpathSync(full);
+  } catch {
+    // A file that is still to be made: its folder decides
+    try {
+      full = path.join(fs.realpathSync(path.dirname(full)), path.basename(full));
+    } catch {
+      // keep the resolved path
+    }
+  }
+  return process.platform === 'win32' ? full.toLowerCase() : full;
+}
+
+function inside(target: string, folder: string): boolean {
+  const relative = path.relative(comparable(folder), comparable(target));
+  return relative === '' || (!relative.startsWith('..') && !path.isAbsolute(relative));
+}
+
+/**
+ * Whether this change may go without a person: the dictionary and every physical file it changes lie in a
+ * folder of PXPLUS_DICT_AUTO. A relative physical file is found through PREFIX, so with prefix, prefixProgram or
+ * setup its place is unknown and it does not count as inside.
+ */
+function autoAllowed(dir: string, touched: string[], env: Environment): string | null {
+  const folders = autoFolders();
+  const folder = folders.find(f => inside(dir, f));
+  if (!folder) return null;
+  for (const file of touched) {
+    const relative = !path.isAbsolute(file);
+    if (relative && (env.prefix || env.prefixProgram || env.setup)) return null;
+    if (!inside(relative ? path.join(dir, file) : file, folder)) return null;
+  }
+  return folder;
+}
+
+/**
+ * Write one line to PXPLUS_DICT_LOG (when set): what was changed, where, and who agreed
+ */
+function logChange(entry: Record<string, any>) {
+  const file = process.env.PXPLUS_DICT_LOG;
+  if (!file) return;
+  try {
+    fs.appendFileSync(file, JSON.stringify({ time: new Date().toISOString(), ...entry }) + '\n');
+  } catch (error) {
+    console.error(`pxplus_dict_apply: cannot write PXPLUS_DICT_LOG ${file}: ${error instanceof Error ? error.message : error}`);
+  }
+}
+
 export const dictApplyTool: ToolHandler = {
   name: 'pxplus_dict_apply',
   description: [
@@ -358,7 +422,8 @@ export const dictApplyTool: ToolHandler = {
     '{op:"create_file", table}; {op:"adjust_file", table, allowDataLoss} (convert the file to the dictionary, keeping its records); {op:"load_definition", table} (write the definition into the file, records as they are); {op:"delete_file", table} (the file goes, the definition stays).',
     'Column and index changes reach an existing file only with adjust_file or load_definition.',
     'adjust_file takes the fields over BY NAME: a dropped or renamed column loses its data, so with records it refuses unless allowDataLoss. For a rename use load_definition instead (same fields in the same order, data kept).',
-    'dryRun: check every operation and change nothing. confirm: needed for adjust_file and delete_file on a file with records (ask the user first).',
+    'dryRun: check every operation and change nothing, and see the plan.',
+    'Without dryRun the server first checks the whole plan and then asks the person in Claude Code to agree (a form); only then it changes anything. Without a person (an automatic process) it changes only dictionaries in the folders its operator allowed (PXPLUS_DICT_AUTO).',
     'Files with an embedded IO program (e.g. a change logger) need prefixProgram or setup; adjust_file rewrites the records through it.'
   ].join(' '),
   inputSchema: {
@@ -366,13 +431,12 @@ export const dictApplyTool: ToolHandler = {
     properties: {
       dir: { type: 'string', description: 'Folder of providex.ddf' },
       operations: { type: 'array', items: { type: 'object' }, description: 'The operations, in order (see the description)' },
-      dryRun: { type: 'boolean', description: 'Check, change nothing', default: false },
-      confirm: { type: 'boolean', description: 'Allowed to change or delete a file that has records', default: false },
+      dryRun: { type: 'boolean', description: 'Check and show the plan, change nothing', default: false },
       ...ENVIRONMENT
     },
     required: ['dir', 'operations']
   },
-  handler: async (args: { dir: string; operations: any[]; dryRun?: boolean; confirm?: boolean } & Environment): Promise<ToolResponse> => {
+  handler: async (args: { dir: string; operations: any[]; dryRun?: boolean } & Environment, context?: ToolContext): Promise<ToolResponse> => {
     try {
       const configError = notConfigured();
       if (configError) return configError;
@@ -385,10 +449,56 @@ export const dictApplyTool: ToolHandler = {
       } catch (error) {
         return { success: false, error: error instanceof Error ? error.message : String(error) };
       }
-      const result = await runDict(steps, { dir: args.dir, dryRun: !!args.dryRun, confirm: !!args.confirm, ...environmentOf(args) });
+      const env = environmentOf(args);
+
+      // The plan: every step checked, with the files it changes; files with records count as agreed here
+      const plan = await runDict(steps, { dir: args.dir, dryRun: true, confirm: true, ...env });
+      const planFailed = failure(plan);
+      if (planFailed) return planFailed;
+      const planSteps = plan.steps.map(s => s.text.replace(/^would: /, ''));
+      const touched = plan.lines.filter(l => l[0] === 'TOUCH').map(l => l[2]).filter(Boolean);
+      if (args.dryRun) {
+        return { success: true, data: { dryRun: true, steps: planSteps, files: touched } };
+      }
+
+      // Who agrees: a folder the operator allowed, otherwise the person
+      let agreedBy = '';
+      const folder = autoAllowed(args.dir, touched, env);
+      if (folder) {
+        agreedBy = `PXPLUS_DICT_AUTO ${folder}`;
+      } else {
+        let answer: { action: string; content?: Record<string, any> } = { action: 'cancel' };
+        if (context?.elicit) {
+          const message = [`pxplus_dict_apply in ${args.dir}:`, ...planSteps.map((text, i) => `${i + 1}. ${text}`)].join('\n');
+          try {
+            answer = await context.elicit(message, {
+              type: 'object',
+              properties: { agree: { type: 'boolean', title: 'Make these changes', description: 'The dictionary and the files listed change now' } },
+              required: ['agree']
+            });
+          } catch {
+            answer = { action: 'cancel' };
+          }
+        }
+        if (answer.action === 'accept' && answer.content?.agree === true) {
+          agreedBy = 'person';
+        } else if (answer.action === 'cancel') {
+          return {
+            success: false,
+            error: 'Nobody could agree to this change (no person, an automatic process) and the dictionary is not in a folder of PXPLUS_DICT_AUTO; nothing changed',
+            data: { plan: planSteps, files: touched }
+          };
+        } else {
+          return { success: false, error: 'The person did not agree; nothing changed', data: { plan: planSteps } };
+        }
+      }
+
+      const result = await runDict(steps, { dir: args.dir, confirm: true, ...env });
+      const done = result.steps.filter(s => s.ok).map(s => s.text);
+      logChange({ dir: args.dir, agreedBy, steps: done, files: touched, ...(result.done ? {} : { stoppedAt: result.steps.find(s => !s.ok)?.text || result.output }) });
       const failed = failure(result);
       if (failed) return failed;
-      return { success: true, data: { dryRun: !!args.dryRun, steps: result.steps.map(s => s.text) } };
+      return { success: true, data: { agreedBy, steps: done } };
     } catch (error) {
       return { success: false, error: error instanceof Error ? error.message : 'Unknown error while changing the dictionary' };
     }

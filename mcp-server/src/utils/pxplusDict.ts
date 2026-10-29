@@ -1,5 +1,5 @@
 import { execFile } from 'child_process';
-import { mkdtemp, rm, writeFile } from 'fs/promises';
+import { mkdir, mkdtemp, rm, writeFile } from 'fs/promises';
 import { tmpdir } from 'os';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -75,6 +75,12 @@ export async function runDict(steps: DictStep[], options: DictOptions): Promise<
 
   const work = await mkdtemp(join(tmpdir(), 'pxplus-dict-'));
   try {
+    if (options.dryRun) {
+      // create_dictionary in a dry run: the next steps are checked against an empty dictionary here
+      const scratch = join(work, 'scratch');
+      await mkdir(scratch);
+      lines.splice(1, 0, ['SCRATCH', field(scratch)].join('\t'));
+    }
     const request = join(work, 'request.txt');
     await writeFile(request, lines.join('\n') + '\n', 'latin1');
     const timeout = Math.min(Math.max(1, options.timeoutSeconds || DEFAULT_DICT_TIMEOUT), MAX_DICT_TIMEOUT) * 1000;

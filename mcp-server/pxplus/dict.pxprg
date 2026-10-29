@@ -8,18 +8,22 @@
 !   PREFIX   <search paths>                 (optional: PREFIX, e.g. to find an
 !   PREFIXPROGRAM <search paths>             embedded IO program; PREFIX PROGRAM)
 !   SETUP    <program>                      (optional: CALLed first, e.g. globals)
+!   SCRATCH  <empty folder>                 (a dry run of create_dictionary checks
+!                                            the next steps against a new one there)
 !   <op>     <table> <target> [NAME=value ...]
 ! The ops are those of pxplus_dict_apply plus read_tables, read_table and
 ! read_embedded and read_records. All changes go through the *dict objects, as in Data
 ! Dictionary Maintenance. The output lines start with MARK$ and a TAB:
 !   OK <step> <text> / FAIL <step> <text> (the run stops) / DONE
+!   TOUCH <step> <file> for each physical file a step changes (also in a dry
+!   run; the MCP server checks them against the folders it may change alone)
 !   and for reading TABLE, COLUMN, INDEX, IOLIST, FILE and RECORD lines.
 ! ============================================================================
 !
 SETERR ERRH
 MARK$="@@DICT@@",TB$=$09$,FS$=$01$
-ddir$="",dryrun=0,confirm=0,halted=0,stepno=0,db=0
-planned$=SEP
+scratch$="",ddir$="",dryrun=0,confirm=0,halted=0,stepno=0,db=0
+planned$=SEP,plannedpf$=SEP
 DIM f$[1:60]
 OPEN INPUT (1)ARG(1)
 WHILE halted=0
@@ -64,6 +68,9 @@ PREFIX PROGRAM tname$
 BREAK
 CASE "setup"
 CALL tname$
+BREAK
+CASE "scratch"
+scratch$=tname$
 BREAK
 DEFAULT
 stepno++
@@ -233,6 +240,15 @@ GOSUB FAIL
 RETURN
 }
 }
+! A dry run checks the next steps against an empty dictionary in SCRATCH
+IF dryrun AND scratch$<>"" THEN {
+db=NEW("*dict/database")
+IF db'CreateDataBase(scratch$)=0 OR db'SetDataBase(scratch$)=0 THEN {
+note$="cannot make a dictionary to check against in "+scratch$
+GOSUB FAIL
+RETURN
+}
+}
 note$="create providex.ddf and providex.dde in "+ddir$
 GOSUB OK
 RETURN
@@ -340,6 +356,7 @@ RETURN
 }
 }
 planned$=planned$+"T:"+UCS(tname$)+SEP
+plannedpf$=plannedpf$+UCS(tname$)+"="+t'PhysicalFile$+SEP
 note$="add table "+tname$+" (file "+t'PhysicalFile$+")"
 GOSUB OK
 DROP OBJECT t
@@ -818,6 +835,7 @@ planned$=planned$+"F:"+UCS(tname$)+SEP
 IF NOT(dryrun) \
 THEN GOSUB OPEN_STATE
 note$="create the file of "+tname$+TBL(full$="",": "+full$,"")
+GOSUB TOUCH
 GOSUB OK
 RETURN
 !
@@ -852,6 +870,7 @@ RETURN
 }
 }
 note$="bring "+pf$+" in line with the dictionary ("+STR(records)+" record(s) kept"+TBL(lost$="",", without the data of "+lost$,"")+")"
+GOSUB TOUCH
 GOSUB OK
 RETURN
 !
@@ -915,6 +934,7 @@ RETURN
 }
 }
 note$="write the definition of "+tname$+" into "+pf$+" ("+STR(records)+" record(s) as they are"+TBL(lost$="",", "+lost$+" renamed","")+")"
+GOSUB TOUCH
 GOSUB OK
 RETURN
 !
@@ -940,7 +960,27 @@ RETURN
 }
 }
 note$="delete "+pf$+" ("+STR(records)+" record(s)); the definition stays"
+GOSUB TOUCH
 GOSUB OK
+RETURN
+!
+! The physical file this step changes: where it is (full$), or its name as the
+! dictionary has it (relative: found through PREFIX); for a table added in this
+! dry run, the name from add_table
+TOUCH:
+tp$=full$
+IF tp$="" \
+THEN tp$=pf$
+IF tp$="" THEN {
+pk$=SEP+UCS(tname$)+"="
+IF POS(pk$=plannedpf$)>0 THEN {
+tp$=plannedpf$(POS(pk$=plannedpf$)+LEN(pk$))
+tp$=tp$(1,POS(SEP=tp$+SEP)-1)
+}
+}
+cv$=STR(stepno)+FS$+tp$
+GOSUB CLEAN
+PRINT MARK$+TB$+"TOUCH"+TB$+cv$
 RETURN
 !
 ! --- Reading -----------------------------------------------------------------

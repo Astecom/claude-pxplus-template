@@ -64,11 +64,13 @@ Through the PxPlus `*dict` objects, as Data Dictionary Maintenance does (the PxP
 
 Safety, because these are data files:
 
-- a file with records is changed or deleted only with `confirm: true`;
+- `pxplus_dict_apply` first checks the whole plan (as `dryRun` does) and then asks the person in Claude Code to agree, in a form (MCP elicitation) that lists every step and the records involved. Only after "yes" does anything change. The model cannot agree for the person;
+- without a person (an automatic process, `claude -p`: the client cancels the question) it changes only dictionaries in the folders that whoever starts the server allowed in `PXPLUS_DICT_AUTO` (separated like `PATH`: `:` on macOS/Linux, `;` on Windows), and only when every physical file it changes is in that folder too. A relative physical file with `prefix`, `prefixProgram` or `setup` counts as outside, because PREFIX decides where it is;
+- `PXPLUS_DICT_LOG`: a file that gets one line per change: what, where and who agreed (the person, or the allowed folder);
 - `adjust_file` takes the fields over by name, so a dropped or renamed column loses its data; with records it refuses unless `allowDataLoss: true`. A rename goes with `load_definition`, which keeps the records as they are;
 - a file with an embedded IO program (for example a change logger) only opens when that program is found: give `prefixProgram` (or `prefix`, or a `setup` program that is CALLed first). Without it the tools give the error back (Error #121). With `prefix`, relative file names are found and created through it, as in the application.
 
-`pxplus_dict_apply` is offered only when the server starts with `--enable-dict-apply`, because it changes data files: turn it on where a person works with Claude Code, leave it off for agents that run without one (the pipeline), which then only read:
+`pxplus_dict_apply` is offered only when the server starts with `--enable-dict-apply`; the installers register the server with it:
 
 ```bash
 claude mcp add --transport stdio pxplus -- node /absolute/path/to/mcp-server/dist/index.js --enable-dict-apply
