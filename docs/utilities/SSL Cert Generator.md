@@ -1,4 +1,4 @@
-# Utility Routines
+# Utilities
 
 ***TOOLS/SSLCERT** |  **_SSL Certificate Generator_**  
 ---|---  
@@ -19,7 +19,7 @@ _(The SSL Certificate Generator program was added in PxPlus 2017.)_
 
 ## Requesting a Certificate
 
-The program **"*tools/sslcert"** can be run to request a certificate. It requires access to the Internet to obtain the final certificate from PVX Plus Technologies; therefore, it can only be run on workstations that have an Internet connection.
+The program **" *tools/sslcert"** can be run to request a certificate. It requires access to the Internet to obtain the final certificate from PVX Plus Technologies; therefore, it can only be run on workstations that have an Internet connection.
 
 This program provides both a **[Graphical Interface](SSL%20Cert%20Generator.htm#graphical)** and a **[Text Mode](SSL%20Cert%20Generator.htm#textmode)**, depending on the type of device from which you are running it.
 
@@ -74,3 +74,9 @@ The Self-Signed Certificate that is returned has the following specifications:
   * Uses SHA-256 (SHA-2) for hashing
 
 
+
+ 
+
+ 
+
+ 

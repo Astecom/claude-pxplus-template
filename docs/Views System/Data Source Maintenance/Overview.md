@@ -1,9 +1,9 @@
-# Views System  
-  
-**Data Source Maintenance** |  **__**  
+# Views System
+
+**Data Source Maintenance** |  **_ _**  
 ---|---  
   
-**Data Source Maintenance** is used to create and maintain data source and view definitions.
+**Data Source Maintenance**  is used to create and maintain data source and view definitions.
 
 > It also provides options for the following functionality:
 
@@ -54,7 +54,7 @@ _Groups_ |  Launches the **[Create Groups](Create%20Groups.md)** window for crea
 _Logic_ |  Launches the **[Logic Procedures](../Logic%20Procedures/Overview.md)** window for specifying the logic to be performed for the data source or view.  
 _Export  
 Import_ |  Launches the **[Export (or Import) View and Data Source Definitions](Merge%20Views%20\(Export%20and%20Import\).htm)** window for merging from one set of view definition files into another.  
-_Print_ |  Click the drop-down arrow for a list of options (depends on whether a data source or a view definition is selected): When a **_data source_** is selected, options are _Print Selected Data Source, Print All Data Sources, Print All_. When a **_view_** is selected, options are _Print Selected View, Print All Views, Print All._ Also available from the popup menu when right clicking on a selected data source or view definition.  
+_Print_ |  Click the drop-down arrow for a list of options (depends on whether a data source or a view definition is selected):    When a **_data source_** is selected, options are _Print Selected Data Source, Print All Data Sources, Print All_.    When a **_view_** is selected, options are _Print Selected View, Print All Views, Print All._ Also available from the popup menu when right clicking on a selected data source or view definition.  
   
 ##  Internal Key Code
 
@@ -68,3 +68,9 @@ The _Internal Key Code_ can also be set by loading the **%VIEW_OWNER$** global v
 
 **[Data Source Definition Wizard](Data%20Source%20Definition.md)**  
 **[View Maintenance](../View%20Maintenance/Overview.md)**
+
+ 
+
+ 
+
+ 

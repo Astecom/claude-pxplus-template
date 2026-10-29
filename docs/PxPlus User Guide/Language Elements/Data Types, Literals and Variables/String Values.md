@@ -1,17 +1,17 @@
 # Data Types, Literals and Variables
 
-**String Values** |  **__**  
+**String Values** |  **_ _**  
 ---|---  
   
 The string data type defines values that represent any sequence of displayable characters (letters, numbers, spaces, punctuation symbols, etc.). Strings typically contain ASCII data but may contain any sequence of 8-bit bytes of data. In PxPlus, these values can appear in the form of literals, variables, arrays and substrings. String manipulation facilities include concatenation, comparing, scanning and conversion.
 
-String literals must be contained within**" "**_(quotation marks)._ Spaces within the quotation marks are considered an integral part of the string:
+String literals must be contained within** " "**_(quotation marks)._ Spaces within the quotation marks are considered an integral part of the string:
 
 > "PVX Plus Technologies Ltd. "**_is not the same as_** "PVX Plus Technologies Ltd."
 
 To include an actual quotation mark symbol within a string literal, two quotation marks must be specified back-to-back:
 
-> "My name is ""Joe"""**_produces the result_** My name is "Joe"
+> "My name is ""Joe"""**_produces the result_**  My name is "Joe"
 
 ## Hexadecimal String Literals
 
@@ -21,10 +21,10 @@ Hexadecimal string literals provide the ability to define a string of data, whic
 
 Below are examples of hexadecimal strings:
 
-|  $414243$ |  = "ABC"  
+  |  $414243$ |  = "ABC"  
 ---|---|---  
-|  $30313233$ |  = "0123"  
-|  $0D0A$ |  = _Carriage Return/Line Feed_  
+  |  $30313233$ |  = "0123"  
+  |  $0D0A$ |  = _Carriage Return/Line Feed_  
   
 ## String Variables
 
@@ -64,24 +64,24 @@ Use the **[DIM( )](../../../functions/dim.md)** function to determine informatio
 >  PRINT DIM(READ MAX(X$)) ! Read maximum element number   
 >  10
 
-To access a **_range_** of entries, specify the string array name, followed by subscripts ranging **_from_** : ** _to_** (or ALL) using _braces_ instead of parentheses.
+To access a **_range_** of entries, specify the string array name, followed by subscripts ranging **_from_** : **_to_** (or ALL) using _braces_ instead of parentheses.
 
 **_Example:_**
 
-|  _Assigning a value to an entire array:_ |  LET A${ALL}="ABC"  
+  |  _Assigning a value to an entire array:_ |  LET A${ALL}="ABC"  
 ---|---|---  
-|  _Assigning a value to a range of array elements:_ |  LET A${1:5}="ABC"  
-|  _Copying the contents of one array into another:_ |  LET A${ALL}=B${ALL}  
-|  _Assigning a range of values from one array to another:_ |  LET A${1:5}=B${6:10}  
+  |  _Assigning a value to a range of array elements:_ |  LET A${1:5}="ABC"  
+  |  _Copying the contents of one array into another:_ |  LET A${ALL}=B${ALL}  
+  |  _Assigning a range of values from one array to another:_ |  LET A${1:5}=B${6:10}  
   
 The element positions in an array can be shifted/rearranged using a combination of subscripts (literals, variables, expressions and ranges).
 
 **_Example:_**
 
-|  _Shift up by deleting at subscript_ P: |  X${P:ElementCount}=X${P+1:ElementCount+1}  
+  |  _Shift up by deleting at subscript_ P: |  X${P:ElementCount}=X${P+1:ElementCount+1}  
 ---|---|---  
-|  _Shift down by inserting at subscript_ P: |  X${ElementCount+1:P+1}=X${ElementCount:P}  
-|  |  X$[P]=NewValue$  
+  |  _Shift down by inserting at subscript_ P: |  X${ElementCount+1:P+1}=X${ElementCount:P}  
+  |    |  X$[P]=NewValue$  
   
 ## Dynamic Arrays
 
@@ -109,11 +109,11 @@ Substrings may be used wherever a string variable is used. When the value being 
 
 The following examples assume string A$ contains "ABCDEF":
 
-|  LET A$(2,2) = "XX" |  _yields_ |  A$="AXXDEF"  
+  |  LET A$(2,2) = "XX" |  _yields_ |  A$="AXXDEF"  
 ---|---|---|---  
-|  LET A$(2,2) = "X" |  _yields_ |  A$="AX DEF"  
-|  LET A$(2,2) = "XXX" |  _yields_ |  A$="AXXDEF"  
-|  LET A$(2) = "X" |  _yields_ |  A$="AX "  
+  |  LET A$(2,2) = "X" |  _yields_ |  A$="AX DEF"  
+  |  LET A$(2,2) = "XXX" |  _yields_ |  A$="AXXDEF"  
+  |  LET A$(2) = "X" |  _yields_ |  A$="AX     "  
   
 Substrings can also be used on string arrays by specifying both the array element (within square brackets) and the substring (within parentheses):
 
@@ -123,7 +123,7 @@ The above substring indicates characters 2 through 4 of element 1,2.
 
 ## String Concatenation
 
-The mathematical**+**_plus_ operator can be used to concatenate strings. When two strings are concatenated, the resultant string consists of the contents of the string left of the**+** , followed immediately by the contents of the string to the right.
+The mathematical**+**_plus_ operator can be used to concatenate strings. When two strings are concatenated, the resultant string consists of the contents of the string left of the**  +**, followed immediately by the contents of the string to the right.
 
 **_Example:_**
 
@@ -141,8 +141,8 @@ The following relational operators can be used to compare two strings:
 
 **=** |  A$ = B$ yields 1 if A$ and B$ are equal, else yields 0 _zero_.  
 ---|---  
-**< ** |  A$ < B$ yields 1 if A$ is less than B$, else yields 0 _zero_.  
-**> ** |  A$ > B$ yields 1 if A$ is greater than B$, else yields 0 _zero_.  
+**<  ** |  A$ < B$ yields 1 if A$ is less than B$, else yields 0 _zero_.  
+**>  ** |  A$ > B$ yields 1 if A$ is greater than B$, else yields 0 _zero_.  
 **< > ** |  A$ <> B$ yields 1 if the A$ and B$ are not equal, else yields 0 _zero_.  
 **< =** |  A$ <= B$ yields 1 if A$ is less than or equal to B$, else yields 0 _zero_.  
 **> =** |  A$ >= B$ yields 1 if A$ is greater than or equal to B$, else yields 0 _zero_.  
@@ -163,7 +163,7 @@ This would be equivalent to the statement:
 See **[MSK( )](../../../functions/msk.md)** function for details on what a mask can contain.
 
 #### **Note:**  
-The LIKE operator can be altered to use a masking formula compatible with Thoroughbred Basic using the **['TL'](../../../parameters/tl.md)** system parameter.
+The LIKE operator can be altered to use a masking formula compatible with Thoroughbred® Basic using the **['TL'](../../../parameters/tl.md)** system parameter.
 
 In string comparisons, each character in one string is compared to the corresponding character in another string to yield a binary result. The comparison is performed on the internal binary value of each byte.
 
@@ -179,4 +179,12 @@ PxPlus includes various internal functions that return string values based on th
 
 See **[System Functions](../../../functions.md)**.
 
-Thoroughbred is a registered trademark of Thoroughbred Software International Inc.
+ 
+
+ 
+
+ 
+
+Thoroughbred® is a registered trademark of Thoroughbred Software International Inc.
+
+ 

@@ -1,6 +1,6 @@
 # Language Reference
 
-**Mnemonics** |   
+**Mnemonics** |     
 ---|---  
   
 This section, when expanded, provides a list of all PxPlus mnemonics, arranged in alphabetical order. PxPlus mnemonics deliver special control sequences to a display device or printer. See **[MNEMONIC](directives/mnemonic.md)** directive.
@@ -35,7 +35,7 @@ All two-character mnemonics that are used for character display can also be used
 
 Many motion/editing operations will be emulated when they are not actually supported by the device specified. However, it is still better to define mnemonics using the correct motion/editing sequences that are available for the specific device. Emulation of some sequences may result in slower performance.
 
-For additional information on mnemonic definitions, see the [**MNEMONIC**](directives/mnemonic.md) directive and the [**[WDX]**](command_tags/wdx.htm) command tag.
+For additional information on mnemonic definitions, see the [**MNEMONIC**](directives/mnemonic.md) directive and the [**[WDX]**](command_tags/wdx.md) command tag.
 
 ## X,Y Coordinates
 
@@ -56,8 +56,14 @@ When you send output to the screen, PxPlus remembers all graphic mnemonics until
 
 PxPlus has three Windows API frame styles available to it. The [**'WINDOW' or 'WA'**](mnemonics/window.md) mnemonic uses **WS_BORDER** frame style, which is not popular with everyone; however, it has advantages. It maintains a global menu and buttons and is always relative to the main window. The [**'DIALOGUE'**](mnemonics/dialogue.md) mnemonic, on the other hand, uses **WS_DLGFRAME** , which is more popular but requires absolute screen position and does not allow global menus and buttons.
 
-To change the look of the window frame without losing '**WINDOW** ' functionality, you can use the **WS_THICKFRAME** style. To do this, add **OPT="Z"** to the '**WINDOW** ' mnemonic.
+To change the look of the window frame without losing '**WINDOW** ' functionality, you can use the **WS_THICKFRAME** style. To do this, add **OPT= "Z" **to the '**WINDOW** ' mnemonic.
 
 **_Example:_**
 
 > PRINT 'WINDOW'(10,10,40,10,"Title",OPT="Z") 
+
+ 
+
+ 
+
+ 

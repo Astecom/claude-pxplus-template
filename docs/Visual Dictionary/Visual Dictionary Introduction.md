@@ -1,4 +1,4 @@
-# Utility Programs
+# System Utilities
 
 **Visual Dictionary** ™**Utility**|   
 ---|---  
@@ -13,7 +13,7 @@ The **Visual Dictionary** ™ utility is accessed by using one of the following 
 ---|---  
 From the **[PxPlus IDE Main Launcher](../PxPlus%20IDE/IDE%20Main%20Launcher.md)** |  Expand the _Data Management_ category and select _Visual Dictionary._  
 From the PxPlus Command window |  Select _Utilities > Visual Dictionary_™ from the menu.  
-From the PxPlus Command line |  Enter: **Run "*PLUS/UTIL/DICTDEF"**  
+From the PxPlus Command line |  Enter:  **Run "*PLUS/UTIL/DICTDEF"**  
   
 With each of these methods, a data file browse window is launched for selecting or manually entering the pathname of the data file to use with Visual Dictionary™. The file must be a PxPlus keyed file (VLR or EFF) and should ideally contain data to allow the utility to perform an initial analysis of the fields.
 
@@ -29,7 +29,7 @@ If the utility has generated "dummy" names for the fields, you will want to modi
 
 The _File_ menu presents the following options:
 
-**File** |   
+**File** |     
 ---|---  
 _Open File_ |  Invokes the data file browse window for selecting or manually entering the pathname of a file to open.  
 _Save definition_ |  Updates the file's internal dictionary. See **[Saving the Dictionary](Saving%20the%20Dictionary.md)**.  
@@ -42,19 +42,25 @@ _Exit_ |  Closes the utility.
 
 The following links provide additional information for performing a number of common tasks with the Visual Dictionary™:
 
-|  **[Defining a Logical Table Name](Defining%20a%20Logical%20Table%20Name.md)**  
+  |  **[Defining a Logical Table Name](Defining%20a%20Logical%20Table%20Name.md)**  
 ---|---  
-|  **[Changing Field Details](Changing%20Field%20Details.md)**  
-|  **[External Key Handling](External%20Key%20Handling.md)**  
-|  **[Copying Field Definitions](Copying%20Field%20Definitions.md)**  
-|  **[Splitting a Field into Logical Parts](Splitting%20a%20Field%20into%20Logical%20Parts.md)**  
-|  **[Merging Two Logical Fields](Merging%20Two%20Logical%20Fields.md)**  
-|  **[Adding and Deleting Fields](Adding%20and%20Deleting%20Fields.md)**  
-|  **[Saving the Dictionary](Saving%20the%20Dictionary.md)**  
+  |  **[Changing Field Details](Changing%20Field%20Details.md)**  
+  |  **[External Key Handling](External%20Key%20Handling.md)**  
+  |  **[Copying Field Definitions](Copying%20Field%20Definitions.md)**  
+  |  **[Splitting a Field into Logical Parts](Splitting%20a%20Field%20into%20Logical%20Parts.md)**  
+  |  **[Merging Two Logical Fields](Merging%20Two%20Logical%20Fields.md)**  
+  |  **[Adding and Deleting Fields](Adding%20and%20Deleting%20Fields.md)**  
+  |  **[Saving the Dictionary](Saving%20the%20Dictionary.md)**  
   
 The following information relates to changing the view of the data:
 
-|  **[Selecting the Key to Use for Viewing Data](Selecting%20the%20Key%20to%20Use.md)**  
+  |  **[Selecting the Key to Use for Viewing Data](Selecting%20the%20Key%20to%20Use.md)**  
 ---|---  
-|  **[Setting the Start Key for Viewing Data](Setting%20Start%20Key%20for%20View.md)**  
-|  **[Viewing the Field Contents in Hex](Viewing%20Field%20Contents%20in%20Hex.md)**
+  |  **[Setting the Start Key for Viewing Data](Setting%20Start%20Key%20for%20View.md)**  
+  |  **[Viewing the Field Contents in Hex](Viewing%20Field%20Contents%20in%20Hex.md)**  
+  
+ 
+
+ 
+
+ 

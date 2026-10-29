@@ -1,6 +1,6 @@
 # Introduction to Using PxPlus
 
-**Text-Mode Application Features** |  **__**  
+**Text-Mode Application Features** |  **_ _**  
 ---|---  
   
 Certain features can be used to enhance the appearance and functionality of a text-mode application, such as hot keys, built-in help and queries, mouse interface, and device drivers.
@@ -27,7 +27,7 @@ The CTL value can be defined by the programmer by using the **[DEFCTL](../../dir
 
 ## Defining HOT-KEY Programs
 
-CTL values from -1 to -9 and -1000 and below are defined for use by the PxPlus input editor. These are passed to the system utility **"*control"** for processing when received by the input processor. The *control program internally processes the CTL values between -1 and -9.
+CTL values from -1 to -9 and -1000 and below are defined for use by the PxPlus input editor. These are passed to the system utility **" *control"** for processing when received by the input processor. The *control program internally processes the CTL values between -1 and -9.
 
 The values between -10 and -999 are reserved for user-defined HOT-KEYS and will cause the system to automatically call user defined and developed programs. These programs must have the name $CTL _-nnn_ where _\- nnn_ is the CTL value. For example, a CTL value of -10 calls "$CTL-10", -500 call "$CTL-500", and so on.
 
@@ -102,10 +102,10 @@ To invoke online help, the user simply depresses a function key (or CTRL key seq
 
 PxPlus uses the following function keys with the Help sub-system by default:
 
-__ |  _Shifted Function Key 1_ |  **Field Help**  
+_ _ |  _Shifted Function Key 1_ |  **Field Help**  
 ---|---|---  
-__ |  _Shifted Function Key 2_ |  **Field Query**  
-__ |  _Shifted Function Key 3_ |  **Program Help**  
+_ _ |  _Shifted Function Key 2_ |  **Field Query**  
+_ _ |  _Shifted Function Key 3_ |  **Program Help**  
   
 These key assignments can be altered by changing the definition of the system CTL values -5, -6, and -7 respectively. See **[Function and Control Keys](Introduction.htm#functionkeys)** on how to alter these defaults.
 
@@ -155,3 +155,21 @@ To change the password, enter the following:
 >  PASSWORD "SYBEX"  
 >  PASSWORD "_new_password_ "  
 >  SAVE
+
+## How to Determine if "Insert" Mode is Enabled
+
+In text mode, you can set the system parameter **['IM'](../../parameters/im.md)** to preserve the Insert mode state between inputs. However, you can also read byte 19 (bit $04) of the **FIN** to determine if Insert mode is active.
+
+If you want to force Insert mode to be active, you can **[PREINPUT](../../directives/preinput.md)** the negative CTL value associated with Insert mode (-1009). See **[Negative CTL Definitions](../../appendix/negative_ctl_definitions.md)**.
+
+**_Example:_**
+
+> IF and(mid(fin(0),19,1),$04$)=$00$ preinput -1009
+
+In Windows (graphical user interface) mode, this is handled by the individual controls.
+
+ 
+
+ 
+
+ 

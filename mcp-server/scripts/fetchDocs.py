@@ -10,6 +10,7 @@ docs/<the same path>.md. A page whose text is the same is left alone. Then run: 
     python3 -m venv /tmp/docs-venv && /tmp/docs-venv/bin/pip install html2text
     /tmp/docs-venv/bin/python scripts/fetchDocs.py pxplus/vers2300.htm
     /tmp/docs-venv/bin/python scripts/fetchDocs.py https://home.pvxplus.com/release-info.htm
+    /tmp/docs-venv/bin/python scripts/fetchDocs.py --all     (every page in docs/ and every page they link to)
 
 It asks the site for one page at a time with a pause in between, and names itself in the User-Agent.
 """
@@ -92,14 +93,24 @@ def same_text(old, new):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
-    parser.add_argument('pages', nargs='+', help='page paths below PXPLUS/, e.g. pxplus/vers2300.htm')
+    parser.add_argument('pages', nargs='*', help='page paths below PXPLUS/, e.g. pxplus/vers2300.htm')
+    parser.add_argument('--all', action='store_true',
+                        help='the whole manual: every page in docs/, following the links of every page fetched')
     parser.add_argument('--pause', type=float, default=0.6, help='seconds between two requests (default 0.6)')
     parser.add_argument('--no-follow', action='store_true', help='only the pages given, not the pages they link to')
     args = parser.parse_args()
 
     # A page of the manual by its path; a full URL outside it is only read for its links
     starts = [p if p.startswith('http') and not page_of(p) else (page_of(p) or p.lstrip('/')) for p in args.pages]
+    if args.all:
+        for folder, _, files in os.walk(DOCS):
+            for name in sorted(files):
+                if name.endswith('.md'):
+                    starts.append(os.path.relpath(os.path.join(folder, name), DOCS).replace(os.sep, '/')[:-3] + '.htm')
+    if not starts:
+        parser.error('give a page, or --all')
     todo = list(starts)
+    start_set = set(starts)
     seen = set()
     counts = {'new': 0, 'changed': 0, 'same': 0, 'failed': 0}
     first = True
@@ -146,7 +157,7 @@ def main():
             print(f'{state:8} {page}')
 
         # The pages a given page links to (one level)
-        if not args.no_follow and page in starts:
+        if not args.no_follow and (args.all or page in start_set):
             links = Links()
             links.feed(text)
             for href in links.hrefs:

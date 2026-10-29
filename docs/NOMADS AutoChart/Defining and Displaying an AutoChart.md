@@ -76,8 +76,8 @@ Give the new chart definition a unique and meaningful _Chart Name_ so that it ca
 By default, an AutoChart is available only to the user who created it. By setting the **[PublicAutoChart](../NOMADS%20Graphical%20Application/Appendix/NOMADS%20Variables/Overview.htm#publicautochart)** property of the %NOMADS object to non-zero, you can select the _Public chart_ option and create an AutoChart that will be available for **_all users_** to display:
 
 > IF %nomads=0  
->  then %nomads=NEW("*obj/nomads")  
->  %nomads'PublicAutochart=1
+>      then %nomads=NEW("*obj/nomads")  
+>      %nomads'PublicAutochart=1
 
 ##  Step 2: Select Chart Type
 
@@ -160,10 +160,10 @@ The source of the group member values may be derived as follows:
 ---|---  
 _From Dataset_ |  **_(Default)_** Group member values are derived from the dataset being processed. The dataset may not have records for all group members, resulting in members not appearing in the chart.  
 _Fixed values_ |  Enter one group member value per line in the input box.  
-_Expression_ |  Enter an expression that will supply the list of member values to be used for the group. The resulting values must be separated by a character, such as a comma or slash, which should also end the list. **_Example:_** Ann/John/William/  
-_From File_ |  Enter the file information required to retrieve group values from a file: Select the logical file name of the file containing the group values. Select the key to read the file. (Default is the primary key.) Select the field that contains the group value. (Default is the first field.)  
+_Expression_ |  Enter an expression that will supply the list of member values to be used for the group. The resulting values must be separated by a character, such as a comma or slash, which should also end the list. **_Example:_**     Ann/John/William/  
+_From File_ |  Enter the file information required to retrieve group values from a file:    Select the logical file name of the file containing the group values.    Select the key to read the file. (Default is the primary key.)    Select the field that contains the group value. (Default is the first field.)  
   
-When _From Dataset_ or _From File_ is selected, the group member values will be sorted alphabetically when charted.
+When _From Dataset_ or _From File_  is selected, the group member values will be sorted alphabetically when charted.
 
 If _Fixed_ _values_ or _Expression_ is selected, the group members will remain in the order specified, with any additional members found in the dataset added to the end.
 
@@ -179,14 +179,14 @@ To do this, select the **_Click to define data filters_** hyperlink button to in
 
 > Conditions that can be applied to column filters are:
 
-|  _None_ |  _Between <Value1> and <Value2> inclusive_  
+  |  _None_ |  _Between <Value1> and <Value2> inclusive_  
 ---|---|---  
-|  _Equal to <Value1>_ |  _Between <Value1> and <Value2> exclusive_  
-|  _Not equal to <Value1>_ |  _Any of <Value1>,<Value2>,<Value3>,..._  
-|  _Less than <Value1>_ |  _None of <Value1>,<Value2>,<Value3>,_  
-|  _Greater than <Value1>_ |  _Starts with <Value1>_  
-|  _Less than or equal to <Value1>_ |  _Contains <Value1> AND <Value2> AND _  
-|  _Greater than or equal to <Value1>_ |  _Contains <Value1> OR <Value2> OR _  
+  |  _Equal to <Value1>_ |  _Between <Value1> and <Value2> exclusive_  
+  |  _Not equal to <Value1>_ |  _Any of <Value1>,<Value2>,<Value3>,..._  
+  |  _Less than <Value1>_ |  _None of <Value1>,<Value2>,<Value3>, _  
+  |  _Greater than <Value1>_ |  _Starts with <Value1>_  
+  |  _Less than or equal to <Value1>_ |  _Contains <Value1> AND <Value2> AND _  
+  |  _Greater than or equal to <Value1>_ |  _Contains <Value1> OR <Value2> OR _  
   
 #### **Note:**  
 When defining a comparison value (i.e. _Value1_ , _Value2_ , etc.), an expression can be used by preceding the expression with an **=**  _(equals sign)_.   
@@ -217,11 +217,11 @@ To display an AutoChart, click the _Charts_ button at the top of the Query or ri
 
 If more than one AutoChart definition exists, selecting the _Display Chart_ option will show the names of all AutoCharts associated with that list control. AutoCharts defined by the user appear first, followed by any public definitions.
 
-|  |    
+ |  |    
 **_Charts Button: Display Chart option_**  
   
   
-** _Popup Menu: Display Chart option_** |  |    
+** _Popup Menu: Display Chart option_** |                          |    
 **_AutoChart_ _display window_**  
 ---|---|---|---|---  
   
@@ -238,3 +238,9 @@ If the _Auto-Update_ option is **_not_** selected, a _Refresh_ button displays n
 ## See Also
 
 **[Creating a Smart Control (or Smart Chart) Definition](../NOMADS%20Graphical%20Application/Smart%20Controls/Defining%20Smart%20Controls.htm#Mark2)**
+
+ 
+
+ 
+
+ 

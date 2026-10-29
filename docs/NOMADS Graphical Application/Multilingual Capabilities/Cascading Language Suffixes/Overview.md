@@ -1,6 +1,6 @@
 # Multilingual Capabilities
 
-**Cascading Language Suffixes** |  **__**  
+**Cascading Language Suffixes** |  **_ _**  
 ---|---  
   
 **_Prior to PxPlus v10_** , the standard usage of the **[PROCESS](../../../directives/process.md)** directive was to include a panel name and library name with a language suffix, and if the library was omitted, then the current library was used.
@@ -36,7 +36,7 @@ If no library is specified, as in:
 
 > PROCESS "MYPANEL",""
 
-then the last accessed library is used. If the last accessed library is _scrnlib.xx_ and the default and alternate suffixes are as above, then the system will attempt to find the panel in libraries in the same way as the first example.
+…then the last accessed library is used. If the last accessed library is _scrnlib.xx_ and the default and alternate suffixes are as above, then the system will attempt to find the panel in libraries in the same way as the first example.
 
 The default and alternate suffixes are defined in the **[NOMADS System Defaults](../../System%20Maintenance%20Tools/System%20Options/System%20Defaults.md)**. Language suffixes are two characters long, and in the case of alternate suffixes, multiple language suffixes are defined in a comma-separated list (e.g. en, fr, es,). The default suffix may also be set in the **[%NOMAD_Def_Sfx$](../../Appendix/NOMADS%20Variables/Overview.htm#def_sfx)** variable, and alternate suffixes may be set using the **[%NOMAD_Alt_Sfx$](../../Appendix/NOMADS%20Variables/Overview.htm#alt_sfx)** variable. Setting the global variable overrides NOMADS System Defaults settings. Language suffixes are case-sensitive; therefore, the "scrnlib.EN" library would not be found by specifying a suffix as "en" on a UNIX/Linux system.
 
@@ -47,6 +47,12 @@ When a library path is specified, it is processed as follows:
   * Paths are simplified based on the current directory and prefixes.
   * System library references are simplified (i.e. _/pxplus/lib/_rpt/rpt.en_ is simplified to _*rpt/rpt.en_).
   * Library suffixes that match that of the current library are replaced with *****  _(asterisk)_.
-  * **\**  _(backslashes)_ are replaced with **/**  _(forward slashes)_.
+  * **\**  _(backslashes)_  are replaced with **/**  _(forward slashes)_.
 
 
+
+ 
+
+ 
+
+ 

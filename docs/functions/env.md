@@ -53,7 +53,7 @@ The following program displays all the environment variables:
 >  BLASTER=A220 I5 D1 H5 P330 T6
 
 _(As of PxPlus v10.10,**ENV(-1)** will return the name of the product: PxPlus-Base, PxPlus-Pro, PxPlus-eComm or PxBasic.)  
-(As of PxPlus 2016 Update 0003, **ENV(-2)** will return Copyright information in the following format: Copyright 2005-2016, PVX Plus Technologies Ltd.)_
+(As of PxPlus 2016 Update 0003, **ENV(-2)** will return Copyright information in the following format:  © Copyright 2005-2016, PVX Plus Technologies Ltd.)_
 
 ##  Format 2
 
@@ -67,6 +67,12 @@ The following program tests and displays the environment variable TERM:
 
 > T_TYP$=env("TERM")  
 >  if T_TYP$="" \  
->  then print "No terminal defined";  
->  stop  
+>      then print "No terminal defined";  
+>              stop  
 >  print "You are using a "+T_TYP$+" terminal"
+
+ 
+
+ 
+
+ 

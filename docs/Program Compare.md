@@ -5,7 +5,7 @@
   
 The **Program Compare Utility** is used to compare two versions of an existing program file on a line-by-line basis to detect any differences; however, it does not attempt to match lines whose line numbers have changed.
 
-This utility is invoked from the **[System Utilities](System%20Utilities.md)** window by clicking the _Compare_ tool bar option or by selecting _Utilities > Programs > Compare_ from the menu bar after selecting the directory containing the original program files to be compared.
+This utility is invoked from the **[System Utilities](PxPlus%20User%20Guide/Getting%20Started/System%20Utilities/Graphical%20Utilities.md)** window by clicking the _Compare_ tool bar option or by selecting _Utilities > Programs > Compare_ from the menu bar after selecting the directory containing the original program files to be compared.
 
 An example of the Program Compare Utility with a completed comparison is displayed below:
 
@@ -30,4 +30,10 @@ _(Results Output Box)_ |  The output consists of a side-by-side listing of the _
 _Original/Revised_ |  **_(Display Only)_** When the _Apply_ button is selected, the pathnames of the _Original Program/Directory_ and the _Revised Program/Directory_ being compared, as well as the line numbers, will be displayed.  
 _Apply_ |  Starts the comparison process. A prompt displays when the process is completed.  
 _Stop_ |  **_(Available Only during the Comparison Process)_** Button that displays when the _Apply_ button is selected and is used to abort the comparison process. This button is hidden when the comparison is aborted or completed.  
-_Close_ |  Exits the utility and returns to the **System Utilities** window.
+_Close_ |  Exits the utility and returns to the **System Utilities** window.  
+  
+ 
+
+ 
+
+ 

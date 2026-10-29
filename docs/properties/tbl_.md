@@ -11,4 +11,10 @@ This property controls the translation of the values selected in a control and h
 
 ## Used By 
 
-**CHECK_BOX****DROP_BOX****LIST_BOX****LIST_VIEW****RADIO_BUTTON****REPORT_VIEW TRISTATE_BOX VARDROP_BOX****VARLIST_BOX**
+**CHECK_BOX** **DROP_BOX** **LIST_BOX** **LIST_VIEW** **RADIO_BUTTON** **REPORT_VIEW  TRISTATE_BOX  VARDROP_BOX** **VARLIST_BOX**
+
+ 
+
+ 
+
+ 

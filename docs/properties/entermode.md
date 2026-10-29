@@ -11,12 +11,12 @@ This property is used to define how the ENTER key will be processed with the con
 
 **For the Grid:** Possible values are:
 
-|  0 |  Normal processing (edits cell).  
+  |  0 |  Normal processing (edits cell).  
 ---|---|---  
-|  1 |  Move right across a grid by column, exit on last column.  
-|  2 |  Move right across a grid by column, wrap to first column of next row, exit on last column of last row.  
-|  3 |  Move down by row, hold on last row.  
-|  4 |  Move down by row, return to column 1, hold on last row.  
+  |  1 |  Move right across a grid by column, exit on last column.  
+  |  2 |  Move right across a grid by column, wrap to first column of next row, exit on last column of last row.  
+  |  3 |  Move down by row, hold on last row.  
+  |  4 |  Move down by row, return to column 1, hold on last row.  
   
 #### **Note:**  
 In the **_grid_** , if the SHIFT key is pressed, these key modes reverses the direction. In addition, if the Tab/Enter [**'+E'**](../mnemonics/+e.md) mnemonic has been set, this property will be ignored and the settings in the [**TabMode**](tabmode.md) property will be used.
@@ -30,4 +30,10 @@ For MULTI_LINE: The default setting reflects the '+E' mnemonic setting.
 
 ## Used By 
 
-**GRID****MULTI_LINE** **MULTI_LINE** ** _(RTF word processing style)_**
+**GRID** **MULTI_LINE**  **MULTI_LINE**  **_(RTF word processing style)_**
+
+ 
+
+ 
+
+ 

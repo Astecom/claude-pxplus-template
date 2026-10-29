@@ -1,11 +1,11 @@
-# Utility Routines
+# Utilities
 
 ***TOOLS/MAKEQRCODE** |  **_Generate QR Code_**  
 ---|---  
   
 ## Invocation
 
-**CALL "*tools/makeqrcode"** , "_text_ ", "_output_file.png_ " [ ,  _qualitycode_ _$_ ]
+**CALL "*tools/makeqrcode"**, "_text_ ", "_output_file.png_ " [ , _qualitycode_ _$_ ]
 
 **_Where:_**
 
@@ -32,3 +32,9 @@ _(The MakeQRCode utility was added in PxPlus 2014.)_
 ## Example
 
 call "*tools/makeqrcode","https://home.pvxplus.com","pxplus_qr_code.png"
+
+ 
+
+ 
+
+ 

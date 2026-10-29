@@ -200,14 +200,14 @@ This is a listing of the HTML for the DireXions **login.htm** web page applicati
 >  </tr>   
 >  <tr>   
 >  <td width="100%" colspan="2" valign="middle" align="center"><st rong><font face="Arial" size="3"><input type="submit" value="   
->  Sign On " name="signon"quot;></font></ strong></td>   
+>  Sign On     " name="signon"quot;></font></ strong></td>   
 >  </tr>   
 >  <tr>   
 >   
->  <td width="50%" valign="middle" align="right"><strong><font face="Arial" size="3"><input type="submit" value=" New User   
+>  <td width="50%" valign="middle" align="right"><strong><font face="Arial" size="3"><input type="submit" value="      New User   
 >  " name="newuser"quot;></font></strong></td>   
 >  <td width="50%" valign="middle" align="left"><strong><font face="Arial" size="3"><input type="submit" value="   
->  Exit " name="Exit"quot;></font></strong></td>   
+>  Exit  " name="Exit"quot;></font></strong></td>   
 >  </tr>   
 >  </table>   
 >  </center></div>   
@@ -235,7 +235,7 @@ This is a listing of the HTML for the DireXions **login.htm** web page applicati
 
 The **profile.htm** web page application illustrates a variety of HTML codes.
 
-> <html>   
+> <html>    
 >   
 >  <head>  
 >  <title>PxPlus - Order System - Personal Profile</title>  
@@ -274,14 +274,14 @@ The **profile.htm** web page application illustrates a variety of HTML codes.
 >  return (false);   
 >  }   
 >   
-> var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz   
+> var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz   
 >  89-";   
 > var checkStr = theForm.UserID.value;   
 > var allValid = true;   
->  for (i = 0; i < checkStr.length; i++)   
+>  for (i = 0; i < checkStr.length;     i++)   
 >  {   
 > ch = checkStr.charAt(i);   
->  for (j = 0; j < checkOK.length; j++)   
+>  for (j = 0; j < checkOK.length;      j++)   
 >  if (ch == checkOK.charAt(j))   
 >  break;   
 >  if (j == checkOK.length)   
@@ -311,14 +311,14 @@ The **profile.htm** web page application illustrates a variety of HTML codes.
 >  return (false);   
 >  }   
 >   
-> var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz   
+> var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz   
 >  89-";   
 > var checkStr = theForm.passwd1.value;   
 > var allValid = true;   
->  for (i = 0; i < checkStr.length; i++)   
+>  for (i = 0; i < checkStr.length;     i++)   
 >  {   
 > ch = checkStr.charAt(i);   
->  for (j = 0; j < checkOK.length; j++)   
+>  for (j = 0; j < checkOK.length;      j++)   
 >  if (ch == checkOK.charAt(j))   
 >  break;   
 >  if (j == checkOK.length)   
@@ -350,14 +350,14 @@ The **profile.htm** web page application illustrates a variety of HTML codes.
 >  return (false);   
 >  }   
 >   
-> var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz   
+> var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz   
 >  89-";   
 > var checkStr = theForm.passwd2.value;   
 > var allValid = true;   
->  for (i = 0; i < checkStr.length; i++)   
+>  for (i = 0; i < checkStr.length;     i++)   
 >  {   
 > ch = checkStr.charAt(i);   
->  for (j = 0; j < checkOK.length; j++)   
+>  for (j = 0; j < checkOK.length;      j++)   
 >  if (ch == checkOK.charAt(j))   
 >  break;   
 >  if (j == checkOK.length)   
@@ -482,10 +482,10 @@ The **profile.htm** web page application illustrates a variety of HTML codes.
 >  }   
 >   
 > var checkOK = "0123456789-+-() \t\r\n\f"; var checkStr = theForm.Telephone.value; var allValid = true;   
->  for (i = 0; i < checkStr.length; i++)   
+>  for (i = 0; i < checkStr.length;     i++)   
 >  {   
 > ch = checkStr.charAt(i);   
->  for (j = 0; j < checkOK.length; j++)   
+>  for (j = 0; j < checkOK.length;      j++)   
 >  if (ch == checkOK.charAt(j))   
 >  break;   
 >  if (j == checkOK.length)   
@@ -505,12 +505,12 @@ The **profile.htm** web page application illustrates a variety of HTML codes.
 > var checkOK = "0123456789-+-() \t\r\n\f";   
 > var checkStr = theForm.Fax.value;   
 > var allValid = true;   
->  for (i = 0; i < checkStr.length; i++)   
+>  for (i = 0; i < checkStr.length;     i++)   
 >  {   
 >   
 >   
 > ch = checkStr.charAt(i);   
->  for (j = 0; j < checkOK.length; j++)   
+>  for (j = 0; j < checkOK.length;      j++)   
 >  if (ch == checkOK.charAt(j))   
 >  break;   
 >  if (j == checkOK.length)   
@@ -541,14 +541,14 @@ The **profile.htm** web page application illustrates a variety of HTML codes.
 >  return (false);   
 >  }   
 >   
-> var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz   
+> var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz   
 >  89-.@-_,";   
 > var checkStr = theForm.Email.value;   
 > var allValid = true;   
->  for (i = 0; i < checkStr.length; i++)   
+>  for (i = 0; i < checkStr.length;     i++)   
 >  {   
 > ch = checkStr.charAt(i);   
->  for (j = 0; j < checkOK.length; j++)   
+>  for (j = 0; j < checkOK.length;      j++)   
 >  if (ch == checkOK.charAt(j))   
 >  break;   
 >  if (j == checkOK.length)   
@@ -583,18 +583,18 @@ The **profile.htm** web page application illustrates a variety of HTML codes.
 >  <tr>   
 >  <td width="15%" valign="middle" align="right" nowrap><strong><font face="Arial">User ID:</font></strong></td>   
 >  <td width="85%" valign="middle" align="left" colspan="3" nowrap><!-   
->  -webbot bot="Validation" S-Display-Name="User ID" S-Data-Type= "String" B-Allow-Letters="TRUE" B-Allow-Digits="TRUE" I-Minimum- Length="4" I-Maximum-Length="10" --><input type="text" name= "UserID" size="20" tabindex="1" maxlength="10" value="~~userid$~~">   
+>  -webbot bot="Validation" S-Display-Name="User ID" S-Data-Type= "String" B-Allow-Letters="TRUE" B-Allow-Digits="TRUE" I-Minimum- Length="4" I-Maximum-Length="10" \--><input type="text" name= "UserID" size="20" tabindex="1" maxlength="10" value="~~userid$~~">   
 >  <font face="Tahoma"><imgsrc="../images/blueball.gif" alt="blue ball.gif (262 bytes)" WIDTH="15" HEIGHT="15"></font></td>   
 >  </tr>   
 >  <tr>   
 >  <td width="15%" valign="middle" align="right" nowrap><strong><font face="Arial">Password:</font></strong></td>   
 >  <td width="85%" valign="middle" align="left" colspan="3" nowrap><!-   
->  -webbot bot="Validation" S-Display-Name="Password" S-Data-Type= "String" B-Allow-Letters="TRUE" B-Allow-Digits="TRUE" I-Minimum- Length="4" I-Maximum-Length="10" --><input type="password" name= "passwd1" size="20" tabindex="1" value="~~passwd1$~~" maxlength= "10"><font face="Tahoma"> <img src="../images/blueball.gif" alt= "blueball.gif (262 bytes)" WIDTH="15" HEIGHT="15"></font></td>   
+>  -webbot bot="Validation" S-Display-Name="Password" S-Data-Type= "String" B-Allow-Letters="TRUE" B-Allow-Digits="TRUE" I-Minimum- Length="4" I-Maximum-Length="10" \--><input type="password" name= "passwd1" size="20" tabindex="1" value="~~passwd1$~~" maxlength= "10"><font face="Tahoma"> <img src="../images/blueball.gif" alt= "blueball.gif (262 bytes)" WIDTH="15" HEIGHT="15"></font></td>   
 >  </tr>   
 >  <tr>   
 >  <td width="15%" valign="middle" align="right" nowrap><strong><font face="Arial">ConfirmPassword:</font></strong></td>   
 >  <td width="85%" valign="middle" align="left" colspan="3" nowrap><!-   
->  -webbot bot="Validation" S-Display-Name="Confirmation Password" S- Data-Type="String" B-Allow-Letters="TRUE" B-Allow-Digits="TRUE" I- Minimum-Length="4" I-Maximum-Length="10" --><input type="password" name="passwd2" size="20" tabindex="1" value="~~passwd2$~~" maxlength="10"><font face="Tahoma"> <img src="../images/blueball.gif" alt="blueball.gif (262 bytes)" WIDTH="15" HEIGHT="15">   
+>  -webbot bot="Validation" S-Display-Name="Confirmation Password" S- Data-Type="String" B-Allow-Letters="TRUE" B-Allow-Digits="TRUE" I- Minimum-Length="4" I-Maximum-Length="10" \--><input type="password" name="passwd2" size="20" tabindex="1" value="~~passwd2$~~" maxlength="10"><font face="Tahoma"> <img src="../images/blueball.gif" alt="blueball.gif (262 bytes)" WIDTH="15" HEIGHT="15">   
 >  </font></td>   
 >  </tr>   
 >  <tr>   
@@ -606,12 +606,12 @@ The **profile.htm** web page application illustrates a variety of HTML codes.
 >  <td width="15%" valign="middle" align="right" nowrap><strong><font face="Arial">FirstName:</font></strong></td>   
 >   
 >  <td width="85%" valign="middle" align="left" colspan="3" nowrap><!-   
->  -webbot bot="Validation" S-Display-Name="First Name" B-Value- Required="TRUE" I-Minimum-Length="1" --><input type="text" name= "FirstName" size="20" tabindex="2" value="~~firstname$~~"><font face="Tahoma"> <img src="../images/blueball.gif" alt="blueball.gif (262 bytes)" WIDTH="15" HEIGHT="15"></font></td>   
+>  -webbot bot="Validation" S-Display-Name="First Name" B-Value- Required="TRUE" I-Minimum-Length="1" \--><input type="text" name= "FirstName" size="20" tabindex="2" value="~~firstname$~~"><font face="Tahoma"> <img src="../images/blueball.gif" alt="blueball.gif (262 bytes)" WIDTH="15" HEIGHT="15"></font></td>   
 >  </tr>   
 >  <tr>   
 >  <td width="15%" valign="middle" align="right" nowrap><strong><font face="Arial">Last Name:</font></strong></td   
 >  <td width="85%" valign="middle" align="left" colspan="3" nowrap><!-   
->  -webbot bot="Validation" S-Display-Name="Last Name" B-Value- Required="TRUE" I-Minimum-Length="1" --><input type="text" name= "LastName" size="20" tabindex="3" value="~~lastname$~~"><font face="Tahoma"> <img src="../images/blueball.gif" alt="blueball.gif (262 bytes)" WIDTH="15" HEIGHT="15"></font></td>   
+>  -webbot bot="Validation" S-Display-Name="Last Name" B-Value- Required="TRUE" I-Minimum-Length="1" \--><input type="text" name= "LastName" size="20" tabindex="3" value="~~lastname$~~"><font face="Tahoma"> <img src="../images/blueball.gif" alt="blueball.gif (262 bytes)" WIDTH="15" HEIGHT="15"></font></td>   
 >  </tr>   
 >  <tr>   
 >  <td width="15%" valign="middle" align="right" nowrap height="20">   
@@ -621,12 +621,12 @@ The **profile.htm** web page application illustrates a variety of HTML codes.
 >  <tr>   
 >  <td width="15%" valign="middle" align="right" nowrap><strong><font face="Arial">CompanyName:</font></strong></td>   
 >  <td width="85%" valign="middle" align="left" colspan="3" nowrap><!-   
->  -webbot bot="Validation" S-Display-Name="Company Name" B-Value- Required="TRUE" I-Minimum-Length="1" --><input type="text" name= "CompName" size="50" tabindex="4" value="~~compname$~~"><font face= "Tahoma"> <img src="../images/blueball.gif" alt="blueball.gif (262 bytes)" WIDTH="15" HEIGHT="15"></font></td>   
+>  -webbot bot="Validation" S-Display-Name="Company Name" B-Value- Required="TRUE" I-Minimum-Length="1" \--><input type="text" name= "CompName" size="50" tabindex="4" value="~~compname$~~"><font face= "Tahoma"> <img src="../images/blueball.gif" alt="blueball.gif (262 bytes)" WIDTH="15" HEIGHT="15"></font></td>   
 >  </tr>   
 >  <tr>   
 >  <td width="15%" valign="middle" align="right" nowrap><strong><font face="Arial">Address:</font></strong></td>   
 >  <td width="85%" valign="middle" align="left" colspan="3" nowrap><!-   
->  -webbot bot="Validation" S-Display-Name="Address" B-Value-Required= "TRUE" I-Minimum-Length="1" --><input type="text" name="Addr1" size="50" tabindex="5" value="~~addr1$~~"><font face="Tahoma">   
+>  -webbot bot="Validation" S-Display-Name="Address" B-Value-Required= "TRUE" I-Minimum-Length="1" \--><input type="text" name="Addr1" size="50" tabindex="5" value="~~addr1$~~"><font face="Tahoma">   
 >  <img src="../images/blueball.gif" alt="blueball.gif (262 bytes)" WIDTH="15" HEIGHT="15"></font></td>   
 >  </tr>   
 >  <tr>   
@@ -642,13 +642,13 @@ The **profile.htm** web page application illustrates a variety of HTML codes.
 >  <tr>   
 >  <td width="15%" valign="middle" align="right" nowrap><strong><font face="Arial">City:</font></strong></td>   
 >   
->  <td width="34%" valign="middle" align="left" nowrap><!--webbot bot= "Validation" S-Display-Name="City" B-Value-Required="TRUE" I- Minimum-Length="1" --><input type="text" name="City" size="20" tabindex="8" value="~~city$~~"><font face="Tahoma"> <img src="../ images/blueball.gif" alt="blueball.gif (262 bytes)" WIDTH="15" HEIGHT="15"></font></td>   
+>  <td width="34%" valign="middle" align="left" nowrap><!--webbot bot= "Validation" S-Display-Name="City" B-Value-Required="TRUE" I- Minimum-Length="1" \--><input type="text" name="City" size="20" tabindex="8" value="~~city$~~"><font face="Tahoma"> <img src="../ images/blueball.gif" alt="blueball.gif (262 bytes)" WIDTH="15" HEIGHT="15"></font></td>   
 >  <td width="17%" valign="middle" align="right" nowrap><strong><font face="Arial">State/Prov:</font></strong></td>   
->  <td width="34%" valign="middle" align="left" nowrap><!--webbot bot="Validation" I-Minimum-Length="1" --><input type="text" name= "Province" size="10" tabindex="9" value="~~province$~~"></td>   
+>  <td width="34%" valign="middle" align="left" nowrap><!--webbot bot="Validation" I-Minimum-Length="1" \--><input type="text" name= "Province" size="10" tabindex="9" value="~~province$~~"></td>   
 >  </tr>   
 >  <tr>   
 >  <td width="15%" valign="middle" align="right" nowrap><strong><font face="Arial">Country:</font></strong></td>   
->  <td width="34%" valign="middle" align="left" nowrap><!--webbot bot= "Validation" S-Display-Name="Country" B-Value-Required="TRUE" I- Minimum-Length="1" --><input type="text" name="Country" size="20" tabindex="10" value="~~country$~~"><font face="Tahoma"> <img src= "../images/blueball.gif" alt="blueball.gif (262 bytes)" WIDTH="15" HEIGHT="15"></font></td>   
+>  <td width="34%" valign="middle" align="left" nowrap><!--webbot bot= "Validation" S-Display-Name="Country" B-Value-Required="TRUE" I- Minimum-Length="1" \--><input type="text" name="Country" size="20" tabindex="10" value="~~country$~~"><font face="Tahoma"> <img src= "../images/blueball.gif" alt="blueball.gif (262 bytes)" WIDTH="15" HEIGHT="15"></font></td>   
 >  <td width="17%" valign="middle" align="right" nowrap><strong><font face="Arial">Zip/Postal:</font></strong></td>   
 >  <td width="34%" valign="middle" align="left" nowrap><input type= "text" name="PostalCode" size="10" tabindex="11" value="~~postal code$~~"></td>   
 >  </tr>   
@@ -661,12 +661,12 @@ The **profile.htm** web page application illustrates a variety of HTML codes.
 >  <td width="15%" valign="middle" align="right" nowrap><strong><font face="Arial">Tel:</font></strong></td>   
 >  <td width="85%" valign="middle" align="left" colspan="3" nowrap><!-   
 >  -webbot bot="Validation" S-Display-Name="Telephone Number" S-Data- Type="String" B-Allow-Digits="TRUE" B-Allow-WhiteSpace="TRUE"   
->  S-Allow-Other-Chars="+-()" B-Value-Required="TRUE" I-Minimum- Length="7" --><input type="text" name="Telephone" size="30" tabindex="12" value="~~telephone$~~"><font face="Tahoma"> <img src= "../images/blueball.gif" alt="blueball.gif (262 bytes)" WIDTH="15" HEIGHT="15"></font></td>   
+>  S-Allow-Other-Chars="+-()" B-Value-Required="TRUE" I-Minimum- Length="7" \--><input type="text" name="Telephone" size="30" tabindex="12" value="~~telephone$~~"><font face="Tahoma"> <img src= "../images/blueball.gif" alt="blueball.gif (262 bytes)" WIDTH="15" HEIGHT="15"></font></td>   
 >  </tr>   
 >  <tr>   
 >  <td width="15%" valign="middle" align="right" nowrap><strong><font face="Arial">Fax:</font></strong></td>   
 >  <td width="85%" valign="middle" align="left" colspan="3" nowrap><!-   
->  -webbot bot="Validation" S-Display-Name="Fax Number" S-Data-Type= "String" B-Allow-Digits="TRUE" B-Allow-WhiteSpace="TRUE" S-Allow- Other-Chars="+-()" --><input type="text" name="Fax" size="30" tab index="13" value="~~fax$~~"></td>   
+>  -webbot bot="Validation" S-Display-Name="Fax Number" S-Data-Type= "String" B-Allow-Digits="TRUE" B-Allow-WhiteSpace="TRUE" S-Allow- Other-Chars="+-()" \--><input type="text" name="Fax" size="30" tab index="13" value="~~fax$~~"></td>   
 >  </tr>   
 >  <tr>   
 >  <td width="15%" valign="middle" align="right" nowrap><strong><font face="Arial">E-Mail:</font></strong></td>   
@@ -681,9 +681,9 @@ The **profile.htm** web page application illustrates a variety of HTML codes.
 >  </td>   
 >  </tr>   
 >  <tr>   
->  <td width="50%" valign="middle" align="right"><strong><font face= "Arial" size="3"><input type="submit" value=" OK " name="ok"quot; tabindex="15"></font></strong></td>   
+>  <td width="50%" valign="middle" align="right"><strong><font face= "Arial" size="3"><input type="submit" value="         OK       " name="ok"quot; tabindex="15"></font></strong></td>   
 >  <td width="50%" valign="middle" align="left" colspan="3"><strong>   
->  <font face="Arial" size="3"><input type="reset" value=" Reset   
+>  <font face="Arial" size="3"><input type="reset" value="      Reset   
 >  " name="Reset"quot; tabindex="16"></font></strong></td>   
 >  </tr>   
 >  </table>   
@@ -732,19 +732,19 @@ This is a listing of the HTML for the **ordstat.htm** Web page.
 >  </div>   
 >   
 >  <form method="POST" action="ordstat">   
->  <p><input type="submit" value=" Exit " name="Exit"><input type= "submit" value="Change Profile" name="getprofile"></p>   
+>  <p><input type="submit" value="      Exit   " name="Exit"><input type= "submit" value="Change Profile" name="getprofile"></p>   
 >  </form>   
 >   
->  <p><font face="Arial"><font color="#0000FF"><strong><big>Welcome:</big></   
+>  <p><font     face="Arial"><font       color="#0000FF"><strong><big>Welcome:</big></   
 >  strong></font>egt;</p>   
 >   
->  <p><font face="Arial"><strong><big>Your Current ShipTo address is:</big></   
+>  <p><font    face="Arial"><strong><big>Your      Current     ShipTo      address     is:</big></   
 >  strong><br>  
->  &nbsp; &nbsp; &nbsp; ~~compname$~~<br>  
->  &nbsp; &nbsp; &nbsp; ~~addr1$~~<br>  
->  &nbsp; &nbsp; &nbsp; ~~addr2$~~<br>  
->  &nbsp; &nbsp; &nbsp; ~~addr3$~~<br>  
->  &nbsp; &nbsp; &nbsp; ~~city$~~, ~~province$~~, ~~country$~~&nbsp;   
+>  &nbsp; &nbsp; &nbsp;  ~~compname$~~<br>  
+>  &nbsp; &nbsp; &nbsp;  ~~addr1$~~<br>  
+>  &nbsp; &nbsp; &nbsp;  ~~addr2$~~<br>  
+>  &nbsp; &nbsp; &nbsp;  ~~addr3$~~<br>  
+>  &nbsp; &nbsp; &nbsp;  ~~city$~~,  ~~province$~~,  ~~country$~~&nbsp;    
 >  ~~postalcode$~~</font><p>  
 >   
 >  <p><font face="Tahoma">Number of Orders on File:t;</p>   
@@ -770,3 +770,9 @@ This is a listing of the HTML for the **ordstat.htm** Web page.
 >  </div>   
 >  </body>   
 >  </html>
+
+ 
+
+ 
+
+ 

@@ -20,19 +20,19 @@ Associated files should be given a path that is relative to the Start-In directo
 
 The server daemon Command line syntax is described as follows:
 
-|  In **_Windows_** : |  _PVXpath_ _$_ **[**_state_**]** **[**_ini_**]** ***appserv\server** **ARG**  _ServerName_  
+  |  In **_Windows_** : |  _PVXpath_ _$_  **[**_state_**]**  **[**_ini_**]**  ***appserv\server**  **- ARG** _ServerName_  
 ---|---|---  
-|  In **_UNIX/Linux_** : |  _PVXpath_ _$_ **\\*appserv/server ARG**  _ServerName_  
+  |  In **_UNIX/Linux_** : |  _PVXpath_ _$_  **\\*appserv/server -ARG** _ServerName_  
   
 **_Where:_**
 
-|  _PVXpath_ |  Path to PxPlus.  
+  |  _PVXpath_ |  Path to PxPlus.  
 ---|---|---  
-|  _state_ |  Option setting for governing the initial WindX window: **_null_** \- Normal window  
+  |  _state_ |  Option setting for governing the initial WindX window: **_null_** \- Normal window  
 ** _-mn_** \- To start minimized  
-** _hd_** \- To start hidden  
-|  _ini_ |  Optional user-defined INI file (or _..__\Lib\\_appserv\apssrv.ini_). Do **_not_** use a ***** in the INI path, as PxPlus does not resolve them as it does program names. **_(Windows Only)_**  
-|  _ServerName_ |  Name of a server defined in the configuration. Case insensitive. May be quoted.  
+** _- hd_** \- To start hidden  
+  |  _ini_ |  Optional user-defined INI file (or _..__\Lib\\_appserv\apssrv.ini_). Do **_not_** use a ***** in the INI path, as PxPlus does not resolve them as it does program names. **_(Windows Only)_**  
+  |  _ServerName_ |  Name of a server defined in the configuration. Case insensitive. May be quoted.  
   
 ## Starting the Server Daemon - Examples
 
@@ -42,24 +42,24 @@ The following are examples of a Start command for an Application Server daemon:
 
 If the _Start-In Directory_ is C:\PxPlus:
 
-C:\pxplus\pxplus.exe -mn "C:\pxplus\Lib\\_appserv\appsrv.ini"  
-*appserv\server -ARG "MainServer"
+     C:\pxplus\pxplus.exe -mn "C:\pxplus\Lib\\_appserv\appsrv.ini"  
+          *appserv\server -ARG "MainServer"
 
 **_Under UNIX/Linux_**
 
-**_Method 1:_** From a Shell script
+**_Method 1:_**   From a Shell script
 
 > #!/bin/sh  
 >  TERM=ansi; export TERM  
 >  cd /usr/pvx  
 >  /usr/pvx/pvx \\*appserv/server -ARG MainServer </dev/null >/dev/null 2>&1
 
-**_Method 2:_** Directly from _/etc/inittab_. This uses "/ "as its starting directory.
+**_Method 2:_**   Directly from _/etc/inittab_. This uses "/ "as its starting directory.
 
 > pvd1:2345:respawn:/usr/pvx/pvx \\*appserv/server -ARG MainServer  
->  </dev/null >/dev/null 2>&1
+>       </dev/null >/dev/null 2>&1
 
-**_Method 3:_** From the _/etc/rc_ set of directories **_(Linux Method)_**
+**_Method 3:_**   From the _/etc/rc_ set of directories **_(Linux Method)_**
 
 Create a file in _/etc/init.d_. The simplest method is to copy an existing script from that directory and modify it to start the above command line. The script should contain the **START( )** and **STOP( )** functions required. Use symbolic links in the _/etc/rc?.d_ directories to link to your script.
 
@@ -80,3 +80,9 @@ Send a SIGBREAK to the server daemon process.
 **_Where:_**
 
 _pid_ is the process ID of the server daemon.
+
+ 
+
+ 
+
+ 

@@ -1,20 +1,20 @@
-# Utility Routines
+# Objects
 
 ***OBJ/XML** |  **_XML Object_**  
 ---|---  
   
 ## Invocation
 
-_oHandle_ =**NEW ("*obj/xml" [** , _xml_data_ _$_ **] )**
+_oHandle_ =**NEW ( "*obj/xml" [** , _xml_data$_  **] )**
 
 **_Where:_**
 
-_xml_data_ _$_ |  Optional parameter for the object creation that may contain the XML to be parsed and loaded into the object. _(added in PxPlus 2019)_  
+_xml_data$_ |  Optional parameter for the object creation that may contain the XML to be parsed and loaded into the object. _(added in PxPlus 2019)_  
 ---|---  
   
 ## Description
 
-The **"*obj/xml.pvc"** object provides a simple means to load, edit and generate XML. It parses the XML into individual node sub-objects where each node can have sub-nodes, attributes and tags.
+The **" *obj/xml.pvc"** object provides a simple means to load, edit and generate XML. It parses the XML into individual node sub-objects where each node can have sub-nodes, attributes and tags.
 
 Internally, the object maintains the XML in a tree structure of "node" objects where each node can have a **'Tag$** element (type/name of the node) and a **'Value$** element, which contains the value for that specific node. Each node can also contain subordinate nodes and/or subordinate attributes.
 
@@ -22,16 +22,16 @@ Internally, the object maintains the XML in a tree structure of "node" objects w
 
 Consider the following XML example:
 
-<staff>  
-<employee>  
-<firstname>John</firstname>  
-<lastname>Watson</lastname>  
-</employee>  
-<employee>  
-<firstname>Sherlock</firstname>  
-<lastname>Holmes</lastname>  
-</employee>  
-</staff>
+            <staff>  
+                        <employee>  
+                                    <firstname>John</firstname>  
+                                    <lastname>Watson</lastname>  
+                        </employee>  
+                        <employee>  
+                                    <firstname>Sherlock</firstname>  
+                                    <lastname>Holmes</lastname>  
+                        </employee>  
+            </staff>
 
 When represented using the *obj/xml, this would consist of a node with a **'Tag$** of "staff" containing two subordinate nodes, each with a **'Tag$** of "employee". The first of the subordinate nodes would itself contain two subordinate nodes: the first with a **'Tag$** of "firstname" and a **'Value$** of "John", and the second with a **'Tag$** of "lastname" and a **'Value$** of "Watson". The second node of the top-level "staff" node would also contain two subordinates for "Sherlock", "Holmes".
 
@@ -52,7 +52,7 @@ _(The XML object *OBJ/XML was added in PxPlus v11.50.)
 
 ## Methods and Properties
 
-The following **_methods_** are supported:
+The following **_methods_**  are supported:
 
 **Method** |  **Description**  
 ---|---  
@@ -82,12 +82,12 @@ _tag$_ may contain multiple levels separated by slashes, such as table/row/colum
 **Save_xml_file(**_path$_**)** |  Saves the XML data from the object to a file. Returns 0 if an error occurs. See **[Example - Loading and Saving an XML File](obj_xml.htm#ex_loadsave)**. _(The Save_xml_file method was added in PxPlus 2025.)_  
 **Set_Xml** _(xml$)_ |  Load and create nodes given XML string in _xml$_. This creates a dummy top-level node in which all top-level XML structures are placed. This allows the input XML to contain multiple top-level structures.  
 **Set_Xml_1** _(xml$)_ |  Loads a single node from the XML string and will report an error 42 if it encounters multiples. This avoids the top-level node that may contain multiple nodes.  
-**Value$**_(tag$)_ |  Find the specified tag and returns its value. Same functionality as **'Find_Node** _(__tag$)_**'Value$**. _(The Value$(tag$) method was added in PxPlus 2019.)_  
+**Value$**_(tag$)_ |  Find the specified tag and returns its value. Same functionality as **'Find_Node** _(tag$)_**'Value$**. _(The Value$(tag$) method was added in PxPlus 2019.)_  
   
 _(The methods Add_Node, Add_Attr, Find_Node and Find_Attr with a tag$ argument were added in PxPlus 2014.)  
 (The methods Find_Index(node), Next_Sibling( ),Prior_Sibling( ) and the property parent were added in PxPlus 2016.)_
 
-The following **_properties_** are supported:
+The following **_properties_**  are supported:
 
 **Property** |  **Description**  
 ---|---  
@@ -102,15 +102,15 @@ The following **_properties_** are supported:
 The following code is an example of setting/getting the XML:
 
 > x=new("*obj/xml")  
-> x'set_xml("<emp><name>mike king</name><addr>123 main</addr></emp>")  
+>  x'set_xml("<emp><name>mike king</name><addr>123 main</addr></emp>")  
 >  print x'get_xml$()  
-> x'set_xml("<emp><name format='First Last'>mike king</name><addr><street>123 main</street><city>Markham</city></addr></emp>")  
+>  x'set_xml("<emp><name format='First Last'>mike king</name><addr><street>123 main</street><city>Markham</city></addr></emp>")  
 >  print x'get_xml$()  
 >  drop object x
 
 You should be able to read the XML file into one long string, invoke **set_xml( )** , change/edit the nodes, and then call **get_xml$( )** to retrieve the revised XML back.
 
-## Example - Parsing the XML
+## Example 1 - Parsing the XML
 
 Suppose you have received and need to parse the following XML and have it loaded into the string **xml$** :
 
@@ -119,22 +119,22 @@ When exchanging XML between systems, most XML has a header of **<?xml...?>**, wh
 
 > <?xml version="1.0" encoding="UTF-8"?>  
 >  <response>  
->  <control>  
->  <status>success</status>  
->  <senderid>JohnDoe</senderid>  
->  <controlid>create_project_simple</controlid>  
->  <uniqueid>false</uniqueid>  
->  <dtdversion>2.1</dtdversion>  
->  </control>  
->  <operation>  
->  <authentication>  
->  <status>success</status>  
->  more
+>        <control>  
+>              <status>success</status>  
+>              <senderid>JohnDoe</senderid>  
+>              <controlid>create_project_simple</controlid>  
+>              <uniqueid>false</uniqueid>  
+>              <dtdversion>2.1</dtdversion>  
+>        </control>  
+>        <operation>  
+>              <authentication>  
+>                    <status>success</status>  
+>                          more 
 
-To load the XML into the XML object, you would use the **'Set_Xml(**_string$_ **)** method:
+To load the XML into the XML object, you would use the **'Set_Xml(**_string$_**)** method:
 
-> -:a=new("*obj/xml") ! Create the object  
->  -:a'set_xml(XML$) ! Pass the XML string
+> -:a=new("*obj/xml")  ! Create the object  
+>  -:a'set_xml(XML$)  ! Pass the XML string
 
 Once loaded, you can parse through all the nodes looking for what you want:
 
@@ -149,9 +149,9 @@ Once loaded, you can parse through all the nodes looking for what you want:
 >  -:?a'node(2)'node(1)'node(1)'value$  
 >  success  
 >  -:?a'node(2)'node(1)'node(2)'tag$  
-> senderid  
+>  senderid  
 >  -:?a'node(2)'node(1)'node(2)'value$  
-> JohnDoe
+>  JohnDoe
 
 You can assign variables to hold the node pointers to make the coding a bit simpler:
 
@@ -160,67 +160,122 @@ You can assign variables to hold the node pointers to make the coding a bit simp
 >  -:print oCtrl'node(1)'tag$  
 >  status
 
+## Example 2 - Parsing the XML
+
+The following is a sample program using the ***obj/xml** object:
+
+> open (1,isz=-1)"xml.txt"  
+> read record (1,siz=1000000)R$ ! Read full file assuming < 1MB  
+> close (1)  
+> !  
+> oXml=new("*obj/xml" for program)  
+> if oXml'set_xml(R$)<>1 then print "Bad XML"; stop  
+> !  
+> oBatch=oXml'Find_Node("batch")  
+> !  
+> oAcct=0  
+> while oBatch ! >> Account loop  
+> oAcct=oBatch'Find_Node("account",oAcct)  
+> if oAcct=0 then break  
+> print "Client:",oAcct'Find_Node("cust_name")'value$  
+> !  
+> oInvoice=0  
+> while oAcct ! >> Invoice loop  
+> oInvoice=oAcct'Find_Node("invoice",oInvoice)  
+> if oInvoice=0 then break  
+> print "  Invoice:",oInvoice'Find_Node("invoice_number")'value$  
+> !  
+> oLine=0  
+> while oInvoice ! >> Item loop  
+> oLine=oInvoice'Find_Node("invoice_item",oLine)  
+> if oLine=0 then break  
+> print "    Qty:",oLine'Find_Node("quantity")'value$,  
+> print " of ",oLine'Find_Node("product_cd")'value$,  
+> print " @ ",oLine'Find_Node("price")'value$  
+> wend ! << End item loop  
+> !  
+> wend ! << End Invoice loop  
+> !  
+> wend ! << End Account loop  
+> !  
+> drop object oXml  
+> end
+
+The following is the test XML file for the above code. When run, it should output something like this:
+
+> -:run  
+>   
+> Client:ABC Construction  
+>   Invoice:1000  
+>     Qty:10 of Wall Brackets @ 10.0000  
+>     Qty:20 of Cover Plates @ 2.5000  
+>   Invoice:1001  
+>     Qty:1 of Wire Wrap @ 2.5000  
+> Client:Boat Outfitters  
+>   Invoice:1002  
+>     Qty:10 of 40-Volt Lithium-ion Battery @ 150.0000
+
 ## Example - Generating XML
 
 Suppose you wanted to generate the following XML:
 
 > <request>  
->  <login>  
->  <userid>JohnDoe</userid>  
->  <password>drowssap</password>  
->  <database>Sample Corp</database>  
->  </login>  
->  <command>  
->  <create_prod>  
->  <prodcode>000123</prodcode>  
->  <desc>Blue widget</desc>  
->  <price currency='CDN'>1.23</price>  
->  <qty>10</qty>  
->  <uom>ea</uom>  
->  </create_prod>  
->  </command>  
+>   <login>  
+>    <userid>JohnDoe</userid>  
+>    <password>drowssap</password>  
+>    <database>Sample Corp</database>  
+>   </login>  
+>   <command>  
+>    <create_prod>  
+>     <prodcode>000123</prodcode>  
+>     <desc>Blue widget</desc>  
+>     <price currency='CDN'>1.23</price>  
+>     <qty>10</qty>  
+>     <uom>ea</uom>  
+>    </create_prod>  
+>   </command>  
 >  </request>
 
 The logic to create this might look like this:
 
-> oXml=new("*obj/xml") ! XML Object  
->  oReq=oXml'Add_Node("request")  
+>      oXml=new("*obj/xml") ! XML Object  
+>      oReq=oXml'Add_Node("request")  
 >  !  
->  oLogin=oReq'Add_Node("login")  
+>      oLogin=oReq'Add_Node("login")  
 >  !  
->  oLogin'Add_Node("userid")'value$="JohnDoe"  
->  oLogin'Add_Node("password")'value$="drowssap"  
->  oLogin'Add_Node("database")'value$="Sample_Corp"  
+>      oLogin'Add_Node("userid")'value$="JohnDoe"  
+>      oLogin'Add_Node("password")'value$="drowssap"  
+>      oLogin'Add_Node("database")'value$="Sample_Corp"  
 >  !  
->  oCmnd=oReq'Add_Node("command")  
+>      oCmnd=oReq'Add_Node("command")  
 >  !  
->  oCreate=oCmnd'Add_Node("create_prod")  
+>      oCreate=oCmnd'Add_Node("create_prod")  
 >  !  
->  oCreate'Add_Node("prodcode")'value$="000123"  
->  oCreate'Add_Node("desc")'value$="Blue Widget"  
+>      oCreate'Add_Node("prodcode")'value$="000123"  
+>      oCreate'Add_Node("desc")'value$="Blue Widget"  
 >  !  
->  oPrice=oCreate'Add_Node("price")  
+>      oPrice=oCreate'Add_Node("price")  
 >  !  
->  oPrice'value$="1.23"  
+>      oPrice'value$="1.23"  
 >  ! -- Add currency  
->  oPrice'Add_Attr("currency")'value$="CDN"  
+>      oPrice'Add_Attr("currency")'value$="CDN"  
 >  !  
->  oCreate'Add_Node("qty")'value$="10"  
->  oCreate'Add_Node("uom")'value$="ea"  
+>      oCreate'Add_Node("qty")'value$="10"  
+>      oCreate'Add_Node("uom")'value$="ea"  
 >  !  
->  x$=oXml'Get_Xml$()  
->  print x$  
+>      x$=oXml'Get_Xml$()  
+>      print x$  
 >  !  
->  drop object oXml
+>      drop object oXml
 
 ##  Example - Loading and Saving an XML File
 
 > xml_obj=new("*obj/xml")  
-> xml_obj'set_xml("<emp><name>John Doe</name><addr>123 Main</addr></emp>")  
+>  xml_obj'set_xml("<emp><name>John Doe</name><addr>123 Main</addr></emp>")  
 >  xml_obj'save_xml_file("C:\Users\user\Documents\example_file_new.xml")  
 >  drop object xml_obj  
 >  !  
-> xml_obj=new("*obj/xml")  
+>  xml_obj=new("*obj/xml")  
 >  xml_obj'load_xml_file("C:\Users\user\Documents\example_file.xml")  
 >  print xml_obj'get_xml$()  
 >  drop object xml_obj
@@ -230,7 +285,7 @@ _(This example was added in PxPlus 2025.)_
 ##  Example - Loading JSON into XML
 
 > xml_obj=new("*obj/xml")  
-> xml_obj'load_json(jsonObj)  
+>  xml_obj'load_json(jsonObj)  
 >  print xml_obj'get_xml$()  
 >  drop object xml_obj
 
@@ -239,4 +294,10 @@ _(This example was added in PxPlus 2025.)_
 ## See Also
 
 **[XML( ) - XML Parsing/Generation Facility](../functions/xml.md)  
-[*OBJ/JSON JSON Object](obj_json.md)**
+[*OBJ/JSON  JSON Object](obj_json.md)**
+
+ 
+
+ 
+
+ 

@@ -1,6 +1,6 @@
-# Query Subsystem   
-  
-**Invoking a Query** |  **__**  
+# Query Subsystem 
+
+**Invoking a Query** |  **_ _**  
 ---|---  
   
 To invoke a query panel from your application, a number of methods are available:
@@ -43,7 +43,7 @@ Depending on the **_Query Type_** selected, different information is entered:
 **Query Type:_Panel_**  
 ---  
 _Panel Information_ |  Query information can be entered as _Fixed_ values or as an _Expression_. If _Fixed_ , select a query definition by clicking the _Select Query_ button or enter the **[Library](Invoking%20a%20Query.htm#library)** and **[Panel](Invoking%20a%20Query.htm#panelqry)** information. If the information is an _Expression_ , select _Expression_ from the drop-down list and enter an expression that will be evaluated to give the query definition name and library in the following format: "QueryName,Library". (The library path is optional if the query uses the current library.)  
-_Select Query_ |  Button that invokes the **Select a Query Definition** window for selecting query definitions only. This window presents a tree-view structure that lists queries that exist at the current display level and lower, arranged by directory, screen library and query. Select a query by clicking on it. When selected, the _Library_ and _Panel_ input fields are automatically populated. To select other panel types, enter the **[Library](Invoking%20a%20Query.htm#library)** and select a **[Panel](Invoking%20a%20Query.htm#panelqry)**. _(The Select Query button and Select a Query Definition window were added in PxPlus 2020.)_  
+_Select Query_ |  Button that invokes the **Select a Query Definition** window for selecting query definitions only.    This window presents a tree-view structure that lists queries that exist at the current display level and lower, arranged by directory, screen library and query. Select a query by clicking on it. When selected, the _Library_ and _Panel_ input fields are automatically populated. To select other panel types, enter the **[Library](Invoking%20a%20Query.htm#library)** and select a **[Panel](Invoking%20a%20Query.htm#panelqry)**. _(The Select Query button and Select a Query Definition window were added in PxPlus 2020.)_  
 _Library_ |  Enter the path to the library containing the query definition. The drop-down arrow invokes a list of recently used libraries. The Browse button allows you to browse the directory to find the library. Be sure to use the simplest form of the path for your application.
 
 #### **Note:**  
@@ -60,20 +60,22 @@ _Auto Complete_ |  **_(Multi-Lines Only)_** Besides the query reference, you can
 _Query Program_ |  Enter the absolute, relative or simple path location of a user-supplied program, e.g. _program;label_ _,_ or simply _;label_ if the default program is being used. May be defined as a _Fixed_ value or _Expression_.  
 _Auto Complete_ |  **_(Multi-Lines Only)_** Besides the query reference, you can also assign the Auto Complete feature to a Multi-Line. Auto Complete attributes must be previously defined using the NOMADS **[Auto Complete](../../System%20Maintenance%20Tools/System%20Options/Auto%20Complete.md)** utility.  
 **Query Type:_Non-Query Logic_**  
-_Non-Query Logic_ |  Select the type of logic (_Link, Perform, Call, Execute,_ etc.) and the program logic reference _"program;label"_.  
+_Non-Query Logic_ |  Select the type of logic (_Link, Perform, Call, Execute,_ etc.) and the program logic reference _" program;label"_.  
   
 **_Example:_**  
   
-PERFORM  
-"programs/browse;Browse_Directory"  
+   PERFORM  
+   "programs/browse;Browse_Directory"  
 _Auto Complete_ |  **_(Multi-Lines Only)_** Besides the query reference, you can also assign the Auto Complete feature to a Multi-Line. Auto Complete attributes must be previously defined using the NOMADS **[Auto Complete](../../System%20Maintenance%20Tools/System%20Options/Auto%20Complete.md)** utility.  
 **Query Type:_Spinner Controls (Multi-Lines Only)_**  
 _Increment_ |  Sets the increment value for scrollbar movement.  
-_Start_ |  Minimum value of the spinner control.   
+_Start_ |  Minimum value of the spinner control.    
 _End_ |  Maximum value of the spinner control.  
 **Query Type:_Calendar (Multi-Lines Only)_**  
 _Calendar_ |  Select the calendar definition from the drop-down list. See **[Calendar](../../System%20Maintenance%20Tools/System%20Options/Calendar.md)** utility.  
   
+ 
+
 #### **Note:**  
 A query can be associated with an entire grid as described or with individual cells within the grid. For information on grid queries, see **[Queries](../../Creating%20Panel%20Controls/Grid%20Control/Presets%20Definition.htm#queries)**.
 
@@ -93,7 +95,7 @@ _Attributes_ |  |  _Bitmap Button_ |  Button is a bitmap button.
 ---|---  
 _Transparent_ |  Button is "see-through" to the window contents behind the button area.  
 _Flat Button_ |  Button shows no raised outline unless the mouse is over the button or the button is pushed.  
-_Flat No Border_ |  Button has no border and shows no raised outline when the mouse hovers or the button is pushed.  
+_Flat  No Border_ |  Button has no border and shows no raised outline when the mouse hovers or the button is pushed.  
 _Embedded_ |  Button is displayed within the Multi-Line, rather than shortening the Multi-Line and displaying the query button to its right.  
   
 If the _Transparency_ attribute is **_not_** selected, the appearance of the query button will be affected by the active NOMADS theme (see **[Themes](../../System%20Maintenance%20Tools/System%20Options/Themes.md)**), or if a Visual Class is defined for the associated Multi-Line, Visual Class settings for the button will override the theme (see **[Visual Classes](../../System%20Maintenance%20Tools/System%20Options/Visual%20Classes.md)**).
@@ -146,67 +148,73 @@ When MY_QUERY runs, the value of X$ is used to set the starting position in the 
 #### **Note:**  
 REFRESH_FLG=1 is **_not_** necessary **_if_** the _Auto Refresh_ attribute is turned **_On_** in the Panel Header.  
   
-**_Example 3:_** |  For **_attached_** queries: Normally, attached queries do not require any code. If a query panel is assigned to a control, NOMADS provides a query button (or looks for a **Shift F2**) to invoke the query and will process it automatically. However, you may want to process additional logic in conjunction with the query. In this case, assign a query program to the control. The program can do the additional logic, as well as invoke the query. The following is an example of a query program that invokes different queries depending on a condition:
+**_Example 3:_** |  For **_attached_** queries: Normally, attached queries do not require any code. If a query panel is assigned to a control, NOMADS provides a query button (or looks for a **Shift  F2**) to invoke the query and will process it automatically. However, you may want to process additional logic in conjunction with the query. In this case, assign a query program to the control. The program can do the additional logic, as well as invoke the query. The following is an example of a query program that invokes different queries depending on a condition:
 
 > PROCESS_PRODUCT_QUERY:   
 >  IF ProductCode="F"   
->  THEN PROCESS "PRODF_QRY","MYLIB.EN",QRY_VAL$  
->  ELSE PROCESS "PRODX_QRY","MYLIB.EN",QRY_VAL$   
+>   THEN PROCESS "PRODF_QRY","MYLIB.EN",QRY_VAL$  
+>   ELSE PROCESS "PRODX_QRY","MYLIB.EN",QRY_VAL$   
 >  EXIT
 
 For queries associated with a control, NOMADS uses the reserved variable QRY_VAL$ to pass the value of the control to the query and back.  
 **_Example 4:_** |  For **_attached_** queries: If you want to include more complex programming to manipulate the query value before and after invoking the query, you must load **[QRY_VAL$](Designing%20and%20Using%20the%20Query%20Subsystem.htm#qryval)** with the value you want to be loaded in the associated control:
 
 > Process_Query:  
->  WorkVal$=QRY_VAL$ ! Get the current value of the control  
->  ! Manipulate WorkVal$ value however you want  
->  PROCESS "MY_QUERY","MYLIB.EN",WorkVal$ ! Start & return value  
->  ! Manipulate WorkVal$ return value however you want  
+>   WorkVal$=QRY_VAL$ ! Get the current value of the control  
+>   ! Manipulate WorkVal$ value however you want  
+>    PROCESS "MY_QUERY","MYLIB.EN",WorkVal$ ! Start & return value  
+>   ! Manipulate WorkVal$ return value however you want  
 >  QRY_VAL$=WorkVal $ ! value is loaded back into the control  
 >  EXIT
 
 If you process your own custom query panel rather than a NOMADS query panel, you can invoke it in the same way, being sure to use QRY_VAL$ to retrieve and reload the query control. Keep in mind that when you process your panel, the starting/return argument is passed to the panel as ARG_1$, and your panel logic must load ARG_1$ with the return value before exiting the query panel and returning to your program.  
-**_Example 5:_** |  Using a _**single query** _to load _**multiple controls**_ into a NOMADS File Maintenance panel: When you define a query, you can specify a formula for your return value that can return a string containing the values for multiple controls. To load multiple controls using a single query, you can assign a query program to the first control that will invoke the query and parse the return value to load the controls. The following is an example of a query program that will load three key segments into a NOMADS File Maintenance panel:
+**_Example 5:_** |  Using a _ **single query**  _to load _ **multiple controls**_ into a NOMADS File Maintenance panel: When you define a query, you can specify a formula for your return value that can return a string containing the values for multiple controls. To load multiple controls using a single query, you can assign a query program to the first control that will invoke the query and parse the return value to load the controls. The following is an example of a query program that will load three key segments into a NOMADS File Maintenance panel:
 
 > Process_SalesData_Query:  
->  ! Build the starting value for the query  
->  KeyVal$=PAD(SDT_Smn_ID$,3,$00$)+SDT_Year$+SDT_Month$  
->  ! Invoke the query using the starting value  
->  PROCESS "SDTQRY","",KeyVal$  
->  ! Parse the value returned in KeyVal$ into the control variables  
->  ! Note that the control with the query must be loaded using QRY_VAL$  
->  ! _kcnt, _numkeys and _enable_flg are NOMADS File Maintenance variables  
->  IF KeyVal$<>""  
->  THEN QRY_VAL$=STP(KeyVal$(1,3),1,$00$);  
->  SDT_YEAR$=KeyVal$(4,4);  
->  SDT_MONTH$=KeyVal$(8,2);  
->  _kcnt=_numkeys,_enable_flg=1,refresh_flg=1  
->  RETURN
+>   ! Build the starting value for the query  
+>    KeyVal$=PAD(SDT_Smn_ID$,3,$00$)+SDT_Year$+SDT_Month$  
+>   ! Invoke the query using the starting value  
+>    PROCESS "SDTQRY","",KeyVal$  
+>   ! Parse the value returned in KeyVal$ into the control variables  
+>   ! Note that the control with the query must be loaded using QRY_VAL$  
+>   ! _kcnt, _numkeys and _enable_flg are NOMADS File Maintenance variables  
+>    IF KeyVal$<>""  
+>     THEN QRY_VAL$=STP(KeyVal$(1,3),1,$00$);  
+>          SDT_YEAR$=KeyVal$(4,4);  
+>          SDT_MONTH$=KeyVal$(8,2);  
+>          _kcnt=_numkeys,_enable_flg=1,refresh_flg=1  
+>    RETURN
 
 If you wish to invoke the query using a **_separate button_** rather than assigning the query program to the Multi-Line, the code for the button _On Change_ logic is slightly different:
 
 > Process_SalesData_Query:  
->  ! Build the starting value for the query  
->  KeyVal$=PAD(SDT_SMN_ID$,3,$00$)+SDT_YEAR$+SDT_MONTH$  
->  ! Invoke the query using the starting value  
->  PROCESS "SDTQRY","",KeyVal$  
->  ! Parse the value returned in KeyVal$ into the control variables  
->  ! _kcnt, _numkeys and _enable_flg are NOMADS File Maintenance variables  
->  IF KeyVal$<>"" \  
->  THEN SDT_SMN_ID$=STP(KeyVal$(1,3),1,$00$);  
->  SDT_YEAR$=KeyVal$(4,4);  
->  SDT_MONTH$=KeyVal$(8,2);  
->  _kcnt=_numkeys,_enable_flg=_numkeys,_EOM$=$0D$;  
->  PERFORM "*win/flmaint;find_rec";  
->  refresh_flg=1  
->  RETURN  
+>   ! Build the starting value for the query  
+>    KeyVal$=PAD(SDT_SMN_ID$,3,$00$)+SDT_YEAR$+SDT_MONTH$  
+>   ! Invoke the query using the starting value  
+>    PROCESS "SDTQRY","",KeyVal$  
+>   ! Parse the value returned in KeyVal$ into the control variables  
+>   ! _kcnt, _numkeys and _enable_flg are NOMADS File Maintenance variables  
+>    IF KeyVal$<>"" \  
+>     THEN SDT_SMN_ID$=STP(KeyVal$(1,3),1,$00$);  
+>          SDT_YEAR$=KeyVal$(4,4);  
+>          SDT_MONTH$=KeyVal$(8,2);  
+>          _kcnt=_numkeys,_enable_flg=_numkeys,_EOM$=$0D$;  
+>          PERFORM "*win/flmaint;find_rec";  
+>          refresh_flg=1  
+>    RETURN  
   
 ## Switching Modes: Query+ vs. Classic Query
 
 Query+ mode is the default mode. You can use the **[QueryProgram$](Designing%20and%20Using%20the%20Query%20Subsystem.htm#querypgm)** property of the %NOMADS object to set the mode:
 
-|  **_To Use Classic Query:_** |  Set %NOMADS'QueryProgram$="*winqry"  
+  |  **_To Use Classic Query:_** |  Set %NOMADS'QueryProgram$="*winqry"  
 ---|---|---  
-|  **_To Use Query+:_** |  Set %NOMADS'QueryProgram$="*winqry2"  
+  |  **_To Use Query+:_** |  Set %NOMADS'QueryProgram$="*winqry2"  
   
 It is also possible to force an individual query to be displayed in **_Classic_** mode by selecting the _Use Classic Query_ option on the **Query Header Definition[Options](Query%20Header.htm#options)** tab. See **[Use Classic Query](Query%20Header.htm#useclassic)**.
+
+ 
+
+ 
+
+ 

@@ -1,6 +1,6 @@
 # Control Object Properties
 
-**SelectIndex** |  **_Index to 'SelectItem_**  
+**SelectIndex** |  **_Index to 'SelectItem  _**  
 ---|---  
   
 ## Description
@@ -15,4 +15,10 @@ Set this property to point to a selected element; e.g. 1 points to the first ite
 
 ## Used By
 
-**CHART****GRID****LIST_BOX****LIST_VIEW****REPORT_VIEW****TREE_VIEW**
+**CHART** **GRID** **LIST_BOX** **LIST_VIEW** **REPORT_VIEW** **  TREE_VIEW**
+
+ 
+
+ 
+
+ 

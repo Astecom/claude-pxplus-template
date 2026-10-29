@@ -1,9 +1,32 @@
 # Writing and Modifying Program Code
 
-**Full-Screen Editors** |  **__**  
+**Full-Screen Editors** |  **_ _**  
 ---|---  
   
 In addition to using the Command line editor to create and revise a program in PxPlus, full-screen editors are provided for program development and maintenance.
+
+## PxPlus Visual Studio Code Extension
+
+The PxPlus **[Visual Studio Code Extension](../../../Visual%20Studio.md)** is an extension for Visual Studio Code to enable working with PxPlus programs.
+
+> **Important Note:**   
+> **_PxPlus 2024 (or newer) that is properly activated with any license type is required._**
+
+It provides the following functionality:
+
+  * Create new PxPlus programs
+  * Open and edit existing PxPlus programs
+  * Work with binary PxPlus programs
+  * Work with text-based PxPlus programs
+  * PxPlus syntax highlighting
+  * PxPlus program error diagnostics
+  * Current document-based Auto Complete
+
+
+
+See the tutorial **[How to Set Up and Use the PxPlus Visual Studio Code Extension](../../../How%20To/How%20to%20Use%20PxPlus%20VS%20Code%20Ext.md)**.
+
+_(The PxPlus Visual Studio Code extension was added in PxPlus 2024.)_
 
 ## *IT - Integrated Toolkit
 
@@ -36,8 +59,14 @@ The***E** utility provides a character-based editor for editing the current prog
 
 To invoke the utility, select _Edit_ from the main utilities menu or enter **CALL "*E"** at the PxPlus prompt**- >**. If a program is currently running when the editor is invoked, it will display a termination message; otherwise, the editor displays the current program on the screen.
 
-The top of the screen contains the editor menu: _F1-Text edit F2-Line edit F3-Program F4-Quit._
+The top of the screen contains the editor menu: _F1-Text edit   F2-Line edit   F3-Program   F4-Quit._
 
 The cursor keys (or mouse) can be used to position the cursor anywhere in the displayed program.
 
 Program compile errors are displayed on the screen below the lines on which they occur.
+
+ 
+
+ 
+
+ 

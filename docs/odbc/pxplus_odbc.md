@@ -1,4 +1,4 @@
-# 
+#  
 
 **PxPlus SQL ODBC**|   
 ---|---  
@@ -20,7 +20,7 @@ The PxPlus SQL ODBC Help documentation explains the basic concepts and features 
 For answers to some commonly asked questions about the PxPlus SQL ODBC Driver and other PxPlus ODBC products, see **[Frequently Asked Questions](odbc_faq.md)**.
 
 #### **Note:**  
-If you are trying to access third party data from PxPlus, see **[[ODB] Open Database](../command_tags/odb.htm)**.
+If you are trying to access third party data from PxPlus, see **[[ODB] Open Database](../command_tags/odb.md)**.
 
 **_ODBC Client/Server_**
 
@@ -52,7 +52,7 @@ The basic SQL directives are:
 
 This retrieves customer numbers and names from the Customer file:
 
-> **SELECT** cst_id, cst_name FROM Customer
+> **SELECT**  cst_id, cst_name FROM Customer
 
 See [**Using the PxPlus SQL ODBC Driver**](using_odbc_driver.md).
 
@@ -83,20 +83,20 @@ The PxPlus SQL ODBC Driver allows your PxPlus data to be accessed by the most po
 
 Most programming languages have an ODBC access facility to allow files to be read or updated as well. The PxPlus SQL ODBC Driver allows standardized access to PxPlus data via:
 
-> Standardized Data Formats: Text strings, numerics, dates
+>   Standardized Data Formats:  Text strings, numerics, dates
 
-> Logical Relationships: Relates files with common data elements
+>   Logical Relationships:  Relates files with common data elements
 
-> Data Sorting, Grouping and Filtering
+>   Data Sorting, Grouping and Filtering
 
-> Simple Data Computations: Sum, Max, Min, Count, Avg
+>   Simple Data Computations:  Sum, Max, Min, Count, Avg
 
 The PxPlus SQL ODBC Driver supports three basic types of data: strings, numerics and dates.
 
 The **SELECT** statement is used to establish logical relationships between data files (usually referred to as joining files). A typical JOIN would be:
 
 > SELECT _cst_id_ , _cst_name_ , _smn_name_ FROM Customer, Salesman   
->  WHERE _smn_id_ = _cst_smn_
+>       WHERE _smn_id_ = _cst_smn_  
 
 > The statement reads the entire Customer file and, for each customer, reads the Salesman file for any records whose _smn_id_ matches _cst_smn_. If the field _smn_id_ is a Key field for the file, then the PxPlus SQL ODBC Driver reads the file directly by key; otherwise, the file is read in its entirety. The **WHERE** clause can be used to selectively filter out any unwanted data.
 
@@ -109,4 +109,8 @@ The **SUM** , **COUNT** , **AVG** , **MAX** and **MIN** functions can be used to
 **[Frequently Asked Questions](odbc_faq.md)**  
 **[PxPlus ODBC Activation Chart](odbc_activation_chart.md)**
 
-****
+** **
+
+ 
+
+ 

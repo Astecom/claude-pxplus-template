@@ -17,4 +17,10 @@ _(The OnDropOpenCtl property was added in PxPlus v7.10, build 9171.1.)_
 
 ## Used By
 
-**DROP_BOX****VARDROP_BOX**
+**DROP_BOX** **VARDROP_BOX**
+
+ 
+
+ 
+
+ 

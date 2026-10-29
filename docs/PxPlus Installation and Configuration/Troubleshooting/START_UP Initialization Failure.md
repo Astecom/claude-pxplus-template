@@ -1,6 +1,6 @@
 # Troubleshooting
 
-**START_UP Initialization Failure** |  **__**  
+**START_UP Initialization Failure** |  **_ _**  
 ---|---  
   
 If the initialization fails, consider the following reasons that START_UP may not be executing correctly:
@@ -9,7 +9,13 @@ If the initialization fails, consider the following reasons that START_UP may no
   * START_UP has incorrect file permissions (primarily in UNIX).
   * START_UP is not a valid program file. The START_UP file is not a PxPlus program or a recognizable Serial program.
   * The environment variable PVXSTART is set, but points to an invalid program.
-  * The START_UP file name is not completely uppercase on a UNIX machine. PxPlus will be unable to locate the start_up routine if the name is not completely in capitals; i.e., START_UP.
+  * The START_UP file name is not completely uppercase on a UNIX machine. PxPlus will be unable to locate the start_up routine if the name is not completely in capitals (i.e. START_UP).
   * START_UP stops executing prematurely due to an untrapped error.
 
 
+
+ 
+
+ 
+
+ 

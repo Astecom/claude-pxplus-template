@@ -1,4 +1,4 @@
-# Webster+
+# Webster+ Web Development Toolkit
 
 **Using Grids in Webster+**|   
 ---|---  
@@ -40,13 +40,13 @@ The above defines the grid as follows:
 In your application program MyProg, to define the grid, you might have logic as follows:
 
 > MakeGrid:  
->  enter MyGrid  
->  open (hfn,iol=GridIOL)"*memory*"  
->  MyGrid=lfo  
->  select * from "ClientFile"  
->  write (MyGrid)  
->  next record  
->  exit  
+>      enter MyGrid  
+>      open (hfn,iol=GridIOL)"*memory*"  
+>      MyGrid=lfo  
+>      select * from "ClientFile"  
+>           write (MyGrid)  
+>      next record  
+>      exit  
 > GridIOL:iolist ClientID$,Name$,City$
 
 Webster+ will load the grid with the contents of the memory file, and whenever the page generates an event, an updated/new memory file will be passed in to your application with the updated values.
@@ -92,7 +92,7 @@ To clear the grid, simply **_purge_** the contents of the memory file. Removing 
 The IOList for the memory file **_must_** consist of a simple list of fields. No formatting options are allowed. Columns/fields in the memory file not present in the column definitions will be preserved as hidden values in the rendered page.
 
 #### **Important Note:**  
-Use the **[SETDEV (n) SEP=](../directives/setdev_sep.md)** directive to set a separator character between each column based on potential contents.  
+Use the **[SETDEV (n) SEP= ](../directives/setdev_sep.md)** directive to set a separator character between each column based on potential contents.  
   
 The default SEP $8A$ may not be suitable should the columns be used to maintain accented data; thus, the **_recommendation_** is to use $00$ or characters in the range $1C$ through $1F$.
 
@@ -105,3 +105,9 @@ See **[Special Webster+ Events](Webster%20Events.md)**.
 ## See Also
 
 **[Webster+ Calculations](Webster%20Calculations.md)**
+
+ 
+
+ 
+
+ 

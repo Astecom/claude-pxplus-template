@@ -35,14 +35,14 @@ _Top Left_ |  Buttons are positioned horizontally in the top left corner of the 
 _Top Right_ |  Buttons are positioned horizontally in the top right corner of the main panel.  
 _Beside Key_ |  Buttons are positioned horizontally next to the primary Key field.  
 _Beside Last Key Seg._ |  **_(Available when primary Key has more than one segment)_** If the data dictionary table selected in **[Step 1: Definition](Object%20Definition.htm#ddtable)** has a primary Key with more than one segment, buttons will be positioned horizontally next to the last segment. _(The Beside Last Key Seg. option was added in PxPlus 2021.)_  
-_Toolbar_ |  Fixed toolbar (i.e. does not stretch) comprised of individual button controls and is positioned at the top left of the main panel. **_Example:_** If _Toolbar_ is selected for both the _Browse_ and _Action_ buttons, the toolbar will contain browse **_and_** action buttons. _(The Toolbar selection for browse buttons was added in PxPlus 2020.)_  
+_Toolbar_ |  Fixed toolbar (i.e. does not stretch) comprised of individual button controls and is positioned at the top left of the main panel. **_Example:_**       If _Toolbar_ is selected for both the _Browse_ and _Action_ buttons, the toolbar will contain browse **_and_** action buttons.       _(The Toolbar selection for browse buttons was added in PxPlus 2020.)_  
 _Embedded Panel_ |  **_(Applicable for NOMADS Panels Only)_** Select an existing embedded panel to use in place of the standard browse buttons. The **[Library](Screen%20Layout.htm#lib_browse)** and embedded **[Panel](Screen%20Layout.htm#panel_browse)** name must be entered or selected; otherwise, a message will display.  
-_Embedded Toolbar_ |  **_(Applicable for NOMADS Panels Only)_** Embedded toolbar that extends horizontally across the top of the main panel and contains embedded button controls. **_Example:_** If _Embedded Toolbar_ is selected for both the _Browse_ and _Action_ buttons, the embedded toolbar will contain browse **_and_** action buttons. _(The Embedded Toolbar selection for browse buttons was added in PxPlus 2020.)_  
+_Embedded Toolbar_ |  **_(Applicable for NOMADS Panels Only)_** Embedded toolbar that extends horizontally across the top of the main panel and contains embedded button controls. **_Example:_**       If _Embedded Toolbar_ is selected for both the _Browse_ and _Action_ buttons, the embedded toolbar will contain browse **_and_** action buttons.       _(The Embedded Toolbar selection for browse buttons was added in PxPlus 2020.)_  
 _None_ |  No browse buttons.  
   
 _(The Toolbar and Embedded Toolbar selections were added in PxPlus 2020.)_  
   
-_Library_ |  **_(Applicable for NOMADS Panels Only - Available when browse buttons Location is Embedded Panel)_** Library path for the existing embedded panel. Click the drop-down arrow for a list of (up to nine) previous library selections. Click the Browse button to look through the directory structure to find the library or type the library path. An expression can also be entered by preceding the expression with an **_=_**_(equals sign)_ ; e.g. _=libname$_ or _="mylib.en"_.
+_Library_ |  **_(Applicable for NOMADS Panels Only - Available when browse buttons Location is Embedded Panel)_** Library path for the existing embedded panel. Click the drop-down arrow for a list of (up to nine) previous library selections. Click the Browse button to look through the directory structure to find the library or type the library path. An expression can also be entered by preceding the expression with an **_=_**_(equals sign)_ ; e.g. _=libname$_ or _= "mylib.en"_.
 
 #### **Note:**  
 The Library name may be a specific or generic reference. See **[Cascading Language Suffixes](../../Multilingual%20Capabilities/Cascading%20Language%20Suffixes/Overview.md)**.  
@@ -65,10 +65,10 @@ _Bottom Left_ |  Buttons are positioned horizontally in the bottom left corner o
 _Top Right_ |  Buttons are positioned horizontally in the top right corner of the main panel.  
 _Top Left_ |  Buttons are positioned horizontally in the top left corner of the main panel.  
 _Right Side_ |  **_(Applicable for NOMADS Panels Only)_** Buttons are aligned vertically (one below the other) at the right side of the main panel.  
-_Toolbar_ |  Fixed toolbar (i.e. does not stretch) comprised of individual button controls and is positioned at the top left of the main panel. **_Example:_** If _Toolbar_ is selected for both the _Browse_ and _Action_ buttons, the toolbar will contain browse **_and_** action buttons.  
+_Toolbar_ |  Fixed toolbar (i.e. does not stretch) comprised of individual button controls and is positioned at the top left of the main panel. **_Example:_**      If _Toolbar_ is selected for both the _Browse_ and _Action_ buttons, the toolbar will contain browse **_and_** action buttons.       
 _Embedded Panel_ |  **_(Applicable for NOMADS Panels Only)_** Select an existing embedded panel to use in place of the standard action buttons (i.e. _Write, Delete, Clear, Exit_). The **[Library](Screen%20Layout.htm#lib_action)** and embedded **[Panel](Screen%20Layout.htm#panel_action)** name must be entered or selected; otherwise, a message will display.  
-_Embedded Toolbar_ |  **_(Applicable for NOMADS Panels Only)_** Embedded toolbar that extends horizontally across the top of the main panel and contains embedded button controls. **_Example:_** If _Embedded Toolbar_ is selected for both the _Browse_ and _Action_ buttons, the embedded toolbar will contain browse **_and_** action buttons.  
-_Library_ |  **_(Applicable for NOMADS Panels Only - Available when action buttons Location is Embedded Panel)_** Library path for the existing embedded panel. Click the drop-down arrow for a list of (up to nine) previous library selections. Click the Browse button to look through the directory structure to find the library or type the library path. An expression can also be entered by preceding the expression with an **_=_**_(equals sign)_ ; e.g. _=libname$_ or _="mylib.en"_.
+_Embedded Toolbar_ |  **_(Applicable for NOMADS Panels Only)_** Embedded toolbar that extends horizontally across the top of the main panel and contains embedded button controls. **_Example:_**       If _Embedded Toolbar_ is selected for both the _Browse_ and _Action_ buttons, the embedded toolbar will contain browse **_and_** action buttons.        
+_Library_ |  **_(Applicable for NOMADS Panels Only - Available when action buttons Location is Embedded Panel)_** Library path for the existing embedded panel. Click the drop-down arrow for a list of (up to nine) previous library selections. Click the Browse button to look through the directory structure to find the library or type the library path. An expression can also be entered by preceding the expression with an **_=_**_(equals sign)_ ; e.g. _=libname$_ or _= "mylib.en"_.
 
 #### **Note:**  
 The Library name may be a specific or generic reference. See **[Cascading Language Suffixes](../../Multilingual%20Capabilities/Cascading%20Language%20Suffixes/Overview.md)**.  
@@ -86,7 +86,7 @@ The _Position_ cannot be duplicated if using more than one embedded panel to def
 _Tab Stops_ |  **_(Not Available when action buttons Location is Toolbar, Embedded Panel or Embedded Toolbar)_** Select this check box to add the action buttons to the panel's tabbing sequence.  
 _Additional Buttons_ |  Button that launches the **[Maintain Additional Buttons](Screen%20Layout.htm#addtl_buttons)** window for adding (and editing) additional buttons that are placed before and/or after the browse and action buttons. _(The Additional Buttons button was added in PxPlus 2022.)_  
 **Optional embedded panel** |  _Define the options for adding an embedded panel to the NOMADS panel._  
-_Library_ |  **_(Applicable for NOMADS Panels Only)_** Library path for the existing embedded panel to be added. Click the drop-down arrow for a list of (up to nine) previous library selections. Click the Browse button to look through the directory structure to find the library or type the library path. An expression can also be entered by preceding the expression with an **_=_**_(equals sign)_ ; e.g. _=libname$_ or _="mylib.en"_.
+_Library_ |  **_(Applicable for NOMADS Panels Only)_** Library path for the existing embedded panel to be added. Click the drop-down arrow for a list of (up to nine) previous library selections. Click the Browse button to look through the directory structure to find the library or type the library path. An expression can also be entered by preceding the expression with an **_=_**_(equals sign)_ ; e.g. _=libname$_ or _= "mylib.en"_.
 
 #### **Note:**  
 The Library name may be a specific or generic reference. See [**Cascading Language Suffixes**](../../Multilingual%20Capabilities/Cascading%20Language%20Suffixes/Overview.md).  
@@ -125,6 +125,8 @@ The browse and action buttons are added to the HTML page using the Webster+ **[[
 **FM_FULL_TOOLBAR.HTML** |  Browse and action buttons in a toolbar  
 **FM_INQ_FULL_TOOLBAR.HTML** |  Browse and inquiry panel action buttons in a toolbar  
   
+ 
+
 #### **Note:**  
 If custom versions of the browse and action buttons are required, these files may be copied to a location that will be found in the prefix prior to ***webster/pages** and edited.
 
@@ -143,9 +145,9 @@ _None_ |  The panel will **_not_** have a title bar.
   
 For information on the use of the _Frame Style_ parameter when creating a custom title bar, see **[Custom Title Bars](../../Custom%20Title%20Bars.md)**.  
   
-**Panel Information** |  **_(Available when the TitleBar Option is TitleBar)_** |  _Fixed or Expression_ |  The Custom Title Bar panel information can be entered as a _Fixed_ value or as an _Expression_ : |  |  If  _Fixed_ is selected, enter the _Library_ and _Panel_ information.  
+**Panel Information** |  **_(Available when the TitleBar Option is TitleBar)_** |  _Fixed or Expression_ |  The Custom Title Bar panel information can be entered as a _Fixed_ value or as an _Expression_ : |   |  If _Fixed_ is selected, enter the _Library_ and _Panel_ information.  
 ---|---  
-|  If  _Expression_ is selected, enter an expression that can be evaluated to a value consisting of the panel name and library, separated by a comma (e.g. _PanelName,LibraryName_).  
+ |  If _Expression_ is selected, enter an expression that can be evaluated to a value consisting of the panel name and library, separated by a comma (e.g. _PanelName,LibraryName_).  
 _Library_ |  Library path that contains the Title Bar panel definition. Click the drop-down arrow for a list of recently used libraries. Click the Browse button to look through the directory structure to find the library. Be sure to use the simplest form of the path for your application.
 
 #### **Note:**  
@@ -163,7 +165,7 @@ A Theme assigned to the **[%NOMADS'ThemeOverride$](../../Appendix/NOMADS%20Varia
 ---|---  
 _Status Bar_ |  Panel will be created with a status line/message bar.  
 _Close Box_ |  Enables the Windows _close_ button at the top right corner of the panel.  
-_Status Bar Segments_ |  **_(Available when Status Bar check box is selected)_** Define up to three additional (optional) status bar segments for the current panel by clicking the button next to the input control and entering the starting column number for the segment. The default segment (0) starts at column 0. Additional segments can be defined with a positive column number to specify the starting column from the left, or a negative column number to specify the start of a segment from the right. Display text in the individual segments using the **['MESSAGE'](../../../mnemonics/message.md)** mnemonic. **_Example:_** PRINT 'MESSAGE'(_text$,segnum_) **_Where:_** The first segment number is 0. If the _Status Bar_ attribute is checked and no segments are defined, the system status bar will be used. If segments are defined for the panel, they will override the system definition.
+_Status Bar Segments_ |  **_(Available when Status Bar check box is selected)_** Define up to three additional (optional) status bar segments for the current panel by clicking the button next to the input control and entering the starting column number for the segment. The default segment (0) starts at column 0. Additional segments can be defined with a positive column number to specify the starting column from the left, or a negative column number to specify the start of a segment from the right. Display text in the individual segments using the **['MESSAGE'](../../../mnemonics/message.md)** mnemonic. **_Example:_**      PRINT 'MESSAGE'(_text$,segnum_) **_Where:_**      The first segment number is 0. If the _Status Bar_ attribute is checked and no segments are defined, the system status bar will be used. If segments are defined for the panel, they will override the system definition.
 
 #### **Note:**  
 Use the **['MESSAGE'](../../../mnemonics/message.md)** mnemonic to define a system status bar.  
@@ -203,10 +205,10 @@ The **Maintain Additional Buttons** window is launched when the _Additional Butt
 
 _(Additional Buttons Grid)_ |  Displays a list of the additional buttons. After a new additional button is defined, it is automatically added to this list.  
 ---|---  
-_Add or Edit an Additional Button_ |  Button that launches the **Add an Additional Button** window for defining a new additional button and editing an existing one. If only _HTML Page_ is selected as the **[Form Type](Object%20Definition.htm#formtype)** in **Step 1: Definition** , the **Webster+** tab will launch by default when this window is invoked. _(Support to default to the Webster+ tab if only HTML Page is selected was added in PxPlus 2025.)_ Many of these options are also available when adding a Button object on the file maintenance panel in **Step 6: Fields** (see **[Button](Button.md)** object), except for these differences: |  _Location_ |  Select the location of the additional Button control: _Before Action, After Action, Before Browse, After Browse_.  
+_Add or Edit an Additional Button_ |  Button that launches the **Add an Additional Button** window for defining a new additional button and editing an existing one. If only _HTML Page_ is selected as the **[Form Type](Object%20Definition.htm#formtype)** in **Step 1: Definition** , the **Webster+** tab will launch by default when this window is invoked. _(Support to default to the Webster+ tab if only HTML Page is selected was added in PxPlus 2025.)_       Many of these options are also available when adding a Button object on the file maintenance panel in **Step 6: Fields** (see **[Button](Button.md)** object), except for these differences: |  _Location_ |  Select the location of the additional Button control: _Before Action, After Action, Before Browse, After Browse_.  
 ---|---  
-**NOMADS** |   
-**Appearance** |  |  _Popup Library_ |  **_(Available when button Type is Drop List)_** Library path for the popup menu. Click the drop-down arrow for a list of (up to nine) previous library selections. Click the Browse button to look through the directory structure to find the library or type the library path. An expression can also be entered by preceding the expression with an **_=_**_(equals sign)_ ; e.g. _=libname$_ or _="mylib.en"_.
+**NOMADS** |     
+**Appearance** |  |  _Popup Library_ |  **_(Available when button Type is Drop List)_** Library path for the popup menu. Click the drop-down arrow for a list of (up to nine) previous library selections. Click the Browse button to look through the directory structure to find the library or type the library path. An expression can also be entered by preceding the expression with an **_=_**_(equals sign)_ ; e.g. _=libname$_ or _= "mylib.en"_.
 
 #### **Note:**  
 The Library name may be a specific or generic reference. See [**Cascading Language Suffixes**](../../Multilingual%20Capabilities/Cascading%20Language%20Suffixes/Overview.md).  
@@ -222,7 +224,7 @@ Height_ |  Enter the width (in number of columns only) and the height for the ad
 
 If an actual number of columns has been entered and the Button text is edited so that its length exceeds the number of columns, the value will adjust to match the length of the Button text entered plus 2.  
 ---|---  
-**Webster+** |   
+**Webster+** |     
 **Appearance** |  |  _List Items_ |  **_(Available when button Type is Drop List)_** Grid used for entering the text and the **[HTML Event](../../../Webster/Webster%20Events.md)** to trigger for each item in the drop list.  
 ---|---  
 _HTML Class_ |  A single HTML Class can be entered (e.g. bold). Multiple classes can be entered, separated by either spaces or commas. When spaces are used as the delimiter, the values must be within double quotes (e.g. "bold text_red fill_cyan" or bold,text_red,fill_cyan). See **[Webster+ Defined Classes](../../../Webster/Webster%20Defined%20Classes.md)**. Three system defined classes are used: |  **fm_action** |  Assigned to the action buttons on the system fm_action.html page. Can be defined to change the appearance of the action buttons.  
@@ -249,3 +251,9 @@ _(The ability to add/maintain Additional Buttons was added in PxPlus 2022.)_
 ## See Also
 
 **[File Maintenance Generator Steps](Fmgen%20Introduction.htm#steps)**
+
+ 
+
+ 
+
+ 

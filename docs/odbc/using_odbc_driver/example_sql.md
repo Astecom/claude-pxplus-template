@@ -14,7 +14,7 @@ The _Customer_ table contains two rows:
 **CustomerId** |  **Name** |  **SalesRepId** |  **ARBalance**  
 ---|---|---|---  
 0001 |  ABC Corp. |  01 |  1234.99  
-0002 |  Acme Inc. |  |  1.23  
+0002 |  Acme Inc. |    |  1.23  
   
 The _SalesRep_ table contains three rows:
 
@@ -48,7 +48,7 @@ Result set
 03 |  House Account |  20110122 |  67349.88 |  1  
   
 #### **Note:  
-** The date escape syntax is optional, and it is possible to omit the { d }. _(as of PxPlus SQL ODBC Driver version 6.00)_
+** The date escape syntax is optional, and it is possible to omit the { d  }. _(as of PxPlus SQL ODBC Driver version 6.00)_
 
 ##  Sort and Limit
 
@@ -66,7 +66,7 @@ Result set
   
 ## Scalar Functions
 
-SELECT { FN SUBSTR(Name, 1, { FN POSITION(' ' IN Name)} 1)}  
+SELECT { FN SUBSTR(Name, 1, { FN POSITION(' ' IN Name)}  1)}  
 FROM SalesRep
 
 Result set 
@@ -98,8 +98,8 @@ Result set
 SELECT  
 SalesRepId,   
 CASE District  
-WHEN 1 THEN 'Canada'  
-WHEN 2 THEN 'U.S.'  
+    WHEN 1 THEN 'Canada'  
+    WHEN 2 THEN 'U.S.'  
 END AS Country  
 FROM SalesRep
 
@@ -118,7 +118,7 @@ _(Support for SQL CASE syntax was added in PxPlus 2016.)_
 SELECT *  
 FROM SalesRep  
 WHERE SalesRepId IN (SELECT SalesRepId  
-FROM Customer)
+                                    FROM Customer)
 
 Result set 
 
@@ -166,7 +166,7 @@ Result set ...
 **Customer.Name** |  **SalesRep.Name**  
 ---|---  
 ABC Corp. |  John Doe  
-Acme Inc. |   
+Acme Inc. |     
   
 ##  Right Outer Join _(as of PxPlus SQL ODBC Driver version 6.00)_
 
@@ -179,7 +179,7 @@ Result set ...
 ---|---  
 ABC Corp. |  John Doe  
 |  Jane Smith  
-|  House Account  
+  |  House Account  
   
 #### **Note:  
 ** The join escape syntax is optional, and it is possible to omit the { OJ }. _(as of PxPlus SQL ODBC Driver version 6.00)_
@@ -196,10 +196,10 @@ Result set ...
 **Customer.Name** |  **SalesRep.Name**  
 ---|---  
 ABC Corp. |  John Doe  
-Acme Inc. |   
+Acme Inc. |     
 ABC Corp. |  John Doe  
-|  Jane Smith  
-|  House Account  
+  |  Jane Smith  
+  |  House Account  
   
 #### **Note:  
 ** The join escape syntax is optional, and it is possible to omit the { OJ }. _(as of PxPlus SQL ODBC Driver version 6.00)_
@@ -216,9 +216,9 @@ Result set ...
 **Customer.Name** |  **SalesRep.Name**  
 ---|---  
 ABC Corp. |  John Doe  
-Acme Inc. |   
-|  Jane Smith  
-|  House Account  
+Acme Inc. |     
+  |  Jane Smith  
+  |  House Account  
   
 #### **Note:  
 ** The join escape syntax is optional, and it is possible to omit the { OJ }. _(as of PxPlus SQL ODBC Driver version 6.00)_
@@ -234,12 +234,12 @@ Result set ...
 ---|---|---  
 ABC Corp. |  John Doe |  4.0  
 |  Jane Smith |  4.8  
-|  House Account |  4.2  
+  |  House Account |  4.2  
   
 #### **Note:  
 ** The join escape syntax is optional, and it is possible to omit the { OJ }. _(as of PxPlus SQL ODBC Driver version 6.00)_
 
-##  Union  _(as of PxPlus SQL ODBC Driver version 6.00)_
+##  Union _(as of PxPlus SQL ODBC Driver version 6.00)_
 
 SELECT Name FROM Customer UNION SELECT Name FROM SalesRep
 
@@ -261,7 +261,7 @@ DELETE
 FROM Customer  
 WHERE SalesRepId IS NULL
 
-Customer table after delete 
+Customer table after delete  
 
 **CustomerId** |  **Name** |  **SalesRepId** |  **ARBalance**  
 ---|---|---|---  
@@ -280,7 +280,7 @@ Customer table after insert
 **CustomerId** |  **Name** |  **SalesRepId** |  **ARBalance**  
 ---|---|---|---  
 0001 |  ABC Corp. |  01 |  1234.99  
-0002 |  Acme Inc. |  |  1.23  
+0002 |  Acme Inc. |    |  1.23  
 0003 |  New Customer |  02 |  9999.99  
   
 ## Update
@@ -314,7 +314,7 @@ Suppose we want a statement that will retrieve all rows from the _Customer_ tabl
 
 We begin with 
 
-> _statement_**::=** SELECT _select_ _orderby_
+> _statement_**::=** SELECT _select_ _  orderby_
 
 which consists of
 
@@ -322,27 +322,27 @@ which consists of
 
 which has
 
-> _selectcols_ **::=**  _selectallcols_ * | _selectallcols_ _selectlist_
+> _selectcols_  **::=**  _selectallcols_ * | _selectallcols_ _  selectlist_
 
 We want to display a limited number of columns, so we want a
 
-> _selectlist_ **::=**  _selectlistitem_ , _selectlist_ | _selectlistitem_
+> _selectlist_  **::=**  _selectlistitem_ , _selectlist_ | _selectlistitem_
 
 which consists of two
 
-> _selectlistitem_ **::=**_expression_ | _expression aliasname_ | _expression_ AS _aliasname_ | _aliasname_.* | _colref_
+> _selectlistitem_  **::=**_expression_ | _expression aliasname_ | _expression_ AS _aliasname_ | _aliasname_.* | _colref_
 
 Our two _selectlist_ items are
 
-> _colref_ **::=**  _aliasname_ . _columnname_ | _columnname_
+> _colref_  **::=**  _aliasname_ . _columnname_ | _columnname_
 
 which are composed of an
 
-> _aliasname_ **::=**_identifier_
+> _aliasname_  **::=**_identifier_
 
 and a
 
-> _columnname_ **::=**_identifier_
+> _columnname_  **::=**_identifier_
 
 An _identifier_ consists of an identifier (identifiers containing spaces must be enclosed in double quotes).
 
@@ -352,30 +352,30 @@ As the _alias_ , we use the name of the table; however, an alias is not limited 
 
 Now we parse the _tablelist_.
 
-> _tablelist_ **::=**  _tablelistitem_  _crossjointerm_  _tablelist_ | _tablelistitem_
+> _tablelist_  **::=**  _tablelistitem_  _crossjointerm_  _tablelist_ | _tablelistitem_
 
 where a
 
-> _tablelistitem_ **::=**  _tableref_ | _outerjoin_
+> _tablelistitem_  **::=**  _tableref_ | _outerjoin_
 
 and we want all rows from the first table and matching rows from the second table, if any. Therefore, we need an
 
-> _outerjoin_ **::=**  _ojshorthand_ _| oj_
+> _outerjoin_  **::=**  _ojshorthand_ _| oj_
 
 Since we do not like to type, we use _ojshorthand_**::=** {OJ _oj_ }
 
 where
 
 > _oj_**:=**  _tablerefojterm_  _tableref_ ON _boolean_ _  
-> ojterm_ **:=** LEFT OUTER JOIN
+> ojterm_  **:=** LEFT OUTER JOIN
 
 We have two
 
-> _tableref_ **::=**  _tablename_ | _tablename_ _aliasname_
+> _tableref_  **::=**  _tablename_ | _tablename_ _  aliasname_
 
 where
 
-> _tablename_ **::=**_identifier_
+> _tablename_  **::=**_identifier_
 
 Thus far, we have:
 
@@ -383,7 +383,7 @@ Thus far, we have:
 
 The final piece is the relationship between the _Customer_ table and the _SalesRep_ table, which is specified with
 
-> _boolean_ **::=**_and_ | _and_ OR _boolean_
+> _boolean_  **::=**_and_ | _and_ OR _boolean_
 
 Ultimately, we want a _comparison_ which is part of
 
@@ -398,3 +398,9 @@ The _comparison_ is _expression op expression_ where the expressions are _colref
 The result is:
 
 > SELECT Customer.Name, SalesRep.Name FROM {OJ Customer LEFT OUTER JOIN SalesRep ON Customer.SalesRepId = SalesRep.SalesRepId }
+
+ 
+
+ 
+
+ 

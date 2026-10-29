@@ -13,7 +13,7 @@ _chan_ |  Channel or logical file number (e.g. open (1)"*html*").
 ---|---  
 _options_ |  The following options are supported either following the ***HTML*** filename or via **OPT=** on the **OPEN** : |  **BACK=**_nnnnnn_ |  Background colour using standard HTML RGB colour representation.  
 ---|---  
-**FONT=**_fontname_ |  Default font use a fixed font such as Courier.  
+**FONT=**_fontname_ |  Default font  use a fixed font such as Courier.  
 **FILE=**_path_ |  Output filename.  
 **SHOW** |  **_(Windows Only)_** Causes the file to be passed to default browser.  
 **TEXT=**_nnnnnn_ |  Text colour using standard HTML RGB colour representation.  
@@ -31,3 +31,9 @@ These examples create an HTML file called _Sample.htm_ with the title "Sample". 
 > open (1,opt="FILE=Sample.htm;SHOW;FONT=Courier New;TITLE=Sample;BACK=FFFFFF;TEXT=000000")"*HTML*"
 
 > open (1)"*HTML*;FILE=Sample.htm;SHOW;FONT=Courier New;TITLE=Sample;BACK=FFFFFF;TEXT=000000"
+
+ 
+
+ 
+
+ 

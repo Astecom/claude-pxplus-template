@@ -15,10 +15,10 @@
 _chan_ |  Channel or logical file number to assign to the file.  
 ---|---  
 _dev_path_ _$_ |  Path to a UNIX device file.  
-_fileopt_ |  File options. Supported options for opening a COM port include: |  **BSZ=**_num_ |  Block size |   
+_fileopt_ |  File options. Supported options for opening a COM port include: |  **BSZ=**_num_ |  Block size |     
 ---|---|---  
-**ERR=**_stmtref_ |  Error transfer |   
-**ISZ=**_num_ |  Open file in binary mode |   
+**ERR=**_stmtref_ |  Error transfer |     
+**ISZ=**_num_ |  Open file in binary mode |     
 **NBF=**_num_ |  Dedicated number of buffers  
 **OPT=**_string$_ |  Options for **_Windows Only_** (See **Windows OPT= Settings**)  
 _port:_ |  Port ID (e.g. OPEN(1,_settings$_)"COM2:").  
@@ -85,7 +85,7 @@ The setting$ assigned in the Windows example below are for the serial communicat
 ##  Format 3
 
 **_Open Device in UNIX_**  
-  
+   
 **OPEN**(_chan_[,_fileopt_])_dev_path_ _$  
 _  
 When you **OPEN** the serial device using this format in UNIX, the port is opened with the current characteristics. To change the settings, you can either set line characteristics at the OS level before starting PxPlus or use an **[INVOKE](../directives/invoke.md)** directive after you open the device:
@@ -95,10 +95,14 @@ When you **OPEN** the serial device using this format in UNIX, the port is opene
 #### **Note:**  
 **_WindX Tip -_** While it is possible to open a serial device on the client PC by using the **[WDX]** tag, this is not recommended. Instead, use a **CALL** from the host to a **[WDX]** sub-program on the remote client PC. Design your sub-program to open and control the device and its settings. You can return your results to the host via your **CALL** 's parameters.  
   
-See **[[WDX] Direct Action to Client Machine](../command_tags/wdx.htm)**.
+See **[[WDX] Direct Action to Client Machine](../command_tags/wdx.md)**.
 
 ##  See Also
 
 **[OPEN Open a File for Processing](../directives/open.md)**
 
-****
+** **
+
+ 
+
+ 

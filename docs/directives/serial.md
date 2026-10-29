@@ -20,7 +20,7 @@ _stmtref_ |  Program line number or statement label to which to transfer control
 When you use the **SERIAL** directive to create a serial (sequential or flat) file, PxPlus creates a standard text data file in a format the operating system can access directly. The record size is "for documentation purposes only" on most operating systems. If you do specify the size, make it large enough to hold all the data fields written to the file for each record. If a file of the name you use already exists, PxPlus returns an Error #12: File does not exist (or already exists).
 
 #### **Note:  
-** WindX in PxPlus supports the use of this directive via the [WDX] or [LCL] tags; e.g. SERIAL "[WDX]somefile.ext". Non-PxPlus versions require you to encapsulate the command in an EXECUTE directive with a [WDX] tag (i.e. EXECUTE "[WDX]..."). See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.htm) or **[[LCL] Access to Users Local Machine](../command_tags/lcl.htm)**.
+** WindX in PxPlus supports the use of this directive via the [WDX] or [LCL] tags; e.g. SERIAL "[WDX]somefile.ext". Non-PxPlus versions require you to encapsulate the command in an EXECUTE directive with a [WDX] tag (i.e. EXECUTE "[WDX]..."). See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.md) or **[[LCL] Access to Users Local Machine](../command_tags/lcl.md)**.
 
 **_Record Access Mode and Binary Access Mode_**
 
@@ -63,3 +63,9 @@ Both examples below create files whose structures are viewed by PxPlus as serial
 > 0010 serial "PRNTFL",,133
 
 > 0010 serial A$+"-"+B$,100,50,err=1090
+
+ 
+
+ 
+
+ 

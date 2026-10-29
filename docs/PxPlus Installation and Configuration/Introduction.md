@@ -1,14 +1,25 @@
-# 
+#  
 
-**PxPlus Installation and Configuration** |  **__**  
+**PxPlus Installation and Setup** |  **_ _**  
 ---|---  
   
-The PxPlus Installation and Configuration Guide describes the requirements and procedures for downloading, installing and configuring the PxPlus system for use under Windows and UNIX/Linux platforms. This information should be read by system administrators who are responsible for setting up and maintaining PxPlus, as well as by application developers who wish to incorporate the PxPlus system configuration into the design of their proprietary applications.
+The **PxPlus Installation and Setup** Help documentation describes the procedures for downloading, installing, registering and configuring PxPlus for use under Windows and UNIX/Linux platforms.
 
-Starting with PxPlus 2019, the packages needed for most business applications are included in the **_Base_** bundle.
+**_Before You Begin_**
 
-The **_Professional_** bundle is designed for Client-Server implementation using the WindX Plug-in.
+Review the **[Getting Started](Getting%20Started.md)** page to familiarize yourself with the installation and setup process, supported operating systems, and the information included in your product activation email.
 
-The **_Web_** bundle is designed for Web implementation.
+Use these links to access additional information:
 
-Contact your local PxPlus reseller or visit the PxPlus website at **[www.pvxplus.com](http://www.pvxplus.com/)** for product information and licensing.
+**[Licenses and Modes of Activation](Licensing%20and%20Activation%20Keys/Overview.md)** |  Describes the different licenses and modes of activation.  
+---|---  
+**[Download and Installation (Windows)](Installation%20Instructions/Windows%20Installation.md)** |  Outlines steps for downloading and installing PxPlus on Windows.  
+**[Download and Installation (UNIX/Linux)](Installation%20Instructions/UNIX%20and%20Linux%20Installation.md)** |  Outlines steps for downloading and installing PxPlus on UNIX/Linux.  
+**[Activation and Registration](Licensing%20and%20Activation%20Keys/Activation%20and%20Registration.md)** |  Includes information on **[Online Registration](Licensing%20and%20Activation%20Keys/Online%20Registration.md)**, **[Manual Activation](Licensing%20and%20Activation%20Keys/Manual%20Activation.md)**, and **[Registration Issues](Licensing%20and%20Activation%20Keys/Resolving%20Registration%20Issues.md)**.  
+**[Troubleshooting](Troubleshooting/Overview.md)** |  Contains troubleshooting procedures to help you quickly identify and resolve issues related to the installation, startup, and configuration of PxPlus.  
+  
+ 
+
+ 
+
+ 

@@ -1,9 +1,9 @@
-# Utilities and Extended Commands  
-  
-**Extended Commands** |   
+# Language Reference
+
+**Extended Commands** |     
 ---|---  
   
-Whenever an unrecognized command is entered in Command mode without a line number, the system will take the first word of the command and use it to look up a program in the ***cmd** or ***cmd/system** directory.
+Whenever an unrecognized command is entered in Command mode without a line number, the system will take the first word of the command and use it to look up a program in the ***cmd** directory or the ***cmd/system** directory or a **_cmd** directory in the application's starting directory.
 
 **_Example:_**
 
@@ -11,18 +11,21 @@ If you enter the command
 
 > **- >mike was here**
 
-the system will look for the program "***cmd/mike** " or, if not found, "***cmd/system/mike** ". If the program is found, the system will call the program and pass the complete line following the file name (or "was here" in this example) to the program.
+the system will look for the program "***cmd/mike** " or if not found, "***cmd/system/mike** ", or if not found, _starting directory_ /**_cmd/mike**. If the program is found, the system will call the program and pass the complete line following the file name (or "**was here** " in this example) to the program.
 
 This facility allows developers to extend the development environment with their own programs, as well as provide simple access to a variety of additional commands included with the development suite. By convention, user developed commands should be placed in the "***cmd** " directory with system supplied commands in "***cmd/system** ". This allows system commands to be updated whenever new versions of the software are downloaded.
+
+To avoid losing user developed commands, it is recommended that they be placed in a directory named **_cmd** in the application's starting directory.
 
 Some of the most **_commonly used_** system commands are:
 
 **Command** |  **Description**  
 ---|---  
+**ai** |  Spawns a session of the PxPlus AI Assistant. See **[AI Console Command](commands/ai.md)**. _(The AI command was added in PxPlus 2025 Update 1.)_  
 **cd** |  Change the current working directory for the process (similar to the '**cd** ' command in UNIX/Linux). See **[CD Console Command](commands/cd.md)**. _(The CD command was added in PxPlus v6.30.)_  
 **chartsched** |  Invokes **[Chart Image Generation Schedule Maintenance](Chart%20Images%20Generation/Schedule%20the%20Chart%20Generation.md)** for adding schedule entries for chart image generation. _(The CHARTSCHED command was added in PxPlus v11.50.)_  
 **clip** |  Utility to copy lines to the Clipboard.  
-**cls** |  Clears the Command Line editing screen. _(The CLS command was added in PxPlus 2025.)_  
+**cls** |  Clears the Command Line editing screen. See **[CLS Console Command](commands/cls.md)**. _(The CLS command was added in PxPlus 2025.)_  
 **color/colour** |  Utility to control the syntax colors used to list programs on the screen.  
 **cp** |  Copies a file from one location to another. See **[CP Console Command](commands/cp.md)**. _(The CP command was added in PxPlus v7.65.)_  
 **dbg** |  Text mode debug utility. See **[DBG Console Command](commands/dbg.md)**. _(The DBG command was added in PxPlus v8.30.)_  
@@ -32,23 +35,23 @@ Some of the most **_commonly used_** system commands are:
 **ds** |  Invokes **[Data Source Maintenance](Views%20System/Data%20Source%20Maintenance/Overview.md)** for defining Views data sources.  
 **ed +** |  Invokes the Web-based **[Ed+ Program Editor](Ed%20Program%20Editor.md)** for creating and modifying your application programs. _(The ED+ command was added in PxPlus 2016.)_  
 **errors** |  Display error history. See **[ERRORS Console Command](commands/errors.md)**. _(The ERRORS command was added in PxPlus v11.00.)_  
-**f** |  Simple find string utility. Enter **"f _xxxx_ "** to find and display all occurrences of **_xxxx_** in your program.  
+**f** |  Simple find string utility. Enter **" f _xxxx_ "** to find and display all occurrences of **_xxxx_** in your program.  
 **fm** |  Invokes the **[File Update Utility](File%20Update%20Utility.md)** for viewing, modifying and updating the records within a selected data file.  
 **fmgen** |  Invokes the **[NOMADS Session Manager](NOMADS%20Graphical%20Application/NOMADS%20Development/Getting%20Started.htm#sessionmgr)** for opening an existing file maintenance panel or defining a new one in the NOMADS **[File Maintenance Generator](NOMADS%20Graphical%20Application/Dictionary-Based%20Development/Fmgen/Fmgen%20Introduction.md)**. See **[FMGEN Console Command](commands/fmgen.md)**. (_The FMGEN command was added in PxPlus 2025.)_  
 **gui** |  Invokes the graphical user interface based **[System Utilities](PxPlus%20User%20Guide/Getting%20Started/System%20Utilities/Graphical%20Utilities.md)** that are used for the creation, debugging, and management of PxPlus programs, files and directories.  
 **help** |  Launches the PxPlus Help file.  
 **ide** |  Invokes the PxPlus **[IDE Main Launcher (Windows)](PxPlus%20IDE/IDE%20Main%20Launcher.md)**, which presents all the PxPlus development tools, installation and setup components in a tree-like format. _(The IDE command was added in PxPlus 2014.)_  
 **it** |  Invokes the PxPlus **[Integrated Toolkit](toolkit1/sect1.1/a.md)**. When executed, the current program (if not passworded) will be automatically loaded into the graphical program editor.  
-**join** |  Command to join two lines together. Enter **"join _xxxxx_ _yyyyy_ "** to append line **_xxxxx_** to the end of line **_yyyyy_**.  
+**join** |  Command to join two lines together. Enter **" join _xxxxx_ _  yyyyy_"** to append line **_xxxxx_** to the end of line **_yyyyy_**.  
 **kill** |  Terminate a process. See **[KILL Console Command](commands/kill.md)**. _(The KILL command was added in PxPlus v7.65.)_  
 **ll** |  List Labels command to display all line labels in the current program.  
-**loadbbx** |  Utility to do an inline conversion and load of a BBx program. Enter **"loadbbx _pathname_ " **to convert and load the BBx program in the pathname specified.  
-**ls** |  List directory is a command similar to the UNIX/Linux "ls" command. Enter **"ls _pathname_ " **to list the filenames found in the directory. Wild cards (*) can be provided. To display the file size, type and date changed for each filename listed, use the **-l**  _(dash lowercase L)_ option: **"ls _pathname_ -l"**. _(The -l option was added in PxPlus 2014 Feature Pack 1 - Update 0002.)_  
+**loadbbx** |  Utility to do an inline conversion and load of a BBx® program. Enter **" loadbbx _pathname_ " **to convert and load the BBx® program in the pathname specified.  
+**ls** |  List directory is a command similar to the UNIX/Linux "ls" command. Enter **" ls _pathname_ " **to list the filenames found in the directory. Wild cards (*) can be provided. To display the file size, type and date changed for each filename listed, use the **-l**  _(dash lowercase L)_ option: **" ls _pathname_ -l"**. _(The -l option was added in PxPlus 2014 Feature Pack 1 - Update 0002.)_  
 **lv** |  List all the variables used by the current program, or if invoked with a variable name following the **'lv'** command, the utility will list all lines that reference the specified variable.  
 **new** |  Issues a **DELETE** and **BEGIN** to clear the current workspace and close all open files.  
 **nom** |  Invokes the **[NOMADS Session Manager](NOMADS%20Graphical%20Application/NOMADS%20Development/Getting%20Started.htm#sessionmgr)** for accessing the NOMADS graphical application development toolset. Specifying a _panel_name_ _$_ and _library_file_ _$_ opens an existing NOMADS panel or creates a new one in the **[NOMADS Panel Designer](NOMADS%20Graphical%20Application/Panel%20Designer/Introduction.md)**. If the panel object was created with the **[File Maintenance Generator](NOMADS%20Graphical%20Application/Dictionary-Based%20Development/Fmgen/Fmgen%20Introduction.md)**, a message will ask you to choose between opening the panel in the File Maintenance Generator or in the NOMADS Panel Designer. See **[NOM Console Command](commands/nom.md)**. _(The ability to open a file maintenance panel in the File Maintenance Generator was added in PxPlus 2025.)_  
-**obj** |  Utility to display the properties and methods for an object. Enter **"obj _xxxxx_ "** where **_xxxxx_** contains the object handle to display.  
-**olhelp** |  Launches the online PxPlus Help manual in a Web browser. _(The olhelp command was added in PxPlus 2024.)_  
+**obj** |  Utility to display the properties and methods for an object. Enter **" obj _xxxxx_ "** where **_xxxxx_** contains the object handle to display.  
+**olhelp** |  Launches the online PxPlus Help manual in a Web browser. See **[OLHELP Console Command](commands/olhelp.md)**. _(The olhelp command was added in PxPlus 2024.)_  
 **password** |  Command to prompt the user for the password to be used against the current program in memory. See **[PASSWORD Console Command](commands/password.md)**. _(The PASSWORD command was added in PxPlus v8.30.)_  
 **paste** |  Command to paste the contents of the Clipboard into the current program.  
 **pkg** |  Command to display the current activation status and list of enabled packages on the system.  
@@ -66,4 +69,10 @@ Some of the most **_commonly used_** system commands are:
 **vu** |  Invokes **[View Maintenance](Views%20System/View%20Maintenance/Overview.md)** for creating View definitions.  
 **wdw** |  Adjust the window size of the main (Command) window. See **[WDW Console Command](commands/wdw.md)**. _(The WDW command was added in PxPlus v9.00.)_  
   
-BBx is a registered trademark of BASIS International Ltd.
+ 
+
+ 
+
+BBx® is a registered trademark of BASIS International Ltd.
+
+ 

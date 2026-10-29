@@ -36,7 +36,7 @@ _(The expanded Multi-Line input was added in PxPlus 2023 Update 1.)_
 
 ## Adding Extended Validation Descriptive Fields (SHOW._xxxxxx_)
 
-A **SHOW**._xxxxxx_ field (**_where_** _xxxxxx_ is the name of its related field) can be added **_beside_** its related field in the adjoining cell or directly **_below_** it. It can also be added or moved to the **_same cell_** as its related field only if the related field is a non-Key segment. This combines the two fields in one cell and allows another field to be placed beside it in the adjoining cell.
+A **SHOW**._xxxxxx_ field (**_where_** _  xxxxxx_ is the name of its related field) can be added **_beside_** its related field in the adjoining cell or directly **_below_** it. It can also be added or moved to the **_same cell_** as its related field only if the related field is a non-Key segment. This combines the two fields in one cell and allows another field to be placed beside it in the adjoining cell.
 
 To combine a **SHOW** _.xxxxxx_ field with its related field, the related field must first be in the _Layout Grid_. Before the two fields are combined, a message will display.
 
@@ -50,15 +50,15 @@ See **[Extended Class Validation and Display](../../../Data%20Dictionary/Data%20
 
 When added to the _Layout Grid_ , the **SHOW**._xxxxxx_ field is displayed in the following format:
 
-_elementname_ **from**  _file_
+     _elementname_  **from**  _file_
 
-**_Where:_**
+     **_Where:_**
 
-_elementname_ is the name of the element and _file_ is the data file in the data dictionary.
+    _  elementname_ is the name of the element and _file_ is the data file in the data dictionary.
 
-**_Example:_**
+     **_Example:_**
 
-Name from Sales Rep (SHOW.SalesRep)
+     Name from Sales Rep (SHOW.SalesRep)
 
 When the panel is generated, the **SHOW**._xxxxxx_ field Multi-Line is locked and is not included in the tab sequence.
 
@@ -72,21 +72,27 @@ Key fields cannot be removed from the _Layout Grid_. When a data dictionary fiel
 
 To remove a **_single field_** , use one of the following methods:
 
-Press the Delete key to remove the contents of the currently selected cell from the _Layout Grid_. (Fields cannot be multi-selected for removal.)  
-Drag and drop a data dictionary field from the _Layout Grid_ to the _Fields_ list box. (Fields cannot be multi-selected for removal.)  
-Right click on the cell containing the field and select the _Clear Current Cell_ option from the popup menu.
+    Press the Delete key to remove the contents of the currently selected cell from the _Layout Grid_. (Fields cannot be multi-selected for removal.)  
+    Drag and drop a data dictionary field from the _Layout Grid_ to the _Fields_ list box. (Fields cannot be multi-selected for removal.)  
+    Right click on the cell containing the field and select the _Clear Current Cell_ option from the popup menu.
 
 _(The ability to use the Delete key to remove a field was added in PxPlus 2021.)_
 
 To remove a **_single row_** , use the following method:
 
-Right click on a cell in the row and select the _Delete Row_ option from the popup menu.
+    Right click on a cell in the row and select the _Delete Row_ option from the popup menu.
 
 To remove **_all fields_** on the current panel, use one of the following methods:
 
-Click the **[Reset](Field%20Layout.htm#reset)** button, which displays a message for resetting the _Layout Grid_.  
-Right click on a cell in the _Layout Grid_ and select the _Clear All Cells_ option from the popup menu.
+    Click the **[Reset](Field%20Layout.htm#reset)** button, which displays a message for resetting the _Layout Grid_.  
+    Right click on a cell in the _Layout Grid_ and select the _Clear All Cells_ option from the popup menu.
 
 ## See Also
 
 **[Moving Fields](Moving%20Fields.md)**
+
+ 
+
+ 
+
+ 

@@ -1,9 +1,9 @@
-# Utility Routines
+# Utilities
 
 ***PLUS/WINUTL/SERVICE** |  **_Windows Task Monitor Service_**  
 ---|---  
   
-The **"*plus/winutl/service"** utility provides a facility similar to the Unix/Linux 'inittab' functionality. It allows the application developer to have a series of processes spawned and monitored in the background of a Windows system.
+The **" *plus/winutl/service"** utility provides a facility similar to the Unix/Linux 'inittab' functionality. It allows the application developer to have a series of processes spawned and monitored in the background of a Windows system.
 
 _(The *Plus/Winutl/Service utility was added in PxPlus v8.11.)_
 
@@ -28,23 +28,23 @@ Each line that starts with an alpha character must describe a task/process to ru
 
 
 
-> _taskid_ **once** _command_line_
+> _      taskid_ **once** _command_line_
 
   * For tasks that will be started during service startup then monitored and restarted should they terminate:
 
 
 
-> _taskid_ **respawn** _command_line_
+> _      taskid_ **respawn  **_command_line_
 
   * Task that you do not want started (or terminate if running) can have the option **_off_** , as in:
 
 
 
-> _taskid_ **off** _command_line_
+> _      taskid_ **off** _command_line_
 
 In the scenarios above:
 
-  * The _taskid_ is a user defined identifier for the process. It must start with a letter and may be up to 10 characters long.
+  * The _  taskid_ is a user defined identifier for the process. It must start with a letter and may be up to 10 characters long.
   * The _command_line_ contains the Windows command that will be executed to launch the process.
 
 
@@ -88,3 +88,9 @@ Should a task marked as '**respawn'** have to be relaunched more than 10 times w
 ## Logging
 
 The service keeps track of its activity in the file "***plus/winutl/inittab.log** ". This file will contain the last 1000 events with each event being recorded with a date/time stamp. No maintenance is required on this file, as it will automatically limit itself to 1000 entries, dropping older entries, as needed.
+
+ 
+
+ 
+
+ 

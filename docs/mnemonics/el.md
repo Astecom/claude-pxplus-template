@@ -5,9 +5,9 @@
   
 The **'EL'** mnemonic has two uses depending on the target device:
 
-> If the target device is a terminal, it is used to initiate the loading of the EDIT keys.
+>   If the target device is a terminal, it is used to initiate the loading of the EDIT keys.
 
-> If the target is a printer, it is used to end the loading of VFU.
+>   If the target is a printer, it is used to end the loading of VFU.
 
 ## Terminal Device - Load Edit Keys
 
@@ -63,3 +63,9 @@ Use **'EL'** to end VFU load. The data following **'SL'** (from **'SL'** up to a
 [**'SL' Start VFU Load**](sl.md)  
 **['S#' Slew to Channel](s_.md)**  
 **['VT' Slew to S6, Vertical Tab](vt.md)**
+
+ 
+
+ 
+
+ 

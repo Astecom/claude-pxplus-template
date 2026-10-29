@@ -1,4 +1,4 @@
-# Toolkit for Conversion from Thoroughbred
+# Toolkit for Conversion from Thoroughbred®
 
 **Prepass Program Conversions**|   
 ---|---  
@@ -7,9 +7,9 @@ To facilitate the conversion of programs, the PxPlus conversion utilities includ
 
 The prepass itself is controlled by two files:
 
-|  **_prepass.sys_** |  This file contains the system supplied prepass rules that have been found to work on all Thoroughbred programs.  
+  |  **_prepass.sys_** |  This file contains the system supplied prepass rules that have been found to work on all Thoroughbred® programs.  
 ---|---|---  
-|  **_prepass.usr_** |  This file can be tailored by the user to perform custom prepass conversions based on their specific application needs.  
+  |  **_prepass.usr_** |  This file can be tailored by the user to perform custom prepass conversions based on their specific application needs.  
   
 ## File Format
 
@@ -20,9 +20,9 @@ The format of the conversion lines is:
 
 **_Where:_**
 
-|  _oldval_ _/var_ |  The text that will be scanned for   
+  |  _oldval_ _/var_ |  The text that will be scanned for   
 ---|---|---  
-|  newval/var |  The value that will be inserted instead  
+  |  newval/var |  The value that will be inserted instead  
   
 If the separator is **- >**, the replacement is a simple pure text replacement; that is, all occurrences of _oldval_ will become _newval_.
 
@@ -86,4 +86,10 @@ The following is a Feb. 2006 listing of _prepass.sys_ :
 >  !  
 >  DELETE 00001,65534->DELETE 00001,65000
 
-Thoroughbred is a registered trademark of Thoroughbred Software International, Inc.
+ 
+
+ 
+
+ 
+
+Thoroughbred® is a registered trademark of Thoroughbred Software International, Inc.

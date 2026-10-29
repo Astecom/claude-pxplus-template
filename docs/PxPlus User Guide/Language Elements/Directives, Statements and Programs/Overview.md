@@ -1,6 +1,6 @@
 # Language Elements
 
-**Directives, Statements and Programs** |  **__**  
+**Directives, Statements and Programs** |  **_ _**  
 ---|---  
   
 All processing in PxPlus is controlled by **_Directives_** \- keywords that "direct" the system to perform certain tasks. Directives can be entered in Command mode to be executed immediately. They also represent the core ingredient in the **_statements_** that constitute a PxPlus **_program_**.
@@ -49,6 +49,8 @@ Data to be processed or system keywords that further define the directive. A spa
   
 Descriptive text beginning with an **!** (_exclamation point_) or the keyword **REM**. Text following an exclamation point is ignored by the system; i.e. the exclamation point terminates a statement and passes execution to the next line of code _._  
   
+ 
+
 #### **Note:**  
 Comments are very important for the readability and maintainability of a program. However, this text is included in the final compiled program; therefore, be aware that excessive comments may increase memory requirements and degrade overall system performance.
 
@@ -77,7 +79,7 @@ Directives that transfer control without returning (e.g. **[GOTO](../../../direc
 > print "hello";  
 >  return ;  
 >  if name$<>"" \  
->  then print "-",name$
+>      then print "-",name$
 
 Some directives cannot be included in a compound statement. Refer to the individual directives for any restrictions.
 
@@ -99,9 +101,9 @@ To retain your changes for later use, use the **[SAVE](../../../directives/save.
 
 > save "Myprogram"
 
-If the file name specified by _"Myprogram"_ does not exist, a new program file is created, and the program is written to it. If a program exists with the same name, it will be overwritten by the current program. Programs can also be saved in program libraries.
+If the file name specified by _" Myprogram"_ does not exist, a new program file is created, and the program is written to it. If a program exists with the same name, it will be overwritten by the current program. Programs can also be saved in program libraries.
 
-See **[[LIB] Program Library](../../../command_tags/lib.htm)**.
+See **[[LIB] Program Library](../../../command_tags/lib.md)**.
 
 **_Retrieving a Program File_**
 
@@ -121,7 +123,7 @@ It is possible to **[RUN](../../../directives/run.md)**, **[CALL](../../../direc
 
 > delete  
 >  for I=1 to 20  
->  print I  
+>      print I  
 >  next  
 >  serial "PROG999"  
 >  save "PROG999"
@@ -139,3 +141,9 @@ However, when running a text-based program from a PxPlus session, each statement
 ## See Also
 
 **[Directives](../../../directives.md)**
+
+ 
+
+ 
+
+ 

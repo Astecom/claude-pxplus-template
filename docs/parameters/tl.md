@@ -1,15 +1,15 @@
 # System Parameters
 
-**'TL'** |  **_LIKE Emulates Thoroughbred_**  
+**'TL'** |  **_LIKE Emulates Thoroughbred_** ®  
 ---|---  
   
 ##  Description
 
-Sets the **LIKE Operator** to use a simplified pattern match that emulates the behaviour of **LIKE** as used by application written for use with Thoroughbred Basic.
+Sets the **LIKE Operator** to use a simplified pattern match that emulates the behaviour of **LIKE** as used by application written for use with Thoroughbred® Basic.
 
-The revised Thoroughbred-like pattern matching logic is:
+The revised Thoroughbred®-like pattern matching logic is:
 
-> **"*"**  _(asterisk)_ in the mask stands for any number of characters including none.
+> **" *"** _(asterisk)_ in the mask stands for any number of characters including none.
 
 > "?" in the mask will match any single character.
 
@@ -37,4 +37,20 @@ The default setting is **_Off_** , meaning the **LIKE** operator will use the sa
 
 "ABCDEF" matches "*DEF", "ABC???", "*CD*" but not "ABC" or "?".
 
-Thoroughbred is a registered trademark of Thoroughbred Software International, Inc.
+ 
+
+Thoroughbred® is a registered trademark of Thoroughbred Software International, Inc.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 

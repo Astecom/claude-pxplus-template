@@ -1,6 +1,6 @@
 # Grid Control 
 
-**Presets** **Definition** |  **__**  
+**Presets**  **Definition** |  **_ _**  
 ---|---  
   
 To aid in the development of grid applications, the NOMADS toolkit supports preset definition records. These presets allow the designer to build a table of properties that can be assigned to columns, rows or individual cells. These are assigned to the grid after it has been created and prior to the execution of the Post Create logic.
@@ -11,7 +11,7 @@ To define presets, select the **Presets** tab of the **Grid Properties** dialogu
 
 > The **Presets** tab consists of the following:
 
-_Property List_ |  Determines the contents for the _Property_ drop box list (in **Presets** grid). The selection (if different from the default) is **_not_** saved. Click the drop-down arrow for a list of selections: |  _Show All_ |  **_(Default)_** ** _All_** grid, cell, row **_and_** column properties will display. See **[Grid Properties](../../../control_object_properties/grid_properties.htm#grid_props)**.  
+_Property List_ |  Determines the contents for the _Property_ drop box list (in **Presets** grid). The selection (if different from the default) is **_not_** saved. Click the drop-down arrow for a list of selections: |  _Show All_ |  **_(Default)_**  **_All_**  grid, cell, row **_and_** column properties will display. See **[Grid Properties](../../../control_object_properties/grid_properties.htm#grid_props)**.  
 ---|---  
 _General_ |  Properties applicable to the grid as a whole will display.  
 _Cell_ |  Properties applicable to a cell will display. See **[Cell Properties](../../../control_object_properties/grid_properties.htm#cell_props)**.  
@@ -28,10 +28,10 @@ _Column_ |  Properties applicable to a column will display. See **[Column Proper
 _(The Property List drop box was added in PxPlus 2019.)_  
   
 _(Drag and Drop)_ |  _Four-headed arrow_ button used to drag and drop an individual row to a different location within the **Presets** grid to change the order of the rows entered. _(The Drag and Drop button was added in PxPlus 2019.)_  
-_Property_ |  Use **_either_** of the following methods to select a property for formatting specific columns, rows or individual cells: |  |  Click the drop-down arrow for a list of grid control object properties. By default, all properties are available. To narrow down this list, select an option from the **[Property List](Presets%20Definition.htm#propertylist)** drop box.  
+_Property_ |  Use **_either_** of the following methods to select a property for formatting specific columns, rows or individual cells: |   |  Click the drop-down arrow for a list of grid control object properties. By default, all properties are available. To narrow down this list, select an option from the **[Property List](Presets%20Definition.htm#propertylist)** drop box.  
 ---|---  
-|  Right click on a cell in the _Property_ column to invoke a popup menu with the following categories: _Contents, Display/Color, Formatting, Grid, Interface, Layout, Misc_. Hover the mouse pointer on a category to display a sub-set of associated properties for selection.   
-**_Popup menu when right clicking on a cell in the Property column_**  
+ |  Right click on a cell in the _Property_ column to invoke a popup menu with the following categories: _Contents, Display/Color, Formatting, Grid, Interface, Layout, Misc_. Hover the mouse pointer on a category to display a sub-set of associated properties for selection.   
+                 **_Popup menu when right clicking on a cell in the Property column_**  
   
   
   
@@ -43,6 +43,7 @@ _Column (Number/Name)_ |  **_(Available only if applicable for the selected Prop
 _Row_ |  **_(Available only if applicable for the selected Property)_** Value to be placed in the **'Row** property. It must be numeric. If 0 _(zero)_ is entered, the defined preset is assigned to _all rows._ If -1 is entered, the defined preset is assigned to the _header row only_.  
 _Exp_ |  Check box to indicate that the content of the _Value/Expression_ column is an expression. The default _(Off)_ indicates literal/fixed.  
 _Value/Expression_ |  Value that will be assigned to the property. If the value is **_not_** marked as an expression, click the drop-down arrow to access defaults for the selected property (if applicable). The cell type for this column is determined by the selected property. If a color property, such as BackColor, LineColor, etc., is selected, click the Query button to access **[Color Selections](../../Appendix/Color%20Selections.md)**.  
+   
 _Insert Above  
 Insert Below_ |  Adds a blank row above or below the currently selected row for entering a property. _(The Insert Above/Insert Below buttons were added in PxPlus 2019.)_  
 _Duplicate Row_ |  Creates a duplicate of the currently selected row and inserts it below the current row. _(The Duplicate Row button was added in PxPlus 2019.)_  
@@ -94,12 +95,12 @@ The '**TabMode** and '**EnterMode** properties allow you to control the behavior
 
 In NOMADS, these properties can be set through the **Presets** tab. The following values can be assigned to these properties:
 
-**** |  **0** \- Normal processing (**Tab** = exit grid, **Enter** = edit cell).  
+** ** |  **0** \- Normal processing (**Tab** = exit grid, **Enter** = edit cell).  
 ---|---  
-**** |  **1** \- Move across grid horizontally (exit on last column).  
-**** |  **2** \- Move across grid and wrap to next line. Last cell wraps to first.  
-**** |  **3** \- Move down a row on grid - hold on last row.  
-**** |  **4** \- Move down a row on grid and return to column 1 - hold on last row.  
+** ** |  **1** \- Move across grid horizontally (exit on last column).  
+** ** |  **2** \- Move across grid and wrap to next line. Last cell wraps to first.  
+** ** |  **3** \- Move down a row on grid - hold on last row.  
+** ** |  **4** \- Move down a row on grid and return to column 1 - hold on last row.  
   
 Holding the **Shift** key while pressing the **Tab** or **Enter** key forces movement in the opposite direction.
 
@@ -113,3 +114,9 @@ You can change **'EnterMode** after setting **'TabMode** if different behavior i
 Grid **Auto Complete** allows you to preload individual cells with text entry suggestions. This content is assigned via the **Presets** tab of the **Grid Properties** dialogue.
 
 See **[Assigning Auto Complete Entries](../../System%20Maintenance%20Tools/System%20Options/Auto%20Complete.htm#assign_auto_compl_entries)**.
+
+ 
+
+ 
+
+ 

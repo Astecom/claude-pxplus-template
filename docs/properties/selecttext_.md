@@ -15,4 +15,10 @@ This allows for cut, copy and paste within a graphical user interface input regi
 
 ## Used By
 
-**GRID****MULTI_LINE** **MULTI_LINE** ** _(RTF word processing style)_ ****VARDROP_BOX****VARLIST_BOX**
+**GRID** **MULTI_LINE**  **MULTI_LINE**  **_(RTF word processing style)_  ****VARDROP_BOX** **VARLIST_BOX**
+
+ 
+
+ 
+
+ 

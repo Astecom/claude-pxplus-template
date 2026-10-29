@@ -11,11 +11,11 @@ Column sorting: Sort the contents of the control
 
 **For the Tree View:** Sorting values indicate the following:
 
-|  1 |  Automatically sort data in ascending order.  
+  |  1 |  Automatically sort data in ascending order.  
 ---|---|---  
-|  0 |  Reset sort indicators.  
-|  -1 |  Causes the current [**'Item**](item.md) to be sorted.  
-|  -2 |  Causes the current [**'Item**](item.md) and its descendants to be sorted.  
+  |  0 |  Reset sort indicators.  
+  |  -1 |  Causes the current [**'Item**](item.md) to be sorted.  
+  |  -2 |  Causes the current [**'Item**](item.md) and its descendants to be sorted.  
   
 ## Default
 
@@ -24,4 +24,10 @@ For TREE_VIEW: 1
 
 ## Used By
 
-**GRID****REPORT_VIEW****TREE_VIEW**
+**GRID** **REPORT_VIEW** **  TREE_VIEW**
+
+ 
+
+ 
+
+ 

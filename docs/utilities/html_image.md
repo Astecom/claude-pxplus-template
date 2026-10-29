@@ -1,4 +1,4 @@
-# Utility Routines
+# Utilities
 
 ***TOOLS/HTMLIMAGE** |  **_Generate an Image of a Web Page_**  
 ---|---  
@@ -11,9 +11,9 @@
 
 _url_ _$_ |  URL to the Web page or HTML file whose image is to be generated. The following can apply:  
   
-Can be a URL (starts with _http://_ or _https://_)  
-Can be a file reference (starts with _file:///_)  
-If missing _http://_ , _https://_ or _file:///_ , default will prefix with _file:///_  
+    Can be a URL (starts with _http://_ or _https://_)  
+    Can be a file reference (starts with _file:///_)  
+    If missing _http://_ , _https://_ or _file:///_ , default will prefix with _file:///_  
 ---|---  
 _imgFile_ _$_ |  Path of the image file to be generated. It **_must_** include the image file suffix (i.e. _.jpg_ , ._png_ , _.bmp_).  
 _imgWidth_ _  
@@ -27,6 +27,12 @@ The "***tools/htmlimage** " utility allows you to generate an image file (_.png_
 #### **Important Note:**  
 To generate an image based on a URL, certain third-party applications are **_required_** :  
   
-On **_Windows_** servers, the **_Chrome_** browser is recommended for generating images; however, the **_Firefox_** browser (v57 and later) can also be used to generate images.  
+     On **_Windows_** servers, the **_Chrome_** browser is recommended for generating images; however, the **_Firefox_** browser (v57 and later) can also be used to generate images.  
   
-On ** _Linux_** servers, the **_Firefox_** browser (v57 and later) will generate _.png_ images. To generate _.jpg_ and _.bmp_ images, the **_ImageMagick_** command line tool must also be installed.
+     On **_Linux_** servers, the **_Firefox_** browser (v57 and later) will generate _.png_ images. To generate _.jpg_ and _.bmp_ images, the **_ImageMagick_** command line tool must also be installed.
+
+ 
+
+ 
+
+ 

@@ -1,11 +1,11 @@
-# Utility Routines
+# Utilities
 
 ***TOOLS/STRIPLINES** |  **_Strip Line Numbers_**  
 ---|---  
   
 ## Invocation
 
-**CALL "*tools/StripLines"** , _progname_ _$, password$, lbl_pfx$, lbl_opt, emsg$_
+**CALL "*tools/StripLines"**, _progname_ _$, password$,  lbl_pfx$, lbl_opt, emsg$_
 
 **_Where:_**
 
@@ -25,7 +25,7 @@ This utility is a CALLed program that strips line numbers from the specified pro
 
 **_Calling Sequence:_**
 
-> **CALL "*tools/StripLines"** ,ERR=*_next,progname$,password$,lbl_pfx$,lbl_opt,emsg$_
+> **CALL "*tools/StripLines"**,ERR=*_next,progname$,password$,lbl_pfx$,lbl_opt,emsg$_
 
 This program can be used to remove all line number references from a program and replace them with labels and/or logical statement labels such as *NEXT or *SAME.
 
@@ -43,3 +43,9 @@ Rules for line number replacement:
 This program will EXIT ERR if an error is encountered.
 
 _(The StripLines utility was added in PxPlus v10.20.)_
+
+ 
+
+ 
+
+ 

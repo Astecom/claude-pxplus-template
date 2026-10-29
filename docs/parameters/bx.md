@@ -1,13 +1,13 @@
 # System Parameters
 
-**'BX'** |  **_BBx_**** _Emulation_**  
+**'BX'** |  **_BBx_** ®** _Emulation_**  
 ---|---  
   
 ##  Description
 
-Sets the system to BBx emulation mode.
+Sets the system to BBx® emulation mode.
 
-Setting or resetting this parameter will affect a variety of other system parameters to establish an environment that is fundamentally compatible with running programs designed for BBx.
+Setting or resetting this parameter will affect a variety of other system parameters to establish an environment that is fundamentally compatible with running programs designed for BBx®.
 
 The system parameters affected by setting the 'BX' system parameter are as follows:
 
@@ -20,9 +20,9 @@ The system parameters affected by setting the 'BX' system parameter are as follo
 **['CD'](cd.md)** |  On |  Checks the current directory first before checking the prefix list for a file.  
 **['DC'](dc.md)** |  On |  Sets destructive cursor. (Moving from left to right replaces intervening characters with spaces up to the new cursor position).  
 **['EX'](ex.md)** |  On |  Sets **[EXECUTE](../directives/execute.md)** directive to affect the program at level 0, thus commands that would alter the program contents will alter the program at the top level of the execution stack.  
-**['FF'](ff.md)** |  =3 |  Defines the format of information returned by the **[FID( )](../functions/fid.md)** function to return a BBx style format.  
+**['FF'](ff.md)** |  =3 |  Defines the format of information returned by the **[FID( )](../functions/fid.md)** function to return a BBx® style format.  
 **['I0'](i0.md)** |  On |  Allows the program to access substring (0,0) of an empty string without generating an error. Normally, accessing offset 0 of a string will result in an Error #47.  
-**['KR'](kr.md)** |  On |  Special Keyed file I/O module for BBx emulation mode.  
+**['KR'](kr.md)** |  On |  Special Keyed file I/O module for BBx® emulation mode.  
   
 When **_On_** , the [**KEP( )**](../functions/kep.md) function returns the key of the record just read instead of the key of the record prior the record just read. In addition, specifying KNO= on any of the **[KEY( )](../functions/key.md)** functions will **_not_** switch key numbers; only the KNO= on a READ will switch the current key number.  
 **['MP'](mp.md)** |  On |  To have the **[MOD( )](../functions/mod.md)** function always return a positive number, even when dealing with negative numbers.  
@@ -48,4 +48,10 @@ In addition to the above, the following logic changes are controlled by the sett
 
 **_Off_** \- PxPlus is in standard mode.
 
-BBx is a registered trademark of BASIS International Ltd.
+BBx® is a registered trademark of BASIS International Ltd.
+
+ 
+
+ 
+
+ 

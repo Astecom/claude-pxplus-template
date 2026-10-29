@@ -15,9 +15,9 @@ The property exists **_both_** for the complete grid **_and_** on each column. T
 
 Possible values are:
 
-0 |  Disable sorting on click of column header.  
+ 0 |  Disable sorting on click of column header.  
 ---|---  
-1 |  Enable sorting on click of column header.  
+ 1 |  Enable sorting on click of column header.  
 -1 |  Use grid default setting. **_(Column Only)_**  
   
 When setting the property for a specific column, you can specify a value of -1, which forces the column to adhere to the current grid default setting.
@@ -30,9 +30,9 @@ This property is used to enable/disable the column sorting options.
 
 Possible values are:
 
-0 |  Disable sorting - column does not sort on click of column header.  
+ 0 |  Disable sorting - column does not sort on click of column header.  
 ---|---  
-1 |  Enable sorting - column will sort on click of column header. **_(Default)_**  
+ 1 |  Enable sorting - column will sort on click of column header. **_(Default)_**  
 -1 |  Clicking the header generates a CTL event and places an EOM code of "H" in the READ queue. The **['ColumnClicked](columnclicked.md)** property will have the column number of the column whose header was clicked. Application can respond accordingly.  
   
 _(Value of -1 for Report Views was added in PxPlus 2017.)_
@@ -44,4 +44,10 @@ For REPORT_VIEW: 1 (Column sorting is enabled; column will sort on click of colu
 
 ## Used By 
 
-**GRID****REPORT_VIEW**
+**GRID** **REPORT_VIEW**  
+
+ 
+
+ 
+
+ 

@@ -1,5 +1,5 @@
-# NOMADS Graphical Application  
-  
+# NOMADS Graphical Application
+
 **Custom Title Bars**|   
 ---|---  
   
@@ -11,7 +11,7 @@ Title bars can be added system wide, to a library or to a panel. You can suppres
 
 For information on creating a custom title bar, see **[Creating a Custom Title Bar](Custom%20Title%20Bars.htm#creating)**.
 
-|    
+  |    
 **Panel with Custom Title Bar ([Frame Style](Panel%20Designer/Panel%20Header/Overview.htm#parameters) = _Thin with no caption_)**  
 _(**Custom Title Bar** feature was added in PxPlus 2017)_ |  This is an example of a **_custom title bar_** that suppresses the Windows title bar by using a _Thin with no caption_ frame style, displays the company logo and panel caption on a _gradient_ background, and provides its own Minimize, Maximize/Restore and Close buttons.  
   
@@ -29,9 +29,9 @@ Like Windows, the panel caption that is displayed will also show in the Windows 
 Custom title bars can be easily added to all panels that meet the required criteria. Title bars **_will not be displayed_** on panels that:
 
   * have been defined as Widgets.
-  * have  _Auto-Scroll Resizing_ set.
+  * have _Auto-Scroll Resizing_ set.
   * are concurrent windows.
-  * are ** _not_** wide enough to display the title bar or have been specified to **_not_** display a title bar.
+  * are **_not_** wide enough to display the title bar or have been specified to **_not_** display a title bar.
 
 
 
@@ -94,6 +94,8 @@ Px_TitleBar_Max |  Button |  Maximize/Restore button. Unlike the standard Window
 Px_TitleBar_Min |  Button |  Panel Minimize button.  
 Px_TitleBar_SysMenu |  Button |  System Menu button. The system menu consists of the _Restore/Move/Size/Minimize/Maximize/Close_ options that are usually associated with the Application icon in the upper left corner of the standard Windows title bar.  
   
+ 
+
 #### **Note:**  
 While offering all the standard title bar buttons makes it easier for the end user, the system menu contains all the options offered by the minimize, maximize/restore and close buttons, making it possible to eliminate these buttons in your title bar design.  
   
@@ -134,10 +136,10 @@ A _Panel_ title bar setting overrides _General_ and _Library_ title bar settings
 #### **Important Note:**  
 If a title bar has been assigned using any of the above methods, it will **_not_** be displayed on panels that:  
   
-have been defined as Widgets.  
-have _Auto-Scroll Resizing_ set.  
-are concurrent windows.  
-are **_not_** wide enough to display the title bar.  
+    have been defined as Widgets.  
+    have _Auto-Scroll Resizing_ set.  
+    are concurrent windows.  
+    are **_not_** wide enough to display the title bar.  
   
 ##  Custom Title Bar Display
 
@@ -151,3 +153,9 @@ If a standard Windows title bar with a caption is used, this will be displayed a
 
 #### **Note:**  
 The **_position_** of the menu bar also changes when a caption-less frame style is used. In this case, the menu bar is the displayed at the top **_above_** the custom title bar. To move the panel, you can click and drag the empty area to the right of the menu bar.
+
+ 
+
+ 
+
+ 

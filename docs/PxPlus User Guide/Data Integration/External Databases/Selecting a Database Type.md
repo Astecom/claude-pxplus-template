@@ -1,6 +1,6 @@
 # External Databases 
 
-**Selecting a Database Type** |  **__**  
+**Selecting a Database Type** |  **_ _**  
 ---|---  
   
 PxPlus supports different interfaces. The one that most people are familiar with is Open Database Connectivity (ODBC). This interface is a set of calls that provide standardized access to a variety of data. The data can be stored in a flat file, a proprietary format, such as PxPlus or a Microsoft SQL Server. PxPlus can read and write that data as long as an ODBC Driver exists for the data store.
@@ -15,13 +15,13 @@ Each database will need to be evaluated for usability, and each has its own lear
 
 Use one of the following **Special File Command Tags** as a prefix in an**OPEN** statement to denote that PxPlus is to route all file I/O requests to the selected external database.
 
-|  [**[ODB]**](../../../command_tags/odb.htm) |  Built-in PxPlus functionality. ** _You do not need the PxPlus SQL ODBC Driver to use this tag._** PxPlus supports ODBC under Windows, as well as two open source versions of ODBC for UNIX/Linux (iODBC and unixODBC). Use **TCB(197)** to determine if ODBC support is enabled for a given UNIX/Linux system.  
+  |  [**[ODB]**](../../../command_tags/odb.md) |  Built-in PxPlus functionality. **_You do not need the PxPlus SQL ODBC Driver to use this tag._** PxPlus supports ODBC under Windows, as well as two open source versions of ODBC for UNIX/Linux (iODBC and unixODBC). Use **TCB(197)** to determine if ODBC support is enabled for a given UNIX/Linux system.  
 ---|---|---  
-|  [**[DB2]**](../../../command_tags/db2.htm) |  Requires activation of PxPlus DB2 support. Use **TCB(198)** to check if DB2 is supported on a platform.  
-|  [**[MYSQL]**](../../../command_tags/mysql.htm) |  Requires activation of PxPlus MySQL support.  
-|  [**[OCI]**](../../../command_tags/oci.htm) |  Requires activation of PxPlus Oracle Call Interface (OCI) support. Use **TCB(200)** to check if OCI is supported on a platform.  
+  |  [**[DB2]**](../../../command_tags/db2.md) |  Requires activation of PxPlus DB2 support. Use **TCB(198)** to check if DB2 is supported on a platform.  
+  |  [**[MYSQL]**](../../../command_tags/mysql.md) |  Requires activation of PxPlus MySQL support.  
+  |  [**[OCI]**](../../../command_tags/oci.md) |  Requires activation of PxPlus Oracle Call Interface (OCI) support. Use **TCB(200)** to check if OCI is supported on a platform.  
   
-See **[OPEN](../../../directives/open.md)** directive in the _PxPlus Language Reference_.
+See **[OPEN](../../../directives/open.md)** directive.
 
 ## OLE DB
 
@@ -29,6 +29,12 @@ Object linking and embedding for databases (OLE DB) is a set of Component Object
 
 ## Connections
 
-When working with an external database, PxPlus does not interact directly with the data in the file. The data is accessed through an interface. That interface may result in local calls to a DLL that reads the data from disk, or it might involve opening a TCP/IP connection to a server on the other side of the planet. This is the first place where a failure may result in an error not handled by existing code. If the**OPEN** fails, an Error #15 will typically occur, with the text provided by the data provider available via**MSG(-1)**.
+When working with an external database, PxPlus does not interact directly with the data in the file. The data is accessed through an interface. That interface may result in local calls to a DLL that reads the data from disk, or it might involve opening a TCP/IP connection to a server on the other side of the planet. This is the first place where a failure may result in an error not handled by existing code. If the**OPEN** fails, an Error #15 will typically occur, with the text provided by the data provider available via**  MSG(-1)**.
 
 Each connection to the database may require an access license. When using a Professional or a Web bundle, PxPlus will access multiple tables using a single connection. This results in only a single license being used.
+
+ 
+
+ 
+
+ 

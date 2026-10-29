@@ -6,7 +6,7 @@
 ##  Format
 
 **OPEN** (_chan_[,_fileopt_])"**[DDE]**_dde_app_ ;_params_ "  
-  
+   
 **_Where:_**
 
 **[DDE]** |  File tag clause to inform PxPlus that it will be opening an external **_Dynamic Data Exchange_** (DDE) application.  
@@ -14,7 +14,7 @@
 _chan_ |  Channel or logical file number to open.  
 _dde_app_ |  Path and/or name of DDE application; e.g. Excel. String expression.  
 _fileopt_ |  File options.  
-_params_ |  Optional DDE-specific parameters. Semi-colon separated arguments and/or variables to receive returned values, etc. (Early implementations of PxPlus used a vertical bar instead of a semi-colon as separator both are now acceptable.) Refer to the documentation supplied with the individual product or application to determine how to communicate with it using the **[DDE]** link.  
+_params_ |  Optional DDE-specific parameters. Semi-colon separated arguments and/or variables to receive returned values, etc. (Early implementations of PxPlus used a vertical bar instead of a semi-colon as separator  both are now acceptable.) Refer to the documentation supplied with the individual product or application to determine how to communicate with it using the **[DDE]** link.  
   
 ##  Description
 
@@ -33,26 +33,26 @@ You can associate a CTL value with an item in a DDE application to have PxPlus g
 
 This example illustrates an export to an Excel spreadsheet. Note that the worksheet name is optional; however, the worksheet must exist if you include its name. This example also demonstrates the use of $09$, **Tab** , as the separator for Excel and makes selective graphical requests to draw a pie chart, etc.
 
-> open (1)"[WDX][DDE]excel;existing_worksheet.wk1"  
+>      open (1)"[WDX][DDE]excel;existing_worksheet.wk1"  
 >  ! or open (1)"[wdx][dde]Excel;"  
->  open (2)"SALES"  
->  R=0  
+>      open (2)"SALES"  
+>      R=0  
 >  LOOP:  
->  DIV_ID$=key(2,end=DRAW_IT)  
->  read (2,key=DIV_ID$)DIV_NAME$,DIV_SALES  
->  R=R+1 ! Bump row number  
->  K$="R"+str(R)+"C1:R"+str(R)+"C2"  
->  write record (1,key=K$)DIV_NAME$+$09$+str(DIV_SALES)  
->  goto LOOP  
+>      DIV_ID$=key(2,end=DRAW_IT)  
+>      read (2,key=DIV_ID$)DIV_NAME$,DIV_SALES  
+>      R=R+1 ! Bump row number  
+>      K$="R"+str(R)+"C1:R"+str(R)+"C2"  
+>      write record (1,key=K$)DIV_NAME$+$09$+str(DIV_SALES)  
+>      goto LOOP  
 >  DRAW_IT:  
->  if R=0 \  
->  then stop ! No divisions  
->  X$="R"+str(R)  
->  write record (1)"[select(""R1C1:"+X$+"C2"","""+X$+"C2"")]"  
->  write record (1)"[new(2,1)]"  
->  write record (1)"[gallery.3d.pie(6)]"  
->  write record (1)"[window.maximize()]"  
->  write record (1)"[app.maximize()]"
+>      if R=0 \  
+>           then stop ! No divisions  
+>      X$="R"+str(R)  
+>      write record (1)"[select(""R1C1:"+X$+"C2"","""+X$+"C2"")]"  
+>      write record (1)"[new(2,1)]"  
+>      write record (1)"[gallery.3d.pie(6)]"  
+>      write record (1)"[window.maximize()]"  
+>      write record (1)"[app.maximize()]"
 
 **_Example 2:_**
 
@@ -64,15 +64,15 @@ Below is a spreadsheet with five columns, and each one has a different date (Sep
 
 > open (1)"[dde]Excel;Mike1.xlsx"  
 >  for r=1 to 1 ! Single row  
->  for c=1 to 5  
->  CELL$=mid("ABCDEFGHIJKLMNOPQRST",c,1)+str(r)  
->  x$="=YEAR("+CELL$+")*10000"  
->  x$+="+MONTH("+CELL$+")*100"  
->  x$+="+DAY("+CELL$+")"  
->  write record (1,key="R99C1")x$  
->  read record (1,key="R99C1")V$  
->  print pad(x$,50,"."),":",V$,  
->  next c  
+>      for c=1 to 5  
+>           CELL$=mid("ABCDEFGHIJKLMNOPQRST",c,1)+str(r)  
+>           x$="=YEAR("+CELL$+")*10000"  
+>           x$+="+MONTH("+CELL$+")*100"  
+>           x$+="+DAY("+CELL$+")"  
+>           write record (1,key="R99C1")x$  
+>           read record (1,key="R99C1")V$  
+>           print pad(x$,50,"."),":",V$,  
+>      next c  
 >  next r  
 >  end
 
@@ -93,3 +93,9 @@ Since Excel will detect that the spreadsheet has been altered, you will need to 
 
 **[WRITE RECORD Write Record](../directives/write_record.md)**  
 **[OPEN Open a File for Processing](../directives/open.md)**
+
+ 
+
+ 
+
+ 

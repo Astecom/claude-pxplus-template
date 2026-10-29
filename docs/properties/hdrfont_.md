@@ -15,4 +15,10 @@ _(The HdrFont$ property was added for Report Views in PxPlus 2016 and for Grids 
 
 ## Used By
 
-**GRID****REPORT_VIEW**
+**GRID** **REPORT_VIEW**
+
+ 
+
+ 
+
+ 

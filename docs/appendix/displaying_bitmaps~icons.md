@@ -1,14 +1,14 @@
-# Language Reference - Appendix   
-  
-**Displaying Bitmaps/Icons** |   
+# Language Reference - Appendix 
+
+**Displaying Bitmaps/Icons** |     
 ---|---  
   
 Using the following techniques in PxPlus, you can retrieve and incorporate bitmaps and icons for a variety of uses in your graphical user interface based applications:
 
-|  Display images via the **['PICTURE'](../mnemonics/picture.md)** mnemonic.  
+ |  Display images via the **['PICTURE'](../mnemonics/picture.md)** mnemonic.  
 ---|---  
-|  Associate images for graphical user interface controls using the control object directives **[BUTTON](../directives/button.md)**, **[CHECK_BOX](../directives/check_box.md)**, **[LIST_BOX](../directives/list_box.md)**, **[RADIO_BUTTON](../directives/radio_button.md)**, **[TRISTATE_BOX](../directives/tristate_box.md)**, **[MENU_BAR](../directives/menu_bar.md)**, **[POPUP_MENU](../directives/popup_menu.md)**.  
-|  Specify icons to customize the upper left corner of dialogue windows via the **['OPTION'](../mnemonics/option.md)** mnemonic or the ICON= INI file setting.  
+ |  Associate images for graphical user interface controls using the control object directives **[BUTTON](../directives/button.md)**, **[CHECK_BOX](../directives/check_box.md)**, **[LIST_BOX](../directives/list_box.md)**, **[RADIO_BUTTON](../directives/radio_button.md)**, **[TRISTATE_BOX](../directives/tristate_box.md)**, **[MENU_BAR](../directives/menu_bar.md)**, **[POPUP_MENU](../directives/popup_menu.md)**.  
+ |  Specify icons to customize the upper left corner of dialogue windows via the **['OPTION'](../mnemonics/option.md)** mnemonic or the ICON= INI file setting.  
   
 In addition, the NOMADS toolset provides a fully integrated development environment for creating and modifying graphical screen layouts. For information on handling images in NOMADS, see **[Images/Pictures](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Image%20Control/Image.md)**.
 
@@ -44,7 +44,7 @@ The following table shows the internal bitmap images (as of PxPlus 2014) that ca
 
 > **_Pre-PxPlus 2014 Image Library_**
 
-Versions of PxPlus/ProvideX  _prior PxPlus 2014_ had a different set of images, mostly low-resolution using only 16 colors. If you wish to retain these older images, PxPlus 2014 is shipped with a _.dll_ (oldimages.dll) which contains these older images that can be added to your system as a resource library using the following command:
+Versions of PxPlus/ProvideX _prior PxPlus 2014_ had a different set of images, mostly low-resolution using only 16 colors. If you wish to retain these older images, PxPlus 2014 is shipped with a _.dll_ (oldimages.dll) which contains these older images that can be added to your system as a resource library using the following command:
 
 > SETDEV (0) SET "ResourceLib" TO "oldimages.dll"
 
@@ -60,7 +60,7 @@ PxPlus is also able to use _ico_ files that contain multiple icons, different si
 
 The following optional syntax items may be applied in the **['PICTURE'](../mnemonics/picture.md)** and **['OPTION'](../mnemonics/option.md)** mnemonics, as well as in control object directives, to define the location and attributes of an icon to be retrieved from an enhanced icon source: 
 
-> [_filename_] [**@**_resourcename_ | **@**_resourcenum_] [**%**_size_] [**,T** |**,G** | **,N**] 
+> [_filename_] [**@**_resourcename_ | **@**_resourcenum_] [**%**_size_] [**,T  **|**,G** | **,N**] 
 
 **_Where:_**
 
@@ -69,9 +69,9 @@ _filename_ |  File containing icon(s). If no filename is given, then the current
 **@**_resourcename_ |  String name of the specific resource identifying the icon. If no resource is specified, the first icon in the file will be loaded.  
 **@**_resourcenum_ |  Specific resource number identifying the icon. If no resource is specified, the first icon in the file will be loaded.  
 _%size_ |  1 to 3 digit number of pixels representing the X or Y size of the icon displayed. This size is used for both X and Y axes; e.g. %16 displays the icon in 16 x 16 pixels. If no _%size_ is given, then the first format available for the icon is used. If %0 is specified, then the default operating system icon size is used.  
-**T, G** _or_ **N** |  Transparency substitution indicator where (can also be applied to internal images): **T** \- Means use upper left most pixel colour  
-**G** \- Means use light gray colour RGB: 192,192,192  
-**N** \- Means no transparency (allows override for "!" bitmaps which always imply Light gray transparency)  
+**T, G** _or_  **N** |  Transparency substitution indicator where (can also be applied to internal images):    **T** \- Means use upper left most pixel colour  
+   **G** \- Means use light gray colour RGB: 192,192,192  
+   **N** \- Means no transparency (allows override for "!" bitmaps which always imply Light gray transparency)  
   
 #### **Note:**  
 Syntax options (if applied) must appear in the above defined order. In addition, note that the T, G or N options can be applied to internal bitmaps (those prefixed with "!").
@@ -93,7 +93,7 @@ PxPlus accepts icons from the following file extensions:
 **File Suffix** |  **Description**  
 ---|---  
 _.ico_ |  Does not support loading by resource name/resource number. You must specify the filename (with or without path) ending in _.ico_.  
-_.exe, .dll, .ocx, .drv, .cpl, .scr_ |  _(Any file type that the MS Windows API allows a LoadImage from)_. You must specify a resource name or number.  
+_.exe, .dll, .ocx, .drv, .cpl, .scr_ |  _(Any file type that the MS Windows API  allows a LoadImage from)_. You must specify a resource name or number.  
 _.icl_ |  Icon Library (commonly used by Icon editing tools). You must specify a resource number only (0 based). It ignores icon size specifications.
 
 #### **Note:**  
@@ -119,3 +119,9 @@ When using enhanced icons in objects, the filename and syntax must be enclosed i
 
 #### **Note:**  
 Transparency effects are currently not supported in menus or popup menus.
+
+ 
+
+ 
+
+ 

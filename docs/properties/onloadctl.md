@@ -19,4 +19,10 @@ _(The OnLoadCtl property was added in PxPlus v7.10.)_
 
 ## Used By
 
-**DROP_BOX****GRID****LIST_BOX****LIST_VIEW****REPORT_VIEW****VARDROP_BOX****VARLIST_BOX**
+**DROP_BOX** **GRID** **LIST_BOX** **LIST_VIEW** **REPORT_VIEW** **  VARDROP_BOX ****VARLIST_BOX**
+
+ 
+
+ 
+
+ 

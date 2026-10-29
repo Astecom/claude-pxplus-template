@@ -1,5 +1,5 @@
-# Templates  
-  
+# Templates
+
 **Template Designer Wizard**|   
 ---|---  
   
@@ -78,7 +78,7 @@ _Name_ |  **_(Required)_** A name for the template must be entered to allow the 
 **Define the page background color or image** The following four options will be the default used in any section of the template not specifically defined in **[Step 3: Sections](Template%20Designer%20Wizard.htm#step3)**.  
 _Color_ |  Specify a color to use for the background. See **[Color Specification](Color%20Specification.md)** for information on applying a color. When a color is selected/entered, a preview of that color is displayed.  
 _Image_ |  Select the image to display for the background. Click the Image browse button to select an image. Clicking _Finish_ (Step 8) copies the image from its current location to an _Images_ directory that will be created for that template under _*plus\inomads\templates_.  
-_Repeat_ |  **_(Available only when an Image is selected)_** Displays the following selections for duplicating the image: |  _repeat_ |  **_(Default)_** Duplicates the image.  
+_Repeat_ |  **_(Available only when an Image is selected)_** Displays the following selections for duplicating the image: |  _repeat_ |  **_(Default)_**  Duplicates the image.  
 ---|---  
 _no-repeat_ |  Does not duplicate the image.  
 _repeat-x_ |  Duplicates the image horizontally in conjunction with the selected _Position_.  
@@ -104,22 +104,22 @@ To illustrate this further, refer to the following example.
 
 **_Example:_**
 
-|  1. |  Start the Template Designer Wizard. In Step 2, click on the layout below to select it.  
+  |  1. |  Start the Template Designer Wizard. In Step 2, click on the layout below to select it.  
 ---|---|---  
-|  2. |  Proceed to Step 3. A diagram of this layout is displayed (see below). Section 1 is highlighted in dark red by default, and the words **Section: 1** display above the list of options to the right, indicating that these option settings belong to Section 1.  
-|  3. |  Click on Section 2 inside this diagram (see below). Section 2 is highlighted in dark red, and the words **Section: 2** display above the list of options to the right, indicating that these option settings belong to Section 2.  
+  |  2. |  Proceed to Step 3. A diagram of this layout is displayed (see below). Section 1 is highlighted in dark red by default, and the words **Section: 1** display above the list of options to the right, indicating that these option settings belong to Section 1.  
+  |  3. |  Click on Section 2 inside this diagram (see below). Section 2 is highlighted in dark red, and the words **Section: 2** display above the list of options to the right, indicating that these option settings belong to Section 2.  
   
 This panel consists of the following:
 
 _Background Color_ |  Specify the color to use for the section background. See **[Color Specification](Color%20Specification.md)** for information on applying a color. When a color is selected/entered, a preview of that color is displayed.  
 ---|---  
 _Background Image_ |  Select the image to display for the section background. Click the Image browse button to select an image. Clicking _Finish_ (Step 8) copies the image from its current location to an _Images_ directory that will be created for that template under _*plus\inomads\templates_.  
-_Repeat_ |  **_(Available only when a Background Image is selected)_** Selections for duplicating the image are: |  _repeat_ |  **_(Default)_** Duplicates the image.  
+_Repeat_ |  **_(Available only when a Background Image is selected)_** Selections for duplicating the image are: |  _repeat_ |  **_(Default)_**  Duplicates the image.  
 ---|---  
 _no-repeat_ |  Does not duplicate the image.  
 _repeat-x_ |  Duplicates the image horizontally in conjunction with the selected _Position_.  
 _repeat-y_ |  Duplicates the image vertically in conjunction with the selected _Position_.  
-_Position_ |  **_(Available only when a Background Image is selected)_** Selections for positioning the image are _left top_ ** _(Default)_** , _left center_ , _left bottom_ , _right top_ , _right center_ , _right bottom_ , _center top_ , _center center_ , _center bottom_ , _full screen_.  
+_Position_ |  **_(Available only when a Background Image is selected)_** Selections for positioning the image are _left top_  **_(Default)_** , _left center_ , _left bottom_ , _right top_ , _right center_ , _right bottom_ , _center top_ , _center center_ , _center bottom_ , _full screen_.  
 _Width_ |  Enter a width of the section (in pixels). If the width of the section increases as the panel is resized, leave the _Width_ blank.  
 _Height_ |  Enter a height of the section (in pixels). If the height of the section increases as the panel is resized, leave the _Height_ blank.  
   
@@ -139,9 +139,9 @@ _Text_ |  Enter the text to add to the current section.
 _Font_ |  Enter a font for the text.  
 _Color_ |  Specify a color for the text. See **[Color Specification](Color%20Specification.md)** for information on applying a color.  
 _URL_ |  Enter a URL if the text will be a hyperlink. If the text launches a Web page, enter the URL address preceded with _http://_.  
-_Vertical Position_ |  Enter a vertical position for the text. Selections are _Top_ ** _(Default)_** , _Middle_ , _Bottom_.  
+_Vertical Position_ |  Enter a vertical position for the text. Selections are _Top_  **_(Default)_** , _Middle_ , _Bottom_.  
 _Vertical Adjustment_ |  Enter a value (in pixels) to adjust the vertical position of the text, if necessary.  
-_Horizontal Position_ |  Enter a horizontal position for the text. Selections are _Left_ ** _(Default)_** , _Center_ , _Right_.  
+_Horizontal Position_ |  Enter a horizontal position for the text. Selections are _Left_  **_(Default)_** , _Center_ , _Right_.  
 _Horizontal Adjustment_ |  Enter a value (in pixels) to adjust the horizontal position of the text, if necessary.  
   
 **Image**
@@ -152,9 +152,9 @@ _Image_ |  Select the image to add to the current section. Click the Image brows
 _Width_ |  Enter a width for the image (in pixels). The image will be scaled to the specified height and width.  
 _Height_ |  Enter a height for the image (in pixels). The image will be scaled to the specified height and width.  
 _URL_ |  Enter a URL if the image will be a hyperlink. If the image launches a Web page, enter the URL address preceded with _http://_.  
-_Vertical Position_ |  Enter a vertical position for the image. Selections are _Top_ ** _(Default)_** , _Middle_ , _Bottom_.  
+_Vertical Position_ |  Enter a vertical position for the image. Selections are _Top_  **_(Default)_** , _Middle_ , _Bottom_.  
 _Vertical Adjustment_ |  Enter a value (in pixels) to adjust the vertical position of the image, if necessary.  
-_Horizontal Position_ |  Enter a horizontal position for the image. Selections are _Left_ ** _(Default)_** , _Center_ , _Right_.  
+_Horizontal Position_ |  Enter a horizontal position for the image. Selections are _Left_  **_(Default)_** , _Center_ , _Right_.  
 _Horizontal Adjustment_ |  Enter a value (in pixels) to adjust the horizontal position of the image, if necessary.  
   
 **Menu**
@@ -165,16 +165,16 @@ _Menu Name_ |  Enter a name for the menu.
 _Define Menu_ |  Click this button to invoke the **[Define Menus](Template%20Designer%20Wizard.htm#definemenus)** dialog for defining a new menu for the current section.  
 _Width_ |  Enter a width for the menu (in pixels).  
 _Height_ |  Enter a height for the menu (in pixels).  
-_Vertical Position_ |  Enter a vertical position for the menu. Selections are _Top_ ** _(Default)_** , _Middle_ , _Bottom_.  
+_Vertical Position_ |  Enter a vertical position for the menu. Selections are _Top_  **_(Default)_** , _Middle_ , _Bottom_.  
 _Vertical Adjustment_ |  Enter a value (in pixels) to adjust the vertical position of the menu, if necessary.  
-_Horizontal Position_ |  Enter a horizontal position for the menu. Selections are _Left_ ** _(Default)_** , _Center_ , _Right_.  
+_Horizontal Position_ |  Enter a horizontal position for the menu. Selections are _Left_  **_(Default)_** , _Center_ , _Right_.  
 _Horizontal Adjustment_ |  Enter a value (in pixels) to adjust the horizontal position of the menu, if necessary.  
   
 **Other**
 
 **Section Contents - Other Template**  
 ---  
-_Parameter 1 Parameter 8_ |  Define the parameters to be passed to the user-defined Template Definition files (similar to _text.tpl_ , _image.tpl_ or _menu.tpl_).  
+_Parameter 1  Parameter 8_ |  Define the parameters to be passed to the user-defined Template Definition files (similar to _text.tpl_ , _image.tpl_ or _menu.tpl_).  
   
 When you are ready to proceed to the next step, click _Next_.
 
@@ -198,7 +198,7 @@ _Text Font_ |  **_(Available if the Suppress Header Text check box is not select
 _Font Size_ |  **_(Available if the Suppress Header Text check box is not selected)_** Enter a font size for the panel header text.  
 **Define the appearance of the panel border**  
 _Color_ |  Specify a color for the panel border. See **[Color Specification](Color%20Specification.md)** for information on applying a color.  
-_Style_ |  Select a style for the panel border. Selections are _standard_ ** _(Default)_** , _none_ , _solid_ , _dotted_ , _dashed_ , _double_ , _groove_ , _ridge_ , _inset_ , _outset_.  
+_Style_ |  Select a style for the panel border. Selections are _standard_  **_(Default)_** , _none_ , _solid_ , _dotted_ , _dashed_ , _double_ , _groove_ , _ridge_ , _inset_ , _outset_.  
 _Width_ |  Enter the width for the panel border (in pixels).  
 _Rounded Corner Radius_ |  Enter a value for the rounded corner radius. A blank or low value (i.e. <10) produces squared panel corners. A higher value (10 - 30) produces progressively rounded panel corners. Maximum value is 99.  
 _Shadow_ |  Select this check box to create a shadow effect behind the panel.  
@@ -218,7 +218,7 @@ _Repeat_ |  **_(Available only when a Background Image is selected for the panel
 _no-repeat_ |  Does not duplicate the image.  
 _repeat-x_ |  Duplicates the image horizontally in conjunction with the selected _Position_.  
 _repeat-y_ |  Duplicates the image vertically in conjunction with the selected _Position_.  
-_Position_ |  **_(Available only when a Background Image is selected for the panel background)_** Selections for positioning the image are _left top_ ** _(Default)_** , _left center_ , _left bottom_ , _right top_ , _right center_ , _right bottom_ , _center top_ , _center center_ , _center bottom_ , _full screen_.  
+_Position_ |  **_(Available only when a Background Image is selected for the panel background)_** Selections for positioning the image are _left top_  **_(Default)_** , _left center_ , _left bottom_ , _right top_ , _right center_ , _right bottom_ , _center top_ , _center center_ , _center bottom_ , _full screen_.  
 **Define the default appearance of any text located in the panel**  
 _Text Color_ |  Specify a color for the panel text. See **[Color Specification](Color%20Specification.md)** for information on applying a color.  
 _Text Font_ |  Enter a font for the panel text.  
@@ -237,7 +237,7 @@ _Header Background Image_ |  Select the image to display for the frame header ba
 _Body Background Color_ |  Specify a color for the frame background. See **[Color Specification](Color%20Specification.md)** for information on applying a color.  
 **Define the appearance of the frame border**  
 _Color_ |  Specify a color for the frame border. See **[Color Specification](Color%20Specification.md)** for information on applying a color.  
-_Style_ |  Select a style for the frame border. Selections are _rounded_ ** _(Default)_** , _square_ , _none_.  
+_Style_ |  Select a style for the frame border. Selections are _rounded_  **_(Default)_** , _square_ , _none_.  
 **Define the appearance of the text in the frame header**  
 _Text Color_ |  Specify a color for the frame header text. See **[Color Specification](Color%20Specification.md)** for information on applying a color.  
 _Text Font_ |  Enter a font for the frame header text.  
@@ -251,14 +251,14 @@ Configure the appearance of folder controls on the NOMADS panel.
 
 **Define the background color for the folder**  
 ---  
-_Background Color_ |  Specify a color for the folder background (excluding the tabs). See **[Color Specification](Color%20Specification.md)** for information on applying a color. If no folder _Background Color_ is defined, the folder background will be the color defined for the _Active Tab Background_.  
+_Background Color_ |  Specify a color for the folder background (excluding the tabs). See **[Color Specification](Color%20Specification.md)** for information on applying a color. If no folder _Background Color_  is defined, the folder background will be the color defined for the _Active Tab Background_.  
 **Define the appearance of the folder border**  
 _Color_ |  Specify a color for the folder border. See **[Color Specification](Color%20Specification.md)** for information on applying a color.
 
 #### **Note:**  
 The folder border _Color_ applies only when a folder _Background Color_ or an _Active Tab Background_ for the folder tabs has been specified.  
   
-_Style_ |  Select a border style to apply around the folder and the tabs. Selections are _standard_ ** _(Default)_** , _none_ , _solid_.  
+_Style_ |  Select a border style to apply around the folder and the tabs. Selections are _standard_  **_(Default)_** , _none_ , _solid_.  
 **Define the colors for the folder tabs**  
 _Active Tab Background_ |  Specify a color for the background of the active tab. See **[Color Specification](Color%20Specification.md)** for information on applying a color.  
 _Active Tab Text_ |  Specify a color for the text of the active tab. See **[Color Specification](Color%20Specification.md)** for information on applying a color.  
@@ -284,12 +284,12 @@ When you are satisfied with the results, click the _Finish_ button to complete t
 
 After saving the template and exiting the wizard, you may decide to make additional changes to the template. To do this, follow these steps:
 
-|  1. |  Invoke the **[iNomads Setup](iNomads%20Setup.md)** window from either the **[PxPlus IDE Main Launcher](../PxPlus%20IDE/IDE%20Main%20Launcher.md)** (go to _Web Deployment_ category and select _iNomads Setup_) or the **[iNomads Application Launchpad](iNOMADS%20Application%20Launchpad.md)** (click _Admin_ button).  
+  |  1. |  Invoke the **[iNomads Setup](iNomads%20Setup.md)** window from either the **[PxPlus IDE Main Launcher](../PxPlus%20IDE/IDE%20Main%20Launcher.md)** (go to _Web Deployment_ category and select _iNomads Setup_) or the **[iNomads Application Launchpad](iNOMADS%20Application%20Launchpad.md)** (click _Admin_ button).  
 ---|---|---  
-|  2. |  From the _Template_ drop box, select the name of the template to modify.  
-|  3. |  Click the _Custom_ button (within the _Template Settings_ frame box) to invoke **[Template Maintenance](Template%20Maintenance.md)**. From this window, you can change any of your template's previous settings.  
-|  4. |  After making changes, click the _Apply_ button and then click _Test_ to preview the template with these changes.  
-|  5. |  When you are satisfied with the results, click _OK_ or _Close_ to exit Template Maintenance.  
+  |  2. |  From the _Template_ drop box, select the name of the template to modify.  
+  |  3. |  Click the _Custom_ button (within the _Template Settings_ frame box) to invoke **[Template Maintenance](Template%20Maintenance.md)**. From this window, you can change any of your template's previous settings.  
+  |  4. |  After making changes, click the _Apply_ button and then click _Test_ to preview the template with these changes.  
+  |  5. |  When you are satisfied with the results, click _OK_ or _Close_ to exit Template Maintenance.  
   
 ##  Define Menus
 
@@ -297,11 +297,11 @@ The **Define Menus** window is used to create one or more menus to add to a temp
 
 To invoke this window, follow these steps:
 
-|  1. |  Go to the **Step 3: Sections** panel of the Template Designer Wizard.  
+  |  1. |  Go to the **Step 3: Sections** panel of the Template Designer Wizard.  
 ---|---|---  
-|  2. |  Click the Add Section Contents button beside the **[Section Contents](Template%20Designer%20Wizard.htm#sectioncontents)** list box.  
-|  3. |  Select _Menu_ from the popup menu. The **Section Contents - Menu Template** window displays.  
-|  4. |  Click the _Define Menu_ button. The **Define Menus** window displays.  
+  |  2. |  Click the Add Section Contents button beside the **[Section Contents](Template%20Designer%20Wizard.htm#sectioncontents)** list box.  
+  |  3. |  Select _Menu_ from the popup menu. The **Section Contents - Menu Template** window displays.  
+  |  4. |  Click the _Define Menu_ button. The **Define Menus** window displays.  
   
   
   
@@ -317,14 +317,14 @@ When creating a new menu definition, a menu name is required to enable the other
   
 _Menu Generation Program_ |  Click the Program browse button to select or manually enter the program file name to use for generating the menu. See **[Menu Generation Program](Menu_Generation.md)**.  
 **Define the menu layout**  
-_Type_ |  Select either a _vertical_ or _horizontal_ menu layout: |  _vertical_ |  **_(Default)_** Positions the menu options one above the other.  
+_Type_ |  Select either a _vertical_ or _horizontal_ menu layout: |  _vertical_ |  **_(Default)_**  Positions the menu options one above the other.  
 ---|---  
 _horizontal_ |  Positions the menu options one beside the other on the same line.  
 _Width_ |  Enter a width for the menu options area. This setting is ignored when _Type_ is _horizontal_.  
 _Height_ |  Enter a height for the menu options area. (Applies when _Type_ is either _horizontal_ or _vertical_.)  
 _Border Color_ |  Specify a color for the menu border. See **[Color Specification](Color%20Specification.md)** for information on applying a color.  
 _Corner Radius_ |  **_(Available only when a Border Color is specified)_** Enter a value for the rounded corner radius or use the spinner controls to specify a value. A blank or low value (i.e. <10) produces squared menu corners. A higher value (10 - 30) produces progressively rounded menu corners. Maximum value is 99.  
-_Shadow_ |  Select a shadow style for the menu. Selections are _none_ ** _(Default)_** , _bottom right_ , _bottom left_ , _top right_ , _top left_ , _full_ , _bottom_ , _top_ , _left_ , _right_.  
+_Shadow_ |  Select a shadow style for the menu. Selections are _none_  **_(Default)_** , _bottom right_ , _bottom left_ , _top right_ , _top left_ , _full_ , _bottom_ , _top_ , _left_ , _right_.  
 **Define the appearance of the menu contents**  
 _Font_ |  Enter a font for the menu text.  
 _Size_ |  Enter a font size for the menu text (in pixels).  
@@ -341,12 +341,13 @@ _Underscore_ |  Select this check box to underline the menu text only when the m
 **Define the appearance of the background image**  
 _Image_ |  Select the image to display for the menu background. Click the Image browse button to select an image. Clicking _Finish_ (Step 8) upon completion of the wizard copies the image from its current location to an _Images_ directory that will be created for that template under _*plus\inomads\templates_.  
 _Mouse Over Image_ |  Select the image to display when the mouse pointer is positioned over the menu. Click the Image browse button to select an image. Clicking _Finish_ (Step 8) upon completion of the wizard copies the image from its current location to an _Images_ directory that will be created for that template under _*plus\inomads\templates_.  
-_Repeat_ |  **_(Available only when a Background Image is selected)_** Selections for duplicating the image are: |  _repeat_ |  **_(Default)_** Duplicates the image.  
+_Repeat_ |  **_(Available only when a Background Image is selected)_** Selections for duplicating the image are: |  _repeat_ |  **_(Default)_**  Duplicates the image.  
 ---|---  
 _no-repeat_ |  Does not duplicate the image.  
 _repeat-x_ |  Duplicates the image horizontally in conjunction with the selected _Position_.  
 _repeat-y_ |  Duplicates the image vertically in conjunction with the selected _Position_.  
-_Position_ |  **_(Available only when a Background Image is selected)_** Selections for positioning the image are _left top_ ** _(Default)_** , _left center_ , _left bottom_ , _right top_ , _right center_ , _right bottom_ , _center top_ , _center center_ , _center bottom_ , _full screen_.  
+_Position_ |  **_(Available only when a Background Image is selected)_** Selections for positioning the image are _left top_  **_(Default)_** , _left center_ , _left bottom_ , _right top_ , _right center_ , _right bottom_ , _center top_ , _center center_ , _center bottom_ , _full screen_.  
+   
 **Menu Contents** |  See **[Menu Contents](Template%20Designer%20Wizard.htm#contents)**.  
 _Save_ |  Saves the current record and then closes the window.  
 _Cancel_ |  Cancels any changes to the current record and then closes the window.  
@@ -372,3 +373,9 @@ Both the _Menu text**and** Transaction/URL_ components are needed; however, you 
 Use the Delete and Move Up/Move Down buttons beside the list box to remove a menu option or rearrange the order of the options within the menu.
 
 To view or change the content for a different menu, select a menu from the _Menu Name_ drop box. Switching to a different menu automatically saves any changes to the current menu definition. You can also click the _Apply_ button to save changes.
+
+ 
+
+ 
+
+ 

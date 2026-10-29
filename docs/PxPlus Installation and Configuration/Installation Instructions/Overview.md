@@ -1,10 +1,18 @@
-# PxPlus Installation and Configuration
+# PxPlus Installation and Setup
 
-**Installation Instructions** |  **__**  
+**Download and Installation** |  **_ _**  
 ---|---  
   
-Before downloading and installing PxPlus, ensure that you have read and understood the information under **[Licensing and Activation Keys](../Licensing%20and%20Activation%20Keys/Overview.md)** and **[System Requirements](../Licensing%20and%20Activation%20Keys/System%20Requirements.md)**.
+This section provides information for downloading and installing PxPlus on Windows and UNIX/Linux systems.
 
-PxPlus products can be obtained from your reseller or downloaded for direct installation from the PxPlus website **[www.pvxplus.com](http://www.pvxplus.com/)** by referring to the **[Downloads](http://www.pvxplus.com/pgsrvr.pvp?pg=downloads)** link for a complete list of available products. Each link allows you to download the appropriate installation file and save it to disk.
+Because installation procedures differ between these systems, ensure that you follow the instructions for your operating system.
 
-The Help pages that follow describe the installation procedures of PxPlus on different platforms.
+For Windows, see **[Download and Installation (Windows)](Windows%20Installation.md)**.
+
+For UNIX/Linux, see **[Download and Installation (UNIX/Linux)](UNIX%20and%20Linux%20Installation.md)**.
+
+ 
+
+ 
+
+ 

@@ -5,7 +5,7 @@
   
 ##  Formats
 
-1\. _Compute Hash Key_: |  **HSH(**_string$_[,_hashkey_ _$_ **|** ,_chunkedhash_ _$_][ ,_hashtype_ [,_KeyHashedWith_] ][,**ERR=**_stmtref_]**)**  
+1\. _Compute Hash Key_: |  **HSH(**_string$_[,_hashkey_ _$_  **|** ,_chunkedhash_ _$_][ ,_hashtype_ [,_KeyHashedWith_] ][,**ERR=**_stmtref_]**)**  
 ---|---  
 2\. _Encrypt Data Using Key_: |  **HSH(PASSWORD** _string$_**WITH** _method$_ ,**KEY=**_hashkey_ _$_ [,**SIZ=**_keylen_ ] [,**TBL=**_initval_ _$_ ] [,**ERR=**_stmtref_]**)**  
 3\. _Decrypt Data Using Key_: |  **HSH(EXTRACT** _string$_**WITH** _method$_ ,**KEY=**_hashkey_ _$_ [,**SIZ=**_keylen_ ] [,**TBL=**_initval_ _$_ ] [,**ERR=**_stmtref_]**)**  
@@ -34,7 +34,7 @@ _(Chunked Hashing was added in PxPlus 2019.)_
 
 **_Compute Hash Key_**
 
-**HSH(**_string$_[,_hashkey_ _$_ **|** ,_chunkedhash_ _$_][ ,_hashtype_ [,_KeyHashedWith_] ][,**ERR=**_stmtref_]**)**
+**HSH(**_string$_[,_hashkey_ _$_  **|** ,_chunkedhash_ _$_][ ,_hashtype_ [,_KeyHashedWith_] ][,**ERR=**_stmtref_]**)**
 
 ## Returns
 
@@ -66,8 +66,8 @@ As of PxPlus 2022 on Windows, the MD2 hashtype is no longer supported. On UNIX/L
 256 |  SHA-256 (32-byte value)  
 384 |  SHA-384 (48-byte value)  
 512 |  SHA-512 (64-byte value)  
--1 |  SHA-1 using internal functions _(This internal function was added in PxPlus v11.00.)_  
--2 |  SHA-256 (32-byte value) using internal functions _(This internal function was added in PxPlus 2019.)_  
+-1 |  SHA-1  using internal functions _(This internal function was added in PxPlus v11.00.)_  
+-2 |  SHA-256 (32-byte value)  using internal functions _(This internal function was added in PxPlus 2019.)_  
   
 If _hashtype_ is from 1 to 7, 224, 256, 384 and 512, OpenSSL libraries are required to perform the hash. Only versions of PxPlus that support OpenSSL and have OpenSSL installed properly will be able to access these hashes. The hashtype must also exist within the OpenSSL modules for the extended hashtypes to be available. Not all builds of OpenSSL contain all possible hashes. If a specific hashtype is not available, an Error #99: Feature not supported is reported.
 
@@ -85,8 +85,8 @@ When using the internal SHA-1 or SHA-256 function to hash a large amount of data
 >  read record (1,siz=4096)datachunk$  
 > chunkedhsh$=hsh(datachunk$,"",-2) ! Begin chunked hash  
 >  while 1  
->  read record (1,siz=4096,end=*break)datachunk$  
->  chunkedhsh$=hsh(datachunk$,chunkedhsh$,-2) ! Update chunked hash  
+>      read record (1,siz=4096,end=*break)datachunk$  
+>      chunkedhsh$=hsh(datachunk$,chunkedhsh$,-2) ! Update chunked hash  
 >  wend  
 > bigfilehsh$=hsh("",chunkedhsh$,-2) ! Finish chunked hash
 
@@ -118,7 +118,7 @@ To get or check a Message for Authentication based on HMAC-SHA-1:
 >  SHA1Hash$=hsh(Data$,4)  
 > MessageAuthenticationKey$=hsh(Data$,SHA1Hash$,7,4)  
 >  if KeyReceived$<>MessageAuthenticationKey$ \  
->  then msgbox "Message has been tampered with"
+>      then msgbox "Message has been tampered with"
 
 ##  Formats 2 and 3
 
@@ -165,7 +165,7 @@ _chacha20_ |  **ChaCha20** is a stream cipher developed by Daniel J. Bernstein. 
 _des, des3_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. The **Data Encryption Standard** (DES) is a cipher (a method for encrypting information) selected as an official **Federal Information Processing Standard** (FIPS) for the United States in 1976 and has subsequently enjoyed widespread use internationally. Triple DES (DES3) is a block cipher formed from the **Data Encryption Standard** (DES) cipher by using it three times.  
 _desx_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. **DES-X** is a variant on the DES (**Data Encryption Standard**) block cipher intended to increase the complexity of a brute force attack using a technique called key whitening.  
 _idea_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. The **International Data Encryption Algorithm** (IDEA), originally called **Improved Proposed Encryption Standard** (IPES), is a symmetric-key block cipher designed by James Massey of ETH Zurich and Xuejia Lai and was first described in 1991. The algorithm was intended as a replacement for the **Data Encryption Standard** (DES).  
-_rc2_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. **RC2** is a block cipher designed by Ron Rivest in 1987. (_"RC"_ stands for _"Ron's Code"_ or _"Rivest Cipher"._)  
+_rc2_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. **RC2** is a block cipher designed by Ron Rivest in 1987. (_" RC" _stands for _ "Ron's Code" _or _ "Rivest Cipher"._)  
 _rc4_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. **RC4** (also known as ARC4 or ARCFOUR) is the most widely used software stream cipher and is used in popular protocols such as Secure Sockets Layer (SSL) (to protect Internet traffic) and WEP (to secure wireless networks).  
 _seed_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. **SEED** is a block cipher developed by the **Korea Internet & Security Agency** (KISA). It is used broadly throughout South Korean industry but seldom found elsewhere.  
 _sm4_ |  **SM4** (formerly SMS4) is a block cipher used in the Chinese National Standard for Wireless LAN WAPI (WLAN Authentication and Privacy Infrastructure).  
@@ -187,10 +187,10 @@ _aes-128-cfb_ |  128-bit **A** dvanced **E** ncryption **S** tandard (AES) in **
 _aes-128-cfb1_ |  128-bit **A** dvanced **E** ncryption **S** tandard (AES) in 1-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _aes-128-cfb8_ |  128-bit **A** dvanced **E** ncryption **S** tandard (AES) in 8-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _aes-128-ctr_ |  128-bit **A** dvanced **E** ncryption **S** tandard (AES) in **C** oun**t** e**r** (CTR) mode  
-_aes-128-ecb_ |  128-bit **A** dvanced **E** ncryption **S** tandard (AES) in **E** lectronic**C** ode**b** ook****(ECB) mode  
+_aes-128-ecb_ |  128-bit **A** dvanced **E** ncryption **S** tandard (AES) in **E** lectronic**C** ode**b** ook** **(ECB) mode  
 _aes-128-gcm_ |  Alias for id-aes128-gcm  
-_aes-128-ocb_ |  128-bit **A** dvanced **E** ncryption **S** tandard (AES) in **O** ffset**C** ode**b** ook****(OCB) mode  
-_aes-128-ofb_ |  128-bit **A** dvanced **E** ncryption **S** tandard (AES) in **O** utput**F** eed**b** ack****(OFB) mode  
+_aes-128-ocb_ |  128-bit **A** dvanced **E** ncryption **S** tandard (AES) in **O** ffset**C** ode**b** ook** **(OCB) mode  
+_aes-128-ofb_ |  128-bit **A** dvanced **E** ncryption **S** tandard (AES) in **O** utput**F** eed**b** ack** **(OFB) mode  
 _aes-128-wrap_ |  Alias for id-aes128-wrap  
 _aes-128-wrap-pad_ |  Alias for id-aes128-wrap-pad  
 _aes-128-xts_ |  128-bit **A** dvanced **E** ncryption **S** tandard (AES) in **X** EX-based **T** weaked-codebook with Ciphertext **S** tealing (XTS) mode  
@@ -203,9 +203,9 @@ _aes-192-cfb_ |  192-bit **A** dvanced **E** ncryption **S** tandard (AES) in **
 _aes-192-cfb1_ |  192-bit **A** dvanced **E** ncryption **S** tandard (AES) in 1-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _aes-192-cfb8_ |  192-bit **A** dvanced **E** ncryption **S** tandard (AES) in 8-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _aes-192-ctr_ |  192-bit **A** dvanced **E** ncryption **S** tandard (AES) in **C** oun**t** e**r** (CTR) mode  
-_aes-192-ecb_ |  192-bit **A** dvanced **E** ncryption **S** tandard (AES) in **E** lectronic**C** ode**b** ook****(ECB) mode  
-_aes-192-ocb_ |  192-bit **A** dvanced **E** ncryption **S** tandard (AES) in **O** ffset**C** ode**b** ook****(OCB) mode  
-_aes-192-ofb_ |  192-bit **A** dvanced **E** ncryption **S** tandard (AES) in **O** utput**F** eed**b** ack****(OFB) mode  
+_aes-192-ecb_ |  192-bit **A** dvanced **E** ncryption **S** tandard (AES) in **E** lectronic**C** ode**b** ook** **(ECB) mode  
+_aes-192-ocb_ |  192-bit **A** dvanced **E** ncryption **S** tandard (AES) in **O** ffset**C** ode**b** ook** **(OCB) mode  
+_aes-192-ofb_ |  192-bit **A** dvanced **E** ncryption **S** tandard (AES) in **O** utput**F** eed**b** ack** **(OFB) mode  
 _aes-192-wrap_ |  Alias for id-aes192-wrap  
 _aes-192-wrap-pad_ |  Alias for id-aes192-wrap-pad  
 _aes-256-cbc_ |  256-bit **A** dvanced **E** ncryption **S** tandard (AES) in **C** ipher **B** lock **C** haining (CBC) mode  
@@ -217,9 +217,9 @@ _aes-256-cfb_ |  256-bit **A** dvanced **E** ncryption **S** tandard (AES) in **
 _aes-256-cfb1_ |  256-bit **A** dvanced **E** ncryption **S** tandard (AES) in 1-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _aes-256-cfb8_ |  256-bit **A** dvanced **E** ncryption **S** tandard (AES) in 8-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _aes-256-ctr_ |  256-bit **A** dvanced **E** ncryption **S** tandard (AES) in **C** oun**t** e**r** (CTR) mode  
-_aes-256-ecb_ |  256-bit **A** dvanced **E** ncryption **S** tandard (AES) in **E** lectronic**C** ode**b** ook****(ECB) mode  
-_aes-256-ocb_ |  256-bit **A** dvanced **E** ncryption **S** tandard (AES) in **O** ffset**C** ode**b** ook****(OCB) mode  
-_aes-256-ofb_ |  256-bit **A** dvanced **E** ncryption **S** tandard (AES) in **O** utput**F** eed**b** ack****(OFB) mode  
+_aes-256-ecb_ |  256-bit **A** dvanced **E** ncryption **S** tandard (AES) in **E** lectronic**C** ode**b** ook** **(ECB) mode  
+_aes-256-ocb_ |  256-bit **A** dvanced **E** ncryption **S** tandard (AES) in **O** ffset**C** ode**b** ook** **(OCB) mode  
+_aes-256-ofb_ |  256-bit **A** dvanced **E** ncryption **S** tandard (AES) in **O** utput**F** eed**b** ack** **(OFB) mode  
 _aes-256-wrap_ |  Alias for id-aes256-wrap  
 _aes-256-wrap-pad_ |  Alias for id-aes256-wrap-pad  
 _aes-256-xts_ |  256-bit **A** dvanced **E** ncryption **S** tandard (AES) in **X** EX-based **T** weaked-codebook with Ciphertext **S** tealing (XTS) mode  
@@ -230,9 +230,9 @@ _aria-128-cfb_ |  128-bit ARIA in **C** ipher **F** eed**b** ack (CFB) mode
 _aria-128-cfb1_ |  128-bit ARIA in 1-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _aria-128-cfb8_ |  128-bit ARIA in 8-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _aria-128-ctr_ |  128-bit ARIA in **C** oun**t** e**r** (CTR) mode  
-_aria-128-ecb_ |  128-bit ARIA in **E** lectronic**C** ode**b** ook****(ECB) mode  
+_aria-128-ecb_ |  128-bit ARIA in **E** lectronic**C** ode**b** ook** **(ECB) mode  
 _aria-128-gcm_ |  128-bit ARIA in **G** alois/**C** ounter **M** ode (GCM)  
-_aria-128-ofb_ |  128-bit ARIA in **O** utput**F** eed**b** ack****(OFB) mode  
+_aria-128-ofb_ |  128-bit ARIA in **O** utput**F** eed**b** ack** **(OFB) mode  
 _aria-192-cbc_ |  192-bit ARIA in **C** ipher **B** lock **C** haining (CBC) mode  
 _aria192_ |  Alias for ARIA-192-CBC  
 _aria-192-ccm_ |  192-bit ARIA in **C** ounter with Cipher Block **C** haining **M** essage Authentication Code (CCM) mode  
@@ -240,7 +240,7 @@ _aria-192-cfb_ |  192-bit ARIA in **C** ipher **F** eed**b** ack (CFB) mode
 _aria-192-cfb1_ |  192-bit ARIA in 1-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _aria-192-cfb8_ |  192-bit ARIA in 8-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _aria-192-ctr_ |  192-bit ARIA in **C** oun**t** e**r** (CTR) mode  
-_aria-192-ecb_ |  192-bit ARIA in **E** lectronic**C** ode**b** ook****(ECB) mode  
+_aria-192-ecb_ |  192-bit ARIA in **E** lectronic**C** ode**b** ook** **(ECB) mode  
 _aria-192-gcm_ |  192-bit ARIA in **G** alois/**C** ounter **M** ode (GCM)  
 _aria-192-ofb_ |  192-bit ARIA in **O** utput**F** eed**b** ack (OFB) mode  
 _aria-256-cbc_ |  256-bit ARIA in **C** ipher **B** lock **C** haining (CBC) mode  
@@ -250,43 +250,43 @@ _aria-256-cfb_ |  256-bit ARIA in **C** ipher **F** eed**b** ack (CFB) mode
 _aria-256-cfb1_ |  256-bit ARIA in 1-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _aria-256-cfb8_ |  256-bit ARIA in 8-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _aria-256-ctr_ |  256-bit ARIA in **C** oun**t** e**r** (CTR) mode  
-_aria-256-ecb_ |  256-bit ARIA in **E** lectronic**C** ode**b** ook****(ECB) mode  
+_aria-256-ecb_ |  256-bit ARIA in **E** lectronic**C** ode**b** ook** **(ECB) mode  
 _aria-256-gcm_ |  256-bit ARIA in **G** alois/**C** ounter **M** ode (GCM)  
-_aria-256-ofb_ |  256-bit ARIA in **O** utput**F** eed**b** ack****(OFB) mode  
+_aria-256-ofb_ |  256-bit ARIA in **O** utput**F** eed**b** ack** **(OFB) mode  
 _bf-cbc_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. Blowfish in **C** ipher **B** lock **C** haining (CBC) mode  
 _bf_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. Alias for BF-CBC  
 _bf-cfb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. Blowfish in **C** ipher **F** eed**b** ack (CFB) mode  
-_bf-ecb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. Blowfish in **E** lectronic**C** ode**b** ook****(ECB) mode  
-_bf-ofb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. Blowfish in **O** utput**F** eed**b** ack****(OFB) mode  
+_bf-ecb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. Blowfish in **E** lectronic**C** ode**b** ook** **(ECB) mode  
+_bf-ofb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. Blowfish in **O** utput**F** eed**b** ack** **(OFB) mode  
 _camellia-128-cbc_ |  128-bit Camellia in **C** ipher **B** lock **C** haining (CBC) mode  
 _camellia128_ |  Alias for CAMELLIA-128-CBC  
 _camellia-128-cfb_ |  128-bit Camellia in **C** ipher **F** eed**b** ack (CFB) mode  
 _camellia-128-cfb1_ |  128-bit Camellia in 1-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _camellia-128-cfb8_ |  128-bit Camellia in 8-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _camellia-128-ctr_ |  128-bit Camellia in **C** oun**t** e**r** (CTR) mode  
-_camellia-128-ecb_ |  128-bit Camellia in **E** lectronic**C** ode**b** ook****(ECB) mode  
-_camellia-128-ofb_ |  128-bit Camellia in **O** utput**F** eed**b** ack****(OFB) mode  
+_camellia-128-ecb_ |  128-bit Camellia in **E** lectronic**C** ode**b** ook** **(ECB) mode  
+_camellia-128-ofb_ |  128-bit Camellia in **O** utput**F** eed**b** ack** **(OFB) mode  
 _camellia-192-cbc_ |  192-bit Camellia in **C** ipher **B** lock **C** haining (CBC) mode  
 _camellia192_ |  Alias for CAMELLIA-192-CBC  
 _camellia-192-cfb_ |  192-bit Camellia in **C** ipher **F** eed**b** ack (CFB) mode  
 _camellia-192-cfb1_ |  192-bit Camellia in 1-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _camellia-192-cfb8_ |  192-bit Camellia in 8-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _camellia-192-ctr_ |  192-bit Camellia in **C** oun**t** e**r** (CTR) mode  
-_camellia-192-ecb_ |  192-bit Camellia in **E** lectronic**C** ode**b** ook****(ECB) mode  
-_camellia-192-ofb_ |  192-bit Camellia in **O** utput**F** eed**b** ack****(OFB) mode  
+_camellia-192-ecb_ |  192-bit Camellia in **E** lectronic**C** ode**b** ook** **(ECB) mode  
+_camellia-192-ofb_ |  192-bit Camellia in **O** utput**F** eed**b** ack** **(OFB) mode  
 _camellia-256-cbc_ |  256-bit Camellia in **C** ipher **B** lock **C** haining (CBC) mode  
 _camellia256_ |  Alias for CAMELLIA-256-CBC  
 _camellia-256-cfb_ |  256-bit Camellia in **C** ipher **F** eed**b** ack (CFB) mode  
 _camellia-256-cfb1_ |  256-bit Camellia in 1-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _camellia-256-cfb8_ |  256-bit Camellia in 8-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _camellia-256-ctr_ |  256-bit Camellia in **C** oun**t** e**r** (CTR) mode  
-_camellia-256-ecb_ |  256-bit Camellia in **E** lectronic**C** ode**b** ook****(ECB) mode  
-_camellia-256-ofb_ |  256-bit Camellia in **O** utput**F** eed**b** ack****(OFB) mode  
+_camellia-256-ecb_ |  256-bit Camellia in **E** lectronic**C** ode**b** ook** **(ECB) mode  
+_camellia-256-ofb_ |  256-bit Camellia in **O** utput**F** eed**b** ack** **(OFB) mode  
 _cast5-cbc_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. CAST5 in **C** ipher **B** lock **C** haining (CBC) mode  
 _cast_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. Alias for CAST5-CBC  
 _cast-cbc_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. Alias for CAST5-CBC  
 _cast5-cfb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. CAST5 in **C** ipher **F** eed**b** ack (CFB) mode  
-_cast5-ecb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. CAST5 in **E** lectronic**C** ode**b** ook****(ECB) mode  
+_cast5-ecb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. CAST5 in **E** lectronic**C** ode**b** ook** **(ECB) mode  
 _cast5-ofb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. CAST5 in **O** utput **F** eed**b** ack (OFB) mode  
 _chacha20_ |  ChaCha20 stream cipher  
 _chacha20-poly1305_ |  ChaCha20 stream cipher with the Poly1305 message authentication code  
@@ -295,23 +295,23 @@ _des_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#
 _des-cfb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. **D** ata **E** ncryption **S** tandard (DES) in **C** ipher **F** eed**b** ack (CFB) mode  
 _des-cfb1_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. **D** ata **E** ncryption **S** tandard (DES) in 1-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _des-cfb8_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. **D** ata **E** ncryption **S** tandard (DES) in 8-bit **C** ipher **F** eed**b** ack (CFB) mode  
-_des-ecb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. **D** ata **E** ncryption **S** tandard (DES) in **E** lectronic**C** ode**b** ook****(ECB) mode  
-_des-ede_ |  Two key triple Encrypt-Decrypt-Encrypt (EDE) **D** ata **E** ncryption **S** tandard (DES) in **E** lectronic**C** ode**b** ook****(ECB) mode  
+_des-ecb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. **D** ata **E** ncryption **S** tandard (DES) in **E** lectronic**C** ode**b** ook** **(ECB) mode  
+_des-ede_ |  Two key triple Encrypt-Decrypt-Encrypt (EDE) **D** ata **E** ncryption **S** tandard (DES) in **E** lectronic**C** ode**b** ook** **(ECB) mode  
 _des-ede-cbc_ |  Two key triple Encrypt-Decrypt-Encrypt (EDE) **D** ata **E** ncryption **S** tandard (DES) in **C** ipher **B** lock **C** haining (CBC) mode  
 _des-ede-cfb_ |  Two key triple Encrypt-Decrypt-Encrypt (EDE) **D** ata **E** ncryption **S** tandard (DES) in **C** ipher **F** eed**b** ack (CFB) mode  
 _des-ede-ecb_ |  Alias for DES-EDE  
-_des-ede-ofb_ |  Two key triple Encrypt-Decrypt-Encrypt (EDE) **D** ata **E** ncryption **S** tandard (DES) in **O** utput**F** eed**b** ack****(OFB) mode  
-_des-ede3_ |  Three key triple Encrypt-Decrypt-Encrypt (EDE) **D** ata **E** ncryption **S** tandard (DES) in **E** lectronic**C** ode**b** ook****(ECB) mode  
+_des-ede-ofb_ |  Two key triple Encrypt-Decrypt-Encrypt (EDE) **D** ata **E** ncryption **S** tandard (DES) in **O** utput**F** eed**b** ack** **(OFB) mode  
+_des-ede3_ |  Three key triple Encrypt-Decrypt-Encrypt (EDE) **D** ata **E** ncryption **S** tandard (DES) in **E** lectronic**C** ode**b** ook** **(ECB) mode  
 _des-ede3-cbc_ |  Three key triple Encrypt-Decrypt-Encrypt (EDE) **D** ata **E** ncryption **S** tandard (DES) in **C** ipher **B** lock **C** haining (CBC) mode  
 _des-ede3-cfb_ |  Three key triple Encrypt-Decrypt-Encrypt (EDE) **D** ata **E** ncryption **S** tandard (DES) in **C** ipher **F** eed**b** ack (CFB) mode  
 _des-ede3-cfb1_ |  Three key triple Encrypt-Decrypt-Encrypt (EDE) **D** ata **E** ncryption **S** tandard (DES) in 1-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _des-ede3-cfb8_ |  Three key triple Encrypt-Decrypt-Encrypt (EDE) **D** ata **E** ncryption **S** tandard (DES) in 8-bit **C** ipher **F** eed**b** ack (CFB) mode  
 _des-ede3-ecb_ |  Alias for DES-EDE3  
-_des-ede3-ofb_ |  Three key triple Encrypt-Decrypt-Encrypt (EDE) **D** ata **E** ncryption **S** tandard (DES) in **O** utput**F** eed**b** ack****(OFB) mode  
-_des-ofb_ |  **D** ata **E** ncryption **S** tandard (DES) in **O** utput**F** eed**b** ack****(OFB) mode  
+_des-ede3-ofb_ |  Three key triple Encrypt-Decrypt-Encrypt (EDE) **D** ata **E** ncryption **S** tandard (DES) in **O** utput**F** eed**b** ack** **(OFB) mode  
+_des-ofb_ |  **D** ata **E** ncryption **S** tandard (DES) in **O** utput**F** eed**b** ack** **(OFB) mode  
 _des3_ |  Alias for DES-EDE3-CBC  
 _des3-wrap_ |  Alias for id-smime-alg-CMS3DESwrap  
-_desx-cbc_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. DESX**** algorithm (**D** ata **E** ncryption **S** tandard (DES) variant) in **C** ipher **B** lock **C** haining (CBC) mode  
+_desx-cbc_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. DESX** ** algorithm (**D** ata **E** ncryption **S** tandard (DES) variant) in **C** ipher **B** lock **C** haining (CBC) mode  
 _desx_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. Alias for DESX-CBC  
 _id-aes128-ccm_ |  128-bit **A** dvanced **E** ncryption **S** tandard (AES) in **C** ounter with Cipher Block **C** haining **M** essage Authentication Code (CCM) mode  
 _id-aes128-gcm_ |  128-bit **A** dvanced **E** ncryption **S** tandard (AES) in **G** alois/**C** ounter **M** ode (GCM) mode  
@@ -329,8 +329,8 @@ _id-smime-alg-cms3deswrap_ |  Cryptographic Message Syntax (CMS) implementation 
 _idea-cbc_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. **I** nternational**D** ata**E** ncryption**A** lgorithm (IDEA) in **C** ipher **B** lock **C** haining (CBC) mode  
 _idea_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. Alias for IDEA-CBC  
 _idea-cfb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. **I** nternational**D** ata**E** ncryption**A** lgorithm (IDEA) in **C** ipher **F** eed**b** ack (CFB) mode  
-_idea-ecb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. **I** nternational**D** ata**E** ncryption**A** lgorithm (IDEA) in **E** lectronic**C** ode**b** ook****(ECB) mode  
-_idea-ofb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. **I** nternational**D** ata**E** ncryption**A** lgorithm (IDEA) in **O** utput**F** eed**b** ack****(OFB) mode  
+_idea-ecb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. **I** nternational**D** ata**E** ncryption**A** lgorithm (IDEA) in **E** lectronic**C** ode**b** ook** **(ECB) mode  
+_idea-ofb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. **I** nternational**D** ata**E** ncryption**A** lgorithm (IDEA) in **O** utput**F** eed**b** ack** **(OFB) mode  
 _rc2-40-cbc_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. 40-bit RC2 in **C** ipher **B** lock **C** haining (CBC) mode  
 _rc2-40_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. Alias for RC2-40-CBC  
 _rc2-64-cbc_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. 64-bit RC2 in **C** ipher **B** lock **C** haining (CBC) mode  
@@ -339,8 +339,8 @@ _rc2-cbc_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.
 _rc2_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. Alias for RC2-CBC  
 _rc2-128_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. Alias for RC2-CBC  
 _rc2-cfb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. 128-bit RC2 in **C** ipher **F** eed**b** ack (CFB) mode  
-_rc2-ecb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. 128-bit RC2 in **E** lectronic**C** ode**b** ook****(ECB) mode  
-_rc2-ofb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. 128-bit RC2 in **O** utput**F** eed**b** ack****(OFB) mode  
+_rc2-ecb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. 128-bit RC2 in **E** lectronic**C** ode**b** ook** **(ECB) mode  
+_rc2-ofb_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. 128-bit RC2 in **O** utput**F** eed**b** ack** **(OFB) mode  
 _rc4_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. 128-bit RC4  
 _rc4-40_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. 40-bit RC4  
 _rc4-hmac-md5_ |  **_(Legacy - Not Recommended)_** See **[Legacy Cipher Support](hsh.htm#legacy)**. 128-bit RC4 with **H** ashed **M** essage **A** uthentication **C** ode (HMAC) using the **M** essage-**D** igest algorithm 5 (MD5) checksum function  
@@ -381,3 +381,9 @@ Both functions will return the same list of encryption algorithms from OpenSSL. 
 ## Copyright Information
 
 PxPlus includes software developed by the OpenSSL Project (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and Tim Hudson (tjh@cryptsoft.com). 
+
+ 
+
+ 
+
+ 

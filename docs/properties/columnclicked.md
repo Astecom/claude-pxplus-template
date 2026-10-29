@@ -13,4 +13,10 @@ _(The ColumnClicked property was added in PxPlus v7.00, build 9171.)_
 
 ## Used By 
 
-**LIST_VIEW****REPORT_VIEW**
+**LIST_VIEW** **REPORT_VIEW**
+
+ 
+
+ 
+
+ 

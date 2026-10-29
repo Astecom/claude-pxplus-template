@@ -13,33 +13,33 @@
   
 _The following were added in PxPlus v8.00:_
 
-5. |  _Find Max/Min Value in Array_ _:_ |  **DIM (FIND [ MIN | MAX ] (**_array_name_[_$_]**))**  
+5. |  _Find Max/Min Value in Array_ _:_ |  **DIM (FIND [ MIN | MAX ]  (_  array_** __name_[_$_]**))**  
 ---|---|---  
-6. |  _Scan Array for Value_ _:_ |  **DIM (FIND** _array_name_[_$_]=_comparison value_[_$_],**ERR=**_stmtref_**)**  
-7. |  _Total Numeric Array_ _:_ |  **DIM (ADD** _array_name_**)**  
+6. |  _Scan Array for Value_ _:_ |  **DIM (FIND  **_array_name_[_$_]=_comparison value[$_],**ERR=**_stmtref_**)**  
+7. |  _Total Numeric Array_ _:_ |  **DIM (ADD  **_array_name_**)**  
   
 _The following was added in PxPlus v9.00:_
 
-8. |  _Return Associated Index_ _:_ |  **DIM (INDEX** _array_name_[_$_] [_keyword$_] **)**  
+8. |  _Return Associated Index_ _:_ |  **DIM (INDEX  **_array_name_[_$_] [_keyword$_] **)**  
 ---|---|---  
   
 _The following were added in PxPlus v11.00:_
 
-9. |  _Return Key from Index_ _:_ |  **DIM (KEY** _array_name_[_$_] [_index_] **)**  
+9. |  _Return Key from Index_ _:_ |  **DIM (KEY  **_array_name_[_$_] [_index_] **)**  
 ---|---|---  
 10. |  _Remove Key_ _:_ |  **DIM (DROP** _array_name_[_$_] [_keyword$_] **)**  
-11. |  _Generate JSON Data from Array_ _:_ |  **DIM (LIST [ SORT | EDIT ]**_array_name_[_$_]**[** {ALL} **]**__**[ WITH NUM**(_namelist_ _$_) **]** **)**  
+11. |  _Generate JSON Data from Array_ _:_ |  **DIM (LIST [ SORT | EDIT ]  **_array_name_[_$_]**[** {ALL} **]**_ _**[ WITH NUM(**_namelist_ _$_) **]**  **)**  
   
 _The following was added in PxPlus 2016:_
 
 12. |  [_Get an Elements Type-Flag_](dim.htm#typeflag): |  _strvar_ _$_ = **DIM (CLASS**  _array$_[ _strName_ _$_ ] **)**  
 ---|---|---  
   
-**_Where:_****__**
+**_Where:_****_ _**
 
 _array$_ |  String array whose element you want to retrieve.  
 ---|---  
-_array_name_ _[$]_ |  Name of a previously dimensioned array.  
+_array_name_ _[__$]_ |  Name of a previously dimensioned array.  
 _comparison_ |  Type of comparison to be done against each element of the array.  
 _fill$_ |  Text string or value that will be used to fill the variable up to the length specified. String expression.  
 [_index_] |  Numeric index for the element in the array whose keyword is to be returned.
@@ -58,7 +58,7 @@ _strName_ _$_ |  String expression or literal containing the index of the elemen
 _strvar_ _$_ |  String variable that will receive either an "N" (numeric) or "S" (string).  
 _subscript_ |  Array's dimensions (first, second or third).  
 _value_[_$_] |  Value to compare each element against. Type of value must match the type of array (string values for string array, numeric values for numeric array).  
-**WITH NUM**(_namelist_ _$_) |  Optional list of subscript names, whose values are not to be quoted in JSON option.  
+**WITH NUM(**_namelist_ _$_) |  Optional list of subscript names, whose values are not to be quoted in JSON option.  
   
 ##  Returns
 
@@ -86,7 +86,7 @@ If you omit the fill string, the system uses spaces as fill characters:
 >  ->run  
 >  *Cat*Cat*Ca:
 
-> print 'CS',"A Title",@(0,1),dim(80,"-")  
+>      print 'CS',"A Title",@(0,1),dim(80,"-")  
 >  rem The dim( ) above returns a string of hyphens "-" 80 characters long  
 >   
 >  ->run  
@@ -103,7 +103,7 @@ If you omit the fill string, the system uses spaces as fill characters:
 
 Use Formats 2, 3 and 4 of the **DIM( )** function to read a given array's total number of elements, the minimum element's number and the maximum element's number. If the variable you specify is not an array, **NUM** and **MIN** will return 0, **MAX** will return -1.
 
-**DIM**(**READ NUM**(_array_name_[_$_][,_subscript_]))
+**DIM**(**READ NUM(**_array_name_[_$_][,_subscript_]))
 
 The **DIM(READ NUM( ))** function is used to read the total number of elements in a dimensioned array:
 
@@ -113,7 +113,7 @@ The **DIM(READ NUM( ))** function is used to read the total number of elements i
 >  ->run  
 >  16
 
-**DIM**(**READ MAX**(_array_name_[_$_][,_subscript_]))
+**DIM**(**READ MAX(**_array_name_[_$_][,_subscript_]))
 
 The **DIM(READ MAX( ))** function is used to read the maximum element number in a dimensioned array:
 
@@ -123,7 +123,7 @@ The **DIM(READ MAX( ))** function is used to read the maximum element number in 
 >  ->run  
 >  15
 
-**DIM**(**READ MIN**(_array_name_[_$_][,_subscript_]))
+**DIM**(**READ MIN(**_array_name_[_$_][,_subscript_]))
 
 The **DIM(READ MIN( ))** function is used to read the minimum element number in a dimensioned array:
 
@@ -137,7 +137,7 @@ The **DIM(READ MIN( ))** function is used to read the minimum element number in 
 
 **_Find Max/Min Value in Array_**
 
-**DIM (FIND [ MIN | MAX ] (**_array_name_[_$_]**))**
+**DIM (FIND [ MIN | MAX ]  (_  array_** __name_[_$_]**))**
 
 _(added in PxPlus v8.00)_
 
@@ -147,15 +147,15 @@ Use this format to scan an array to determine the index of the highest or lowest
 
 Assuming an array X$ contained 'Cat', 'Dog', 'Zebra', 'Ant', 'Pig' in elements 1 through 5:
 
-|  dim (find max(X$)) |  This would yield 3 (for Zebra).  
+  |  dim (find max(X$)) |  This would yield 3 (for Zebra).  
 ---|---|---  
-|  dim (find min(X$)) |  This would yield 4 (for Ant).  
+  |  dim (find min(X$)) |  This would yield 4 (for Ant).  
   
 ##  Format 6
 
 **_Scan Array for Value_**
 
-**DIM (FIND** _array_name_[_$_]=_comparison value_[_$_],**ERR=**_stmtref_**)**
+**DIM (FIND  **_array_name_[_$_]=_comparison value[$_],**ERR=**_stmtref_**)**
 
 _(added in PxPlus v8.00)_
 
@@ -165,15 +165,15 @@ Use this format to locate a value in an array that will match an expression. The
   
 Assuming an array X$ contained 'Cat', 'Dog', 'Zebra', 'Ant', 'Pig' in elements 1 through 5:
 
-|  dim (find X$ = "Dog" |  This would yield 2.  
+  |  dim (find X$ = "Dog" |  This would yield 2.  
 ---|---|---  
-|  dim (find X$ > "Man") |  This would yield 3 (for Zebra).  
+  |  dim (find X$ > "Man") |  This would yield 3 (for Zebra).  
   
 ##  Format 7
 
 **_Total Numeric Array_**
 
-**DIM (ADD** _array_name_**)**
+**DIM (ADD  **_array_name_**)**
 
 _(added in PxPlus v8.00)_
 
@@ -183,7 +183,7 @@ Use this format to quickly total a numeric array.
 
 **_Lookup and Return Index for Given Keyword_**
 
-**DIM (INDEX** _array_name_[_$_] [_keyword$_] **)**
+**DIM (INDEX  **_array_name_[_$_] [_keyword$_] **)**
 
 _(added in PxPlus v9.00)_
 
@@ -193,7 +193,7 @@ This format can be used against any associative array in order to return the ind
 
 **_Lookup and Return Keyword for Given Index_**
 
-**DIM (KEY** _array_name_[_$_] [_index_] **)**
+**DIM (KEY  **_array_name_[_$_] [_index_] **)**
 
 _(added in PxPlus v11.00)_
 
@@ -210,22 +210,22 @@ _(added in PxPlus v11.00)_
 This format can be used against any associative array to remove the specified keyword. If no element with the specified keyword is found, the return value will be 0 (zero); otherwise, the function will return the index of the element whose key was dropped.
 
 #### **Note:**  
-Using the **DIM (DROP** xxx**[** "_keyword_ "**]** **)** format does **_not_** remove the element from the array but only removes the associated keyword.
+Using the **DIM (DROP** xxx**[** "_keyword_ "**])** format does **_not_** remove the element from the array but only removes the associated keyword.
 
 ## Format 11
 
 **_Generate JSON Data from Array_**
 
-**DIM (LIST [ SORT | EDIT ]**_array_name_[_$_]**[** {ALL} **]**__**[ WITH NUM**(_namelist_ _$_) **]** **)**
+**DIM (LIST [ SORT | EDIT ]  **_array_name_[_$_]**[** {ALL} **]**_ _**[ WITH NUM(**_namelist_ _$_) **]**  **)**
 
 _(added in PxPlus v11.00)_
 
 The **DIM (LIST** xxx {ALL}**)** format can be used against any associative array in order to generate and return all the elements in the array and their values in a JSON string. This JSON string can then be used to subsequently load/reload an array or for passing the data to an external application.
 
 #### **Note:**  
-The array is automatically sorted when **'JV'** =1 (_default_). See **['JV'](../parameters/jv.md)** system parameter.
+The array is automatically sorted when **'JV'** =2 (_default_). See **['JV'](../parameters/jv.md)** system parameter.
 
-A JSON string consists of a series of comma-separated name/value pairs where the variable name is separated from the value using a **:**_(colon)_ :
+A JSON string consists of a series of comma-separated name/value pairs where the variable name is separated from the value using a **:**  _(colon)_ :
 
 **_Example:_**
 
@@ -240,10 +240,12 @@ If the value is numeric, the quotes are not needed.
 
 The function has two optional keywords that may be supplied after **LIST** :
 
-> **SORT:** The output will be sorted alphabetically.  
-> **EDIT:** The output will be output with each item on a separate line and two spaces indentation for each level.
+> **SORT:   **The output will be sorted alphabetically.  
+> **EDIT:     **The output will be output with each item on a separate line and two spaces indentation for each level.
 
 Structured data can also be represented with the inclusion of a _period_ in the associative name:
+
+**_Example:_**
 
 > X$["Company"] = "PVX Plus Technologies"  
 >  X$["Address.Street"] = "45B West Wilmot"  
@@ -254,25 +256,45 @@ Structured data can also be represented with the inclusion of a _period_ in the 
 When represented as a JSON string generated by DIM(LIST EDIT X${ALL}), this would become:
 
 > "Address":{  
->  "Street":"45B West Wilmot",  
->  "City":"Richmond Hill",  
->  "Province":"Canada" },  
+>      "Street":"45B West Wilmot",  
+>      "City":"Richmond Hill",  
+>      "Province":"Canada" },  
 >  "Company":"PVX Plus Technologies"  
 >  "Phone":"888-975-7587"
 
+Lists can be created by using a numeric subscript as the associative name. Including a **#** (_pound sign_) as the first character of a numeric subscript name suppresses the creation of a list, and the associative name displays without the pound sign. If you would like to use a pound sign as the first character, use **##** :
+
+**_Example:_**
+
+>  data$["Employee.1"] = "John Smith"  
+>  data$["Employee.2"] = "Jane Doe"  
+>  data$["Employee.3"] = "Smith Jones"  
+>  data$["#4"] = "Value 4"  
+>  data$["##5"] = "Value 5"  
+>   
+>  ->print dim(list edit data$)  
+>  "Employee":[  
+>      "John Smith",  
+>      "Jane Doe",  
+>      "Smith Jones" ],  
+>  "4": "Value 4",  
+>  "#5": "Value 5"
+
+_(The above example was added in PxPlus 2025 Update 1.)_
+
 Null/empty arrays are supported by including a ".0" element in the array:
 
-> <pre>  
->  ->x$="{ var1: ""someString"", var2: 1.3 }"  
+**_Example:_**
+
+> ->x$="{ var1: ""someString"", var2: 1.3 }"  
 >  ->dim load json$=x$  
 >  ->json$["varArray.0"]=""  
 >  ->print dim(list edit json$)  
 >  {  
->  "var1":"someString",  
->  "var2":1.3,  
->  "varArray":[ ]  
->  }  
->  </pre>
+>   "var1":"someString",  
+>   "var2":1.3,  
+>   "varArray":[ ]  
+>  }
 
 #### **Note:**  
 The empty array will be included **_only if no other elements other than .0_** are defined in the array.
@@ -294,3 +316,9 @@ _strvar_ _$_ = **DIM (CLASS**  _array$_[ _strName_ _$_ ] **)**
 _(added in PxPlus 2016)_
 
 You can determine the type-flag of any element in a string associative array using the **DIM (CLASS**  _array$**)**_ function. If the element does not exist, it will be created dynamically, and the type-flag of "S" will be returned.
+
+ 
+
+ 
+
+ 

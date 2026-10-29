@@ -1,6 +1,6 @@
 # Introduction to Using PxPlus
 
-**Graphical User Interfaces** |  **__**  
+**Graphical User Interfaces** |  **_ _**  
 ---|---  
   
 Your graphical user interface may be the biggest selling feature of your application, and PxPlus has the all tools necessary to adapt and incorporate powerful, effective graphical functionality. This includes the development of panels (windows or forms), menus, toolbars, buttons, radio buttons, check boxes, list boxes, and scrollbars - just to name a few. It also has the flexibility to take your application from the Windows environment into Web-based accessibility.
@@ -66,7 +66,7 @@ Some basic guidelines for designing a usable graphical user interface are:
 
   * **_Know Your Users_**  
 Developing any user interface requires careful thought about how your users intend to use it. One excellent way to verify your design choices is to test your interface with potential users.
-  * **_Ensure_** ** _Consistency_**  
+  * **_Ensure_**  **_Consistency_**  
 Whether they are arbitrary, precisely task-oriented, or follow an operating system standard, the "rules" behind a graphical element should be readily perceived by the intended user. Put your buttons in consistent places on all your windows, use the same wording in labels and messages, and use a consistent colour scheme throughout.
   * **_Provide Clear Labeling_**  
 Assist navigation by providing good textual clues on or near each graphical control. The interface may be "graphical", but most users recognize words faster than they recognize icons, especially first-timers. Terminology should be defined so that the same term always has the same meaning anywhere in the application.
@@ -102,11 +102,15 @@ PxPlus uses special graphical user interface mnemonics for the creation and mana
 
 **_Graphical Controls_**
 
-These are the objects that can be manipulated by the user within the window. They provide different methods for displaying information, inputting data, and handling event processing within an application window. PxPlus supports a full range of **[Graphical Directives](Introduction.htm#graphicaldirectives)** for creating and maintaining various **[Control Objects](Control%20Objects/Overview.md)**. Interactive properties are identified via **[CTL Values](Introduction.htm#ctlvalues)**, which generate specific events in your application at run time. Various **[Control Options](Introduction.htm#controloptions)** allow you to define the initial appearance and functionality of each control when it is first created. Once they are created, controls may be further modified via **[Dynamic Control Properties](Introduction.htm#dynamic)**.
+These are the objects that can be manipulated by the user within the window. They provide different methods for displaying information, inputting data, and handling event processing within an application window.
+
+PxPlus supports a full range of **[Graphical Directives](Introduction.htm#graphicaldirectives)** for creating and maintaining various **[Control Objects](Control%20Objects/Overview.md)**. Interactive properties are identified via **[CTL Values](Introduction.htm#ctlvalues)**, which generate specific events in your application at run time.
+
+Various **[Control Options](Introduction.htm#controloptions)** allow you to define the initial appearance and functionality of each control when it is first created. Once they are created, controls may be further modified via **[Dynamic Control Properties](Introduction.htm#dynamic)**.
 
 **_Graphical Objects_**
 
-Other graphical object types are used to produce images and text, or define the layout of your application. These are output on the graphic plane using **[Graphical Mnemonics](Introduction.htm#graphicalmnemonics)** via the **[PRINT](../../directives/print.md)** directive and have no events associated with them.
+Other graphical object types are used to produce images and text or define the layout of your application. These are output on the graphic plane using **[Graphical Mnemonics](Introduction.htm#graphicalmnemonics)** via the **[PRINT](../../directives/print.md)** directive and have no events associated with them.
 
 **_Object Focus_**
 
@@ -131,6 +135,38 @@ PxPlus supports Windows and browser access to PxPlus graphical user interface ap
 
 For information on the full range of PxPlus multi-platform options, see **[Client/Server](../Client-Server/Introduction.md)**.
 
+**_How to Change the Color Used When Printing with the 'SB' Mnemonic on Windows_**
+
+In recent years, Windows has changed the brightness of the Gray color it uses on buttons and windows. By default, the Windows Gray colors are used by PxPlus to define the Light and Dark Gray colors so that windows and controls created in PxPlus match the colors used by Windows. These Gray colors are also used by the system when displaying Black or White text with the **['SB'](../../mnemonics/sb.md)** (Set Background) mnemonic enabled - Dark Gray for Black text and Light Gray for White text.
+
+However, these colors have become paler than they used to be, making Light Gray (#15) almost White, which causes a problem when displaying White text with the **'SB'** mnemonic. This is especially challenging if you are running text-mode applications and have changed the display to use a Black background with White text.
+
+To address this situation, two solutions are available.
+
+The easiest solution is to simply change the Light Gray to be a bit darker. This can be done by using the following command:
+
+> **SETDEV (0) SET "Color15" TO "#A0A0A0"**
+
+This sets the color of Light Gray (color index 15) to a slightly darker color (Red, Green and Blue all set at 160/255). However, this solution does have its drawbacks, as it changes Light Gray everywhere so that PxPlus windows with a Light Gray background will no longer match the Windows color scheme.
+
+The alternate solution is to define a new color index to use for White text with the **'SB'** mnemonic. PxPlus has 15 standard colors (0-15). See **[Color Names and Numbers](../../control_object_properties/colour_properties.htm#colornumbers)**. However, for this, you would be required to define a new color, such as Color16, and then change the Video Palette index table for White with the **'SB'** mnemonic enabled to use this color. The Video Palette index table consists of a series of six 8-byte color index values as bytes, which identify the actual color index to use. Each 8-byte entry has a 1-byte color index for the colors Black, Red, Green, Yellow, Blue, Magenta, Cyan and White - in that order.
+
+The second 8-byte table defines the colors to use when **'SB'** is active. Since White is color number 8, you need to change byte 16, _second table eighth byte_ , to CHR(16). See **[VIDEO_PALETTE](../../directives/video_palette.htm#Mark8)** directive.
+
+The code that you will need to do this is as follows:
+
+> SETDEV (0) SET "Color16" TO "#A0A0A0"  
+>  VIDEO_PALETTE INDEXED READ X$  
+>  X$(16,1) = CHR(16)  
+>  VIDEO_PALETTE INDEXED X$
+
+If running WindX, setting the Video Palette needs to be done on the workstation and not on the server; therefore, the first solution is often much easier to implement in this environment.
+
+Once the colors have been changed, you need Windows to refresh your page; otherwise, you will only get the new color on areas on the screen that are being updated.
+
+#### **Note:**  
+The above information is intended for use **_with Windows_** and not with normal terminals that will use the escape sequence in the ***dev** driver programs.
+
 ##  Syntax Elements
 
 The PxPlus language includes a variety of commands for creating graphical user interface windows, controls and other display components - the basic building blocks used in the creation of a graphical user interface application.
@@ -143,12 +179,12 @@ If you prefer a graphical approach to graphical user interface development where
 
 PxPlus supports a full range of directives for creating and maintaining various control objects in a graphical user interface application:
 
-|  **[BUTTON](../../directives/button.md)** |  **[H_SCROLLBAR](../../directives/h_scrollbar.md)** |  **[TRISTATE_BOX](../../directives/tristate_box.md)**  
+  |  **[BUTTON](../../directives/button.md)** |  **[H_SCROLLBAR](../../directives/h_scrollbar.md)** |  **[TRISTATE_BOX](../../directives/tristate_box.md)**  
 ---|---|---|---  
-|  **[CHART](../../directives/chart.md)** |  **[LIST_BOX](../../directives/list_box.md)** |  **[VARDROP_BOX](../../directives/vardrop_box.md)**  
-|  **[CHECK_BOX](../../directives/check_box.md)** |  **[MULTI_LINE](../../directives/multi_line.md)** |  **[VARLIST_BOX](../../directives/varlist_box.md)**  
-|  **[DROP_BOX](../../directives/drop_box.md)** |  **[RADIO_BUTTON](../../directives/radio_button.md)** |  **[V_SCROLLBAR](../../directives/v_scrollbar.md)**  
-|  **[GRID](../../directives/grid.md)**| |   
+  |  **[CHART](../../directives/chart.md)** |  **[LIST_BOX](../../directives/list_box.md)** |  **[VARDROP_BOX](../../directives/vardrop_box.md)**  
+  |  **[CHECK_BOX](../../directives/check_box.md)** |  **[MULTI_LINE](../../directives/multi_line.md)** |  **[VARLIST_BOX](../../directives/varlist_box.md)**  
+  |  **[DROP_BOX](../../directives/drop_box.md)** |  **[RADIO_BUTTON](../../directives/radio_button.md)** |  **[V_SCROLLBAR](../../directives/v_scrollbar.md)**  
+  |  **[GRID](../../directives/grid.md)**| |   
   
 For descriptions and examples on the use of these types of directives, see **[Control Objects](Control%20Objects/Overview.md)**.
 
@@ -179,20 +215,20 @@ These events are sent to the program to deal with one at a time. Eventually, the
 
 Several options _(ctrlopt)_ are available for use in graphical user interface directives to specify format type, customize appearance and define the behavior of graphical objects. For information on how these are used, see **[Control Objects](Control%20Objects/Overview.md)**.
 
-**** |  **ERR=**_stmtref_ |  Defines program line number/line label for on-error transfer. Can be used with any directive.  
+** ** |  **ERR=**_stmtref_ |  Defines program line number/line label for on-error transfer. Can be used with any directive.  
 ---|---|---  
-**** |  **HLP=**_string$_ |  Help message identifier for defining **_AutoComplete_** and **_Calendar_** functionality in a**[Multi-Line](Control%20Objects/Multi-Line.md)** control.  
-**** |  **FNT=**_"font,size_ [_,attr_]_"_ |  Sets font name, size, and optional attributes for control object directives that support text.  
-**** |  **FMT=**_def_ _$_ | _mask$_ |  Specifies the format definition (_def_ _$_) in directives used to create different styles of**[Chart](Control%20Objects/Chart.md)**, **[Grid](Control%20Objects/Grid.md),** and **[List Box](Control%20Objects/List%20Box.md)** controls. Used for character string _mask$_ in a **[Multi-Line](Control%20Objects/Multi-Line.md)**.  
-**** |  **KEY=**_char$_ |  Defines hot key character in a**[Drop Box](Control%20Objects/Drop%20Box.md)**,**[List Box](Control%20Objects/List%20Box.md)**,**[Multi-Line](Control%20Objects/Multi-Line.md)**,**[Variable Drop Box](Control%20Objects/Variable%20Drop%20Box.md)**, and**[Variable List Box](Control%20Objects/Variable%20List%20Box.md)**.  
-**** |  **LEN=**_num_ |  Defines maximum number of input characters allowed in a**[Multi-Line](Control%20Objects/Multi-Line.md)**,**[Variable Drop Box](Control%20Objects/Variable%20Drop%20Box.md)**, and**[Variable List Box](Control%20Objects/Variable%20List%20Box.md)**.  
-**** |  **MSG=**_text$_ |  Supplies the text that is to appear on the message line when the control object has focus.  
-**** |  **MNU=**_ctl_ |  Assigns _ctl_ value to be associated with a right click**[Popup Menu](Control%20Objects/Popup%20Menu.md)** event for when the mouse pointer is positioned over the graphical user interface control object.  
-**** |  **NUL=**_string$_ |  Defines the null field display value in a**[Multi-Line](Control%20Objects/Multi-Line.md)** control.  
-**** |  **OPT=**_char$_ |  Applies single character attribute/behaviour settings. Some characters may be combined (e.g. the combination OPT="VUTf" on a button creates an HTML-style hotspot).  
-**** |  **SEP=**_char$_ |  Sets the input line or column separator for **[Chart](Control%20Objects/Chart.md)**,**[Grid](Control%20Objects/Grid.md)**,**[List Box](Control%20Objects/List%20Box.md)** and**[Multi-Line](Control%20Objects/Multi-Line.md)** controls. Hex or ASCII value (e.g. SEP=":" or SEP=$3A$ ...).  
-**** |  **TBL=**_char$_ |  Table of single character values to represent the displayed options. The first character represents the first entry, etc.  
-**** |  **TIP=**_text$_ |  Provides text to be used as the floating tip message when the mouse pointer hovers over the control.  
+** ** |  **HLP=**_string$_ |  Help message identifier for defining **_AutoComplete_** and **_Calendar_** functionality in a** [Multi-Line](Control%20Objects/Multi-Line.md)** control.  
+** ** |  **FNT=**_" font,size_[_,attr_]_"_ |  Sets font name, size, and optional attributes for control object directives that support text.  
+** ** |  **FMT=**_def$_ | _mask$_ |  Specifies the format definition (_def$_) in directives used to create different styles of** [Chart](Control%20Objects/Chart.md)**, **[Grid](Control%20Objects/Grid.md),** and **[List Box](Control%20Objects/List%20Box.md)** controls. Used for character string _mask$_ in a **[Multi-Line](Control%20Objects/Multi-Line.md)**.  
+** ** |  **KEY=**_char$_ |  Defines hot key character in a** [Drop Box](Control%20Objects/Drop%20Box.md)**,** [List Box](Control%20Objects/List%20Box.md)**,** [Multi-Line](Control%20Objects/Multi-Line.md)**,** [Variable Drop Box](Control%20Objects/Variable%20Drop%20Box.md)**, and** [Variable List Box](Control%20Objects/Variable%20List%20Box.md)**.  
+** ** |  **LEN=**_num_ |  Defines maximum number of input characters allowed in a** [Multi-Line](Control%20Objects/Multi-Line.md)**,** [Variable Drop Box](Control%20Objects/Variable%20Drop%20Box.md)**, and** [Variable List Box](Control%20Objects/Variable%20List%20Box.md)**.  
+** ** |  **MSG=**_text$_ |  Supplies the text that is to appear on the message line when the control object has focus.  
+** ** |  **MNU=**_ctl_ |  Assigns _  ctl_ value to be associated with a right click** [Popup Menu](Control%20Objects/Popup%20Menu.md)** event for when the mouse pointer is positioned over the graphical user interface control object.  
+** ** |  **NUL=**_string$_ |  Defines the null field display value in a** [Multi-Line](Control%20Objects/Multi-Line.md)** control.  
+** ** |  **OPT=**_char$_ |  Applies single character attribute/behaviour settings. Some characters may be combined (e.g. the combination OPT="VUTf" on a button creates an HTML-style hotspot).  
+** ** |  **SEP=**_char$_ |  Sets the input line or column separator for **[Chart](Control%20Objects/Chart.md)**,** [Grid](Control%20Objects/Grid.md)**,** [List Box](Control%20Objects/List%20Box.md)** and** [Multi-Line](Control%20Objects/Multi-Line.md)** controls. Hex or ASCII value (e.g. SEP=":" or SEP=$3A$ ...).  
+** ** |  **TBL=**_char$_ |  Table of single character values to represent the displayed options. The first character represents the first entry, etc.  
+** ** |  **TIP=**_text$_ |  Provides text to be used as the floating tip message when the mouse pointer hovers over the control.  
   
 **_Dynamic Control Properties_**
 
@@ -206,18 +242,18 @@ A button's location, size, text, and color would be represented by properties na
 
 Other common property names include:
 
-**** |  **['Col](../../properties/col.md)** |  Starting column  
+** ** |  **['Col](../../properties/col.md)** |  Starting column  
 ---|---|---  
-**** |  **['Line](../../properties/line.md)** |  Starting line  
-**** |  **['Cols](../../properties/cols.md)** |  Width of control  
-**** |  **['Lines](../../properties/lines.md)** |  Height of control  
-**** |  **['Tip$](../../properties/tip_.md)** |  Tip message  
-**** |  **['Msg$](../../properties/msg_.md)** |  Message line  
-**** |  **['Fmt$](../../properties/fmt_.md)** |  Format mask  
-**** |  **['BackColor$](../../properties/backcolor_.md)** |  Background color  
-**** |  **['Enabled](../../properties/enabled.md)** |  Enabled state  
-**** |  **['Lock](../../properties/lock.md)** |  Locked state  
-**** |  **['Value$](../../properties/value_.md)** |  Current value/state of control  
+** ** |  **['Line](../../properties/line.md)** |  Starting line  
+** ** |  **['Cols](../../properties/cols.md)** |  Width of control  
+** ** |  **['Lines](../../properties/lines.md)** |  Height of control  
+** ** |  **['Tip$](../../properties/tip_.md)** |  Tip message  
+** ** |  **['Msg$](../../properties/msg_.md)** |  Message line  
+** ** |  **['Fmt$](../../properties/fmt_.md)** |  Format mask  
+** ** |  **['BackColor$](../../properties/backcolor_.md)** |  Background color  
+** ** |  **['Enabled](../../properties/enabled.md)** |  Enabled state  
+** ** |  **['Lock](../../properties/lock.md)** |  Locked state  
+** ** |  **['Value$](../../properties/value_.md)** |  Current value/state of control  
   
 To obtain a complete list of properties for a given control, read the logical attribute *****.
 
@@ -234,3 +270,9 @@ There is virtually no end to what can be changed on the fly within your controls
 NOMADS stores the current value of a control in a variable with the same name as the control.  
   
 If you change a control value using the **['Value$](../../properties/value_.md)** property, you must also change the control's variable to keep NOMADS in sync.
+
+ 
+
+ 
+
+ 

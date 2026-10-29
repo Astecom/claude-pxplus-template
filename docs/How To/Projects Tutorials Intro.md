@@ -16,7 +16,11 @@ Use these links to access a particular tutorial.
   
 ## See Also
 
-**[Introduction to PxPlus Training Guide](../PxPlus%20Training%20Intro.md)**  
-**[PxPlus Knowledge Center](../PxPlus%20Knowledge.md)  
-[PxPlus User Forum](../PxPlus%20Forum.md)  
-[PxPlus Video Library](../PxPlus%20Video%20Library.md)**
+**[Working with Projects](../PxPlus%20IDE/Introduction%20to%20PxPlus%20IDE.htm#projects)**  
+**[Benefits of Using Projects](../PxPlus%20IDE/Introduction%20to%20PxPlus%20IDE.htm#benefits)**
+
+ 
+
+ 
+
+ 

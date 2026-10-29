@@ -21,6 +21,12 @@ With **'DC'_Off_** , the screen output is "A B C". The cursor jumps first to col
 > set_param 'DC'  
 >  print @(15),"B",@(10),"A",@(20),"C"
 
-With **'DC'_On_** , PxPlus uses a destructive cursor (line print mode, as in BBx and some MAI systems). The preceding example would result in " A C" because the output driver simply issues spaces when advancing on the same line. With **'DC'_On_** , after printing the B and A, the driver uses 9 spaces to position itself at column 20 to print the C. The destructive cursor overwrites the B with the space.
+With **'DC'_On_** , PxPlus uses a destructive cursor (line print mode, as in BBx® and some MAI systems). The preceding example would result in " A C" because the output driver simply issues spaces when advancing on the same line. With **'DC'_On_** , after printing the B and A, the driver uses 9 spaces to position itself at column 20 to print the C. The destructive cursor overwrites the B with the space.
 
-BBx is a registered trademark of BASIS International Ltd.
+ 
+
+ 
+
+BBx® is a registered trademark of BASIS International Ltd.
+
+ 

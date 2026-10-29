@@ -1,6 +1,6 @@
-# Utility Programs
+# System Utilities
 
-**CSV File Import Utility** |  **__**  
+**CSV File Import Utility** |  **_ _**  
 ---|---  
   
 The **CSV File Import** utility is used for importing data in a CSV _(Comma Separated Values)_ file or a TSV _(Tab Separated Values)_ file directly into PxPlus.
@@ -86,4 +86,8 @@ To view the dictionary details as in the example below, click the _Primary Dicti
 
 To view the imported data using the **[File View Utility](../File%20View%20Utility.md)** as in the example below, click the _View File_ button on the System Utilities **[Tool Bar](../PxPlus%20User%20Guide/Getting%20Started/System%20Utilities/Graphical%20Utilities.htm#toolbar)**.
 
-> 
+>  
+
+ 
+
+ 

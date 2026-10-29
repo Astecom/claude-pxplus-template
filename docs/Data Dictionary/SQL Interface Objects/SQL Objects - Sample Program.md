@@ -1,6 +1,6 @@
 # SQL Interface Objects 
 
-**SQL Objects - Sample Program** |  **__**  
+**SQL Objects - Sample Program** |  **_ _**  
 ---|---  
   
 This sample program illustrates the functionality of the SQL objects (properties and methods) that were listed and described in the previous pages. It uses the **odbsql** object to display information about the database and read records from the orders table found in a Microsoft Access database.
@@ -12,7 +12,7 @@ This sample program illustrates the functionality of the SQL objects (properties
 >  if s=0 then \   
 > msgbox "Unable to create sql object"; \   
 >  exit \   
-> end_IF   
+> end_IF    
 >  !   
 >  ! Show all the Properties and Methods Available   
 >  print 'cs'   
@@ -23,7 +23,7 @@ This sample program illustrates the functionality of the SQL objects (properties
 > ph= s'Connect ("Access;Orders")   
 >  ! Check Result   
 >  if ph=0 then \   
-> msgbox "PxPlus error: "+ str ( s'lastpvxerr) + sep + "OS Error   
+> msgbox "PxPlus error: "\+ str ( s'lastpvxerr) + sep + "OS Error   
 >  Message: "+s'oserrormsg$ ;\   
 >  exit \   
 > end_IF   
@@ -33,9 +33,9 @@ This sample program illustrates the functionality of the SQL objects (properties
 > tb$="Orders"   
 >  print sep+sep   
 >  print "Total number of tables : ",s'gettableCount()   
->  print "Table List : ",s'gettablelist$(",")   
+>  print "Table List               : ",s'gettablelist$(",")   
 >  print "Table 'Orders' has ",s'getcolumncount(tb$)," columns"   
->  print "Column list : ",s'getcolumnlist$(tb$,",")   
+>  print "Column list             : ",s'getcolumnlist$(tb$,",")   
 >  ! Create a column object comprised of the information found in Table   
 >  Order Header column 2   
 >  c=s'getcolumninfo(tb$,2)   
@@ -64,3 +64,9 @@ This sample program illustrates the functionality of the SQL objects (properties
 >  !   
 >  ! Drop sql object   
 >  drop object s
+
+ 
+
+ 
+
+ 

@@ -8,7 +8,7 @@
 1. |  _Reformat String_: |  **CVS(**_data$_ ,[_cvs_code_[:_ctl_char_ _$_],_..._][,**ERR=**_stmtref_]**)**  
 ---|---|---  
 2. |  _Return Accent Table_: |  **CVS( * )**  
-3. |  _Return Character String_: |  **CVS(**_num_val_ _, num_val, num_val, ..._ **)** (Added in PxPlus v7.00)  
+3. |  _Return Character String_: |  **CVS(**_num_val_ _, num_val, num_val, ..._  **)**     (Added in PxPlus v7.00)  
   
 **_Where:_**
 
@@ -30,7 +30,7 @@ The **CVS( )** function converts a string of data to different forms based on th
 
 You can also use the function to return the current accent translation table and do translations based on it. See **[DEF CVS/DTE/LCS/UCS](../directives/def_cvs~dte~lcs~ucs.md)** directives.
 
-The value of _cvs_code_ is made up of a series of binary values indicating:
+The value of _cvs_code_  is made up of a series of binary values indicating:
 
 **Value** |  **Conversion to Take Place**  
 ---|---  
@@ -62,7 +62,7 @@ print "|",cvs(" The Cat ",1:" "),"|" |  _yields_ |The Cat|
 print "|",cvs(" The Cat ",2:" "),"|" |  _yields_ |The Cat|  
 print "|",cvs(" The Cat ",39),"|" |  _yields_ |THE CAT|
 
-#### **Note:**_  
+#### **Note:**_   
 _ 32+4+2+1=39 (you can use a sum)  
   
 print cvs("$$$123",32:"$") |  _yields_ $123  
@@ -73,7 +73,7 @@ The **CVS( * )** format returns a 256-byte string consisting of the character ma
 
 **_Example:_**
 
-If the character is found in the text, its binary value (194 - Hex $C2$) will be used as the offset into the mapping table. For purposes of computing the offset, the first character in the table is considered offset 0, the second offset 1, and so on; therefore, an will be substituted with the character at position 195 in the string.
+If the character Â is found in the text, its binary value (194 - Hex $C2$) will be used as the offset into the mapping table. For purposes of computing the offset, the first character in the table is considered offset 0, the second offset 1, and so on; therefore, an Â will be substituted with the character at position 195 in the string.
 
 ##  Format 3
 
@@ -88,3 +88,9 @@ The value of cvs(77,105,107,101) will return the string "Mike" since the binary 
 The primary purpose of this function is to provide for the easy conversion of UNICODE data into UTF-8.
 
 _(The CVS extension to provide UNICODE values was added in PxPlus v7.00.)_
+
+ 
+
+ 
+
+ 

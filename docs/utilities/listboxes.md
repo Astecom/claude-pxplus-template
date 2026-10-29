@@ -1,11 +1,11 @@
-# Utility Routines  
-  
+# Utilities
+
 ***PLUS/WINUTL/LISTPOPUP;SUBMENU** |  **_Invoke List Box Popup Sub-Menu_**  
 ---|---  
   
 ## Invocation
 
-**CALL "*plus/winutl/listpopup;SubMenu",**_ctl_id_
+**CALL "*plus/winutl/listpopup;SubMenu", **_ctl_id_  
 
 **_Where:_**
 
@@ -27,3 +27,9 @@ This routine will invoke the standard popup menu that is provided with PxPlus fo
 The value passed in the _ctl_id_ must refer to a List Box or Grid.
 
 _(The *Plus/Winutl/ListPopup;SubMenu utility was added in PxPlus v10.00.)_
+
+ 
+
+ 
+
+ 

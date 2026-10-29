@@ -5,65 +5,65 @@
   
 ##  Formats
 
-1\. _Execute:_ |  **EXECUTE** "**[WDX]**_statement_ "  
+ 1\. _Execute:_ |  **EXECUTE** "**[WDX]**_statement_ "  
 ---|---  
-2\. _Invoke:_ |  **INVOKE** "**[WDX]**_statement_ "  
-3\. _Call Subprogram_ _:_ |  **CALL** "**[WDX]**_subprog_ "_,params_  
-4\. _Open File:_ |  **OPEN**(_chan_[,_fileopt_])"**[WDX]**_filename_ "  
-5\. _Open COM Port:_ |  **OPEN** (_chan_ ,**OPT=**_settings$_)"**[WDX]**_port_id_ "  
-6\. _Open Tag Process_ _:_ |  **OPEN**(_chan_[,_fileopt_])"**[WDX][**_tag_**]**_prog_ ;[_params_]"  
-7\. _Open Print Devices_ _:_ |  **OPEN** (_chan_[,_fileopt_])"**[WDX]***_device_*****[;_Q_name_[;_Q_options_]]"  
-8\. _Create Object:_ |  **NEW(** "**[WDX]**_ClassName_ "**)**  
-9\. _Define Windows Object_ _:_ |  **DEF OBJECT** _com_id_ ,"**[WDX]**_objname_ "  
-10\.  _Call *WindX.utl_ _:_ |  **CALL** "**[WDX]*WindX.utl;_function_** ",_params_  
+ 2\. _Invoke:_ |  **INVOKE** "**[WDX]**_statement_ "  
+ 3\. _Call Subprogram_ _:_ |  **CALL** "**[WDX]**_subprog_ "_,params_  
+ 4\. _Open File:_ |  **OPEN**(_chan_[,_fileopt_])"**[WDX]**_filename_ "  
+ 5\. _Open COM Port:_ |  **OPEN** (_chan_ ,**OPT=**_settings$_)"**[WDX]**_port_id_ "  
+ 6\. _Open Tag Process_ _:_ |  **OPEN**(_chan_[,_fileopt_])"**[WDX][**_tag_**]**_prog_ ;[_params_]"  
+ 7\. _Open Print Devices_ _:_ |  **OPEN** (_chan_[,_fileopt_])"**[WDX]***_device_*****[;_Q_name_[;_Q_options_]]"  
+ 8\. _Create Object:_ |  **NEW(** "**[WDX]**_ClassName_ "**)**  
+ 9\. _Define Windows Object_ _:_ |  **DEF OBJECT** _com_id_ ,"**[WDX]**_objname_ "  
+10. _Call *WindX.utl_ _:_ |  **CALL** "**[WDX]*WindX.utl;_function_** ",_params_  
   
 **_Where_** _:_
 
-**** |  **[WDX]** |  File tag notifies PxPlus that you are directing the action to the WindX client machine instead of the server.  
+** ** |  **[WDX]** |  File tag notifies PxPlus that you are directing the action to the WindX client machine instead of the server.  
 ---|---|---  
-__ |  _chan_ |  Channel or logical file number to open.  
-__ |  _class$_ |  Name of class for creating new object. String expression.  
-__ |  _com_id_ |  Numeric variable to receive a handle (memory pointer to object).  
-**** |  *****_device_***  
+_ _ |  _chan_ |  Channel or logical file number to open.  
+_ _ |  _class$_ |  Name of class for creating new object. String expression.  
+_ _ |  _com_id_ |  Numeric variable to receive a handle (memory pointer to object).  
+** ** |  *****_device_***  
 **_Q_name_ _  
 Q_options_ |  Identifier and parameters for either of the two **[WDX]** -supported special device files (***WINDEV*** or ***WINPRT***). See **[*WINDEV* Raw Print Mode](../file_handling/~windev~.md)** and [***WINPRT* Windows Printing**](../file_handling/~winprt~.md).  
 |  _filename_ |  Name of the file to open (file must exist on the client PC).  
   
 **_Example:_**  
   
-open (14)"[WDX]"+TMP$ **_or  
-_** open (14)"[WDX]temp_file"  
-__ |  _function_ |  A PxPlus utility/function, part of the *WindX.utl utility program. See **[*WindX.utl Utility Program](../windx/windxutl.md)**. For instance, the *WindX.utl;SPAWN function initiates tasks on the server and/or client.  
-__ |  _fileopt_ |  File options. Supported options include: |  **ERR=**_stmtref_ |  Error transfer  
+   open (14)"[WDX]"+TMP$  **_or  
+_**    open (14)"[WDX]temp_file"  
+_ _ |  _function_ |  A PxPlus utility/function, part of the *WindX.utl utility program. See **[*WindX.utl Utility Program](../windx/windxutl.md)**. For instance, the *WindX.utl;SPAWN function initiates tasks on the server and/or client.  
+_ _ |  _fileopt_ |  File options. Supported options include: |  **ERR=**_stmtref_ |  Error transfer  
 ---|---  
 **IOL=**_iolref_ |  Default IOList  
 **ISZ=**_num_ |  Open file in binary mode  
 **OPT=**_char$_ |  File open options  
 **REC=**_string$_ |  Record prefix (**REC=VIS**(_string$_) can also be used)  
-__ |  _objname_ _$_ |  Name by which the COM object is registered in the Windows system registry subkey HKEY_CLASSES_ROOT.  
-__ |  _params_ |  Arguments and variables you pass to the subprogram or function. If you include a list, it is comma-separated.  
-__ |  _port_id_ |  System identifier for the port (e.g. COM1).  
-|  _prog;function_ |  Parameters for the **[**_tag_**]**.  
+_ _ |  _objname_ _$_ |  Name by which the COM object is registered in the Windows system registry subkey HKEY_CLASSES_ROOT.  
+_ _ |  _params_ |  Arguments and variables you pass to the subprogram or function. If you include a list, it is comma-separated.  
+_ _ |  _port_id_ |  System identifier for the port (e.g. COM1).  
+  |  _prog;function_ |  Parameters for the **[**_tag_**]**.  
   
 **_Example:_**  
   
 For**[DDE]** to export to Excel, you can open a worksheet using either:  
   
-"[WDX][DDE]EXCEL;existing_worksheet.WK1"  
+   "[WDX][DDE]EXCEL;existing_worksheet.WK1"  
   
-**_or_**  
+    **_or_**  
   
-"[WDX][DDE]EXCEL;"  
+   "[WDX][DDE]EXCEL;"  
   
 In the first example, where a spreadsheet name is included, it must exist on the client PC.  
-__ |  _tag_ |  PxPlus special command file tag. (All are listed in this section.)  
+_ _ |  _tag_ |  PxPlus special command file tag. (All are listed in this section.)  
   
 **_Example:_**  
   
-**[DDE]** , **[DLL]** , etc.  
-__ |  _settings$_ |  Serial device's attributes (baud rate, etc.). String expression.  
-__ |  _statement_ |  Command supported by PxPlus (**_some are not_**) for use with **EXECUTE** or **INVOKE** \+ the **[WDX]** tag in WindX. String expression.  
-__ |  _subprog_ |  Subprogram for the **[CALL](../directives/call.md)** directive.  
+   **[DDE]** , **[DLL]** , etc.  
+_ _ |  _settings$_ |  Serial device's attributes (baud rate, etc.). String expression.  
+_ _ |  _statement_ |  Command supported by PxPlus (**_some are not_**) for use with **EXECUTE** or **INVOKE** \+ the **[WDX]** tag in WindX. String expression.  
+_ _ |  _subprog_ |  Subprogram for the **[CALL](../directives/call.md)** directive.  
   
 #### **Note:**  
 This feature requires **_WindX_** activation.
@@ -93,14 +93,14 @@ You can create a global variable in your WindX setup and use it later to test fo
 In this example, the user-defined variable %WDX is only set when WindX is running; otherwise, its value is null:
 
 > if mid(mse,22,1)>$00$ and mid(mse,22,1)<$FF$ \  
->  then %WDX$="[WDX]"
+>      then %WDX$="[WDX]"
 
 Use such a global variable in a statement like OPEN (30)%WDX$+"*WINPRT*" to bypass an Error #12: File does not exist (or already exists) when WindX is not running.
 
 #### **Note:**  
-WindX will support all the directives and functions that are used against a file channel that was previously opened with a **[WDX]** or **[[LCL]](lcl.htm)** tag.
+WindX will support all the directives and functions that are used against a file channel that was previously opened with a **[WDX]** or **[[LCL]](lcl.md)** tag.
 
-**_How PxPlus Detects WindX_** __
+**_How PxPlus Detects WindX_** _ _
 
 PxPlus uses terminal type to detect a WindX session. In UNIX, PxPlus recognizes two terminal types as potential WindX stations (TERM="winterm" for the WindX client PC and TERM="ansi"). Since most UNIX systems and applications cannot recognize or use the winterm type, the PxPlus ansi device driver sends a special escape sequence to a terminal to test for a WindX client. If the terminal is a WindX PC, a special response is generated. If no response is generated before a time-out occurs, PxPlus assumes that the device is ansi.
 
@@ -135,8 +135,8 @@ When you use the **EXECUTE** and **INVOKE** directives from your server to initi
 This example illustrates the use of an **EXECUTE** "**[WDX]_statement_** " in an application on the host/server to define a **MNEMONIC** directive locally on the WindX client:
 
 > if WDX%<>$00$  
->  then execute "[WDX]mnemonic(lfo)'5X'=$1B+hex$"  
->  else goto MY_LABEL
+>      then execute "[WDX]mnemonic(lfo)'5X'=$1B+hex$"  
+>      else goto MY_LABEL
 
 This next example sets the [**'B0'**](../parameters/b0.md) system parameter on a WindX PC using a **[WDX]** command from a UNIX host:
 
@@ -184,7 +184,7 @@ Use a similar format to open a COM port for direct access to a serial device (e.
 > SETTING$="9600,n,8,1,x"  
 >  open (5,opt=SETTING$)"[WDX]COM2"  
 >   
->  **_or_**** _  
+>  **_or_**** _   
 > _**  
 >  open (5,opt="9600,n,8,1,x",err=OOPS)"[WDX]COM2"
 
@@ -194,7 +194,7 @@ Use a similar format to open a COM port for direct access to a serial device (e.
 
 **OPEN**(_chan_[,_fileopt_])"**[WDX][**_tag_**]**_prog_ ;[_params_]"
 
-**[WDX]** can be used in conjunction with other file tags.  
+**[WDX]**  can be used in conjunction with other file tags.  
   
 **_Example:_**
 
@@ -202,7 +202,7 @@ Use a similar format to open a COM port for direct access to a serial device (e.
 
 ##  Format 7
 
-**_Windows Print Subsystem on Client_**
+**_Windows Print Subsystem on Client_** 
 
 **OPEN** [**INPUT**] (_chan_[,_fileopt_])"**[WDX]***_device_*****[;_Q_name_[;_Q_options_]]"
 
@@ -296,16 +296,24 @@ CALL "*WindX.utl;SPAWN_NOHUP",_X$,I$,F$,HideClient,HideServer_
   
 (See **Notes** below) |  Same as SPAWN but detaches the session from the main user task. If the main task terminates, then the spawned task continues executing.  
   
+ 
+
 #### **Notes:**  
 The CALL to *WindX.utl;SPAWN and *WindX.utl;SPAWN_NOHUP should **_not_** have the [WDX] prefix in front, as they are performed locally. The spawn interface uses the value found in the global variables **%PXPLUS_HOST$** and **%APS** to determine how to spawn the new process.  
   
 If **%APS** is set, it is assumed to contain the object handle to the Application Server client object module, and the spawn logic will use it to spawn the new process.  
   
 If **%PXPLUS_HOST$** is set, it is used to define the host name/IP address and port number to use when spawning a task.  
-If the first character is an *****  _(asterisk)_ , the system will internally spawn the new process and use the host and port number to connect to it.  
-If the first character is **_not_** an *****  _(asterisk)_ , the system will assume you are running ***plus/cs/host** on the host/port specified and spawn a process to connect to this host process.  
-If **_neither_** of the above is defined, the system will attempt to spawn a new process locally and connect using a random port number.
+      If the first character is an *****  _(asterisk)_ , the system will internally spawn the new process and use the host and port number to connect to it.  
+      If the first character is **_not_** an *****  _(asterisk)_ , the system will assume you are running ***plus/cs/host** on the host/port specified and spawn a process to connect to this host process.  
+      If **_neither_** of the above is defined, the system will attempt to spawn a new process locally and connect using a random port number.
 
 ## See Also
 
 **[*WindX.utl Utility Program](../windx/windxutl.md)**
+
+ 
+
+ 
+
+ 

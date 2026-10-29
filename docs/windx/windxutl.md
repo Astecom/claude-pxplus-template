@@ -76,12 +76,38 @@ CALL "*WindX.utl;SPAWN_NOHUP",_X$,I$,F$,HideClient,HideServer_
   
 (See **Notes** below) |  Same as SPAWN but detaches the session from the main user task. If the main task terminates, then the spawned task continues executing.  
   
+ 
+
 #### **Notes:**  
 The CALL to *WindX.utl;SPAWN and *WindX.utl;SPAWN_NOHUP should **_not_** have the [WDX] prefix in front, as they are performed locally. The spawn interface uses the value found in the global variables **%PXPLUS_HOST$** and **%APS** to determine how to spawn the new process.  
   
 If **%APS** is set, it is assumed to contain the object handle to the Application Server client object module, and the spawn logic will use it to spawn the new process.  
   
 If **%PXPLUS_HOST$** is set, it is used to define the host name/IP address and port number to use when spawning a task.  
-If the first character is an *****_asterisk_ , the system will internally spawn the new process and use the host and port number to connect to it.  
-If the first character is **_not_** an *****  _asterisk_ , the system will assume you are running ***plus/cs/host** on the host/port specified and spawn a process to connect to this host process.  
-If **_neither_** of the above is defined, the system will attempt to spawn a new process locally and connect using a random port number.
+       If the first character is an *****_asterisk_ , the system will internally spawn the new process and use the host and port number to connect to it.  
+       If the first character is **_not_** an *****  _asterisk_ , the system will assume you are running ***plus/cs/host** on the host/port specified and spawn a process to connect to this host process.  
+       If **_neither_** of the above is defined, the system will attempt to spawn a new process locally and connect using a random port number.
+
+## How to Spawn a Process When Using WindX and SSH
+
+Because SSH effectively requires a user to log on to the UNIX/Linux system, spawning a session when you are connected using SSH requires some special settings. This would also be required when using the report viewer ***[VIEWER](../file_handling/~viewer~.md)*** as it spawns a process.
+
+Basically, you have two options, both of which are controlled by setting the global variable **%PXPLUS_HOST$** prior calling ***WindX.utl;SPAWN**.
+
+One option is that you can run ***plus/cs/host** in the background on your server and set **%PXPLUS_HOST$** to your server's IP address, followed by a **;** (_semi-colon)_ and the port number (e.g. "192.168.1.123;4093"). This will cause ***WindX.utl** to connect to the CS host, have it spawn a task, and then connect to it.
+
+#### **Note:**  
+The spawned task will run under whatever UserID ***plus/cs/host** was launched.
+
+The other option is that you can set **%PXPLUS_HOST$** to an ***** (_asterisk_), followed by the same host address, a **;** (_semi-colon_) and the port number. In this case, you do not need to run ***plus/cs//host** , as your application itself will spawn the process and connect to it. This will preserve the UserID and other environmental settings in the spawned process.
+
+The challenge is to make sure that the host address you use is the host address as seen by the workstation. For example, if your host server is connected to the Internet using a router, and the workstation will be coming in from outside, then the IP address will need to be the external address and not internal address.
+
+#### **Note:**  
+In both cases, you will need to make sure that the port you use is accessible from the workstation and is not blocked by a firewall.
+
+ 
+
+ 
+
+ 

@@ -12,7 +12,7 @@ The following were added in PxPlus v7.00:
 
 2\. _Get Full Pathname of File:_ |  **PTH(**_filename$_[, _filename_ $, ...] [,**ERR=**_stmtref_]**)**  
 ---|---  
-3\. _Get Pathname of Dictionary:_ |  **PTH(*DICTIONARY** __[,**ERR=**_stmtref_]**)**  
+3\. _Get Pathname of Dictionary:_ |  **PTH(*DICTIONARY** _ _[,**ERR=**_stmtref_]**)**  
   
 **_Where:_**
 
@@ -30,7 +30,7 @@ _(TABLE support was added in PxPlus 2018.)_
 **_Format 2_** |  Full pathname of the file specified in the _filename_. If none of the filenames provided exist, an Error #12: File not found exception is generated. Any filename that starts with a square bracket (ODBC, Remote, or other special file type) is **_not_** validated but simply returned to the application. Multiple filenames may be provided, comma-separated. If multiple filenames are provided, the path of the first file found will be returned.
 
 #### **Note:**  
-Pathnames with the special file command tags [**[WDX]**](../command_tags/wdx.htm) and [**[LCL]**](../command_tags/lcl.htm) are supported by this format.
+Pathnames with the special file command tags [**[WDX]**](../command_tags/wdx.md) and [**[LCL]**](../command_tags/lcl.md) are supported by this format.
 
 _(The ability to specify multiple filenames was added in PxPlus v10.00.)  
 ([WDX] and [LCL] support was added in PxPlus 2016.)_  
@@ -61,3 +61,9 @@ With "/usr/ar"as current directory:
 > open (30)PRINTER$  
 >  ?pth(30)  
 >  LPT1
+
+ 
+
+ 
+
+ 

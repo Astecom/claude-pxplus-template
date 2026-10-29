@@ -1,6 +1,6 @@
 # Language Reference - Appendix 
 
-**Data Format Masks** |   
+**Data Format Masks** |     
 ---|---  
   
 A format mask is a character string that can be used to define how data is to be displayed or printed in PxPlus (see [**PRINT**](../directives/print.md) directive). Masks can also be applied to filter data being received from the keyboard (see [**INPUT**](../directives/input.md) directive) or in the conversion/validation of a string (see [**STR( )**](../functions/str.md) function).
@@ -38,10 +38,10 @@ The [**'FI'**](../parameters/fi.md), [**'F,'**](../parameters/f~.md) and [**'FO'
 
 If no format mask is specified when outputting numeric values, the system formats the value as follows:
 
-|  The first character output will indicate the sign of the value. A space will be output if positive; a minus sign if negative.  
+ |  The first character output will indicate the sign of the value. A space will be output if positive; a minus sign if negative.  
 ---|---  
-|  If the absolute value is greater than 10E+18 or is less than 10E-18 (but not zero), the value is output using scientific notation.  
-|  The number is rounded to the current precision in effect and output suppressing all leading zeroes and all trailing zeroes following the decimal point. The decimal point is suppressed if no digits remain after it.  
+ |  If the absolute value is greater than 10E+18 or is less than 10E-18 (but not zero), the value is output using scientific notation.  
+ |  The number is rounded to the current precision in effect and output suppressing all leading zeroes and all trailing zeroes following the decimal point. The decimal point is suppressed if no digits remain after it.  
   
 **_Example:_**
 
@@ -58,7 +58,9 @@ Numeric format mask characters are used to convert numeric data (from literals, 
 This table lists the recognized numeric format mask characters.
 
 #### **Important Note:**  
-Some numeric format mask characters cannot be used in the **INPUT** and **MULTI_LINE** directives (as indicated below). The characters that can be used in these directives are **0 # . ! - + , $** ***** (**$** in the leading position only).
+Some numeric format mask characters cannot be used in the **INPUT** and **MULTI_LINE** directives (as indicated below). The characters that can be used in these directives are **0 # . ! - + , $**  ***** (**$** in the leading position only).
+
+ 
 
 **Character** |  **Description**  
 ---|---  
@@ -71,14 +73,14 @@ Some numeric format mask characters cannot be used in the **INPUT** and **MULTI_
 , |  Outputs a comma if some digits have been output; otherwise, it outputs a fill character.  
 $ |  If at the front of the number, indicates that a dollar sign is to be output in front of the first digit of the number (floating dollar sign). Anywhere else, indicates that a dollar sign is to be output.  
 * |  If before any digits of the number, causes asterisks to be used as the fill character instead of a space. If it occurs anywhere else within the mask, it causes an asterisk to be output.  
-~ ** 1** |  Outputs a "~" in lieu of a digit from the input numeric value. This is typically used as a hidden mask character to hide the data from the user. _(The ability to use a "~" format mask character was added in PxPlus v10.00.)_  
-( _or_ ) ** 1** |  Outputs parentheses if the value is negative; otherwise, it outputs a fill character.  
-CR ** 1** |  Outputs CR if the value is negative; otherwise, it outputs two fill characters.  
-DR ** 1** |  Outputs CR if the value is negative; otherwise, it outputs DR.  
-B ** 1** |  Outputs a space.  
-_other_ ** 1** |  Outputs the character.  
+~  ** 1** |  Outputs a "~" in lieu of a digit from the input numeric value. This is typically used as a hidden mask character to hide the data from the user. _(The ability to use a "~" format mask character was added in PxPlus v10.00.)_  
+( _or_ )  ** 1** |  Outputs parentheses if the value is negative; otherwise, it outputs a fill character.  
+CR  ** 1** |  Outputs CR if the value is negative; otherwise, it outputs two fill characters.  
+DR  ** 1** |  Outputs CR if the value is negative; otherwise, it outputs DR.  
+B  ** 1** |  Outputs a space.  
+_other_   ** 1** |  Outputs the character.  
   
-** 1** **Indicates that the numeric format mask character cannot be used in the INPUT and MULTI_LINE directives**
+** 1**  **Indicates that the numeric format mask character cannot be used in the INPUT and MULTI_LINE directives**
 
 Before being output, the number is rounded to the number of decimal places specified in the format mask. If no sign indication is specified (i.e. no -, +, (, ), CR, or DR in mask), no sign will be output.
 
@@ -112,4 +114,10 @@ Z |  String must contain an alphabetic letter (A-Z, a-z) or a digit (0-9) in thi
 z |  String must contain an alphabetic letter (A-Z, a-z) or a digit (0-9) in this position.  
 ~ |  Outputs a "~" in lieu of a character from the input string value. This is typically used as a hidden mask character to hide the data from the user as in credit cards. _(The ability to use a "~" format mask character was added in PxPlus v10.00.)_  
 (_nn_) |  A numeric value surrounded by parenthesis may be used to specify a repeat count for the preceding format character; e.g. AAAAA may also be specified as A(5).  
-_other_ |  Outputs the character.
+_other_ |  Outputs the character.  
+  
+ 
+
+ 
+
+ 

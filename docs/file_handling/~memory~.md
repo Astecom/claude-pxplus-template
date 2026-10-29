@@ -22,16 +22,16 @@ PxPlus supports a memory-resident logical file called ***MEMORY*** ; i.e. this f
 #### **Note:**  
 The maximum key size for memory files (without a _keydef_ \- see **Alternate Keys**) has been increased from 255 to 8192 characters. _(as of PxPlus v5.10)_
 
-PxPlus recognizes ***MEMORY*** at run time and deals with it internally. Once ***MEMORY*** is open, you can gain I/O access to memory-resident records in the same manner as you can to Direct files by record index or by key using the following I/O directives:
+PxPlus recognizes ***MEMORY*** at run time and deals with it internally. Once ***MEMORY*** is open, you can gain I/O access to memory-resident records in the same manner as you can to Direct files  by record index or by key using the following I/O directives:
 
-|  [**READ Read Data from File**](../directives/read.md)  
+  |  [**READ Read Data from File**](../directives/read.md)  
 ---|---  
-|  [**READ RECORD Read Record from File**](../directives/read_record.md)  
-|  [**WRITE Add/Update Data in File**](../directives/write.md)  
-|  [**WRITE RECORD Write Record**](../directives/write_record.md)  
-|  [**CLOSE Close File**](../directives/close.md)  
-|  [**MERGE Read/Append Lines from File**](../directives/merge.md)  
-|  [**REMOVE Delete Record from File**](../directives/remove.md)  
+  |  [**READ RECORD Read Record from File**](../directives/read_record.md)  
+  |  [**WRITE Add/Update Data in File**](../directives/write.md)  
+  |  [**WRITE RECORD Write Record**](../directives/write_record.md)  
+  |  [**CLOSE Close File**](../directives/close.md)  
+  |  [**MERGE Read/Append Lines from File**](../directives/merge.md)  
+  |  [**REMOVE Delete Record from File**](../directives/remove.md)  
   
 The first **WRITE** determines the file access method (i.e. the **IND=** option specifies Indexed file handling), and **KEY=** specifies Direct file handling (externally keyed files).
 
@@ -56,7 +56,7 @@ Memory files can have alternate keys specified. When opening a memory file, you 
 "D" |  Descending order (default is ascending).  
 "K[:n]" |  Null key _suppression.n_ is the Hex value of the character to suppress if all characters match (defaults to $00$ if not specified). If the entire key evaluates to null, the key will not be a part of this key tree. This cannot be used on a primary key. Unlike standard keyed files, this can be used in conjunction with the "N" option.  
 "L" |  Force lowercase for individual key segments to create lowercase insensitive keys.  
-"N[:n]" |  Null segment _suppression.n_ is the Hex value of the character to suppress if all characters match. If any segment within the key evaluates to null, the key will not be a part of this key tree. Unlike standard keyed files, this can be used in conjunction with the "N" option.  
+"N[:n]" |  Null segment _suppression.n_ is the Hex value of the character to suppress if all characters match. If any segment within the key evaluates to null, the key will not be a part of this key tree. Unlike standard keyed files, this can be used in conjunction with the "K" option.  
 "T" |  Force automatic accent translation for individual key segments (i.e. to translate accented/extended characters to their non-accented counterparts), useful when sorting multilingual characters into a single unified sort sequence.  
 "U" |  If you declare an alternate key segment as unique, then no duplicate keys are allowed on writing a record. System will generate an Error #11: Record not found or Duplicate key on write if the key being added already exists on the file. If any segment in a key definition is marked as unique, then the entire key is considered unique.  
   
@@ -99,7 +99,13 @@ This example illustrates how to open and use the memory file:
 >  0120 print "Name:",name$  
 >  0130 print "Address:",addr$  
 >  0140 print "Position:",pos$  
->  0150 print "----------"  
+>  0150 print "\----------"  
 >  0160 next record  
 >  0170 end  
 >  0180 mmfLst: iolist name$,addr$,pos$
+
+ 
+
+ 
+
+ 

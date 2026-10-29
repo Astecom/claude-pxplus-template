@@ -1,11 +1,11 @@
 # Customizing PxPlus
 
-**START_UP Initialization Program** |  **__**  
+**START_UP Initialization Program** |  **_ _**  
 ---|---  
   
 The START_UP initialization program allows for the preloading of variables and/or files, the setting of various PxPlus system parameters, and the implementation of a security system. During the initialization process for an application, PxPlus executes the system start-up program ***start.up** , which, in turn, calls the user-developed program **START_UP** , if it exists.
 
-START_UP must be physically located in the _Start-In_ (_HWD)_ directory for it to be read during initialization. If it is not defined (in the correct directory), no initialization will be performed; however, an initialization program other than START_UP can be assigned using **[PVXSTART](Environment%20Variables.htm#Mark13)**.
+START_UP must be physically located in the _Start-In_  (_HWD)_ directory for it to be read during initialization. If it is not defined (in the correct directory), no initialization will be performed; however, an initialization program other than START_UP can be assigned using **[PVXSTART](Environment%20Variables.htm#Mark13)**.
 
 Some typical uses of a START_UP program include:
 
@@ -33,9 +33,11 @@ Below is a sample START_UP program:
 
 The START_UP program can be used to instantiate the %NOMADS object. The *obj/nomads (%NOMADS) object was created to hold NOMADS and iNomads-based parameters and settings. Its purpose was to use property settings to replace the global variables prefixed with %NOMAD_ or %NOMADS_ that had generally been used to control the behaviour of different aspects of the NOMADS environment.
 
+**_Example:_**
+
 The following example contains some sample lines from a START_UP program using the %obj/nomads class:
 
-> **X=NEW("*obj/nomads") !Instantiate the %NOMADS object**  
+> **X=NEW( "*obj/nomads") !Instantiate the %NOMADS object**  
 >  %NOMADS'VISUAL_OVERRIDE=4  
 >  %NOMADS'CHART$="plus"  
 >  %NOMADS'QRY_BTN$="{!16X16/Buttons/Help}"  
@@ -63,8 +65,20 @@ Once the initialization program has completed execution, PxPlus will load and ru
 #### **Note:**  
 The initialization procedure should **_not_** execute the application directly.
 
-Attempting to run an application within START_UP causes PxPlus to incorrectly report application errors. PxPlus internally does a CALL "START_UP" when initializing PxPlus. Doing a RUN _within_ the initialization procedure will prevent START_UP from terminating and will not let the initialization process conclude. It also causes PxPlus programs to run 1 level deeper than normal.
+Attempting to run an application within START_UP causes PxPlus to incorrectly report application errors. PxPlus internally does a CALL "START_UP" when initializing PxPlus. Doing a RUN _within_ the initialization procedure will prevent START_UP from terminating and will not let the initialization process conclude. It also causes PxPlus programs to run one level deeper than normal.
 
-This also affects the use of the WindX thin-client to connect via *NTHOST/*NTSLAVE or the Application Server, as well as spawning processes via *WINDX.UTL;SPAWN or *SERVER;SPAWN.
+This also affects the use of the WindX Thin-Client to connect via *NTHOST/*NTSLAVE or the Application Server, as well as spawning processes via *WINDX.UTL;SPAWN or *SERVER;SPAWN.
 
 For information on START_UP Initialization issues, see **[Troubleshooting](../Troubleshooting/START_UP%20Initialization%20Failure.md)**.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 

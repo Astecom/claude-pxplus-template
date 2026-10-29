@@ -1,6 +1,6 @@
 # Special File Handling
 
-***WINPRT* / *WINDEV* Printing Examples** |   
+***WINPRT* / *WINDEV* Printing Examples** |     
 ---|---  
   
 This page provides some general printing information, tips and examples for using both *WINDEV* and *WINPRT* special device files.
@@ -16,11 +16,11 @@ You can abort a print job at any time by printing the **['AB'](../mnemonics/ab.m
 #### **Note:**  
 How much data prints when you abort is determined by the printer driver, the Windows print spooling subsystem, and your setting in the print spooler options:  
   
-** _"Start Printing After the First Page"_**  
+     **_" Start Printing After the First Page"_**  
   
- _or_  
+     _or_  
   
-** _"Start Print After the Last Page"_**
+     **_" Start Print After the Last Page"_**
 
 Look for the name (title bar caption) of your current PxPlus window to find your print job in the Windows print spooler job listing.
 
@@ -41,11 +41,11 @@ It is suggested that you use negative sizes to define specific point sizes:
 
 All standard **PRINT** statement data will use the selected font with spacing based on logical CPI values (pitch). Use the following guide to equivalent measures:
 
-|  **Point Size** |  **=Logical LPI** |  **=Logical CPI**  
+  |  **Point Size** |  **=Logical LPI** |  **=Logical CPI**  
 ---|---|---|---  
-|  **-** 12 |  =6 LPI |  =10 CPI  
-|  **-** 10 |  =7.2 LPI |  =12 CPI  
-|  **-** 7 |  =10 LPI |  =16 CPI  
+  |  **-** 12 |  =6 LPI |  =10 CPI  
+  |  **-** 10 |  =7.2 LPI |  =12 CPI  
+  |  **-** 7 |  =10 LPI |  =16 CPI  
   
 Column and row addressing are based on the default font. Switching fonts will not alter the column or row addressing. You can use the [**'CPI'**](../mnemonics/cpi.md) and [**'LPI'**](../mnemonics/lpi.md) mnemonics to simplify text alignment. The following example scales the text to allow for 200 characters across but addresses the page based on 132 characters:
 
@@ -59,7 +59,7 @@ Column and row addressing are based on the default font. Switching fonts will no
 >  print (CHAN)'font'(FONT$,CUR_COL/REALLY_SMALL_FONT),'DF',  
 >  print (CHAN)'cpi'(COLS_REQD/INCHES_WIDE),'lpi'(6),  
 >  for Z=0 to 12  
->  print (CHAN)@(Z*10),"Hello World"  
+>      print (CHAN)@(Z*10),"Hello World"  
 >  next
 
 ##  Text Mode, Fixed Pitch Font
@@ -125,17 +125,17 @@ You can mix and match varying fonts and attributes, use graphics mnemonics (i.e.
 The following routine illustrates some of the available graphic mnemonics:
 
 > ! Printing Graphics  
->  CHAN=unt;  
->  open (CHAN)"*WINPRT*"  
->  print (CHAN)'font'("Times New Roman",3,"BI"),'blue',  
->  print (CHAN)'text'(@x(0),@y(0),@x(70),@y(5),"Printing Graphics","C"),  
->  print (CHAN)'pen'(1,2,4),'arc'(@x(7),@y(9.5),@x(1),1,0,180),  
->  print (CHAN)'pen'(1,3,1),'fill'(1,4),'rectangle'(@x(2),@y(9),@x(12),@y(13)),  
->  print (CHAN)'pen'(1,1,7),'line'(@x(2.5),@y(9.5),@x(11.5),@y(9.5),@x(11.5),@y(12.5),@x(2.5),@y(12.5),@x(2.5),@y(9.5)),  
->  print (CHAN)'pen'(1,2,4),'fill'(7,1),'circle'(@x(54),@y(10),@x(6),1.8),  
->  L=@x(24),R=@x(33),S=@x(4),X=@y(6),Y=@y(14)  
->  print (CHAN)'pen'(1,3,2),'fill'(1,12),'polygon'(L-S*2,X,R+S*4,Y,L,Y,R-S,X,L,X)  
->  print (CHAN)'picture'(@x(0),@y(11),@x(40),@y(18),"*win/nomads2",2),
+>      CHAN=unt;  
+>      open (CHAN)"*WINPRT*"  
+>      print (CHAN)'font'("Times New Roman",3,"BI"),'blue',  
+>      print (CHAN)'text'(@x(0),@y(0),@x(70),@y(5),"Printing Graphics","C"),  
+>      print (CHAN)'pen'(1,2,4),'arc'(@x(7),@y(9.5),@x(1),1,0,180),  
+>      print (CHAN)'pen'(1,3,1),'fill'(1,4),'rectangle'(@x(2),@y(9),@x(12),@y(13)),  
+>      print (CHAN)'pen'(1,1,7),'line'(@x(2.5),@y(9.5),@x(11.5),@y(9.5),@x(11.5),@y(12.5),@x(2.5),@y(12.5),@x(2.5),@y(9.5)),  
+>      print (CHAN)'pen'(1,2,4),'fill'(7,1),'circle'(@x(54),@y(10),@x(6),1.8),  
+>      L=@x(24),R=@x(33),S=@x(4),X=@y(6),Y=@y(14)  
+>      print (CHAN)'pen'(1,3,2),'fill'(1,12),'polygon'(L-S*2,X,R+S*4,Y,L,Y,R-S,X,L,X)  
+>      print (CHAN)'picture'(@x(0),@y(11),@x(40),@y(18),"*win/nomads2",2),
 
 You can use all of the foreground and background colours with colour printers. Use the **['PEN'](../mnemonics/pen.md)** and **['FILL'](../mnemonics/fill.md)** mnemonics to control the colour settings for graphics mnemonics.
 
@@ -144,29 +144,29 @@ The following routine prints each of the available 16 colours:
 **_Example:_**
 
 > ! Colour Printing  
->  FONT$="MS Sans Serif",COLS_REQD=80  
->  CHAN=unt;  
->  open (CHAN)"*WINPRT*"  
->  print (CHAN)'font'(FONT$,-12),'DF', ! Set base to 10 CPI  
->  CUR_COL=mxc(CHAN)+1;  
->  if CUR_COL=0 \  
->  then CUR_COL=80  
->  INCHES_WIDE=CUR_COL/10  
->  print (CHAN)'font'(FONT$,CUR_COL/COLS_REQD),'DF',  
->  print (CHAN)'cpi'(COLS_REQD/INCHES_WIDE),'lpi'(6),  
->  for Z=0 to 15  
->  INTENSITY$=tbl(Z>7,"","Light ")  
->  COLOUR$=tbl(mod(Z,8),"Black","Red","Green","Yellow","Blue","Magenta","Cyan","White")  
->  COLOUR_MNEM$=esc+"F"+chr(asc("0")+Z)  
->  print (CHAN)@(0),COLOUR_MNEM$,INTENSITY$,COLOUR$  
->  next
+>      FONT$="MS Sans Serif",COLS_REQD=80  
+>      CHAN=unt;  
+>      open (CHAN)"*WINPRT*"  
+>      print (CHAN)'font'(FONT$,-12),'DF', ! Set base to 10 CPI  
+>      CUR_COL=mxc(CHAN)+1;  
+>      if CUR_COL=0 \  
+>           then CUR_COL=80  
+>      INCHES_WIDE=CUR_COL/10  
+>      print (CHAN)'font'(FONT$,CUR_COL/COLS_REQD),'DF',  
+>      print (CHAN)'cpi'(COLS_REQD/INCHES_WIDE),'lpi'(6),  
+>      for Z=0 to 15  
+>           INTENSITY$=tbl(Z>7,"","Light ")  
+>           COLOUR$=tbl(mod(Z,8),"Black","Red","Green","Yellow","Blue","Magenta","Cyan","White")  
+>           COLOUR_MNEM$=esc+"F"+chr(asc("0")+Z)  
+>           print (CHAN)@(0),COLOUR_MNEM$,INTENSITY$,COLOUR$  
+>      next
 
 ##  [WDX]*WINDEV* Escape Sequences
 
 If you are opening **[WDX]*WINDEV*** and defining/creating mnemonics that will send escape sequences to the printer channel, you must send the mnemonic definitions to the WindX client instead of defining them on the server. (This is because internally there are actually two channels open: one PxPlus is using to route printing to WindX and one WindX opens, connected to the actual port on the client. Your mnemonic is run locally on the server's channel and not sent to WindX for the remote client.)
 
 #### **Note:**  
-WindX supports the use of the **[MNEMONIC](../directives/mnemonic.md)** directive via the **[[WDX]](../command_tags/wdx.htm)** tag (as of version 4.20).
+WindX supports the use of the **[MNEMONIC](../directives/mnemonic.md)** directive via the **[[WDX]](../command_tags/wdx.md)** tag (as of version 4.20).
 
 To send the mnemonic to the client in older versions of PxPlus/WindX, you can either:
 
@@ -174,13 +174,13 @@ To send the mnemonic to the client in older versions of PxPlus/WindX, you can ei
 
 
 
-> CALL [WDX]*dev/_your_driver_name_  
+>      CALL [WDX]*dev/_your_driver_name_  
 >   
 > ** _OR_**
 
   * Use an **[EXECUTE](../directives/execute.md)** directive from the server side for mnemonic definitions on the client:  
   
-EXECUTE "[WDX]MNEMONIC (LFO)'XX'=..."
+     EXECUTE "[WDX]MNEMONIC (LFO)'XX'=..."
 
 
 
@@ -197,3 +197,9 @@ For proper spooler operation, do not include leading or trailing form feeds with
 
 #### **Note:**  
 A form feed is automatically appended to every print job sent.
+
+ 
+
+ 
+
+ 

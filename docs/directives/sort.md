@@ -6,7 +6,7 @@
 ##  Format
 
 **SORT** _filename$_**,**_max_ __keysize_[,_max_rec_][,**ERR=**_stmtref_]  
-  
+   
 **_Where:_**
 
 _filename$_ |  Name of the **SORT** file to create. String expression.  
@@ -22,7 +22,7 @@ Use the **SORT** directive to create a data Sort file (a file with a key but no 
 The type of file created can be determined by setting the **['KF'=](../parameters/kf.md)** system parameter. If **'KF'** is not zero, then the Sort file will be created as an EFF file. Only through the use of the **'KF'** parameter will Sort files be created as EFF files.
 
 #### **Note:  
-** WindX in PxPlus supports the use of this directive via the [WDX] or [LCL] tags; e.g. SORT "[WDX]somefile.ext". Non-PxPlus versions require you to encapsulate the command in an EXECUTE directive with a [WDX] tag (i.e. EXECUTE "[WDX]..."). See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.htm) or **[[LCL] Access to Users Local Machine](../command_tags/lcl.htm)**.
+** WindX in PxPlus supports the use of this directive via the [WDX] or [LCL] tags; e.g. SORT "[WDX]somefile.ext". Non-PxPlus versions require you to encapsulate the command in an EXECUTE directive with a [WDX] tag (i.e. EXECUTE "[WDX]..."). See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.md) or **[[LCL] Access to Users Local Machine](../command_tags/lcl.md)**.
 
 ##  Example
 
@@ -32,13 +32,13 @@ The type of file created can be determined by setting the **['KF'=](../parameter
 
 This line creates a file with the following structure:
 
-|  Keyed file: C:\OTHER\MANUALS\PVX\CST\CSTFLE  
+  |  Keyed file: C:\OTHER\MANUALS\PVX\CST\CSTFLE  
 ---|---  
-|  Maximum Record Size: |  0 (Sort file)  
-|  Maximum # Records: |  100  
-|  Current # Records: |  0  
-|  Size of Key Block: |  2048 bytes  
-|  External Key Size: |  6  
+  |  Maximum Record Size: |  0 (Sort file)  
+  |  Maximum # Records: |  100  
+  |  Current # Records: |  0  
+  |  Size of Key Block: |  2048 bytes  
+  |  External Key Size: |  6  
   
 **_Example 2:_**
 
@@ -46,10 +46,16 @@ This line creates a file with the following structure:
 
 This line creates the following structure:
 
-|  Keyed file: C:\OTHER\MANUALS\PVX\CST\CST_TST  
+  |  Keyed file: C:\OTHER\MANUALS\PVX\CST\CST_TST  
 ---|---  
-|  Maximum Record Size: |  0 (Sort file)  
-|  Maximum # Records: |  100  
-|  Current # Records: |  0  
-|  Size of Key Block: |  3072 bytes  
-|  External Key Size: |  10
+  |  Maximum Record Size: |  0 (Sort file)  
+  |  Maximum # Records: |  100  
+  |  Current # Records: |  0  
+  |  Size of Key Block: |  3072 bytes  
+  |  External Key Size: |  10  
+  
+ 
+
+ 
+
+ 

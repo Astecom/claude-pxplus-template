@@ -9,9 +9,9 @@ The ***web/base64** program contains routines to encrypt data in Base64 format a
 
 The Base64 algorithm encodes 3 bytes (value 0-255 each) into 4 bytes (value 0-63 each) using plain ASCII characters A-Z, a-z ,0-9, +/ to allow you to transmit binary files using text-only protocols across the Internet. Base64 is most commonly used for Mime encoding of email attachments and for authorization codes in Web pages.
 
-The *web/base64 utility is a CALLed program with various entry points and various ENTER argument lists.
+The ***web/base64** utility is a CALLed program with various entry points and various ENTER argument lists.
 
-The table below lists formats for the various entry points with arguments and descriptions.
+This table lists formats for the various entry points with arguments and descriptions.
 
 **Format** |  **Directive and Description**  
 ---|---  
@@ -28,7 +28,7 @@ CALL "*web/base64;ENCODE_FILE", _infile_ _$, outfile$, blocksize, EOL$_ Block si
 
 **_Basic Call:_**
 
-> CALL "*web/base64;_entrypoint_ ", _required_arguments_
+> CALL "***web/base64** ;_entrypoint_ ", _required_arguments_
 
 **_Where:_**
 
@@ -48,10 +48,20 @@ The following **_Notes_** apply when you are encoding or decoding files:
 
 When the Web Server encounters errors in encoding or decoding Base64, it returns the usual file I/O and handling error messages including:
 
-|  **Error #0** |  **Record/file busy**  
+  |  **Error #0** |  **Record/file busy**  
 ---|---|---  
-|  **Error #12** |  **File does not exist (or already exists)**  
-|  **Error #46** |  **Length of string invalid**  
+  |  **Error #12** |  **File does not exist (or already exists)**  
+  |  **Error #46** |  **Length of string invalid**  
 When encoded, string will exceed maximum string length allowed.  
-|  **Error #48** |  **Invalid input -- Try again  
-** Unknown character encountered during decode. Indicates corrupted data or data not in Base64 format.
+  |  **Error #48** |  **Invalid input -- Try again  
+** Unknown character encountered during decode. Indicates corrupted data or data not in Base64 format.  
+  
+## See Also
+
+**[*WEB/BASE32 Encrypt or Decode Data](../../../Web%20Utilities/WebBase32.md)**
+
+ 
+
+ 
+
+ 

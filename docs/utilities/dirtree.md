@@ -1,11 +1,11 @@
-# Utility Routines
+# Utilities
 
 ***DIRTREE** |  **_Return Directory Tree_**  
 ---|---  
   
 ## Invocation
 
-**CALL "*dirtree",**_starting_dir_ _$, file_list$, file_sep$, include_dir_flag_
+**CALL "*dirtree", **_starting_dir_ _$, file_list$, file_sep$, include_dir_flag_
 
 **_Where:_**
 
@@ -21,13 +21,19 @@ This routine will return a string consisting of a list of the pathnames to all t
 
 **_Calling Sequence:_**
 
-> **CALL**  _"*dirtree", start_dir$, file_list$, sep_char$, include_flag_
+> **CALL**  _" *dirtree", start_dir$, file_list$, sep_char$, include_flag_
 
 An error will be generated if the starting directory does not exist. Passing a filename in the _starting_dir_ _$_ will have unpredictable results.
 
-When including sub-directory names (_include_dir_flag_ non-zero), the directory names will be included in the file list. If _include_dir_flag_ is positive, the directory names will precede the file names; if negative, the directory names will occur following all the file names. Using a negative value in _include_dir_flag_ __ will allow the resultant file list to be used when deleting sub-directory structures.
+When including sub-directory names (_include_dir_flag_ non-zero), the directory names will be included in the file list. If _include_dir_flag_ is positive, the directory names will precede the file names; if negative, the directory names will occur following all the file names. Using a negative value in _include_dir_flag_ _ _ will allow the resultant file list to be used when deleting sub-directory structures.
 
 #### **Note:**  
 The filenames "." and ".." will be omitted from the resultant file list.
 
 _(The *DirTree utility was added in PxPlus v10.20.)_
+
+ 
+
+ 
+
+ 

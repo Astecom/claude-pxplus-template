@@ -1,6 +1,6 @@
 # Data Dictionary
 
-**Data Classes** |  **__**  
+**Data Classes** |  **_ _**  
 ---|---  
   
 Data classes are used to implement standardized definitions for commonly used data elements such as dates, monetary amounts, etc. This means that a data class can be defined according to a standard and then used as a basis for any new data element. The use of data classes simplifies dictionary definitions for similar _element_ types.
@@ -65,19 +65,19 @@ From the PxPlus Command window |  From the _Utilities_ menu, select _Class Maint
 
 If a data class is entered when defining a data element in **[Data Dictionary Maintenance](../Data%20Dictionary%20Maintenance/Overview.md)**, the following information from the data class is used in the data dictionary:
 
-**Control Type** |  **** |  **Name of Folder Tab**  
+**Control Type**|  |  **Name of Folder Tab**  
 ---|---|---  
 |  |  **Display** |  **Attributes** |  **User Aids** |  **Validation** |  **Query**  
 **Multi-Line** |  Description  
 Internal Data Type |  Initial Value  
-Input Format  
-Length |  User Tag Field |  Help Reference |  Rules |  Query Type  
-Library/Panel, Program, Non-Query Logic or Spinner  
+Input Length  
+Input Format |  User Tag Field |  Help Reference |  Rules |  Query Type:  
+Library/Panel, Query Program, Non-Query Logic, Spinner Controls or Calendar _(The Calendar Query Type for Multi-Line data classes was added in PxPlus 2025 Update 1.)_  
 **Drop Box  
 List Box** |  Description  
 Internal Data Type  
-Internal Size |  N/A |  User Tag Field |  Help Reference |  Default Setting |  Query Type  
-Library/Panel, Program or Non-Query Logic  
+Internal Size |  N/A |  User Tag Field |  Help Reference |  Default Setting |  Query Type:  
+Library/Panel, Query Program or Non-Query Logic  
 **Radio Button** |  Description  
 Internal Data Type  
 Internal Size |  Default Value |  User Tag Field |  Help Reference |  N/A |  N/A  
@@ -85,9 +85,17 @@ Internal Size |  Default Value |  User Tag Field |  Help Reference |  N/A |  N/A
 Internal Data Type  
 Internal Size |  Bitmaps (see **Note**) |  User Tag Field |  Help Reference |  Default Initial Value |  N/A  
   
+ 
+
 #### **Note:**  
 When a Check Box data class is entered for a data element, the element's **Short Description** is a combination of the **Bitmaps** description(s), if applicable, and the Check Box data class _Description_.
 
 ## See Also
 
 **[Frequently Asked Questions](Dataclasses_faq.md)**
+
+ 
+
+ 
+
+ 

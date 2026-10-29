@@ -1,6 +1,6 @@
-# Views System  
-  
-**Accessing View Data** |  **__**  
+# Views System
+
+**Accessing View Data** |  **_ _**  
 ---|---  
   
 Two run-time interfaces are provided for extracting data based on a view definition: the **[View Object](Overview.htm#viewobject)** and the **[PxPlus SQL ODBC Driver](Overview.htm#odbcdriver)**. Views can also be used as a source of data for the **[Query Subsystem](../../NOMADS%20Graphical%20Application/Dictionary-Based%20Development/Query%20Subsystem/Overview.md)**, the **[Report Writer](../../Report%20Writer/Introduction.md)** and the **[*VIEW*](../../file_handling/~view~.md)** special file handling interface.
@@ -65,8 +65,8 @@ To access the data in a view, the common sequence would be:
 > V'restrict(3,2,"0") ! Optional external restriction  
 >  R$=V'readfirst$("") ! Retrieve the first record in the file  
 >  while R$<>""  
->  gosub Process_Record  
->  R$=V'readnext$() ! Get the next record  
+>      gosub Process_Record  
+>      R$=V'readnext$() ! Get the next record  
 >  wend  
 > V'close() ! Close is optional  
 >  drop object V ! Destroy the View object  
@@ -74,44 +74,44 @@ To access the data in a view, the common sequence would be:
 
 The following is a sample program to access a View object:
 
-> 00010 ! Sample.vue - Sample program to access view data   
-> 00020 ! ! - Return the first n records   
+> 00010 ! Sample.vue     \- Sample program to access view data   
+> 00020 ! !                       \- Return the first n records   
 > 00030 !   
 >  00100 ! !^100   
 >  00110 MAIN:   
 >  00120 process "Select_View","*views/views.en",view$   
 >  00130 if view$<>"" \   
->  then process "ViewTest","yourlib.en",view$;   
->  goto 0120   
+>                 then process "ViewTest","yourlib.en",view$;   
+>                 goto 0120   
 >  00140 end  
 >  01000 !^1000   
 >  01010 DISPLAY_VIEW:   
 >  01020 view$=arg_1$,data$="",rec_cnt=0   
 >  01030 list_box load view_data.ctl,""   
 >  01040 if vu<>0 \   
->  then drop object vu;   
->  vu=0   
+>                 then drop object vu;   
+>                 vu=0   
 >  01050 vu=new("*views/view") ! Create a new View object   
 >  01060 vu'open(view$) ! Open the View and initialize its structures   
 >  01070 column_list$=vu'getcolumns$() ! Get comma-separated column list   
 >  01080 list_box_fmt$="["+sub(column_list$,",","]L10 [")+"]L10"   
 >  01090 view_data.ctl'fmt$=list_box_fmt$   
 >  01100 r$=vu'readfirst$("");   
->  if r$="" \   
->  then msgbox "Nothing to display";   
->  goto DISPLAY_DONE ! Retrieve the first record (NULL=eof)   
+>            if r$="" \   
+>                 then msgbox "Nothing to display";   
+>                 goto DISPLAY_DONE ! Retrieve the first record (NULL=eof)   
 >  01110 while r$<>""   
 >  01120 data$+=r$+$01$   
 >  01130 rec_cnt++;   
->  if rec_cnt<row_count \   
->  then r$=vu'readnext$() \   
->  else r$="" ! Retrieve the next record (limit row_count)   
+>            if rec_cnt<row_count \   
+>                 then r$=vu'readnext$() \   
+>                 else r$="" ! Retrieve the next record (limit row_count)   
 >  01140 wend   
 >  01150 list_box load view_data.ctl,data$   
 >  01160 DISPLAY_DONE:   
 >  01170 vu'close() ! Close is optional   
 >  01180 drop object vu;   
->  vu=0 ! Destroy the object   
+>                 vu=0 ! Destroy the object   
 >  01190 return
 
 To execute the above program, copy the **ViewTest** panel in the _*views/views.en_ panel library to your own library and change the _Default Program_ in the panel header to the above program. Change the _Library Name_ in Line 130 of _sample.vue_ to the name of your panel library.
@@ -129,11 +129,11 @@ An alternate way to access views data allows you to programmatically alter a vie
 
 Behind the scenes, the following is happening within the view object:
 
-|  **_On_Create_** |  Validates the **ViewCtl** object identifier  
+  |  **_On_Create_** |  Validates the **ViewCtl** object identifier  
 ---|---|---  
-|  **Open( )** method |  Validates the **ViewDef** object identifier  
-|  **Misc.** methods |  Access view information from **ViewCtl** rather than definition files  
-|  **_On_Delete_** |  Does not drop the **ViewCtl** object  
+  |  **Open( )** method |  Validates the **ViewDef** object identifier  
+  |  **Misc.** methods |  Access view information from **ViewCtl** rather than definition files  
+  |  **_On_Delete_** |  Does not drop the **ViewCtl** object  
   
 ##  PxPlus SQL ODBC Driver
 
@@ -164,3 +164,13 @@ PxPlus SQL ODBC Driver version 4.20 and later |  Specify the directory path to t
 To optimize driver performance, data is pre-filtered by the view object before being passed to the PxPlus SQL ODBC Driver. Filters can be set up in a view definition. See **[Define Filters](../View%20Maintenance/Define%20Filters.md)**.
 
 Filters can also set up in a target application's database query definition. The PxPlus SQL ODBC Driver passes filter criteria from the query to the view object before issuing a request for data.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 

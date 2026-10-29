@@ -5,7 +5,7 @@
   
 ##  Formats
 
-1. |  _Set Conditions:_ |  **IF** _expression_**THEN**... [**ELSE**...] [**END_IF**]  
+1. |  _Set Conditions:_ |  **IF** _expression_**THEN  **... [**ELSE**...] [**END_IF**]  
 ---|---|---  
 2. |  _Set Conditions, Multiple Line Format:_ |  **IF** _expression_**THEN** {  
 ...  
@@ -15,8 +15,8 @@
 
 ... |  Statements to be processed.  
 ---|---  
-{...} |  Curly brackets**** indicating statements within can span multiple lines.  
-_expression_ |  An expression whose value determines if the condition is True or False: In ** _numeric_** expressions, a zero value will indicate FALSE; otherwise, any non-zero value will indicate TRUE. In ** _string_** expressions, a null (empty or blank) value will indicate FALSE; otherwise, any non-null value will indicate TRUE.  
+{...} |  Curly brackets** ** indicating statements within can span multiple lines.  
+_expression_ |  An expression whose value determines if the condition is True or False:      In **_numeric_** expressions, a zero value will indicate FALSE; otherwise, any non-zero value will indicate TRUE.      In **_string_** expressions, a null (empty or blank) value will indicate FALSE; otherwise, any non-null value will indicate TRUE.  
   
 _(The ability to use a string expression was added in PxPlus v10.)_
 
@@ -51,11 +51,11 @@ Once the statements that follow an **END_IF** clause are executed, control will 
 > input "Enter a number: ",a  
 >  input "Enter another: ",b  
 >  if a>b \  
->  then print "First one is larger";  
->  stop  
+>      then print "First one is larger";  
+>              stop  
 >  if b>a \  
->  then print "Second one is larger";  
->  stop  
+>      then print "Second one is larger";  
+>              stop  
 >  print "Both numbers are the same"  
 >  stop  
 >   
@@ -67,14 +67,14 @@ Once the statements that follow an **END_IF** clause are executed, control will 
 **_Compound_****IF _Statement:_**
 
 > for i=1 to 30  
->  print i," is divisible by ",  
->  if mod(i,2)=0 \  
->  then if mod(i,3)=0 \  
->  then print "both" \  
->  else print "2" \  
->  else if mod(i,3)=0 \  
->  then print "3" \  
->  else print "neither"  
+>      print i," is divisible by ",  
+>      if mod(i,2)=0 \  
+>           then if mod(i,3)=0 \  
+>                   then print "both" \  
+>                   else print "2" \  
+>           else if mod(i,3)=0 \  
+>                   then print "3" \  
+>                   else print "neither"  
 >  next i  
 >  stop  
 >   
@@ -97,3 +97,9 @@ Once the statements that follow an **END_IF** clause are executed, control will 
 >  00050 let X = Y  
 >  00060 print "A was not identical to B"  
 >  00070 }
+
+ 
+
+ 
+
+ 

@@ -9,16 +9,16 @@ Sorting control settings
 
 This property is used to control how column data will be sorted in the grid or report view. It can have one of the following values or be set to null, which indicates the sort order is defined by the system StdSortOrder setting using the **[SETDEV SET](../directives/setdev_set.md)** directive or the **['OPTION'](../mnemonics/option.md)** mnemonic.
 
-|  Null |  Uses StdSortOrder setting (if StdSortOrder not set, uses raw sort).  
+  |  Null |  Uses StdSortOrder setting (if StdSortOrder not set, uses raw sort).  
 ---|---|---  
-|  R |  Raw binary sort.  
-|  C |  Case insensitive sort.  
-|  A |  Sort ignores accents.  
-|  N |  Null values at end of sort.  
-|  CA |  Ignore case and accents.  
-|  CN |  Ignore case/Null values last.  
-|  AN |  Ignore accents/Null values last.  
-|  CAN |  Ignore case and accents/Null values last.  
+  |  R |  Raw binary sort.  
+  |  C |  Case insensitive sort.  
+  |  A |  Sort ignores accents.  
+  |  N |  Null values at end of sort.  
+  |  CA |  Ignore case and accents.  
+  |  CN |  Ignore case/Null values last.  
+  |  AN |  Ignore accents/Null values last.  
+  |  CAN |  Ignore case and accents/Null values last.  
   
 Alternatively, this property can be accessed as a string comprising the characters C, A or N. An empty string is used to indicate all settings are Off.
 
@@ -33,4 +33,10 @@ Default value is _Null_. (Data is sorted using the StdSortOrder setting.)
 
 ## Used By 
 
-**GRID****REPORT_VIEW**
+**GRID** **REPORT_VIEW**
+
+ 
+
+ 
+
+ 

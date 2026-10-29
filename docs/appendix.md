@@ -21,5 +21,12 @@ The following links provide additional information:
 **[Setting Up Web Server as a Windows Service](appendix/webserver_service.md)** |  Methods for installing PxPlus Web Server as a Windows Service.  
 **[System Limits](appendix/system_limits.md)** |  Preset system limits of PxPlus.  
 **[Error Codes and Messages](appendix/list_of_messages.md)** |  The numeric system variable ERR, error codes, and the messages associated with errors detected by PxPlus.  
+**[Returning Error Codes and Messages](appendix/Returning%20Error%20Codes.md)** |  A simple technique that can be used to return an error condition and a message to a calling application.  
 **[Customizing Radio Buttons and Check Boxes](appendix/customizing_rb_and_cb.md)** |  Information on customizing the **_default_** Radio Button and Check Box display.  
-**[NOMADS Library Variables](appendix/Nomads%20Library%20Variables.md)** |  Lists the NOMADS library variables.
+**[NOMADS Library Variables](appendix/Nomads%20Library%20Variables.md)** |  Lists the NOMADS library variables.  
+  
+ 
+
+ 
+
+ 

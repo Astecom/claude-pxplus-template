@@ -1,6 +1,6 @@
-# 
+#  
 
-**WindX™ Thin-Client** |   
+**WindX ™ Thin-Client** |     
 ---|---  
   
 PxPlus supports graphical Thin-Client functionality for WindX for Windows-based PC clients. With thin client technology in place, multiple concurrent users can access your PxPlus applications in separate protected sessions on a single remote server. This arrangement permits rapid development and deployment of your programs across your user base. It also allows you to introduce a new graphical user interface or terminal emulator to an otherwise character-based, platform-specific application.
@@ -31,4 +31,11 @@ The complete Thin-Client functionality has been integrated directly into PxPlus 
 
 **[Thin-Client Environment](windx/howitworks.md)**  
 **[WindX Connection Manager](windx/connectionmrg.md)**  
-**[WindX Security](windx/Windx%20Security.md)**
+**[WindX Security](windx/Windx%20Security.md)  
+[*SSH System Library Utility](utilities/ssh_systemlibrary.md)**
+
+ 
+
+ 
+
+ 

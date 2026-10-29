@@ -1,6 +1,6 @@
-# Object-Oriented PxPlus  
-  
-**Putting It All Together** |  **__**  
+# Object-Oriented PxPlus
+
+**Putting It All Together** |  **_ _**  
 ---|---  
   
 The example below describes the creation and implementation of three objects in PxPlus **_(Company, Customer, Supplier)_** to illustrate OOP syntax (see **[PxPlus OOP Interface](../PxPlus%20OOP%20Interface/Overview.md)**).
@@ -68,10 +68,10 @@ This produces a message box that lists all of the special variables that are ava
 
 After acknowledging the message box, a value of 1 (_one_) appears on the next line. This value represents the status returned by the method when it executes the RETURN 1 on statement 0370. A non-zero status value usually indicates that a method is successful, while a value of zero signifies that it is not (although this is at the discretion of the programmer).
 
-Objects must be dropped or deleted when the application is finished with them. This is accomplished using**DROP OBJECT** or**REF( )** techniques:
+Objects must be dropped or deleted when the application is finished with them. This is accomplished using**DROP OBJECT** or**  REF( )** techniques:
 
-> **DROP OBJECT** _obj_id_  
-> **VARIABLE = REF(DROP** _obj_id_**)**
+> **DROP OBJECT** _  obj_id_  
+> **VARIABLE = REF(DROP** _  obj_id_**)**
 
 The following example removes the**Company** object just created:
 
@@ -102,7 +102,7 @@ The contents of the _customer.pvc_ class definition file is as follows:
 > 8000 ! 8000   
 >  8010 def fnlabelname$=mid(pgm(-3),pos(";"=pgm(-3)+";")+1)
 
-This class definition introduces the**Inheritance** aspect of object-oriented programming by its use of the **[LIKE](../../../directives/like.md)** directive on line 0020.**LIKE** is used to include all of the characteristics from a different object into the current object. Creating an object using this class definition and viewing all of its properties and methods best illustrates this.
+This class definition introduces the**Inheritance** aspect of object-oriented programming by its use of the **[LIKE](../../../directives/like.md)** directive on line 0020.**LIKE**  is used to include all of the characteristics from a different object into the current object. Creating an object using this class definition and viewing all of its properties and methods best illustrates this.
 
 **_Example 1:_**
 
@@ -154,7 +154,7 @@ The basic concepts illustrated with the**Customer** class also apply to**Supplie
 
 In the following sections, a few changes were made to the **Customer** class mentioned above. Each of these samples will introduce some additional features of PxPlus OOP syntax: **[Cust2](Overview.htm#cust2)**, **[Cust3](Overview.htm#cust3)**, **[Cust4](Overview.htm#cust4)**, **[Cust5](Overview.htm#cust5)** and **[Cust6](Overview.htm#cust6)**.
 
-A simple data file called _cstfile_ is used in these classes. The following tables outline the required information to create this file.
+A simple data file called _cstfile_  is used in these classes. The following tables outline the required information to create this file.
 
 **Field Definitions**
 
@@ -225,7 +225,7 @@ The contents of the cust2.pvc class definition file illustrate the ability to as
 >  %Customer_File=0   
 >  00640 RETURN 
 
-A**PROPERTY** definition can include an optional keyword**SET** , followed by either a line label or the keyword**ERR**. In the case of a line label, the program logic starting at that label is executed when an attempt is made to alter the contents of the property. The keyword**ERR** is used to prevent the contents of a property from being changed, and an error is returned to the program attempting to do so. By default, an Error #88: Invalid/unknown property name is returned. However, this can be overridden as shown in a subsequent sample class.
+A**PROPERTY** definition can include an optional keyword**SET** , followed by either a line label or the keyword**  ERR**. In the case of a line label, the program logic starting at that label is executed when an attempt is made to alter the contents of the property. The keyword**ERR** is used to prevent the contents of a property from being changed, and an error is returned to the program attempting to do so. By default, an Error #88: Invalid/unknown property name is returned. However, this can be overridden as shown in a subsequent sample class.
 
 These options are used on the following property declarations:
 
@@ -326,7 +326,7 @@ While**Cust2** demonstrated the ability to intercept any attempt made to change 
 
 The CheckSecurity() method in**Cust3** is designed to return the value of the Amt_Owing property if a global variable, %Security_OK is set to a non-zero value. Otherwise, it returns an Error #52: Program is password protected.
 
-To illustrate use of this class, create a new instance of**Cust3** :
+To illustrate use of this class, create a new instance of**  Cust3**:
 
 > Cust3=NEW("Cust3")
 
@@ -431,20 +431,20 @@ The significant difference between these two definitions is the type of paramete
 
 Multiple definitions of the same method can be specified, provided each has a different parameter list. Knowing which method definition to use is determined by matching the parameters based on their type, either _string_ or _numeric_ , and the number of parameters specified.
 
-To illustrate use of this class, create a new instance of**Cust4** :
+To illustrate use of this class, create a new instance of**  Cust4**:
 
 > Cust4=NEW("Cust4")
 
 Locate the first customer using a string argument:
 
 > x=Cust4'Find("000011")   
->  PRINT Cust4'Cust_No$," - ",Cust4'Name$   
+>  PRINT Cust4'Cust_No$," \- ",Cust4'Name$   
 >  000011 - Flagship Importers
 
 Locate the second customer using a numeric argument:
 
 > x=Cust4'Find(27)   
->  PRINT Cust4'Cust_No$," - ",Cust4'Name$   
+>  PRINT Cust4'Cust_No$," \- ",Cust4'Name$   
 >  000027 - Yorktown Wood Products
 
 Drop the object when finished:
@@ -616,9 +616,9 @@ While the definition is relatively small, this class is more powerful than it lo
 >  0120 RETURN _Obj'Close()   
 >  0150 IF NOT(_Obj'Find(C$)) THEN Cust_No$=C$
 
-In each case, prefixing the method name with**_Obj** (in place of the object identifier) indicates that the method exists somewhere in the current class. Knowing its exact location is not necessary. See **[Using Methods and Properties](../PxPlus%20OOP%20Interface/Overview.htm#Mark1)**. The example below uses the**Edit()** method from the**Panel** object to process a NOMADS panel.
+In each case, prefixing the method name with**_Obj** (in place of the object identifier) indicates that the method exists somewhere in the current class. Knowing its exact location is not necessary. See **[Using Methods and Properties](../PxPlus%20OOP%20Interface/Overview.htm#Mark1)**. The example below uses the**  Edit()** method from the**Panel** object to process a NOMADS panel.
 
-To illustrate use of this class, create a new instance of**Cust5** :
+To illustrate use of this class, create a new instance of**  Cust5**:
 
 > Cust5=NEW("Cust5")
 
@@ -665,18 +665,24 @@ This class demonstrates the _Polymorphism_ aspect of object orientation. It also
 >  00220 K$=PAD(K$,6)   
 >  00230 RETURN _Obj'Find(FROM "File",K$)
 
-The**Find( )** method declared in**Cust6** is designed to augment the functionality of the**Find( )** method from the**File** class. The**Find( )** method in this class intercepts the value, reformats it to match the key value for the data file, and then passes the resulting value to the**Find( )** method in the**File** class.
+The**  Find( )** method declared in**Cust6** is designed to augment the functionality of the**Find( )** method from the**File** class. The**Find( )** method in this class intercepts the value, reformats it to match the key value for the data file, and then passes the resulting value to the**Find( )** method in the**File** class.
 
-To illustrate use of this class, create a new instance of**Cust6** :
+To illustrate use of this class, create a new instance of**  Cust6**:
 
 > Cust6=NEW("Cust6")
 
 Pass what appears to be an invalid Customer ID to the Find( ) method:
 
 > x=Cust6'Find("67")   
->  PRINT "Customer: ",Cust6'Cust_No$," - ",Cust6'Name$   
+>  PRINT "Customer: ",Cust6'Cust_No$," \- ",Cust6'Name$   
 >  Customer: 000011 - Flagship Importers
 
 Drop the object when finished:
 
 > Drop Object Cust6
+
+ 
+
+ 
+
+ 

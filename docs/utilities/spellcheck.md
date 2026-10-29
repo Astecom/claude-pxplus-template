@@ -1,4 +1,4 @@
-# Utility Routines
+# Utilities
 
 ***PLUS/SPELL/SPELL** |  **_Spell Checker Interface_**  
 ---|---  
@@ -20,12 +20,12 @@ _(The AutoSpellCheck option was added in PxPlus 2019.)_
 
 For the spell checker to function, it needs to know the location of the spell checker engine and the language to use. Two global variables are used for this:
 
-**%SPELL_SITE$** |  This variable contains the Internet URL (**http/https** string) to a Web site that will provide Internet base spell checking or a _pipe symbol_ ( **|** ) followed by the pathname and arguments required to run the spell checker directly on your machine. To handle different languages, the system will automatically replace "@@" with the two character language code being used. Typical Internet setting would be: %SPELL_SITE$="https://www.pvxplus.com/cgi-bin/aspell.cgi"
+**%SPELL_SITE$** |  This variable contains the Internet URL (**http/https** string) to a Web site that will provide Internet base spell checking or a _pipe symbol_  ( **|** ) followed by the pathname and arguments required to run the spell checker directly on your machine. To handle different languages, the system will automatically replace "@@" with the two character language code being used. Typical Internet setting would be:      %SPELL_SITE$="https://www.pvxplus.com/cgi-bin/aspell.cgi"
 
 #### **Note:**  
 To enhance security when using a Web site to provide spell checking, it is generally recommended to use **https** for a secure connection. This will make sure that the text being checked is sent encrypted to the server.
 
-When using pipes, a typical **_UNIX/Linux_** setting would be: %SPELL_SITE$="|aspell -a --lang=@@" For **_Windows_** , this would be: %SPELL_SITE$="|"+quo+"c:\program files\aspell\bin\aspell.exe"+quo+" -a --lang=@@"
+When using pipes, a typical **_UNIX/Linux_** setting would be:      %SPELL_SITE$="|aspell -a --lang=@@" For **_Windows_** , this would be:      %SPELL_SITE$="|"+quo+"c:\program files\aspell\bin\aspell.exe"+quo+" -a --lang=@@"
 
 #### **Note** :  
 On Windows, the Aspell module is usually installed in "Program Files", and since this has a space in the name, it must be surrounding by quotes.  
@@ -56,7 +56,7 @@ You can also have the system automatically add the spell checker to all unformat
 
 **_Directly Invoking the Spell Checker_**
 
-If desired, the spell checker can be called directly from your application to check the spelling of a text field. This is done by issuing a call to**"*plus/spell/spell"** where you can pass the control to check or the text to check/change.
+If desired, the spell checker can be called directly from your application to check the spelling of a text field. This is done by issuing a call to** "*plus/spell/spell"** where you can pass the control to check or the text to check/change.
 
 **_Calling Sequence:_**
 
@@ -90,7 +90,13 @@ To create an Aspell Web site to provide spell checking, install and setup your A
 >  echo ''  
 > aspell -a | grep ' '
 
-This will run Aspell with whatever text is submitted with the Web request and will work with the *plus/spell/spell module as provided. This can be hosted as either a secure (**https:** **//**) or unsecured (**http://**) Web site.
+This will run Aspell with whatever text is submitted with the Web request and will work with the *plus/spell/spell module as provided. This can be hosted as either a secure (**https:**  **//**) or unsecured (**http://**) Web site.
 
 #### **Note:**  
 PVX Plus Technologies currently offers Web hosting of a spell checker. A small annual fee is charged for this service that covers the costs to maintain the site and to keep the dictionaries current.
+
+ 
+
+ 
+
+ 

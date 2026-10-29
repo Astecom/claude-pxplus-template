@@ -7,19 +7,19 @@
 
 The **[LCL]** tag can be included in a number of system directives to route the command to the user's local machine irrespective as to whether the user is using the system via WindX or directly executing the application. Its purpose is to allow the application designer to create code that will be portable. It will route requests to the end user local workstation without the application having to know how the user is connected.
 
-When the **[LCL]** tag is used on the system, if the user is running the application directly, then the tag is ignored and dropped. If the application is being run via WindX or JavX, the **[LCL]** tag is automatically replaced with a **[WDX]** tag. See [**[WDX] Direct Action to Client Machine**](wdx.htm).
+When the **[LCL]** tag is used on the system, if the user is running the application directly, then the tag is ignored and dropped. If the application is being run via WindX or JavX, the **[LCL]** tag is automatically replaced with a **[WDX]** tag. See [**[WDX] Direct Action to Client Machine**](wdx.md).
 
 The commands/directives that support the **[LCL]** command tag are:
 
-|  CALL "**[LCL]**..." , ... |  KEYED "**[LCL]**..."  
+  |  CALL "**[LCL]**..." , ... |  KEYED "**[LCL]**..."  
 ---|---|---  
-|  DEF OBJECT id, "**[LCL]** ..." |  NEW ( "**[LCL]**..." )  
-|  DIRECT "**[LCL]**..." |  OPEN (..) "**[LCL]**...."  
-|  DIRECTORY "**[LCL]**..." |  PROGRAM "**[LCL]**..."  
-|  ERASE "**[LCL]**..." |  REFILE "**[LCL]**..."  
-|  EXECUTE "**[LCL]**..." |  SERIAL "**[LCL]**..."  
-|  INDEXED "**[LCL]** " |  SORT "**[LCL]**..."  
-|  INVOKE "**[LCL]**..." |   
+  |  DEF OBJECT id, "**[LCL]** ..." |  NEW ( "**[LCL]**..." )  
+  |  DIRECT "**[LCL]**..." |  OPEN (..) "**[LCL]**...."  
+  |  DIRECTORY "**[LCL]**..." |  PROGRAM "**[LCL]**..."  
+  |  ERASE "**[LCL]**..." |  REFILE "**[LCL]**..."  
+  |  EXECUTE "**[LCL]**..." |  SERIAL "**[LCL]**..."  
+  |  INDEXED "**[LCL]** " |  SORT "**[LCL]**..."  
+  |  INVOKE "**[LCL]**..." |     
   
 The use of the **[LCL]** tag is also supported in _Format 2_ of the **[PTH( )](../functions/pth.md)** function.
 
@@ -32,7 +32,7 @@ The following logic will open the file "C:\data\spread.csv" on the local worksta
 > open (hfn)"[LCL]C:\data\spead.csv"
 
 #### **Note:**  
-WindX will support all the directives and functions that are used against a file channel that was previously opened with a **[[WDX]](wdx.htm)** or **[LCL]** tag.
+WindX will support all the directives and functions that are used against a file channel that was previously opened with a **[[WDX]](wdx.md)** or **[LCL]** tag.
 
 ## See Also
 
@@ -51,3 +51,11 @@ WindX will support all the directives and functions that are used against a file
 **[REFILE Clear Record from File](../directives/refile.md)**  
 **[SERIAL Create a Sequential File](../directives/serial.md)**  
 **[SORT Create File for Sorting](../directives/sort.md)**
+
+ 
+
+ 
+
+ 
+
+ 

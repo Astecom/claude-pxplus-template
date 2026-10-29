@@ -9,4 +9,10 @@ Implied decimal: Controls implied decimal input in grids and multi-lines.
 
 ## Used By
 
-**GRID** **MULTI_LINE**
+**GRID** •**MULTI_LINE**
+
+ 
+
+ 
+
+ 

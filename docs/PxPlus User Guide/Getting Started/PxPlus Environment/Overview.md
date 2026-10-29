@@ -1,6 +1,6 @@
 # Getting Started
 
-**PxPlus Environment** |  **__**  
+**PxPlus Environment** |  **_ _**  
 ---|---  
   
 PxPlus has capabilities and features that make the process of program development easier for both novice and expert users. When you are ready to develop a program in PxPlus, you begin by starting a PxPlus **_session_**. This serves as the environment where programming instructions are input, understood and executed by the system. It is also where you create, load, modify and execute applications. Once the session is started, you can create a new application or load an existing application for modification.
@@ -29,7 +29,7 @@ This prompt represents a "pointer" to the session input area known as the **_Com
 
 **_Command Mode_**
 
-This is the state in which the system is "waiting for instructions" - in PxPlus, these instructions are known as **[Directives](../../Language%20Elements/Primary%20Syntax%20Elements/Directives.md)**. When a valid directive is entered at the Command Line, the system proceeds directly to execution; there are no intermediate stages of compilation, assembly or linkage. When execution is complete, the system displays the result (if any) and awaits the next directive. Error messages pertaining to the syntax of the input are displayed as soon as they occur.
+This is the state in which the system is "waiting for instructions" \- in PxPlus, these instructions are known as **[Directives](../../Language%20Elements/Primary%20Syntax%20Elements/Directives.md)**. When a valid directive is entered at the Command Line, the system proceeds directly to execution; there are no intermediate stages of compilation, assembly or linkage. When execution is complete, the system displays the result (if any) and awaits the next directive. Error messages pertaining to the syntax of the input are displayed as soon as they occur.
 
 If a directive has a leading **_line number_** , the system does not proceed to execution, but uses the directive in the construction of a program. The PxPlus prompt changes from**- >** to**-:** to indicate that the program is being **_edited_** (and not yet saved). There may be other input modes during a PxPlus session (e.g. using an editor, running an application); however, command mode is where the system returns when these other tasks are completed.
 
@@ -50,11 +50,11 @@ The Command line allows some basic editing functionality (but you cannot move fr
 
 In addition to the basic keyboard actions, the following key combinations can be used for further editing and cursor functionality:
 
-|  **Ctrl-End** |  Clears input from the current cursor position to the end of the line.  
+  |  **Ctrl-End** |  Clears input from the current cursor position to the end of the line.  
 ---|---|---  
-|  **Tab/Shift-Tab** |  Advances/backspaces 10 spaces over input.  
-|  **Ctrl - Right Arrow** |  Advances to next word.  
-|  **Ctrl - Left Arrow** |  Moves to the previous word.  
+  |  **Tab/Shift-Tab** |  Advances/backspaces 10 spaces over input.  
+  |  **Ctrl - Right Arrow** |  Advances to next word.  
+  |  **Ctrl - Left Arrow** |  Moves to the previous word.  
   
 #### **Note:**  
 For information on more advanced editing features of the PxPlus development environment, see **[Development Tools](../../Development%20Tools/Introduction.md)**.
@@ -73,12 +73,14 @@ PxPlus allows the following shortcuts for frequently used language and console c
 **;** |  Semi-colon steps through compound statements.  
 **"** |  Double quote opens a shell to the operating system from PxPlus.  
   
+ 
+
 #### **Note:**  
 The **[LET](../../../directives/let.md)** directive is assumed when PxPlus encounters a statement that begins with a variable. In addition, comma delimiters can be used to represent multiple **LET** directives in a statement.  
   
 **_Example:_**  
   
-Z4=A+4.5,Z5=Z4*.85
+     Z4=A+4.5,Z5=Z4*.85
 
 **_Typos and Alternate Spellings_**
 
@@ -112,16 +114,16 @@ Activate the Edit option from the PxPlus icon drop-down menu to copy or paste te
 
 To **_copy_** (mark) text from the current session window into the Windows Clipboard:
 
-|  1. |  Select the PxPlus icon > _Edit_ > _Mark/Copy_.  
+  |  1. |  Select the PxPlus icon > _Edit_ > _Mark/Copy_.  
 ---|---|---  
-|  2. |  Drag the mouse pointer over the block of text you wish to copy.  
-|  3. |  Press Enter.  
+  |  2. |  Drag the mouse pointer over the block of text you wish to copy.  
+  |  3. |  Press Enter.  
   
 To **_paste_** text from the Windows Clipboard into the current session window:
 
-|  1. |  Place the cursor at a location on the Command Line.   
+  |  1. |  Place the cursor at a location on the Command Line.   
 ---|---|---  
-|  2. |  Select the PxPlus icon > _Edit_ > _Paste_.  
+  |  2. |  Select the PxPlus icon > _Edit_ > _Paste_.  
   
 #### **Note:**  
 The PxPlus icon drop-down menu can also be accessed directly (without using the mouse) by pressing the **Alt - Spacebar** key combination.
@@ -133,3 +135,9 @@ A PxPlus session can be terminated using one of three directives: **[BYE](../../
 On a Windows system, you can also click the X _(close)_ button on the top right corner of the PxPlus console to terminate the session and close the window.
 
 If **[STOP](../../../directives/stop.md)** or **[END](../../../directives/end.md)** is used in an application that was invoked directly by an operating system command (bypassing Command mode), they will automatically terminate the session and return you to the operating system.
+
+ 
+
+ 
+
+ 

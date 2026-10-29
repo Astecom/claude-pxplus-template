@@ -13,4 +13,10 @@ Refer to the **FMT=** option as described for the associated control directive; 
 
 ## Used By
 
-**CHART****GRID****LIST_BOX****LIST_VIEW****MULTI_LINE****REPORT_VIEW****TREEVIEW**
+**CHART** **GRID** **LIST_BOX** **LIST_VIEW** **MULTI_LINE** **REPORT_VIEW** **TREEVIEW**
+
+ 
+
+ 
+
+ 

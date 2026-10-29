@@ -1,11 +1,11 @@
-# Utility Routines
+# Objects
 
 ***PLUS/OBJ/WRAPUP** |  **_Wrapup_ _Object_**  
 ---|---  
   
 ## Invocation
 
-_oHandle_ _=_**NEW( "*plus/obj/wrapup",**  _program_entry_ _$, param$_ **FOR { FILE** _fileno_ __**| WINDOW | PROGRAM | OBJECT**  _objid_ **| CONTROL** _ctlid_ **} )**
+_oHandle_ _=_**NEW( "*plus/obj/wrapup",** _program_entry_ _$, param$_  **FOR { FILE** _fileno_**| WINDOW | PROGRAM | OBJECT**  _objid_  **| CONTROL** _ctlid_  **} )**  
 
 **_Where:_**
 
@@ -19,7 +19,7 @@ _ctlid_ |  ID of the graphical control that, when deleted, will initiate the wra
   
 ## Description
 
-The **"*plus/obj/wrapup.pvc"** object provides a simple means to establish _**'wrapup'**_ procedures for any program exit, window/file closure or control/object release. This module allows you to establish a piece of code to execute or a routine to call whenever a wrapup related event occurs.
+The **" *plus/obj/wrapup.pvc"** object provides a simple means to establish _ **'wrapup'**_ procedures for any program exit, window/file closure or control/object release. This module allows you to establish a piece of code to execute or a routine to call whenever a wrapup related event occurs.
 
 You can specify either the name of program/entry point to be called when the wrapup event occurs and an optional parameter to pass to it, or if the program/entry point is empty, the system will simply issue an EXECUTE of the parameter field.
 
@@ -64,9 +64,9 @@ If you wanted to save the original precision for subsequent restoration in the w
 This would create a new property in the wrapup object so that in the Wrapup routine, the original value could be retrieved using the second parameter passed in as:
 
 > Wrapup:  
->  enter *,oWrap  
->  precision oWrap'sv_prc  
->  exit
+>      enter *,oWrap  
+>      precision oWrap'sv_prc  
+>      exit
 
 ##  Example
 
@@ -88,8 +88,14 @@ Using a Wrapup routine:
 >    
 >   
 > Reset_KR:  
->  enter *,objid  
->  set_param 'KR'=objid'kr_value  
->  return
+>      enter *,objid  
+>      set_param 'KR'=objid'kr_value  
+>      return
 
 Either of these approaches assures that no matter how the program terminated, the parameter would be reset.
+
+ 
+
+ 
+
+ 

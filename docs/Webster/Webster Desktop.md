@@ -1,5 +1,5 @@
-# Webster+  
-  
+# Webster+ Web Development Toolkit
+
 ***WEBSTER/DESKTOP** |  **_Display Webster+ Page_**  
 ---|---  
   
@@ -19,12 +19,12 @@ _(The *webster/desktop utility was added in PxPlus 2022 Update 1.)_
   
 **_Where:_**
 
-|  _page$_ |  Name of the page to be displayed.  
+  |  _page$_ |  Name of the page to be displayed.  
 ---|---|---  
-|  _program$_ |  Name of the program to be run/displayed.  
-|  _values$_ |  A semi-colon delimited list of variables and associated values to be passed to the page/program on the generated URL. Variable name and value are separated by an equals sign.  
-|  _host$_ |  Name of the host. This should be in the form of **http:**_//server.domain_ or **https:**_//server.domain_. If omitted, the default name of **http://127.0.0.1:8088** is used (this can be changed by running ***webster/desktop;Setup**).  
-|  _template$_ |  Name of the template to use. The default is ***desktop** (this can be changed by running ***webster/desktop;Setup**).  
+  |  _program$_ |  Name of the program to be run/displayed.  
+  |  _values$_ |  A semi-colon delimited list of variables and associated values to be passed to the page/program on the generated URL. Variable name and value are separated by an equals sign.  
+  |  _host$_ |  Name of the host. This should be in the form of **http:**_//server.domain_ or **https:**_//server.domain_. If omitted, the default name of **http://127.0.0.1:8088** is used (this can be changed by running ***webster/desktop;Setup**).  
+  |  _template$_ |  Name of the template to use. The default is ***desktop** (this can be changed by running ***webster/desktop;Setup**).  
   
 ## Description
 
@@ -34,11 +34,11 @@ The ***webster/desktop** program can be added to the PxPlus IDE or used in a Win
 
 When defined as a task in the PxPlus IDE, the _Panel/Program_ parameter should be ***webster/desktop** (or ***webster/desktop;Run**) with the following parameters:
 
-|  _Parameter 1:_ |  Page/program  
+  |  _Parameter 1:_ |  Page/program  
 ---|---|---  
-|  _Parameter 2:_ |  Values (if any)  
-|  _Parameter 3:_ |  Host name with the **http/https** suffix included  
-|  _Parameter 4:_ |  Template file to use  
+  |  _Parameter 2:_ |  Values (if any)  
+  |  _Parameter 3:_ |  Host name with the **http/https** suffix included  
+  |  _Parameter 4:_ |  Template file to use  
   
 When defining a Windows short cut, the values following **-arg** would coincide with the above parameter list.
 
@@ -72,3 +72,9 @@ As part of the ***webster/desktop** utility, you can call ***webdesk** to displa
 > call "*webdesk","http://www.pvxplus.com"
 
 Like ***webster/desktop** , the first invocation will be in a centered window, approximately three-quarters of the width and height of the screen. The user may resize/position this window as desired, and the system will use this new size/position when the window is next displayed.
+
+ 
+
+ 
+
+ 

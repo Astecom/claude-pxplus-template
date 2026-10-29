@@ -1,4 +1,4 @@
-# Utility Routines
+# Utilities
 
 ***PLUS/JRNL/SEND(RECV)** |  **_System Journal Transport_**  
 ---|---  
@@ -150,6 +150,8 @@ IDLE_WAIT=5
 # STMP=mail.example.com  
 # MAILFROM=person.to.sendfrom@example.com  
   
+ 
+
 **Default recv.conf**  
 ---  
 #  
@@ -229,4 +231,10 @@ IDLE_WAIT=5
   
 # MAILTO=person.to.contact@example.com  
 # STMP=mail.example.com  
-# MAILFROM=person.to.sendfrom@example.com
+# MAILFROM=person.to.sendfrom@example.com  
+  
+ 
+
+ 
+
+ 

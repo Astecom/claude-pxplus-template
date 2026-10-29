@@ -1,4 +1,4 @@
-# 
+#  
 
 **Extended NOMADS Objects**|   
 ---|---  
@@ -12,6 +12,12 @@ The extended controls supported by PxPlus are:
 **[eSignature Capture](eSignature%20Capture/esignature%20capture.md)** |  The eSignature Capture extended control is used to draw and capture electronic signatures in online and desktop environments.  
 ---|---  
 **[Google Maps Interface](Google%20Maps%20Interface/Google%20Maps%20Interface%20Overview.md)** |  The Google Maps interface extended control offers access to the Google Maps Web mapping service application and technology provided by Google Inc.  
-**[TinyMCE HTML Editor](TinyMCE%20HTML%20Editor/TinyMCE%20HTML%20Editor%20Overview.md)** |  The TinyMCE HTML Editor extended control offers access to TinyMCE, a platform independent Web-based JavaScript HTML WYSIWYG Editor control released as Open Source under LGPL 2.1 by Tiny Technologies Inc. It provides an editing interface that resembles how the page will be displayed in a Web browser and does not require any HTML knowledge.  
+**[TinyMCE® HTML Editor](TinyMCE%20HTML%20Editor/TinyMCE%20HTML%20Editor%20Overview.md)** |  The TinyMCE® HTML Editor extended control offers access to TinyMCE®, a platform independent Web-based JavaScript HTML WYSIWYG Editor control released as Open Source under LGPL 2.1 by Tiny Technologies Inc. It provides an editing interface that resembles how the page will be displayed in a Web browser and does not require any HTML knowledge.  
   
-TinyMCE is a registered trademark of Tiny Technologies Inc.
+TinyMCE® is a registered trademark of Tiny Technologies Inc.
+
+ 
+
+ 
+
+ 
