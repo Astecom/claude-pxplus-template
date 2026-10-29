@@ -9,11 +9,23 @@ This table lists all the **_Multi_Line_** properties:
 ---|---  
 **Attributes**  
 _Borderless_ |  Control has no border or frame.  
-_Center Text_ |  Centers the input. _(Center Text property was added in PxPlus 2018.)_  
+_Corner Radius_ |  Sets the radius for the multi-line corners. Works only in **4D** mode. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 7 inclusive. See **[CornerRadius$](../../../control_object_properties/multiline_properties.htm#cornerradius)** property. **_Example:_**      ![](images/themes_011_1.png)  
+  
+     ![](images/themes_011_2.png)  
+  
+    ![](images/themes_011_3.png)
+
+#### **Note:**  
+Corner rounding is limited based on the control type and/or the control size.
+
+_(Corner Radius property was added in PxPlus 2026.)_  
+_Horizontally Center Text_ |  Text is centered horizontally in the multi-line input field. _(Center Text property was added in PxPlus 2018.)  
+(The renaming of "Center Text" to "Horizontally Center Text" was added in PxPlus 2026.)_  
 _Locked_ |  User can set focus but cannot change the multi-line input region. Associated query button is disabled. _(Locked property was added in PxPlus 2018.)_  
-_Right Justify_ |  Text is right-aligned in the multi-line input field. _(Right Justify property was added in PxPlus 2018.)_  
+_Right Justify_ |  Text is right aligned in the multi-line input field. _(Right Justify property was added in PxPlus 2018.)_  
 _Transparent Background_ |  Multi-line background and border are transparent; i.e. the window contents behind the multi-line show through. _(Transparent Background property was added in PxPlus 2018.)_  
 _Uppercase_ |  Converts text from lowercase to uppercase automatically. _(Uppercase property was added in PxPlus 2018.)_  
+_Vertically Center Text_ |  Text is centered vertically in the multi-line input field. _(Vertically Center Text property was added in PxPlus 2026.)_  
 **Colors**  
 _Click the dotted_ _Query button or double click inside the cell to access_ [ **Color Selections**](../../Appendix/Color%20Selections.md) _. Valid formats for color selections include predefined system colors (e.g. Light Red), Custom (RGB codes), HTML Hex Color Codes, User Defined colors (e.g. Color17) and string Expressions._ _After a color property is set, a tick in the selected color displays in the top left corner. A floating tip with a sample of the selected color displays when hovering the mouse over the color setting._ _(The color tick and color tip were added in PxPlus 2018.)  
 __(The Color Selections Query button and dialog were added in PxPlus 2020.)_  
@@ -66,9 +78,15 @@ _(Spinner Button Attributes property was added in PxPlus 2024.)_
   
 _Spinner Hover Color_ |  Color of the chevron when hovering over it in the spinner button. _(Spinner Hover Color property was added in PxPlus 2024.)_  
 **Other**  
-_iNomads Class_ |  Assign an iNomads class to the control. The iNomads class contains class attribute references used when defining the control in the HTML code generated in iNomads. An iNomads class reference must start with an alpha character (A-Z or a-z), followed by any combination of A-Z, a-z, 0-9, underscore or dash. Multiple references may be entered, separated by a space. For a list of pre-defined classes, see **[iNomads Classes](../../../iNOMADS/iNomads%20Classes.md)**. _(iNomads Class property was added in PxPlus 2020.)_  
+_iNomads_ _Class_ |  Assign an iNomads class to the control. The iNomads class contains class attribute references used when defining the control in the HTML code generated in iNomads. An iNomads class reference must start with an alpha character (A-Z or a-z), followed by any combination of A-Z, a-z, 0-9, underscore or dash. Multiple references may be entered, separated by a space. For a list of pre-defined classes, see **[iNomads Classes](../../../iNOMADS/iNomads%20Classes.md)**. _(iNomads Class property was added in PxPlus 2020.)_  
   
 ## See Also
 
 **[Themes](Themes.md)**  
 **[Visual Classes](Visual%20Classes.md)**
+
+ 
+
+ 
+
+ 

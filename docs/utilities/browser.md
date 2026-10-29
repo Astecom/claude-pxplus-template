@@ -1,13 +1,13 @@
-# Utility Routines 
+# Objects
 
 ***BROWSER** |  **_Chromium Browser Object_**  
 ---|---  
   
 ## Format
 
-_Initializes Browser Object:_ |  **DEF OBJECT** obj_id,**@(**_col,ln,wth,ht_ **)**{**,** |**=**}**"*BROWSER"**  
+_Initializes Browser Object:_ |  **DEF OBJECT**  obj_id,**@(**_col,ln,wth,ht_  **)**{**,** |**=**}**" *BROWSER"**  
 ---|---  
-**_Where:_** |   
+**_Where:_** |     
 ---|---  
 ***BROWSER** |  Keyword used in defining PxPlus Chromium Browser Object.  
 **@(**_col,ln,wth,ht_**)** |  Numeric expressions. Column and line coordinates for top left corner, width in number of columns and height in number of lines.  
@@ -15,7 +15,7 @@ obj_id |  Numeric variable that will be used to save the object reference.
   
 ##  Description
 
-This object allows you to embed a Chromium Browser into PxPlus windows. Use this object to display a Web page, execute JavaScript, and subscribe to browser events.
+This object allows you to embed a Chromium Browser into PxPlus windows. Use this object to display a Web page, execute JavaScript, and subscribe to browser events. See **[Important Note](browser.htm#Mark10)** below.
 
 If loading a Web page that has a certificate error (i.e. self-signed, expired, etc.), a warning will display. It will describe the certificate error and give the option to either go back to safety or proceed to the URL that has the error. The warning may be avoided if the server is added to the exceptions list. See **[CertErrExceptions$](browser.htm#Mark8)** property.
 
@@ -36,22 +36,35 @@ _(The *BROWSER Debug mode was added in PxPlus 2021.)_
 
 A **[Find( )](browser.htm#Mark6)** method is provided that opens a **Find** dialog for searching text in a *BROWSER displayed Web page. By default, no hot key is assigned to the **Find** dialog. A **[FindHotKey](browser.htm#Mark7)** property gives you the option to enable the standard hot key Ctrl+F, define a custom hot key (e.g. Ctrl+S) or have no hot key. The **Find( )** method makes it possible for developers to add their own menus and buttons for opening the **Find** dialog.
 
-_(The Find( ) method and FindHotKey property were added in PxPlus 2021 Update 2.)_
+_(The Find method and FindHotKey property were added in PxPlus 2021 Update 2.)_
 
 The first *BROWSER created by a process will initialize the language and incognito settings for all embedded chromium browsers created by the process. These settings cannot be changed on the fly; i.e. changing the setting after the first *BROWSER has been created will have no effect.
 
 For information on adding a Chromium Browser control to a NOMADS panel, see **[External Controls - *Browser, ActiveX (COM), PVX Plus, .NET](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/COM%20Control/COM%20Control.md)**.
 
-#### **Note:**  
-Some *BROWSER properties and methods (see tables below) have an "alias" that has been provided to match the Shell.Explorer external object properties and methods. The purpose for this is to make it easier to use *BROWSER as a drop-in replacement for Shell.Explorer.
+#### **Important Note:**  
+As of April 2019, Google prevents embedded browsers from being able to sign into Google accounts for security purposes (Source: **[https://support.google.com/accounts/answer/7675428?co=GENIE.Platform%3DDesktop&hl=en](https://support.google.com/accounts/answer/7675428?co=GENIE.Platform%3DDesktop&hl=en)**). Google does this to combat a form of phishing known as "man in the middle" (MITM), which can be done through embedded browsers to steal users' information.  
+  
+This Google decision affects both the PxPlus *BROWSER embedded Chromium Browser object/control and the Shell.Explorer embedded browser COM control (see **[External Controls - *Browser, ActiveX (COM), PVX Plus, .NET](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/COM%20Control/COM%20Control.md)**). If you use an embedded Browser control in your application, the embedded Browser will not be able to be used to sign in to any Google account. This affects all versions of PxPlus because the change is on the Google sign-in process side, not in the application or the embedded Browser control.  
+  
+If you need your application to bring the user to a Google service, you can still have your PxPlus application launch the default system Web browser and direct it to the Google service.  
+  
+     **SYSTEM_HELP url$  
+  
+** Google still allows standard system Web browsers, such as Chrome, Firefox, Safari and Edge, to log into Google accounts. It is only restricting embedded browsers from doing so.  
+  
+Using the system Web browser means that the user will be taken away from your application. This is a less integrated solution, but it is more secure. If you need a more integrated solution that meets Google security standards, your application will need to transition to oAuth2 to login to Google accounts and the Google APIs to interact with the Google services. PxPlus provides an ***obj/oauth2** object (see **[*OBJ/OAUTH2](obj_oauth2.md)**) that can be used to help with the oAuth2 login process.
 
 ## Properties, Methods and Events
+
+#### **Note:**  
+Some *BROWSER properties and methods (see tables below) have an "alias" that has been provided to match the Shell.Explorer external object properties and methods. The purpose for this is to make it easier to use ***BROWSER** as a drop-in replacement for Shell.Explorer.
 
 The interface supports the following **_properties_** :
 
 **Property** |  **Description**  
 ---|---  
-**CertErrExceptions$** |  Gets/Sets a comma-separated list of servers where certificate errors are ignored. You must only specify the **_server_** portion of the URL. **_Example:_** For the URL **https://home.pvxplus.com/pgsrvr.pvp?pg=products** , the server portion is only **home.pvxplus.com** : "localhost,127.0.0.1,192.168.1.100,home.pvxplus.com" This property can also be set to "All" to ignore certificate errors on any server. For security reasons, this is not recommended unless the *BROWSER control is only loading pages locally and not from the Internet. _(The CertErrExceptions$ property was added in PxPlus 2022.)_  
+**CertErrExceptions$** |  Gets/Sets a comma-separated list of servers where certificate errors are ignored. You must only specify the **_server_** portion of the URL. **_Example:_** For the URL **https://home.pvxplus.com/pgsrvr.pvp?pg=products** , the server portion is only **home.pvxplus.com** :      "localhost,127.0.0.1,192.168.1.100,home.pvxplus.com" This property can also be set to "All" to ignore certificate errors on any server. For security reasons, this is not recommended unless the *BROWSER control is only loading pages locally and not from the Internet. _(The CertErrExceptions$ property was added in PxPlus 2022.)_  
 **Col** |  Gets/Sets the position of the left side of the embedded browser (in columns) from the left side of the panel.  
 **Cols** |  Gets/Sets the width of the embedded browser (in columns).  
 **Document** |  Access the document object (HTML DOM) of the active URL. For details on the HTML DOM, visit **<http://www.w3schools.com/jsref/default.asp>**.
@@ -60,7 +73,7 @@ The interface supports the following **_properties_** :
 Not accessible when using iNomads due to browser security.  
   
 **DragDrop** |  Gets/Sets whether the browser allows drag and drop into the browser control or popup windows. _(Support to allow drag and drop was added in PxPlus 2021.)_  
-**FindHotKey** |  Used to set the hot key for opening the **Find** dialog (if applicable). See **[Find( )](browser.htm#Mark6)** method. Set this property to 1 to enable the standard Ctrl+F Find hot key or leave it set to 0 (**_default_**) if no hot key will be used. Alternatively, a custom Find hot key can be defined using this format: DEC("_char_ ") **_Where:_** _char_ is a single alpha character ("A" to "Z"), enclosed in quotes. **_Example:_** To set Ctrl+S as the Find hot key: dec("S") _(The FindHotKey property was added in PxPlus 2021 Update 2.)_  
+**FindHotKey** |  Used to set the hot key for opening the **Find** dialog (if applicable). See **[Find( )](browser.htm#Mark6)** method. Set this property to 1 to enable the standard Ctrl+F Find hot key or leave it set to 0 (**_default_**) if no hot key will be used. Alternatively, a custom Find hot key can be defined using this format:      DEC("_char_ ") **_Where:_**      _char_ is a single alpha character ("A" to "Z"), enclosed in quotes. **_Example:_** To set Ctrl+S as the Find hot key:      dec("S") _(The FindHotKey property was added in PxPlus 2021 Update 2.)_  
 **Height  
 PvxHeight** |  Gets/Sets the height of the embedded browser (in pixels).  
 **History  
@@ -76,7 +89,7 @@ Not accessible when using iNomads due to browser security.
 PvxLeft** |  Gets/Sets the position of the left side of the embedded browser (in pixels) from the left side of the panel.  
 **Line** |  Gets/Sets the position of the top of the embedded browser (in lines) from the top of the panel.  
 **Lines** |  Gets/Sets the height of the embedded browser (in lines).  
-**PvxEvents[$]** |  Returns the PxPlus class object that is handling events or returns a list of events names (depending on **$** suffix) for the object.
+**Pvx****Events[$]** |  Returns the PxPlus class object that is handling events or returns a list of events names (depending on **$** suffix) for the object.
 
 #### **Note:**  
 Not accessible when using iNomads due to browser security.  
@@ -106,20 +119,35 @@ The interface supports the following **_methods_**:
 #### **Note:**  
 Not accessible when using iNomads due to browser security.  
   
-**Find**( ) |  Opens the **Find** dialog, which allows users to search for specified text within the contents of a *BROWSER displayed Web page. The **[FindHotKey](browser.htm#Mark7)** property is used to set or not set a Find hot key for opening this dialog. This dialog consists of the following: |  _Find What_ |  Enter the search text. If text is selected in the Web page when the **Find** dialog is invoked, the selected text will be used as the default search text.  
+**Find**( ) |  Opens the **Find** dialog, which allows users to search for specified text within the contents of a *BROWSER displayed Web page. The **[FindHotKey](browser.htm#Mark7)** property is used to set or not set a Find hot key for opening this dialog.      ![](images/browser_003_1.jpg) This dialog consists of the following: |  _Find What_ |  Enter the search text. If text is selected in the Web page when the **Find** dialog is invoked, the selected text will be used as the default search text.  
 ---|---  
 _Match case_ |  Select this option if the search is to be case sensitive. By default, this option is unchecked.  
 _Direction_ |  Searches up or down within the displayed Web page. By default, _Down_ is selected.  
 _Find Next_ |  Finds the next occurrence of the specified search text.  
 _Cancel_ |  Cancels the search and closes the **Find** dialog.  
   
-_(The Find( ) method was added in PxPlus 2021 Update 2.)_  
+_(The Find method was added in PxPlus 2021 Update 2.)_  
   
 **GoBack**( ) |  Navigates the embedded browser backward to the previously loaded URL.  
 **GoForward**( ) |  Navigates the embedded browser forward to the URL loaded before a **GoBack**( ).  
-**Navigate**(_url_ _$_)  
-**Navigate2**(_url_ _$_) |  Navigates the embedded browser to a resource identified by _url_ _$_ , which could be a URL or a full path.  
-**PrintToPDF** _(PdfPath$)_ |  Saves the current contents of the browser as a PDF file. **_Where:_** _PdfPath_ _$_ is the path that the PDF will be saved as. _(The PrintToPDF method was added in PxPlus 2023.)_  
+**Navigate**(_url$_)  
+**Navigate2**(_url$_) |  Navigates the embedded browser to a resource identified by _url$_ , which could be a URL or a full path.  
+**Post**(_url$_ [,_postData$_ [,_headers$_]]) |  Sends an **HTTP POST** request and loads the response in the browser. **_Where:_** |  _url$_ |  Destination URL.  
+---|---  
+_postData$_ |  **_(Optional)_** HTTP request body/payload.  
+_headers$_ |  **_(Optional)_** Newline-separated Key: Value header pairs (e.g. "Content-Type: application/json").  
+  
+**_Example:_**
+
+     x=10  
+     def object x,@(5,5,30,20)="*browser"  
+     x'post("https://www.w3schools.com/action_page.php","fname=John&lname=Doe","Content-Type: application/x-www-form-urlencoded")
+
+The result will be a page that displays the post data.
+
+_(The Post method was added in PxPlus 2026.)_  
+  
+**PrintToPDF** _(PdfPath$)_ |  Saves the current contents of the browser as a PDF file. **_Where:_**      _PdfPath$_ is the path that the PDF will be saved as. _(The PrintToPDF method was added in PxPlus 2023.)_  
 **Refresh**( )  
 **Refresh2**( ) |  Reloads the resource that is currently loaded in the embedded browser.  
 **Stop**( ) |  Cancels a pending navigation or download and stops dynamic page elements such as background sounds and animations.  
@@ -129,14 +157,16 @@ The interface supports the following **_events_** :
 #### **Note:**  
 Not accessible when using iNomads due to browser security.
 
+ 
+
 **Event** |  **Description**  
 ---|---  
-**BeforeNavigate**(_pDisp_ , _url_ _, flags, targetFrameName, postData, headers, cancel_)  
+**BeforeNavigate**(_pDisp_ , _url, flags, targetFrameName, postData, headers, cancel_)  
 **  
-BeforeNavigate2**(_pDisp_ , _url_ _, flags, targetFrameName, postData, headers, cancel_) |  This event is fired just before the embedded browser navigates to a new resource URL. |  _pDisp_ |  Always zero. **_(Included for Shell.Explorer Compatibility)_**  
+BeforeNavigate2**(_pDisp_ , _url, flags, targetFrameName, postData, headers, cancel_) |  This event is fired just before the embedded browser navigates to a new resource URL. The event fires for **[Post( )](browser.htm#Mark11)** navigations, as well as standard navigations. _(Post navigation support was added in PxPlus 2026.)_ |  _pDisp_ |  Always zero. **_(Included for Shell.Explorer Compatibility)_**  
 ---|---  
 _url_ |  A reference to a variant object containing the URL to be navigated to as a string.  
-_flags_ |  A reference to a variant object containing the number zero. ** _(Included for Shell.Explorer Compatibility)_**  
+_flags_ |  A reference to a variant object containing the number zero. **_(Included for Shell.Explorer Compatibility)_**  
 _targetFrameName_ |  A reference to a variant object containing the name of the frame to be navigated as a string.  
 _postData_ |  A reference to a variant object containing the navigation request post data as a string.  
 _headers_ |  A reference to a variant object containing the navigation request headers as a string.  
@@ -147,24 +177,24 @@ To use a reference to a variant object, you must first perform a **[DEF OBJECT](
 #### **Warning!**  
 Any PxPlus event handler for this event **_must not use_** any of the following; otherwise, the system will hang if used:  
   
-\- **ExecJS** method  
-\- **Document** or **Document** -related properties  
-\- **History** or **History** -related properties  
-\- **Location** or **Location** -related properties  
-\- **Navigator** or **Navigator** -related properties  
-\- **Screen** or **Screen** -related properties  
-\- **Window** or **Window** -related properties  
+   \- **ExecJS** method  
+   \- **Document** or **Document** -related properties  
+   \- **History** or **History** -related properties  
+   \- **Location** or **Location** -related properties  
+   \- **Navigator** or **Navigator** -related properties  
+   \- **Screen** or **Screen** -related properties  
+   \- **Window** or **Window** -related properties  
   
 **DownloadBegin**( ) |  This event is fired just before the embedded browser begins a download.  
 **DownloadComplete**( ) |  This event is fired just after the embedded browser completes a download.  
-**TitleChange**(_newTitle_ _$_) |  This event is fired just after the embedded browser has its title changed to _newTitle_ _$_.  
+**TitleChange**(_newTitle$_) |  This event is fired just after the embedded browser has its title changed to _newTitle$_.  
   
 ## Example Code
 
 The following code gives you an example of embedding a Chromium Browser in your panel and loading a Web page:
 
 > def object mySite,@(20,5,40,20),"*BROWSER"  
-> mySite'Url$="www.mysite.com"
+>  mySite'Url$="www.mysite.com"
 
 ##  Language Codes
 
@@ -205,7 +235,7 @@ Lithuanian |  lt
 Malay |  ms  
 Malayalam |  ml  
 Marathi |  mr  
-Norwegian (Bokml) |  nb  
+Norwegian (Bokmål) |  nb  
 Persian |  fa  
 Polish |  pl  
 Portuguese (Brazil) |  pt-BR  
@@ -231,9 +261,15 @@ _(Embedded browser support of other languages was added in PxPlus 2019.)_
 ## See Also
 
 **[DEF OBJECT Define Windows Object](../directives/def_object.md)  
-**[**DELETE OBJECT Remove Object**](../directives/delete_object.md)   
+** [**DELETE OBJECT Remove Object**](../directives/delete_object.md)   
 [**ON EVENT Event Processing**](../directives/on_event.md)   
 [**Apostrophe Operator**](../appendix/apostrophe_operator.md)  
 **[*VARIANT Extended Object](../Automation%20in%20PxPlus/PxPlus%20COM%20Interface%20Extensions/Overview.htm#variant)  
 [External Controls - *Browser, ActiveX (COM), PVX Plus, .NET](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/COM%20Control/COM%20Control.md)  
 ['BI' Browser Incognito Mode](../parameters/bi.md)**
+
+ 
+
+ 
+
+ 

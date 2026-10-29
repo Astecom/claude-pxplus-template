@@ -7,9 +7,9 @@
 
 1. |  _Return Task Information_: |  **TCB (**_tcb_code_ [,**ERR=**_stmtref_]**)**  
 ---|---|---  
-2. |  _Return Activation Information_ _:_ |  **TCB (**_pkg_index_ _, info_reqd_[,**ERR=**_stmtref_]**)**  
+2. |  _Return Activation Information_ _:_ |  **TCB (**_pkg_index_ _, info_reqd  _[,**ERR=**_stmtref_]**)**  
 3. |  _Return Platform Information_: |  **TCB (**_keyword_[,**ERR=**_stmtref_ ]**)**  
-4. |  _Return UNIX User Information_: |  **TCB (**_keyword_ , _userid_ [,**ERR=**_stmtref_ ]**)**  
+4. |  _Return UNIX User Information_: |  **TCB (**_keyword_ , _userid_  [,**ERR=**_stmtref_ ]**)**  
   
 **_Where:_**
 
@@ -27,13 +27,13 @@ _tcb_code_ |  Value indicating what type of information is to be returned. Numer
 
 The **TCB( )** function returns information for several different purposes:
 
-> A single _tcb_code_ specified in the **TCB( )** function returns a corresponding system control value. See **Format 1: Return Task Information**.
+>   A single _tcb_code_ specified in the **TCB( )** function returns a corresponding system control value. See **Format 1: Return Task Information**.
 
-> Two numeric codes (_pkg_index_ , _info_reqd_) are required for activation/licensing information. See **Format 2: Return Activation Information**.
+>   Two numeric codes (_pkg_index_ , _info_reqd_) are required for activation/licensing information. See **Format 2: Return Activation Information**.
 
-> Specific keywords are used to return information about the platform that PxPlus is compiled for or on. See **Format 3: Return Platform Information**.
+>   Specific keywords are used to return information about the platform that PxPlus is compiled for or on. See **Format 3: Return Platform Information**.
 
-> Specific keywords are used to return user registration information on UNIX/Linux. See **Format 4: Return User Information**.
+>   Specific keywords are used to return user registration information on UNIX/Linux. See **Format 4: Return User Information**.
 
 ##  Format 1
 
@@ -78,7 +78,7 @@ if tcb(2) then ... _prior read had error_ ...
 25 |  Operating system version number.  
 27 |  Reports current session's user slot number and type of slot: >0 - Dedicated non-shared user slot number being used  
 <0 - Shared user slot number being used  
-0 - Task is not being counted in the user slot table (background task) See [**'1U'**](../parameters/1u.md) system parameter.  
+  0 - Task is not being counted in the user slot table (background task) See [**'1U'**](../parameters/1u.md) system parameter.  
 29 |  Reports the current build level of PxPlus.  
 30 |  Statement number of last error in called program.  
 31 |  Last object to lose focus.  
@@ -113,10 +113,10 @@ if tcb(2) then ... _prior read had error_ ...
 **For TCB(63) to TCB(66) below, the values in the system parameters['VR'](../parameters/vr.md) and ['VW'](../parameters/vw.md) define the number of read/write retries before a data read/write error will be generated:**  
 63 |  Number of **READ** s verified.  
 64 |  Number of **WRITE** s verified.  
-65 |  Number of **READ** mis-compares.  
-66 |  Number of **WRITE** mis**-** compares.  
-67 |  On completion of **KEYED LOAD** command: > 0 - The number of keys reloaded  
--1 - Keyed load encountered different number of keys on different key chains  
+65 |  Number of **READ**  mis-compares.  
+66 |  Number of **WRITE**  mis**-** compares.  
+67 |  On completion of **KEYED LOAD** command: > 0 \- The number of keys reloaded  
+  -1 \- Keyed load encountered different number of keys on different key chains  
 68 |  Password retry count.  
 70 |  Number of logical **[OPEN](../directives/open.md)** directives executed.  
 71 |  Number of logical **[READ](../directives/read.md)** / **[EXTRACT](../directives/extract.md)** / **[FIND](../directives/find.md)** directives executed.  
@@ -132,9 +132,9 @@ This value is only valid on a **_Base_** product **_and_** only if the WindX Plu
 _(TCB(79) was added in PxPlus 2019 Update 2.)_  
 80 |  Last VBX status or error code.  
 81 |  Last Window LPARAM= value.  
-82 |  Windows operating system version: 0 - If running under Windows 3.1  
-1 - If running under Windows 95  
-2 - If running under Windows NT  
+82 |  Windows operating system version:  0 - If running under Windows 3.1  
+ 1 - If running under Windows 95  
+ 2 - If running under Windows NT  
 -1 - If running on a **non** -Windows system  
 83 |  Status of the debug window:  
   
@@ -154,10 +154,10 @@ _ $0800$ - Debug windows are disabled (as of PxPlus v8.11, build 9182.1)
 91 |  Current Task/Thread Priority level. Three system parameters control the priority of a task, primarily to balance the load in a Client/Server environment. See **['Q_'](../parameters/q_.md)**, **['Q^'](../parameters/q%5e.md)** and **['QF'](../parameters/qf.md)** task priorities.  
 92 |  Yields the **TIM=**_value *_ 100 (100ths of a second) when doing embedded I/O, or -1 if no **TIM=**.  
 93 |  Current object ID used in the **[WITH](../directives/with.md)** directive.  
-94 |  **_(UNIX/Linux Only)_** Current logical effective UserID.  
-95 |  **_(UNIX/Linux Only)_** Current logical effective GroupID.  
-96 |  **_(UNIX/Linux Only)_** Current True OS effective UserID.  
-97 |  **_(UNIX/Linux Only)_** Current True OS effective GroupID.  
+94 |  **_(UNIX/Linux Only)_**  Current logical effective UserID.  
+95 |  **_(UNIX/Linux Only)_**  Current logical effective GroupID.  
+96 |  **_(UNIX/Linux Only)_**  Current True OS effective UserID.  
+97 |  **_(UNIX/Linux Only)_**  Current True OS effective GroupID.  
 99 |  Program security flags.  
 101 |  Number of times variables were referenced.  
 102 |  Number of variables not found in the variable table.  
@@ -167,7 +167,7 @@ _ $0800$ - Debug windows are disabled (as of PxPlus v8.11, build 9182.1)
 130 |  Number of entries currently in the Error History table. (added in PxPlus v11)  
 170 |  Windows Service handle. 0 if not running as a service.  
 190  |  **ADO** Support: 1 if available, 0 if not.  
-191 |  **LibHaru**(Enhanced PDF) support: 1 if available, 0 if not.  
+191 |  **LibHaru  **(Enhanced PDF) support: 1 if available, 0 if not.  
 192  |  **_(Obsolete)_** Running **UltraFX** : 1 if enabled, 0 if not.  
 193 |  **XML** support: 1 if available, 0 if not.  
 195  |  **ZLIB** support: 1 if available, 0 if not.  
@@ -202,11 +202,11 @@ _ $0800$ - Debug windows are disabled (as of PxPlus v8.11, build 9182.1)
 308 |  Size of a _long long._  
 309 |  Size of a _double._  
 310 |  Size of a _float._  
-311 |  **_(Windows Only)_** Size of a WORD.  
-312 |  **_(Windows Only)_** Size of a DWORD.  
-313 |  **_(Windows Only)_** Size of a HANDLE.  
-314 |  **_(Windows Only)_** Size of a WCHAR.  
-315 |  **_(Windows Only)_** Size of a LPARAM.  
+311 |  **_(Windows Only)_**  Size of a WORD.  
+312 |  **_(Windows Only)_**  Size of a DWORD.  
+313 |  **_(Windows Only)_**  Size of a HANDLE.  
+314 |  **_(Windows Only)_**  Size of a WCHAR.  
+315 |  **_(Windows Only)_**  Size of a LPARAM.  
 316 |  **_(Windows Only)_** Size of a WPARAM.  
 500 |  Number of characters into the compression routine for WindX.  
 501 |  Number of characters out of the compression routine for WindX.  
@@ -215,7 +215,7 @@ _ $0800$ - Debug windows are disabled (as of PxPlus v8.11, build 9182.1)
 504 |  Windows character set.  
 505 |  Windows Code page for character presentation.  
 506 |  Process ID. If running under client server, this will be the process ID on the server.  
-507 |  External debugger status: 0 - No debug active  
+507 |  External debugger status:  0 - No debug active  
 -1 - This process is being debugged  
 >0 - Process ID being debugged by this process  
 510 |  Object number for the currently defined [**Object Defined Controls**](../objctl1/overview.md) server.  
@@ -227,7 +227,7 @@ _ $0800$ - Debug windows are disabled (as of PxPlus v8.11, build 9182.1)
 
 **_Return Activation Information_**
 
-**TCB(**_pkg_index_ , _info_reqd_[,**ERR=**_stmtref_]**)**
+**TCB(**_pkg_index_ , _info_reqd_[,**ERR=**_stmtref_]**)**  
 
 When **TCB( )** is used with **_two codes_** (_pkg_index_ , _info_reqd_), it reports PxPlus licensing information in numeric form (owner code, package ID, and date):
 
@@ -253,12 +253,12 @@ _(The ability to pass package numbers to the TCB function was added in PxPlus v6
 **_Example_**** _:_**
 
 > for ID=0 to 100  
->  PACKAGE=tcb(ID,0,err=*break)  
->  EXPIRY=tcb(ID,1)  
->  FLAGS=tcb(ID,2)  
->  print "PACKAGE#: ",tbl(PACKAGE=0,str(PACKAGE),"PXPLUS"),  
->  print @(20),"EXPIRES: ",tbl(EXPIRY=0,str(EXPIRY),"<NEVER>"),  
->  print @(40),"ACT FLAGS: ","$"+hta(bin(FLAGS,4))+"$"  
+>      PACKAGE=tcb(ID,0,err=*break)  
+>      EXPIRY=tcb(ID,1)  
+>      FLAGS=tcb(ID,2)  
+>      print "PACKAGE#: ",tbl(PACKAGE=0,str(PACKAGE),"PXPLUS"),  
+>      print @(20),"EXPIRES: ",tbl(EXPIRY=0,str(EXPIRY),"<NEVER>"),  
+>      print @(40),"ACT FLAGS: ","$"+hta(bin(FLAGS,4))+"$"  
 >  next ID
 
 ##  Format 3
@@ -293,4 +293,10 @@ The following keywords (case insensitive) return information about the specific 
 "OS_getuseruid" |  Returns the UNIX UID number for the specified user. **_Example:_** tcb("OS_getuseruid", "fred")  
 "OS_getusername" |  Returns the UNIX user name for the specified user.  
 "OS_getuserhome" |  Returns the UNIX home directory for the specified user.  
-"OS_getusershell" |  Returns the UNIX shell program for the specified user.
+"OS_getusershell" |  Returns the UNIX shell program for the specified user.  
+  
+ 
+
+ 
+
+ 

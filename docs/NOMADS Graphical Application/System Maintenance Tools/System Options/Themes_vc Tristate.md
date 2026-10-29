@@ -5,11 +5,11 @@
   
 For the **_Tristate_Box_** control type, the button's default appearance can be controlled by setting the standard properties for _Background, Foreground_ , _Border Color_ and _Border Color 2_. Additional button properties can be set that control the button's appearance when the button's **_state_** is changed, thus providing a further visual cue. Possible button states are **_Active_** , **_Disable_** , **_Focus_** and **_Hover_**.
 
-|  _Active_ |  Button is pressed down.  
+  |  _Active_ |  Button is pressed down.  
 ---|---|---  
-|  _Disable_ |  Button is disabled.  
-|  _Focus_ |  Button has focus.  
-|  _Hover_ |  Mouse is over the button.  
+  |  _Disable_ |  Button is disabled.  
+  |  _Focus_ |  Button has focus.  
+  |  _Hover_ |  Mouse is over the button.  
   
 To set the properties that control the button's appearance when the button's **_state_** is changed, see the **[Colors (States)](Themes_vc%20Tristate.htm#states)** category.
 
@@ -30,7 +30,7 @@ _Bitmap Button_ |  Button has a bitmap whose width is divided into four images. 
 #### **Note:**  
 This property is effective on a check box only when it is drawn as a button, which occurs when a bitmap is added.  
   
-_Border Style_ |  Style of button border. Options are _None, Solid, Double, Groove, Ridge, Inset_ and _Outset_ : If not set, the default Windows style is used. This must be set to a non-blank value to use the _Border Width_ and various _Border Color_ settings.
+_Border Style_ |  Style of button border. Options are _None, Solid, Double, Groove, Ridge, Inset_ and _Outset_ :     ![](images/themes_003_1.png) If not set, the default Windows style is used. This must be set to a non-blank value to use the _Border Width_ and various _Border Color_ settings.
 
 #### **Note:**  
 This property is effective on a check box only when it is drawn as a button, which occurs when a bitmap is added.  
@@ -40,6 +40,26 @@ _Border Width_ |  Width of the button border (in pixels). Options are _None, 1, 
 #### **Note:**  
 This property is effective on a check box only when it is drawn as a button, which occurs when a bitmap is added.  
   
+_CB Corner Radius_ |  Sets the corner radius for check boxes that look like check boxes (no bitmap defined), not for check boxes that look like normal buttons. Works only in **4D** mode. Possible values are _Null_ (_blank_), _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CBCornerRadius$](../../../control_object_properties/tristate_box_properties.htm#cbcornerradius)** property **_Example:_**      ![](images/themes_003_2.png)  
+  
+     ![](images/themes_003_3.png)  
+  
+     ![](images/themes_003_4.png) To set the corner radius for check boxes created as buttons (when a bitmap is added), use the **[Corner Radius](Themes_vc%20Tristate.htm#cornerradius)** property.
+
+#### **Note:**  
+Corner rounding is limited based on the control type and/or the control size.
+
+_(CB Corner Radius property was added in PxPlus 2026.)_  
+_Corner Radius_ |  Sets the corner radius for a check box only when it is drawn as a button, which occurs when a bitmap is added. Works only in **4D** mode. Possible values are _Null_ (_blank_), _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CornerRadius$](../../../control_object_properties/tristate_box_properties.htm#cornerradius)** property. **_Example:_**      ![](images/themes_003_5.png)  
+  
+     ![](images/themes_003_6.png)  
+  
+     ![](images/themes_003_7.png) To set the corner radius for check boxes with no bitmap defined, use the **[CB Corner Radius](Themes_vc%20Tristate.htm#cbcornerradius)** property.
+
+#### **Note:**  
+Corner rounding is limited based on the control type and/or the control size.
+
+_(Corner Radius property was added in PxPlus 2026.)_  
 _Drop-List Button_ |  An extra button with an arrow bitmap is attached to the right of the main button. When the arrow bitmap button is clicked, the associated popup menu is displayed.
 
 #### **Note:**  
@@ -55,12 +75,39 @@ _Flat - No Border_ |  Button has no border and shows no raised outline unless th
 #### **Note:**  
 This property is effective on a check box only when it is drawn as a button, which occurs when a bitmap is added.  
   
+_Focus Rectangle_ |  Controls whether a dotted focus rectangle displays around the Tri-State Check Box text (with and without a bitmap added). Possible values are: |    |  _Default_ |  Uses the default setting.  
+---|---|---  
+  |  _Display_ |  Focus rectangle is shown (On).  
+  |  _Suppress_ |  Focus rectangle is not shown (Off).  
+  
+**_Example:_**
+
+Tri-State Check Box focus is **_Off_** :
+
+     ![](images/themes_003_8.png)
+
+Tri-State Check Box focus is **_On_** :
+
+     ![](images/themes_003_9.png)
+
+**_Example:_**
+
+Tri-State Check Box focus is **_Off_** (when a bitmap is added):
+
+     ![](images/themes_003_10.png)
+
+Tri-State Check Box focus is **_On_** (when a bitmap is added):
+
+     ![](images/themes_003_11.png)
+
+_(Focus Rectangle property was added in PxPlus 2026.)_  
+  
 _Hover Color_ |  Text on the button is highlighted when the mouse is over the button. The default color is controlled by the **['CH'](../../../parameters/ch.md)** system parameter that defaults to 'Light Blue'.
 
 #### **Note:**  
 This property is effective on a check box only when it is drawn as a button, which occurs when a bitmap is added.  
   
-_Hover Cursor_ |  Controls the type of cursor to display whenever the mouse moves over the control. Options are _Default, Arrow, Wait, Insert, Movement arrows, Sizing arrow, Hand, Crossed hand, Rabbit in hat, Happy face, Sad face, Up/Down arrow, Left/Right arrow_ and _Not allowed_.  
+_Hover Cursor_ |  Controls the type of cursor to display whenever the mouse moves over the control. Options are _Default, Arrow, Wait, Insert, Movement arrows, Sizing arrow, Hand, Crossed hand, Rabbit in hat, Happy face, Sad face, Up/Down arrow, Left/Right arrow_ and _Not_ _allowed_.  
 _Sticky Button_ |  "Sticky" functionality; i.e. the button remains in the "pressed" position until the next selection.
 
 #### **Note:**  
@@ -90,7 +137,7 @@ _Border Color_ |  Button border color. See _Border Color 2_ below. Border colors
 #### **Note:**  
 This property is effective on a check box only when it is drawn as a button, which occurs when a bitmap is added.  
   
-_Border Color 2_ |  Used in conjunction with _Border Color_ to generate a two-color button border.  _Border Color_ is applied to the top and left borders, _Border Color 2_ to the bottom and right borders. _Border Color**must** be specified_; otherwise, _Border Color 2_ will be ignored.  
+_Border Color 2_ |  Used in conjunction with _Border Color_ to generate a two-color button border. _Border Color_  is applied to the top and left borders, _Border Color 2_ to the bottom and right borders. When **[Corner Radius](Themes_vc%20Tristate.htm#cornerradius)** is set to _Round_ or a value, _Border Color 2_ is applied to all the button borders when the button is pressed down. _Border Color**must** be specified_; otherwise, _Border Color 2_ will be ignored.  
 _CB Frame Color_ |  Color of the frame/box of the check box. Applies only to check boxes that look like check boxes (no bitmap defined), not for check boxes that look like normal buttons. _(Check Box Frame Color property was added in PxPlus 2024.)  
 (The name change from Check Box Frame Color to CB Frame Color was added in PxPlus 2025.)_  
 _CB Mark Color_ |  Color of the check mark in the check box. Applies only to check boxes that look like check boxes (no bitmap defined), not for check boxes that look like normal buttons. _(Check Box Mark Color property was added in PxPlus 2024.)  
@@ -108,7 +155,7 @@ _Active Border Color_ |  Button border color when the button is pressed down. Se
 #### **Note:**  
 This property is effective on a check box only when it is drawn as a button, which occurs when a bitmap is added.  
   
-_Active Border Color 2_ |  When used in conjunction with _Active Border Color_ , these two colors represent the border colors: _Active Border Color 2_ (top and left borders) and _Active Border Color_ (bottom and right borders). _Active Border Color**must** be specified_; otherwise, _Active Border Color 2_ will be ignored.  
+_Active Border Color 2_ |  When used in conjunction with _Active Border Color_ , these two colors represent the border colors:  _Active Border Color 2_ (top and left borders) and _Active Border Color_ (bottom and right borders). When **[Corner Radius](Themes_vc%20Tristate.htm#cornerradius)** is set to _Round_ or a value, _Active Border Color 2_ is applied to all the button borders when the button is pressed down. _Active Border Color**must** be specified_; otherwise, _Active Border Color 2_ will be ignored.  
 _Active Text Color_ |  Foreground text color when the button is pressed down.
 
 #### **Note:**  
@@ -119,7 +166,7 @@ _CB Disable Mark Color_ |  Color of the check mark in the disabled check box. Ap
 _CB Hover Color_ |  Color of the hover rectangle in the check box when the mouse is over the control. Applies only to check boxes that look like check boxes (no bitmap defined), not for check boxes that look like normal buttons. _(Check Box Hover Color property was added in PxPlus 2024.)  
 (The name change from Check Box Hover Color to CB Hover Color was added in PxPlus 2025.)_  
 _Disable Background Color_ |  Background color when the button is disabled. See _Disable Background Color 2_ below.  
-_Disable Background Color 2_ |  Used in conjunction with _Disable Background Color_ to generate a two-color gradient fill for the button background when the button is disabled. The gradient fill starts with _Disable Background Color_ at the top and flows to _Disable Background Color 2_ at the bottom. _Disable Background Color**must**_ be specified; otherwise, _Disable Background Color 2_ will be ignored.
+_Disable Background Color 2_ |  Used in conjunction with _Disable_ _Background Color_ to generate a two-color gradient fill for the button background when the button is disabled. The gradient fill starts with _Disable_ _Background Color_ at the top and flows to _Disable Background Color 2_ at the bottom. _Disable Background Color**must**_ be specified; otherwise, _Disable Background Color 2_  will be ignored.
 
 #### **Note:**  
 This property is effective on a check box only when it is drawn as a button, which occurs when a bitmap is added.  
@@ -129,7 +176,7 @@ _Disable Border Color_ |  Button border color when the button is disabled. See _
 #### **Note:**  
 This property is effective on a check box only when it is drawn as a button, which occurs when a bitmap is added.  
   
-_Disable Border Color 2_ |  Used in conjunction with _Disable Border Color_ to generate a two-color button border when the button is disabled. _Disable Border Color_ is applied to the top and left borders, _Disable Border Color 2_ to the bottom and right borders. _Disable Border Color**must**_ be specified; otherwise, _Disable Border Color 2_ will be ignored.  
+_Disable Border Color 2_ |  Used in conjunction with _Disable_ _Border Color_ to generate a two-color button border when the button is disabled. _Disable Border Color_  is applied to the top and left borders, _Disable Border Color 2_ to the bottom and right borders. _Disable Border Color**must**_ be specified; otherwise, _Disable Border Color 2_  will be ignored. When **[Corner Radius](Themes_vc%20Tristate.htm#cornerradius)** is set to _Round_ or a value, _Disable Border Color 2_ has no effect.  
 _Disable Text Color_ |  Foreground text color when the button is disabled.  
 _Focus Background Color_ |  Background color when the button has focus. See _Focus Background Color 2_ below.
 
@@ -142,15 +189,15 @@ _Focus Border Color_ |  Button border color when the button has focus. See _Focu
 #### **Note:**  
 This property is effective on a check box only when it is drawn as a button, which occurs when a bitmap is added.  
   
-_Focus Border Color 2_ |  Used in conjunction with _Focus Border Color_ to generate a two-color button border when the button has focus. _Focus Border Color_ is applied to the top and left borders, _Focus Border Color 2_ to the bottom and right borders. _Focus Border Color**must** be specified_; otherwise, _Focus Border Color 2_ will be ignored.  
+_Focus Border Color 2_ |  Used in conjunction with _Focus Border Color_ to generate a two-color button border when the button has focus. _Focus Border Color_  is applied to the top and left borders, _Focus Border Color 2_ to the bottom and right borders. _Focus Border Color**must** be specified_; otherwise, _Focus Border Color 2_ will be ignored. When **[Corner Radius](Themes_vc%20Tristate.htm#cornerradius)** is set to _Round_ or a value, _Focus Border Color 2_ has no effect.  
 _Focus Text Color_ |  Foreground text color when the button has focus.
 
 #### **Note:**  
 This property is effective on a check box only when it is drawn as a button, which occurs when a bitmap is added.  
   
-_Gray Disabled Bitmap_ |  Controls how the image on the button will display when the button is disabled. Applicable only when there is a bitmap on the button. Click the drop-down arrow for available selections: _Default gray disabled setting**(Default)**_  
-_Images display as shadows_  
-_Images converted to gray scale_
+_Gray Disabled Bitmap_ |  Controls how the image on the button will display when the button is disabled. Applicable only when there is a bitmap on the button. Click the drop-down arrow for available selections:    _Default gray disabled setting**(Default)**_  
+   _Images display as shadows_  
+   _Images converted to gray scale_
 
 #### **Note:**  
 This property is effective on a check box only when it is drawn as a button, which occurs when a bitmap is added.
@@ -163,7 +210,7 @@ _Hover Background Color 2_ |  Used in conjunction with _Hover Background Color_ 
 This property is effective on a check box only when it is drawn as a button, which occurs when a bitmap is added.  
   
 _Hover Border Color_ |  Border color when the mouse is over the control. See _Hover Border Color 2_ below. Border colors are applied only if a **[Border Style](Themes_vc%20Tristate.htm#border_style)** (other than the system default) is specified for the control. _(Support for standard Check Boxes with no bitmap was added in PxPlus 2025.)_  
-_Hover Border Color 2_ |  Used in conjunction with _Hover Border Color_ to generate a two-color button border when the mouse is over the button. _Hover Border Color_ is applied to the top and left borders, _Hover Border Color 2_ to the bottom and right borders. _Hover Border Color**must** be specified_; otherwise, _Hover Border Color 2_ will be ignored.
+_Hover Border Color 2_ |  Used in conjunction with _Hover Border Color_ to generate a two-color button border when the mouse is over the button. _Hover Border Color_  is applied to the top and left borders, _Hover Border Color 2_ to the bottom and right borders. _Hover Border Color**must** be specified_; otherwise, _Hover Border Color 2_ will be ignored. When **[Corner Radius](Themes_vc%20Tristate.htm#cornerradius)** is set to _Round_ or a value, _Hover Border Color 2_ has no effect.
 
 #### **Note:**  
 This property is effective on a check box only when it is drawn as a button, which occurs when a bitmap is added.  
@@ -173,9 +220,15 @@ _Hover Text Color_ |  Foreground text color when the mouse is over the control. 
 _Font_ |  Click the dotted Query button or double click inside the cell to specify font properties and attributes, such as _Bold_ , _Italics_ , etc. In addition, _Alignment_ (default: _Center_) and _Word Wrap_ can be specified. See **[Font Properties](Font%20Properties.md)**. _(Alignment and Word Wrap options were added in PxPlus 2022.)  
 __(The Use 'Font Name' only check box option was added in PxPlus 2025.)_  
 **Other**  
-_iNomads Class_ |  Assign an iNomads class to the control. The iNomads class contains class attribute references used when defining the control in the HTML code generated in iNomads. An iNomads class reference must start with an alpha character (A-Z or a-z), followed by any combination of A-Z, a-z, 0-9, underscore or dash. Multiple references may be entered, separated by a space. For a list of pre-defined classes, see **[iNomads Classes](../../../iNOMADS/iNomads%20Classes.md)**. _(iNomads Class property was added in PxPlus 2020.)_  
+_iNomads_ _Class_ |  Assign an iNomads class to the control. The iNomads class contains class attribute references used when defining the control in the HTML code generated in iNomads. An iNomads class reference must start with an alpha character (A-Z or a-z), followed by any combination of A-Z, a-z, 0-9, underscore or dash. Multiple references may be entered, separated by a space. For a list of pre-defined classes, see **[iNomads Classes](../../../iNOMADS/iNomads%20Classes.md)**. _(iNomads Class property was added in PxPlus 2020.)_  
   
 ## See Also
 
 **[Themes](Themes.md)**  
 **[Visual Classes](Visual%20Classes.md)**
+
+ 
+
+ 
+
+ 

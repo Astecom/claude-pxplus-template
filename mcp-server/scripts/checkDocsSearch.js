@@ -96,6 +96,10 @@ const numeric = grid.properties?.find(p => p.name === 'CellIsNumeric');
 check(numeric?.since === '2020' && numeric?.available === 'yes', 'control_properties: CellIsNumeric came in 2020, so 22.00 has it');
 const old = (await controlPropertiesTool.handler({ control: 'grid', filter: 'CellIsNumeric', version: '2019' })).data || {};
 check(old.properties?.[0]?.available === 'no', 'control_properties: 2019 does not have CellIsNumeric yet');
+// PxPlus 2026: CornerRadius$ and FocusRect came with 23.00 (22.00 gives Error #88 on them)
+const corner = async version => ((await controlPropertiesTool.handler({ control: 'BUTTON', version })).data?.properties || [])
+  .filter(p => p.name === 'CornerRadius$' || p.name === 'FocusRect').map(p => p.available).join(',');
+check(await corner('22.00') === 'no,no' && await corner('23.00') === 'yes,yes', 'control_properties: CornerRadius$ and FocusRect of BUTTON are in 23.00, not in 22.00');
 const ml = (await controlPropertiesTool.handler({ control: 'Multi-Line' })).data || {};
 check(ml.count > 50 && ml.properties.some(p => p.name === 'BackColor$ / BackColour$'),
   `control_properties: all properties of MULTI_LINE, with both spellings (${ml.count})`);

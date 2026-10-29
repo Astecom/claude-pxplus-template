@@ -40,16 +40,17 @@ interface PropertyRow {
 function propertyRows(content: string): PropertyRow[] {
   const header = content.search(/\*\*Property\*\*\s*\|\s*\*\*Description\*\*/i);
   const table = header >= 0 ? content.substring(header) : content;
-  const rowStart = /\*\*\[([^\]]+)\]\(([^)\s]+)\)([^*|\n]*)\*\*\s*\|/g;
+  // A row starts a line: "**[Name](link)**" (most pages) or "[**Name**](link)", also "[ **Name**](link)" (rows added since PxPlus 2026)
+  const rowStart = /^(?:\*\*\[([^\]]+)\]\(([^)\s]+)\)([^*|\n]*)\*\*|\[\s*\*\*([^\]*]+)\*\*\s*\]\(([^)\s]+)\))\s*\|/gm;
   const starts = [...table.matchAll(rowStart)];
   return starts.map((match, i) => {
     const end = i + 1 < starts.length ? starts[i + 1].index! : table.length;
     let description = table.substring(match.index! + match[0].length, end);
     const heading = description.search(/\n#{1,3}\s/);
     if (heading >= 0) description = description.substring(0, heading);
-    const names = match[1].split(/\s{2,}|\n/).map(n => n.trim()).filter(Boolean);
-    if (match[3].trim()) names[names.length - 1] += match[3].trim();
-    const link = match[2].replace(/#.*$/, '').replace(/^(\.\.\/)+/, '').replace(/\.html?$/i, '.md');
+    const names = (match[1] ?? match[4]).split(/\s{2,}|\n/).map(n => n.trim()).filter(Boolean);
+    if (match[3]?.trim()) names[names.length - 1] += match[3].trim();
+    const link = (match[2] ?? match[5]).replace(/#.*$/, '').replace(/^(\.\.\/)+/, '').replace(/\.html?$/i, '.md');
     return { names, page: link, description: plain(description) };
   });
 }

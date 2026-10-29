@@ -29,22 +29,59 @@ BackColour$](../properties/backcolor_.md)** |  Background color. When a multi-li
 #### **Note:**  
 Applicable only when using Windows XP or Windows 7 style controls.  
   
-**[BringToTop](../properties/bringtotop.md)** |  This property, when set to **_any_** value, will cause the control to be moved to the top of the display order. Once at the top of the display order, the control will appear visually on top of any other control on the window. (**_Default:_**__ Not Applicable - Always returns 0)  
+**[BringToTop](../properties/bringtotop.md)** |  This property, when set to **_any_** value, will cause the control to be moved to the top of the display order. Once at the top of the display order, the control will appear visually on top of any other control on the window. (**_Default:_**_ _ Not Applicable - Always returns 0)  
 **[Calendar$](../properties/calendar.md)** |  Invoke month calendar control. For parameters, see **[Calendar Feature](../directives/multi_line.htm#calendar)** as described in the **MULTI_LINE** directive.  
 **[Col](../properties/col.md)** |  Screen position (column) of control.  
 **[Cols](../properties/cols.md)** |  Width of control in column units.  
+[**CornerRadius$**](../properties/cornerradius_.md) |  Sets the radius for the multi-line corners. Works only in **4D** mode. Possible values are: |  _ _ |  _(Null)_ |  Property is not set.  
+---|---|---  
+_ _ |  _Round_ |  Sets the default radius of 3 for round corners.  
+_ _ |  _Square_ |  Sets the default radius of 0 for square corners.  
+_ _ |  _(Value)_ |  Enter a value from 0 to 7 inclusive.  
+  
+**_Example:_**
+
+CornerRadius$ set to **Round** :
+
+> MULTI_LINE 100,@(10,15,10,2)  
+>  y=100  
+> y'CornerRadius$="round"  
+>   
+>   ![](images/multiline_001_1.png)
+
+CornerRadius$ set to **Square** :
+
+> MULTI_LINE 100,@(10,15,10,2)  
+>  y=100  
+> y'CornerRadius$="square"  
+>   
+>   ![](images/multiline_001_2.png)
+
+CornerRadius$ set to a value of **7** :
+
+> MULTI_LINE 100,@(10,15,10,2)  
+>  y=100  
+> y'CornerRadius$="7"  
+>   
+>   ![](images/multiline_001_3.png)
+
+#### **Note:**  
+Corner rounding is limited based on the control type and/or the control size.
+
+_(The CornerRadius$ property was added in PxPlus 2026.)_  
+  
 **[CtlName$](../properties/ctlname_.md)** |  Control type ("MULTI_LINE"). See **[MULTI_LINE](../directives/multi_line.md)** directive.  
 **[DisableBackColor$  
 DisableBackColour$](../properties/disablebackcolor.md)** |  Background color when the control is disabled. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**. _(Multi-Line support was added in PxPlus 2019.)_  
 **[DisableTextColor$  
 DisableTextColour](../properties/disabletextcolor.md)$** |  Foreground text color when the control is disabled. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**. _(Multi-Line support was added in PxPlus 2019.)_  
 **[Enabled](../properties/enabled.md)** |  Enabled indicator: 1 = True; 0 = False (**_Default:_** 1)  
-**[Encrypt$](../properties/encrypt.md)** |  The 'Encrypt$ property for multi-lines can be set on fields that are to be kept confidential by the user (such as a password) and that the system only needs to verify that the user has entered the same value as opposed to knowing what the user entered. When the 'Encrypt$ property is set, the control will return the SHA1 hash key of the value set in 'Encrypt$ followed by the value in the field. This is an industry standard hashing algorithm that is generally acceptable for security purposes. **_Example:_** If the input field contains the value "MyPassword", then setting the 'Encrypt$ property to "Hide the Password:" -- When you read the field, it will return the value of HSH ("Hide the Password:MyPassword",-1), which is its SHA1 value. This is a one-way encrypt into a 40 byte (20 Hex characters or 160 bit) value -- see <http://en.wikipedia.org/wiki/SHA-1>.
+**[Encrypt$](../properties/encrypt.md)** |  The 'Encrypt$ property for multi-lines can be set on fields that are to be kept confidential by the user (such as a password) and that the system only needs to verify that the user has entered the same value as opposed to knowing what the user entered. When the 'Encrypt$ property is set, the control will return the SHA1 hash key of the value set in 'Encrypt$ followed by the value in the field. This is an industry standard hashing algorithm that is generally acceptable for security purposes. **_Example:_** If the input field contains the value "MyPassword", then setting the 'Encrypt$ property to "Hide the Password:" \-- When you read the field, it will return the value of HSH ("Hide the Password:MyPassword",-1), which is its SHA1 value. This is a one-way encrypt into a 40 byte (20 Hex characters or 160 bit) value -- see <http://en.wikipedia.org/wiki/SHA-1>.
 
 #### **Note:**  
 When the Encrypt$ property is set, you cannot load a value into the multi-line; you can only clear it. Any attempt to set a value in the multi-line is ignored (since a write back would be trying to write back the SHA1 value).
 
-This feature allows the system to store a user input such as a password and validate against the SHA1 of a prior entry without ever knowing what the password is. For increased security, you cannot read back the 'Encrypt property. If you do read, this property will return the following string: **D:**_n_ ,**L:**_n_ ,**U:**_n_ ,**S:**_n_ **_Where:_** Each of the '_n_ ' values indicates the number of **D** igits, **L** owercase, **U** ppercase and **S** pecial characters in the field. This can be used to determine general password characteristics so the developer can impose restrictions on the password such as must be > 6 characters, contain a number and at least one special character. **['SelectText$](../properties/selecttext_.md)** will be disabled while 'Encrypt$ has a value, and this property is **_only_** valid on regular multi-lines -- not Rich Text multi-lines. Once set, this will allow for secure interaction for password fields with a WindX connection without having to resort to using SSL for communications.  
+This feature allows the system to store a user input such as a password and validate against the SHA1 of a prior entry without ever knowing what the password is. For increased security, you cannot read back the 'Encrypt property. If you do read, this property will return the following string:      **D:**_n_ ,**L:**_n_ ,**U:**_n_ ,**S:**_n_ **_Where:_** Each of the '_n_ ' values indicates the number of **D** igits, **L** owercase, **U** ppercase and **S** pecial characters in the field. This can be used to determine general password characteristics so the developer can impose restrictions on the password such as must be > 6 characters, contain a number and at least one special character. **['SelectText$](../properties/selecttext_.md)** will be disabled while 'Encrypt$ has a value, and this property is **_only_** valid on regular multi-lines -- not Rich Text multi-lines. Once set, this will allow for secure interaction for password fields with a WindX connection without having to resort to using SSL for communications.  
 **[EnterMode](../properties/entermode.md)** |  This property is used to define how the ENTER key will be processed with the control. For the multi-line, the EnterMode property defines whether the ENTER key is to be allowed within the control or considered a TAB to exit the control. When 0 (zero), it indicates that the ENTER key will not be considered as a TAB; thus, depending on the type of multi-line, it will signal the input complete for a 1-line field or insert a line feed on a control with multiple input lines. (**_Default for Multi-line:_** The default setting reflects the **['+E'](../mnemonics/+e.md)** mnemonic setting.)  
 **[Eom$](../properties/eom_.md)** |  Last change terminator. See also **[MULTI_LINE](../directives/multi_line.md)** directive.  
 **[Fmt$](../properties/fmt_.md)** |  Control format definition. Refer to the **FMT=** option as described in the **[MULTI_LINE](../directives/multi_line.htm#Mark2)** directive.  
@@ -70,10 +107,10 @@ HoverTextColour$](../properties/hovertextcolor_.md)** |  Foreground text color w
 **[Len](../properties/len.md)** |  Input length of line.  
 **[Line](../properties/line.md)** |  Screen position of control.  
 **[Lines](../properties/lines.md)** |  Height of control in number of lines.  
-**[Lock](../properties/lock.md)** |  Lock status: Possible values are: |  0 |  Unlock **_(Default)_**  
+**[Lock](../properties/lock.md)** |  Lock status: Possible values are: |   0 |  Unlock **_(Default)_**  
 ---|---  
-1 |  Lock  
-2 |  Lock (cell contents can be selected/copied) **_(Grid Only)_**  
+ 1 |  Lock  
+ 2 |  Lock (cell contents can be selected/copied) **_(Grid Only)_**  
 -1 |  Permanently locked **_(Multi-Line Only)_**  
   
 _(The Lock status of 2 was added in PxPlus 2019.)_  
@@ -133,7 +170,7 @@ The Clipboard will reflect the actual data pasted in case the user wants to past
 **[SignalOnExit](../properties/signalonexit.md)** |  Controls whether a 'Change' signal will be generated when the control (or region of a grid control) is exited regardless of whether the control's value changes. Normally, controls only signal changes when the control loses focus **_and_** the contents have changed. Setting 'SignalOnExit allows a change signal to also be generated whenever focus leaves the control (or region for grid). |  0 |  No signal on exit unless control value has changed.  
 ---|---  
 1 |  Signal on exit regardless of whether value has changed (on grid, signals whenever changing cell).  
-2 |  Signal when changing row or on exit of grid (sets column value to 0 and row value to last row exited)._**(Grid Only)**_  
+2 |  Signal when changing row or on exit of grid (sets column value to 0 and row value to last row exited)._ **(Grid Only)**_  
 3 |  Signal when exiting the grid (sets column and row values to zero). **_(Grid Only)_**  
 **[SpellCheck](../properties/spellcheck.md)** |  Enable spell checking. For a multi-line and grid cell, set this property to non-zero to enable spell checking on the input field. Reading this property will determine whether spell checking is enabled. (**_Default:_** 0) _(The SpellCheck property was added in PxPlus 2019.)_  
 **[TextColor$  
@@ -157,3 +194,9 @@ TextColour$](../properties/textcolor_.md)** |  Foreground text color. For inform
 **['COLOUR' & '_COLOUR' Mnemonic](../mnemonics/colour.md)**  
 **[Using Property Names](../control_object_properties.htm#Mark1)**  
 **[Compound Properties](compound_properties.md)**
+
+ 
+
+ 
+
+ 

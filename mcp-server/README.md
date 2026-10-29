@@ -53,6 +53,18 @@ You should see `pxplus` in the list.
 
 `pxplus_get_doc` and `pxplus_control_properties` read the version notes of the documentation ("added in PxPlus 2020"). Since PxPlus 2016 a year and a version number go together: 2025 = 22.00, 2026 = 23.00.
 
+## Updating the documentation
+
+`docs/` comes from the online manual (https://manual.pvxplus.com/PXPLUS/). For a new PxPlus version, fetch its release notes and the pages they link to, then rebuild the index:
+
+```bash
+python3 -m venv /tmp/docs-venv && /tmp/docs-venv/bin/pip install html2text
+/tmp/docs-venv/bin/python scripts/fetchDocs.py pxplus/vers2300.htm
+npm run build-docs-index && npm run check-docs-search
+```
+
+The docs go up to PxPlus 2026 (23.00).
+
 ## Data dictionary and data files
 
 Through the PxPlus `*dict` objects, as Data Dictionary Maintenance does (the PxPlus side is `pxplus/dict.pxprg`, which writes its answer into a file, so a windowed PxPlus works too). Requires `PXPLUS_EXECUTABLE_PATH`.
