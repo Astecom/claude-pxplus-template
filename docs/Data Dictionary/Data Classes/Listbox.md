@@ -5,9 +5,9 @@
   
 When creating or editing a data class for a _List Box_ control type, **Data Class Definitions** maintenance displays the following:
 
-  |  ![](images/listbox_004_1.jpg)**  
+  |  **  
 List Box Data Class**  **([Load From File](Listbox.htm#display) _On_)**   
-_(**Load From File** was added in PxPlus 2019)_ |  ![](images/listbox_004_2.jpg)  
+_(**Load From File** was added in PxPlus 2019)_ |    
 **List Box Data Class**  **([Load From File](Listbox.htm#display) _Off_)**  
 ---|---|---  
   
@@ -57,7 +57,7 @@ When using a _Tree View_ list box, use **SEP** to create nodes in the tree struc
   
 _(The ability to use numeric elements and specify an Expression was added in PxPlus 2020.)_  
   
-_Include Key and Value_ |  **_(Available when Display Value is Fixed and a non-numeric element is selected)_** **_(Optional)_** Select this check box to use **_both_** the _Key_ value **_and_** the _Display Value_ to load the list box in the following format: _Keyvalue_ _: DisplayValue_. (By default, this check box is not selected.) **_Example:_** If the _Key_ is ClientIDKey:Client ID and the _Display Value_ is ClientName$, the list box will load using **_both_** these values:    ![](images/listbox_004_3.png)  
+_Include Key and Value_ |  **_(Available when Display Value is Fixed and a non-numeric element is selected)_** **_(Optional)_** Select this check box to use **_both_** the _Key_ value **_and_** the _Display Value_ to load the list box in the following format: _Keyvalue_ _: DisplayValue_. (By default, this check box is not selected.) **_Example:_** If the _Key_ is ClientIDKey:Client ID and the _Display Value_ is ClientName$, the list box will load using **_both_** these values:     
 _Filter Test_ |  **_(Available when a Table is selected)_** **_(Optional)_**  Enter an expression to filter the records that will be loaded in the list box if the expression is evaluated as True. **_Examples:_**    UCS(DepartmentCode$)=''EAST''    MID(ProductCode$,1,3)=''CAR''    ytdSales>0 _(Filter Test option was added in PxPlus 2020.)_  
 _Return Value_ |  **_(Available when a Table is selected)_** Select the return value when an entry is selected from the list box. This value is used to define the **[Translation](Listbox.htm#validation)** table for the list box. Click the drop-down arrow for a list of defined Key values for the selected _Table_. Defaults to the Primary key when a _Table_  is entered. If an element is selected for the _Display Value_ , then "List Box Display Value" will be added as an available selection to the top of the _Return Value_ drop-down list.  
 _Descriptive Field_ |  **_(Available when a Table is selected)_** **_(Optional)_** Specify a descriptive field (either _Fixed_ or _Expression_) to allow it to be available when creating display-only Multi-Line controls in the NOMADS Panel Designer. See **[Extended Class Browse](../../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Multi-Line%20Control/Extended%20Class%20Browse.md)**. |  _Fixed_ |  Click the drop-down arrow to select from a list of **_string_** elements in the selected _Table_. This list includes numeric elements (if defined), which display either as **=STR(**_value:_ "_format_ "**)** or **=STR(**_value_**)** , depending on whether a _Display_ format mask was defined for the numeric element in the Data Dictionary. **_Examples:_** |  =STR(_ytdSales_ :"##,###,##0.00") |  With _Display_ format mask ##,###,##0.00  
@@ -101,9 +101,9 @@ _Input Length_ |  **_(Applicable when List Box Type is Standard and Allow Variab
 _Multiple Selections_ |  Users can select more than one entry from the list box.  
 _No Height Adjustment_ |  The list box will not be forced to show only complete lines. The last line will be truncated horizontally (i.e. displaying a partial line to ensure that the height of the list box matches the size defined). See **[Resizing Input Controls](../../NOMADS%20Graphical%20Application/Panel%20Designer/Resizing%20and%20Persistence/Resizing%20Input%20Controls.md)**.  
 _Corner Radius_ |  **_(Not Available for Variable List Boxes)_** Sets the radius for the list box corners. Works only in **4D** mode. This option is available for all **[List Box Types](Listbox.htm#lbtype)** **_except_** Report View and Variable List Boxes. When the _Allow Variable Input_ check box is selected, this option is hidden. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 8 inclusive. See **[CornerRadius$](../../control_object_properties/listbox_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :  
-   ![](images/listbox_004_4.png) Corner Radius set to **Square** :  
-   ![](images/listbox_004_5.png) Corner Radius set to a value of **8** :  
-   ![](images/listbox_004_6.png)
+   Corner Radius set to **Square** :  
+   Corner Radius set to a value of **8** :  
+  
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.

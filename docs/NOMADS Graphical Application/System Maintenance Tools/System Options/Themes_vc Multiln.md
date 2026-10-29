@@ -9,11 +9,11 @@ This table lists all the **_Multi_Line_** properties:
 ---|---  
 **Attributes**  
 _Borderless_ |  Control has no border or frame.  
-_Corner Radius_ |  Sets the radius for the multi-line corners. Works only in **4D** mode. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 7 inclusive. See **[CornerRadius$](../../../control_object_properties/multiline_properties.htm#cornerradius)** property. **_Example:_**      ![](images/themes_011_1.png)  
+_Corner Radius_ |  Sets the radius for the multi-line corners. Works only in **4D** mode. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 7 inclusive. See **[CornerRadius$](../../../control_object_properties/multiline_properties.htm#cornerradius)** property. **_Example:_**        
   
-     ![](images/themes_011_2.png)  
+       
   
-    ![](images/themes_011_3.png)
+   
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.

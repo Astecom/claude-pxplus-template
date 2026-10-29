@@ -73,7 +73,7 @@ The valid parameters for **OPT=**_char$_ are:
 "I" |  Activate Implied decimal point input for this control (overrides the [**'+I'**](../mnemonics/+i.md) mnemonic setting).  
 "i" |  Disable Implied decimal point input for this control (overrides the [**'+I'**](../mnemonics/+i.md) mnemonic setting).  
 "L" |  _Lock_. User can set focus but cannot change the Multi-Line input region.  
-"m" |  _Vertically Center._ Text is centered vertically in the Multi-Line input region. **_Example:_** MULTI_LINE 100,@(10,15,12,3),opt="m"    ![](images/multi_002_1.png) _(The "m" option was added in PxPlus 2026.)_  
+"m" |  _Vertically Center._ Text is centered vertically in the Multi-Line input region. **_Example:_** MULTI_LINE 100,@(10,15,12,3),opt="m"    _(The "m" option was added in PxPlus 2026.)_  
 "N" |  _Signal To/From Null._ Generates a CTL value signal when value changes from null to non-null and vice versa.  
 "R" |  _Right Justify._  
 "r" |  _Rich Text Editor._ Multi-Line provides Rich Text Editor capabilities. See **[Rich Text Editor](multi_rtf.md)**.  

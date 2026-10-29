@@ -20,12 +20,15 @@ _Symbol_ |  **_(Optional)_** Symbol to precede the menu text. For a list of symb
 #### **Note:**  
 When specifying the symbol name, do **_not_** include the leading "fa-".  
   
-_Security Group_ |  Security group required to have the menu item included in the menu. A drop box with all the known groups in the system will be provided, along with two auto-generated options: |  _Any_ |  Indicates as long as the user is signed on and belongs to a group.  
+_Security Group_ |  Security group required to have the menu item included in the menu. A drop box with all the known groups in the system will be provided, along with two auto-generated options: |  _Any_ |  No security is enabled. Anyone can access.  
 ---|---  
-_Not On_ |  Indicates only show when not signed on.  
+_Not on_ |  Only show when not signed on.  
+_Admin_ |  Only show for Admin users.  
+_Dev_ |  Only show for Dev users.  
+_Guest_ |  Only show for Guest users. When users sign up, they are automatically set up as a Guest.  
 _Window_ |  The targeted window/tab in which to display the results of the menu selection. Select one of the following values: |  _New_ |  Menu output will display in a new tab.  
 ---|---  
-_Same_ |  Menu output replaces current window contents (default, if not set).  
+_Same_ |  Menu output replaces current window contents. (**_Default_** \- if _Window_ option is left blank.)  
   
 The following items work in conjunction with each other:
 
@@ -37,7 +40,7 @@ _Program_ |  Selecting the menu will run the program specified.
 _Report_ |  Name of a report to launch.  
 _Webpage_ |  Selecting the menu will open the page specified. **_(Optional)_** Insert a **;**  _(semi-colon)_ followed by the name of the _TopMenu_ to include this with the page (i.e. WebPageName;TopMenuName). Leave blank to display the home/default page.  
 _Embed_ |  Similar to the _Webpage_ menu but the Web page is presented inside a Webster+ template.  
-_iNomads_ |  Selecting the menu item will launch the iNomads transaction. See **[Using iNomads with Webster+](Using%20iNomads%20with%20Webster.md)**.  
+_iNomads_ __|  Selecting the menu item will launch the iNomads transaction. See **[Using iNomads with Webster+](Using%20iNomads%20with%20Webster.md)**.  
   
 _(The Embed and iNomads actions were added in PxPlus 2023.)_  
   
@@ -56,4 +59,11 @@ _Save As_ |  Saves a copy of the currently selected menu with a different name w
 ## See Also
 
 **[[Menu] Short Code](Short%20Codes.htm#menu)**  
-**[[Menubar] Short Code](Short%20Codes.htm#menubar)**
+**[[Menubar] Short Code](Short%20Codes.htm#menubar)  
+[How to Create a Top Menu Bar with Sub-Menus](../How%20To/How%20to%20Create%20a%20Top%20Menu%20Bar.md)**
+
+ 
+
+ 
+
+ 

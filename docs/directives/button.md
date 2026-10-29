@@ -73,7 +73,7 @@ _3rd quarter_ |  Bitmap image when the mouse is over the button.
 _4th quarter_ |  Bitmap image when the button is pressed.  
   
 #### **Note:  
-** Quarters are _horizontal_ quarters, meaning that if a bitmap is 100 pixels wide, the first quarter of the image is the first 25 pixels wide full height, as in [1][2][3][4], rather than as top left/right and bottom left/right, as in  ![](images/button_004_1.png).  
+** Quarters are _horizontal_ quarters, meaning that if a bitmap is 100 pixels wide, the first quarter of the image is the first 25 pixels wide full height, as in [1][2][3][4], rather than as top left/right and bottom left/right, as in  .  
   
 **" C"** |  _Bitmap Centered._ Places the bitmap centered and scaled to fill the button. Button text, if present, will be centered and overlay the image. _(The "C" option was added in PxPlus 2018 Update 1.)_  
 **" D"** |  _Disabled._ Button is grayed out and is not accessible to the user.  
@@ -81,7 +81,7 @@ _4th quarter_ |  Bitmap image when the button is pressed.
 **" F"** |  _Flat._ Button shows no raised outline unless the mouse is over the button or the button is pushed.  
 **" f"** |  _Flat - No Border._ Same as "F" but has no border.  
 **" H"** |  _Hide._ Button is not displayed but is accessible programmatically.  
-**![](images/button_004_2.png)** |  _Spinner._ Indicates that the button will work as a spinner button with up and down chevrons displayed on the button for incrementing or decrementing an associated value. Clicking the up or down chevron will not only result in the button firing but will also set the EOM to either "U" or "D", depending on the chevron that was clicked. The color of the up and down chevrons can be controlled by using the **[TextColor$](../properties/textcolor_.md)** and **[HoverTextColor$](../properties/hovertextcolor_.md)** button properties. _(The "__I_ _" option was added in PxPlus 2024.)_  
+**** |  _Spinner._ Indicates that the button will work as a spinner button with up and down chevrons displayed on the button for incrementing or decrementing an associated value. Clicking the up or down chevron will not only result in the button firing but will also set the EOM to either "U" or "D", depending on the chevron that was clicked. The color of the up and down chevrons can be controlled by using the **[TextColor$](../properties/textcolor_.md)** and **[HoverTextColor$](../properties/hovertextcolor_.md)** button properties. _(The "__I_ _" option was added in PxPlus 2024.)_  
 **" M"** |  _Moveable._ Indicates that the button can be moved by the user. To move a button, the user clicks and holds the mouse button down, drags the control to its new position, and then releases the button. When the button is released, it will generate a standard BUTTON press event; however, the EOM will be "M" to indicate that the button was moved as opposed to simply being pressed. This movement will **_not_** be saved. See **[Moveable](../properties/moveable.md)** property. _(The "M" option was added in PxPlus 2018 Update 1.)_  
 **" O"** |  _Steal Focus._ Button will steal focus from other controls when the mouse moves over the button.  
 **" S"** |  _Signal Only._ The system generates a CTL value and does not shift focus to the button automatically (the default), but only when focus is explicitly passed to it. Use this to have a button act like a function key.  
@@ -99,7 +99,7 @@ PxPlus provides the capability to add balloon text to an icon placed in the Syst
 _(System tray buttons were added in PxPlus v7.10.)_  
 **" x"** |  _Tab Close Button._  **OPT= "x"** can be used to add a tab close button to a Button. **_Example:_**      PRINT 'OPTION'("TabBtnCloseIcon","c:\sample\ico\btn_x.ico")  
      PRINT 'OPTION'("TabBtnCloseHoverIcon","c:\sample\ico\zilla.ico")  
-     BUTTON 100,@(10,10,20,2)="Button ABC",opt="x" This button shows the tab close icon:      ![](images/button_004_3.png) This button shows the tab close hover icon:      ![](images/button_004_4.png) _(Support for customizing the tab close button was added in PxPlus 2026.)_  
+     BUTTON 100,@(10,10,20,2)="Button ABC",opt="x" This button shows the tab close icon:      This button shows the tab close hover icon:      _(Support for customizing the tab close button was added in PxPlus 2026.)_  
 **" +"** |  _Plus_  _Rocker._ Indicates that the button will work as a rocker button with Up, Down, Left and Right chevrons displayed on the axes of any bitmap contained in the button. Clicking on a chevron will not only result in the button firing but will also set the EOM to "U", "D", "L" or "R", depending on the chevron that was clicked. _(Plus Rocker buttons were added in PxPlus v11.00.)_  
   
 Options can be combined to create several different button types. The "f", "T", "U", "u" and "O" options provide the ability to turn buttons into **_hotspots_**. This allows for clickable areas on bitmaps or items such as HTTP URL links on dialogues.

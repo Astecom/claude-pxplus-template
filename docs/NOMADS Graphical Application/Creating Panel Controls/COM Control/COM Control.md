@@ -51,9 +51,7 @@ For making other adjustments, see **[Modifying Objects](../../Panel%20Designer/D
 
 When creating or editing an external control, the **External Control Properties** dialogue is displayed:
 
-> ![](images/com_004_1.jpg)
-
-This dialogue is divided into the following tabbed panels for viewing and/or changing external control properties: **[Display](COM%20Control.htm#display)**, **[Properties](COM%20Control.htm#properties)** and **[Logic](COM%20Control.htm#logic)**. The control properties that display depend on the type of external control being created.
+> This dialogue is divided into the following tabbed panels for viewing and/or changing external control properties: **[Display](COM%20Control.htm#display)**, **[Properties](COM%20Control.htm#properties)** and **[Logic](COM%20Control.htm#logic)**. The control properties that display depend on the type of external control being created.
 
 _Object Name_ |  Enter a unique name for the external control. NOMADS provides a default; e.g. EXT_1. Naming conventions for variables apply. When a new control name is entered, it will be checked against the [**Reserved Words**](../../../Reserved%20Words.md) list to determine if it is restricted for use as a NOMADS control name. If it is found, a warning message will display. _(User Reserved Words Maintenance was added in PxPlus 2020.)_  
 ---|---  
@@ -67,7 +65,7 @@ _.NET Controls_ |  Used for adding a **[.NET](../../../Dot%20Net%20Interface.md)
 > **     **[How to Create a .NET Calendar Control (NOMADS)](../../../How%20To/How%20to%20Create%20Dot%20NET%20Calendar%20\(NOM\).htm)  
 > **     **[How to Display a Date in a PxPlus Multi-Line from a NOMADS .NET Calendar](../../../How%20To/How%20to%20Display%20Date%20in%20Mline.md)**
 
-     ![](images/com_004_2.png)  
+      
   
 See **[Defining an External Control](COM%20Control.htm#definingCOM)**.
 
@@ -77,10 +75,10 @@ __(Support for .NET controls was added in PxPlus 2025.)_
 _Alternate control names to load at runtime if primary not found_ |  **_(Applicable only for ActiveX Controls)_** Assign alternate control names (separated by semi-colons) to be used at runtime if the generic name cannot be found. This field is shown only when creating ActiveX controls; otherwise, it is hidden.  
 _Browse System DLLs_ |  **_(Applicable only for .NET Controls)_** This button simplifies the input of a Windows system DLL and its associated object. This button is enabled only when:
 
-> ![*](images/com_004_3.png)  The _DLL Name_ drop box is set to _Fixed_ , **_and_**   
->  ![](images/com_004_4.png)  No _DLL Name_ has been entered.
+>   The _DLL Name_ drop box is set to _Fixed_ , **_and_**   
+>    No _DLL Name_ has been entered.
 
-     ![](images/com_004_5.png) Clicking this button displays a list of available Windows system DLLs. After a DLL is selected, a second list displays the objects in that DLL. Selecting an object automatically populates both the _DLL Name_ and _Object Name_ fields. _(The Browse System DLLs button was added in PxPlus 2026.)_  
+     Clicking this button displays a list of available Windows system DLLs. After a DLL is selected, a second list displays the objects in that DLL. Selecting an object automatically populates both the _DLL Name_ and _Object Name_ fields. _(The Browse System DLLs button was added in PxPlus 2026.)_  
 _DLL Name_ |  **_(Applicable only for .NET Controls)_** Enter the .NET DLL name. Can be a _Fixed_ value or an _Expression_. This field is shown only when creating .NET controls; otherwise, it is hidden. Click the Browse button (_folder icon_) to select a fixed value for the .NET DLL file location. If the DLL name or file location has been defined as a global variable or defined in such a way that its value can be evaluated now (when the .NET control is being created, as well as at run time), change the drop box from _Fixed_ to _Expression_ and then enter the expression. _(The DLL Name field was added in PxPlus 2025.)  
 (The ability to define the DLL Name as an expression was added in PxPlus 2026.)_  
 _Object Name_ |  **_(Applicable only for .NET Controls)_** Enter the .NET object name. This field is shown only when creating .NET controls; otherwise, it is hidden. Clicking the Query button in the _Object Name_ field displays a list of all objects in the DLL (if a _DLL Name_ has been entered).

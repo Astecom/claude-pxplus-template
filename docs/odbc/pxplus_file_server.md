@@ -25,9 +25,7 @@ You can start PxPlus SQL Server to run interactively from the _Start_ menu entry
 
 When run interactively, a dialog will display, stating that the PxPlus SQL Server is running. If SSL is enabled, the word "_(Secure)_ " is included at the end of _The Server is Running_ message. The dialog also includes the PxPlus SQL Server and OpenSSL version information. A _Shutdown_ button is provided to allow you to shut down the server.
 
-> ![](images/pxplus_005_1.png)
-
-**_UNIX/Linux_**
+> **_UNIX/Linux_**
 
 Run the server from the Command Line using the following syntax:
 

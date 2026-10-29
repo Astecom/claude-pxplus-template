@@ -1,5 +1,5 @@
-# Utility Programs  
-  
+# System Utilities
+
 **Project Maintenance**|   
 ---|---  
   
@@ -66,9 +66,15 @@ _(The HTML Pages task type was added in PxPlus 2021.)_
 #### **Note:**  
 If the selected directory contains a large number of files and/or libraries, the list box may take a few moments to load. When loading is complete, the list box will display all applicable tasks, based on the selections.  
   
-_Expand/Collapse_ |  Toggle button that is used to either _expand_ or _collapse_ ** _all_** the "parent" nodes for the tasks in the tree view. Expand/collapse a single "parent" node by clicking the adjacent **+**  _plus_ or **-**  _minus sign_.  
+_Expand/Collapse_ |  Toggle button that is used to either _expand_ or _collapse_  **_all_** the "parent" nodes for the tasks in the tree view. Expand/collapse a single "parent" node by clicking the adjacent **+**  _plus_ or **-**  _minus sign_.  
 _Reset_ |  Discards any _unapplied_ changes and reloads the **Select Tasks for Project** list box. When it reloads, only the changes that were previously saved remain intact.  
 _Ok_ |  Saves the changes to the selected project and returns to the PxPlus IDE Main Launcher. At the same time, a **Tasks Added/Removed** message box reports the number of tasks added or deleted from the selected project.  
 _Apply_ |  Saves the changes to the selected project without exiting **Project Maintenance**. At the same time, a **Tasks Added/Removed** message box reports the number of tasks added or deleted from the selected project. In addition, the selections for _Project_ , _Type_ and _Task Types_ persist (remains unchanged). This allows you to continue selecting/deselecting tasks for the project using the same settings.  
 _Cancel_ |  Clears the current entry, except for _Project_ , _Working Directory_ and _Type_. (The _Task Types to Maintain_ selections and _Include Sub-Directories_ check box are **_not_** changed.)  
-_Exit_ |  Closes **Project Maintenance** and returns to the PxPlus IDE Main Launcher without saving any current changes.
+_Exit_ |  Closes **Project Maintenance** and returns to the PxPlus IDE Main Launcher without saving any current changes.  
+  
+ 
+
+ 
+
+ 

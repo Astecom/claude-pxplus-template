@@ -37,7 +37,7 @@ Button CornerRadius$ set to **Round** :
 >  y=100  
 >  y'CornerRadius$="round"  
 >   
->   ![](images/cornerradius_002_1.png)
+>  
 
 Button CornerRadius$ set to **Square** :
 
@@ -45,7 +45,7 @@ Button CornerRadius$ set to **Square** :
 >  y=100  
 >  y'CornerRadius$="square"  
 >   
->   ![](images/cornerradius_002_2.png)
+>  
 
 Button CornerRadius$ set to a value of **10** :
 
@@ -53,7 +53,7 @@ Button CornerRadius$ set to a value of **10** :
 >  y=100  
 >  y'CornerRadius$="10"  
 >   
->   ![](images/cornerradius_002_3.png)
+>  
 
 _(The CornerRadius$ property was added in PxPlus 2026.)_
 

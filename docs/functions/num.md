@@ -26,7 +26,7 @@ If the value in _string$_ does not contain a valid numeric value, the system ret
 
 **NUM( )** ignores the decimal point and thousands separator settings in the **['DP'](../parameters/dp.md)** and **['TH'](../parameters/th.md)** system parameters and assumes the North American standard of "," for thousands and "." for the decimal point.
 
-Scientific notation is supported; e.g. num("0.2E+10") returns a numerical value of 2000000000. As of PxPlus 2021, the **+** after the **E** is optional, and if omitted, the results will be the same as including the **+** ; e.g. num("0.2E10") is the equivalent of num("0.2E+10"). Prior to PxPlus 2021, converting scientific notation only worked if the format included a **+** or **-** after the **E**.
+Scientific notation is supported; e.g. num("0.2E+10") returns a numerical value of 2000000000. As of PxPlus 2021, the **+** after the **E** is optional, and if omitted, the results will be the same as including the **+** ; e.g. num("0.2E10") is the equivalent of num("0.2E+10"). Prior to PxPlus 2021, converting scientific notation only worked if the format included a **+** or **-** after the **E**. The **['*E'](../parameters/~e.md)** system parameter forces a **+** sign after E when converting a string that contains a numeric in scientific notation.
 
 _(Support for optionally including + after the E was added in PxPlus 2021.)_
 
@@ -44,4 +44,10 @@ A=num("-1,005.") |  Yields -1005
 A=num("A",err=0050) |  On error, transfers to 0050 and sets err=26  
 A=num("A",1234) |  Yields 1234  
 A=num("1.34",*) |  Yields 1  
-A=num("A",*) |  Yields 0
+A=num("A",*) |  Yields 0  
+  
+ 
+
+ 
+
+ 

@@ -5,7 +5,7 @@
   
 ##  Formats
 
-1. |  _Define Array_ _:_ |  **DIM** _array_name_[_$_] **[**  _subscript_1_[,_subscript_2_ [,_subscript_3_ ] ] **]**
+1. |  _Define Array_ _:_ |  **DIM** _array_name_[_$_] **[**  _subscript_1_[,_subscript_2_ [,_subscript_3_ ] ] **]**  
 
 #### **Note:**  
 The square brackets (bolded above) are **_required_**.  
@@ -96,7 +96,7 @@ To load an array with customer IDs of all customers owing more than $1,000:
 
 > dim CUST$[*]  
 >  select * from "Custfile" where Amt_OWING>1000  
->  CUST$[*]=CustId$  
+>      CUST$[*]=CustId$  
 >  next record
 
 Using dynamic arrays simplifies application logic when the number of elements is not known in advance.
@@ -108,7 +108,7 @@ Using dynamic arrays simplifies application logic when the number of elements is
 
 The subscript **REMOVE** option can be used to remove entry of single dimension arrays (typically dynamic arrays). The following syntax can be used on either a dynamic array or a single dimension array:
 
-> xxx = _array_ **[** $**]** **[**_index_ **REMOVE]**
+> xxx = _array_  **[** $**]**  **[**_index_  **REMOVE]**
 
 _(The subscript REMOVE option was added in PxPlus 2021.)_
 
@@ -130,14 +130,14 @@ If you use a dynamic array, the array size will be adjusted as in the following 
 
 **_Example:_**
 
-> dim NAMES$[*]  
->  NAMES$[*]="Mike"  
->  NAMES$[*]="Bill"  
->  NAMES$[*]="John"  
+>      dim NAMES$[*]  
+>      NAMES$[*]="Mike"  
+>      NAMES$[*]="Bill"  
+>      NAMES$[*]="John"  
 >  !  
->  while 1  
->  print (0,err=*break)NAMES$[1 remove]  
->  wend
+>      while 1  
+>           print (0,err=*break)NAMES$[1 remove]  
+>      wend
 
 The above example will load a dynamic array with names and then pull them off the array in order. As each element is removed from the array, the array size will be reduced by one until an error occurs, as there will be no more elements left.
 
@@ -174,13 +174,13 @@ The following example defines PRD$ as a 36-character string consisting of PRD.DE
 
 ## See Also
 
-**Composite Strings vs. BBx Templates**  
+**Composite Strings vs. BBx® Templates**  
 [**IOLIST Specify Variable List**](iolist.md)  
 [**CLEAR Reset Variables**](clear.md)
 
 ##  Format 3
 
-**_Initialize String_**** _with Fill Character_**
+**_Initialize String_**** _with Fill Character_**  
 
 **DIM** _var_ _$_(_len_[,_char$_])[,_..._]
 
@@ -188,11 +188,11 @@ Use the **DIM** directive to define a string variable of a specific length. You 
 
 > dim A$(5,"*")
 
-**_is_ _the same as_**
+     **_is_ _the same as_**
 
 > dim A$(5,"*-")
 
-... **_both_ _yield_** A$="*****"
+     ... **_both_ _yield_** A$="*****"
 
 If a value is not given (or is null), then the string is initialized to spaces. Combine this string initialization with the definition of string arrays (above) to pre-initialize all the elements of a string array.
 
@@ -208,7 +208,7 @@ PxPlus provides a structured string capability. See **[DIM Define/Use Structured
 
 _(Structured string support was added in PxPlus v6.30, build 8915.)_
 
-## Composite Strings vs. BBx Templates
+## Composite Strings vs. BBx® Templates
 
 Composite strings are made up of the variables you specify in the composite string definition, whereas string templates are strings, which are parsed to obtain the various **_logical_** variables. This has the following impact, which you should consider when you design applications:
 
@@ -218,13 +218,13 @@ Composite strings are made up of the variables you specify in the composite stri
   
 **_Example:_**  
   
-0010 iolist NAME$,ADDR$,CITY$,AMT  
-0020 iolist NAME$,ADDR$,CITY$,ZIP$,AMT  
-0030 CST.ZIP$=""  
-0040 dim CST$:iol=0010  
-0050 read record (1)CST$  
-0060 dim CST$:iol=0020  
-0070 write record (1)CST$  
+     0010 iolist NAME$,ADDR$,CITY$,AMT  
+     0020 iolist NAME$,ADDR$,CITY$,ZIP$,AMT  
+     0030 CST.ZIP$=""  
+     0040 dim CST$:iol=0010  
+     0050 read record (1)CST$  
+     0060 dim CST$:iol=0020  
+     0070 write record (1)CST$  
   
 The logic above automatically inserts CST.ZIP$ into the composite string while preserving the other data elements. Note that composite string variables are not implicitly cleared when the composite string is defined, whereas templates are.
   * Since composite strings reference real variables, fields in composite strings have data types associated with them; that is, in a composite string, the system considers CST.AMT, CST.AMT$ and CST.AMT% to be three different fields, whereas in a string template, these would all refer to the same field.
@@ -268,4 +268,14 @@ Null/empty arrays are supported by including a ".0" element in the array.
 _(Loading arrays from JSON data was added in PxPlus v11.00.)  
 (Support for null/empty arrays for JSON was added in PxPlus 2019 Update 2.)_
 
-BBx is a registered trademark of BASIS International Ltd.
+ 
+
+ 
+
+ 
+
+BBx® is a registered trademark of BASIS International Ltd.
+
+ 
+
+ 

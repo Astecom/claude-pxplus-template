@@ -10,10 +10,10 @@ For file maintenance panels, _Table Name_ and _Object Name_ are **_required_** b
 
 > This panel consists of the following:
 
-**Select the file maintenance template and layout format** |  _Select a template to apply its settings to the new panel(s) or HTML page(s) to be generated._ _A template consists of predetermined settings that define the appearance of a panel or HTML page. Using templates makes designing new panels or HTML pages easier and gives them a consistent look and feel._ _The templates data file "maint_templates.dat" is created according to the prefix settings the first time the File Maintenance Generator is accessed on a new PxPlus installation or for a new PxPlus project. Therefore, different PxPlus projects may have unique template data files._ _(Support for creating the templates data file according to prefix settings was added in PxPlus 2021.)_ _Different templates can be used to create different panel or HTML page designs. For example:_ ___A simple maintenance panel with (or without) browse buttons  
-__A panel that includes a folder with top (or bottom) tabs  
-__A panel that includes a folder with left (or right) sidebar tabs  
-__A panel with an embedded toolbar_ **_To save template settings for future use_** _, click the Save Template button in_**[Step 7: Finish](Completion.md)** _._  
+**Select the file maintenance template and layout format** |  _Select a template to apply its settings to the new panel(s) or HTML page(s) to be generated._ _A template consists of predetermined settings that define the appearance of a panel or HTML page. Using templates makes designing new panels or HTML pages easier and gives them a consistent look and feel._ _The templates data file "maint_templates.dat" is created according to the prefix settings the first time the File Maintenance Generator is accessed on a new PxPlus installation or for a new PxPlus project. Therefore, different PxPlus projects may have unique template data files._ _(Support for creating the templates data file according to prefix settings was added in PxPlus 2021.)_ _Different templates can be used to create different panel or HTML page designs. For example:_ _    _ _  A simple maintenance panel with (or without) browse buttons  
+   _ _  A panel that includes a folder with top (or bottom) tabs  
+   _ _  A panel that includes a folder with left (or right) sidebar tabs  
+   _ _  A panel with an embedded toolbar_ **_To save template settings for future use_** _, click the Save Template button in_**[Step 7: Finish](Completion.md)** _._  
 ---|---  
 _File Maintenance Template_ |  **_(Available when a template exists)_** Click the drop-down arrow for a list of previously saved templates (if applicable). See **[Save Template](Completion.htm#save_template)** (in **Step 7: Finish**). When a template is selected, its settings are applied to the current panel or HTML page to be generated. If no templates exist or an existing template is not selected, the default will be _None_. If a template was saved with the _Default Template_ check box selected (see **[Save Template](Completion.htm#save_template)**), that template name will be the default when a new file maintenance panel is being generated, and the words ***Default Template*** will display.
 
@@ -39,11 +39,13 @@ If regenerating a panel that was created using an earlier version of the File Ma
 
 _(The Layout option was added in PxPlus 2024.)_  
   
-_(Copy Templates from another location)_ |  **_(Available when no templates are defined)_** Button (beside the _File Maintenance Template_ drop box) that launches the **Copy File Maintenance Templates** window. This window is used to copy the file maintenance templates from an _existing_ templates data file (**maint_templates.dat**) to the templates data file in the current PxPlus installation or project. This allows previously defined templates to be available in subsequent PxPlus installations or projects without having to recreate them. For example, assuming that file maintenance templates were defined in PxPlus 2020, after installing PxPlus 2021, you would need to use the _Copy Template_ button to copy those existing templates to the currently empty templates data file in PxPlus 2021. This window consists of the following: |  _Template File_ |  Specify the location of the _existing_ file maintenance templates data file (**maint_templates.dat**) to copy from.  
+_(Copy Templates from another location)_ |  **_(Available when no templates are defined)_** Button (beside the _File Maintenance Template_ drop box) that launches the **Copy File Maintenance Templates** window.      This window is used to copy the file maintenance templates from an _existing_ templates data file (**maint_templates.dat**) to the templates data file in the current PxPlus installation or project. This allows previously defined templates to be available in subsequent PxPlus installations or projects without having to recreate them. For example, assuming that file maintenance templates were defined in PxPlus 2020, after installing PxPlus 2021, you would need to use the _Copy Template_ button to copy those existing templates to the currently empty templates data file in PxPlus 2021. This window consists of the following: |  _Template File_ |  Specify the location of the _existing_ file maintenance templates data file (**maint_templates.dat**) to copy from.  
 ---|---  
 _OK_ |  Copies the existing templates from the selected data file into the currently empty templates data file. The _File Maintenance Template_ drop box is loaded with the templates from the specified file, and the _Copy Templates_ button is hidden.  
 _Exit_ |  Closes the **Copy File Maintenance Templates** window without copying any templates.  
   
+ 
+
 #### **Note:**  
 If a panel is being regenerated and the template used is invalid for the new installation or project, the template will be reset to the original value if it is valid after the copy is complete.
 
@@ -65,7 +67,7 @@ _Table Name_ |  Name of an existing _data dictionary_ table for which the file m
 #### **Note:**  
 When the panel is generated, the table name is recorded in the _Tag Field_ property in the **[Panel Header](../../Panel%20Designer/Panel%20Header/Overview.htm#properties)** record for the main panel.  
   
-_Panel Title_ |  Title to display at the top of the generated panel. The panel title is **_required_** before proceeding to the next step. By default, the panel title displays as _xxxxxx_ _Maintenance_ (**_where_** _xxxxxx_ is the _Table Name_ selected from the data dictionary). If the _Inquiry Only_ check box is selected, the panel title defaults to _xxxxxx_ _Inquiry_. If the _Non-File Maintenance Form_ check box is selected, a panel title must be entered.
+_Panel Title_ |  Title to display at the top of the generated panel. The panel title is **_required_** before proceeding to the next step. By default, the panel title displays as _xxxxxx_ _Maintenance_ (**_where_** _  xxxxxx_ is the _Table Name_ selected from the data dictionary). If the _Inquiry Only_ check box is selected, the panel title defaults to _xxxxxx_ _Inquiry_. If the _Non-File Maintenance Form_ check box is selected, a panel title must be entered.
 
 #### **Note:**  
 The default _Panel Title_ is derived using the data dictionary description and one of the standard message library references - 'FM_TITLE' for the word 'Maintenance' and 'FM_INQ' for the word 'Inquiry'.  
@@ -79,14 +81,14 @@ When specifying the Font Awesome symbol name, do not include the leading 'fa-'.
 
 _(The Panel Title Symbol option was added in PxPlus 2022 Update 1.)_  
 **Enter****the maintenance object** |  _Generated file maintenance panels require a file maintenance object as the**Default Program** in the _**[Panel Header](../../Panel%20Designer/Panel%20Header/Overview.htm#properties)** _for a generated main panel. This object contains properties that correspond to the options on the_**[Step 2: Properties](Object%20Properties.md)** _panel. This object can be unique to each generated file maintenance panel or can be shared among different generated file maintenance panels._  
-_File Maintenance Object_ |  Click the drop-down arrow for available selections: |  _Use the Standard File Maintenance Object_ |  **_(Default)_** The panel will use the standard ***win/fm_maint.pvc** object and the properties on the **[Step 2: Properties](Object%20Properties.md)** panel will be set from the default values stored as %NOMADS Object properties. See **[File Maintenance and Object Inheritance](File%20Maintenance%20and%20Object%20Inheritance.md)**. PROPERTY FM_Update_Option$='R'  
-PROPERTY FM_New_Option$='0'  
-PROPERTY FM_Clear_Option$='0'  
-PROPERTY FM_Auto_Save_Option$='0'  
-PROPERTY FM_Confirm_New_Rec$='0'  
-PROPERTY FM_Acknowledge_Writes$='0'  
-PROPERTY FM_Confirm_Deletes$='1'  
-PROPERTY FM_Acknowledge_Deletes$='1'
+_File Maintenance Object_ |  Click the drop-down arrow for available selections: |  _Use the Standard File Maintenance Object_ |  **_(Default)_**  The panel will use the standard ***win/fm_maint.pvc** object and the properties on the **[Step 2: Properties](Object%20Properties.md)** panel will be set from the default values stored as %NOMADS Object properties. See **[File Maintenance and Object Inheritance](File%20Maintenance%20and%20Object%20Inheritance.md)**.      PROPERTY FM_Update_Option$='R'  
+     PROPERTY FM_New_Option$='0'  
+     PROPERTY FM_Clear_Option$='0'  
+     PROPERTY FM_Auto_Save_Option$='0'  
+     PROPERTY FM_Confirm_New_Rec$='0'  
+     PROPERTY FM_Acknowledge_Writes$='0'  
+     PROPERTY FM_Confirm_Deletes$='1'  
+     PROPERTY FM_Acknowledge_Deletes$='1'
 
 #### **Note:**  
 These properties may be overridden by setting them in the **[NOMADS Environment Maintenance](../../Maintain%20Nomads%20Environment.md)** utility or by setting them individually elsewhere.  
@@ -100,10 +102,10 @@ If an existing file maintenance object is entered, the options in **[Step 2: Pro
   
 _(The File Maintenance Object drop box was added in PxPlus 2020.)_  
   
-_Object Name_ |  Input depends on the _File Maintenance Object_ drop box selection: |  |  If _Use the Standard File Maintenance Object_ is selected, _Object Name_ defaults to the standard ***win/fm_maint.pvc** object and is disabled.  
+_Object Name_ |  Input depends on the _File Maintenance Object_ drop box selection: |   |  If _Use the Standard File Maintenance Object_ is selected, _Object Name_ defaults to the standard ***win/fm_maint.pvc** object and is disabled.  
 ---|---  
-|  If _Create a New File Maintenance Object_ is selected, enter a **_new_** _Object Name_. If a duplicate _Object Name_ is entered, a message will display.  
-|  If _Use an Existing File Maintenance Object_ is selected, enter an **_existing_** _Object Name_ or click the Query button. If an _Object Name_ is entered that does not exist, a message will display.  
+ |  If _Create a New File Maintenance Object_ is selected, enter a **_new_** _Object Name_. If a duplicate _Object Name_ is entered, a message will display.  
+ |  If _Use an Existing File Maintenance Object_ is selected, enter an **_existing_** _Object Name_ or click the Query button. If an _Object Name_ is entered that does not exist, a message will display.  
   
 #### **Note:**  
 Object names **_must_** end with the file extension .**_pvc_**.  
@@ -117,8 +119,14 @@ _Inquiry Only_ |  Select this check box to create a file maintenance panel in **
 **FM_PRE_REMOVE** |  Will be performed before removing a record.  
 **FM_POST_REMOVE** |  Will be performed after removing a record.  
 _Interface Program_ |  **_(Applicable for HTML Pages Only)_** Enter the name of the interface program or click the Query button. An interface program is needed if you want to add code for any of the methods listed above. It is also needed to code events associated with various **[Objects](Adding%20Objects.md)** (Buttons, Grids, Input Fields, etc.) that you are adding to the HTML page in **Step 6: Fields**. If adding a **[Grid](Grid.md)** object, the HTML interface program is **_required_** to create a method to load the Grid using a memory file. The interface program name entered will be used as the default **[Initialization Program](Grid.htm#init_program)**. For an example of an interface program, see **[Grid Example](Grid.htm#grid_example)**. For additional Grid information, see **[Using Grids in Webster+](../../../Webster/Using%20Grids%20in%20Webster.md)**. _(The Interface Program option was added in PxPlus 2021.)_  
-_(Edit Interface Program)_ |  **_(Applicable for HTML Pages Only Available when Interface Program is entered)_** Button (beside the _Interface Program_ field) that is used to create or edit the interface program by launching the program editor. The program editor that is launched will either be the **[Integrated Toolkit](../../../toolkit1/overview.md)**™ (*IT) or **[Ed+](../../../Ed%20Program%20Editor.md)**, depending on whether the **[%NOMADS'Program_Editor$](../../Appendix/NOMADS%20Variables/Overview.htm#programeditor)** property has been set. If this property is not set, the default will be the Integrated Toolkit. If running the File Maintenance Generator from the Web IDE, the program editor will be Ed+. _(The Edit Interface Program button was added in PxPlus 2025.)_  
+_(Edit Interface Program)_ |  **_(Applicable for HTML Pages Only  Available when Interface Program is entered)_** Button (beside the _Interface Program_ field) that is used to create or edit the interface program by launching the program editor. The program editor that is launched will either be the **[Integrated Toolkit](../../../toolkit1/overview.md)**™ (*IT) or **[Ed+](../../../Ed%20Program%20Editor.md)**, depending on whether the **[%NOMADS'Program_Editor$](../../Appendix/NOMADS%20Variables/Overview.htm#programeditor)** property has been set. If this property is not set, the default will be the Integrated Toolkit. If running the File Maintenance Generator from the Web IDE, the program editor will be Ed+. _(The Edit Interface Program button was added in PxPlus 2025.)_  
   
 ## See Also
 
 **[File Maintenance Generator Steps](Fmgen%20Introduction.htm#steps)**
+
+ 
+
+ 
+
+ 

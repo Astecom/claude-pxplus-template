@@ -47,7 +47,7 @@ CornerRadius$ set to **Round** :
 >  y=100  
 >  y'CornerRadius$="round"  
 >   
->   ![](images/vardropbox_002_1.png)
+>  
 
 CornerRadius$ set to **Square** :
 
@@ -56,7 +56,7 @@ CornerRadius$ set to **Square** :
 >  y=100  
 >  y'CornerRadius$="square"  
 >   
->   ![](images/vardropbox_002_2.png)
+>  
 
 CornerRadius$ set to a value of **3** :
 
@@ -65,7 +65,7 @@ CornerRadius$ set to a value of **3** :
 >  y=100  
 >  y'CornerRadius$="3"  
 >   
->   ![](images/vardropbox_002_3.png)
+>  
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.
@@ -79,7 +79,7 @@ DisableBackColour$](../properties/disablebackcolor.md)** |  Background color whe
 **[DroppedOn](../properties/droppedon.md)** |  This property indicates the index number that dragged items were dropped onto; if items are not dropped onto a specific line, 0 is returned.  
 **[Enabled](../properties/enabled.md)** |  Enabled indicator: 1 = True; 0 = False (**_Default:_** 1)  
 **[Eom$](../properties/eom_.md)** |  Last change terminator.  
-[**FieldHeight**](../properties/fieldheight.md) |  Defines the height (in pixels) of the drop box input area and drop section. When set, the same height is applied to each line in the drop section, and the overall height of the expanded control is affected. Text is centered vertically within the control. **_Example:_** The following three examples show the results when the **FieldHeight** property is set to 20, 30 and 40:      ![](images/vardropbox_002_4.png) _(The FieldHeight property was added in PxPlus 2026.)_  
+[**FieldHeight**](../properties/fieldheight.md) |  Defines the height (in pixels) of the drop box input area and drop section. When set, the same height is applied to each line in the drop section, and the overall height of the expanded control is affected. Text is centered vertically within the control. **_Example:_** The following three examples show the results when the **FieldHeight** property is set to 20, 30 and 40:      _(The FieldHeight property was added in PxPlus 2026.)_  
 **[FindItemText$](../properties/finditemtext.md)** |  This property, when set, causes the system to search the list box or grid for the text supplied. If the text is found, the system will set the **['Column](../properties/column.md)** and **['Item](../properties/item.md)** (or **['Row](../properties/row.md)**) property for the control to the entry where the match was found. If no match is found, the 'Column and 'Item ('Row for the grid) property is set to zero. A typical use of this property would be to locate a value in the list box and then change or delete it. It can also be used to validate that an entry exists in the list box. This property is generally only written to. Reading this value will return the same as reading the **['ItemText$](../properties/itemtext_.md)** property. **Controlling the Search  (List View/Grid Only): **The search is controlled by the settings found in 'FindOptions$. These options are provided as a series of characters in 'FindOptions$: |  **Char.** |  **Function**  
 ---|---  
 C |  Search is case insensitive.  

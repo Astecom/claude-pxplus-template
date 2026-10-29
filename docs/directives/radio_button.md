@@ -70,7 +70,7 @@ _3rd quarter_ |  Bitmap image when the mouse is over the button.
 _4th quarter_ |  Bitmap image when the button is pressed.  
   
 #### **Note:  
-** Quarters are _horizontal_ quarters, meaning that if a bitmap is 100 pixels wide, the first quarter of the image is the first 25 pixels wide full height, as in [1][2][3][4], rather than as top left/right and bottom left/right, as in  ![](images/radio_004_1.png).  
+** Quarters are _horizontal_ quarters, meaning that if a bitmap is 100 pixels wide, the first quarter of the image is the first 25 pixels wide full height, as in [1][2][3][4], rather than as top left/right and bottom left/right, as in  .  
   
 **" C"** |  _Bitmap Centered_. Places the bitmap centered and scaled to fill the button. Button text, if present, will be centered and overlay the image. _(The "C" option was added in PxPlus 2018 Update 1.)_  
 **" D"** |  _Disabled_. Button is grayed out and is not accessible to the user.  
@@ -88,7 +88,7 @@ _4th quarter_ |  Bitmap image when the button is pressed.
 **" V"** |  _Hovertext_. Indicates that text will change color when mouse is over the button.  
 **" x"** |  _Tab Close Button._  **OPT= "x"** can be used to add a tab close button to a Radio Button with an image. **_Example:_**      PRINT 'OPTION'("TabBtnCloseIcon","c:\sample\ico\btn_x.ico")  
      PRINT 'OPTION'("TabBtnCloseHoverIcon","c:\sample\ico\zilla.ico")  
-     RADIO_BUTTON 100:1,@(10,12,20,2)="{!Stop}Radio Button A",opt="x" This button shows the tab close icon:      ![](images/radio_004_2.png) This button shows the tab close hover icon:      ![](images/radio_004_3.png) _(Support for customizing the tab close button was added in PxPlus 2026.)_  
+     RADIO_BUTTON 100:1,@(10,12,20,2)="{!Stop}Radio Button A",opt="x" This button shows the tab close icon:      This button shows the tab close hover icon:      _(Support for customizing the tab close button was added in PxPlus 2026.)_  
   
 Options can be combined to create several different button types. The "f", "T", "U", "u", and "o" options provide the ability to turn buttons into **_hotspots_**. This allows for clickable areas on bitmaps, or items such as HTTP URL links on dialogues.
 

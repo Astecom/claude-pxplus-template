@@ -1,6 +1,6 @@
 # Error Handling and Debugging
 
-**Additional Debugging Procedures** |  **__**  
+**Additional Debugging Procedures** |  **_ _**  
 ---|---  
   
 While **[Error Codes and Messages](Error%20Codes%20and%20Messages.md)** and the **[Windows Debugging Environment](Windows%20Debugging%20Environment.md)** provide the most obvious means for finding errors in syntax and logic, a few other facilities can be employed to handle or prevent programming problems.
@@ -31,20 +31,42 @@ In the UNIX environment, it can also be enabled by the existence of a file calle
 
 All entries in the log file are displayed using the following format:
 
-> _mmm_ _dd hh:mm_**[**_progname:stmt_ _#_**]**_errormsg_
+> _mmm_ _  dd hh:mm _**[**_progname:stmt_ _#_**]**_errormsg_
 
 **_Where:_**
 
-_mmm dd hh:mm_ |  Date and time of the entry  
----|---  
-_progname:stmt_ _#_ |  Name of the program and statement executing when the entry was added  
-_errormsg_ |  Actual descriptive message  
+  |  _mmm dd  hh:mm_ |  Date and time of the entry  
+---|---|---  
+  |  _progname:stmt_ _#_ |  Name of the program and statement executing when the entry was added  
+  |  _errormsg_ |  Actual descriptive message  
   
 **_Example:_**
 
 > Sep 15 16:52 [*ntslave:0320] [TCP][Winsock]Error status:10049 (-1)
 
 Entries in the log for TCP/IP issues include a descriptive message, followed by the actual TCP/IP error code and the socket number that was being used. A socket value of -1 usually indicates the **OPEN** was not successful.
+
+## Creating a Log File to Trap System Failures
+
+Whenever an application failure occurs within PxPlus (GPF, Segmentation fault, etc.), the system will attempt to record key system information on the system **LogFile** in the hopes it will provide insight as to what caused the failure. Given this, if you are having problems, you should assign a log file to your tasks to assist in problem resolution; however, managing these log files can be problematic.
+
+One simple solution is to create individual log files for each process, place these in a separate directory and have the system delete them if the process normally terminates.
+
+The following code is an example of some logic you can use to accomplish this:
+
+> **x$= "log_directory/log."+dte(0:"MMDD-%Hz%mz")+"."+str(tcb(89))+".txt  
+>  serial x$  
+> setdev (0) set "Logfile" to x$**
+
+> **open (gfn) x$  
+>  setdev (lfo) set "DeleteOnClose" to "Yes"**
+
+Basically, the logic creates a unique log file name based on the date, time and process ID and assigns it as the application **LogFile**. To have the system automatically delete the file when the session closes, **OPEN** the file on a global channel and then set its "**DeleteOnClose** " property so that when the PxPlus shuts down normally, the file will be deleted.
+
+Should the PxPlus process terminate abnormally for any reason, the **DeleteOnClose** will not occur, leaving the failing **LogFile** on the system for subsequent analysis.
+
+#### **Note:**  
+If desired, you can have your application also write information to this **LogFile** using **SETTRACE RECORD**  _string$_. See **[SETTRACE](../../../directives/settrace.md)** directive.
 
 ## Logical Line Labels
 
@@ -56,10 +78,16 @@ See **[Labels/Logical Statement References](../../../appendix/labels~logical_sta
 
 Using the following syntax, an application can intercept **Esc** keys system wide:
 
-> **SETESC** _prog_name$_
+> **SETESC** _  prog_name$_
 
 The **[SETESC](../../../directives/setesc.md)** directive takes precedence over the generic escape key handler.
 
 ## For ODBC-Related Problems
 
 The **['!Q'=](../../../parameters/!q.md)** system parameter can be used to show all of the SQL commands being executed in a Windows message box. The _OK/Cancel_ option allows a programmer to disable the message boxes by selecting _Cancel_.
+
+ 
+
+ 
+
+ 

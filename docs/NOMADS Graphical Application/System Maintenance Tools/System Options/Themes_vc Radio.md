@@ -30,7 +30,7 @@ _Bitmap Button_ |  Button has a bitmap whose width is divided into four images. 
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
   
-_Border Style_ |  Style of button border. Options are _None, Solid, Double, Groove, Ridge, Inset_ and _Outset_ :     ![](images/themes_015_1.png) If not set, the default Windows style is used. This must be set to a non-blank value to use the _Border Width_ and various _Border Color_ settings.
+_Border Style_ |  Style of button border. Options are _None, Solid, Double, Groove, Ridge, Inset_ and _Outset_ :      If not set, the default Windows style is used. This must be set to a non-blank value to use the _Border Width_ and various _Border Color_ settings.
 
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
@@ -40,11 +40,11 @@ _Border Width_ |  Width of the button border (in pixels). Options are _None, 1, 
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
   
-_Corner Radius_ |  Sets the corner radius for a radio button only when it is drawn as a button, which occurs when a bitmap is added, whether the radio button is drawn directly or created from a data class (see **[Data Class Controls](../Introduction.htm#Mark4)**). Works only in **4D** mode. Possible values are _Null (blank)_ , _Round_ , _Square_ or a number from 0 to 255 inclusive. See **[CornerRadius$](../../../control_object_properties/radiobutton_properties.htm#cornerradius)** property. **_Example:_**      ![](images/themes_015_2.png)  
+_Corner Radius_ |  Sets the corner radius for a radio button only when it is drawn as a button, which occurs when a bitmap is added, whether the radio button is drawn directly or created from a data class (see **[Data Class Controls](../Introduction.htm#Mark4)**). Works only in **4D** mode. Possible values are _Null (blank)_ , _Round_ , _Square_ or a number from 0 to 255 inclusive. See **[CornerRadius$](../../../control_object_properties/radiobutton_properties.htm#cornerradius)** property. **_Example:_**        
   
-     ![](images/themes_015_3.png)  
+       
   
-     ![](images/themes_015_4.png)
+     
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.
@@ -74,21 +74,21 @@ _Focus Rectangle_ |  Controls whether a dotted focus rectangle displays around t
 
 Radio Button focus is **_Off_** :
 
-     ![](images/themes_015_5.png)
+    
 
 Radio Button focus is **_On_** :
 
-     ![](images/themes_015_6.png)
+    
 
 **_Example:_**
 
 Radio Button focus is  **_Off_** (when a bitmap is added):
 
-     ![](images/themes_015_7.png)
+    
 
 Radio Button focus is **_On_** (when a bitmap is added):
 
-     ![](images/themes_015_8.png)
+    
 
 _(Focus Rectangle property was added in PxPlus 2026.)_  
   

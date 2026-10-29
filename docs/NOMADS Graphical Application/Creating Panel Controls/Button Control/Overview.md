@@ -17,9 +17,7 @@ To define the specific attributes for the new control, see **[Button Properties]
 
 When creating or editing a _Button_ control, the **Button Properties** dialogue (pictured below using the **[Folder Style](../../Panel%20Designer/Folder%20Style/Using%20the%20Folder%20Style.md)** version of the NOMADS Panel Designer) is displayed.
 
-> ![](images/overview_004_1.jpg)
-
-This dialogue is divided into the following tabbed panels for viewing and/or changing Button properties: **[Display](Overview.htm#display)**, **[Font/Color](Overview.htm#font)**, **[Attributes](Overview.htm#attributes)**, **[Logic](Overview.htm#logic)** and **[User Aid](Overview.htm#useraid)**.
+> This dialogue is divided into the following tabbed panels for viewing and/or changing Button properties: **[Display](Overview.htm#display)**, **[Font/Color](Overview.htm#font)**, **[Attributes](Overview.htm#attributes)**, **[Logic](Overview.htm#logic)** and **[User Aid](Overview.htm#useraid)**.
 
 _Name_ |  Unique name of the Button control (NOMADS provides a default). Naming conventions for variables apply. Click the Browse Library button to copy parameters from an existing object (via the **[Library Browse](../../Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Library%20Browse.md)** dialogue).
 
@@ -44,7 +42,7 @@ _Top, Bottom_ and _Center/Scale_ alignments and the _Scale bitmap_ option only w
   
 _(The Center/Scale alignment and Scale bitmap options were added in PxPlus 2019_ _Update 1_ _.)_  
   
-**Image Options** |  **_(Available when Bitmaps for Normal/Pushed are selected)_** Sets advanced image options for the bitmap. Click the Additional Image Options button to the right of the **Image Options** multi-line to invoke the **Image Options** dialogue.      ![](images/overview_004_2.png) This dialogue consists of the following: |  **Options** |  |  _Image Transparency_ |  Bitmap transparency option. Click the drop-down arrow for a list of selections: _None, Pixel sets transparency_ or _'Light Gray' is transparent_.  
+**Image Options** |  **_(Available when Bitmaps for Normal/Pushed are selected)_** Sets advanced image options for the bitmap. Click the Additional Image Options button to the right of the **Image Options** multi-line to invoke the **Image Options** dialogue.      This dialogue consists of the following: |  **Options** |  |  _Image Transparency_ |  Bitmap transparency option. Click the drop-down arrow for a list of selections: _None, Pixel sets transparency_ or _'Light Gray' is transparent_.  
 ---|---  
 _Flip Image_ |  Flips the image. Click the drop-down arrow for a list of selections: _None, Flip horizontally (left/right), Flip vertically (up/down)_ or _Flip horizontally and vertically_.  
 _Rotation Angle_ |  Counter clockwise rotation angle at which to display the image. Valid entries are 0 to 359.  
@@ -129,7 +127,7 @@ _System Tray_ |  Assigns control to be a Windows system tray icon and places a B
   
 _(The Special Button Style drop box was added in PxPlus 2024.)_  
   
-_Corner Radius_ |  Sets the radius for the button corners. Works only in **4D** mode. Possible values are _Null_ (_blank_), _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CornerRadius$](../../../control_object_properties/button_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :    ![](images/overview_004_3.png) Corner Radius set to **Square** :    ![](images/overview_004_4.png) Corner Radius set to a value of **10** :    ![](images/overview_004_5.png)
+_Corner Radius_ |  Sets the radius for the button corners. Works only in **4D** mode. Possible values are _Null_ (_blank_), _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CornerRadius$](../../../control_object_properties/button_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :    Corner Radius set to **Square** :    Corner Radius set to a value of **10** :   
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.

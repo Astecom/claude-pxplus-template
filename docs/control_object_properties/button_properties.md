@@ -30,7 +30,7 @@ BackColour$](../properties/backcolor_.md)** |  Background color. For information
   
 _(The Bitmap Centered option was added in PxPlus 2018 Update 1.)_  
   
-[ **Border$**](../properties/border_.md) |  Controls the type of border that will be used when drawing a button. Possible values and formats are _Solid_ , _None_ , _Double_ , _Groove_ , _Ridge_ , _Inset_ and _Outset_.      ![](images/button_004_1.png) If not set, it will have the value of "Default" (or ""), which indicates that the system should use the system default button styling.  
+[ **Border$**](../properties/border_.md) |  Controls the type of border that will be used when drawing a button. Possible values and formats are _Solid_ , _None_ , _Double_ , _Groove_ , _Ridge_ , _Inset_ and _Outset_.      If not set, it will have the value of "Default" (or ""), which indicates that the system should use the system default button styling.  
 **[BorderColor$  
 BorderColour$](../properties/bordercolor.md)** |  Controls the color(s) of the border for any button whose border style (see **[Border$](../properties/border_.md)** property) is other than the system default. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**. This property can include either one or two colors separated by a / (_slash_). If only a single color is provided, then this color is used for all four borders. If two colors are supplied, the first color is used to define the Top/Left borders, while the second color is used to define the Bottom/Right borders. The value can be set to either a numeric or a string value. If setting a numeric value, the value set is the internal color number for the desired color. If setting a string value, any form of color specification may be used (color name, RGB, HSL, or HTML color code).  
 **[BorderWidth](../properties/borderwidth.md)** |  Controls the width of the border (in pixels) for any button whose border style (see **[Border$](../properties/border_.md)** property) is other than the system default. This property can only contain a numeric integer.  
@@ -51,7 +51,7 @@ Button CornerRadius$ set to **Round** :
 >  y=100  
 > y'CornerRadius$="round"  
 >   
->   ![](images/button_004_2.png)
+>  
 
 Button CornerRadius$ set to **Square** :
 
@@ -59,7 +59,7 @@ Button CornerRadius$ set to **Square** :
 >  y=100  
 > y'CornerRadius$="square"  
 >   
->   ![](images/button_004_3.png)
+>  
 
 Button CornerRadius$ set to a value of **10** :
 
@@ -67,7 +67,7 @@ Button CornerRadius$ set to a value of **10** :
 >  y=100  
 > y'CornerRadius$="10"  
 >   
->   ![](images/button_004_4.png)
+>  
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.
@@ -108,7 +108,7 @@ To turn Button focus **_Off_** :
           y=100  
           y'FocusRect=0  
   
-          ![](images/button_004_5.png)
+         
 
 To turn Button focus back **_On_** :
 
@@ -116,7 +116,7 @@ To turn Button focus back **_On_** :
           y=100  
           y'FocusRect=1  
   
-          ![](images/button_004_6.png)
+         
 
 _(The FocusRect property was added in PxPlus 2026.)_  
   

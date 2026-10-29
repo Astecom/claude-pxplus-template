@@ -1,6 +1,6 @@
 # Query Subsystem 
 
-**Designing and Using the Query Subsystem** |  **__**  
+**Designing and Using the Query Subsystem** |  **_ _**  
 ---|---  
   
 The following sections contain information for programmers regarding the design and use of the Query Subsystem.
@@ -11,7 +11,7 @@ The following sections contain information for programmers regarding the design 
 
 Query+ uses a Report View list box to display the data, which is loaded using two types of load logic. When loading a native file, if no filters are assigned to the query either in the **[Query Selection Definition](Query%20Selection%20Criteria.md)** criteria or user filters created at run time, then the list box is loaded using **_Load On Demand_** logic. That is, only the records required to populate the current display are read and loaded, which can result in a rapid display. If there are filters, then the records are loaded into the list box using **_Background Load_** logic. That is, the list box continues to load in the background while the user is looking at it. In both cases, accessing certain run-time features, such as copying or exporting a file, finding text and matching columns, etc. may require that the entire list be loaded before continuing.
 
-**_Drop Query and Drop Tree Query Loading the Query_**
+**_Drop Query and Drop Tree Query  Loading the Query_**
 
 The Drop Query and Drop Tree Query load the entire dataset when the query is invoked. The user must wait until the load is finished before proceeding. These queries are designed to display small datasets, as would be displayed in a drop box.
 
@@ -70,20 +70,20 @@ This table lists the special **_Query Variables_** used to interface with the qu
 ---|---  
 **QRY_REC_COUNT** |  Contains the number of query records successfully selected at the point it is accessed. See **[Query Selection Criteria](Query%20Selection%20Criteria.htm#Mark3)**. _(The QRY_REC_COUNT variable was added in PxPlus 2023.)_  
 **PRIME_KEY$** |  Value of the primary key. Can be used to access entire multi-segmented keys, as well as an external key. Use in expressions in formulas, filters and return values.  
-**ENTIRE_RECORD$** |  Contains the contents of the entire main file record. Can be used in **[Selection Logic](Query%20Selection%20Criteria.htm#Mark4)** or in **[Return Value](Query%20Header.htm#returnvaluehead)** expressions. (The Query Subsystem uses the **[REC( )](../../../functions/rec.md)** function to obtain this value.) You can use this variable alone or in conjunction with **PRIME_KEY$**. **_Example:_** PRIME_KEY$+ENTIRE_RECORD$ _(The ability to use the ENTIRE_RECORD$ variable in Selection Logic also was added in PxPlus 2024 Update 1.)_  
-**QUERY_ROW$** |  Contains the contents of a row in the query. Can be used in **[Selection Logic](Query%20Selection%20Criteria.htm#Mark4)** or in **[Return Value](Query%20Header.htm#returnvaluehead)** expressions. **_Example:_** In the Query **Selection Logic** , you could use the following test to display all records that contain the value of the associated multi-line (ARG_1$): ARG_1$="" OR POS(UCS(ARG_1$)=UCS(QUERY_ROW$))>0 _(The QUERY_ROW$ variable was added in PxPlus 2024 Update 1.)_  
-**%QRY_VARIOL$** **%QRY_VARDATA$** |  The **%QRY_VARIOL$** and **%QRY_VARDATA$** variables can be used to pass external data to the run-time Query+ logic. The **%QRY_VARIOL$** variable can be loaded with a compiled IOList containing the names of the variables to hold external data. The **%QRY_VARDATA$** can be loaded with the data for the variables in **REC( )** format. It is recommended that these variables be declared as **LOCAL**. **_Example:_** LOCAL %QRY_VARIOL$=CPL("IOLIST MYVAL$,XVAL") LOCAL %QRY_VARDATA$=REC(IOL=%QRY_VARIOL$) At run time, the Query+ logic loads the data from **%QRY_VARDATA$** into the variables in **%QRY_VARIOL$** ; therefore, the data in these variables is available to use in such things as filters and formulas, both in the query definition and at run time. _(The %QRY_VARIOL$ and %QRY_VARDATA$ variables were added in PxPlus 2021.)_  
+**ENTIRE_RECORD$** |  Contains the contents of the entire main file record. Can be used in **[Selection Logic](Query%20Selection%20Criteria.htm#Mark4)** or in **[Return Value](Query%20Header.htm#returnvaluehead)** expressions. (The Query Subsystem uses the **[REC( )](../../../functions/rec.md)** function to obtain this value.) You can use this variable alone or in conjunction with **PRIME_KEY$**. **_Example:_**    PRIME_KEY$+ENTIRE_RECORD$ _(The ability to use the ENTIRE_RECORD$ variable in Selection Logic also was added in PxPlus 2024 Update 1.)_  
+**QUERY_ROW$** |  Contains the contents of a row in the query. Can be used in **[Selection Logic](Query%20Selection%20Criteria.htm#Mark4)** or in **[Return Value](Query%20Header.htm#returnvaluehead)** expressions. **_Example:_** In the Query **Selection Logic** , you could use the following test to display all records that contain the value of the associated multi-line (ARG_1$):    ARG_1$="" OR POS(UCS(ARG_1$)=UCS(QUERY_ROW$))>0 _(The QUERY_ROW$ variable was added in PxPlus 2024 Update 1.)_  
+**%QRY_VARIOL$** **%QRY_VARDATA$** |  The **%QRY_VARIOL$** and **%QRY_VARDATA$** variables can be used to pass external data to the run-time Query+ logic. The **%QRY_VARIOL$** variable can be loaded with a compiled IOList containing the names of the variables to hold external data. The **%QRY_VARDATA$** can be loaded with the data for the variables in **REC( )** format. It is recommended that these variables be declared as **LOCAL**. **_Example:_**    LOCAL %QRY_VARIOL$=CPL("IOLIST MYVAL$,XVAL")    LOCAL %QRY_VARDATA$=REC(IOL=%QRY_VARIOL$) At run time, the Query+ logic loads the data from **%QRY_VARDATA$** into the variables in **%QRY_VARIOL$** ; therefore, the data in these variables is available to use in such things as filters and formulas, both in the query definition and at run time. _(The %QRY_VARIOL$ and %QRY_VARDATA$ variables were added in PxPlus 2021.)_  
   
-This table lists several **_%NOMADS_** _**properties**_ (or %NOMAD variables) that you can use in your applications to refine the look and control the behaviour of your query. For additional variables, see **[NOMADS Variables](../../Appendix/NOMADS%20Variables/Overview.md)**.
+This table lists several **_%NOMADS_** _ **properties**_ (or %NOMAD variables) that you can use in your applications to refine the look and control the behaviour of your query. For additional variables, see **[NOMADS Variables](../../Appendix/NOMADS%20Variables/Overview.md)**.
 
-**Qry_Attr$** |  **_(Multi-Lines Only)_** Sets query button attributes. Options are: **B** \- Bitmap  
-**F** \- Flat  
-**f** \- Flat - No Border  
-**T** \- Transparent  
-**Q** \- Embedded **_Example:_** To set a flat bitmap button: %NOMAD_Qry_Attr$="FB" To view a video presentation on how to use the embedded query feature, which includes the %NOMAD_Qry_Attr$ property, see **[How to Use Embedded Query](https://www.youtube.com/watch?v=K01hzcnYNlk&feature=youtu.be)**.  
+**Qry_Attr$** |  **_(Multi-Lines Only)_** Sets query button attributes. Options are:    **B** \- Bitmap  
+   **F** \- Flat  
+   **f**   \- Flat - No Border  
+   **T** \- Transparent  
+   **Q** \- Embedded **_Example:_** To set a flat bitmap button: %NOMAD_Qry_Attr$="FB" To view a video presentation on how to use the embedded query feature, which includes the %NOMAD_Qry_Attr$ property, see **[How to Use Embedded Query](https://www.youtube.com/watch?v=K01hzcnYNlk&feature=youtu.be)**.  
 ---|---  
 **Qry_Btn$** |  **_(Multi-Lines Only)_** Load this with a bitmap reference to display a different default bitmap for the query button. **_Example:_** {!Help}  
-**Qry_Clear_Start** |  **_(Classic Query Only)_** If 0 _(zero)_ , position at _Start At_ value in the query. ** _(Default)_**  
+**Qry_Clear_Start** |  **_(Classic Query Only)_** If 0 _(zero)_ , position at _Start At_ value in the query. **_(Default)_**  
   
 A non-zero value overrides _Start At_ value and starts display at the beginning of the file. The variable QRY_VAL$ will be cleared before the query panel is displayed. For information on the **_Classic Query_** and other modes of query display, see **[Query Subsystem](Overview.md)**.  
 **Qry_Print$** |  Name of a user program to call when the Print button is selected in a query. Arguments passed to the program are the 12-character space-padded uppercase screen key and the path to the screen library. The program logic totally replaces the query's default print logic.  
@@ -99,10 +99,10 @@ A non-zero value overrides _Start At_ value and starts display at the beginning 
 %NOMADS'Query_Fave_Color$="RGB:192 64 0"  
 **Query_GridLines** |  Displays grid lines in the query. Options are:  
   
-**0** \- No grid lines  
-**1** \- Full grid  
-**2** \- Vertical lines  
-**3** \- Horizontal lines _(Query_GridLines property was added in PxPlus 2017.)_  
+   **0** \- No grid lines  
+   **1** \- Full grid  
+   **2** \- Vertical lines  
+   **3** \- Horizontal lines _(Query_GridLines property was added in PxPlus 2017.)_  
 **Query_Hide_On_Maint** |  Set to 1 to hide the query panel when the query maintenance button is selected and redisplay the query when the maintenance process is finished.  
 **Query_Kno** |  If non-zero, overrides the value in the **[Query Definition](Query%20Definition.md)**. The run-time query logic uses this value to override the key number used to sort the query.  
 **Query_NoDropHeader** |  Set to 1 to suppress the display of the column headings in **[Drop Queries](Overview.htm#dropquery)**. _(Query_NoDropHeader property was added in PxPlus 2019.)_  
@@ -114,36 +114,42 @@ A non-zero value overrides _Start At_ value and starts display at the beginning 
 **Query_Sbar_Max** |  Number of records in a large file used to determine if alternate scrollbar logic is to be used. See **[Performance Considerations](Designing%20and%20Using%20the%20Query%20Subsystem.htm#performance)**.  
 **Query_Suppress_Export** |  Set to 1 to suppress the _Export_ and _Copy_ features in the run-time query.  
 **Query_Suppress_Favorites** |  Set to 1 to suppress the _Favorites_ feature in the run-time query.  
-**Query_Suppress_Persistence** |  **_(Query+ and Classic Query Only)_** Suppress persistence on the query. Options are: **0** \- Do not suppress persistence (if set)  
-**1** \- Suppress persistence (location/size of query will be the original location/size)  
-**2** \- Suppress location persistence (location will be the original location, but size will persist if changed) If %NOMADS'Query_Suppress_Persistence>0, then maximized panels are overridden.
+**Query_Suppress_Persistence** |  **_(Query+ and Classic Query Only)_** Suppress persistence on the query. Options are:    **0** \- Do not suppress persistence (if set)  
+   **1** \- Suppress persistence (location/size of query will be the original location/size)  
+   **2** \- Suppress location persistence (location will be the original location, but size will persist if changed) If %NOMADS'Query_Suppress_Persistence>0, then maximized panels are overridden.
 
 #### **Note:**  
 For information on suppressing panel persistence, see [**Panel Persistence**](../../Panel%20Designer/Resizing%20and%20Persistence/Panel%20Persistence.md) and the [**%NOMADS'RelPnl_Suppress_Persistence**](Overview.htm#relpnlsuppresspersistence) property.
 
 _(Query_Suppress_Persistence property was added in PxPlus 2019.)_  
-**Query_Suppress_Popup$** |  Exclude certain types of menu options from the query popup menu. Suppress menu items by setting the variable with any combination of the following options: **E** \- Export  
-**C** \- Copy  
-**H** \- Hidden columns  
-**F** \- Filters  
-**G** \- Charting  
-**V** \- Favorites  
-**P** \- Profile  
-**U** \- User formulas **_Example:_** A setting of "EC" suppresses the _Export_ and _Copy_ options.  
+**Query_Suppress_Popup$** |  Exclude certain types of menu options from the query popup menu. Suppress menu items by setting the variable with any combination of the following options:    **E** \- Export  
+   **C** \- Copy  
+   **H** \- Hidden columns  
+   **F** \- Filters  
+   **G** \- Charting  
+   **V** \- Favorites  
+   **P** \- Profile  
+   **U** \- User formulas **_Example:_** A setting of "EC" suppresses the _Export_ and _Copy_ options.  
 A setting of "CEFGHPUV" or "*" suppresses the entire popup menu.
 
 #### **Note:**  
 The order of the letter codes is not important.  
   
-**Query_View** |  Default **[Query+](Overview.htm#queryplus)** view to use. Options are: **0** \- Default _(Toolbar View)_  
-**1** \- Drop Query  
-**2** \- Toolbar View  
-**3** \- Menu View  
-**4** \- Hybrid View  
-**5** \- Drop Tree For information on the Drop query and Drop Tree query, see **[Drop Queries](Overview.htm#dropquery)**.
+**Query_View** |  Default **[Query+](Overview.htm#queryplus)** view to use. Options are:    **0** \- Default _(Toolbar View)_  
+   **1** \- Drop Query  
+   **2** \- Toolbar View  
+   **3** \- Menu View  
+   **4** \- Hybrid View  
+   **5** \- Drop Tree For information on the Drop query and Drop Tree query, see **[Drop Queries](Overview.htm#dropquery)**.
 
 #### **Note:**  
 This variable supersedes the [**%NOMADS'Drop_Qry_All**](../../Appendix/NOMADS%20Variables/Overview.htm#dropqryall) variable.
 
 _(Query_View property was added in PxPlus 2017.)  
-(Drop Tree option was added in PxPlus 2021.)_
+(Drop Tree option was added in PxPlus 2021.)_  
+  
+ 
+
+ 
+
+ 

@@ -11,17 +11,17 @@ This table lists all the **_Drop_Box_** properties:
 _Borderless_ |  Control has no border or frame.  
 _Corner Radius_ |  Sets the radius for the drop box corners. Works only in **4D** mode. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 3 inclusive. See **[CornerRadius$](../../../control_object_properties/dropbox_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :  
   
-     ![](images/themes_017_1.png) Corner Radius set to **Square** :  
+     Corner Radius set to **Square** :  
   
-     ![](images/themes_017_2.png) Corner Radius set to a value of **3** :  
+     Corner Radius set to a value of **3** :  
   
-     ![](images/themes_017_3.png)
+    
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.
 
 _(Corner Radius property was added in PxPlus 2026.)_  
-_Field Height_ |  Defines the height (in pixels) of the drop box input area. When set, the same height is applied to each line in the drop section, and the overall height of the expanded control is affected. Text is centered vertically within the control. **_Example:_** The following three examples show the results when the _Field Height_ property is set to 20, 30 and 40:      ![](images/themes_017_4.png)  
+_Field Height_ |  Defines the height (in pixels) of the drop box input area. When set, the same height is applied to each line in the drop section, and the overall height of the expanded control is affected. Text is centered vertically within the control. **_Example:_** The following three examples show the results when the _Field Height_ property is set to 20, 30 and 40:        
 _(Field Height property was added in PxPlus 2026.)_  
 _Focus Rectangle_ |  Controls whether a dotted focus rectangle displays around the Drop Box selected text. Possible values are: |    |  _Default_ |  Uses the default setting.  
 ---|---|---  
@@ -32,11 +32,11 @@ _Focus Rectangle_ |  Controls whether a dotted focus rectangle displays around t
 
 Drop Box focus is **_Off_** :
 
-     ![](images/themes_017_5.png)
+    
 
 Drop Box focus is **_On_** :
 
-     ![](images/themes_017_6.png)
+    
 
 _(Focus Rectangle property was added in PxPlus 2026.)_  
   

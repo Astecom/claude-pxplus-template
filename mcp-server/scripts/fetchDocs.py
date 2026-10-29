@@ -3,11 +3,13 @@
 Bring docs/ up to date from the online PxPlus manual (https://manual.pvxplus.com/PXPLUS/).
 
 Give one or more pages, usually the release notes of a new version; the script fetches each and the pages it links
-to (one level), converts them to Markdown the way the existing docs/ were made (html2text) and writes them to
+to (one level). A page outside the manual, such as https://home.pvxplus.com/release-info.htm (what is new per
+release, with more links than the release notes), is only read for its links to the manual. converts them to Markdown the way the existing docs/ were made (html2text) and writes them to
 docs/<the same path>.md. A page whose text is the same is left alone. Then run: npm run build-docs-index
 
     python3 -m venv /tmp/docs-venv && /tmp/docs-venv/bin/pip install html2text
     /tmp/docs-venv/bin/python scripts/fetchDocs.py pxplus/vers2300.htm
+    /tmp/docs-venv/bin/python scripts/fetchDocs.py https://home.pvxplus.com/release-info.htm
 
 It asks the site for one page at a time with a pause in between, and names itself in the User-Agent.
 """
@@ -24,6 +26,8 @@ import urllib.request
 import html2text
 
 BASE = 'https://manual.pvxplus.com/PXPLUS/'
+# The same pages, as the release info links them
+OTHER_BASES = ('https://manual.pvxplus.com/page/',)
 DOCS = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'docs')
 AGENT = 'claude-pxplus-template docs update (https://github.com/Astecom/claude-pxplus-template)'
 
@@ -51,6 +55,9 @@ def fetch(url):
 def page_of(url):
     """A manual URL as its page path ("directives/remove.htm"), or None for anything outside the manual"""
     url = urllib.parse.urldefrag(url)[0]
+    for other in OTHER_BASES:
+        if url.startswith(other):
+            url = BASE + url[len(other):]
     if not url.startswith(BASE) or not url.lower().endswith('.htm'):
         return None
     return urllib.parse.unquote(url[len(BASE):])
@@ -59,8 +66,28 @@ def page_of(url):
 def markdown_of(text):
     converter = html2text.HTML2Text()
     converter.body_width = 0
+    # As in the existing docs: no images (a text index has no use for them)
+    converter.ignore_images = True
     # As in the existing docs: a link to a page becomes its .md; a link to an anchor in a page stays .htm
-    return re.sub(r'\]\(([^)#\s]+)\.htm\)', r'](\1.md)', converter.handle(text))
+    return without_secrets(re.sub(r'\]\(([^)#\s]+)\.htm\)', r'](\1.md)', converter.handle(text)))
+
+
+# Example credentials in the manual that look like real ones (a Twilio account SID and auth token): GitHub's push
+# protection refuses them, and a copy of the manual has no use for them
+SECRETS = [
+    (re.compile(r'\bAC[0-9a-fA-F]{32}\b'), '<account_sid>'),
+    (re.compile(r'(?<=;)[0-9a-fA-F]{32}(?=;)'), '<auth_token>'),
+]
+
+
+def without_secrets(markdown):
+    for pattern, placeholder in SECRETS:
+        markdown = pattern.sub(placeholder, markdown)
+    return markdown
+
+
+def same_text(old, new):
+    return re.sub(r'[\s_*]+', '', old) == re.sub(r'[\s_*]+', '', new)
 
 
 def main():
@@ -70,7 +97,9 @@ def main():
     parser.add_argument('--no-follow', action='store_true', help='only the pages given, not the pages they link to')
     args = parser.parse_args()
 
-    todo = [p.lstrip('/') for p in args.pages]
+    # A page of the manual by its path; a full URL outside it is only read for its links
+    starts = [p if p.startswith('http') and not page_of(p) else (page_of(p) or p.lstrip('/')) for p in args.pages]
+    todo = list(starts)
     seen = set()
     counts = {'new': 0, 'changed': 0, 'same': 0, 'failed': 0}
     first = True
@@ -82,12 +111,21 @@ def main():
         if not first:
             time.sleep(args.pause)
         first = False
-        url = BASE + urllib.parse.quote(page)
+        outside = page.startswith('http')
+        url = page if outside else BASE + urllib.parse.quote(page)
         try:
             text = fetch(url)
         except Exception as error:
             counts['failed'] += 1
             print(f'failed   {page}: {error}', file=sys.stderr)
+            continue
+
+        if outside:
+            links = Links()
+            links.feed(text)
+            linked = [p for p in (page_of(urllib.parse.urljoin(url, h)) for h in links.hrefs) if p]
+            print(f'links    {len(set(linked))} manual pages on {page}')
+            todo.extend(p for p in dict.fromkeys(linked) if p not in seen)
             continue
 
         target = os.path.normpath(os.path.join(DOCS, page[:-4] + '.md'))
@@ -96,8 +134,8 @@ def main():
         if os.path.exists(target):
             with open(target, encoding='utf-8') as existing:
                 old = existing.read()
-        # Only whitespace differs (another html2text version): the page counts as the same
-        if old is not None and ' '.join(old.split()) == ' '.join(markdown.split()):
+        # Only whitespace or emphasis marks differ (another html2text version): the page counts as the same
+        if old is not None and same_text(old, markdown):
             counts['same'] += 1
         else:
             os.makedirs(os.path.dirname(target), exist_ok=True)
@@ -108,7 +146,7 @@ def main():
             print(f'{state:8} {page}')
 
         # The pages a given page links to (one level)
-        if not args.no_follow and page in [p.lstrip('/') for p in args.pages]:
+        if not args.no_follow and page in starts:
             links = Links()
             links.feed(text)
             for href in links.hrefs:

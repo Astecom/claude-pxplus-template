@@ -59,9 +59,11 @@ You should see `pxplus` in the list.
 
 ```bash
 python3 -m venv /tmp/docs-venv && /tmp/docs-venv/bin/pip install html2text
-/tmp/docs-venv/bin/python scripts/fetchDocs.py pxplus/vers2300.htm
+/tmp/docs-venv/bin/python scripts/fetchDocs.py pxplus/vers2300.htm https://home.pvxplus.com/release-info.htm
 npm run build-docs-index && npm run check-docs-search
 ```
+
+The release info page (what is new per release, including the updates such as 22.10) links to more manual pages than the release notes; the script reads it for those links only.
 
 The docs go up to PxPlus 2026 (23.00).
 

@@ -5,7 +5,7 @@
   
 **_Web Services_** is the exchange of information between applications using the standard Web protocol for browsers. As a _consumer_ , you can obtain information provided on the Web such as the weather conditions and access information provided by other Web-based applications. As a _service provider_ , you can allow other applications to access your information and accept requests for information from other applications. With PxPlus, you can be a consumer of Web services, a provider of services or both.
 
-Refer to the information below on Web requests, using the PxPlus utility **"*plus/web/request"** for **[Submitting a Web Request](Overview.htm#submitting)**, and **[oAuth2 Authorization](Overview.htm#oauth2)**.
+Refer to the information below on Web requests, using the PxPlus utility **" *plus/web/request"** for **[Submitting a Web Request](Overview.htm#submitting)**, and **[oAuth2 Authorization](Overview.htm#oauth2)**.
 
 ## Web Requests
 
@@ -17,7 +17,7 @@ The processing of Web requests begins with a URL:
 
 **_Where:_**
 
-> _target_ __ can be either a physical file or a process/program.
+> _target_ _ _ can be either a physical file or a process/program.
 
 The two basic types of requests are:
 
@@ -71,7 +71,7 @@ Below is an example of how this can be done via the Apache Web Server by configu
 
 PxPlus provides the following utility for submitting a request with data and returning the result:
 
-> **"*plus/web/request"**
+> **" *plus/web/request"**
 
 The ***plus/web/request** utility supports secure (HTTPS://) and unsecure (HTTP://) requests. It uses HTTP version 1.1 protocol to make Web requests and receive responses. If necessary, ***plus/web/request** can be forced to use HTTP version 1.0 protocol by defining the global variable **%web_request_http_ver$** as "1.0".
 
@@ -82,7 +82,7 @@ By default, the user agent used by ***plus/web/request** will be the same as if 
   
 **_Example:_**  
   
-_extrahdr_ _$_ ="User-Agent: MyApp/1.00.0000"  
+     _extrahdr_ _$_ ="User-Agent: MyApp/1.00.0000"  
   
 _(Support for overriding the user agent was added in PxPlus 2021.)_
 
@@ -90,28 +90,28 @@ The default request is a **GET** if no data is provided; otherwise, a **POST** i
 
 **_Calling Sequence:_**
 
-> **CALL"*plus/web/request"** , _url_ _$, postdata$, recvdata$, recvhdr$, mimetype$, certificate$, extrahdrs$, method$, timeout_
+> **CALL "*plus/web/request"**, _url_ _$, postdata$, recvdata$, recvhdr$, mimetype$, certificate$, extrahdrs$, method$, timeout_
 
 **_Where:_**
 
-|  _url_ _$_ |  Specifies target server and if secure or non-secure  
+  |  _url_ _$_ |  Specifies target server and if secure or non-secure  
 ---|---|---  
-|  _postdata_ _$_ |  Data to send to the server  
-|  _recvdata_ _$_ |  String variable to receive response  
-|  _recvhdr_ _$_ |  Header of response received  
-|  _mimetype_ _$_ |  Optional content type of data  
-|  _certificate$_ |  Optional path of certificate, if needed  
-|  _extrahdrs_ _$_ |  Optional additional headers to include on send  
-|  _method$_ |  HTTP request method  
-|  _timeout_ |  Timeout value (if not provided, defaults to 15 seconds)  
+  |  _postdata_ _$_ |  Data to send to the server  
+  |  _recvdata_ _$_ |  String variable to receive response  
+  |  _recvhdr_ _$_ |  Header of response received  
+  |  _mimetype_ _$_ |  Optional content type of data  
+  |  _certificate$_ |  Optional path of certificate, if needed  
+  |  _extrahdrs_ _$_ |  Optional additional headers to include on send  
+  |  _method$_ |  HTTP request method  
+  |  _timeout_ |  Timeout value (if not provided, defaults to 15 seconds)  
   
 _(The timeout option was added in PxPlus 2020.)_
 
-The _header_ describes the message and contains information about the transmission. The **"*plus/web/request"** utility includes the use of extra headers, which are typically used for authorization information, cookies and the _From_ __ email name. Extra headers can also be used to include an _if-modified-since_ request, which allows the Web service to send data if it has changed; otherwise, it will return an error 304.
+The _header_ describes the message and contains information about the transmission. The **" *plus/web/request"** utility includes the use of extra headers, which are typically used for authorization information, cookies and the _From_ _ _ email name. Extra headers can also be used to include an _if-modified-since_ request, which allows the Web service to send data if it has changed; otherwise, it will return an error 304.
 
 UNIX/Linux provides the **'curl'** command that allows you to make Web requests from a Command line. A typical **'curl'** command line would look as follows:
 
-> **curl** https://instance_name.salesforce.com/services/data/v31.0/-H 'Authorization: Bearer sessionID' d client=123456 >Respfile
+> **curl** https://instance_name.salesforce.com/services/data/v31.0/-H 'Authorization: Bearer sessionID' d client=123456 >Respfile
 
 Compare this to using a ***plus/web/request** :
 
@@ -146,11 +146,11 @@ The next step is to configure the Apache Web Server to handle PxPlus Web Service
 >  Options Indexes FollowSymLinks  
 > AllowOverride None  
 >  # Use line below for Apache 2.4 and later  
->  Require all granted  
+>      Require all granted  
 >  # Use next 3 lines below for Apache 2.2 and earlier  
->  # Order allow,deny  
->  # Allow from all  
->  # DirectoryIndex index.html  
+>  #   Order allow,deny  
+>  #   Allow from all  
+>  #   DirectoryIndex index.html  
 >  </Directory>  
 >   
 >  Alias /services/ "/pxplus/lib/_web/services/"   
@@ -158,11 +158,11 @@ The next step is to configure the Apache Web Server to handle PxPlus Web Service
 >  Options Indexes FollowSymLinks  
 > AllowOverride None  
 >  # Use line below for Apache 2.4 and later  
->  Require all granted  
+>      Require all granted  
 >  # Use next 3 lines below for Apache 2.2 and earlier  
->  # Order allow,deny  
->  # Allow from all  
->  # DirectoryIndex index.html  
+>  #   Order allow,deny  
+>  #   Allow from all  
+>  #   DirectoryIndex index.html  
 >  </Directory>  
 >   
 > RewriteEngine On  
@@ -172,11 +172,11 @@ The next step is to configure the Apache Web Server to handle PxPlus Web Service
 
 The "***obj/oauth2** " object performs oAuth2 authorization with third-party Web services. It allows you to get authorized with Web services, such as Google, Salesforce or any Web service that uses oAuth2 authorization.
 
-You set up a UserID/Client with the Web service provider. They will provide you with a Client ID and a secret code, as well as two URLs: one to the Authorization server, and one to the Token server. Once you have this information, the process consists of two stages:
+You set up a UserID/Client with the Web service provider. They will provide you with a Client ID and a secret code, as well as two URLs:  one to the Authorization server, and one to the Token server. Once you have this information, the process consists of two stages:
 
-> The **_First_** stage is to have the user grant your application (based on Client ID and secret code) access to an account of the provider.
+>  The **_First_** stage is to have the user grant your application (based on Client ID and secret code) access to an account of the provider.
 
-> The **_Second_** stage is where you can access the user data from the server.
+>  The **_Second_** stage is where you can access the user data from the server.
 
 You can use the PVX Plus hosted oAuth2 agent or self-host the oAuth2 agent if you want to avoid relying on the PVX Plus servers being up.
 
@@ -187,53 +187,59 @@ _(Support for self-hosting the oAuth2 agent was added in PxPlus 2023.)_
 **_Example:_**
 
 > ! This is an example of doing a fill authorization  
->  clientID$="this_should_be_your_client_id"  
->  clientSecret$="this_should_be_your_client_secret"  
+>      clientID$="this_should_be_your_client_id"  
+>      clientSecret$="this_should_be_your_client_secret"  
 >  !  
 > ! Init oAuth2 object  
->  oAuth2=new("*obj/oauth2")  
->  oAuth2'Service$="salesforce"  
->  oAuth2'client_id$=clientID$  
->  oAuth2'client_secret$=clientSecret$  
+>      oAuth2=new("*obj/oauth2")  
+>      oAuth2'Service$="salesforce"  
+>      oAuth2'client_id$=clientID$  
+>      oAuth2'client_secret$=clientSecret$  
 >  !  
->  oAuth2'Enable_Certification("Do you consent to allow access of your Salesforce account to example app?")  
+>      oAuth2'Enable_Certification("Do you consent to allow access of your Salesforce account to example app?")  
 >  !  
 >  ! Wait a little for it to process  
->  wait 1  
+>      wait 1  
 >  !  
 > ! Get user logon URL  
->  url$=oAuth2'Get_Authorization_URL$()  
+>      url$=oAuth2'Get_Authorization_URL$()  
 >  !  
 > ! Open login URL in users default browser  
->  system_helpurl$  
+>      system_helpurl$  
 >  !  
 > ! Wait for user to complete sign-in and allow us access  
->  input "Press any key to continue after logging into account and allowing PxPlus access:",*;  
->  print ""  
+>      input "Press any key to continue after logging into account and allowing PxPlus access:",*;  
+>      print ""  
 >  !  
->  oAuth2'Get_Access_token() ! Gets a short lived token  
+>      oAuth2'Get_Access_token() ! Gets a short lived token  
 >  !  
 > ! Save the refresh token  
->  serial "token",err=*next  
->  open purge (hfn)"token"  
->  print (lfo)oAuth2'Refresh_token$  
->  close (lfo)  
+>      serial "token",err=*next  
+>      open purge (hfn)"token"  
+>      print (lfo)oAuth2'Refresh_token$  
+>      close (lfo)  
 >  ! Set this into header for all subsequent requests  
->  extrahdr$="Authorization: Bearer "+oAuth2'Access_token$  
+>      extrahdr$="Authorization: Bearer "+oAuth2'Access_token$  
 >  ! Response ALSO included which server has users data  
->  dim oAuth2$  
->  dim load oAuth2${all}=oAuth2'jsonData$  
+>      dim oAuth2$  
+>      dim load oAuth2${all}=oAuth2'jsonData$  
 >  ! So we need to derive the system that has the user data  
->  base_url$=oAuth2$["instance_url"]+"/services/data/v30.0"  
->  drop object oAuth2 ! Done with this object  
+>      base_url$=oAuth2$["instance_url"]+"/services/data/v30.0"  
+>      drop object oAuth2 ! Done with this object  
 >  ! So now let us run a query  
->  q$="SELECT NAME FROM Account"  
->  url$=base_url$+"/query/?q="+cvs(q$,"ASCII:URL")  
->  call "*plus/web/request",url$,"",resp$,resphdr$,"","",extrahdr$  
->  dim json$  
->  dim load json${all}=resp$  
->  print "Formatted reply:",'LF',dim(list edit json${all})
+>      q$="SELECT NAME FROM Account"  
+>      url$=base_url$+"/query/?q="+cvs(q$,"ASCII:URL")  
+>      call "*plus/web/request",url$,"",resp$,resphdr$,"","",extrahdr$  
+>      dim json$  
+>      dim load json${all}=resp$  
+>      print "Formatted reply:",'LF',dim(list edit json${all})
 
 ## See Also
 
 **[PxPlus Web Services](../PxPlus%20Web%20Services.md)**
+
+ 
+
+ 
+
+ 

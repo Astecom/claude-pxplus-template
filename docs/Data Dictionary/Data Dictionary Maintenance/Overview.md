@@ -18,9 +18,7 @@ In addition, the data dictionary can be created from an external database (ODB, 
 
 **Data Dictionary Maintenance** is displayed below with a sample entry:
 
-> ![](images/overview_001_1.jpg)
-
-To invoke **Data Dictionary Maintenance** , use one of the following methods:
+> To invoke **Data Dictionary Maintenance** , use one of the following methods:
 
 **Location** |  **Method**  
 ---|---  
@@ -113,7 +111,7 @@ These tabbed folders consist of the following:
 ---  
 **Physical File** |  Pathname of the actual database file - either a _Fixed_ value (e.g. XX_AR) or an _Expression_ (e.g. %COMPANY$+"_AR"). Click the Query button to select a file.  
 **File Type** |  **_(Display Only)_** Indicates whether the current file is a _Native_ (PxPlus) file, a database **[Link](../../PxPlus%20User%20Guide/Data%20Integration/External%20Databases/Creating%20Link%20File.md)** file, or a database **[Prefix](../../PxPlus%20User%20Guide/Data%20Integration/External%20Databases/Creating%20the%20Prefix%20File.md)** file. _(The File Type was added in PxPlus 2023.)_  
-_View Prefix File Entry/Link File Contents_ __|  **_(Available when File Type is a database Prefix File or a database Link File)_** Button (beside _File Type_) that is used to display the contents of a database **[Prefix](../../PxPlus%20User%20Guide/Data%20Integration/External%20Databases/Creating%20the%20Prefix%20File.md)** file entry or **[Link](../../PxPlus%20User%20Guide/Data%20Integration/External%20Databases/Creating%20Link%20File.md)** file in view-only mode. This button is disabled for _Native_ files. **_Example:_**      ![](images/overview_001_2.png) _(The View Prefix File Entry/Link File Contents button was added in PxPlus 2023 Update 1.)_  
+_View Prefix File Entry/Link File Contents_ __|  **_(Available when File Type is a database Prefix File or a database Link File)_** Button (beside _File Type_) that is used to display the contents of a database **[Prefix](../../PxPlus%20User%20Guide/Data%20Integration/External%20Databases/Creating%20the%20Prefix%20File.md)** file entry or **[Link](../../PxPlus%20User%20Guide/Data%20Integration/External%20Databases/Creating%20Link%20File.md)** file in view-only mode. This button is disabled for _Native_ files. **_Example:_**      _(The View Prefix File Entry/Link File Contents button was added in PxPlus 2023 Update 1.)_  
 **Options** |  |  _Notes_ |  A multi-line input control used for entering notes about the table and its use. Press Enter to start a new line. Maximum 1024 characters. When done, press the Tab key prior to exiting or using the Browse buttons; otherwise, changes to the notes will not be saved. _(The Notes input control was added in PxPlus 2021.)_  
 ---|---  
 _Group_ |  Group name for assigning files to a common theme or application; e.g. Accounting, Billing, GL.  
@@ -201,13 +199,13 @@ The options below are listed in the order that they appear on the menu bar: **[F
 
 **File** |  Some of these options are also available as tool bar buttons.  
 ---|---  
-_Change/Create Dictionary_ |  Displays the **Change/Create Dictionary** window for changing or creating the pathname to a new _providex.ddf_ file. Specify a different pathname by clicking the Query button or manually entering it.      ![](images/overview_001_3.jpg) If no _providex.ddf_ file exists in the pathname specified, a prompt will ask if you wish to create the dictionary. Responding _Yes_ creates the dictionary files _providex.ddf/dde_ in the pathname specified. Responding _No_ does not create these files. If the _Change Directory_ check box is selected, the directory containing the dictionary becomes the current working directory. _(Support for creating a new dictionary was added in PxPlus 2019 Update 1.)_  
+_Change/Create Dictionary_ |  Displays the **Change/Create Dictionary** window for changing or creating the pathname to a new _providex.ddf_ file. Specify a different pathname by clicking the Query button or manually entering it.      If no _providex.ddf_ file exists in the pathname specified, a prompt will ask if you wish to create the dictionary. Responding _Yes_ creates the dictionary files _providex.ddf/dde_ in the pathname specified. Responding _No_ does not create these files. If the _Change Directory_ check box is selected, the directory containing the dictionary becomes the current working directory. _(Support for creating a new dictionary was added in PxPlus 2019 Update 1.)_  
 _New Table_ |  Adds a new file. Selecting this option clears the current record to allow you to enter the details for the new definition. _(The New Table option was added to the File menu in PxPlus 2023 Update 1.)_  
 _Copy Table_ |  Launches the **[Copy Data Dictionary](Copy%20Data%20Dictionary.md)** window for copying an existing data dictionary definition in the same dictionary to a new table name. _(The Copy Table option was added to the File menu in PxPlus 2023 Update 1.)_  
 _Rename Table_ |  Changes the selected table to a new name. A database link file or prefix file cannot be renamed.  
 _Delete Table_ |  Deletes the selected table.  
 _Define Keys_ |  Sets up primary and alternate keys for the physical file. See **[Defining Keys](Defining%20Keys.md)**.  
-_IO Procedure_ |  Launches the **Embedded I/O Procedures** window for entering the name of a program that contains logic for controlling file access. PxPlus provides the ability to specify an object using the syntax _obj=xxxxx_.      ![](images/overview_001_4.jpg)   
+_IO Procedure_ |  Launches the **Embedded I/O Procedures** window for entering the name of a program that contains logic for controlling file access. PxPlus provides the ability to specify an object using the syntax _obj=xxxxx_.         
 _Update File/Prefix/Link_ |  If the current file is a native PxPlus file, updates and/or creates the physical file. If a data conversion is required, the **Update physical** window will display. See **[Updating the Data Dictionary](Updating%20the%20Data%20Dictionary.md)**. If the current file is a database link file or prefix file, updates the link file or the entry in the prefix file. To update the external database for field/key changes, use the Database Manager program. _(The Update File/Prefix/Link option was added in PxPlus 2023.)_  
 _Update Files_ |  Launches the **[Update Physical Files](Update%20Physical%20Files.md)** utility for updating/creating physical files for multiple selected native (PxPlus) files. _(The Update Physical Files utility was added in PxPlus 2023.)  
 (The Update Files option was added to the File menu in PxPlus 2023 Update 1.)_  
@@ -279,7 +277,7 @@ _File Maintenance Generator_ |  Runs the **[File Maintenance Generator](../../NO
 
 **Wiki Info** |  _(The Wiki Info menu option was added in PxPlus 2023.)_  
 ---|---  
-  |  **_(Not Available when running WindX)_** Spawns EZWeb for the **[PxPlus Wiki](../../PxPlus%20Wiki/PxPlus%20Wiki.md)** (if not already running) and then displays the file information for the current table in a new tab on your default Web browser. **_Example:_** When the PxPlus Wiki launches, the file information for the current table, Clients, displays:      ![](images/overview_001_5.png)  
+  |  **_(Not Available when running WindX)_** Spawns EZWeb for the **[PxPlus Wiki](../../PxPlus%20Wiki/PxPlus%20Wiki.md)** (if not already running) and then displays the file information for the current table in a new tab on your default Web browser. **_Example:_** When the PxPlus Wiki launches, the file information for the current table, Clients, displays:       
   
 ## Tool Bar Options
 
@@ -293,9 +291,9 @@ _Copy_ |  Launches the **[Copy Data Dictionary](Copy%20Data%20Dictionary.md)** w
 _Rename_ |  **_(Available when_ [File Type](Overview.htm#file_type) _is Native File)_** Changes the selected table to a new name. This button is disabled for database link and prefix files.  
 _Delete_ |  Deletes the currently loaded table.  
 _Bulk Edit_ |  Launches the **[Bulk Edit Data Elements](Bulk%20Edit%20Elements.md)** utility for applying bulk changes to data elements in the PxPlus data dictionary. _(The Bulk Edit Data Elements utility was added in PxPlus 2023.)_  
-_SQL Keydef_ |  Opens the **SQL Key Definition** window that is used to create/remove the SQL key definition for a selected table.      ![](images/overview_001_6.jpg) Button is hidden if _providex.kdf_ does not exist. To create the _providex.kdf_ file, select _File_ > _Create SQL Key Defn File_ from the menu bar. See **[SQL Key Definition](SQL%20Key%20Definition.htm#sqlkeydef)**.  
+_SQL Keydef_ |  Opens the **SQL Key Definition** window that is used to create/remove the SQL key definition for a selected table.      Button is hidden if _providex.kdf_ does not exist. To create the _providex.kdf_ file, select _File_ > _Create SQL Key Defn File_ from the menu bar. See **[SQL Key Definition](SQL%20Key%20Definition.htm#sqlkeydef)**.  
 _Define Keys_ |  Sets up primary and alternate keys for the physical file. See **[Defining Keys](Defining%20Keys.md)**.  
-_IO Procedure_ |  Launches the **Embedded I/O Procedures** window for entering the name of a program that contains logic for controlling file access. PxPlus provides the ability to specify an object using the syntax _obj=xxxxx_.      ![](images/overview_001_7.jpg)  
+_IO Procedure_ |  Launches the **Embedded I/O Procedures** window for entering the name of a program that contains logic for controlling file access. PxPlus provides the ability to specify an object using the syntax _obj=xxxxx_.       
 _Export ( "Database" tool bar section)_ |  If a native PxPlus file is currently selected, launches the **[Database Export Utility](Database%20Export.md)** for adding the data file to an existing database (ODB, MySQL, OCI, ADO or DB2). If no table or database link file or prefix file is currently selected, launches the **[Bulk Database Export Utility](Bulk%20Database%20Export.md)** for exporting table definitions from the PxPlus data dictionary into an existing database. _(The Database Export Utility was added in PxPlus 2023.)_  
 _Import ( "Database" tool bar section)_ |  Launches the **[Database Import Utility](Database%20Import.md)** for importing table definitions from an existing database (ODB, MySQL, OCI, ADO or DB2) into the PxPlus data dictionary. _(The Database Import Utility was added in PxPlus 2023.)_  
 _Data_ |  If the current file is a native PxPlus file, launches the **[File View Utility](../../File%20View%20Utility.md)** for viewing data file information, such as type, record size, primary key size, current number of records, etc. If the current file is a database link file or a prefix file, any data in that file displays in a separate window for viewing only. _(The ability to view data in a database link file or prefix file was added in PxPlus 2023.)_  

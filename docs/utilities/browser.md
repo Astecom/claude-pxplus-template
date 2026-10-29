@@ -119,7 +119,7 @@ The interface supports the following **_methods_**:
 #### **Note:**  
 Not accessible when using iNomads due to browser security.  
   
-**Find**( ) |  Opens the **Find** dialog, which allows users to search for specified text within the contents of a *BROWSER displayed Web page. The **[FindHotKey](browser.htm#Mark7)** property is used to set or not set a Find hot key for opening this dialog.      ![](images/browser_003_1.jpg) This dialog consists of the following: |  _Find What_ |  Enter the search text. If text is selected in the Web page when the **Find** dialog is invoked, the selected text will be used as the default search text.  
+**Find**( ) |  Opens the **Find** dialog, which allows users to search for specified text within the contents of a *BROWSER displayed Web page. The **[FindHotKey](browser.htm#Mark7)** property is used to set or not set a Find hot key for opening this dialog.      This dialog consists of the following: |  _Find What_ |  Enter the search text. If text is selected in the Web page when the **Find** dialog is invoked, the selected text will be used as the default search text.  
 ---|---  
 _Match case_ |  Select this option if the search is to be case sensitive. By default, this option is unchecked.  
 _Direction_ |  Searches up or down within the displayed Web page. By default, _Down_ is selected.  

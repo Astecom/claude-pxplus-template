@@ -172,9 +172,7 @@ _(added in PxPlus 2019)_
 **CbxImage** |  **_(Windows Only)_** Defines the pathname to the image used to create Check Boxes on the screen. See **[Customizing Radio Buttons and Check Boxes](../appendix/customizing_rb_and_cb.md)**. _(added in PxPlus 2017)_  
 **CbxMarkSize** |  **_(Windows Only)_** If not set, the default size of the Check Box image is based on the height of one line. If set, the size of the Check Box image will be based on the value of CbxMarkSize (in pixels) **_or_** the height of the Check Box control, _whichever is smaller._ **_Example:_**
 
-> ![](images/option_003_1.jpg)
-
-See **[Customizing Radio Buttons and Check Boxes](../appendix/customizing_rb_and_cb.md)**. _(added in PxPlus 2017)_  
+> See **[Customizing Radio Buttons and Check Boxes](../appendix/customizing_rb_and_cb.md)**. _(added in PxPlus 2017)_  
 **CenterWdw** ¹ |  Center the current window (DIALOGUE) on screen. This mnemonic takes into account multiple monitors and places the window in the center of the nearest monitor currently displaying the window.  
 **ClrSelectIgnore** |  Setting this option controls the colors that are used for displaying a selected line in a list box/list view.  
   
@@ -199,21 +197,21 @@ CornerRadBtn is set to **" Round"**:
           print 'OPTION'("CornerRadBtn","Round")  
           BUTTON 100,@(10,10,12,3)="{!Stop}Button 1"
 
-          ![](images/option_003_2.png)
+         
 
 CornerRadBtn is set to **" Square"**:
 
           print 'OPTION'("CornerRadBtn","Square")  
           BUTTON 100,@(10,10,12,3)="{!Stop}Button 1"
 
-          ![](images/option_003_3.png)
+         
 
 CornerRadBtn is set to a value of **" 10"**:
 
           print 'OPTION'("CornerRadBtn","10")  
           BUTTON 100,@(10,10,12,3)="{!Stop}Button 1"
 
-          ![](images/option_003_4.png)
+         
 
 _(added in PxPlus 2026)_  
   
@@ -232,21 +230,21 @@ CornerRadCB is set to **" Round"**:
           print 'OPTION'("CornerRadCB","Round")  
           CHECK_BOX 100,@(10,10,12,3)="Check Box 1"  
   
-          ![](images/option_003_5.png)
+         
 
 CornerRadCB is set to **" Square"**:
 
           print 'OPTION'("CornerRadCB","Square")  
           CHECK_BOX 100,@(10,10,12,3)="Check Box 1"  
   
-          ![](images/option_003_6.png)
+         
 
 CornerRadCB is set to a value of **" 7"**:
 
           print 'OPTION'("CornerRadCB","7")  
           CHECK_BOX 100,@(10,10,12,3)="Check Box 1"  
   
-          ![](images/option_003_7.png)
+         
 
 _(added in PxPlus 2026)_  
   
@@ -265,21 +263,21 @@ CornerRadCBImg is set to **" Round"**:
           print 'OPTION'("CornerRadCBImg","")  
           CHECK_BOX 100,@(10,10,12,3)="{!Stop}Check Box 1"  
   
-          ![](images/option_003_8.png)
+         
 
 CornerRadCBImg is set to **" Square"**:
 
           print 'OPTION'("CornerRadCBImg","Square")  
           CHECK_BOX 100,@(10,10,12,3)="{!Stop}Check Box 1"  
   
-          ![](images/option_003_9.png)
+         
 
 CornerRadCBImg is set to a value of **" 7"**:
 
           print 'OPTION'("CornerRadCBImg","7")  
           CHECK_BOX 100,@(10,10,12,3)="{!Stop}Check Box 1"  
   
-          ![](images/option_003_10.png)
+         
 
 _(added in PxPlus 2026)_  
   
@@ -297,7 +295,7 @@ CornerRadDB is set to **" Round"**:
           DROP_BOX 100,@(10,15,12,8)  
           DROP_BOX LOAD 100,"cat/dog/horse/pig/"  
   
-          ![](images/option_003_11.png)
+         
 
 CornerRadDB is set to **" Square"**:
 
@@ -305,7 +303,7 @@ CornerRadDB is set to **" Square"**:
           DROP_BOX 100,@(10,15,12,8)  
           DROP_BOX LOAD 100,"cat/dog/horse/pig/"  
   
-          ![](images/option_003_12.png)
+         
 
 CornerRadDB is set to a value of **" 3"**:
 
@@ -313,7 +311,7 @@ CornerRadDB is set to a value of **" 3"**:
           DROP_BOX 100,@(10,15,12,8)  
           DROP_BOX LOAD 100,"cat/dog/horse/pig/"  
   
-          ![](images/option_003_13.png)
+         
 
 _(added in PxPlus 2026)_  
   
@@ -331,7 +329,7 @@ CornerRadLB is set to **" Round"**:
           LIST_BOX 100,@(10,15,10,6)  
           LIST_BOX LOAD 100,"cat/dog/horse/pig/"  
   
-          ![](images/option_003_14.png)
+         
 
 CornerRadLB is set to **" Square"**:
 
@@ -339,7 +337,7 @@ CornerRadLB is set to **" Square"**:
           LIST_BOX 100,@(10,15,10,6)  
           LIST_BOX LOAD 100,"cat/dog/horse/pig/"  
   
-          ![](images/option_003_15.png)
+         
 
 CornerRadLB is set to a value of **" 8"**:
 
@@ -347,7 +345,7 @@ CornerRadLB is set to a value of **" 8"**:
           LIST_BOX 100,@(10,15,10,6)  
           LIST_BOX LOAD 100,"cat/dog/horse/pig/"  
   
-          ![](images/option_003_16.png)
+         
 
 _(added in PxPlus 2026)_  
   
@@ -364,21 +362,21 @@ CornerRadML is set to **" Round"**:
           print 'OPTION'("CornerRadML","Round")  
           MULTI_LINE 100,@(10,15,10,2)  
   
-          ![](images/option_003_17.png)
+         
 
 CornerRadML is set to **" Square"**:
 
           print 'OPTION'("CornerRadML","Square")  
           MULTI_LINE 100,@(10,15,10,2)  
   
-          ![](images/option_003_18.png)
+         
 
 CornerRadML is set to a value of **" 7"**:
 
           print 'OPTION'("CornerRadML","7")  
           MULTI_LINE 100,@(10,15,10,2)  
   
-          ![](images/option_003_19.png)
+         
 
 _(added in PxPlus 2026)_  
   
@@ -395,21 +393,21 @@ CornerRadRBImg is set to **" Round"**:
           print 'OPTION'("CornerRadRBImg","Round")  
           RADIO_BUTTON 100:1,@(10,15,10,2)="{!Stop}Yearly"  
   
-          ![](images/option_003_20.png)
+         
 
 CornerRadRBImg is set to **" Square"**:
 
           print 'OPTION'("CornerRadRBImg","Square")  
           RADIO_BUTTON 100:1,@(10,15,10,2)="{!Stop}Yearly"  
   
-          ![](images/option_003_21.png)
+         
 
 CornerRadRBImg is set to a value of **" 10"**:
 
           print 'OPTION'("CornerRadRBImg","10")  
           RADIO_BUTTON 100:1,@(10,15,10,2)="{!Stop}Yearly"  
   
-          ![](images/option_003_22.png)
+         
 
 _(added in PxPlus 2026)_  
   
@@ -423,58 +421,58 @@ _(added in PxPlus 2026)_
 _(added in PxPlus v8.11, build 9182)_  
   
 **FocusRectBtn** |  Controls whether a dotted focus rectangle displays around the Button text. By default, the focus rectangle is shown (On). If set to "0" or "N", the focus rectangle is not shown (Off). If set to "1" or "Y", the focus rectangle is shown (On). **_Example:_** To turn Button focus **_Off_** :           print 'OPTION'("FocusRectBtn",0)  
-          BUTTON 100,@(40,12,10,2)="{!Stop}Button 1"           ![](images/option_003_23.png) To turn Button focus back **_On_** :           print 'OPTION'("FocusRectBtn",1)  
+          BUTTON 100,@(40,12,10,2)="{!Stop}Button 1"           To turn Button focus back **_On_** :           print 'OPTION'("FocusRectBtn",1)  
           BUTTON 100,@(40,12,10,2)="{!Stop}Button 1"  
   
-          ![](images/option_003_24.png) _(added in PxPlus 2026)_  
+          _(added in PxPlus 2026)_  
 **FocusRectCB** |  Controls whether a dotted focus rectangle displays around the Check Box text. By default, the focus rectangle is shown (On). If set to "0" or "N", the focus rectangle is not shown (Off). If set to "1" or "Y", the focus rectangle is shown (On). **_Example:_** To turn Check Box focus **_Off_** :           print 'OPTION'("FocusRectCB",0)  
           CHECK_BOX 100,@(40,15,15,2)="Check Box 1"  
   
-          ![](images/option_003_25.png) To turn Check Box focus back **_On_** :           print 'OPTION'("FocusRectCB",1)  
+          To turn Check Box focus back **_On_** :           print 'OPTION'("FocusRectCB",1)  
           CHECK_BOX 100,@(40,15,15,2)="Check Box 1"  
   
-          ![](images/option_003_26.png) **_Example:_** To turn Check Box focus **_Off_** (when bitmap is added):           print 'OPTION'("FocusRectCB",0)  
+          **_Example:_** To turn Check Box focus **_Off_** (when bitmap is added):           print 'OPTION'("FocusRectCB",0)  
           CHECK_BOX 100,@(40,15,15,3)="{!Stop} Check Box 1"  
   
-          ![](images/option_003_27.png) To turn Check Box focus back **_On_** (when bitmap is added):           print 'OPTION'("FocusRectCB",1)  
+          To turn Check Box focus back **_On_** (when bitmap is added):           print 'OPTION'("FocusRectCB",1)  
           CHECK_BOX 100,@(40,15,15,3)="{!Stop} Check Box 1"  
   
-          ![](images/option_003_28.png) _(added in PxPlus 2026)_  
+          _(added in PxPlus 2026)_  
 **FocusRectDB** |  Controls whether a dotted focus rectangle displays around the Drop Box selected text. By default, the focus rectangle is shown (On). This option does not apply to Variable Drop Boxes. If set to "0" or "N", the focus rectangle is not shown (Off). If set to "1" or "Y", the focus rectangle is shown (On). **_Example:_** To turn Drop Box focus **_Off_** :           print 'OPTION'("FocusRectDB",0)  
           DROP_BOX 100,@(40,15,15,9)  
           DROP_BOX LOAD 100,"Cat/Dog/Horse/Pig/"  
   
-          ![](images/option_003_29.png)  
-          ![](images/option_003_30.png) To turn Drop Box focus back **_On_** :           print 'OPTION'("FocusRectDB",1)  
+            
+          To turn Drop Box focus back **_On_** :           print 'OPTION'("FocusRectDB",1)  
           DROP_BOX 100,@(40,15,15,9)  
           DROP_BOX LOAD 100,"Cat/Dog/Horse/Pig/"  
   
-          ![](images/option_003_31.png)  
-          ![](images/option_003_32.png) _(added in PxPlus 2026)_  
+            
+          _(added in PxPlus 2026)_  
 **FocusRectLB** |  Controls whether a dotted focus rectangle displays around the List Box selected row. By default, the focus rectangle is shown (On). This option can be applied to List Boxes, List Views, Report Views and Tree Views but not Variable List Boxes. If set to "0" or "N", the focus rectangle is not shown (Off). If set to "1" or "Y", the focus rectangle is shown (On). **_Example:_** To turn List Box focus **_Off_** :           print 'OPTION'("FocusRectLB",0)  
           LIST_BOX 100,@(40,15,10,6)  
           LIST_BOX LOAD 100,"Cat/Cow/Dog/Horse/Pig/Sheep/"  
   
-          ![](images/option_003_33.png) To turn List Box focus back **_On_** :           print 'OPTION'("FocusRectLB",1)  
+          To turn List Box focus back **_On_** :           print 'OPTION'("FocusRectLB",1)  
           LIST_BOX 100,@(40,15,10,6)  
           LIST_BOX LOAD 100,"Cat/Cow/Dog/Horse/Pig/Sheep/"  
   
-          ![](images/option_003_34.png) _(added in PxPlus 2026)_  
+          _(added in PxPlus 2026)_  
 **FocusRectRB** |  Controls whether a dotted focus rectangle displays around the Radio Button text. By default, the focus rectangle is shown (On). If set to "0" or "N", the focus rectangle is not shown (Off). If set to "1" or "Y", the focus rectangle is shown (On). **_Example:_** To turn Radio Button focus **_Off_** :           print 'OPTION'("FocusRectRB",0)  
           RADIO_BUTTON 100:1,@(40,15,14,3)="Radio Button 1"  
           RADIO_BUTTON 100:2,@(40,17,14,3)="Radio Button 2"           When Radio Button 2 is selected, no focus rectangle is shown:  
   
-          ![](images/option_003_35.png) To turn Radio Button focus back **_On_** :           print 'OPTION'("FocusRectRB",1)  
+          To turn Radio Button focus back **_On_** :           print 'OPTION'("FocusRectRB",1)  
           RADIO_BUTTON 100:1,@(40,15,14,3)="Radio Button 1"  
           RADIO_BUTTON 100:2,@(40,17,14,3)="Radio Button 2"          When Radio Button 2 is selected, the focus rectangle is shown:  
   
-          ![](images/option_003_36.png) **_Example:_** To turn Radio Button focus **_Off_** (when bitmap is added):           print 'OPTION'("FocusRectRB",0)  
+          **_Example:_** To turn Radio Button focus **_Off_** (when bitmap is added):           print 'OPTION'("FocusRectRB",0)  
           RADIO_BUTTON 100:1,@(40,15,14,3)="{!Stop} Radio Button 1"  
-          RADIO_BUTTON 100:2,@(40,19,14,3)="{!Bug} Radio Button 2"           When Radio Button 2 is selected, no focus rectangle is shown:           ![](images/option_003_37.png) To turn Radio Button focus back **_On_** (when bitmap is added):           print 'OPTION'("FocusRectRB",1)  
+          RADIO_BUTTON 100:2,@(40,19,14,3)="{!Bug} Radio Button 2"           When Radio Button 2 is selected, no focus rectangle is shown:           To turn Radio Button focus back **_On_** (when bitmap is added):           print 'OPTION'("FocusRectRB",1)  
           RADIO_BUTTON 100:1,@(40,15,14,3)="{!Stop} Radio Button 1"  
           RADIO_BUTTON 100:2,@(40,19,14,3)="{!Bug} Radio Button 2"           When Radio Button 2 is selected, the focus rectangle is shown:  
   
-          ![](images/option_003_38.png) _(added in PxPlus 2026)_  
+          _(added in PxPlus 2026)_  
 **Frame** ¹ |  This option is used to control the type of frame/border for the current window. Possible values are: |  "NONE" |  The window has no border/frame.  
 ---|---  
 "CAPTION" |  The window has a border and caption line.  
@@ -483,7 +481,7 @@ _(added in PxPlus v8.11, build 9182)_
   
 _(added in PxPlus v7.00, build 9163.1)_  
   
-**GrayDisabledBmp** |  This option is used to control the display of images on disabled buttons. If set to **_Off_** ("0" or "N"), the images on disabled buttons will display only as shadows. This means that only the shadow left by the outline of the image will be seen. If set to **_On_** ("1" or "Y"), the images on disabled buttons will be converted to gray scale. _Default_ setting is "0" or "N" (image displays as a shadow). **_Example:_** ![](images/option_003_39.png) _(added in PxPlus 2017)_  
+**GrayDisabledBmp** |  This option is used to control the display of images on disabled buttons. If set to **_Off_** ("0" or "N"), the images on disabled buttons will display only as shadows. This means that only the shadow left by the outline of the image will be seen. If set to **_On_** ("1" or "Y"), the images on disabled buttons will be converted to gray scale. _Default_ setting is "0" or "N" (image displays as a shadow). **_Example:_** _(added in PxPlus 2017)_  
 **GridAlignLines** | 
 
 #### **Note:**  
@@ -521,9 +519,7 @@ __( "ALL" option was added in PxPlus 2020 Update 2.)_
 **RbtImage** |  **_(Windows Only)_** Defines the pathname to the image used to create Radio Buttons on the screen. See **[Customizing Radio Buttons and Check Boxes](../appendix/customizing_rb_and_cb.md)**. _(added in PxPlus 2017)_  
 **RbtMarkSize** |  **_(Windows Only)_** If not set, the default size of the Radio Button image is based on the height of one line. If set, the size of the Radio Button image will be based on the value of RbtMarkSize (in pixels) **_or_** the height of the Radio Button control, _whichever is smaller._ **_Example:_**
 
-> ![](images/option_003_40.jpg)
-
-See **[Customizing Radio Buttons and Check Boxes](../appendix/customizing_rb_and_cb.md)**. _(added in PxPlus 2017)_  
+> See **[Customizing Radio Buttons and Check Boxes](../appendix/customizing_rb_and_cb.md)**. _(added in PxPlus 2017)_  
 **ResourceLib** ¹ |  Sets or changes the current resource library/libraries. As of PxPlus V11, the resource library value may contain multiple semi-colon (or comma) separated file names up to a maximum of 10.  
 **RMouseCopy** ¹ |  This option enables right mouse click Copy/Paste functionality whenever focus is on the window and not on a control. It is primarily used when running older Text mode applications and provides the ability to copy/paste text from the screen much like a terminal emulator. The value can be set "1" to enable the option or "0" (_Default_) to disable it. Its setting will be automatically cascaded to subsequent windows. _(added in PxPlus v8.11, build 9182)_  
 **Save_Msg_Bfr**  ¹ |  This option is used to control the return of error messages generated by a SAVE command. If initially set to non-blank (by the **[SETDEV](../directives/setdev_set.md)** directive or **'OPTION'** mnemonic) and a SAVE command is issued, this value will return a list of errors that occurred during the SAVE function. **_Example:_**    Load "C:\pvxsrc\tst14"  

@@ -1,6 +1,6 @@
 # Object-Oriented PxPlus
 
-**PxPlus OOP Interface** |  **__**  
+**PxPlus OOP Interface** |  **_ _**  
 ---|---  
   
 Specific OOP-related directives and functions have been added to the language for the definition, creation and deletion of classes and objects. The PxPlus environment takes care of all of the housekeeping chores required for their implementation.
@@ -30,9 +30,9 @@ Several OOP-related directives are available for use in a **_class definition co
 >  0020 **PROPERTY**  _prop1, prop2, ..._  
 >  0030 **LOCAL**  _prop1, prop2, ..._  
 >  0040 **FUNCTION**  _method (param) "_  
->  0050 **LIKE**  _"otherclass", ..._  
->  0060 **PROGRAM**  _"interface_prog"_  
->  0070 **PRECISION**  _nnn_ **FOR OBJECT**  
+>  0050 **LIKE**  _" otherclass",   ..._  
+>  0060 **PROGRAM**  _" interface_prog"_  
+>  0070 **PRECISION**  _nnn_  **FOR OBJECT**  
 >  0080 **END DEF**
 
 ## Creating/Accessing an Object
@@ -70,7 +70,7 @@ When invoking an object method/function, the caller may include one or more valu
 See **[CALL](../../../directives/call.md)** and **[PERFORM](../../../directives/perform.md)** directives.
 
 #### **Note:**  
-The **WITH** clause cannot be used with remote objects (those created with **[[WDX]](../../../command_tags/wdx.htm)** or **[[LCL]](../../../command_tags/lcl.htm)**) nor with non-PxPlus objects such as OCX controls.
+The **WITH** clause cannot be used with remote objects (those created with **[[WDX]](../../../command_tags/wdx.md)** or **[[LCL]](../../../command_tags/lcl.md)**) nor with non-PxPlus objects such as OCX controls.
 
 _(Support for a WITH clause to pre-set variables was added in PxPlus 2021.)_
 
@@ -78,3 +78,9 @@ _(Support for a WITH clause to pre-set variables was added in PxPlus 2021.)_
 
 **[OOP Syntax Elements](OOP%20Syntax%20Elements.md)  
 [Putting It All Together](../Putting%20It%20All%20Together/Overview.md)**
+
+ 
+
+ 
+
+ 

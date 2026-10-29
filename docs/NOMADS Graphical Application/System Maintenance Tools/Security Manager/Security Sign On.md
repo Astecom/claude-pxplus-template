@@ -9,7 +9,7 @@ If **[Two-Factor Authentication](Overview.htm#tfa)** (2FA) is set up, users who 
 
 See **[Login Process with Two-Factor Authentication](Overview.htm#logintfa)** for an outline of the key steps for logging in using Two-Factor Authentication (2FA).
 
-      ![](images/security_004_1.png)
+     
 
 This window consists of the following:
 
@@ -29,7 +29,7 @@ When Two-Factor Authentication (2FA) is set up, the **Two-Factor Verification** 
 
 The example below indicates that a security code was sent to the user's email address. The user entered the six-digit security code and must click the _Verify_ button to complete authentication. A similar message displays when the authentication method is an SMS text message or an authenticator app.
 
-     ![](images/security_004_2.png)
+    
 
 This window consists of the following:
 
@@ -41,11 +41,11 @@ _Cancel_ |  Stops the verification process. The user is not allowed to log on.
   
 If **_more than one_** authentication method is specified for a user, the **Device Authentication Required** window displays with only those options enabled. The user chooses the method to use for verification.
 
-     ![](images/security_004_3.png)
+    
 
 The example below shows two authentication options enabled, which correspond with the verified methods on file for this user.
 
-     ![](images/security_004_4.png)
+    
 
 This window consists of the following:
 
@@ -59,7 +59,7 @@ _Cancel_ |  Stops the verification process. User is not allowed to log on.
 
 The **Password Change** window allows users to change their password. This window displays automatically when users are logging on to the system for the first time using their default password. After their initial logon, users can change their password at any time by selecting the _Change Password_ check box in the **Sign on** window prior to clicking the _Logon_ button.
 
-     ![](images/security_004_5.png)
+    
 
 This window consists of the following:
 
@@ -72,11 +72,11 @@ _Update_ |  Button that is used to create the valid password and update the NOMA
 
 When **[Two-Factor Authentication](Overview.htm#tfa)** (2FA) is set up, if a user enters an incorrect password during system logon and has a valid email address, SMS phone number and/or authenticator app on file, the system will display a _Forgot Password_ option in the **Sign on** window:
 
-     ![](images/security_004_6.png)
+    
 
 Selecting this option allows the system to re-authenticate the user for the purpose of resetting his/her password by displaying the following message:
 
-     ![](images/security_004_7.png)
+    
 
 If the user responds _Yes_ , the system proceeds to verify the user's identity by sending a security code to the user. If the verification is successful, the **[Password Change](Security%20Sign%20On.htm#pswd_chng)** window displays to allow the user to create a new password.
 

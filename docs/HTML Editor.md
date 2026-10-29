@@ -1,9 +1,9 @@
-# 
+#  
 
 **HTML Editor**|   
 ---|---  
   
-The **HTML Editor** is used to create and edit HTML pages without requiring any HTML knowledge. Pre-defined tool bars provide the necessary editing tools for creating and formatting an HTML page. Position the mouse pointer over each tool bar button to display a tooltip with the button's function.
+The **HTML Editor**  is used to create and edit HTML pages without requiring any HTML knowledge. Pre-defined tool bars provide the necessary editing tools for creating and formatting an HTML page. Position the mouse pointer over each tool bar button to display a tooltip with the button's function.
 
 To invoke the HTML Editor, use one of the following methods:
 
@@ -12,12 +12,14 @@ To invoke the HTML Editor, use one of the following methods:
 From the **[PxPlus IDE Main Launcher](PxPlus%20IDE/IDE%20Main%20Launcher.md)** |  Select _HTML Editor_ (near the bottom of the tree view).  
 From the **[PxPlus Web IDE](PxPlus%20IDE/IDE%20Main%20Launcher_Web.md)** |  Select _HTML Editor_ from the Web header menu bar.  
   
-The HTML Editor is displayed with a pre-defined layout, which can be modified if needed. See **[Using the TinyMCE HTML Editor](Extended%20NOMADS%20Objects/TinyMCE%20HTML%20Editor/Using%20the%20TinyMCE%20HTML%20Editor.md)**.
+The HTML Editor is displayed with a pre-defined layout, which can be modified if needed. See **[Using the TinyMCE® HTML Editor](Extended%20NOMADS%20Objects/TinyMCE%20HTML%20Editor/Using%20the%20TinyMCE%20HTML%20Editor.md)**.
 
 #### **Note:**  
 JavaScript elements and properties are no longer stripped out, thus allowing them to be edited.  
   
 _(Support to allow editing of HTML with JavaScript was added in PxPlus 2021 Update 2.)_
+
+ 
 
 > ## File and Projects Menus
 
@@ -77,10 +79,10 @@ _Remove link_ |  Removes an existing link from the selected text.
 _Image_ |  Launches a separate window for inserting a new image or editing the settings for an existing image in the current HTML document.  
 _Media_ |  Launches a separate window for inserting a new video or editing the settings for an existing video in the current HTML document.  
 _Special character_ |  Launches a separate window with special characters to select.  
-_Date/time_ |  Presents date/time formatting options: _hh:mm:ss_ _  
-yyyy-mm-dd  
-hh:mm:ss AM/PM  
-mm/dd/yyyy_  
+_Date/time_ |  Presents date/time formatting options:    _hh:mm:ss_ _  
+    yyyy-mm-dd  
+   hh:mm:ss AM/PM  
+   mm/dd/yyyy_  
 _Emoticons_ |  Launches a separate window with emoticons to select.  
 _Horizontal line_ |  Inserts a horizontal line at the cursor position.  
 _Nonbreaking space_ |  Inserts a nonbreaking space at the cursor position.  
@@ -116,8 +118,8 @@ _Table properties_ |  Displays a separate window for editing the properties (i.e
 _Delete table_ |  Removes a selected table.  
 _Cell_ |  **_(Available when cursor is positioned inside a table)_** The cell options are: |  _Cell properties_ |  Launches a separate window with options for setting cell properties.  
 ---|---  
-_Merge cells_ |  **_(Available when two or more cells are selected)_** Joins the selected cells into a single cell.  
-_Split cell_ |  **_(Available when cursor is on merged cell)_** Splits the merged cell into smaller individual cells.  
+_Merge cells_ |  **_(Available when two or more cells are selected)_**  Joins the selected cells into a single cell.  
+_Split cell_ |  **_(Available when cursor is on merged cell)_**  Splits the merged cell into smaller individual cells.  
 _Row_ |  **_(Available when cursor is positioned inside a table)_** The row options are: |  _Insert row before_ |  Inserts a blank row above the current row.  
 ---|---  
 _Insert row after_ |  Inserts a blank row below the current row.  
@@ -135,8 +137,8 @@ _Cut column_ |  Removes the current column for subsequent pasting to a specified
 _Copy column_ |  Copies the current column for subsequent pasting to a specified location.  
 _Paste column before_ |  Inserts a copied or cut column to the left of the current column.  
 _Paste column after_ |  Inserts a copied or cut column to the right of the current column.  
-**Help** |  TinyMCE Help information.  
-_Help_ |  Provides the following information (same as the _Help_ tool bar button): Keyboard shortcuts Keyboard navigation List of installed TinyMCE plugins (Click on a link to display TinyMCE help for the selected plugin) List of additional TinyMCE plugins that can be installed TinyMCE version  
+**Help** |  TinyMCE® Help information.  
+_Help_ |  Provides the following information (same as the _Help_ tool bar button):      Keyboard shortcuts      Keyboard navigation      List of installed TinyMCE® plugins (Click on a link to display TinyMCE® help for the selected plugin)      List of additional TinyMCE® plugins that can be installed      TinyMCE® version  
   
 ##  Tool Bar Options
 
@@ -170,13 +172,19 @@ _Numbered list_ |  Creates a new numbered list at the cursor position or changes
 _Decrease Indent_ |  Decreases indentation (shifts text to the left). Also available on the **Format** menu.  
 _Increase Indent_ |  Increases indentation (shifts text to the right). Also available on the **Format** menu.  
 _Source code_ |  Launches a separate window that shows the HTML formatting codes in the current HTML document. If the **[Save Full page](HTML%20Editor.htm#Mark4)** option is Off (unchecked), any changes outside the <body> tag will not be saved.  
-_Help_ |  TinyMCE **[Help](HTML%20Editor.htm#Mark3)** information.  
+_Help_ |  TinyMCE®  **[Help](HTML%20Editor.htm#Mark3)** information.  
 _Webster Shortcodes_ |  Presents a list of **[Webster+ Short Codes](Webster/Short%20Codes.md)** that can be inserted into an HTML document. Also available on the **Insert** menu. _(The Webster Shortcodes tool bar option was added in PxPlus 2021.)_  
 _Webster Preview_ |  Opens a browser window for displaying the Webster+ preview. Also available on the **View** menu. If the **[Webster Preview URL](HTML%20Editor.htm#Mark9)** has not been defined, a message will display. _(The Webster Preview tool bar option was added in PxPlus 2021.)_  
   
 ## See Also
 
-**[Using the TinyMCE HTML Editor](Extended%20NOMADS%20Objects/TinyMCE%20HTML%20Editor/Using%20the%20TinyMCE%20HTML%20Editor.md)**  
+**[Using the TinyMCE® HTML Editor](Extended%20NOMADS%20Objects/TinyMCE%20HTML%20Editor/Using%20the%20TinyMCE%20HTML%20Editor.md)**  
 **[Webster+](Webster/Webster.md)**
 
-TinyMCE is a registered trademark of Tiny Technologies Inc.
+TinyMCE® is a registered trademark of Tiny Technologies Inc.
+
+ 
+
+ 
+
+ 

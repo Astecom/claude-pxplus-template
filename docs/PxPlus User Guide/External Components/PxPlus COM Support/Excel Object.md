@@ -1,6 +1,6 @@
-# PxPlus COM Support
+#  
 
-**PxPlus Excel Object**|   
+***OBJ/EXCEL** |  **_PxPlus Excel Object_**  
 ---|---  
   
 The **PxPlus Excel** object simplifies the use of the Excel.Application extended object. This object consists of various properties and methods that make it easier to interact with Excel workbooks and worksheets. See **[Properties and Methods](Excel%20Object.htm#properties)** below.
@@ -69,7 +69,7 @@ The Excel Application makes use of hundreds of global named constants. If requir
 
 **_Example:_**
 
-> PRINT excel_obj'ECONSTANTS'xlNoChanges _(__should return 4)_
+> PRINT excel_obj'ECONSTANTS'xlNoChanges  _(__should return 4)_
 
 ##  Properties and Methods
 
@@ -94,8 +94,8 @@ Since it is not possible to know the active range on a newly-opened worksheet, i
 This property **_cannot be set_** but is provided to allow access to all of the properties and methods in the Excel Application.  
   
 **KEEP_VISIBLE** |  Set to a non-zero value to keep the Excel application active and visible when the PxPlus Excel Object is dropped. Has no effect if the **VISIBLE** property has not been set. Defaults to **_Off_** ("0"). _(The KEEP_VISIBLE property was added in PxPlus 2020.)_  
-**LAST_COLUMN** |  **_(Read Only)_** Column number of the last column of data in the active spreadsheet **[(ACTIVE_SHEET)](Excel%20Object.htm#active_sheet)**. _(The LAST_COLUMN property was added in PxPlus 2019.)_  
-**LAST_ROW** |  **_(Read Only)_** Row number of the last row of data in the active spreadsheet **[(ACTIVE_SHEET)](Excel%20Object.htm#active_sheet)**. _(The LAST_ROW property was added in PxPlus 2019.)_  
+**LAST_COLUMN** |  **_(Read Only)_**  Column number of the last column of data in the active spreadsheet **[(ACTIVE_SHEET)](Excel%20Object.htm#active_sheet)**. _(The LAST_COLUMN property was added in PxPlus 2019.)_  
+**LAST_ROW** |  **_(Read Only)_**  Row number of the last row of data in the active spreadsheet **[(ACTIVE_SHEET)](Excel%20Object.htm#active_sheet)**. _(The LAST_ROW property was added in PxPlus 2019.)_  
 **MATCH_ENTIRE_CELL** |  Defaults to '0' for partial matches within cell contents. Set to '1' to force matches on the entire cell contents. See **[FindReplaceAll](Excel%20Object.htm#findreplaceall)** method.  
 **SEP$** |  Delimiter used on various **Read$** and **Write** methods to separate individual cell values. Defaults to the standard PxPlus field delimiter SEP ($8A$). See **[Cell Values Methods](Excel%20Object.htm#methodscellval)**. _(The SEP$ property was added in PxPlus 2018.)_  
 **VISIBLE** |  Allows the Excel application to be visible. Defaults to **_Off_** ('0').  
@@ -103,15 +103,15 @@ This property **_cannot be set_** but is provided to allow access to all of the 
   
 The **_methods_** used by the Excel object are listed below. To make it easier to locate information for a particular method, this list has been broken into the following smaller groups:
 
-|  **[Workbook Methods](Excel%20Object.htm#methodsworkbk)** |  For creating, opening, setting, saving and closing a workbook  
+  |  **[Workbook Methods](Excel%20Object.htm#methodsworkbk)** |  For creating, opening, setting, saving and closing a workbook  
 ---|---|---  
-|  **[Worksheet Methods](Excel%20Object.htm#methodsworksht)** |  For creating, printing, setting and hiding/showing a worksheet  
-|  **[Range Methods](Excel%20Object.htm#methodsrange)** |  For setting a range  
-|  **[Cell Values Methods](Excel%20Object.htm#methodscellval)** |  For finding, replacing, reading and writing cell values  
-|  **[Cell Formatting Methods](Excel%20Object.htm#methodscellfmt)** |  For setting text color, fill (background) color, font, and number format  
-|  **[Number Formatting Methods](Excel%20Object.htm#methodsnumfmt)** |  For setting a numeric format  
-|  **[Column Methods](Excel%20Object.htm#methodscol)** |  For deleting and inserting columns  
-|  **[Row Methods](Excel%20Object.htm#methodsrow)** |  For deleting and inserting rows  
+  |  **[Worksheet Methods](Excel%20Object.htm#methodsworksht)** |  For creating, printing, setting and hiding/showing a worksheet  
+  |  **[Range Methods](Excel%20Object.htm#methodsrange)** |  For setting a range  
+  |  **[Cell Values Methods](Excel%20Object.htm#methodscellval)** |  For finding, replacing, reading and writing cell values  
+  |  **[Cell Formatting Methods](Excel%20Object.htm#methodscellfmt)** |  For setting text color, fill (background) color, font, and number format  
+  |  **[Number Formatting Methods](Excel%20Object.htm#methodsnumfmt)** |  For setting a numeric format  
+  |  **[Column Methods](Excel%20Object.htm#methodscol)** |  For deleting and inserting columns  
+  |  **[Row Methods](Excel%20Object.htm#methodsrow)** |  For deleting and inserting rows  
   
 **_Common Parameters_**
 
@@ -120,12 +120,12 @@ The following is a list of some of the common parameters used by multiple method
 **Parameter** |  **Description**  
 ---|---  
 _workbook_ |  1-based index number of the Excel workbook.  
-_workbook_name_ _$_ |  Simple workbook name without the full path (e.g. _"test_workbook.xlsx"_).  
-_path$**or** workbook_path$_ |  Full path name for the workbook (e.g. _"c:/application/test_workbook.xlsx"_).  
+_workbook_name_ _$_ |  Simple workbook name without the full path (e.g. _" test_workbook.xlsx"_).  
+_path$**or**  workbook_path$_ |  Full path name for the workbook (e.g. _" c:/application/test_workbook.xlsx"_).  
 _cells$_ |  Range of cells to be considered. **_Example:_**  
   
-"A12" would specify a single cell.  
-"A2:D5" would denote a group of cells from column A, line 2 to column D, line 5. To use a previously named range, _cells$_ would be set to the name of the range itself (e.g. _"header_row"_).  
+   "A12" would specify a single cell.  
+   "A2:D5" would denote a group of cells from column A, line 2 to column D, line 5. To use a previously named range, _cells$_ would be set to the name of the range itself (e.g. _" header_row"_).  
   
 **_Workbook Methods_**
 
@@ -150,17 +150,17 @@ In case of a pre-existing file named _path$_ , set the _overwrite_flag_ paramete
 
 Returns '1' if successful. Returns '0' if Excel was unable to add the workbook or if an existing workbook with the same name is already in use.  
 **OpenWorkbook(**_path$_**)** |  Opens the Excel workbook located at pathname _path$_. After opening a workbook, the **[ACTIVE_WORKBOOK](Excel%20Object.htm#active_workbk)** property is set to the workbook object corresponding to the workbook just opened. The **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)** property is set according to the value when the workbook was last saved. Returns '1' if successful. Returns '0' if the path specified was invalid or if Excel was unable to open the workbook.  
-**SaveAsWorkbook(**_workbook_path_ _$_**)** **SaveAsWorkbook(**_workbook_path$,workbook_**)** **SaveAsWorkbook(**_workbook_path$,workbook_name$_**)** |  Used to save a workbook to a different location or with a different file format. Saves the workbook specified (by either an index number or a simple workbook name) with the pathname provided. If no workbook is specified, the active workbook is saved. If a full pathname is not provided, the workbook will be saved in the default Excel folder. The format used to save the workbook is determined by the extension specified in the _workbook_path_ _$_. Supported extensions are listed below (in alphabetical order). |  |  _.csv_ |  CSV (comma delimited) |  _.xlam_ |  Excel Add-In  
+**SaveAsWorkbook(**_workbook_path_ _$_**)** **SaveAsWorkbook(**_workbook_path$,workbook_**)** **SaveAsWorkbook(**_workbook_path$,workbook_name$_**)** |  Used to save a workbook to a different location or with a different file format. Saves the workbook specified (by either an index number or a simple workbook name) with the pathname provided. If no workbook is specified, the active workbook is saved. If a full pathname is not provided, the workbook will be saved in the default Excel folder. The format used to save the workbook is determined by the extension specified in the _workbook_path_ _$_. Supported extensions are listed below (in alphabetical order). |    |  _.csv_ |  CSV (comma delimited) |  _.xlam_ |  Excel Add-In  
 ---|---|---|---|---  
-|  _.dif_ |  DIF Data Interchange Format |  _.xls_ |  Excel 97 2003 Workbook  
-|  _.htm, .html_ |  Web Page |  _.xlsb_ |  Excel Binary Workbook  
-|  _.mht, .mhtml_ |  Single File Web Page |  _.xlsm_ |  Excel Macro-Enabled Workbook  
-|  _.ods_ |  OpenDocument Spreadsheet |  _.xlsx (or null)_ |  Excel Workbook  
-|  _.pdf_ |  PDF |  _.xlt_ |  Excel 97 2003 Template  
-|  _.prn_ |  Formatted Text (space delimited) |  _.xltm_ |  Excel Macro-Enabled Template  
-|  _.slk_ |  SYLK (Symbolic Link) |  _.xltx_ |  Excel Template  
-|  _.txt._ |  Text (tab delimited) |  _.xml_ |  XML Data  
-|  _.xla_ |  Excel 97 2003 Ad-In |  _.xps_ |  XPS Document  
+  |  _.dif_ |  DIF Data Interchange Format |  _.xls_ |  Excel 97  2003 Workbook  
+  |  _.htm, .html_ |  Web Page |  _.xlsb_ |  Excel Binary Workbook  
+  |  _.mht, .mhtml_ |  Single File Web Page |  _.xlsm_ |  Excel Macro-Enabled Workbook  
+  |  _.ods_ |  OpenDocument Spreadsheet |  _.xlsx (or null)_ |  Excel Workbook  
+  |  _.pdf_ |  PDF |  _.xlt_ |  Excel 97  2003 Template  
+  |  _.prn_ |  Formatted Text (space delimited) |  _.xltm_ |  Excel Macro-Enabled Template  
+  |  _.slk_ |  SYLK (Symbolic Link) |  _.xltx_ |  Excel Template  
+  |  _.txt._ |  Text (tab delimited) |  _.xml_ |  XML Data  
+  |  _.xla_ |  Excel 97  2003 Ad-In |  _.xps_ |  XPS Document  
   
 Returns '1' if successful.
 
@@ -170,7 +170,7 @@ _(Support for other file formats was added in PxPlus 2018.)_
   
 **SaveWorkbook( )** **SaveWorkbook(**_workbook_**)** **SaveWorkbook(**_workbook_name_ _$_**)** |  Saves the workbook specified by either an index number or a simple workbook name. If no workbook is specified, the active workbook is saved. Returns '1' if successful. Returns '0' if Excel was unable to locate or save the workbook.  
 **SaveWorkbooks( )** |  Saves the values in all currently opened workbooks. Returns '1' if successful. Returns '0' if Excel was unable to save any of the workbooks. Returns '-1' if Excel was only able to save some of the workbooks successfully.  
-**SetWorkbook(**_workbook_**)** **SetWorkbook(**_workbook_name_ _$_**)** |  Sets the active workbook object **[ACTIVE_WORKBOOK](Excel%20Object.htm#active_workbk)** to the workbook specified by either an index number or a simple workbook name (e.g. _"1234.xlsx"_).
+**SetWorkbook(**_workbook_**)** **SetWorkbook(**_workbook_name_ _$_**)** |  Sets the active workbook object **[ACTIVE_WORKBOOK](Excel%20Object.htm#active_workbk)** to the workbook specified by either an index number or a simple workbook name (e.g. _" 1234.xlsx"_).
 
 #### **Note:**  
 Setting a workbook will also reset the **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)** value to the value corresponding to the new worksheet.
@@ -181,14 +181,14 @@ Returns '1' if successful. Returns '0' if Excel was unable to locate the workboo
 
 **Worksheet Methods** |  **Description**  
 ---|---  
-**CreateWorksheet(**_worksheet_name_ _$_**)** **CreateWorksheet(**_worksheet_name$,tab_index_**)** |  Creates a new worksheet (_worksheet_name_ _$_) in the **[ACTIVE_WORKBOOK](Excel%20Object.htm#active_workbk)**. If no _tab_index_ is specified, the new worksheet will be inserted before the **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)**. If a _tab_index_ is specified, the worksheet will be inserted as the worksheet index specified. Specifying a _tab_index_ higher than the current number of worksheets will create the new worksheet as the last worksheet. If the _worksheet_name_ _$_ parameter is null, the default worksheet name will be used (i.e. '_SheetX_ _'_ where _X_ is an incremental number to avoid worksheet name conflicts). Returns '1' if successful. Returns '0' if Excel was unable to add the worksheet. _(The CreateWorksheet(worksheet_name$,tab_index) method was added in PxPlus 2018.)_  
+**CreateWorksheet(**_worksheet_name_ _$_**)** **CreateWorksheet(**_worksheet_name$,tab_index_**)** |  Creates a new worksheet (_worksheet_name_ _$_) in the **[ACTIVE_WORKBOOK](Excel%20Object.htm#active_workbk)**. If no _tab_index_  is specified, the new worksheet will be inserted before the **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)**. If a _tab_index_  is specified, the worksheet will be inserted as the worksheet index specified. Specifying a _tab_index_ higher than the current number of worksheets will create the new worksheet as the last worksheet. If the _worksheet_name_ _$_ parameter is null, the default worksheet name will be used (i.e. '_SheetX_ _'_ where _X_ is an incremental number to avoid worksheet name conflicts). Returns '1' if successful. Returns '0' if Excel was unable to add the worksheet. _(The CreateWorksheet(worksheet_name$,tab_index) method was added in PxPlus 2018.)_  
 **PrintWorksheet( )** **PrintWorksheet(**_worksheet_**)** **PrintWorksheet(**_worksheet_name_ _$_**)** |  Prints the worksheet specified by either an index number or a simple worksheet name. If no worksheet is specified, the active worksheet is printed.
 
 #### **Note:**  
 No printer dialog will be displayed. The worksheet will be printed to the default Excel printer with the default settings.
 
 Returns '1' if successful. Returns '0' if Excel was unable to locate the worksheet.  
-**SetWorksheet(**_worksheet_**)** **SetWorksheet(**_worksheet_name_ _$_**)** |  Sets the active worksheet object **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)** to the worksheet specified by either an index number or a simple worksheet name (e.g. _"Sheet1"_). Returns '1' if successful. Returns '0' if Excel was unable to locate the worksheet. Returns '-1' if the worksheet exists but is hidden. _(Support for hiding the worksheet was added in PxPlus 2021 Update 1.)_  
+**SetWorksheet(**_worksheet_**)** **SetWorksheet(**_worksheet_name_ _$_**)** |  Sets the active worksheet object **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)** to the worksheet specified by either an index number or a simple worksheet name (e.g. _" Sheet1"_). Returns '1' if successful. Returns '0' if Excel was unable to locate the worksheet. Returns '-1' if the worksheet exists but is hidden. _(Support for hiding the worksheet was added in PxPlus 2021 Update 1.)_  
 **WorksheetHide(**_worksheet_**)** **WorksheetHide(**_worksheet_name_ _$_**)** |  Hides the specified worksheet, which the user can make visible via menu. Returns '1' if successful. Returns '0' if Excel was unable to locate the worksheet. _(The WorksheetHide method was added in PxPlus 2021 Update 1.)_  
 **WorksheetVeryHide(**_worksheet_**)** **WorksheetVeryHide(**_worksheet_name_ _$_**)** |  Hides the specified worksheet so that the user cannot make the object visible via menu. Returns '1' if successful. Returns '0' if Excel was unable to locate the worksheet. _(The WorksheetVeryHide method was added in PxPlus 2021 Update 1.)_  
 **WorksheetVisible(**_worksheet_**)** **WorksheetVisible(**_worksheet_name_ _$_**)** |  Makes the specified worksheet visible (not hidden). Returns '1' if successful. Returns '0' if Excel was unable to locate the worksheet. _(The WorksheetVisible method was added in PxPlus 2021 Update 1.)_  
@@ -197,7 +197,7 @@ Returns '1' if successful. Returns '0' if Excel was unable to locate the workshe
 
 **Range Methods** |  **Description**  
 ---|---  
-**SetRange(**_cells$_**)** **SetRange(**_cells$,worksheet_**)** **SetRange(**_cells$,worksheet_name$_**)** |  Sets the active range object **[ACTIVE_RANGE](Excel%20Object.htm#active_range)**. When no worksheet is specified, the range will be set on the active worksheet. Pass either a worksheet index number or a simple worksheet name to define a range on a different worksheet. Specify the range in the _cells$_ variable (e.g. _"A12"_ or _"A2:D5"_ or _range_name_ _$_). Returns '1' if successful. Returns '0' if Excel was unable to locate the worksheet or set the range. _(The capability to specify a range_name$ was added in PxPlus 2018.)_  
+**SetRange(**_cells$_**)** **SetRange(**_cells$,worksheet_**)** **SetRange(**_cells$,worksheet_name$_**)** |  Sets the active range object **[ACTIVE_RANGE](Excel%20Object.htm#active_range)**. When no worksheet is specified, the range will be set on the active worksheet. Pass either a worksheet index number or a simple worksheet name to define a range on a different worksheet. Specify the range in the _cells$_ variable (e.g. _" A12"_ or _" A2:D5"_ or _range_name_ _$_). Returns '1' if successful. Returns '0' if Excel was unable to locate the worksheet or set the range. _(The capability to specify a range_name$ was added in PxPlus 2018.)_  
 **SetRangeColumn(**_col_**)** **SetRangeColumn(**_col,worksheet_**)** **SetRangeColumn(**_col,worksheet_name_ _$_**)** **SetRangeColumn(**_col$_**)** **SetRangeColumn(**_col$,worksheet_**)** **SetRangeColumn(**_col$,worksheet_name$_**)** |  Sets the active range object **[ACTIVE_RANGE](Excel%20Object.htm#active_range)** to a particular column number (_col_) or letter (_col$_).
 
 #### **Note:**  
@@ -228,32 +228,32 @@ When no worksheet is specified, the named range will be deleted from the active 
 **Cell Values Methods** |  **Description**  
 ---|---  
 **FindReplaceAll(**_find$,replace_ _$_**)** **FindReplaceAll(**_find$,replace$,worksheet_**)** **FindReplaceAll(**_find$,replace$,worksheet_name$_**)** |  Finds cells with the value _find$_ and replaces all occurrences with the string _replace$_. When only the _find$_ and _replace_ $ parameters are passed, the Find/Replace is performed on the active worksheet. Pass either a worksheet index number or a simple worksheet name to perform the Find/Replace on a worksheet other than the active worksheet without changing the **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)** property. To perform the Find/Replace on all opened worksheets, pass a _worksheet_name_ _$_ of '**ALL** ' (case insensitive). Searches will be case insensitive by default. For case sensitive searches, set the **[CASE_SENSITIVE_SEARCH](Excel%20Object.htm#casesearch)** property to '1'. By default, the _find$_ value will be replaced if it is located anywhere within a cell value. Set the **[MATCH_ENTIRE_CELL](Excel%20Object.htm#matchcell)** property to '1' to replace text only if the entire cell contents is equal to the _find$_ value. Returns '1' if successful. Returns '0' if Excel was unable to find/replace on any of the worksheets specified or if the _find$_ value was not found. **_When finding/replacing on all worksheets_** : Returns '-1' if Excel was only able to perform find/replace on some of the worksheets successfully.  
-**Read$( )** **Read$(**_cells$_**)** **Read$(**_cells$,worksheet_**)** **Read$(**_cells$,worksheet_name$_**)** |  Reads data from a worksheet. When no worksheet is specified, the data will be read from the active worksheet. Pass either a worksheet index number or a simple worksheet name to read data from a different worksheet without changing the **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)** property. When no range is specified in _cells$_ , data is read from the active range in the active worksheet. Pass a value in the _cells$_ parameter (e.g. _"A12"_ or _"A2:D5"_ or _range_name_ _$_) to specify a different range without changing the **[ACTIVE_RANGE](Excel%20Object.htm#active_range)** property. When the _cells$_ value corresponds to a single cell in the worksheet, a string value is returned. When the _cells$_ value corresponds to a range of 2 or more cells, a **[SEP$](Excel%20Object.htm#sep)** delimited string is returned. If a problem is encountered, a null string is returned. _(The capability to specify a range_name$ was added in PxPlus 2018.)_  
-**Write(**_cell_values_ _$_**)** **Write(**_cell_values$,cells_ _$_**)** **Write(**_cell_values$,cells$,worksheet_**)** **Write(**_cell_values$,cells$,worksheet_name$_**)** |  Writes data to a spreadsheet. When no worksheet is specified, the data will be written to the active worksheet. Pass either a worksheet index number or a simple worksheet name to write data to a different worksheet without changing the **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)** property. When no range is specified in _cells$_ , data is written to the active range in the active worksheet. Pass a value in the _cells$_ parameter (e.g. _"A12"_ or "_A2:D5"_ or _range_name_ _$_) to specify a different range without changing the **[ACTIVE_RANGE](Excel%20Object.htm#active_range)** property. When writing data to a single cell, _cell_values_ _$_ should contain a string value. When writing to a range of cells, _cell_values_ _$_ should contain a string value delimited with a delimiter corresponding to the current value in the **[SEP$](Excel%20Object.htm#sep)** property. **_Example:_** When SEP$=SEP:  
+**Read$( )** **Read$(**_cells$_**)** **Read$(**_cells$,worksheet_**)** **Read$(**_cells$,worksheet_name$_**)** |  Reads data from a worksheet. When no worksheet is specified, the data will be read from the active worksheet. Pass either a worksheet index number or a simple worksheet name to read data from a different worksheet without changing the **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)** property. When no range is specified in _cells$_ , data is read from the active range in the active worksheet. Pass a value in the _cells$_ parameter (e.g. _" A12"_ or _" A2:D5"_ or _range_name_ _$_) to specify a different range without changing the **[ACTIVE_RANGE](Excel%20Object.htm#active_range)** property. When the _cells$_ value corresponds to a single cell in the worksheet, a string value is returned. When the _cells$_ value corresponds to a range of 2 or more cells, a **[SEP$](Excel%20Object.htm#sep)** delimited string is returned. If a problem is encountered, a null string is returned. _(The capability to specify a range_name$ was added in PxPlus 2018.)_  
+**Write(**_cell_values_ _$_**)** **Write(**_cell_values$,cells_ _$_**)** **Write(**_cell_values$,cells$,worksheet_**)** **Write(**_cell_values$,cells$,worksheet_name$_**)** |  Writes data to a spreadsheet. When no worksheet is specified, the data will be written to the active worksheet. Pass either a worksheet index number or a simple worksheet name to write data to a different worksheet without changing the **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)** property. When no range is specified in _cells$_ , data is written to the active range in the active worksheet. Pass a value in the _cells$_ parameter (e.g. _" A12"_ or "_A2:D5 "_ or _range_name_ _$_) to specify a different range without changing the **[ACTIVE_RANGE](Excel%20Object.htm#active_range)** property. When writing data to a single cell, _cell_values_ _$_ should contain a string value. When writing to a range of cells, _cell_values_ _$_ should contain a string value delimited with a delimiter corresponding to the current value in the **[SEP$](Excel%20Object.htm#sep)** property. **_Example:_** When SEP$=SEP:  
   
- _cell_values_ _$_ = "value one" + SEP + "value two" + SEP + "value three" + SEP Returns '0' if the data was not written. Returns '1' if the data was written successfully and the number of specified cell values (_cell_values_ _$_) matched the number of cells in the specified range (_cells$_). Returns '-1' if the data was written but the number of specified cell values (_cell_values_ _$_) did **_not_** match the number of cells in the specified range _(cells$)_. In this case, one of the following instances can occur: If the number of cell values _(cell_values$)_ is **_greater_** than the number of cells in the specified range _(cells$)_ , the remaining cell values not written to a cell will be ignored. If the number of cell values _(cell_values$)_ is **_fewer_** than the number of cells in the specified range _(cells$)_ , null values will be written into the remaining cells in that range to which no cell values were assigned. _(The capability to specify a range_name$ was added in PxPlus 2018.)_  
+   _cell_values_ _$_ = "value one" \+ SEP + "value two" \+ SEP + "value three" \+ SEP Returns '0' if the data was not written. Returns '1' if the data was written successfully and the number of specified cell values (_cell_values_ _$_) matched the number of cells in the specified range (_cells$_). Returns '-1' if the data was written but the number of specified cell values (_cell_values_ _$_) did **_not_** match the number of cells in the specified range _(cells$)_. In this case, one of the following instances can occur:      If the number of cell values _(cell_values$)_ is **_greater_** than the number of cells in the specified range _(cells$)_ , the remaining cell values not written to a cell will be ignored.      If the number of cell values _(cell_values$)_ is **_fewer_** than the number of cells in the specified range _(cells$)_ , null values will be written into the remaining cells in that range to which no cell values were assigned. _(The capability to specify a range_name$ was added in PxPlus 2018.)_  
   
 **_Cell Formatting Methods_**
 
 **Cell Formatting Methods** |  **Description**  
 ---|---  
 **AutoFitAll( )** **AutoFitAll(**_worksheet_**)** **AutoFitAll(**_worksheet_name_ _$_**)** |  Sets the **[AutoFit](../../../properties/autofit.md)** property for all columns and rows in a worksheet specified by either an index number or a worksheet name. If no worksheet is specified, the active worksheet is used. Should be used after the cells are populated to adjust column widths and row heights to fit the existing data. Returns '1' if successful. Returns '0' if Excel was unable to locate the worksheet or set the range. _(The AutoFitAll method was added in PxPlus 2025.)_  
-**AutoFitColumns( )** **AutoFitColumns(**_cells$_**)** **AutoFitColumns(**_cells$,worksheet_**)** **AutoFitColumns(**_cells$,worksheet_name$_**)** |  Sets the **[AutoFit](../../../properties/autofit.md)** property for the columns for a range of cells in a given worksheet. When no worksheet is specified, the column widths will be autofitted on the active worksheet. Pass either a worksheet index number or a simple worksheet name to autofit column widths on a different worksheet without changing the **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)** property. When no range is specified in _cells$_ , the column widths will be autofitted for the active range of the specified worksheet or the entire worksheet if there is no active range. Pass a value in the _cells$_ parameter (e.g. _"A12"_ or _"A2:D5"_ or _range_name_ _$_) to specify a different range without changing the **[ACTIVE_RANGE](Excel%20Object.htm#active_range)** property. Should be used after the cells are populated to adjust column widths to fit the existing data. Returns '1' if successful. Returns '0' if Excel was unable to locate the worksheet or set the range. _(The AutoFitColumns method was added in PxPlus 2025.)_  
-**AutoFitRows( )** **AutoFitRows(**_cells$_**)** **AutoFitRows(**_cells$,worksheet_**)** **AutoFitRows(**_cells$,worksheet_name$_**)** |  Sets the **[AutoFit](../../../properties/autofit.md)** property for the rows in a range of cells in a given worksheet. When no worksheet is specified, the row heights will be autofitted on the active worksheet. Pass either a worksheet index number or a simple worksheet name to autofit row heights on a different worksheet without changing the **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)** property. When no range is specified in _cells$_ , the row heights will be autofitted for the active range of the specified worksheet or the entire worksheet if there is no active range. Pass a value in the _cells$_ parameter (e.g. _"A12"_ or _"A2:D5"_ or _range_name_ _$_) to specify a different range without changing the **[ACTIVE_RANGE](Excel%20Object.htm#active_range)** property. Should be used after the cells are populated to adjust row heights to fit the existing data. Returns '1' if successful. Returns '0' if Excel was unable to locate the worksheet or set the range. _(The AutoFitRows method was added in PxPlus 2025.)_  
-**SetColor(**_color_index_**)** **SetColor(**_color$_**)** **SetColor(**_color_index,cells_ _$_**)** **SetColor(**_color$,cells_ _$_**)** **SetColor(**_color_index,cells$,worksheet_**)** **SetColor(**_color$,cells$,worksheet_**)** **SetColor(**_color_index,cells$,worksheet_name$_**)** **SetColor(**_color$,cells$,worksheet_name$_**)** |  Sets the text color for a range of cells in a given worksheet. When no worksheet is specified, the text color will be set on the active worksheet. Pass either a worksheet index number or a simple worksheet name to define the text color on a different worksheet without changing the **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)** property. When no range is specified in _cells$_ , the text color will be set in the active range of the specified worksheet. Pass a value in the _cells$_ parameter (e.g. _"A12"_ or _"A2:D5"_ or _range_name_ _$_) to specify a different range without changing the **[ACTIVE_RANGE](Excel%20Object.htm#active_range)** property.
+**AutoFitColumns( )** **AutoFitColumns(**_cells$_**)** **AutoFitColumns(**_cells$,worksheet_**)** **AutoFitColumns(**_cells$,worksheet_name$_**)** |  Sets the **[AutoFit](../../../properties/autofit.md)** property for the columns for a range of cells in a given worksheet. When no worksheet is specified, the column widths will be autofitted on the active worksheet. Pass either a worksheet index number or a simple worksheet name to autofit column widths on a different worksheet without changing the **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)** property. When no range is specified in _cells$_ , the column widths will be autofitted for the active range of the specified worksheet or the entire worksheet if there is no active range. Pass a value in the _cells$_ parameter (e.g. _" A12"_ or _" A2:D5"_ or _range_name_ _$_) to specify a different range without changing the **[ACTIVE_RANGE](Excel%20Object.htm#active_range)** property. Should be used after the cells are populated to adjust column widths to fit the existing data. Returns '1' if successful. Returns '0' if Excel was unable to locate the worksheet or set the range. _(The AutoFitColumns method was added in PxPlus 2025.)_  
+**AutoFitRows( )** **AutoFitRows(**_cells$_**)** **AutoFitRows(**_cells$,worksheet_**)** **AutoFitRows(**_cells$,worksheet_name$_**)** |  Sets the **[AutoFit](../../../properties/autofit.md)** property for the rows in a range of cells in a given worksheet. When no worksheet is specified, the row heights will be autofitted on the active worksheet. Pass either a worksheet index number or a simple worksheet name to autofit row heights on a different worksheet without changing the **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)** property. When no range is specified in _cells$_ , the row heights will be autofitted for the active range of the specified worksheet or the entire worksheet if there is no active range. Pass a value in the _cells$_ parameter (e.g. _" A12"_ or _" A2:D5"_ or _range_name_ _$_) to specify a different range without changing the **[ACTIVE_RANGE](Excel%20Object.htm#active_range)** property. Should be used after the cells are populated to adjust row heights to fit the existing data. Returns '1' if successful. Returns '0' if Excel was unable to locate the worksheet or set the range. _(The AutoFitRows method was added in PxPlus 2025.)_  
+**SetColor(**_color_index_**)** **SetColor(**_color$_**)** **SetColor(**_color_index,cells_ _$_**)** **SetColor(**_color$,cells_ _$_**)** **SetColor(**_color_index,cells$,worksheet_**)** **SetColor(**_color$,cells$,worksheet_**)** **SetColor(**_color_index,cells$,worksheet_name$_**)** **SetColor(**_color$,cells$,worksheet_name$_**)** |  Sets the text color for a range of cells in a given worksheet. When no worksheet is specified, the text color will be set on the active worksheet. Pass either a worksheet index number or a simple worksheet name to define the text color on a different worksheet without changing the **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)** property. When no range is specified in _cells$_ , the text color will be set in the active range of the specified worksheet. Pass a value in the _cells$_ parameter (e.g. _" A12"_ or _" A2:D5"_ or _range_name_ _$_) to specify a different range without changing the **[ACTIVE_RANGE](Excel%20Object.htm#active_range)** property.
 
 #### **Note:**  
 If the active range contains more than 16,385 cells (e.g. an entire column), the text color will only be set for the first 16,385 cells in the range.
 
-The text color may be passed as one of the following: A color index (numeric)  
-An RBG value in the format "**RGB(**_rrr,ggg,bbb_**)** " (string)  
-One of the 16 basic PxPlus named colors such as 'Red', 'Dark Blue' or 'Light Cyan' (string) _(RGB values were added in PxPlus 2019.)_
+The text color may be passed as one of the following:      A color index (numeric)  
+     An RBG value in the format "**RGB(**_rrr,ggg,bbb_**)** " (string)  
+     One of the 16 basic PxPlus named colors such as 'Red', 'Dark Blue' or 'Light Cyan' (string) _(RGB values were added in PxPlus 2019.)_
 
 #### **Note:**  
 An Excel color index is an integer value ranging from 1 to 56.
 
 Returns '1' if successful. Returns '0' if Excel is unable to determine the worksheet or range. _(The capability to specify a range_name$ was added in PxPlus 2018.)_  
-**SetFillColor(**_color_index_**)** **SetFillColor(**_color$_**)** **SetFillColor(**_color_index,cells_ _$_**)** **SetFillColor(**_color$,cells_ _$_**)** **SetFillColor(**_color_index,cells$,worksheet_**)** **SetFillColor(**_color$,cells$,worksheet_**)** **SetFillColor(**_color_index,cells$,worksheet_name$_**)** **SetFillColor(**_color$,cells$,worksheet_name$_**)** |  Sets the fill (background) color for a range of cells in a given worksheet. When no worksheet is specified, the fill color will be set on the active worksheet. Pass either a worksheet index number or a simple worksheet name to define the fill color on a different worksheet without changing the **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)** property. When no range is specified in _cells$_ , the fill color will be set in the active range of the specified worksheet. Pass a value in the _cells$_ parameter (e.g. _"A12"_ or _"A2:D5"_ or _range_name_ _$_) to specify a different range without changing the **[ACTIVE_RANGE](Excel%20Object.htm#active_range)** property.
+**SetFillColor(**_color_index_**)** **SetFillColor(**_color$_**)** **SetFillColor(**_color_index,cells_ _$_**)** **SetFillColor(**_color$,cells_ _$_**)** **SetFillColor(**_color_index,cells$,worksheet_**)** **SetFillColor(**_color$,cells$,worksheet_**)** **SetFillColor(**_color_index,cells$,worksheet_name$_**)** **SetFillColor(**_color$,cells$,worksheet_name$_**)** |  Sets the fill (background) color for a range of cells in a given worksheet. When no worksheet is specified, the fill color will be set on the active worksheet. Pass either a worksheet index number or a simple worksheet name to define the fill color on a different worksheet without changing the **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)** property. When no range is specified in _cells$_ , the fill color will be set in the active range of the specified worksheet. Pass a value in the _cells$_ parameter (e.g. _" A12"_ or _" A2:D5"_ or _range_name_ _$_) to specify a different range without changing the **[ACTIVE_RANGE](Excel%20Object.htm#active_range)** property.
 
 #### **Note:**  
 If the active range contains more than 16,385 cells (e.g. an entire column), the fill color will only be set for the first 16,385 cells in the range.
@@ -264,18 +264,18 @@ The fill color may be passed as a color index (numeric), an RGB value in the for
 An Excel color index is an integer value ranging from 1 to 56.
 
 Returns '1' if successful. Returns '0' if Excel is unable to determine the worksheet or range. _(The capability to specify a range_name$ was added in PxPlus 2018.)_  
-**SetFont(**_font$_**)** **SetFont(**_font$,cells_ _$_**)** **SetFont(**_font$,cells$,worksheet_**)** **SetFont(**_font$,cells$,worksheet_name$_**)** |  Sets font information (font name, font size, font style) for a range of cells in a given worksheet. When no worksheet is specified, the font will be set on the active worksheet. Pass either a worksheet index number or a simple worksheet name to define the font on a different worksheet without changing the **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)** property. When no range is specified in _cells$_ , the font will be set in the active range of the specified worksheet. Pass a value in the _cells$_ parameter (e.g. _"A12"_ or _"A2:D5"_ or _range_name_ _$_) to specify a different range without changing the **[ACTIVE_RANGE](Excel%20Object.htm#active_range)** property.
+**SetFont(**_font$_**)** **SetFont(**_font$,cells_ _$_**)** **SetFont(**_font$,cells$,worksheet_**)** **SetFont(**_font$,cells$,worksheet_name$_**)** |  Sets font information (font name, font size, font style) for a range of cells in a given worksheet. When no worksheet is specified, the font will be set on the active worksheet. Pass either a worksheet index number or a simple worksheet name to define the font on a different worksheet without changing the **[ACTIVE_SHEET](Excel%20Object.htm#active_sheet)** property. When no range is specified in _cells$_ , the font will be set in the active range of the specified worksheet. Pass a value in the _cells$_ parameter (e.g. _" A12"_ or _" A2:D5"_ or _range_name_ _$_) to specify a different range without changing the **[ACTIVE_RANGE](Excel%20Object.htm#active_range)** property.
 
 #### **Note:**  
 If the active range contains more than 16,385 cells (e.g. an entire column), the font will only be set for the first 16,385 cells in the range.
 
 The _font$_ variable can pass font name, font size and font style (Bold, Italic, etc.), separated by commas. **_Example:_**  
 _  
-_ _font$_ ="Arial" sets only the font name.  
-_font_ _$_ ="Arial,12" sets the font name and size.  
-_font_ _$_ ="Arial,12, Italic" sets the font name and size and adds italics to the text in the range.  
-_font_ _$_ ="Arial,12, Bold, Underline-" sets the font name and size, adds bolding and removes any underlining.  
- _font_ _$_ ="Arial,12, Regular" sets the font name and size and removes any bolding, italics and underlining.
+_      _font$_ ="Arial" sets only the font name.  
+     _font_ _$_ ="Arial,12" sets the font name and size.  
+     _font_ _$_ ="Arial,12, Italic" sets the font name and size and adds italics to the text in the range.  
+     _font_ _$_ ="Arial,12, Bold, Underline-" sets the font name and size, adds bolding and removes any underlining.  
+     _font_ _$_ ="Arial,12, Regular" sets the font name and size and removes any bolding, italics and underlining.
 
 #### **Note:**  
 Valid _fontstyle_ _$_ values are 'Regular', 'Bold+', 'Bold-', 'Bold' (same as 'Bold+'), 'Italic+', 'Italic-', 'Italic' (same as 'Italic+'), 'Underline+', 'Underline-', 'Underline' (same as 'Underline+') or any combination of these.
@@ -359,7 +359,7 @@ An **_Example_** program is provided below.
 > retVal=x'write(new_range$)  
 >  !  
 >  ! Read column 4 (D) in worksheet 1  
->  row$=x'read$("D1:D10",1)  
+>   row$=x'read$("D1:D10",1)  
 >  !  
 >  ! Switch back to first workbook  
 > retVal=x'SetWorkbook(1)  
@@ -413,3 +413,9 @@ An **_Example_** program is provided below.
 
 **[PxPlus Word Object](Word%20Object.md)**  
 **[Google Workspace Objects](../../../Google%20Workspace%20Objects/Introduction.md)**
+
+ 
+
+ 
+
+ 

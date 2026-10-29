@@ -23,15 +23,15 @@ This table lists all the **_Button_** properties:
 ---|---  
 **Attributes**  
 _Bitmap Button_ |  Button has a bitmap whose width is divided into four images. Use this to custom design buttons with any color, style or shape by controlling the image that appears.  
-_Border Style_ |  Style of button border. Options are _None, Solid, Double, Groove, Ridge, Inset_ and _Outset_ :     ![](images/themes_008_1.png) If not set, the default Windows style is used. This must be set to a non-blank value to use the _Border Width_ and various _Border Color_ settings.  
+_Border Style_ |  Style of button border. Options are _None, Solid, Double, Groove, Ridge, Inset_ and _Outset_ :      If not set, the default Windows style is used. This must be set to a non-blank value to use the _Border Width_ and various _Border Color_ settings.  
 _Border Width_ |  Width of the button border (in pixels). Options are _None, 1, 2, 3, 4_ and _5_. Only takes effect if the button is not flat and a _Border Style_ is specified.  
 _Corner Radius_ |  Sets the radius for the button corners. Works only in **4D** mode. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CornerRadius$](../../../control_object_properties/button_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :  
   
-     ![](images/themes_008_2.png) Corner Radius set to **Square** :  
+     Corner Radius set to **Square** :  
   
-     ![](images/themes_008_3.png) Corner Radius set to a value of 10:  
+     Corner Radius set to a value of 10:  
   
-     ![](images/themes_008_4.png)
+    
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.
@@ -49,11 +49,11 @@ _Focus Rectangle_ |  Controls whether a dotted focus rectangle displays around t
 
 Button focus is **_Off_** :
 
-     ![](images/themes_008_5.png)
+    
 
 Button focus is **_On_** :
 
-     ![](images/themes_008_6.png)
+    
 
 _(Focus Rectangle property was added in PxPlus 2026.)_  
   

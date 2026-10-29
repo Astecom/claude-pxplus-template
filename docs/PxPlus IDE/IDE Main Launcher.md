@@ -1,13 +1,13 @@
 # PxPlus IDE (Integrated Development Environment)
 
-**IDE Main Launcher (Windows)** |  **__**  
+**IDE Main Launcher (Windows)** |  **_ _**  
 ---|---  
   
 When launched from a **_Windows_** platform, the IDE Main Launcher presents all the PxPlus development tools, installation and setup components in a tree-like format with expandable/collapsible nodes. Expanding a "parent" node (e.g. _Data Management_) displays a list of different tasks that are available under that category. Tasks are launched one task at a time; however, you can launch multiple tasks.
 
 As of PxPlus 2020, the IDE Main Launcher was enhanced with Web capability and streamlined access to _Menu_ , _History_ and _Project_ tasks. The ribbon toolbar can be customized with up to 10 buttons for launching commonly used tasks. This is done by using the drag-and-drop method or by right clicking on a selected task in the _Menu_ list. Web pages (up to 10) can be added so that frequently used Web sites are just a single click away. A _Find_ button is provided for entering specific text to search for in a displayed Web page. The IDE Main Launcher includes maintenance utilities for managing ribbon toolbar buttons and Web page tabs. A single button switches the Main Launcher to the standard IDE view, which does not include Web capability.
 
-A ** _Web_** version of the PxPlus IDE Main Launcher is also available that provides easy access to many of these PxPlus development and setup tools. See **[IDE Main Launcher (Web)](IDE%20Main%20Launcher_Web.md)**.
+A **_Web_** version of the PxPlus IDE Main Launcher is also available that provides easy access to many of these PxPlus development and setup tools. See **[IDE Main Launcher (Web)](IDE%20Main%20Launcher_Web.md)**.
 
 _(The Windows version of PxPlus IDE was added in PxPlus 2014.)  
 (The Web version of PxPlus IDE was added in PxPlus 2016.)  
@@ -16,7 +16,7 @@ _(The Windows version of PxPlus IDE was added in PxPlus 2014.)
 #### **Important Note:**  
 If you are running a version of PxPlus that is higher than your activation, you will not be allowed to process any NOMADS panels due to potential compatibility issues.
 
-|  **_  
+  |  **_  
 Enhanced View_** |    
 **_Standard View_**  
 ---|---|---  
@@ -34,11 +34,11 @@ The IDE title bar displays the PxPlus version associated with the IDE Main Launc
 
 > _(The ability to display "WindX" in the title when applicable was added in PxPlus 2016 Update 0001.)_
 
-**_Menu_**** _Bar_ _Options_**
+**_Menu Bar Options_**
 
 The menu bar consists of the following options: **[Projects](IDE%20Main%20Launcher.htm#projects)**, **[Menu](IDE%20Main%20Launcher.htm#menu)**, **[Update](IDE%20Main%20Launcher.htm#update)**, **[About](IDE%20Main%20Launcher.htm#about)**, **[Support](IDE%20Main%20Launcher.htm#support)**, **[Online Help](IDE%20Main%20Launcher.htm#onlinehlp)** and **[Release Notes](IDE%20Main%20Launcher.htm#releasenotes)**.
 
-**Projects** |  |  _Create Project_ |  Launches the **Create Project** dialog for creating a new project. See **[Working with Projects](Introduction%20to%20PxPlus%20IDE.htm#projects)**. Alternatively, use the _New Project_ button (beside the _Project_ drop box) to invoke this dialog: This dialog consists of the following: |  _Name_ |  Enter a unique name for the project. Valid characters are: letters (A-Z, a-z); numbers (0-9); spaces; **( )**  _(parentheses)_ ; **,**  _(comma)_ ; **.**  _(period)_ ; **_**  _(underscore)_ ; **-**  _(dash)_. If an invalid character is used, a message will display. Duplicate project names are not allowed. If a duplicate name is entered, a message will display.  
+**Projects** |  |  _Create Project_ |  Launches the **Create Project** dialog for creating a new project. See **[Working with Projects](Introduction%20to%20PxPlus%20IDE.htm#projects)**. Alternatively, use the _New Project_ button (beside the _Project_ drop box) to invoke this dialog:      This dialog consists of the following: |  _Name_ |  Enter a unique name for the project. Valid characters are: letters (A-Z, a-z); numbers (0-9); spaces; **( )**  _(parentheses)_ ; **,**  _(comma)_ ; **.**  _(period)_ ; **_**  _(underscore)_ ; **-**  _(dash)_. If an invalid character is used, a message will display. Duplicate project names are not allowed. If a duplicate name is entered, a message will display.  
 ---|---  
 _Directory_ |  Working directory for the project. Defaults to the path for the current working directory. You can enter a different pathname or click the Query button to select a different working directory.  
 _Settings File_ |  Name of the file that will be used to save the tasks and settings that define the project contents. A default file name consisting of the project name with the extension _.prj_ (project) is provided; however, this can be changed. Valid characters are: letters (A-Z, a-z); numbers (0-9); **( )**  _(parentheses)_ ; **,**  _(comma)_ ; **.**  _(period)_ ; **_**  _(underscore)_ ; **-**  _(dash)_. If an invalid character is used, a message will display. This field cannot be blank; otherwise, a message will display, and the default file name will be put back. _(The Settings File field was added in PxPlus 2023.)  
@@ -50,10 +50,10 @@ _Prefix File_ |  **_(Optional)_** Enter a new or existing prefix file that will 
 If **[PREFIX FILE](../directives/prefix.htm#Mark10)** is set in START_UP and the corresponding prefix file already exists, it will take precedence over the project's prefix file.
 
 _(The Prefix File field was added in PxPlus 2023 Update 1.)_  
-_Default Library_ |  **_(Optional)_** Sets the default library for a project. Enter an existing library file or click the Query button. If you enter a file that does not exist, a message will display. The default library is used by the **[Open Project Application Library](../NOMADS%20Graphical%20Application/NOMADS%20Development/Open%20Project%20Lib.md)** task to open **[Library Object Selection](../NOMADS%20Graphical%20Application/NOMADS%20Development/Library%20Object%20Selection/Console%20and%20Object%20List.md)**. This library is also used as the default for the following IDE tasks: **[Panel Definition](../NOMADS%20Graphical%20Application/NOMADS%20Development/Panel%20Def_ide.md)** **[Query Definition](../NOMADS%20Graphical%20Application/NOMADS%20Development/Query%20Def_ide.md)** **[Menu Bar Definition](../NOMADS%20Graphical%20Application/NOMADS%20Development/Menu%20Bar%20Def_ide.md)** **[File Maintenance Generator](../NOMADS%20Graphical%20Application/NOMADS%20Development/File%20Maint_ide.md)** _(The Default Library field was added in PxPlus 2023 Update 1.)_  
+_Default Library_ |  **_(Optional)_** Sets the default library for a project. Enter an existing library file or click the Query button. If you enter a file that does not exist, a message will display. The default library is used by the **[Open Project Application Library](../NOMADS%20Graphical%20Application/NOMADS%20Development/Open%20Project%20Lib.md)** task to open **[Library Object Selection](../NOMADS%20Graphical%20Application/NOMADS%20Development/Library%20Object%20Selection/Console%20and%20Object%20List.md)**. This library is also used as the default for the following IDE tasks:      **[Panel Definition](../NOMADS%20Graphical%20Application/NOMADS%20Development/Panel%20Def_ide.md)**      **[Query Definition](../NOMADS%20Graphical%20Application/NOMADS%20Development/Query%20Def_ide.md)**      **[Menu Bar Definition](../NOMADS%20Graphical%20Application/NOMADS%20Development/Menu%20Bar%20Def_ide.md)**      **[File Maintenance Generator](../NOMADS%20Graphical%20Application/NOMADS%20Development/File%20Maint_ide.md)** _(The Default Library field was added in PxPlus 2023 Update 1.)_  
 _OK_ |  **_(Available when project Name is entered)_** Creates the new project. On the IDE Main Launcher, the new project is shown as the current project.  
 _Cancel_ |  Closes the **Create Project** dialog without saving changes.  
-_Edit Project_ |  Launches the **Edit Project** dialog for modifying an existing project. You can modify the current project _(default)_ or select a different project from the _Project_ drop box.
+_Edit Project_ |  Launches the **Edit Project** dialog for modifying an existing project.      You can modify the current project _(default)_ or select a different project from the _Project_ drop box.
 
 #### **Warning!**  
 If the _Settings File_ name is changed, the project's current settings will no longer be used.
@@ -83,7 +83,7 @@ _Menu Maintenance_ |  Launches the **[Menu Maintenance](IDE%20Main%20Launcher.ht
 **Online Help** |  Launches the online PxPlus Help documentation (https://manual.pvxplus.com). _(The Online Help option was added in PxPlus 2024.)_  
 **Release Notes** |  Provides quick access to the Release Notes (in the PxPlus Online Help) that correspond with the current PxPlus installation. _(The Release Notes option was added in PxPlus 2019.)_  
   
-Certain tasks are project related and therefore must be assigned to a project. Designating a task as project related is controlled by the _Project Related?_ check box option on the **[Task Definition](IDE%20Main%20Launcher.htm#taskdefinition) **dialog. An icon precedes each of the tasks displayed on the Main Launcher. To distinguish between a project related and a non-project related task, different icons are used. For example, in the screen shot above, the icon for the project related task _Data Dictionary Maintenance_ is a different color than the icon for the non-project related task _CSV Import._
+Certain tasks are project related and therefore must be assigned to a project. Designating a task as project related is controlled by the _Project Related?_  check box option on the **[Task Definition](IDE%20Main%20Launcher.htm#taskdefinition) **dialog. An icon precedes each of the tasks displayed on the Main Launcher. To distinguish between a project related and a non-project related task, different icons are used. For example, in the screen shot above, the icon for the project related task _Data Dictionary Maintenance_ is a different color than the icon for the non-project related task _CSV Import._
 
 For a project related task, the current working directory is changed to the working directory defined for that project. If present, the Start_up program in that directory will be run prior to launching the task. Only one project can be worked on at a time.
 
@@ -105,11 +105,13 @@ Tasks are launched one task at a time; however, multiple tasks can be launched.
 
 Tasks can be added to the **[IDE Ribbon Toolbar](IDE%20Main%20Launcher.htm#idetoolbar)** in a few ways:
 
-Drag and drop a selected task from the _Menu_ list to the IDE ribbon toolbar.  
+         Drag and drop a selected task from the _Menu_ list to the IDE ribbon toolbar.  
   
-Use the _Toolbar_ button.  
+         Use the _Toolbar_ button.  
   
-Select the _Add to Toolbar_ option from the popup menu when right clicking on a task in the _Menu_ list.
+         Select the _Add to Toolbar_ option from the popup menu when right clicking on a task in the _Menu_ list.
+
+     
 
 This section of the IDE Main Launcher consists of the following:
 
@@ -167,7 +169,7 @@ _Projects_ |  Lists all the projects in which the task is found.
 ** Tasks may exist in multiple projects.  
   
 _Refresh_ |  Button that is used to refresh the contents of the _History_ list with any new objects that have been recently accessed and/or created.  
-_Task Type Icons_ |  Button that displays a floating tip with a list of task type icons and their descriptions. _(The ? button was added in PxPlus 2017.)  
+_Task Type Icons_ |  Button that displays a floating tip with a list of task type icons and their descriptions. _(The ?  button was added in PxPlus 2017.)  
 (The HTML Editor task type icon was added in PxPlus 2021.)_  
   
 Right click on a _History_ task to display the following popup menu:
@@ -190,7 +192,7 @@ This button is not available in the **[PxPlus Web IDE](IDE%20Main%20Launcher_Web
 
 A task type icon precedes each listed task (same icons used to identify the _History_ tasks). For a list that shows what these icons represent, hover the mouse pointer over the **?** button beside the list box. When selecting to open a NOMADS panel that is a generated **[File Maintenance](../NOMADS%20Graphical%20Application/Dictionary-Based%20Development/Fmgen/Fmgen%20Introduction.md)** panel, a message will display. _(The ability to open File Maintenance panels in NOMADS from the Project list was added in PxPlus 2023.)_ |  _Refresh_ |  Button that is used to refresh the contents of the _Project_ display.  
 ---|---  
-_Task Type Icons_ |  Button that displays a floating tip with a list of task type icons and their descriptions. _(The ? button was added in PxPlus 2017.)  
+_Task Type Icons_ |  Button that displays a floating tip with a list of task type icons and their descriptions. _(The ?  button was added in PxPlus 2017.)  
 (The HTML Editor task type icon was added in PxPlus 2021.)_  
   
 Right click on a Project task to display the following popup menu:
@@ -216,10 +218,10 @@ The enhanced IDE Main Launcher includes a ribbon toolbar and HTML folder tabs, b
 
 In addition, you can search for specific text in a displayed IDE Web page by using the **[Find](IDE%20Main%20Launcher.htm#find)** button.
 
-|  **_  
+  |  **_  
 Toolbar button and IDE ribbon toolbar_**  
 ---|---  
-|    
+  |    
 **_Folders button and HTML folder tabs_**  
   
 This section of the IDE Main Launcher consists of the following:
@@ -228,7 +230,7 @@ _(IDE Toolbar)_ |  Ribbon toolbar that can be customized to display task buttons
 ---|---  
 _Toolbar_ |  Click this button to launch the **[Maintain IDE Toolbar Buttons](IDE%20Main%20Launcher.htm#maintaintoolbar)** dialog. _(The Toolbar button was added in PxPlus 2020.)_  
 _Folders_ |  Click this button to launch the **[Maintain IDE HTML Tabs](IDE%20Main%20Launcher.htm#maintaintabs)** dialog for adding and maintaining HTML tabs.  
-_Find_ |  Click this button to enter specific text to search for in a displayed IDE Web page. Alternatively, click inside the Web page and use the **Ctrl** +**F** hot key. This window consists of the following: |  _Find What_ |  Enter the search text. If text is selected in the Web page when **Find** is invoked, the selected text will be used as the default search text.  
+_Find_ |  Click this button to enter specific text to search for in a displayed IDE Web page. Alternatively, click inside the Web page and use the **Ctrl** +**F** hot key.      This window consists of the following: |  _Find What_ |  Enter the search text. If text is selected in the Web page when **Find** is invoked, the selected text will be used as the default search text.  
 ---|---  
 _Match case_ |  Select this option if the search is to be case sensitive. By default, this option is unchecked.  
 _Direction_ |  Searches up or down within the displayed Web page. By default, _Down_ is selected.  
@@ -253,7 +255,7 @@ The **Maintain IDE Toolbar Buttons** dialog is used to add, maintain and delete 
 
 To invoke this dialog, click the _Toolbar_ button below the ribbon bar. Alternatively, right click on an _existing_ task button in the ribbon toolbar and select _Maintain Toolbar_ from the popup menu.
 
-|    
+   |    
   
   
 |   
@@ -272,12 +274,14 @@ _Delete Row_ |  Removes the selected task button from the ribbon toolbar **_only
 _OK_ |  Saves any changes and closes the **Maintain IDE Toolbar Buttons** dialog. New buttons, if defined, are added to the ribbon toolbar (in _Button#_ sequence).  
 _Cancel_ |  Cancels any changes and closes the **Maintain IDE Toolbar Buttons** dialog.  
   
+ 
+
 #### **Note:**  
 A task button can be added directly to the ribbon toolbar in other ways:  
   
-Drag and drop a task from the _Menu_ list to the ribbon toolbar. **_OR_**  
+     Drag and drop a task from the _Menu_ list to the ribbon toolbar. **_OR_**  
   
-Right click on a task in the _Menu_ list and select the _Add to Toolbar_ option from the popup menu.
+     Right click on a task in the _Menu_ list and select the _Add to Toolbar_ option from the popup menu.
 
 _(The Maintain IDE Toolbar Buttons dialog was added in PxPlus 2020.)_
 
@@ -287,7 +291,7 @@ The **Maintain IDE HTML Tabs** dialog is used to add, maintain and delete HTML t
 
 To invoke this dialog, click the _Folders_ button below the ribbon toolbar.
 
-|    
+   |    
   
   
   
@@ -354,19 +358,21 @@ The table below provides examples of _Panel/Program_ entries for each applicable
 
 **Task Type** |  **Panel/Program**  
 ---|---  
-_Object to instantiate_ |  Enter the object pathname: **_Example:_** *ide/tasks This example instantiates the _*ide/tasks_ object.  
-_Program to run_ |  Enter the program pathname: **_Example:_** *plus/util/dictdef This example runs the _*plus/util/dictdef_ program.  
-_Report to produce_ |  Enter the report pathname: **_Example:_** *plus/winutl/windows_services.pvr This example displays the list of Windows Services defined in the Report Viewer.  
-_Screen to process_ |  Enter the screen and the screen library: **_Example:_** Themes;*win/scrnlib.en This example processes the _Themes_ screen located in the *win/scrnlib.en library.  
-_Web Service_ |  Enter a Web Service ID or a URL. If entering a Web Service ID, a Web server other than _localhost_ can be specified as _Parameter 1_. See **[PxPlus Web Services](../PxPlus%20Web%20Services.md)**. _(The ability to enter a host URL was added in PxPlus 2018.)_ **_Example 1:_** _Panel/Program:_ id=CLIENT_QRY This first example processes the CLIENT_QRY Web Service (defined in **[Web Services Maintenance](../Web%20Services%20Maintenance.md)**) by running the **[EZWeb Server](../EZWebServer/EZweb%20Introduction.md)** locally. **_Example 2:_** _Panel/Program:_ http://_servername_ :8888/services/rpt.pxp?rpt=gl_trialbal.pvr&type=html This second example processes the specified Web Service report using the "_servername_ _"_ Web server running on port 8888. **_Example 3:_** _Panel/Program:_ id=CLIENT_QRY  
-_Parameter 1:_ http://_servername_ :8888 This third example processes the CLIENT_QRY Web Service (defined in **[Web Services Maintenance](../Web%20Services%20Maintenance.md)**) using the "_servername_ " Web server running on port 8888. Once a _Web Service_ task has been defined, you can add this task to a menu using **[Menu Maintenance](IDE%20Main%20Launcher.htm#menumaint)** and then launch it from the IDE Main Launcher. The results of the Web Service will be displayed on a resizable panel. If a Web Service ID is entered **_without_** a server name and port specified as _Parameter 1_ , the task will be launched running the **[EZWeb Server](../EZWebServer/EZweb%20Introduction.md)** locally. Below is an example of the CLIENT_QRY Web Service launched from the IDE Main Launcher.
+_Object to instantiate_ |  Enter the object pathname: **_Example:_**    *ide/tasks This example instantiates the _*ide/tasks_ object.  
+_Program to run_ |  Enter the program pathname: **_Example:_**    *plus/util/dictdef This example runs the _*plus/util/dictdef_ program.  
+_Report to produce_ |  Enter the report pathname: **_Example:_**    *plus/winutl/windows_services.pvr This example displays the list of Windows Services defined in the Report Viewer.  
+_Screen to process_ |  Enter the screen and the screen library: **_Example:_**    Themes;*win/scrnlib.en This example processes the _Themes_ screen located in the *win/scrnlib.en library.  
+_Web Service_ |  Enter a Web Service ID or a URL. If entering a Web Service ID, a Web server other than _localhost_  can be specified as _Parameter 1_. See **[PxPlus Web Services](../PxPlus%20Web%20Services.md)**. _(The ability to enter a host URL was added in PxPlus 2018.)_ **_Example 1:_**    _Panel/Program:_   id=CLIENT_QRY This first example processes the CLIENT_QRY Web Service (defined in **[Web Services Maintenance](../Web%20Services%20Maintenance.md)**) by running the **[EZWeb Server](../EZWebServer/EZweb%20Introduction.md)** locally. **_Example 2:_**    _Panel/Program:_   http://_servername_ :8888/services/rpt.pxp?rpt=gl_trialbal.pvr&type=html This second example processes the specified Web Service report using the "_servername "_ Web server running on port 8888. **_Example 3:_**    _Panel/Program:_   id=CLIENT_QRY  
+   _Parameter 1:_       http://_servername_ :8888 This third example processes the CLIENT_QRY Web Service (defined in **[Web Services Maintenance](../Web%20Services%20Maintenance.md)**) using the "_servername_ " Web server running on port 8888. Once a _Web Service_ task has been defined, you can add this task to a menu using **[Menu Maintenance](IDE%20Main%20Launcher.htm#menumaint)** and then launch it from the IDE Main Launcher. The results of the Web Service will be displayed on a resizable panel. If a Web Service ID is entered **_without_** a server name and port specified as _Parameter 1_ , the task will be launched running the **[EZWeb Server](../EZWebServer/EZweb%20Introduction.md)** locally. Below is an example of the CLIENT_QRY Web Service launched from the IDE Main Launcher.
 
-#### **Note:**  
+#### **Note:**   
 When selecting to launch a Web Service task, EZWeb Server will automatically start (if not already running), using the default port and secure (HTTPS) settings specified in the **[Launch EZWeb Server](../EZWebServer/EZweb%20Introduction.htm#Mark1)** window. If no default port has been assigned, a message will prompt you to define it.  
   
 _(The ability to enable secure TLS/SSL mode for the EZWeb server was added in PxPlus 2022.)_  
   
-**_When running WindX_** , the Web Service task will not be allowed to start, and a message will display.  
+**_When running WindX_** , the Web Service task will not be allowed to start, and a message will display.
+
+      
   
 ##  Menu Maintenance
 
@@ -401,6 +407,13 @@ In this dialog, click the _Select All_ button to select all the menu items for e
 
 ## See Also
 
-**[Project Maintenance](../Project%20Maintenance.md)**  
+**[How to Use the PxPlus IDE Launcher](../How%20To/How%20to%20Use%20PxPlus%20IDE.md)  
+[Project Maintenance](../Project%20Maintenance.md)**  
 **[Adding Tasks to Projects from Other Locations](Adding%20Tasks%20to%20Projects%20from%20Other%20Locations.md)**  
 **[IDE Main Launcher (Web)](IDE%20Main%20Launcher_Web.md)**
+
+ 
+
+ 
+
+ 

@@ -1,14 +1,14 @@
 # Smart Controls 
 
-**Defining Smart Controls** |  **__**  
+**Defining Smart Controls** |  **_ _**  
 ---|---  
   
 Creating **_Smart Controls_** consists of two main components: a **_Query List_** definition and a **_Smart Control_** (or a **_Smart Chart_**) definition. Furthermore, creating **_Smart Charts_** requires one additional component, a **_Query AutoChart_** definition, before the Smart Chart definition can be created.
 
-|  1. |  **[Create a Query List Definition](Defining%20Smart%20Controls.htm#Mark1)**: |  To specify the details and format of the dataset to be loaded  
+  |  1. |  **[Create a Query List Definition](Defining%20Smart%20Controls.htm#Mark1)**: |  To specify the details and format of the dataset to be loaded  
 ---|---|---|---  
-|  2. |  **[Create a Query AutoChart Definition](Defining%20Smart%20Controls.htm#Mark7)**: |  **_(For Smart Charts Only)_** To define a **[NOMADS AutoChart](../../NOMADS%20AutoChart/Introduction.md)** based on the columns of a Query List definition  
-|  3. |  **[Create a Smart Control (or Smart Chart) Definition](Defining%20Smart%20Controls.htm#Mark2)**: |  To associate the query and to set up optional **[Trigger Variables](Defining%20Smart%20Controls.htm#Mark3)**, **[Conditional Trigger Test](Defining%20Smart%20Controls.htm#Mark3)** and **[Load Logic](Defining%20Smart%20Controls.htm#Mark3)**  
+  |  2. |  **[Create a Query AutoChart Definition](Defining%20Smart%20Controls.htm#Mark7)**: |  **_(For Smart Charts Only)_** To define a **[NOMADS AutoChart](../../NOMADS%20AutoChart/Introduction.md)** based on the columns of a Query List definition  
+  |  3. |  **[Create a Smart Control (or Smart Chart) Definition](Defining%20Smart%20Controls.htm#Mark2)**: |  To associate the query and to set up optional **[Trigger Variables](Defining%20Smart%20Controls.htm#Mark3)**, **[Conditional Trigger Test](Defining%20Smart%20Controls.htm#Mark3)** and **[Load Logic](Defining%20Smart%20Controls.htm#Mark3)**  
   
 ##  Creating a Query List Definition
 
@@ -20,11 +20,11 @@ See **[Query Header](../Dictionary-Based%20Development/Query%20Subsystem/Query%2
 
 **_To create a Query List Definition:_**  
 ---  
-|  1. |  In NOMADS **[Library Object Selection](../NOMADS%20Development/Library%20Object%20Selection/Console%20and%20Object%20List.md)**, click the _Query_ toolbar button _(if using Toolbar View)_ or select _Objects > Query Object_ from the menu bar.  
-|  2. |  Type a new _Name_ for the Query List definition. When prompted for **Query Type** , select _Query List_. Click _OK_ , which brings up the **Query Definition - File information** window for defining the Query List **_header_** information.  
-|  |  **_Alternatively_** , a new Query List can be defined in the **[Smart Control Definition](Defining%20Smart%20Controls.htm#Mark2)** window. To do this, type a **_new_**  _Panel_ name for the Query List definition. Click the _Define_ button, which brings up the **Query Definition - File information** window for defining the Query List **_header_** information. |   
+  |  1. |  In NOMADS **[Library Object Selection](../NOMADS%20Development/Library%20Object%20Selection/Console%20and%20Object%20List.md)**, click the _Query_ toolbar button _(if using Toolbar View)_ or select _Objects > Query Object_ from the menu bar.  
+  |  2. |  Type a new _Name_ for the Query List definition. When prompted for **Query Type** , select _Query List_. Click _OK_ , which brings up the **Query Definition - File information** window for defining the Query List **_header_** information.  
+ |  |  **_Alternatively_** , a new Query List can be defined in the **[Smart Control Definition](Defining%20Smart%20Controls.htm#Mark2)** window. To do this, type a **_new_**  _Panel_ name for the Query List definition. Click the _Define_ button, which brings up the **Query Definition - File information** window for defining the Query List **_header_** information. |   
 ---  
-|  3. |  The **Query Definition - File information** window consists of the following options: |  **Data Source** |  Options for defining the query's data source: |  _Database_ |  If this check box is selected, the information to be displayed will be from an external database table. If not selected **_(Default)_** , the information is assumed to be from a PxPlus data file.  
+  |  3. |  The **Query Definition - File information** window consists of the following options: |  **Data Source** |  Options for defining the query's data source: |  _Database_ |  If this check box is selected, the information to be displayed will be from an external database table. If not selected **_(Default)_** , the information is assumed to be from a PxPlus data file.  
 ---|---  
 _Database Type_ |  **_(Available when Database check box is selected)_** Select from the following types: _ODBC, ODBC (Local), Oracle, Oracle (Local), DB2, DB2 (Local), MySQL, MySQL (Local), ADO, ADO (Local)_.  
 _Data Source Name_ |  **_(Available when Database check box is selected)_** Enter the database name (_Fixed_ value or _Expression_).  
@@ -50,9 +50,9 @@ _Smart Key (Multi-lines Only)_ |  An expression consisting of any combination of
   
 _(The Add (Edit) row display option was added in PxPlus 2021.)_  
   
-|  4. |  When you have finished entering the Query List **_header_** information, click _OK_ , which brings up the **Query List Definition** window for defining the Query List **_contents_**. This window is identical to the **[Query Definition](../Dictionary-Based%20Development/Query%20Subsystem/Query%20Definition.md)** window that is used to define a Standard Query where you can set up link files, define columns, edit file information and set up selection parameters. **[Query Security](../Dictionary-Based%20Development/Query%20Subsystem/Query%20Security.md)** can also be set up for the Query List. However, the query selection criteria for a **_Query List_** definition (using the _Filter_ toolbar button) is slightly different from the **[Query Selection Criteria](../Dictionary-Based%20Development/Query%20Subsystem/Query%20Selection%20Criteria.md)** for a **_Standard_** Query. The names and values of the trigger variables are available to the Query Load logic; therefore, these variables may be used to define **_Prefix_** and **_Range_** values as opposed to the Load logic of a Standard Query that uses global variables for these values. In addition, the _Prefix_ and _Range_ values can be applied to the _Sort By_ key rather than just the primary key. The trigger variables are also available in an identical set of variables with a _VAR. prefix, which allows you to build selection tests that compare the external trigger variables with the _VAR. prefix to variables in the Query definition with the same name, e.g. _VAR.GLAcct$=GLAcct$. The _Choose initial sort column_ option is available for Smart Report View List Boxes and Grids. However, unlike a query where the sort column is implemented only on the initial load, with Smart Controls, the sort column is implemented each time the control is reloaded. _(The use of _VAR. aliases for variables passed to the *winlist logic was added in PxPlus 2021.)  
+  |  4. |  When you have finished entering the Query List **_header_** information, click _OK_ , which brings up the **Query List Definition** window for defining the Query List **_contents_**. This window is identical to the **[Query Definition](../Dictionary-Based%20Development/Query%20Subsystem/Query%20Definition.md)** window that is used to define a Standard Query where you can set up link files, define columns, edit file information and set up selection parameters. **[Query Security](../Dictionary-Based%20Development/Query%20Subsystem/Query%20Security.md)** can also be set up for the Query List. However, the query selection criteria for a **_Query List_** definition (using the _Filter_ toolbar button) is slightly different from the **[Query Selection Criteria](../Dictionary-Based%20Development/Query%20Subsystem/Query%20Selection%20Criteria.md)** for a **_Standard_** Query. The names and values of the trigger variables are available to the Query Load logic; therefore, these variables may be used to define **_Prefix_** and **_Range_** values as opposed to the Load logic of a Standard Query that uses global variables for these values. In addition, the _Prefix_ and _Range_ values can be applied to the _Sort By_ key rather than just the primary key. The trigger variables are also available in an identical set of variables with a _VAR. prefix, which allows you to build selection tests that compare the external trigger variables with the _VAR. prefix to variables in the Query definition with the same name, e.g. _VAR.GLAcct$=GLAcct$. The _Choose initial sort column_ option is available for Smart Report View List Boxes and Grids. However, unlike a query where the sort column is implemented only on the initial load, with Smart Controls, the sort column is implemented each time the control is reloaded. _(The use of _VAR. aliases for variables passed to the *winlist logic was added in PxPlus 2021.)  
 (The Choose initial sort column option was added in PxPlus 2022.)_  
-|  5. |  When you have finished entering this information, click the _Save_ toolbar button to save the current Query List definition.  
+  |  5. |  When you have finished entering this information, click the _Save_ toolbar button to save the current Query List definition.  
   
 ## Creating a Query AutoChart Definition
 
@@ -61,10 +61,10 @@ _(The Add (Edit) row display option was added in PxPlus 2021.)_
 
 Create a **[NOMADS AutoChart](../../NOMADS%20AutoChart/Defining%20and%20Displaying%20an%20AutoChart.md)** based on the columns in a Query List definition:
 
-|  1. |  In NOMADS **[Library Object Selection](../NOMADS%20Development/Library%20Object%20Selection/Console%20and%20Object%20List.md)**, select the existing Query List object that will be used for creating the AutoChart.  
+  |  1. |  In NOMADS **[Library Object Selection](../NOMADS%20Development/Library%20Object%20Selection/Console%20and%20Object%20List.md)**, select the existing Query List object that will be used for creating the AutoChart.  
 ---|---|---  
-|  2. |  The **Query List Definition** window displays. Click the _Define Chart_ toolbar button.  
-|  3. |  The **Welcome** panel of the **Chart Wizard** displays. The **[Chart Wizard](../../NOMADS%20AutoChart/Defining%20and%20Displaying%20an%20AutoChart.htm#Welcome)** walks you through the steps for creating and saving an AutoChart. |   
+  |  2. |  The **Query List Definition** window displays. Click the _Define Chart_ toolbar button.  
+  |  3. |  The **Welcome** panel of the **Chart Wizard** displays. The **[Chart Wizard](../../NOMADS%20AutoChart/Defining%20and%20Displaying%20an%20AutoChart.htm#Welcome)** walks you through the steps for creating and saving an AutoChart. |   
 ---  
   
 ##  Creating a Smart Control (or Smart Chart) Definition
@@ -76,27 +76,27 @@ The **Smart Control Definition** window is used to turn on the _Smart Load_ logi
 
 **_To invoke the Smart Control Definition window:_**  
 ---  
-|  1. |  In the **[NOMADS Panel Designer](../Panel%20Designer/Introduction.md)**, access the **Properties** window for the target **[List Box](../Creating%20Panel%20Controls/List%20Box%20Controls/List%20Box%20Type.md)**, **[Drop Box](../Creating%20Panel%20Controls/Drop%20Box%20Control/Drop%20Box%20Properties.md)**, **[Grid](../Creating%20Panel%20Controls/Grid%20Control/Grid%20Properties.md)**, **[Multi-Line](../Creating%20Panel%20Controls/Multi-Line%20Control/Multi-Line%20Properties.md)** or **[Chart](../Creating%20Panel%20Controls/Chart%20Control/Chart.md)** control.  
-|  2. |  Locate the _Smart Load_ button:  
+  |  1. |  In the **[NOMADS Panel Designer](../Panel%20Designer/Introduction.md)**, access the **Properties** window for the target **[List Box](../Creating%20Panel%20Controls/List%20Box%20Controls/List%20Box%20Type.md)**, **[Drop Box](../Creating%20Panel%20Controls/Drop%20Box%20Control/Drop%20Box%20Properties.md)**, **[Grid](../Creating%20Panel%20Controls/Grid%20Control/Grid%20Properties.md)**, **[Multi-Line](../Creating%20Panel%20Controls/Multi-Line%20Control/Multi-Line%20Properties.md)** or **[Chart](../Creating%20Panel%20Controls/Chart%20Control/Chart.md)** control.  
+  |  2. |  Locate the _Smart Load_ button:  
   
-**_For_ _List Boxes_** , **_Drop Boxes_** , **_Grids_** and **_Multi-Lines_** , the _Smart Load_ button is located on the **Attributes** tab (using the Folder Style version of the NOMADS designer).  
+    **_For_ _List Boxes_** , **_Drop Boxes_** , **_Grids_** and **_Multi-Lines_** , the _Smart Load_ button is located on the **Attributes** tab (using the Folder Style version of the NOMADS designer).  
   
-**_For_ _Charts_** , the _Smart Load_ button is located in the upper right corner of the main panel.  
-|  3. |  Click the _Smart Load_ button:  
+    **_For_ _Charts_** , the _Smart Load_ button is located in the upper right corner of the main panel.  
+  |  3. |  Click the _Smart Load_ button:  
   
-When defining **_Smart List Boxes_** , **_Drop Boxes_** , **_Grids_** and **_Multi-Lines_** , the **Smart Control Definition** window is displayed. When defining **_Smart Charts_** , the **Smart Chart Definition** window is displayed, which includes additional **[Chart Selection](Defining%20Smart%20Controls.htm#Mark5)** options.
+    When defining **_Smart List Boxes_** , **_Drop Boxes_** , **_Grids_** and **_Multi-Lines_** , the **Smart Control Definition** window is displayed.          When defining **_Smart Charts_** , the **Smart Chart Definition** window is displayed, which includes additional **[Chart Selection](Defining%20Smart%20Controls.htm#Mark5)** options.
 
 #### **Note:**  
 Smart Charts are available **_only_** if **[Query+](../Dictionary-Based%20Development/Query%20Subsystem/Overview.htm#queryplus)** queries are being used, as **[Classic](../Dictionary-Based%20Development/Query%20Subsystem/Overview.htm#classicquery)** queries do not support charting.  
   
-|  4. |  The **Smart Control Definition** window consists of the following options: |  **Use Smart Load logic** |  Select this check box to enable Smart Load logic for the control. (By default, it is not selected.)  
+  |  4. |  The **Smart Control Definition** window consists of the following options: |  **Use Smart Load logic** |  Select this check box to enable Smart Load logic for the control. (By default, it is not selected.)  
 ---|---  
 **Query Selection** |  **_(For List Boxes, Drop Boxes, Grids and Multi-Lines - Available when Use Smart Load logic check box is selected)_** The query assigned to a Smart Control **_must_** be a _Query List_ or a _Standard Query_ definition. If a query has already been assigned on the **Query** tab of the **Properties** dialogue, it will be loaded as the **Query Selection** in the **Smart Control Definition**. (See **Important Note**.) Alternately, when a query is selected in the **Smart Control Definition** , it is reflected on the **Query** tab of the **Properties** dialogue. The query can be assigned in either location.
 
 #### **Important Note:**  
-If a query has been assigned on the **Query** tab of the **Properties** dialogue, it **_must_** be a _Panel_ **Query Type**. If it is an alternate **Query Type**  _(Query Program, Non-Query Logic, Spinner Controls, Calendar)_ , clicking the _Smart Load_ button will display a message, prompting you to clear the current query associated with the Smart Load before continuing.
+If a query has been assigned on the **Query** tab of the **Properties** dialogue, it **_must_** be a _Panel_  **Query Type**. If it is an alternate **Query Type**  _(Query Program, Non-Query Logic, Spinner Controls, Calendar)_ , clicking the _Smart Load_ button will display a message, prompting you to clear the current query associated with the Smart Load before continuing.
 
-|  _Select Query_ |  Button that invokes the **Select a Query Definition** window. This window presents a tree-view structure that lists Query Lists and Queries that exist at the current display level and lower, arranged by directory, screen library and query. Select a Query by clicking on the Query item or one of its columns. When a Query List or Query is selected, the _Library_ and _Query Definition_ input fields (described below) are automatically populated. A Query definition can also be selected by entering the _Library_ and _Query Definition_ input fields manually, as described below. _(The Select Query button was added in PxPlus 2020.)_  
+|  _Select Query_ |  Button that invokes the **Select a Query Definition** window.    This window presents a tree-view structure that lists Query Lists and Queries that exist at the current display level and lower, arranged by directory, screen library and query. Select a Query by clicking on the Query item or one of its columns. When a Query List or Query is selected, the _Library_ and _Query Definition_ input fields (described below) are automatically populated. A Query definition can also be selected by entering the _Library_ and _Query Definition_ input fields manually, as described below. _(The Select Query button was added in PxPlus 2020.)_  
 ---|---  
 _Library_ |  Enter the path to the library containing the query definition. Click the drop-down arrow to invoke a list of recently used libraries. The Browse button allows you to browse the directory to locate the library. Be sure to **_use the simplest form of the path_** for your application.
 
@@ -109,7 +109,7 @@ _Panel_ |  Name of the query definition to invoke. Click the drop-down arrow for
 When entering a new name, valid characters are: letters (A-Z, a-z); numbers (0-9); **~**  _(tilde)_ ; **@**  _(at symbol)_ ; **.**  _(period)_ ; **$**  _(dollar sign)_ ; **_**  _(underscore)_ ; **-**  _(dash)_ ; **+**  _(plus sign)_. If an invalid character is used, a message will display.  
   
 _Define_ |  Button that launches a query definition window using the _Panel_ name to either create a new or edit an existing query definition. If creating a new query definition, it will default to a _Query List_ type of definition.  
-**Chart Selection** |  **_(For Charts Only - Available when Use Smart Load logic check box is selected)_** |  _Select Chart_ |  Button that invokes the **Select a Chart Definition** window.   
+**Chart Selection** |  **_(For Charts Only - Available when Use Smart Load logic check box is selected)_**    |  _Select Chart_ |  Button that invokes the **Select a Chart Definition** window.      
   
 This window presents a tree-view structure that lists all the _public_ query AutoChart definitions that exist at the current display level and lower, arranged by directory, screen library, query and chart definition. When a chart definition is selected, the _Library_ , _Panel_ and _Chart Name_ input fields in the **Smart Chart Definition** window are automatically populated. A chart can also be selected by entering the _Library_ , _Panel_ and _Chart Name_ input fields manually.  
 ---|---  
@@ -150,6 +150,8 @@ _Suppress graphic row/column displays_ |  **_(For Report View List Boxes and Gri
 ---|---  
 _Post-Load Logic_ |  Optional logic to be processed after loading. Available processes are _Ignore_ , _Perform_ , _Call_ , _Execute_. See **[Events Logic](../Program%20Interaction/Events%20Logic/Overview.md)**.  
   
+ 
+
 #### **Note:**  
 Smart Multi-Lines are intended for information as **_display only_**. Typically, this type of field might be used to look up and display a client name beside the input field where the client code is entered. As display-only fields, it is common practice to turn **_Off_** the _Tab Stop_ option and turn **_On_** the _Locked_ and _Borderless_ attributes for the Multi-Line.  
   
@@ -159,3 +161,9 @@ As an alternative to Smart Multi-Lines, **[EZ Load Multi-Lines](../Creating%20Pa
 
 **[Formatting Smart Controls](Formatting%20Smart%20Controls.md)  
 [Creating a Smart File](Creating%20a%20Smart%20File.md)**
+
+ 
+
+ 
+
+ 

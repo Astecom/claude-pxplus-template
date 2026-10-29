@@ -11,9 +11,7 @@ While the AI Assistant may be capable of generating limited code examples, it is
 
 To get started, see **[Using the PxPlus AI Assistant](AI%20Assistant.htm#Mark1)**.
 
-> ![](images/ai_002_1.png)
-
-_(The PxPlus AI Assistant was added in PxPlus 2025 Update 1.)_
+> _(The PxPlus AI Assistant was added in PxPlus 2025 Update 1.)_
 
 #### **Note:**  
 This AI assistant is a third-party service provided by OpenAI that does not represent PVX Plus Technologies Ltd. AI generated responses and example code may be incorrect. Do not upload personal, identifying or confidential information.

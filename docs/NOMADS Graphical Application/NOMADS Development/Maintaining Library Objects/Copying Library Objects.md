@@ -1,6 +1,6 @@
 # Maintaining Library Objects 
 
-**Copying Library Objects** |  **__**  
+**Copying Library Objects** |  **_ _**  
 ---|---  
   
 The **Copy Screen Objects** utility is used to copy selected objects within the same library or to a different library. Multiple copy operations using different source and destination libraries can be performed without exiting the utility. If a destination library does not exist, the utility will ask to create it.
@@ -16,11 +16,11 @@ When a **[File Maintenance](../../Dictionary-Based%20Development/Fmgen/Fmgen%20I
 
 In **[Library Object Selection](../Library%20Object%20Selection/Console%20and%20Object%20List.md)**, select the object(s) to copy in the Object list. Then, invoke this utility by using one of the following three methods:
 
-> Click the _Copy_ tool bar button.
+>   Click the _Copy_ tool bar button.
 
-> Select  _Options > Copy_ on the menu bar.
+>   Select _Options > Copy_ on the menu bar.
 
-> Right click on selected objects in the Object list and choose _Copy_ from the popup menu.
+>   Right click on selected objects in the Object list and choose _Copy_ from the popup menu.
 
 The objects pre-selected in the Object list are displayed in the **Copy Screen Objects** grid. This grid is used by the utility to determine which objects are to be copied. This list can be changed or additional objects can be selected by clicking the _Select Objects_ button.
 
@@ -28,7 +28,7 @@ The **Copy Screen Objects** window consists of the following:
 
 _Input Library_ |  Identifies the source library for the copy operation. The currently selected library is loaded by default. This can be changed to any existing library by clicking the drop-down arrow to select from a list of (up to nine) previous selections, clicking the Query button or entering a library pathname.  
 ---|---  
-_Select Objects_ |  Button that invokes the **Select Objects** window. A grid displays a list of all the objects in the specified _Input Library_. This list is used to select the objects to include for the copy operation. Any objects that were pre-selected in the Object list in **Library Object Selection** are already highlighted. To select additional objects while keeping original selections highlighted, use Ctrl-Click. Left clicking on a row highlights that object and removes the highlighting from the original object selections. To restore the original selections, click the _Reset_ button. If the _Input Library_ is changed, the _Select Objects_ window will be invoked automatically. To select multiple objects, use Shift-Click (consecutive selections) or Ctrl-Click (random selections). This window consists of the following: |  _(Selection Grid)_ |  Displays a list of all the objects in the specified _Input Library_ , which is used to highlight and select the objects to be copied.  
+_Select Objects_ |  Button that invokes the **Select Objects** window. A grid displays a list of all the objects in the specified _Input Library_. This list is used to select the objects to include for the copy operation. Any objects that were pre-selected in the Object list in **Library Object Selection** are already highlighted. To select additional objects while keeping original selections highlighted, use Ctrl-Click. Left clicking on a row highlights that object and removes the highlighting from the original object selections. To restore the original selections, click the _Reset_ button. If the _Input Library_ is changed, the _Select Objects_ window will be invoked automatically. To select multiple objects, use Shift-Click (consecutive selections) or Ctrl-Click (random selections).    This window consists of the following: |  _(Selection Grid)_ |  Displays a list of all the objects in the specified _Input Library_ , which is used to highlight and select the objects to be copied.  
 ---|---  
 _Reset_ |  Restores the original selections.  
 _OK_ |  Adds the highlighted objects to the _Panel(s)_ list on the main **Copy Screen Objects** window and closes the **Select Objects** window.  
@@ -44,4 +44,10 @@ _Panel(s)_ |  Grid that is used to list the objects that have been selected to b
 _Warn on Overwrite_ |  Select this check box to request that the copy operation provide a warning when it is about to overwrite an object of the same name.  
 _OK_ |  **_(Available when objects have been selected)_** Copies the selected objects and closes the **Copy Screen Objects** utility when the copy is completed.  
 _Apply_ |  **_(Available when objects have been selected)_** Copies the selected objects and keeps the **Copy Screen Objects** utility open for any additional copy operations.  
-_Close_ |  Exits the **Copy Screen Objects** utility.
+_Close_ |  Exits the **Copy Screen Objects** utility.  
+  
+ 
+
+ 
+
+ 

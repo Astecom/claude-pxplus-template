@@ -26,9 +26,9 @@ _Update Physical File(s) After Import_ |  **_(Available when Selected Tables lis
 #### **Note:**  
 If an error is encountered while attempting to update the physical file for a particular table, a message will display with three responses:  
   
-_Abort_ will stop the physical file updates for all remaining tables to be imported.  
-_Retry_ will retry the physical file update for the same table.  
-_Ignore_ will skip the physical file update for the individual table but continue the physical update for all remaining tables to be imported.  
+    _Abort_ will stop the physical file updates for all remaining tables to be imported.  
+    _Retry_ will retry the physical file update for the same table.  
+    _Ignore_ will skip the physical file update for the individual table but continue the physical update for all remaining tables to be imported.  
   
 _Import_ |  **_(Available when Selected Tables list box contains a table)_** Button used to import the data dictionary definitions of the selected tables into the current data dictionary.  
 _Close_ |  Exits the **Import Data Dictionary Definition** utility without importing any table definitions.  
@@ -37,3 +37,9 @@ _Close_ |  Exits the **Import Data Dictionary Definition** utility without impor
 
 **[Data Dictionary Maintenance](../Data%20Dictionary%20Maintenance/Overview.md)**  
 **[Export Data Dictionary Definition](Export%20Definition.md)**
+
+ 
+
+ 
+
+ 

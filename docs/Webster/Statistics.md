@@ -1,5 +1,5 @@
-# Webster+  
-  
+# Webster+ Web Development Toolkit
+
 **Statistics**|   
 ---|---  
   
@@ -24,6 +24,8 @@ _Reset Statistics_ |  Button that is used to reset all the statistics to zero wh
 
 If the _Save error dumps_ check box is checked (on the **[Misc.](General%20Configuration.htm#misc)** tab of the Webster+ Setup) **_and_** error dumps have been saved to the _data/dump_ directory (in the location where your Webster+ is installed), the **Statistics** page will also show the **View Error Dump Files** section:
 
+    
+
 The **View Error Dump Files** section consists of the following:
 
 _(Dump Files List Box)_ |  Lists all the files in the _data\dump_ directory. Clicking on a file in this list displays the contents of the dump file in a new tab.  
@@ -31,3 +33,9 @@ _(Dump Files List Box)_ |  Lists all the files in the _data\dump_ directory. Cli
 _Maintain error dumps_ |  Click this hyperlink button to bring up the **[Webster+ Inspector](Inspector.md)** with a list of the files in the _data\dump_ directory. This allows users who are part of the Admin group (System Administrators) to view and maintain the dump files, such as delete older dump files.  
   
 If an email address has been entered in the _Error dump email notification_ option (on the **[Misc.](General%20Configuration.htm#misc)** tab of the Webster+ Setup), an email notification will be sent when an error dump occurs.
+
+ 
+
+ 
+
+ 

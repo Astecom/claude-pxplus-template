@@ -1,6 +1,6 @@
 # Customizing PxPlus
 
-**Environment Variables** |  **__**  
+**Environment Variables** |  **_ _**  
 ---|---  
   
 PxPlus maintains a set of operating system-level environment variables that can be used to define and control various aspects of its current working environment. If your application requires changes from the default values, you can initialize the required environment variables (using operating system-specific mechanisms) prior to launching PxPlus.
@@ -17,7 +17,7 @@ The following environment variables can be manipulated and accessed for use in y
 #### **Note:**  
 The **[PVXLANG](Environment%20Variables.htm#Mark12)** environment variable takes precedence over the **LANG** environment variable and is less likely to be used by the operating system or other applications.  
   
-**PVX_CERTIFICATES** |  **_(Applicable to Client Connections Only)_** Defines the default setting (IGNORE | VALIDATE | TRUSTREQD) for certificate validation. |  **IGNORE** |  Performs no validation of the certificate(s) presented by the server. ** _(Default)_**  
+**PVX_CERTIFICATES** |  **_(Applicable to Client Connections Only)_** Defines the default setting (IGNORE | VALIDATE | TRUSTREQD) for certificate validation. |  **IGNORE** |  Performs no validation of the certificate(s) presented by the server. **_(Default)_**  
 ---|---  
 **VALIDATE** |  Indicates that you want the certificate validated (expiry dates, etc.) but is not required to have been issued by a trusted supplier (i.e. it could be self-signed).  
 **TRUSTREQD** |  Validates that the certificate came from a trusted vendor and that the certificate host name must match.  
@@ -36,22 +36,22 @@ On systems that support NetBIOS, another solution is to use the system variable 
   
 In the following example, START_UP using NetBIOS node name for **FID(0)** , terminates if the NID is not on file: **_Example:_**  
   
-0010 ! START_UP - xxxxx   
-......   
-0100 X=HFN; OPEN (X) "Z:\PVXAPP\DATA\FIDFILE"   
-0110 READ (X,KEY=NID,DOM=0190) F$   
-0120 SETFID F$   
-0130 CLOSE (X)   
-......   
-0190 PRINT 'CS','RB',"System restricted!!"   
-0200 WAIT 2; CLOSE(X)   
-0210 QUIT 
+     0010 ! START_UP - xxxxx   
+     ......   
+     0100 X=HFN; OPEN (X) "Z:\PVXAPP\DATA\FIDFILE"   
+     0110 READ (X,KEY=NID,DOM=0190) F$   
+     0120 SETFID F$   
+     0130 CLOSE (X)   
+     ......   
+     0190 PRINT 'CS','RB',"System restricted!!"   
+     0200 WAIT 2; CLOSE(X)   
+     0210 QUIT 
 
 #### **Note:  
 ** PxPlus does not require unique **FID(0)** values. Only applications that were originally designed to have unique **FID(0)** values need change or control the **FID(0)**.  
   
-**PVXFLMAP** |  File name change map. Use this when migrating files from one host environment to another, to translate invalid filename characters to valid ones for the new environment. To create a map, use one or more two-character codes as values. The first is the filename character as it appears in your program; the second is the character PxPlus will pass to the operating system as a substitute. For example, in UNIX, the file name \\\AB\\\ is valid, but to Windows, the backslash is a directory delimiter. To translate the file name to a valid Windows file name: SET PVXFLMAP=\\_   
-1000 OPEN(1)"\\\AB\\\" REM would open "AB"  
+**PVXFLMAP** |  File name change map. Use this when migrating files from one host environment to another, to translate invalid filename characters to valid ones for the new environment. To create a map, use one or more two-character codes as values. The first is the filename character as it appears in your program; the second is the character PxPlus will pass to the operating system as a substitute. For example, in UNIX, the file name \\\AB\\\ is valid, but to Windows, the backslash is a directory delimiter. To translate the file name to a valid Windows file name:      SET PVXFLMAP=\\_   
+     1000 OPEN(1)"\\\AB\\\" REM would open "AB"  
 **PVXINI** |  **_(Windows Only)_** Location of the PxPlus INI file.  
 **PVXKEY** |  Location of the PxPlus KEYS directory.  
 **PVXLANG** |  Similar to the **[LANG](Environment%20Variables.htm#Mark10)** environment variable except that the **PVXLANG** environment variable takes precedence over the **LANG** environment variable and is less likely to be used by the operating system or other applications.  
@@ -60,12 +60,12 @@ In the following example, START_UP using NetBIOS node name for **FID(0)** , term
 #### **Note:**  
 The library **_must_** have the name LIB.
 
-You can override the location of the library by adding the following directive to your AUTOEXEC.BAT or to a PxPlus start-up batch file: SET PVXLIB=_path  
+You can override the location of the library by adding the following directive to your AUTOEXEC.BAT or to a PxPlus start-up batch file:      SET PVXLIB=_path  
 _  
 ** _Where:_**  
 _  
 path_ is the path to your directory containing the PxPlus library. However, if PxPlus cannot locate the library, it will not start. Instead, it generates Error #100 - No driver for terminal type or library missing.  
-**PVXLS** |  **_(UNIX/Linux Only)_** ls command. To read a directory under UNIX/Linux, PxPlus internally uses an **ls -a** command. Output from this operating system command is parsed, and a file name list is built from this output. Only set if your operating system does not have an **ls -a** command in this case, set it to whatever command the operating system has that matches the output of an **ls -a** command on a typical UNIX/Linux system.  
+**PVXLS** |  **_(UNIX/Linux Only)_** ls command. To read a directory under UNIX/Linux, PxPlus internally uses an**ls -a** command. Output from this operating system command is parsed, and a file name list is built from this output. Only set if your operating system does not have an **ls -a** command  in this case, set it to whatever command the operating system has that matches the output of an **ls -a** command on a typical UNIX/Linux system.  
 **PVXPDFFONTDIR** |  Path location of the font directory for use with **[*PDF*](../../file_handling/~pdf~.md)** in UNIX/Linux versions of PxPlus. This variable is not required for Windows; however, it may be used to resolve some situations where PxPlus is unable to find the default font directory.  
 **PVXSTART** |  Path and file name of initialization file to be used in place of the default START_UP. See **[START_UP Initialization Program](START_UP%20Initialization%20Program.md)**.  
 **PVXTMP** |  Name of the directory where temporary files will be placed. (**_Default_** is the current directory.)  
@@ -84,9 +84,15 @@ If you need to handle responses larger than 700 kilobytes, the recommendation is
 
 _(PXP_WEB_BSZ functionality was added in PxPlus 2022.)_  
 **TERM** |  **_(UNIX Only)_** Terminal type. This environment variable is normally set automatically by your UNIX/Linux operating system and matches the type of terminal you are using such as ANSI, WYSE60, Linux, etc. PxPlus uses the current value of the TERM environment variable to determine which PxPlus device driver is in the _*dev_ directory and which keyboard map to **LOAD/RUN** during initialization.  
-**USER** |  **_(Only if No Operating System User ID Set)_** User ID. To establish a user name to make applications work properly, create and/or modify a .BAT file to include the directive: SET USER=_userID_  
+**USER** |  **_(Only if No Operating System User ID Set)_** User ID. To establish a user name to make applications work properly, create and/or modify a .BAT file to include the directive:      SET USER=_userID_  
   
 ** _Where:_**  
 _  
-userID_ is the user's name. The PxPlus system variables **[UID](../../variables/uid.md)** and **[WHO](../../variables/who.md)** return whatever value is in the USER environment variable or an *****__(_asterisk_) when this variable is not set.  
-**WDXTRUST** |  **_(WindX Only)_** This environment variable can be set on the **_workstation_** (client) to define any number of **_trusted_** servers (semi-colon separated) to which **[WindX Security](../../windx/Windx%20Security.md)** will allow full access to the workstation files and programs without requesting user authorization. The server name or IP address defined in this variable **_must_** match the server name or address used in the **[WindX Connection Manager](../../windx/connectionmrg.md)**. Entries in this variable are case insensitive. If this variable is set and WindX connects to a server **_not_** in the list of trusted servers, WindX security will deny that server all access to the workstation files and programs. **_Example:_** WDXTRUST=server1;192.168.1.34 In this example, when WindX connects to either "server1" or "192.168.1.34", WindX security will allow only these servers full access to the workstation files and programs. _(WDXTRUST functionality was added in PxPlus 2017.)_
+userID_ is the user's name. The PxPlus system variables **[UID](../../variables/uid.md)** and **[WHO](../../variables/who.md)** return whatever value is in the USER environment variable or an *****_ _(_asterisk_) when this variable is not set.  
+**WDXTRUST** |  **_(WindX Only)_** This environment variable can be set on the **_workstation_** (client) to define any number of **_trusted_** servers (semi-colon separated) to which **[WindX Security](../../windx/Windx%20Security.md)** will allow full access to the workstation files and programs without requesting user authorization. The server name or IP address defined in this variable **_must_** match the server name or address used in the **[WindX Connection Manager](../../windx/connectionmrg.md)**. Entries in this variable are case insensitive. If this variable is set and WindX connects to a server **_not_** in the list of trusted servers, WindX security will deny that server all access to the workstation files and programs. **_Example:_**      WDXTRUST=server1;192.168.1.34 In this example, when WindX connects to either "server1" or "192.168.1.34", WindX security will allow only these servers full access to the workstation files and programs. _(WDXTRUST functionality was added in PxPlus 2017.)_  
+  
+ 
+
+ 
+
+ 

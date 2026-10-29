@@ -32,13 +32,13 @@ During run time, the bind logic will add the style sheet to the page using the p
 
 **_Example:_**
 
-     ![](images/how_013_1.png)
+    
 
 ##  Method 2: "Custom CSS" Option
 
 Much like the standard embedded/internal style, you can enter CSS code directly in the **[Custom CSS](../Webster/General%20Configuration.htm#customcss)** option.
 
-     ![A screenshot of a computer](images/how_013_2.png)
+    
 
 The CSS code you enter will be appended to the current rules in the **< style> </style>** section located in the **< head>...</head>** section.
 
@@ -48,7 +48,7 @@ During run time, the bind logic will add the style sheet to the page using the p
 
 In the example below, the background of every page will now be lightblue:
 
-     ![](images/how_013_3.jpg)
+    
 
 ##  Method 3: Standard Inline Styling
 
@@ -65,7 +65,7 @@ A preferred method for defining styles is to use a separate style sheet file, re
 
      <element style="property: value; property2: value2;">Text</element>
 
-     ![](images/how_013_4.jpg)
+    
 
 ##  Method 4: Short Code Option "class=xxx"
 

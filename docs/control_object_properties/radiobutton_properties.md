@@ -38,7 +38,7 @@ BackColour$](../properties/backcolor_.md)** |  Background color. For information
   
 _(The Bitmap Centered option was added in PxPlus 2018 Update 1.)_  
   
-[**Border$**](../properties/border_.md) |  Controls the type of border that will be used when drawing a radio button. Possible values and formats are _Solid_ , _None_ , _Double_ , _Groove_ , _Ridge_ , _Inset_ and _Outset_.      ![](images/radiobutton_003_1.png) If not set, it will have the value of "Default" (or ""), which indicates that the system should use the system default button styling.
+[**Border$**](../properties/border_.md) |  Controls the type of border that will be used when drawing a radio button. Possible values and formats are _Solid_ , _None_ , _Double_ , _Groove_ , _Ridge_ , _Inset_ and _Outset_.      If not set, it will have the value of "Default" (or ""), which indicates that the system should use the system default button styling.
 
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
@@ -71,7 +71,7 @@ CornerRadius$ set to **Round** :
 >  y=100  
 >  y'CornerRadius$="round"  
 >   
->   ![](images/radiobutton_003_2.png)
+>  
 
 CornerRadius$ set to **Square** :
 
@@ -79,7 +79,7 @@ CornerRadius$ set to **Square** :
 >  y=100  
 >  y'CornerRadius$="square"  
 >   
->   ![](images/radiobutton_003_3.png)
+>  
 
 CornerRadius$ set to a value of **10** :
 
@@ -87,7 +87,7 @@ CornerRadius$ set to a value of **10** :
 >  y=100  
 >  y'CornerRadius$="10"  
 >   
->   ![](images/radiobutton_003_4.png)
+>  
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.
@@ -140,7 +140,7 @@ To turn Radio Button focus **_Off_** :
           y=100  
           y'FocusRect=0  
   
-          ![](images/radiobutton_003_5.png)
+         
 
 To turn Radio Button focus **_On_** :
 
@@ -148,7 +148,7 @@ To turn Radio Button focus **_On_** :
           y=100  
           y'FocusRect=1  
   
-          ![](images/radiobutton_003_6.png)
+         
 
 To turn Radio Button focus **_Off_** (when a bitmap is added):
 
@@ -156,7 +156,7 @@ To turn Radio Button focus **_Off_** (when a bitmap is added):
           y=100  
           y'FocusRect=0
 
-          ![](images/radiobutton_003_7.png)
+         
 
 To turn Radio Button focus back **_On_** (when a bitmap is added):
 
@@ -164,7 +164,7 @@ To turn Radio Button focus back **_On_** (when a bitmap is added):
           y=100  
           y'FocusRect=1
 
-          ![](images/radiobutton_003_8.png)
+         
 
 _(The FocusRect property was added in PxPlus 2026.)_  
   

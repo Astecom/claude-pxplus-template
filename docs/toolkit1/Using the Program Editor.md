@@ -1,5 +1,5 @@
-# IT - Integrated Toolkit™  
-  
+# IT - Integrated Toolkit™
+
 **Using the Program Editor**|   
 ---|---  
   
@@ -17,7 +17,7 @@ If the editor is asked to open a non-program file, it will try to open the appro
 ---|---  
 A PxPlus data file |  Opens the **[File Update Utility](../File%20Update%20Utility.md)**  
 A PxPlus report file (_.pvr_) |  Opens the **[Report Designer](../Report%20Writer/Designing%20a%20Report/Report%20Designer/Overview.md)**  
-An HTML file (_.htm,__.html_) |  Opens the **[HTML Editor](../HTML%20Editor.md)**  
+An HTML file (_.htm,_  _.html_) |  Opens the **[HTML Editor](../HTML%20Editor.md)**  
   
 If the non-program file is not one of these types, a message will indicate that the file type is invalid and ask if you want the operating system to try opening the file.
 
@@ -30,9 +30,11 @@ The *IT program editor can be controlled with either the mouse or the keyboard. 
 #### **Note:**  
 In describing the functionality of the Function/Edit keys listed in the tables below:  
   
-\- The term **_line_** is used to refer to one line (or row) in the *IT program listing, regardless of whether the _Edited list_ option (**Options** menu) has been enabled.  
+ \- The term **_line_** is used to refer to one line (or row) in the *IT program listing, regardless of whether the _Edited list_ option (**Options** menu) has been enabled.  
   
-\- The term **_statement_** refers to the entire statement of code, which may consist of compound statements and/or take more than one line to display.
+ \- The term **_statement_** refers to the entire statement of code, which may consist of compound statements and/or take more than one line to display.
+
+ 
 
 **Navigation Keys** |  **Description**  
 ---|---  
@@ -48,8 +50,12 @@ END |  Move to the end of the line
 Ctrl - HOME |  Move to the beginning of the file  
 Ctrl - END |  Move to the end of the file  
   
+ 
+
 #### **Note:**  
 RIGHT/LEFT/UP/DOWN ARROWS, PAGE UP/DOWN, END and HOME can also be used in conjunction with the SHIFT key to select text.
+
+ 
 
 **Editing Keys** |  **Description**  
 ---|---  
@@ -68,6 +74,8 @@ Ctrl - X |  Cut selected text
 Ctrl - Y |  Redo last undo  
 Ctrl - Z |  Undo last edit  
   
+ 
+
 **Find/Replace Keys** |  **Description**  
 ---|---  
 Ctrl - F |  Find  
@@ -81,6 +89,8 @@ Ctrl - PAGE UP |  Find prior label/remark
 Ctrl - RIGHT ARROW |  Find next word  
 Ctrl - LEFT ARROW |  Find prior word  
   
+ 
+
 **Miscellaneous Keys** |  **Description**  
 ---|---  
 Ctrl - F6 |  Switch to next window  
@@ -95,6 +105,8 @@ F1 |  Online help
 F2 |  Insert Synopsis item name  
 F7 |  Debug current program  
   
+ 
+
 **Debug Keys** |  **Description**  
 ---|---  
 F5 |  Run  
@@ -137,6 +149,8 @@ _Use colour_ |  Prints the listing in colour.
 _Print Setup_ |  Sets up the printer options, paper size and orientation (Portrait or Landscape).  
 _Exit_ |  Closes the editor. If you have made changes to a program without saving them, you will be asked if you want to save them.  
   
+ 
+
 **Edit** |  **Description**  
 ---|---  
 _Undo_ |  Reverses a change.  
@@ -154,16 +168,18 @@ _Find_ |  Invokes the logic to find a text value in the program. Enter the text 
 _Find Next_ |  Finds the next occurrence of the specified _Find_ value.  
 _Find Previous_ |  Finds the previous occurrence of the specified _Find_ value.  
 _Replace_ |  Invokes the logic to find and replace the specified text value. Enter the text to be replaced and the replacement text value. Available options include finding the next and previous occurrences of the text to be replaced, as well as options for replacing a specific occurrence of that text or replacing all occurrences of that text. A _Match case_ option is also available if the search is case sensitive.  
-_Goto_ |  Goes to a specified line of code in the program. Enter a statement number or line label into the _Statement_ field of the **Go to** window. When the _Show Labels/Functions_ option is selected, you can use the _Statement_ drop box to select from the labels listed in alphabetical order. When the _Show Remarks_ option is selected, the drop box shows a list of remark lines, excluding any lines containing **_only_** __**!**_(exclamation mark)_. _(Support to exclude lines containing only ! was added in PxPlus 2017 Update 0002.)_  
+_Goto_ |  Goes to a specified line of code in the program. Enter a statement number or line label in the _Statement_ field of the **Go to** window. When the _Show Labels/Functions_ option is selected, you can use the _Statement_ drop box to select from the labels listed in alphabetical order. When the _Show Remarks_ option is selected, the drop box shows a list of remark lines, excluding any lines containing **_only_** _ _**!**_(exclamation mark)_. _(Support to exclude lines containing only ! was added in PxPlus 2017 Update 0002.)_  
 _Next Error_ |  Goes to the next line that has a coding error.  
 _Previous Error_ |  Goes to the previous line that has a coding error.  
   
+ 
+
 **Options** |  **Description**  
 ---|---  
 _Edited list_ |  Displays the program in a formatted manner with indentation. Code may be entered with or without formatting but will be redisplayed with the formatting. If you are entering formatted code, lines which are to be continued must end with a _semi-colon_ (**;**) or _backslash_ (**\**). **_Example:_** 00140 IF LANG$="" \  
-THEN LET LANG$=LCS(ENV("LANG"));  
-IF LANG$="" \  
-THEN LET LANG$="en"  
+       THEN LET LANG$=LCS(ENV("LANG"));  
+            IF LANG$="" \  
+             THEN LET LANG$="en"  
 _List from top after Goto_ |  Select this option when you want the _Goto_ function (_Edit_ menu) to display the specified "go to" statement number or line label as the starting line at the top of the program display. If you subsequently resize the *IT - Integrated Toolkit dialogue while the "go to" line is at the top of the display, the position of the "go to" line will not change and will remain at the top.  
 _Default to INSERT mode_ |  Select this option to set _Insert_ mode, rather than _Overwrite_ mode, as the default when the *IT program editor is launched. (By default, this option is not selected.) When selected, the bottom message bar changes from OVR to INS. If the _Save settings_ option (on the **Options** menu) is also checked, the INS mode will persist the next time *IT is launched. _(The Default to INSERT mode option was added in PxPlus 2020.)_  
 _Disallow line number references_ |  Selecting this option sets the **['NN'](../parameters/nn.md)** system parameter to _On_ , which does not allow statements to reference line numbers. New lines of code that reference line numbers are flagged with Error 85: Program does not support line numbers.  
@@ -192,6 +208,8 @@ _Format text files when saving_ |  Saves a text file with edited list format. Th
 _Auto-update Version on OPEN_ |  Automatically updates the program when it is opened (if you are connected to the **[PxPlus Version Control System](../PxPlus%20Version%20Control%20System%20Using%20TortoiseSVN/Using%20the%20Version%20Control%20System/Introduction.htm#Updating)**).  
 _Save settings_ |  Saves your current Options settings for the next editor session. These settings are saved to the appropriate project-related files. By default, this option is **_On_** (as indicated by a check mark). _(The ability to save settings by project was added in PxPlus 2023.)_  
   
+ 
+
 **Tools** |  **Description**  
 ---|---  
 _Add line numbers_ |  Adds line numbers to a program that does not currently have line numbers. If the program contains numbering comments (e.g. ! ^100), the program will be renumbered to reflect these comments.  
@@ -205,6 +223,8 @@ Any references to the original line number are **_not_** resolved to the new one
 _Duplicate line_ |  Creates a duplicate of the selected line.  
 _Compare programs_ |  Invokes the **Program Compare Utility** window that is used to compare different versions of a program to detect any differences.  
   
+ 
+
 **View** |  **Description**  
 ---|---  
 _Normal_ |  Removes the region to the left of the program edit/display region to provide more space for displaying and editing the current program.  
@@ -214,6 +234,8 @@ _Program library_ |  Opens the **Program Library** window that lists the program
 _NOMADS Object library_ |  Opens the **NOMADS Object Library** window that lists the contents (i.e. panel layouts, queries, etc.) for the last referenced Library. To specify a different Library Path, click the Query button or use the drop box to select a previously specified path. The drop box lists the last nine NOMADS libraries that were accessed. To edit an object in the NOMADS **[Object List](../NOMADS%20Graphical%20Application/NOMADS%20Development/Library%20Object%20Selection/Console%20and%20Object%20List.htm#objectlist)**, you can either double click on the object to launch the NOMADS editor, or right click on the object and select _Open/Edit panel_ from the popup menu.  
 _Text macro library_ |  Opens the **Text Macro Library** window. Click the Query button to locate a Text Library (*.txtlib) to open or select a previously specified Text Library from the drop box.  
   
+ 
+
 **Debug** |  **Description**  
 ---|---  
 _Debug current program_ |  Initiates the debugging process for the current application program.  
@@ -231,6 +253,8 @@ _Step out_ |  Resumes execution of the process until the current GOSUB, CALL or 
 _Insert Breakpoint_ |  Adds a stopping point where you want the debugging process to halt automatically.  
 _Erase Breakpoint_ |  Deletes a breakpoint.  
   
+ 
+
 **Run** |  **Description**  
 ---|---  
 _PxPlus_ |  Opens the PxPlus command window.  
@@ -244,21 +268,29 @@ _HTML Editor_ |  Invokes the **[HTML Editor](../HTML%20Editor.md)** window. _(Th
 _Report Designer_ |  Invokes the **[Report Designer](../Report%20Writer/Designing%20a%20Report/Report%20Designer/Overview.md)** window. _(The Report Designer menu option was added in PxPlus 2023.)_  
 _Run_ |  Allows you to select a program to run.  
   
+ 
+
 **Windows** |  **Description**  
 ---|---  
 |  You can make a different program current by selecting it from the list of open program files.  
   
+ 
+
 **Version Control** |  **Description**  
 ---|---  
 _TortoiseSVN Setup_ |  Sets up TortoiseSVN. See **[PxPlus Version Control System Using TortoiseSVN](../PxPlus%20Version%20Control%20System%20Using%20TortoiseSVN/Introduction.md)**.  
 _TortoiseSVN Commit_ |  Invokes the TortoiseSVN Commit procedure to commit the modified files in the current directory to the repository. Selections are _Current program_ , _All open programs_ , _Program or File_ , and _Directory_. See **[Committing Changes](../PxPlus%20Version%20Control%20System%20Using%20TortoiseSVN/Using%20the%20Version%20Control%20System/Introduction.htm#Committing)**.  
 _TortoiseSVN Update_ |  Invokes the TortoiseSVN Update procedure to update files in the current directory. Selections are _Program or File_ and _Directory_. See **[Updating Your Files](../PxPlus%20Version%20Control%20System%20Using%20TortoiseSVN/Using%20the%20Version%20Control%20System/Introduction.htm#Updating)**.  
   
+ 
+
 **Project** |  **Description**  
 ---|---  
 _Create New Project_ |  Launches the **[Create Project](../PxPlus%20IDE/IDE%20Main%20Launcher.htm#createproject)** dialogue for entering a new project for the current working directory. Click the Query button to select a different working directory.  
 _Add to Project_ |  Launches the **Add to Project** dialogue for adding the current task to an existing project selected from the _Project_ drop box. To manage all the tasks within a project, see **[Project Maintenance](../Project%20Maintenance.md)**. For information on adding tasks to a project from other locations, see **[Adding Tasks to Projects from Other Locations](../PxPlus%20IDE/Adding%20Tasks%20to%20Projects%20from%20Other%20Locations.md)**.  
   
+ 
+
 **Help** |  **Description**  
 ---|---  
 _Using Integrated Toolkit_ |  Displays the PxPlus Help for *IT - Integrated Toolkit.  
@@ -283,8 +315,9 @@ _Paste text_ |  Paste text from the Clipboard.
 _Find previous_ |  Finds the previous occurrence of the specified _Find_ value.  
 _Find text_ |  Invokes the logic to find a text value in the program.  
 _Find next_ |  Finds the next occurrence of the specified _Find_ value.  
-_Goto_ |  Goes to a specified line of code in the program. Enter a statement number or line label into the _Statement_ field of the **Go to** window.  
-_Toggle to previous GoTo_ |  Switches between the last _Goto_ value and the _Goto_ value specified just before that.  
+_Goto_ |  Goes to a specified line of code in the program. Enter a statement number or line label in the _Statement_ field of the **Go to** window.  
+_Previous Goto Location_ |  Allows you to go backward through a sequence of previously entered or selected "Goto" locations, one at a time, within an open program file, starting with the most recent. This button is enabled after two or more "Goto" locations have been entered or selected. "Goto" locations are positions in a file that you jump to by using the _Goto Line Number_ option or by selecting Statement Labels from the list on the left. When the program file is closed, the "Goto" locations are cleared. _(The Previous Goto Location option was added in PxPlus 2026.)_  
+_Next Goto Location_ |  Allows you to go forward through a sequence of previously entered or selected "Goto" locations, one at a time, within an open program file. This button is enabled only after you use the _Previous Goto Location_ option. "Goto" locations are positions in a file that you jump to by using the _Goto Line Number_ option or by selecting Statement Labels from the list on the left. When the program file is closed, the "Goto" locations are cleared. _(The Next Goto Location option was added in PxPlus 2026.)_  
 _Next Error_ |  Goes to the next line that has a coding error.  
 _Prior Error_ |  Goes to the previous line that has a coding error.  
 _Launch PxPlus_ |  Opens the PxPlus command window.  
@@ -306,3 +339,9 @@ If a user attempts to open a file currently being edited by another user, a warn
 ## Passwords
 
 When loading a password-protected program, a **Password Required** dialogue is presented for entering the password. If the password is correct, the program is loaded, and the password is used to set the current common password (i.e. PASSWORD *,"password"). This allows subsequent programs sharing the same password to be loaded without having to re-enter the password. You can also set a common password prior to invoking the editor.
+
+ 
+
+ 
+
+ 

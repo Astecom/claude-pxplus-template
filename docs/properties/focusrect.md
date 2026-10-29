@@ -21,7 +21,7 @@ To turn Button focus **_Off_** :
           y=100  
           y'FocusRect=0  
   
-          ![](images/focusrect_002_1.png)
+          
 
 To turn Button focus back **_On_** :
 
@@ -29,7 +29,7 @@ To turn Button focus back **_On_** :
           y=100  
           y'FocusRect=1  
   
-          ![](images/focusrect_002_2.png)
+          
 
 _(The FocusRect property was added in PxPlus 2026.)_
 

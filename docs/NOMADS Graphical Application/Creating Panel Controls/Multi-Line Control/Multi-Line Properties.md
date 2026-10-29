@@ -5,9 +5,7 @@
   
 When creating or editing a _Multi-Line_ control, the **Multi Line Properties** dialogue (pictured below using the **[Folder Style](../../Panel%20Designer/Folder%20Style/Using%20the%20Folder%20Style.md)** version of the NOMADS designer) is displayed:
 
-> ![](images/multi-line_002_1.jpg)
-
-**_Dynamic Control Properties_**
+> **_Dynamic Control Properties_**
 
 PxPlus 2018 introduces the capability to create **_dynamic control properties_** for Multi-Line controls when combined with **[Data Classes](../../../Data%20Dictionary/Data%20Classes/Overview.md)**. Dynamic data classes are created by selecting the _Dynamic_ check box in **[Data Class Definitions](../../../Data%20Dictionary/Data%20Classes/Multiline.md)** maintenance. At run time, dynamic control properties are evaluated and **_automatically_** populated with values based on what is defined in the data class.
 
@@ -210,7 +208,7 @@ Setting a background color is not compatible with transparency. If a background 
   
 _Spell Check_ |  Select this check box to enable spell checker for the Multi-Line. If not set, the system-wide **[AutoSpellCheck](../../../mnemonics/option.htm#spellcheck)** setting will be in effect. The spell checker uses a wavy red underline to flag words that appear misspelled or duplicated. Words that are **_all_** uppercase are **_not_** spell checked. This option is ignored for Multi-Lines that are defined as _Uppercase_ or are used for Arabic (right to left) input when the _Reverse Input_ check box is selected. _(The Spell Check property was added in PxPlus 2019.)_  
 _Scrollbars (if req'd)_ |  Scrollbar(s) to display when the **_height_** of the Multi-Line is **_greater than one line_**. Selection options are _Vertical (default), No scrollbar, Horizontal, Both scrollbars_.  
-_Corner Radius_ |  Sets the radius for the multi-line corners. Works only in **4D** mode. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 7 inclusive. See **[CornerRadius$](../../../control_object_properties/multiline_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :    ![](images/multi-line_002_2.png) Corner Radius set to **Square** :    ![](images/multi-line_002_3.png) Corner Radius set to a value of **7** :    ![](images/multi-line_002_4.png)
+_Corner Radius_ |  Sets the radius for the multi-line corners. Works only in **4D** mode. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 7 inclusive. See **[CornerRadius$](../../../control_object_properties/multiline_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :    Corner Radius set to **Square** :    Corner Radius set to a value of **7** :   
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.

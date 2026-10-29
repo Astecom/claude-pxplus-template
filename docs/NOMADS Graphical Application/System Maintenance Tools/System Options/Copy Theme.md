@@ -11,9 +11,7 @@ _(The Copy Theme utility was added in PxPlus 2024.)_
 
 See the tutorial **[How to Copy a Theme](../../../How%20To/How%20to%20Copy%20Theme.md)**.
 
-> ![](images/copy_003_1.jpg)
-
-To invoke the **Copy Theme** utility, use one of the following methods:
+> To invoke the **Copy Theme** utility, use one of the following methods:
 
 **Location** |  **Method**  
 ---|---  

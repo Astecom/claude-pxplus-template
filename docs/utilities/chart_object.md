@@ -1,4 +1,4 @@
-# Utility Routines
+# Objects
 
 ***OBJ/CHART** |  **_Plus Charting Utility_**  
 ---|---  
@@ -11,15 +11,15 @@ _(The Plus Charting utility was added in PxPlus 2019.)_
 
 **_2D Charts_**
 
-The 2D chart types are displayed below: ** _2D Area_** , **_2D Bar_** , **_2D Column_** , **_2D Donut_** , **_2D Line_** , **_2D Pie_** and **_2D Stack_**.
+The 2D chart types are displayed below: **_2D Area_** , **_2D Bar_** , **_2D Column_** , **_2D Donut_** , **_2D Line_** , **_2D Pie_** and **_2D Stack_**.
 
 |  |  |   
 ---|---|---|---  
-|  |  |   
+|  |  |     
   
 **_3D Charts_**
 
-The 3D chart types are displayed below: ** _3D Bar_** , **_3D Column_** , **_3D Donut_** , **_3D Line_** , **_3D Pie_** and **_3D Stack_**.
+The 3D chart types are displayed below: **_3D Bar_** , **_3D Column_** , **_3D Donut_** , **_3D Line_** , **_3D Pie_** and **_3D Stack_**.
 
 |  |   
 ---|---|---  
@@ -27,7 +27,7 @@ The 3D chart types are displayed below: ** _3D Bar_** , **_3D Column_** , **_3D 
   
 **_Miscellaneous_**** _Chart Types_**
 
-The miscellaneous chart types are displayed below: ** _Gauge_** and **_Scatter_**.
+The miscellaneous chart types are displayed below: **_Gauge_** and **_Scatter_**.
 
 |   
 ---|---  
@@ -40,7 +40,11 @@ Select the chart type you want (from the types shown above) and prefix it with t
 
 If the desired chart type is not available, the system will default to a 2D column chart.
 
-See coding **[Examples](chart_object.htm#examples)**.
+Use these links to access coding examples provided below:
+
+          **[Example - Simple Column Chart for Revenue](chart_object.htm#example1)**  
+          **[Example - Program to List All 2D/3D Chart Types to a PDF](chart_object.htm#example2)**  
+          **[Example - Sample Program to Create a Web Page with the Chart](chart_object.htm#example3)**
 
 ## Chart Data
 
@@ -75,18 +79,18 @@ The following **_properties_** are supported:
 **Bitmap$** |  Bitmap to appear as the background for the chart. Generally, this image will be scaled to cover the region. For all but PDF output, the system will retain the aspect ratio while cropping any excess imagery that will not fit.
 
 #### **Note:**  
-When a Bitmap is set, the system will ignore the [ **FaceColorBack$**](chart_object.htm#face_clr_back) property.  
+When a Bitmap is set, the system will ignore the [**FaceColorBack$**](chart_object.htm#face_clr_back) property.  
   
 **Border** |  When this property is set, the chart will be drawn with a thin black border around the outside of the defined area.  
-**ChartColors$** |  List of colors to apply when plotting the different datasets of a chart. Color references may include PxPlus colors (e.g. Light Red, Dark Blue), RGB colors (e.g. RGB:130 0 130), User-defined colors (e.g. Color20) or Expressions (e.g. =myColor$). The colors are separated by a separator character that is the last character of the list. **_Example:_** Below is a sample color string: "Light Red;RGB:100 100 45;=myColor$;Color19;" See **[Colors](../Charting%20Alternatives%20in%20PxPlus/Colors/Overview.md)** for information on controlling the colors used for chart datasets. _(The ChartColors$ property was added in PxPlus 2020.)_  
+**ChartColors$** |  List of colors to apply when plotting the different datasets of a chart. Color references may include PxPlus colors (e.g. Light Red, Dark Blue), RGB colors (e.g. RGB:130 0 130), User-defined colors (e.g. Color20) or Expressions (e.g. =myColor$). The colors are separated by a separator character that is the last character of the list. **_Example:_** Below is a sample color string:      "Light Red;RGB:100 100 45;=myColor$;Color19;" See **[Colors](../Charting%20Alternatives%20in%20PxPlus/Colors/Overview.md)** for information on controlling the colors used for chart datasets. _(The ChartColors$ property was added in PxPlus 2020.)_  
 **ColorByPoint** |  When this property is set (non-zero) and there is **_only_** one set of data, the system will draw each point in a different color as if each point was a set.  
 **ConnectorLine** |  **_(Applicable for Column and Bar Charts Only)_** When this property is set (non-zero), the system will draw lines between the ends of the columns or bars for each point/set in the chart.  
 **Currency** |  Indicates whether or not to display currency symbols.  
   
-0 = No currency symbol.  
-1 = Display currency symbol in front of number.  
--1 = Display currency symbol after number.  
-**Current** **Point** |  Current point number being referenced.  
+   0 = No currency symbol.  
+   1 = Display currency symbol in front of number.  
+  -1 = Display currency symbol after number.  
+**Current**  **Point** |  Current point number being referenced.  
 **CurrentSet** |  Current set number being referenced.  
 **DecimalPrecision** |  Number of digits to display after the decimal point. (Default is 2. Maximum is 6.)  
 **DefaultColor$** |  Can be set to the default color to use for all text and non-chart lines (border, chart frame, etc.). If not set, Black will be used.  
@@ -178,12 +182,12 @@ If both are zero, it generates an Error 60. See **[Error Codes and Messages](../
 **GetHTML$**(_width,height,fontWd,fontHi_) |  This method will return the HTML 'div' required to draw the current chart with the specified width and height (in pixels).  
   
 You can optionally include the desired font height and width (in pixels) to be used. If font height is not provided, the system will choose a font height roughly 1/20th of the height of the region specified. If the font width is not specified, the system will assume the width is half the character height.  
-**GetPage$**(_width,height,title_ _$_) |  This method will return the full HTML page that can be used to display the chart. The chart size will be used and centered in the resultant page. If the width and height are both zero, the chart will be created to be responsive to changes in the browser width with the height.  
+**GetPage$**(_width,height,title$_) |  This method will return the full HTML page that can be used to display the chart. The chart size will be used and centered in the resultant page. If the width and height are both zero, the chart will be created to be responsive to changes in the browser width with the height.  
 **Load**(_string_) |  This method can be used to load data into a chart. The last character in the _string_ identifies the separator for each dataset, while the value defined by **SEP=** when the chart is created is used to identify the different data points within each dataset. Legend labels can be specified as the first element in a dataset definition followed by an **=** (e _quals sign)_. **_Example:_** This example loads a chart with two datasets consisting of four points (or data elements):  
   
-**chart load** 10,"100,200,300,400/150,250,350,450/" This next example includes legend labels for the first example:  
+     **chart load** 10,"100,200,300,400/150,250,350,450/" This next example includes legend labels for the first example:  
   
-**chart load** 10,"Last Year=100,200,300,400/This Year=150,250,350,450/"  
+     **chart load** 10,"Last Year=100,200,300,400/This Year=150,250,350,450/"  
 **Write**(_set,point,numValue_) |  This method sets the current value for the specified set/point.  
 **Write**(_set,point,strValue_) |  If _'set'_ is non-zero, this method updates the set name/title.  
   
@@ -191,82 +195,80 @@ If _'set'_ is zero and _'point'_ is non-zero, this method updates the point name
   
 If both are less than zero, this method updates the main title (same as setting **[Title1$](chart_object.htm#title_one)** property); otherwise, it generates an Error 41. See **[Error Codes and Messages](../appendix/list_of_messages.htm#Err41)**.  
   
-##  Examples
+##  Example - Simple Column Chart for Revenue
 
-**_Example 1_** \- Simple column chart for Revenue:
+>      print 'CS',  
+>      oChart=new("*obj/chart" for program)  
+>      oChart'Fmt$="3dColumn"  
+>      oChart'title1$="Annual Revenue"  
+>      oChart'Sep$=","  
+>      oChart'yAxisTitle$="Sales (In Millions)"  
+>      oChart'xAxisTitle$="Year"  
+>      oChart'Load("Fringe Industries=10234,11129,12980,16465/")  
+>      oChart'PointText$="2006/2007/2008/2009/"  
+>      oChart'Draw(0,5,5,40,15)  
+>      drop object oChart
 
-> print 'CS',  
->  oChart=new("*obj/chart" for program)  
->  oChart'Fmt$="3dColumn"  
->  oChart'title1$="Annual Revenue"  
->  oChart'Sep$=","  
->  oChart'yAxisTitle$="Sales (In Millions)"  
->  oChart'xAxisTitle$="Year"  
->  oChart'Load("Fringe Industries=10234,11129,12980,16465/")  
->  oChart'PointText$="2006/2007/2008/2009/"  
->  oChart'Draw(0,5,5,40,15)  
->  drop object oChart
+##  Example - Program to List All 2D/3D Chart Types to a PDF
 
-**_Example 2_** \- Program to list all 2D/3D chart types to a PDF:
+>      begin  
+>      open (1)"*pdf*;view;margins=250:250:250:250;orientation=Landscape"  
+>      print (1)'font'("Arial",-9),'DF',  
+>      col=5,line=5,wd=40,hi=18  
+>      maxCol=mxc(1)-wd  
+>  !  
+>      oChart=new("*obj/chart" for program)  
+>      oChart'Fmt$="3dColumn"  
+>      oChart'Sep$=","  
+>      oChart'yAxisTitle$="Sales (In Minions)"  
+>      oChart'xAxisTitle$="Year"  
+>      oChart'Load("Fringe Industries=10,12.3,14.3,16.4/Crimson Computers=2.3,-5.4,2.2,3.6/WorldWide Wombats=4.8,9.9,11.6,10.9/")  
+>      oChart'PointText$="2006/2007/2008/2009/"  
+>  !  
+>      print (1)"2D Charts..."  
+>      gosub Do_all with type$="2d"  
+>  !  
+>      print (1)'FF',"3D Charts..."  
+>      gosub Do_all with type$="3d"  
+>  !  
+>      drop object oChart  
+>      end  
+>  !  
+>  Do_all:  
+>      col=5,line=5,wd=40,hi=18  
+>      select f$ from "*obj/chart" where mid(f$,1,2)=type$ and mid(f$,-4)=".pvc"  
+>           f$=arg(f$,1,".")  
+>           gosub Do_Chart  
+>      next record  
+>      return  
+>  !  
+>  Do_Chart:  
+>      oChart'Fmt$=f$  
+>      if f$(2,1)="D" \  
+>           then oChart'title1$=ucs(f$(1,2))+cvs(f$(3),256) \  
+>           else oChart'title1$=cvs(f$,256)  
+>      oChart'Draw(1,col,line,wd,hi)  
+>      col+=wd+4  
+>      if col>maxCol \  
+>           then col=5,line+=hi+2  
+>      return
 
-> begin  
->  open (1)"*pdf*;view;margins=250:250:250:250;orientation=Landscape"  
->  print (1)'font'("Arial",-9),'DF',  
->  col=5,line=5,wd=40,hi=18  
->  maxCol=mxc(1)-wd  
->  !  
->  oChart=new("*obj/chart" for program)  
->  oChart'Fmt$="3dColumn"  
->  oChart'Sep$=","  
->  oChart'yAxisTitle$="Sales (In Minions)"  
->  oChart'xAxisTitle$="Year"  
->  oChart'Load("Fringe Industries=10,12.3,14.3,16.4/Crimson Computers=2.3,-5.4,2.2,3.6/WorldWide Wombats=4.8,9.9,11.6,10.9/")  
->  oChart'PointText$="2006/2007/2008/2009/"  
->  !  
->  print (1)"2D Charts..."  
->  gosub Do_all with type$="2d"  
->  !  
->  print (1)'FF',"3D Charts..."  
->  gosub Do_all with type$="3d"  
->  !  
->  drop object oChart  
->  end  
->  !  
-> Do_all:  
->  col=5,line=5,wd=40,hi=18  
->  select f$ from "*obj/chart" where mid(f$,1,2)=type$ and mid(f$,-4)=".pvc"  
->  f$=arg(f$,1,".")  
->  gosub Do_Chart  
->  next record  
->  return  
->  !  
-> Do_Chart:  
->  oChart'Fmt$=f$  
->  if f$(2,1)="D" \  
->  then oChart'title1$=ucs(f$(1,2))+cvs(f$(3),256) \  
->  else oChart'title1$=cvs(f$,256)  
->  oChart'Draw(1,col,line,wd,hi)  
->  col+=wd+4  
->  if col>maxCol \  
->  then col=5,line+=hi+2  
->  return
+##  Example - Sample Program to Create a Web Page with the Chart
 
-**_Example 3_** \- Sample program to create a Web page with the chart:
-
-> oChart=new("*obj/chart" for program)  
->  oChart'Fmt$="3dArea" ! "3dColumn"  
->  oChart'title1$="Revenue top Clients"  
->  oChart'Sep$=","  
->  oChart'yAxisTitle$="Sales (In Millions)"  
->  oChart'xAxisTitle$="Year"  
->  oChart'Load("Fringe Industries=10,12.3,14.3,16.4/Crimson Computers=2.3,-5.4,2.2,3.6/WorldWide Wombats=4.8,9.9,11.6,10.9/")  
->  oChart'PointText$="2006/2007/2008/2009/"  
->  x$=oChart'GetPage$(800,600,"Revenues")  
->  open create purge (hfn)"revenue.html"  
->  write record (lfo)x$  
->  close (lfo)  
->  system_help "revenue.html"  
->  drop object oChart
+>      oChart=new("*obj/chart" for program)  
+>      oChart'Fmt$="3dArea" ! "3dColumn"  
+>      oChart'title1$="Revenue top Clients"  
+>      oChart'Sep$=","  
+>      oChart'yAxisTitle$="Sales (In Millions)"  
+>      oChart'xAxisTitle$="Year"  
+>      oChart'Load("Fringe Industries=10,12.3,14.3,16.4/Crimson Computers=2.3,-5.4,2.2,3.6/WorldWide Wombats=4.8,9.9,11.6,10.9/")  
+>      oChart'PointText$="2006/2007/2008/2009/"  
+>      x$=oChart'GetPage$(800,600,"Revenues")  
+>      open create purge (hfn)"revenue.html"  
+>      write record (lfo)x$  
+>      close (lfo)  
+>      system_help "revenue.html"  
+>      drop object oChart
 
 ## See Also
 
@@ -276,3 +278,9 @@ If both are less than zero, this method updates the main title (same as setting 
 [Smart Chart](../NOMADS%20Graphical%20Application/Smart%20Controls/Defining%20Smart%20Controls.htm#Mark5)  
 [Chart Images Generation](../Chart%20Images%20Generation/Introduction.md)  
 [Chart Image Utilities](../Chart%20Image%20Utilities/Introduction.md)**
+
+ 
+
+ 
+
+ 

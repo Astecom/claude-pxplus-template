@@ -1,23 +1,23 @@
-# Webster+
+# Webster+ Web Development Toolkit
 
 **Drag and Drop Lists**|   
 ---|---  
   
 Webster+ provides a drag and drop list that consists of a series of items that can be manually moved (dragged) between different drag and drop lists or within the list itself. Some examples of where this type of list could be used are:
 
-> Drag an item from an active list to a list of items to delete or print (e.g. invoices)  
->  Drag a security class from a list of possible classes to a list of classes that a user or function belongs to  
->  Change the order of items in a list
+>   Drag an item from an active list to a list of items to delete or print (e.g. invoices)  
+>   Drag a security class from a list of possible classes to a list of classes that a user or function belongs to  
+>   Change the order of items in a list
 
 The short code **[[droplist]](Short%20Codes.htm#droplist)** (or **[draglist]**) is used to create a drag and drop list. The list can contain items defined by using the short code **[[dropitem]](Short%20Codes.htm#dropitem)** (or **[dragitem]**) or loaded by a query or program. If the data comes from a program, the program may be something similar to the following where several writes would fill in the memory file:
 
-> enter DRAGLIST  
->  open (hfn,iol=DRAGLIST)"*memory*"  
->  write  
->  exit  
+>      enter DRAGLIST  
+>      open (hfn,iol=DRAGLIST)"*memory*"  
+>      write   
+>      exit  
 >  !  
 >  DRAGLIST: \  
->  iolist Value$,Text$,Symbol$,Event$,Class$
+>      iolist Value$,Text$,Symbol$,Event$,Class$
 
 _(The Webster+ drag and drop list was added in PxPlus 2022.)_
 
@@ -51,13 +51,15 @@ The above can only drop on left or center list and items are cyan by default
   
 The above example generates a page with three inputs and associated drag and drop lists below them:
 
-This allows you to:
+    
 
-Drag and drop items from List 1 and List 2 to any other list (or itself).  
-Drag and drop items from List 3 to List 1 and List 2 only (not itself).  
-Delete items from List 1 by clicking the "x".  
-Apply special Webster+ classes for full line and square corners to List 2.  
-Add to any list through the input above the respective list.
+     This allows you to:
+
+       Drag and drop items from List 1 and List 2 to any other list (or itself).  
+       Drag and drop items from List 3 to List 1 and List 2 only (not itself).  
+       Delete items from List 1 by clicking the "x".  
+       Apply special Webster+ classes for full line and square corners to List 2.  
+       Add to any list through the input above the respective list.
 
 Each drag and drop list will be associated with a memory file that will contain the list contents. The handle to the memory file will be found in the variable specified in the **[[droplist]](Short%20Codes.htm#droplist)** (or **[draglist]**) short code; e.g. the variables "drag1", "drag2" and "drag3" in the above example.
 
@@ -74,3 +76,9 @@ The memory file itself will have an associated IOList consisting of the followin
 ## See Also
 
 **[Webster+ Defined Classes](Webster%20Defined%20Classes.htm#dragdrop)**
+
+ 
+
+ 
+
+ 

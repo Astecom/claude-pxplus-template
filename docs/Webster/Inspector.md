@@ -1,4 +1,4 @@
-# Webster+
+# Webster+ Web Development Toolkit
 
 **Webster+ Inspector**|   
 ---|---  
@@ -57,24 +57,24 @@ PDF files can be viewed within Webster+. When a PDF file is opened, its contents
 _(The ability to create text files, view data files and open PDFs was added in PxPlus 2022.)  
 (The ability to view, edit, filter and generate reports was added in PxPlus 2022 Update 1.)_
 
-**_Example:_****Text File**
+**_Example:_ Text File**
 
 This example shows a text file (Clients_List.txt) opened in view-only mode:
 
-> **_Example:_****Data File**
+> **_Example:_ Data File**
 
 This example shows a PxPlus data file (clients) opened in view-only mode with navigation buttons shown (when applicable) near the bottom:
 
-> **_Example:_****Report File**
+> **_Example:_ Report File**
 
-This example shows a PxPlus report file (SalesrepList.pvr) opened as a text file in view-only mode:
+This example shows a PxPlus report file (Salesrep List.pvr) opened as a text file in view-only mode:
 
 > This page consists of the following:
 
 _Close_ |  Closes the contents page and returns to the **Webster+ Inspector** page.  
 ---|---  
 _Refresh_ |  Refreshes the contents of the displayed text file, data file or report file.  
-_Edit_ |  **_(Applicable for Text Files and Report Files Only)_** This button is only available to users who are part of the _Inspector Edit Access_ group selected for the **[Access Control](General%20Configuration.htm#accesscontrol)** option; otherwise, this button does not display. Clicking this button opens the selected text file or report (._pvr_) file in the Text editor within Webster+: This window consists of the following: |  _Save_ |  Writes the current text file.  
+_Edit_ |  **_(Applicable for Text Files and Report Files Only)_** This button is only available to users who are part of the _Inspector Edit Access_ group selected for the **[Access Control](General%20Configuration.htm#accesscontrol)** option; otherwise, this button does not display. Clicking this button opens the selected text file or report (._pvr_) file in the Text editor within Webster+:      This window consists of the following: |  _Save_ |  Writes the current text file.  
 ---|---  
 _Save As_ |  Invokes a separate window for entering the text file/path name to be written.  
 _New_ |  Invokes a separate window for creating a new text file.  
@@ -84,8 +84,8 @@ _Redo_ |  Reverses the previous Undo operation.
 _Goto_ |  Invokes a separate window for entering a specific line number to jump to in the program. Clicking the _Jump_ button positions the insertion cursor at the beginning of the specified line.  
 _Find_ |  Invokes the logic to search for a specified text value. Click the up/down arrows to search for the previous/next occurrence of this text. A _Regexp_ check box option is available if the search text is a regular expression. A _Match Case_ option is also available if the search is case sensitive. A _Whole Word_ option is used to search for the specified text value as a whole word only rather than as part of another word.  
 _Replace_ |  Invokes the logic to search for and replace the specified text value. Enter the text value to be replaced and then below that, enter the replacement text value. Click the up/down arrows to search for the previous/next occurrence of the text to be replaced. A _Regexp_ check box option is available if the text to be replaced is a regular expression. A _Match Case_ option is also available if the search is case sensitive. A _Whole Word_ option is used to search for the specified text value as a whole word only rather than as part of another word.  
-_File Info_ |  **_(Applicable for PxPlus Data Files Only)_** Opens a PxPlus Wiki page in a new tab on the Web browser that shows detailed data dictionary information. If a data class was used to define a field, the class name shows as a link that can be selected to view the data class information. **_Example:_**  
-_Generate Report_ |  **_(Applicable for Report Files Only)_** Generates the report based on the report definition (*_.pvr_) file. If a report was defined with parameters and/or data filters, a page will display to allow you to specify the parameters and/or filter criteria to be applied to the report at run time. **_Example:_** The report for this example was defined with both parameters and run-time filters: This window consists of the following: |  _Report Parameters  
+_File Info_ |  **_(Applicable for PxPlus Data Files Only)_** Opens a PxPlus Wiki page in a new tab on the Web browser that shows detailed data dictionary information. If a data class was used to define a field, the class name shows as a link that can be selected to view the data class information. **_Example:_**       
+_Generate Report_ |  **_(Applicable for Report Files Only)_** Generates the report based on the report definition (*_.pvr_) file. If a report was defined with parameters and/or data filters, a page will display to allow you to specify the parameters and/or filter criteria to be applied to the report at run time. **_Example:_** The report for this example was defined with both parameters and run-time filters:      This window consists of the following: |  _Report Parameters  
 Run-time Filters_ |  Displays any report parameters and/or run-time filters that were defined for the report, if applicable.  
 ---|---  
 _Run Report_ |  Displays the report in a new tab on the Web browser, applying any filter criteria.  
@@ -104,7 +104,7 @@ This example shows a program file (gl_account.pvc) opened in view-only mode:
 _Close_ |  Closes the contents page and returns to the **Webster+ Inspector** page.  
 ---|---  
 _Refresh_ |  Refreshes the displayed program file contents.  
-_Edit_ |  This button is only available to users who are part of the _Inspector Edit Access_ group selected for the **[Access Control](General%20Configuration.htm#accesscontrol)** option; otherwise, this button does not display. Clicking this button opens the file in the ED+ program editor within Webster+: This window consists of the following: |  _Save_ |  Saves the current program file.  
+_Edit_ |  This button is only available to users who are part of the _Inspector Edit Access_ group selected for the **[Access Control](General%20Configuration.htm#accesscontrol)** option; otherwise, this button does not display. Clicking this button opens the file in the ED+ program editor within Webster+:      This window consists of the following: |  _Save_ |  Saves the current program file.  
 ---|---  
 _Save As_ |  Allows you to name and save the current program file.  
 _New_ |  Invokes a separate window for creating a new program file.  
@@ -128,7 +128,7 @@ This example shows an HTML file (salespersons.html) opened in view-only mode:
 _Close_ |  Closes the contents page and returns to the **Webster+ Inspector** page.  
 ---|---  
 _Refresh_ |  Refreshes the displayed HTML file contents.  
-_Edit_ |  This button is only available to users who are part of the _Inspector Edit Access_ group selected for the **[Access Control](General%20Configuration.htm#accesscontrol)** option; otherwise, this button does not display. Clicking this button opens the file in the HTML editor within Webster+: This window consists of the following: |  _Save_ |  Writes the current HTML file.  
+_Edit_ |  This button is only available to users who are part of the _Inspector Edit Access_ group selected for the **[Access Control](General%20Configuration.htm#accesscontrol)** option; otherwise, this button does not display. Clicking this button opens the file in the HTML editor within Webster+:      This window consists of the following: |  _Save_ |  Writes the current HTML file.  
 ---|---  
 _Save As_ |  Invokes a separate window for entering the HTML file/path name to be written.  
 _New_ |  Invokes a separate window for creating a new HTML file.  
@@ -176,3 +176,9 @@ The setting of **%inspector_top$** controls the top level directory allowed in t
 **_Example:_**
 
 > %inspector_top$="C:\webster-plus\"
+
+ 
+
+ 
+
+ 

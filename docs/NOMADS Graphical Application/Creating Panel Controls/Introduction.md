@@ -1,6 +1,6 @@
 # NOMADS Graphical Application
 
-**Creating Panel Controls** |  **__**  
+**Creating Panel Controls** |  **_ _**  
 ---|---  
   
 **_Controls_** are the graphical components within a panel that allow users to interact with an application. Below is a list of the **[Types of Controls](Introduction.htm#types)** that can be added to a panel using the NOMADS **[Panel Designer](../Panel%20Designer/Introduction.md)**. Various attributes, settings and logic can also be applied to controls in the Panel Designer.
@@ -13,10 +13,10 @@ The Panel Designer includes a **_Controls_** toolbar, which is a collection of c
 
 **_To create a control:_**
 
-|  1. |  Click the appropriate tool in the **[Controls Toolbar](../Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Controls%20Toolbox.md)** or select the _Controls_ menu.  
+  |  1. |  Click the appropriate tool in the **[Controls Toolbar](../Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Controls%20Toolbox.md)** or select the _Controls_ menu.  
 ---|---|---  
-|  2. |  Draw the control on the panel by holding down the left mouse button, dragging the dotted outline to the desired size and releasing the mouse button. The control's **Properties** window displays.  
-|  3. |  Enter the associated logic and set other design properties as needed.  
+  |  2. |  Draw the control on the panel by holding down the left mouse button, dragging the dotted outline to the desired size and releasing the mouse button. The control's **Properties** window displays.  
+  |  3. |  Enter the associated logic and set other design properties as needed.  
   
 #### **Note:**  
 Controls can also be created from a data class or from a data element. See [**Data Class Controls**](Introduction.htm#Mark4) and [ **Data Element Controls**](Introduction.htm#Mark5) below.
@@ -46,7 +46,7 @@ The table below lists the types of controls that can be created. Use the links p
 __(Support for .NET controls was added in PxPlus 2025.)_  
 **[Drop Box Control](Drop%20Box%20Control/Overview.md)** |  Displays initially as a single line control with a down arrow that, when clicked, presents a drop down list with predefined items for selection.  
 **[Variable Drop Box Control](Drop%20Box%20Control/Variable%20Drop%20Box.md)** |  Similar to a Drop Box control but with the added capability of allowing variable input, which means that users can either click on the down arrow to select from the drop down list or manually enter a different value not in the list.  
-**[Embedded Panels](Embedded%20Panels/Overview.md)** |  Allows the contents of a different panel to be placed at a location within the current panel. For example, you may have a common format for a set of _First, Prior, Next_ and  _Last_ navigation buttons. Rather than recreating these controls on multiple panels, you can create them once in one panel, and then embed the contents of that panel into all the panels that need them. You only need to edit the source panel to have the changes occur wherever those controls are embedded.  
+**[Embedded Panels](Embedded%20Panels/Overview.md)** |  Allows the contents of a different panel to be placed at a location within the current panel. For example, you may have a common format for a set of _First, Prior, Next_  and _Last_  navigation buttons. Rather than recreating these controls on multiple panels, you can create them once in one panel, and then embed the contents of that panel into all the panels that need them. You only need to edit the source panel to have the changes occur wherever those controls are embedded.  
 **[Folder Controls](Folder%20Controls/Overview.md)** |  Allows panels to be set up so that they appear as layered file folders to give users easy access to different sub-panels within the window.  
 **[Fonted/Fixed Text Control](Text%20Control/Text.md)** |  Used to create labels or titles to describe how controls are to be used in your panel.  
 **[Grid Control](Grid%20Control/Overview.md)** |  Creates a grid control with a spreadsheet-style input format.  
@@ -66,25 +66,25 @@ __(Support for .NET controls was added in PxPlus 2025.)_
 
 To create a control from a **_data class_** , use either of the following methods:
 
-**_Method 1:_**
+**_Method 1:_**  
 
 (Use with **[Multi-Lines](Multi-Line%20Control/Multi-Line%20Properties.md)**, **[Drop Boxes](Drop%20Box%20Control/Drop%20Box%20Properties.md)**, **[List Boxes](List%20Box%20Controls/List%20Box%20Type.md)** and **[Check Boxes](Check%20Box%20and%20Tri-State%20Control/Overview.md)**)
 
-|  1. |  Click the appropriate tool in the **[Controls Toolbar](../Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Controls%20Toolbox.md)** or select the _Controls_ menu.  
+  |  1. |  Click the appropriate tool in the **[Controls Toolbar](../Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Controls%20Toolbox.md)** or select the _Controls_ menu.  
 ---|---|---  
-|  2. |  Draw the control on the panel.  
-|  3. |  In the control's **Properties** window, enter a defined data class in the _Class_ field by clicking the Query button (binoculars), typing the name of an existing data class for the control type, or creating a data class on the fly by entering a new _Class_ name.  
-|  4. |  The control's properties are loaded with the information from the data class.  
+  |  2. |  Draw the control on the panel.  
+  |  3. |  In the control's **Properties** window, enter a defined data class in the _Class_ field by clicking the Query button (binoculars), typing the name of an existing data class for the control type, or creating a data class on the fly by entering a new _Class_ name.  
+  |  4. |  The control's properties are loaded with the information from the data class.  
   
 **_Method 2:_**
 
 (Use with **[Multi-Lines](Multi-Line%20Control/Multi-Line%20Properties.md)**, **[Drop Boxes](Drop%20Box%20Control/Drop%20Box%20Properties.md)**, **[List Boxes](List%20Box%20Controls/List%20Box%20Type.md)**, **[Radio Buttons](Radio%20Button%20Control/Overview.md)** and **[Check Boxes](Check%20Box%20and%20Tri-State%20Control/Overview.md)**)
 
-|  1. |  In the **[Controls Toolbar](../Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Controls%20Toolbox.md)**, click the _Class_ button (or Query down arrow) to display a list of defined data classes.  
+  |  1. |  In the **[Controls Toolbar](../Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Controls%20Toolbox.md)**, click the _Class_ button (or Query down arrow) to display a list of defined data classes.  
 ---|---|---  
-|  2. |  Select a data class.  
-|  3. |  Draw the control on the panel. See **_Radio Button Data Class Controls_** below.  
-|  4. |  The control's properties are automatically loaded with information from the data class.  
+  |  2. |  Select a data class.  
+  |  3. |  Draw the control on the panel. See **_Radio Button Data Class Controls_** below.  
+  |  4. |  The control's properties are automatically loaded with information from the data class.  
   
 **_Radio Button Data Class Controls_**
 
@@ -108,31 +108,31 @@ To create a control from a **_data element_** , use either of the following meth
 
 **_Method 1:_**
 
-|  1. |  In the **[Controls Toolbar](../Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Controls%20Toolbox.md)**, click the _Element_ button (or Query down arrow) to display a list of _all_ elements for _all_ dictionary files.  
+  |  1. |  In the **[Controls Toolbar](../Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Controls%20Toolbox.md)**, click the _Element_ button (or Query down arrow) to display a list of _all_ elements for _all_ dictionary files.  
 ---|---|---  
-|  2. |  Select an element.  
-|  3. |  Draw the control on the panel. See **Note** below.  
-|  4. |  The control's properties are automatically loaded with information from the element.  
+  |  2. |  Select an element.  
+  |  3. |  Draw the control on the panel. See **Note** below.  
+  |  4. |  The control's properties are automatically loaded with information from the element.  
   
 **_Method 2:_**
 
 _(Similar to Method 1 except a dictionary file is selected first)_
 
-|  1. |  In the **[Controls Toolbar](../Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Controls%20Toolbox.md)**, click the _File_ button (or Query down arrow) to display a list of dictionary files.  
+  |  1. |  In the **[Controls Toolbar](../Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Controls%20Toolbox.md)**, click the _File_ button (or Query down arrow) to display a list of dictionary files.  
 ---|---|---  
-|  2. |  Select the dictionary file containing the desired element.  
-|  3. |  Click the _Element_ button (or Query down arrow) to display a list of the elements in the selected file.  
-|  4. |  Select an element.  
-|  5. |  Draw the control on the panel. See **Note** below.  
-|  6. |  The control's properties are automatically loaded with information from the element.  
+  |  2. |  Select the dictionary file containing the desired element.  
+  |  3. |  Click the _Element_ button (or Query down arrow) to display a list of the elements in the selected file.  
+  |  4. |  Select an element.  
+  |  5. |  Draw the control on the panel. See **Note** below.  
+  |  6. |  The control's properties are automatically loaded with information from the element.  
   
 #### **Note:**  
   
 **_When drawing a data element control:_**  
   
-If the element was defined with a data class that is **_not dynamic_** , the element values will be written to the control properties.  
+  If the element was defined with a data class that is **_not dynamic_** , the element values will be written to the control properties.  
   
-If the element was defined with a **_dynamic_** data class, a message will ask if the element values are to overwrite data class values for corresponding properties. Respond _Yes_ to apply the element values or _No_ to apply the data class values. See **[Dynamic Control Properties](../../Data%20Dictionary/Data%20Classes/Dynamic.md)**.  
+  If the element was defined with a **_dynamic_** data class, a message will ask if the element values are to overwrite data class values for corresponding properties. Respond _Yes_ to apply the element values or _No_ to apply the data class values. See **[Dynamic Control Properties](../../Data%20Dictionary/Data%20Classes/Dynamic.md)**.  
   
 _(Dynamic data classes and properties were added in PxPlus 2018.)_
 
@@ -156,3 +156,9 @@ _(Support to increase the maximum number of controls on a panel was added in PxP
 ## See Also
 
 **[NOMADS+ Toolbar](../../NOMADS+%20Toolbar/Introduction.md)**
+
+ 
+
+ 
+
+ 

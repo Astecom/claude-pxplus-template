@@ -14,11 +14,11 @@ See **[Query Colors](../../Dictionary-Based%20Development/Query%20Subsystem/Quer
 _Borderless_ |  Control has no border or frame.  
 _Corner Radius_ |  Sets the radius for the list box corners. Works only in **4D** mode. This option is available for all **[List Box Types](../../Creating%20Panel%20Controls/List%20Box%20Controls/List%20Box%20Type.htm#types)** **_except_** Report View and Variable List Boxes. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 8 inclusive. See **[CornerRadius$](../../../control_object_properties/listbox_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :  
   
-     ![](images/themes_010_1.png) Corner Radius set to **Square** :  
+     Corner Radius set to **Square** :  
   
-     ![](images/themes_010_2.png) Corner Radius set to a value of **8** :  
+     Corner Radius set to a value of **8** :  
   
-     ![](images/themes_010_3.png)
+    
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.
@@ -34,11 +34,11 @@ _Focus Rectangle_ |  Controls whether a dotted focus rectangle displays around t
 
 List Box focus is **_Off_** :
 
-     ![](images/themes_010_4.png)
+    
 
 List Box focus is **_On_** :
 
-     ![](images/themes_010_5.png)
+    
 
 _(Focus Rectangle property was added in PxPlus 2026.)_  
   

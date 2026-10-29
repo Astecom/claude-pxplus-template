@@ -11,17 +11,17 @@ This table lists all the **_VarDrop_Box_** properties:
 _Borderless_ |  Control has no border or frame.  
 _Corner Radius_ |  Sets the radius for the drop box corners. Works only in **4D** mode. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 3 inclusive. See **[CornerRadius$](../../../control_object_properties/vardropbox_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :  
   
-     ![](images/themes_002_1.png) Corner Radius set to **Square** :  
+     Corner Radius set to **Square** :  
   
-     ![](images/themes_002_2.png) Corner Radius set to a value of **3** :  
+     Corner Radius set to a value of **3** :  
   
-     ![](images/themes_002_3.png)
+    
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.
 
 _(Corner Radius property was added in PxPlus 2026.)_  
-_Field Height_ |  Defines the height (in pixels) of the drop box input area. When set, the same height is applied to each line in the drop section, and the overall height of the expanded control is affected. Text is centered vertically within the control. **_Example:_** The following three examples show the results when the _Field Height_ property is set to 20, 30 and 40:      ![](images/themes_002_4.png)  
+_Field Height_ |  Defines the height (in pixels) of the drop box input area. When set, the same height is applied to each line in the drop section, and the overall height of the expanded control is affected. Text is centered vertically within the control. **_Example:_** The following three examples show the results when the _Field Height_ property is set to 20, 30 and 40:        
 _(Field Height property was added in PxPlus 2026.)_  
 **Colors**  
 _Click the dotted_ _Query button or double click inside the cell to access_ [ **Color Selections**](../../Appendix/Color%20Selections.md) _. Valid formats for color selections include predefined system colors (e.g. Light Red), Custom (RGB codes), HTML Hex Color Codes, User Defined colors (e.g. Color17) and string Expressions._ _After a color property is set, a tick in the selected color displays in the top left corner. A floating tip with a sample of the selected color displays when hovering the mouse over the color setting._ _(The color tick and color tip were added in PxPlus 2018.)  

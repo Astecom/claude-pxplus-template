@@ -23,22 +23,22 @@ _Left (Rotated)_ and _Right (Rotated)_ tab positions do **_not_** support bitmap
   
 _Tab Width_ |  **_(Not Applicable to Tabless Folders)_** Uniform width to be used for all tabs. When the _Tab Position_ selected is _Top, Bottom, Left (Rotated)_ or _Right (Rotated)_ , you can either enter a tab width or leave it blank. Leaving it blank will trigger NOMADS to automatically calculate the tab width by using the folder width and the number of tabs. When the _Tab Position_ selected is _Left Sidebar_ or _Right Sidebar_ , a tab width must be entered, as NOMADS will not automatically calculate it if left blank. Format mask: ###.  
 **Attributes**  
-_Tab Corner Radius_ |  Sets the radius for the tab button corners. Works only in **4D** mode. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CornerRadius$](../../../properties/cornerradius_.md)** property. **_Example:_** Tab Corner Radius set to **Round** : |  ![](images/themes_014_1.png)  
-**_Tabs Position = Top_** |  ![](images/themes_014_2.png)  
+_Tab Corner Radius_ |  Sets the radius for the tab button corners. Works only in **4D** mode. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CornerRadius$](../../../properties/cornerradius_.md)** property. **_Example:_** Tab Corner Radius set to **Round** : |    
+**_Tabs Position = Top_** |    
 **_Tabs Position = Left Sidebar_**  
 ---|---  
   
 Tab Corner Radius set to **Square** :
 
-![](images/themes_014_3.png)  
-**_Tabs Position = Top_** |  ![](images/themes_014_4.png)  
+  
+**_Tabs Position = Top_** |    
 **_Tabs Position = Left Sidebar_**  
 ---|---  
   
 Tab Corner Radius set to a value of **10** :
 
-![](images/themes_014_5.png)  
-**_Tabs Position = Top_** |  ![](images/themes_014_6.png)  
+  
+**_Tabs Position = Top_** |    
 **_Tabs Position = Left Sidebar_**  
 ---|---  
   
@@ -56,15 +56,15 @@ _Tab Focus Rectangle_ |  Controls whether a dotted focus rectangle displays arou
 
 Tab focus is **_Off_** :
 
-![](images/themes_014_7.png)  
-**_Tabs Position = Top_** |  ![](images/themes_014_8.png)  
+  
+**_Tabs Position = Top_** |    
 **_Tabs Position = Left Sidebar_**  
 ---|---  
   
 Tab focus is **_On_** :
 
-![](images/themes_014_9.png)  
-**_Tabs Position = Top_** |  ![](images/themes_014_10.png)  
+  
+**_Tabs Position = Top_** |    
 **_Tabs Position = Left Sidebar_**  
 ---|---  
   

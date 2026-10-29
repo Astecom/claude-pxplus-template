@@ -47,7 +47,7 @@ CornerRadius$ set to **Round** :
 >  y=100  
 > y'CornerRadius$="round"  
 >   
->   ![](images/multiline_001_1.png)
+>  
 
 CornerRadius$ set to **Square** :
 
@@ -55,7 +55,7 @@ CornerRadius$ set to **Square** :
 >  y=100  
 > y'CornerRadius$="square"  
 >   
->   ![](images/multiline_001_2.png)
+>  
 
 CornerRadius$ set to a value of **7** :
 
@@ -63,7 +63,7 @@ CornerRadius$ set to a value of **7** :
 >  y=100  
 > y'CornerRadius$="7"  
 >   
->   ![](images/multiline_001_3.png)
+>  
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.

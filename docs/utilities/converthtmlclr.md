@@ -1,11 +1,11 @@
-# Utility Routines
+# Utilities
 
 ***TOOLS/CONVERTHTMLCOLOR** |  **_Convert HTML Color Name into Hex Color_**  
 ---|---  
   
 ## Invocation
 
-**CALL "*tools/converthtmlcolor"** ,_htmlcolorname_ _$_ ,_outputhexcolor_ _$_
+**CALL "*tools/converthtmlcolor"**,_htmlcolorname_ _$_ ,_outputhexcolor_ _$_
 
 **_Where:_**
 
@@ -31,3 +31,9 @@ _hexcolor_ _$_ will be "#b8860b" (the Hex color of the HTML color "DarkGoldenRod
 
 **[*TOOLS/PrintHTML](printhtml.md)**  
 FIN **[CurFont](../functions/fin.htm#curfont)** and **[CurColor (CurColour)](../functions/fin.htm#curclr)**
+
+ 
+
+ 
+
+ 

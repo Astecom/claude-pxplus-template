@@ -40,7 +40,7 @@ BackColour$](../properties/backcolor_.md)** |  Background color. For information
   
 _(The Bitmap Centered option was added in PxPlus 2018 Update 1.)_  
   
-[ **Border$**](../properties/border_.md) |  Controls the type of border that will be used when drawing a button-style check box. Possible values and formats are _Solid_ , _None_ , _Double_ , _Groove_ , _Ridge_ , _Inset_ and _Outset_.      ![](images/tristate_003_1.png) If not set, it will have the value of "Default" (or ""), which indicates that the system should use the system default button styling.
+[ **Border$**](../properties/border_.md) |  Controls the type of border that will be used when drawing a button-style check box. Possible values and formats are _Solid_ , _None_ , _Double_ , _Groove_ , _Ridge_ , _Inset_ and _Outset_.      If not set, it will have the value of "Default" (or ""), which indicates that the system should use the system default button styling.
 
 #### **Note:**  
 This property is effective on a check box only when it is drawn as a button, which occurs when a bitmap is added.  
@@ -73,7 +73,7 @@ CBCornerRadius$ set to **Round** :
 >  y=100  
 > y'CBCornerRadius$="round"  
 >   
->   ![](images/tristate_003_2.png)
+>  
 
 CBCornerRadius$ set to **Square** :
 
@@ -81,7 +81,7 @@ CBCornerRadius$ set to **Square** :
 >  y=100  
 > y'CBCornerRadius$="square"  
 >   
->   ![](images/tristate_003_3.png)
+>  
 
 CBCornerRadius$ set to a value of **7** :
 
@@ -89,7 +89,7 @@ CBCornerRadius$ set to a value of **7** :
 >  y=100  
 > y'CBCornerRadius$="7"  
 >   
->   ![](images/tristate_003_4.png)
+>  
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.
@@ -117,7 +117,7 @@ CornerRadius$ set to **Round** :
 >  y=100  
 > y'CornerRadius$="round"  
 >   
->   ![](images/tristate_003_5.png)
+>  
 
 CornerRadius$ set to **Square** :
 
@@ -125,7 +125,7 @@ CornerRadius$ set to **Square** :
 >  y=100  
 > y'CornerRadius$="square"  
 >   
->   ![](images/tristate_003_6.png)
+>  
 
 CornerRadius$ set to a value of **10** :
 
@@ -133,7 +133,7 @@ CornerRadius$ set to a value of **10** :
 >  y=100  
 > y'CornerRadius$="10"  
 >   
->   ![](images/tristate_003_7.png)
+>  
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.
@@ -186,7 +186,7 @@ To turn Tri-State Check Box focus **_Off_** :
           y=100  
           y'FocusRect=0  
   
-          ![](images/tristate_003_8.png)
+         
 
 To turn Tri-State Check Box focus **_On_** :
 
@@ -194,7 +194,7 @@ To turn Tri-State Check Box focus **_On_** :
           y=100  
           y'FocusRect=1  
   
-          ![](images/tristate_003_9.png)
+         
 
 **_Example:_**
 
@@ -204,7 +204,7 @@ To turn Tri-State Check Box focus **_Off_** (when a bitmap is added):
           y=100  
           y'FocusRect=0
 
-          ![](images/tristate_003_10.png)
+         
 
 To turn Tri-State Check Box focus back **_On_** (when a bitmap is added):
 
@@ -212,7 +212,7 @@ To turn Tri-State Check Box focus back **_On_** (when a bitmap is added):
           y=100  
           y'FocusRect=1
 
-          ![](images/tristate_003_11.png)
+         
 
 _(The FocusRect property was added in PxPlus 2026.)_  
   

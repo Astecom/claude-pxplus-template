@@ -1,11 +1,11 @@
-# Utility Routines
+# Utilities
 
 ***TOOLS/PRINTHTML** |  **_Output Formatted Text from HTML_**  
 ---|---  
   
 ## Invocation
 
-**CALL "*tools/printhtml"** , _html$_ , _outputchannel_ , **[**_left_**]** , **[**_top_**]** , **[**_right_**]** , **[**_bottom_**]**
+**CALL "*tools/printhtml"**, _html$_ , _outputchannel_ , **[**_left_**]** , **[**_top_**]** , **[**_right_**]** , **[**_bottom_**]**
 
 **_Where:_**
 
@@ -19,7 +19,7 @@ _bottom_ |  Bottom-most point of the area to print to. If not specified, use the
   
 ## Description
 
-Convert HTML input into formatted text output on the given open channel. This allows you to use a TinyMCE control for users to input formatted text and then allows you to output it to a PDF or other channel. To define a TinyMCE control, see **[Using the TinyMCE HTML Editor](../Extended%20NOMADS%20Objects/TinyMCE%20HTML%20Editor/Using%20the%20TinyMCE%20HTML%20Editor.md)**.
+Convert HTML input into formatted text output on the given open channel. This allows you to use a TinyMCE control for users to input formatted text and then allows you to output it to a PDF or other channel. To define a TinyMCE control, see **[Using the TinyMCE® HTML Editor](../Extended%20NOMADS%20Objects/TinyMCE%20HTML%20Editor/Using%20the%20TinyMCE%20HTML%20Editor.md)**.
 
 Only the most common HTML elements that are used to format text are supported with this tool:
 
@@ -60,3 +60,9 @@ This example code is for printing TinyMCE formatted text as a PDF:
 
 **[*TOOLS/ConvertHTMLColor](converthtmlclr.md)**  
 FIN **[CurFont](../functions/fin.htm#curfont)** and **[CurColor (CurColour)](../functions/fin.htm#curclr)**
+
+ 
+
+ 
+
+ 

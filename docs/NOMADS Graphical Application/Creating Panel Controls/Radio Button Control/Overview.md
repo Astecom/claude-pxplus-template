@@ -25,9 +25,7 @@ To define the specific attributes for the new control, see **[Radio Button Prope
 
 When creating or editing a _Radio Button_ control, the **Radio Button Properties** dialogue (pictured below using the **[Folder Style](../../Panel%20Designer/Folder%20Style/Using%20the%20Folder%20Style.md)** version of the NOMADS designer) is displayed:
 
-> ![](images/overview_003_1.jpg)
-
-This dialogue is divided into the following tabbed panels for viewing and/or changing Radio Button properties: **[Display](Overview.htm#display)**, **[Font/Color](Overview.htm#font)**, **[Attributes](Overview.htm#attributes)**, **[Value](Overview.htm#value)**, **[Logic](Overview.htm#logic)** and **[User Aid](Overview.htm#useraid)**.
+> This dialogue is divided into the following tabbed panels for viewing and/or changing Radio Button properties: **[Display](Overview.htm#display)**, **[Font/Color](Overview.htm#font)**, **[Attributes](Overview.htm#attributes)**, **[Value](Overview.htm#value)**, **[Logic](Overview.htm#logic)** and **[User Aid](Overview.htm#useraid)**.
 
 _Name_ |  Radio Button name (NOMADS provides a default). Naming conventions for variables apply. Click the Browse Library button to copy parameters from an existing object (via the **[Library Browse](../../Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Library%20Browse.md)** dialogue). The same name is used for each Radio Button in the group; however, each requires a different **[Index Value](Overview.htm#value)**.
 
@@ -51,7 +49,7 @@ _Top, Bottom_ and _Center/Scale_ alignments and the _Scale bitmap_ option only w
   
 _(The Center/Scale alignment and Scale bitmap options were added in PxPlus 2019_ _Update 1_ _.)_  
   
-**Image Options** |  **_(Available when Bitmaps for Normal/Pushed are selected)_** Sets advanced image options for the bitmap. Click the Additional Image Options button to the right of the **Image Options** multi-line to invoke the **Image Options** dialogue.      ![](images/overview_003_2.jpg) This dialogue consists of the following: |  **Options** |  |  _Image Transparency_ |  Bitmap transparency option. Click the drop-down arrow for a list of selections: _None, Pixel sets transparency_ or _'Light Gray' is transparent_.  
+**Image Options** |  **_(Available when Bitmaps for Normal/Pushed are selected)_** Sets advanced image options for the bitmap. Click the Additional Image Options button to the right of the **Image Options** multi-line to invoke the **Image Options** dialogue.      This dialogue consists of the following: |  **Options** |  |  _Image Transparency_ |  Bitmap transparency option. Click the drop-down arrow for a list of selections: _None, Pixel sets transparency_ or _'Light Gray' is transparent_.  
 ---|---  
 _Flip Image_ |  Flips the image. Click the drop-down arrow for a list of selections: _None, Flip horizontally (left/right), Flip vertically (up/down)_ or _Flip horizontally and vertically_.  
 _Rotation Angle_ |  Counter clockwise rotation angle at which to display the image. Valid entries are 0 to 359.  
@@ -123,7 +121,7 @@ Setting a background color is not compatible with transparency. If a background 
 _Drop-List Button_ |  Extra button with an arrow bitmap is attached to the right of the main button. When the arrow bitmap button is clicked, the associated popup menu is displayed.  
 _Ignore Change Flag_ |  Select this check box when you do **_not_** want the NOMADS **[CHANGE_FLG](../../Appendix/NOMADS%20Variables/Overview.htm#reserved)** variable to be updated when the control value is changed. _(The Ignore Change Flag property was added in PxPlus 2017.)_  
 _Signal Only (No Focus)_ |  PxPlus generates a CTL value but does not shift focus to the button automatically **_(Default)_** unless focus is explicitly passed.  
-_Button Corner Radius_ |  Sets the corner radius for a radio button only when it is drawn as a button, which occurs when a bitmap is added. Works only in **4D** mode. When no bitmap is added, this option is hidden. Possible values are _Null_ (_blank_), _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CornerRadius$](../../../control_object_properties/radiobutton_properties.htm#cornerradius)** property. **_Example:_** Button Corner Radius set to **Round** :    ![](images/overview_003_3.png) Button Corner Radius set to **Square** :    ![](images/overview_003_4.png) Button Corner Radius set to a value of **10** :    ![](images/overview_003_5.png)
+_Button Corner Radius_ |  Sets the corner radius for a radio button only when it is drawn as a button, which occurs when a bitmap is added. Works only in **4D** mode. When no bitmap is added, this option is hidden. Possible values are _Null_ (_blank_), _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CornerRadius$](../../../control_object_properties/radiobutton_properties.htm#cornerradius)** property. **_Example:_** Button Corner Radius set to **Round** :    Button Corner Radius set to **Square** :    Button Corner Radius set to a value of **10** :   
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.

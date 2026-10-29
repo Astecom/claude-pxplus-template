@@ -5,9 +5,7 @@
   
 When creating or editing a data class for a _Check Box_ control type, **Data Class Definitions** maintenance displays the following:
 
-> ![](images/checkbox_005_1.jpg)
-
-#### **Note:**  
+> #### **Note:**  
 Properties marked with an *****  _(asterisk)_ can be **_dynamic_**. Expressions that come from a data class **_must_** be global variables. See **[Dynamic Control Properties](Dynamic.md)**.
 
 The following tabbed panels are available: **[Display](Checkbox.htm#display)**, **[Attributes](Checkbox.htm#attributes)**, **[User Aids](Checkbox.htm#useraids)** and **[Validation](Checkbox.htm#validation)**.
@@ -38,7 +36,7 @@ _Top, Bottom_ and _Center/Scale_ alignments and the _Scale bitmap_ option only w
 _(Bitmaps definitions for up to three states was added in PxPlus 2018.)  
 (The Center/Scale alignment and Scale bitmap options were added in PxPlus 2019 __Update 1_ _.)_  
   
-***Image Options** |  **_(Available when Bitmaps for Off/On/3 rd States are selected)_** Sets advanced image options for the bitmap. Click the Additional Image Options button to the right of the **Image Options** multi-line to invoke the **Image Options** dialogue.      ![](images/checkbox_005_2.jpg) This dialogue consists of the following: |  **Options** |  |  _Image Transparency_ |  Bitmap transparency option. Click the drop-down arrow for a list of selections: _None, Pixel sets transparency_ or _'Light Gray' is transparent_.  
+***Image Options** |  **_(Available when Bitmaps for Off/On/3 rd States are selected)_** Sets advanced image options for the bitmap. Click the Additional Image Options button to the right of the **Image Options** multi-line to invoke the **Image Options** dialogue.      This dialogue consists of the following: |  **Options** |  |  _Image Transparency_ |  Bitmap transparency option. Click the drop-down arrow for a list of selections: _None, Pixel sets transparency_ or _'Light Gray' is transparent_.  
 ---|---  
 _Flip Image_ |  Flips the image. Click the drop-down arrow for a list of selections: _None, Flip horizontally (left/right), Flip vertically (up/down)_ or _Flip horizontally and vertically_.  
 _Rotation Angle_ |  Counter clockwise rotation angle at which to display the image. Valid entries are 0 to 359.  
@@ -77,12 +75,12 @@ _Flat - No Border_ |  Button has no border and shows no raised outline unless th
 _Transparent_ |  Button is transparent; i.e. the window contents behind the button show through. This style can be used to place buttons onto bitmaps. _(added in PxPlus 2018)_  
 _Drop-List Button_ |  Extra button with an arrow bitmap is attached to the right of the main button. When the arrow bitmap button is clicked, the associated popup menu is displayed. _(added in PxPlus 2018)_  
 _Ignore Change Flag_ |  Select this check box when you do **_not_** want the NOMADS **[CHANGE_FLG](../../NOMADS%20Graphical%20Application/Appendix/NOMADS%20Variables/Overview.htm#reserved)** variable to be updated when the control value is changed. _(added in PxPlus 2017)_  
-_Check Box Corner Radius_ |  **_(Available for Standard Check Boxes - Without Bitmap)_** Sets the corner radius for a check box that looks like a check box (no bitmap defined), not for a check box that looks like a normal button. Works only in **4D** mode. See **[CbCornerRadius$](../../control_object_properties/checkbox_properties.htm#cbcornerradius)** property. When a bitmap is added, this option is replaced by the **[Button Corner Radius](Checkbox.htm#btncorner)** option. Possible values are _Null (blank), Round_ , _Square_ or a value from 0 to 255 inclusive. **_Example:_**    ![](images/checkbox_005_3.png)  
-   ![](images/checkbox_005_4.png)  
-   ![](images/checkbox_005_5.png) _(Check Box Corner Radius was added in PxPlus 2026.)_  
-_Button Corner Radius_ |  **_(Available for Check Box Buttons - With Bitmap)_** Sets the corner radius for a check box only when it is drawn as a button, which occurs when a bitmap is added. Works only in **4D** mode. See **[CornerRadius$](../../control_object_properties/checkbox_properties.htm#cornerradius)** property. When no bitmap is added, this option is replaced by the **[Check Box Corner Radius](Checkbox.htm#cbcorner)** option. Possible values are _Null (blank), Round_ , _Square_ or a value from 0 to 255 inclusive. **_Example:_**    ![](images/checkbox_005_6.png)  
-   ![](images/checkbox_005_7.png)  
-   ![](images/checkbox_005_8.png) _(Button Corner Radius was added in PxPlus 2026.)_  
+_Check Box Corner Radius_ |  **_(Available for Standard Check Boxes - Without Bitmap)_** Sets the corner radius for a check box that looks like a check box (no bitmap defined), not for a check box that looks like a normal button. Works only in **4D** mode. See **[CbCornerRadius$](../../control_object_properties/checkbox_properties.htm#cbcornerradius)** property. When a bitmap is added, this option is replaced by the **[Button Corner Radius](Checkbox.htm#btncorner)** option. Possible values are _Null (blank), Round_ , _Square_ or a value from 0 to 255 inclusive. **_Example:_**      
+     
+   _(Check Box Corner Radius was added in PxPlus 2026.)_  
+_Button Corner Radius_ |  **_(Available for Check Box Buttons - With Bitmap)_** Sets the corner radius for a check box only when it is drawn as a button, which occurs when a bitmap is added. Works only in **4D** mode. See **[CornerRadius$](../../control_object_properties/checkbox_properties.htm#cornerradius)** property. When no bitmap is added, this option is replaced by the **[Check Box Corner Radius](Checkbox.htm#cbcorner)** option. Possible values are _Null (blank), Round_ , _Square_ or a value from 0 to 255 inclusive. **_Example:_**      
+     
+   _(Button Corner Radius was added in PxPlus 2026.)_  
 ***User Tag Field** |  For controls, data/tag field which can be used to pass information on such things as formatting, error messages or validation rules. Field contents are placed in a variable using the control name with a .TAG$ extension.  
 **User Aids**** _( * indicates_ a _Dynamic property)_**  
 ***Help Reference** |  |  _Type_ |  Click the drop-down arrow to select either _Internal_ or _External_ help reference: |  _Internal_ |  Application supplied message text (_Fixed_ value, string _Expression_ or _Message Library Reference_).  

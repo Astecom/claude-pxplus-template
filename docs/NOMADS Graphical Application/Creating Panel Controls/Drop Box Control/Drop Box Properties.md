@@ -5,9 +5,7 @@
   
 When creating or editing a _Drop Box_ control, the **Drop Box Properties** dialogue (pictured below using the **[Folder Style](../../Panel%20Designer/Folder%20Style/Using%20the%20Folder%20Style.md)** version of the NOMADS designer) is displayed.
 
-> ![](images/drop_003_1.jpg)
-
-**_Dynamic Control Properties_**
+> **_Dynamic Control Properties_**
 
 PxPlus 2018 introduces the capability to create **_dynamic control properties_** for Drop Box controls when combined with **[Data Classes](../../../Data%20Dictionary/Data%20Classes/Overview.md)**. Dynamic data classes are created by selecting the _Dynamic_ check box in **[Data Class Definitions](../../../Data%20Dictionary/Data%20Classes/Dropbox.md)** maintenance. At run time, dynamic control properties are evaluated and **_automatically_** populated with values based on what is defined in the data class.
 
@@ -146,7 +144,7 @@ _Strip Trailing Spaces_ |  Strips trailing spaces when reading/writing data for 
 _Ignore Change Flag_ |  Select this check box when you do **_not_** want the NOMADS **[CHANGE_FLG](../../Appendix/NOMADS%20Variables/Overview.htm#reserved)** variable to be updated when the control value is changed. _(The Ignore Change Flag property was added in PxPlus 2017.)_  
 **DropBox Attributes** |  |  _Allow Variable Input_ |  Enables the user to select any element from the list or enter any other value. See **[Variable Drop Box](Variable%20Drop%20Box.md)**.  
 ---|---  
-_Corner Radius_ |  Sets the radius for the drop box corners. Works only in **4D** mode. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 3 inclusive. See **[CornerRadius$](../../../control_object_properties/dropbox_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :    ![](images/drop_003_2.png) Corner Radius set to **Square** :    ![](images/drop_003_3.png) Corner Radius set to a value of **3** :    ![](images/drop_003_4.png)
+_Corner Radius_ |  Sets the radius for the drop box corners. Works only in **4D** mode. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 3 inclusive. See **[CornerRadius$](../../../control_object_properties/dropbox_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :    Corner Radius set to **Square** :    Corner Radius set to a value of **3** :   
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.

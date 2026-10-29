@@ -5,7 +5,7 @@
   
 ##  Format
 
-**OPEN (**_chan_**[** ,_fileopt_**])"[ODB][**_datasourcename_**];[**_table_**][** ;_fileopt_**]"**
+**OPEN (**_chan_**[** ,_fileopt_**]) "[ODB][**_datasourcename_**];[**_table_**][** ;_fileopt_**] "**
 
 **_Where:_**
 
@@ -42,6 +42,8 @@ The **OPEN** parameters for connecting via ODBC are:
 #### **Note:**  
 These options can also be put into the PxPlus INI file to apply to all **[ODB]** connections system wide. See **[INI Settings](odb.htm#Mark13)**.
 
+ 
+
 **ACCESS=READ | WRITE** |  Determines type of file access required (**READ**  _or_**WRITE**). _Default_ is **ACCESS=WRITE**.  
 ---|---  
 **AUTOCOMMIT=ON | OFF** |  Determines auto commit functionality of the database driver (either **ON**  _or_**OFF**). It is applicable only if the driver supports transactions.  
@@ -50,7 +52,7 @@ CHECK_NUMERICS=Y | N
 CHECK_LENGTH=Y | N** |  Determines the type of data validation required. Setting these to "Y" enables run time checking of **_Dates_** (must match **[DATEFMT=](odb.htm#Mark8)** setting), **_Numeric_** (must have the proper number of digits before/after the decimal point), and **_Length_** (must be less than or equal to the length of the field).
 
 #### **Note:**  
-The Check_Date ** _only_** takes effect if they also have a **DATEFMT=** specified for the ODBC. For the Date validation, the minimum year is 1500.  
+The Check_Date **_only_** takes effect if they also have a **DATEFMT=** specified for the ODBC. For the Date validation, the minimum year is 1500.  
   
 **COMPLETE=**_n_ |  Determines the response to incomplete information by the following values: |  **0** (SQL_DRIVER_NOPROMPT) |  _(Default)_ Driver Manager copies the connection string specified by the application.  
 ---|---  
@@ -64,12 +66,12 @@ The Check_Date ** _only_** takes effect if they also have a **DATEFMT=** specifi
 **OPT_VALUE** |  Causes optimistic locking with comparing record/column values to be used.  
 **CONNECT=**_xxx_ |  Specifies a connection string surrounded by a delimiter character, enabling use of a "dsn-less" connection. Connection strings are driver specific. Consult the driver's reference for supported connection string values. If a connection string is supplied, the value of the _datasourcename_ is ignored. If the _datasourcename_ is not null, then the value is used only for determining if a connection should be shared.  
   
-**_Example:_** open (1,iol=*,opt="CONNECT='DSN=nomads'")"[odb]foo;Customer"  
-open (2,iol=*,opt="")"[odb]foo;Customer Classes"  
-open (3,iol=*,opt="",err=*next)"[odb];Customer"  
-open (4,iol=*,opt="CONNECT='DSN=foo'")"[odb]foo;Customer" The table opened on channel 2 will share the connection because of foo.  
-Channel 3 will error out because neither a valid _datasourcename_ nor a valid connect string was supplied.  
-Channel 4 will open the table Customer using the properties of the "nomads" DSN because foo matches (the connect string was ignored). If the keywords **USER=** or **PSWD=** are supplied on the OPEN, then the values of these attributes will be appended to the connection string.  
+**_Example:_**    open (1,iol=*,opt="CONNECT='DSN=nomads'")"[odb]foo;Customer"  
+   open (2,iol=*,opt="")"[odb]foo;Customer Classes"  
+   open (3,iol=*,opt="",err=*next)"[odb];Customer"  
+   open (4,iol=*,opt="CONNECT='DSN=foo'")"[odb]foo;Customer"    The table opened on channel 2 will share the connection because of foo.  
+   Channel 3 will error out because neither a valid _datasourcename_ nor a valid connect string was supplied.  
+   Channel 4 will open the table Customer using the properties of the "nomads" DSN because foo matches (the connect string was ignored). If the keywords **USER=** or **PSWD=** are supplied on the OPEN, then the values of these attributes will be appended to the connection string.  
 **CURSOR_TYPE=**_xxx_ |  Defines the type of cursor that is to be used. |  **FORWARD** |  Indicates that any result sets can be read in a forward-only direction.  
 ---|---  
 **STATIC** |  Indicates that the result set is static.  
@@ -83,26 +85,26 @@ Channel 4 will open the table Customer using the properties of the "nomads" DSN 
   
 **_Example:_**  
   
-To convert dates to 4-character year, month and day: DATEFMT=YYYYMMDD Other characters are inserted as is. DATEFMT=YY/MM/DD with a date of March 1, 2004 would be returned as 04/03/01.  
+To convert dates to 4-character year, month and day:    DATEFMT=YYYYMMDD Other characters are inserted as is. DATEFMT=YY/MM/DD with a date of March 1, 2004 would be returned as 04/03/01.  
 **DB=**_xxx_ or  
 **QUALIFIER=**_xxx_ |  Qualifies the specific database that you wish to use when using a driver to service multiple databases.  
 **DEBUGIT=**_xxx_ |  String to append to SQL statement along with program name and line number for debugging purposes. This must indicate the comment character(s) appropriate to the database.  
   
 **_Example:_**  
   
-"--" is the comment identifier for Microsoft SQL Server; anything after "--" is ignored by SQL Server when compiling the SQL statement.  
+"\--" is the comment identifier for Microsoft SQL Server; anything after "\--" is ignored by SQL Server when compiling the SQL statement.  
 **EXEC_SPRNO=**_procedure_ |  Name of stored procedure used to emulate the **[RNO( )](../functions/rno.md)** function.  
-**EXTROPT=**_xxx_ |  Controls the format of the SELECT statement used to process an EXTRACT. By default, PVX generates: SELECT * FROM _table_ FOR UPDATE WHERE... When **EXTROPT=**_text_ , then _text_ is substituted in place of FOR UPDATE. In addition, if the first character of _text_ is $, then the remaining characters of _text_ are placed at the end of the SELECT statement rather than after the filename. This allows for different variations of SQL to be supported.  
+**EXTROPT=**_xxx_ |  Controls the format of the SELECT statement used to process an EXTRACT. By default, PVX generates:    SELECT * FROM _table_ FOR UPDATE WHERE... When **EXTROPT=**_text_ , then _text_ is substituted in place of FOR UPDATE. In addition, if the first character of _text_ is $, then the remaining characters of _text_ are placed at the end of the SELECT statement rather than after the filename. This allows for different variations of SQL to be supported.  
 **FORCE=**_fld_  _compOp_  _val_ |  Filters any data that is returned by a READ. For any given row of data, if the field does not meet the condition, it will not be returned. |  _fld_ |  Name of the database field that the condition will be checked against.  
 ---|---  
 _compOp_ |  Comparison operator used for the condition (i.e. **=** , **< >**, **<** , **< =**, **>** , **> =**).  
-_val_ |  Possible value of the database field _(fld)_ that the condition compares against. ** _String and date values must be enclosed with single quotes. Single quotes are not required for numeric values._**  
+_val_ |  Possible value of the database field _(fld)_ that the condition compares against. **_String and date values must be enclosed with single quotes. Single quotes are not required for numeric values._**  
   
 **_Example:_**
 
 The following example would only return invoices that were for $10,000 or more due on or before the end of the year 2016:
 
-open (sqlchan,opt="FORCE=Total>=10000;FORCE=DueDate<='2016-12-31'")"[ODB]mysqlsrv;invoices"
+   open (sqlchan,opt="FORCE=Total>=10000;FORCE=DueDate<='2016-12-31'")"[ODB]mysqlsrv;invoices"
 
 _(Support for all comparison types was added in PxPlus 2016 Update 0003.)_  
   
@@ -110,12 +112,12 @@ _(Support for all comparison types was added in PxPlus 2016 Update 0003.)_
 **IOPROG=**_progname_ |  Emulates the embedded I/O program logic available with a true PxPlus file.  
 **ISOLATION=P | D | R** |  Controls the isolation that this connection will have relative to other processes on the same database. In particular, it controls **D** irty reads (reading data that may be rolled back), Non-**R** epeatable reads (reading data after being changed by other transactions), and **P** hantom reads (reading data newly added to file). Settings include:  
   
-**UNCOMMITED** (**_D_** _,**R** , **P**_ possible)  
-**COMMITED** (**_D_** possible, **_R_** and **_P_** not possible)  
-**REPEATABLE** (**_P_** possible, **_D_** and **_R_** not possible)  
-**SERIAL** (**_D_** _,**R** and **P** not _possible)  
-**VERSIONING** (**_D_** _,**R**_ and **_P_** not possible, but uses versioning as opposed to record locks)  
-**KEY=**_fld_ _, fld, ..._ |  Identifies fields that make up the key(s). For named keys, enter ***NAME:_keyname_** _._ **OPEN**(_chan_)"**[ODB]**_dsn_ ;_table_ ;**KEY=**_field_ ,_field_ ,***NAME:_keyname_** " Use the **:D** option to indicate that the key segment is to be sorted in descending order. KEY=KeyFld1,KeyFld2:D,KeyFld3  
+   **UNCOMMITED** (**_D_** _,**R** , **P**_ possible)  
+   **COMMITED** (**_D_**  possible, **_R_** and **_P_** not possible)  
+   **REPEATABLE** (**_P_** possible, **_D_** and **_R_** not possible)  
+   **SERIAL** (**_D_** _,**R** and **P** not _possible)  
+   **VERSIONING** (**_D_** _,**R**_ and **_P_**  not possible, but uses versioning as opposed to record locks)  
+**KEY=**_fld_ _, fld, ..._ |  Identifies fields that make up the key(s). For named keys, enter ***NAME:_keyname_** _._    **OPEN**(_chan_)"**[ODB]**_dsn_ ;_table_ ;**KEY=**_field_ ,_field_ ,***NAME:_keyname_** " Use the **:D** option to indicate that the key segment is to be sorted in descending order.    KEY=KeyFld1,KeyFld2:D,KeyFld3  
 **KEYDATA=**_fld_ |  Identifies a column that represents the key. This is used to emulate an external key where the data is not duplicated in the data.  
 **KEYSET_SIZE=**_n_ |  Size of the Keyset for use with the cursor.  
 **MAS90DATE** |  Reformats the contents of a date column to and from the Sage MAS 90/Sage MAS 200 date format.  
@@ -123,7 +125,7 @@ _(Support for all comparison types was added in PxPlus 2016 Update 0003.)_
 **MAS90SET** |  Sets flags for Sage MAS 90/Sage MAS 200 emulation, such as turning on the MAS90DATE conversion.  
 **MAXROWS=**_nn_ |  Maximum number of rows/records returned.  
 **NONULLS=** |  Inserts zero-length strings rather than nulls into the target database and does not generate **WHERE** clauses checking for **IS NULL** or **IS NOT NULL**. (**_INI Supported_**) Set to **1** , **Y** or **y** to enable or **0** , **N** or **n** to disable. If the application does not work correctly when moving from Version 5 or lower, then set **NONULLS=P** to indicate that keys are handled the same as pre-Version 6.  
-**NOSTRIP** |  Keeps trailing spaces.  _(Default)_  
+**NOSTRIP** |  Keeps trailing spaces. _(Default)_  
 **NULLPADKEY=Y | N** |  Set to **1** , **Y** or **y** to force keys to be padded to full length with the null character, **$00$**.  
 **ORACLE=Y | N** |  Indicates if the database uses ORACLE SQL sequence (either **Y**  _or_**N**). If **ORACLE=** and **TOP=** are used, then SELECT commands are generated as SELECT * FROM (SELECT * FROM TABLE) WHERE ROWNUM < 1\. _Default_ is **ORACLE=N.**  
 **POSUPDATE=M | O | N** |  Determines use of SqlSetPos functions. Use one of the following: |  **M** |  Must use positioned update  
@@ -139,13 +141,13 @@ _(Support for all comparison types was added in PxPlus 2016 Update 0003.)_
   
 **_Example:_**  
   
-MySchema.MyTable  
-**SHARED** |  Sets all tables to share a single connection to the Oracle database.  _(Default)_  
+   MySchema.MyTable  
+**SHARED** |  Sets all tables to share a single connection to the Oracle database. _(Default)_  
 **STDDATE** |  Overrides the above formatting on individual columns.  
 **STRIP** |  Removes trailing spaces from fields.  
 **TEXTMAX=**_nnn_ |  Overrides maximum size for text fields. (_Default_ is 8192 bytes.)  
 **TIMEOUT=**_nnn_ |  Defines the timeout value for any SQL operation (time before error 0 returned).  
-**TOP=**_nnn_ |  Specifies use of the TOP clause in SELECT statements (limits the number of rows to return in a result set). If **TOP=**_n_ is non-zero, then the **[KEF( )](../functions/kef.md)** / **[KEL( )](../functions/kel.md)** functions issue a **SELECT TOP 1SQL** statement, which improves system performance. If **TOP=**_n_ > 0, then PVX issues SELECT TOP _n_ to reduce the data transferred.  
+**TOP=**_nnn_ |  Specifies use of the TOP clause in SELECT statements (limits the number of rows to return in a result set). If **TOP=**_n_ is non-zero, then the **[KEF( )](../functions/kef.md)** / **[KEL( )](../functions/kel.md)** functions issue a **SELECT TOP 1 SQL** statement, which improves system performance. If **TOP=**_n_ > 0, then PVX issues SELECT TOP _n_ to reduce the data transferred.  
 **  
 TOP=-1** indicates the driver supports SELECT TOP, but normal reading should not use it.  
   
@@ -171,7 +173,7 @@ A special option exists to return the list of known/configured Data Sources on t
 **_Example:_**
 
 > select DSNAME$,DESC$ from "[odb]*"  
->  print DSNAME$,":",DESC$  
+>      print DSNAME$,":",DESC$  
 >  next record  
 >   
 >  run  
@@ -199,7 +201,7 @@ A typical setup to have server side cursors and to allow multiple active connect
 >  AUTOCOMMIT=ON  
 >  NONULLS=1
 
-There is a special Debugging option available in the INI file only. If you include the option DEBUGIT = <string>, then whenever a SQL command is generated and passed to the ODBC server, the value in <string> followed by the current program name and line number will be added to the end of the statement. Using a value of "--" changes the program information to be considered a comment by the Microsoft SQL Server.
+There is a special Debugging option available in the INI file only. If you include the option DEBUGIT = <string>, then whenever a SQL command is generated and passed to the ODBC server, the value in <string> followed by the current program name and line number will be added to the end of the statement. Using a value of "\--" changes the program information to be considered a comment by the Microsoft SQL Server.
 
 ##  Using ODBC on UNIX
 
@@ -209,11 +211,11 @@ Two options are available for using ODBC on UNIX/Linux:
   
 Next, an ODBC Driver, compatible with the ODBC implementation installed, will need to be installed and setup. Following that, PxPlus can use **[ODB]** to interact with the UNIX/Linux ODBC Driver.  
   
-open (14,iol=*,opt="USER=user;PSWD=password;KEY=ID;CONCURRENCY=LOCK;EXTROPT=(UPDLOCK);NONULLS=Y")"[ODB]sqlsrv;salesrep"  
+   open (14,iol=*,opt="USER=user;PSWD=password;KEY=ID;CONCURRENCY=LOCK;EXTROPT=(UPDLOCK);NONULLS=Y")"[ODB]sqlsrv;salesrep"  
 ---|---  
 2. |  To read Windows ODBC databases from a UNIX server, you would install and use WindX to make the connection or use PxPlus RPC on a PC or NT server and open your ODBC databases through that server.  
   
-open (14,iol=*,opt="USER=user;PSWD=password;KEY=ID;CONCURRENCY=LOCK;EXTROPT=(UPDLOCK);NONULLS=Y")"[LCL][ODB]sqlsrv;salesrep"  
+   open (14,iol=*,opt="USER=user;PSWD=password;KEY=ID;CONCURRENCY=LOCK;EXTROPT=(UPDLOCK);NONULLS=Y")"[LCL][ODB]sqlsrv;salesrep"  
   
 ##  See Also
 
@@ -225,8 +227,14 @@ open (14,iol=*,opt="USER=user;PSWD=password;KEY=ID;CONCURRENCY=LOCK;EXTROPT=(UPD
 [**OPEN Open a File for Processing**](../directives/open.md)  
 **[IOLIST Specify Variable List](../directives/iolist.md)  
 [ODBC Linking Linux OS to MS SQL Databases](../PxPlus%20User%20Guide/Data%20Integration/Odbc%20Linking.md)**  
-**[[ADO] Microsoft SQL Server Interface](ADO.htm)**  
-**[[DB2] DB2 Support](db2.htm)**  
-**[[MYSQL] Open MySql Native Database Link](mysql.htm)**  
-**[[OCI] Connect to Oracle Server](oci.htm)**  
+**[[ADO] Microsoft SQL Server Interface](ADO.md)**  
+**[[DB2] DB2 Support](db2.md)**  
+**[[MYSQL] Open MySql Native Database Link](mysql.md)**  
+**[[OCI] Connect to Oracle Server](oci.md)**  
 **[Database Export Utility](../Data%20Dictionary/Data%20Dictionary%20Maintenance/Database%20Export.md)**
+
+ 
+
+ 
+
+ 

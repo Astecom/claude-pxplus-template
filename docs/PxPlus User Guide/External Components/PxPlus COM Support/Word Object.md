@@ -1,13 +1,13 @@
-# PxPlus COM Support
+#  
 
-**PxPlus Word Object**|   
+***OBJ/WORD** |  **_PxPlus Word Object_**  
 ---|---  
   
 The **PxPlus Word** object simplifies the use of the Word.Application extended object. This object consists of various properties and methods that make it easier to interact with Word documents. See **[Properties and Methods](Word%20Object.htm#properties)**.
 
 The Word object allows more than one Word document to be opened at one time.
 
-_(The Word object was added in PxPlus 2017.)_
+_(The PxPlus Word object was added in PxPlus 2017.)_
 
 **_Instantiating the Word Object_**
 
@@ -68,7 +68,7 @@ The Word Application makes use of hundreds of global named constants. If require
 
 **_Example:_**
 
-> PRINT word_obj'WCONSTANTS'wdAlertsMessageBox _(should return -2)_
+> PRINT word_obj'WCONSTANTS'wdAlertsMessageBox     _(should return -2)_
 
 ##  Properties and Methods
 
@@ -99,11 +99,11 @@ This property **_cannot be set_** but is provided to allow access to all of the 
   
 The **_methods_** used by the Word object are listed below. To make it easier to locate information for a particular method, this list has been broken into the following smaller groups:
 
-|  **[Document Methods](Word%20Object.htm#methodsdoc)** |  For creating, setting, printing, saving and closing a document  
+  |  **[Document Methods](Word%20Object.htm#methodsdoc)** |  For creating, setting, printing, saving and closing a document  
 ---|---|---  
-|  **[Paragraph Methods](Word%20Object.htm#methodspara)** |  For creating, inserting, reading and deleting a paragraph  
-|  **[Sentence Methods](Word%20Object.htm#methodssentence)** |  For creating, inserting, reading and deleting a sentence  
-|  **[Text Methods](Word%20Object.htm#methodstxt)** |  For finding, replacing, inserting and setting text color/font  
+  |  **[Paragraph Methods](Word%20Object.htm#methodspara)** |  For creating, inserting, reading and deleting a paragraph  
+  |  **[Sentence Methods](Word%20Object.htm#methodssentence)** |  For creating, inserting, reading and deleting a sentence  
+  |  **[Text Methods](Word%20Object.htm#methodstxt)** |  For finding, replacing, inserting and setting text color/font  
   
 **_Common Parameters_**
 
@@ -112,8 +112,8 @@ The following is a list of some of the common parameters used by multiple method
 **Parameter** |  **Description**  
 ---|---  
 _document_ |  1-based index number of the Word document.  
-_document_name_ _$_ |  Simple document name without the full path (e.g. _"test_document.docx"_).  
-_path$**or** document_path$_ |  Full path name for the document (e.g. _"c:/application/test_document.docx"_).  
+_document_name_ _$_ |  Simple document name without the full path (e.g. _" test_document.docx"_).  
+_path$**or**  document_path$_ |  Full path name for the document (e.g. _" c:/application/test_document.docx"_).  
   
 **_Document Methods_**
 
@@ -157,14 +157,14 @@ No printer dialog will be displayed. The document will be printed to the default
 Returns '1' if successful.  
   
 Returns '0' if Word was unable to locate the document.  
-**SaveAsDocument(**_document_path_ _$_**)** **SaveAsDocument(**_document_path$,document_**)** **SaveAsDocument(**_document_path$,document_name$_**)** |  Used to save a document to a different location or with a different file format. Saves the document specified (by either an index number or a simple document name) with the pathname provided. If no document is specified, the active document is saved. If a full pathname is not provided, the document will be saved in the default Word document folder. The format used to save the document is determined by the extension specified in the _document_path_ _$_. Supported extensions are listed below (in alphabetical order). |  |  _.doc_ |  Word 97 - 2003 Document |  _.mht, .mhtml_ |  Single File Web Page  
+**SaveAsDocument(**_document_path_ _$_**)** **SaveAsDocument(**_document_path$,document_**)** **SaveAsDocument(**_document_path$,document_name$_**)** |  Used to save a document to a different location or with a different file format. Saves the document specified (by either an index number or a simple document name) with the pathname provided. If no document is specified, the active document is saved. If a full pathname is not provided, the document will be saved in the default Word document folder. The format used to save the document is determined by the extension specified in the _document_path_ _$_. Supported extensions are listed below (in alphabetical order). |    |  _.doc_ |  Word 97 - 2003 Document |  _.mht, .mhtml_ |  Single File Web Page  
 ---|---|---|---|---  
-|  _.docm_ |  Word Macro-Enabled Document |  _.odt_ |  Open Document Text  
-|  _.docx (or null)_ |  Word Document |  _.pdf_ |  PDF  
-|  _.dot_ |  Word 97 2003 Template |  _.rtf_ |  Rich Text Format  
-|  _.dotm_ |  Word Macro-Enabled Template |  _.txt_ |  Plain Text (preserve line breaks)  
-|  _.dotx_ |  Word Template |  _.xml_ |  Word XML Document  
-|  _.htm, .html_ |  Web Page |  _.xps_ |  XPS Document  
+  |  _.docm_ |  Word Macro-Enabled Document |  _.odt_ |  Open Document Text  
+  |  _.docx (or null)_ |  Word Document |  _.pdf_ |  PDF  
+  |  _.dot_ |  Word 97  2003 Template |  _.rtf_ |  Rich Text Format  
+  |  _.dotm_ |  Word Macro-Enabled Template |  _.txt_ |  Plain Text (preserve line breaks)  
+  |  _.dotx_ |  Word Template |  _.xml_ |  Word XML Document  
+  |  _.htm, .html_ |  Web Page |  _.xps_ |  XPS Document  
   
 Returns '1' if successful.  
   
@@ -188,8 +188,8 @@ Returns '0' if Word was unable to locate the document.
 
 **Paragraph Methods** |  **Description**  
 ---|---  
-**AppendParagraph(**_para_text_ _$_**)** **AppendParagraph(**_para_text$_ ,_document_**)** **AppendParagraph(**_para_text$_ ,_document_name_ _$_**)** |  Appends the text defined as _para_text_ _$_ as a new paragraph at the end of the document specified by either an index number or a simple document name. If no document is specified, the active document is assumed. To insert a paragraph with no text, set _para_text_ _$=""_. Returns '1' if successful. Returns '0' if Word was unable to locate the document specified. _(The AppendParagraph method was added in PxPlus 2019.)_  
-**InsertParagraph(**_para_text_ _$_**)** **InsertParagraph(**_para_text$_ ,_para_num_**)** **InsertParagraph(**_para_text$_ ,_para_num_ ,_document_**)** **InsertParagraph(**_para_text$_ ,_para_num_ ,_document_name_ _$_**)** |  Inserts the text defined as _para_text_ _$_ as a new paragraph added to the document specified by either an index number or a simple document name. The paragraph will be inserted as paragraph number _para_num_. If no document is specified, the active document is assumed. If _para_num_ is not specified or is set to 0, the paragraph will be inserted as paragraph 1. If _para_num_ is larger than the current number of paragraphs, the paragraph will be inserted as the last paragraph. Alternatively, to insert a paragraph at the very end of the document, use one of the **AppendParagraph(** **)** methods. To insert a paragraph with no text, set _para_text_ _$=""_. Returns '1' if successful. Returns '0' if Word was unable to locate the document specified. _(The InsertParagraph method was added in PxPlus 2019.)_  
+**AppendParagraph(**_para_text_ _$_**)** **AppendParagraph(**_para_text$_ ,_document_**)** **AppendParagraph(**_para_text$_ ,_document_name_ _$_**)** |  Appends the text defined as _para_text_ _$_ as a new paragraph at the end of the document specified by either an index number or a simple document name. If no document is specified, the active document is assumed. To insert a paragraph with no text, set _para_text_ _$= ""_. Returns '1' if successful. Returns '0' if Word was unable to locate the document specified. _(The AppendParagraph method was added in PxPlus 2019.)_  
+**InsertParagraph(**_para_text_ _$_**)** **InsertParagraph(**_para_text$_ ,_para_num_**)** **InsertParagraph(**_para_text$_ ,_para_num_ ,_document_**)** **InsertParagraph(**_para_text$_ ,_para_num_ ,_document_name_ _$_**)** |  Inserts the text defined as _para_text_ _$_ as a new paragraph added to the document specified by either an index number or a simple document name. The paragraph will be inserted as paragraph number _para_num_. If no document is specified, the active document is assumed. If _para_num_ is not specified or is set to 0, the paragraph will be inserted as paragraph 1. If _para_num_ is larger than the current number of paragraphs, the paragraph will be inserted as the last paragraph. Alternatively, to insert a paragraph at the very end of the document, use one of the **AppendParagraph(**  **)** methods. To insert a paragraph with no text, set _para_text_ _$= ""_. Returns '1' if successful. Returns '0' if Word was unable to locate the document specified. _(The InsertParagraph method was added in PxPlus 2019.)_  
 **ReadParagraph$(**_para_num_**)** **ReadParagraph$(**_para_num,document_**)** **ReadParagraph$(**_para_num,document_name_ _$_**)** |  Reads the contents of the paragraph numbered _para_num_ in the document specified by either an index number or a simple document name. If no document is specified, the active document is assumed. A _para_num_ value of less than 1 will read the first paragraph. Returns a string containing the text for the paragraph specified if successful. Returns '0' if Word was unable to locate the document specified or the paragraph number _para_num_ does not exist. _(The ReadParagraph$ method was added in PxPlus 2019.)_  
 **DeleteParagraph(**_para_num_**)** **DeleteParagraph(**_para_num,document_**)** **DeleteParagraph(**_para_num,document_name_ _$_**)** |  Deletes the paragraph numbered _para_num_ from the document specified by either an index number or a simple document name. If no document is specified, the active document is assumed. A _para_num_ value of less than 1 will delete the first paragraph. Returns '1' if successful. Returns '0' if Word was unable to locate the document specified or the paragraph number _para_num_ does not exist. _(The DeleteParagraph method was added in PxPlus 2019.)_  
   
@@ -198,7 +198,7 @@ Returns '0' if Word was unable to locate the document.
 **Sentence Methods** |  **Description**  
 ---|---  
 **AppendSentence(**_sent_text_ _$_**)** **AppendSentence(**_sent_text$,document_**)** **AppendSentence(**_sent_text$,document,name$_**)** |  Appends the text defined as _sent_text_ _$_ as a new sentence (or sentences) at the end of the document specified by either an index number or a simple document name. If no document is specified, the active document is assumed. Returns '1' if successful. Returns '0' if Word was unable to locate the document specified. _(The AppendSentence method was added in PxPlus 2019.)_  
-**InsertSentence(**_sent_text_ _$_**)** **InsertSentence(**_sent_text$,sent_num_**)** **InsertSentence(**_sent_text$,sent_num,document_**)** **InsertSentence(**_sent_text$,sent_num,document_name$_**)** |  Inserts the text defined as _sent_text_ _$_ as a new sentence added to the document specified by either an index number or a simple document name. If no document is specified, the active document is assumed. If _sent_num_ is set to 0, the sentence will be inserted as sentence 1. If _sent_num_ is larger than the current number of sentences, the sentence will be inserted as the last sentence. Alternatively, to insert a sentence at the very end of the document, use one of the **AppendSentence(** **)** methods. Returns '1' if successful. Returns '0' if Word was unable to locate the document specified. _(The InsertSentence method was added in PxPlus 2019.)_  
+**InsertSentence(**_sent_text_ _$_**)** **InsertSentence(**_sent_text$,sent_num_**)** **InsertSentence(**_sent_text$,sent_num,document_**)** **InsertSentence(**_sent_text$,sent_num,document_name$_**)** |  Inserts the text defined as _sent_text_ _$_ as a new sentence added to the document specified by either an index number or a simple document name. If no document is specified, the active document is assumed. If _sent_num_ is set to 0, the sentence will be inserted as sentence 1. If _sent_num_ is larger than the current number of sentences, the sentence will be inserted as the last sentence. Alternatively, to insert a sentence at the very end of the document, use one of the **AppendSentence(**  **)** methods. Returns '1' if successful. Returns '0' if Word was unable to locate the document specified. _(The InsertSentence method was added in PxPlus 2019.)_  
 **ReadSentence$(**_sent_num_**)** **ReadSentence$(**_sent_num,document_**)** **ReadSentence$(**_sent_num,document_name_ _$_**)** |  Reads the contents of the sentence numbered _sent_num_ in the document specified by either an index number or a simple document name. If no document is specified, the active document is assumed. A _sent_num_ value of less than 1 will read the first sentence. Returns a string containing the text for the sentence specified if successful. Returns '0' if Word was unable to locate the document specified or the sentence number _sent_num_ does not exist. _(The ReadSentence$ method was added in PxPlus 2019.)_  
 **DeleteSentence(**_sent_num_**)** **DeleteSentence(**_sent_num,document_**)** **DeleteSentence(**_sent_num,document_name_ _$_**)** |  Deletes the sentence numbered _sent_num_ from the document specified by either an index number or a simple document name. If no document is specified, the active document is assumed. A _sent_num_ value of less than 1 will delete the first sentence. Returns '1' if successful. Returns '0' if Word was unable to locate the document specified or the sentence number _sent_num_ does not exist. _(The DeleteSentence method was added in PxPlus 2019.)_  
   
@@ -218,11 +218,11 @@ Returns '0' if the Find was unsuccessful or if Word was unable to locate the doc
 **FindReplaceAll(**_find$,replace_ _$_**)** **FindReplaceAll(**_find$,replace$,document_**)** **FindReplaceAll(**_find$,replace$,document_name$_**)** |  Finds the string _find$_ and replaces all occurrences with the string _replace$_. When only the _find$_ and _replace_ $ parameters are passed, the Find/Replace is performed on the active document. Pass either a document index number or a simple document name to perform the Find/Replace on a document other than the active document without changing the **[ACTIVE_DOCUMENT](Word%20Object.htm#activedocument)** property. To perform the Find/Replace on all opened documents, pass a _document_name_ _$_ of '**ALL** ' (case insensitive). Searches are case insensitive by default. For case sensitive searches, set the **[CASE_SENSITIVE_SEARCH](Word%20Object.htm#casesearch)** property to '1'. Searches will replace all occurrences of the _find$_ string. The **FindReplace** method can be used to replace a single occurrence of the _find$_ string. Returns '1' if successful.  
   
 Returns '0' if Word was unable to perform Find/Replace on any of the documents specified or if the _find$_ value was not found. **_When finding/replacing on all documents_** : Returns '-1' if Word was only able to perform find/replace on some of the documents successfully.  
-**FindSetColor(**_find$,color_index_**)** **FindSetColor(**_find$,color_index,document_**)** **FindSetColor(**_find$,color_index,document,instance_**)** **FindSetColor(**_find$,color_index,document_name$_**)** **FindSetColor(**_find$,color_index,document_name$,instance_**)** **FindSetColor(**_find$,color_ _$_**)** **FindSetColor(**_find$,color$,document_**)** **FindSetColor(**_find$,color$,document,instance_**)** **FindSetColor(**_find$,color$,document_name$_**)** **FindSetColor(**_find$,color$,document_name$,instance_**)** |  Finds the text defined as _find_ _$_ in a document specified by either an index number or a simple document name and sets the color for that text as specified in _color_index_ or _color$_. If no document is specified, the active document is assumed. To set the color of the _find$_ text on all opened documents, pass a _document_name_ _$_ of '**ALL** ' (case insensitive). Specify an _instance_ value to indicate which occurrence of the _find$_ text that the Find is to locate if different from the first occurrence. (e.g. _instance_ of 2 refers to second occurrence). If the Find is to begin from the end of the document, set the **[SEARCH_FORWARD](Word%20Object.htm#searchforward)** property to '0'. The text color may be passed as one of the following: A color index (numeric)  
-An RGB value in the format "**RGB(**_rrr,ggg,bbb_**)** " (string)  
-A **wdColorIndex** constant such as "wdColorAqua" (string)  
-A **wdColor** constant such as "wdPink"   
-One of the 16 basic PxPlus named colors such as 'Red', 'Dark Blue' or 'Light Cyan' (string)  
+**FindSetColor(**_find$,color_index_**)** **FindSetColor(**_find$,color_index,document_**)** **FindSetColor(**_find$,color_index,document,instance_**)** **FindSetColor(**_find$,color_index,document_name$_**)** **FindSetColor(**_find$,color_index,document_name$,instance_**)** **FindSetColor(**_find$,color_ _$_**)** **FindSetColor(**_find$,color$,document_**)** **FindSetColor(**_find$,color$,document,instance_**)** **FindSetColor(**_find$,color$,document_name$_**)** **FindSetColor(**_find$,color$,document_name$,instance_**)** |  Finds the text defined as _find_ _$_ in a document specified by either an index number or a simple document name and sets the color for that text as specified in _color_index_ or _color$_. If no document is specified, the active document is assumed. To set the color of the _find$_ text on all opened documents, pass a _document_name_ _$_ of '**ALL** ' (case insensitive). Specify an _instance_ value to indicate which occurrence of the _find$_ text that the Find is to locate if different from the first occurrence. (e.g. _instance_ of 2 refers to second occurrence). If the Find is to begin from the end of the document, set the **[SEARCH_FORWARD](Word%20Object.htm#searchforward)** property to '0'. The text color may be passed as one of the following:      A color index (numeric)  
+     An RGB value in the format "**RGB(**_rrr,ggg,bbb_**)** " (string)  
+     A **wdColorIndex** constant such as "wdColorAqua" (string)  
+     A **wdColor** constant such as "wdPink"   
+     One of the 16 basic PxPlus named colors such as 'Red', 'Dark Blue' or 'Light Cyan' (string)  
   
 _(RGB values and color constants were added in PxPlus 2019.)_
 
@@ -234,11 +234,11 @@ Returns '1' if successful.
 Returns '0' if the Find was unsuccessful or if Word was unable to locate the document or set the color.  
 **FindSetFont(**_find$,font_ _$_**)** **FindSetFont(**_find$,font$,document_**)** **FindSetFont(**_find$,font$,document,instance_**)** **FindSetFont(**_find$,font$,document_name$_**)** **FindSetFont(**_find$,font$,document_name$,instance_**)** |  Finds the text defined as _find_ _$_ in a document specified by either an index number or a simple document name and sets the font information (font name, font size, font style) for that text as specified in _font$_. If no document is specified, the active document is assumed. To set the font of the _find$_ text on all opened documents, pass a _document_name_ _$_ of '**ALL** ' (case insensitive). Specify an _instance_ value to indicate which occurrence of the _find$_ text that the Find is to locate if different from the first occurrence. (e.g. _instance_ of 2 refers to second occurrence). If the Find is to begin from the end of the document, set the **[SEARCH_FORWARD](Word%20Object.htm#searchforward)** property to '0'. The _font$_ variable can pass font name, font size and font style (Bold, Italic, etc.), separated by commas. **_Example:_**  
 _  
-_ _font$_ ="Arial" sets only the font name.  
-_font_ _$_ ="Arial,12" sets the font name and size.  
-_font_ _$_ ="Arial,12, Italic" sets the font name and size and adds italics to the text in the range.  
-_font_ _$_ ="Arial,12, Bold, Underline-" sets the font name and size, adds bolding and removes any underlining.  
-_font$_ ="Arial,12, Regular" sets the font name and size and removes any bolding, italics and underlining.
+_      _font$_ ="Arial" sets only the font name.  
+     _font_ _$_ ="Arial,12" sets the font name and size.  
+     _font_ _$_ ="Arial,12, Italic" sets the font name and size and adds italics to the text in the range.  
+     _font_ _$_ ="Arial,12, Bold, Underline-" sets the font name and size, adds bolding and removes any underlining.  
+     _font$_ ="Arial,12, Regular" sets the font name and size and removes any bolding, italics and underlining.
 
 #### **Note:**  
 Valid _fontstyle_ _$_ values are 'Regular', 'Bold+', 'Bold-', 'Bold' (same as 'Bold+'), 'Italic+', 'Italic-', 'Italic' (same as Italic+), 'Underline+', 'Underline-', 'Underline' (same as 'Underline+') or any combination of these.
@@ -305,7 +305,7 @@ This example demonstrates using the Word object to replace given placeholders in
 
 
 
-**_promo.docx_** ** _document:_**
+**_promo.docx_**  **_document:_**
 
 > **_PxPlus promo program:_**
 
@@ -354,3 +354,9 @@ This example demonstrates using the Word object to replace given placeholders in
 
 **[PxPlus Excel Object](Excel%20Object.md)**  
 **[Google Workspace Objects](../../../Google%20Workspace%20Objects/Introduction.md)**
+
+ 
+
+ 
+
+ 

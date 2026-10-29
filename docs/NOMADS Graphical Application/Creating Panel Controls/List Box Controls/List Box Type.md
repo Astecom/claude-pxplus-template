@@ -22,13 +22,9 @@ For the **List Box Type** , select _Standard_. The _Standard_ List Box allows us
 
 **_Example:_**
 
-> ![](images/list_006_1.png)
+> When creating or editing a _Standard_ List Box control, the **List Box Properties** dialogue (pictured below using the **[Folder Style](../../Panel%20Designer/Folder%20Style/Using%20the%20Folder%20Style.md)** version of the NOMADS designer) is displayed:
 
-When creating or editing a _Standard_ List Box control, the **List Box Properties** dialogue (pictured below using the **[Folder Style](../../Panel%20Designer/Folder%20Style/Using%20the%20Folder%20Style.md)** version of the NOMADS designer) is displayed:
-
-> ![](images/list_006_2.jpg)
-
-**_Dynamic Control Properties_**
+> **_Dynamic Control Properties_**
 
 PxPlus 2018 introduces the capability to create **_dynamic control properties_** for List Box controls when combined with **[Data Classes](../../../Data%20Dictionary/Data%20Classes/Overview.md)**. Dynamic data classes are created by selecting the _Dynamic_ check box in **[Data Class Definitions](../../../Data%20Dictionary/Data%20Classes/Listbox.md)** maintenance. At run time, dynamic control properties are evaluated and **_automatically_** populated with values based on what is defined in the data class.
 
@@ -164,7 +160,7 @@ _Ignore Change Flag_ |  Select this check box when you do **_not_** want the NOM
 ---|---  
 _Multiple Selections_ |  Users can select more than one entry from the List Box.  
 _No Height Adjustment_ |  The List Box will _not_ be forced to show only complete lines. The last line will be truncated horizontally (i.e. displaying a partial line to ensure that the height of the List Box matches the size defined). See **[Resizing Input Controls](../../Panel%20Designer/Resizing%20and%20Persistence/Resizing%20Input%20Controls.md)**.  
-_Corner Radius_ |  **_(Not Available for Variable List Boxes)_** Sets the radius for the list box corners. Works only in **4D** mode. This option is available for all **[List Box Types](List%20Box%20Type.htm#types)** **_except_** Report View and Variable List Boxes. When the _Allow Variable Input_ check box is selected, this option is hidden. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 8 inclusive. See **[CornerRadius$](../../../control_object_properties/listbox_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :    ![](images/list_006_3.png) Corner Radius set to **Square** :    ![](images/list_006_4.png) Corner Radius set to a value of **8** :    ![](images/list_006_5.png)
+_Corner Radius_ |  **_(Not Available for Variable List Boxes)_** Sets the radius for the list box corners. Works only in **4D** mode. This option is available for all **[List Box Types](List%20Box%20Type.htm#types)** **_except_** Report View and Variable List Boxes. When the _Allow Variable Input_ check box is selected, this option is hidden. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 8 inclusive. See **[CornerRadius$](../../../control_object_properties/listbox_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :    Corner Radius set to **Square** :    Corner Radius set to a value of **8** :   
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.
@@ -262,9 +258,7 @@ For the **List Box Type** , select _Formatted_. The _Formatted_ List Box include
 
 **_Example:_**
 
-> ![](images/list_006_6.png)
-
-Colors can also be displayed if color mnemonics are embedded in the List Box data. Most of the properties for a _Formatted_ List Box are identical to those required for defining a _Standard_ List Box, except for the _Allow Variable Input_ attribute.
+> Colors can also be displayed if color mnemonics are embedded in the List Box data. Most of the properties for a _Formatted_ List Box are identical to those required for defining a _Standard_ List Box, except for the _Allow Variable Input_ attribute.
 
 On the **Attributes** panel, a _Format_ button is also available:
 
@@ -274,7 +268,7 @@ On the **Attributes** panel, a _Format_ button is also available:
 ---|---  
 _No Height Adjustment_ |  The List Box will _not_ be forced to show only complete lines. The last line will be truncated horizontally (i.e. displaying a partial line to ensure that the height of the List Box matches the size defined). See **[Resizing Input Controls](../../Panel%20Designer/Resizing%20and%20Persistence/Resizing%20Input%20Controls.md)**.  
 _*Format_ |  Button that launches the **Formatted List Box Definition** dialogue to define List Box columns, including options for _Width, Alignment, Special Options_ and _Column Separator_. If the **List Values** drop box (on [**Display**](List%20Box%20Type.htm#display) tab) is set to _Dynamic_ , the _Format_ button will be locked.  
-_Corner Radius_ |  Sets the radius for the list box corners. Works only in **4D** mode. This option is available for all **[List Box Types](List%20Box%20Type.htm#types)** **_except_** Report View and Variable List Boxes. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 8 inclusive. See **[CornerRadius$](../../../control_object_properties/listbox_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :    ![](images/list_006_7.png) Corner Radius set to **Square** :    ![](images/list_006_8.png) Corner Radius set to a value of **8** :    ![](images/list_006_9.png)
+_Corner Radius_ |  Sets the radius for the list box corners. Works only in **4D** mode. This option is available for all **[List Box Types](List%20Box%20Type.htm#types)** **_except_** Report View and Variable List Boxes. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 8 inclusive. See **[CornerRadius$](../../../control_object_properties/listbox_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :    Corner Radius set to **Square** :    Corner Radius set to a value of **8** :   
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.
@@ -307,9 +301,7 @@ For the **List Box Type** , select _List View_. The _List View_ List Box produce
 
 **_Example:_**
 
-> ![](images/list_006_10.png)
-
-Most of the properties for a _List View_ List Box are identical to those required for defining a _Standard_ List Box, except for the _Allow Variable Input_ and _No Height Adjustment_ attributes.
+> Most of the properties for a _List View_ List Box are identical to those required for defining a _Standard_ List Box, except for the _Allow Variable Input_ and _No Height Adjustment_ attributes.
 
 On the **Attributes** panel, _Partial Match_ and _Full Line Highlight_ attributes, as well as a _Format_ button, are available, as described below:
 
@@ -319,7 +311,7 @@ On the **Attributes** panel, _Partial Match_ and _Full Line Highlight_ attribute
 ---|---  
 _Multiple Selections_ |  Users can select more than one entry from the List Box.  
 _*Format_ |  Button that launches the **[List View Format Definition](List%20Box%20Type.htm#listviewdef)** dialogue used to define various format options (i.e. title, width, alignment, sorting, etc.) for the columns in a _List View_ List Box. If the **List Values** drop box (on **[Display](List%20Box%20Type.htm#display)** tab) is set to _Dynamic_ , the _Format_ button will be locked.  
-_Corner Radius_ |  Sets the radius for the list box corners. Works only in **4D** mode. This option is available for all **[List Box Types](List%20Box%20Type.htm#types)** **_except_** Report View and Variable List Boxes. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 8 inclusive. See **[CornerRadius$](../../../control_object_properties/listview_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :    ![](images/list_006_11.png) Corner Radius set to **Square** :    ![](images/list_006_12.png) Corner Radius set to a value of **8** :    ![](images/list_006_13.png)
+_Corner Radius_ |  Sets the radius for the list box corners. Works only in **4D** mode. This option is available for all **[List Box Types](List%20Box%20Type.htm#types)** **_except_** Report View and Variable List Boxes. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 8 inclusive. See **[CornerRadius$](../../../control_object_properties/listview_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :    Corner Radius set to **Square** :    Corner Radius set to a value of **8** :   
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.
@@ -337,9 +329,7 @@ For the **List Box Type** , select _Report View_. The _Report View_ List Box dis
 
 **_Example:_**
 
-> ![](images/list_006_14.png)
-
-#### **Note:**  
+> #### **Note:**  
 To create a more elaborate version of this control (spreadsheet-style input format, etc.), see **[Grid Control](../Grid%20Control/Overview.md)**.
 
 When defining a _Report View_ List Box, the following attributes are available:
@@ -355,7 +345,7 @@ _Column Size Lock_ |  When selected, the _Report View_ column headers cannot be 
 _Auto Column Size_ |  When selected, columns will automatically be proportionally resized when the List Box is resized. Default is **_Off_**.  
 _Header Lock_ |  Locks the column headers so that the user is unable to click on them or drag them. Default is **_Off_**.  
 _Lines Per Row_ |  Number of lines high per row. Valid values are >= 1. Allows for word wrap. Default is **_1.0_**.  
-_Center Text Vertically_ |  Select this check box to center text vertically in the List Box row only when **_Lines Per Row_ is > 1**. Text that exceeds the column width is truncated and an _ellipsis_ ( ) is displayed. When not selected _(Default)_ , text is aligned to the top of the List Box row, and text that exceeds the column width is word wrapped. _(The Center Text Vertically option was added in PxPlus 2019.)_ **_Example:_**    ![](images/list_006_15.png)  
+_Center Text Vertically_ |  Select this check box to center text vertically in the List Box row only when **_Lines Per Row_ is > 1**. Text that exceeds the column width is truncated and an _ellipsis_ ( ) is displayed. When not selected _(Default)_ , text is aligned to the top of the List Box row, and text that exceeds the column width is word wrapped. _(The Center Text Vertically option was added in PxPlus 2019.)_ **_Example:_**     
 _Lock Top Rows_ |  Number of rows at the top of the List Box to exclude from sorting. Enter a value or use the spinner controls to increase/decrease the value. _(The Lock Top Rows option was added in PxPlus 2019.)_  
 _Lock Bottom Rows_ |  Number of rows at the bottom of the List Box to exclude from sorting. Enter a value or use the spinner controls to increase/decrease the value.  
 _Header Height_ |  Controls the height of the header in **_report view_** lists in pixels. Setting this property to -1 restores the height to its default size. Setting this property to 0 results in no header. Default is **_-1_**. _(The Header Height option was added in PxPlus 2020.)_  
@@ -404,9 +394,7 @@ For the **List Box Type** , select _Tree View_. The _Tree View_ provides a tree-
 
 **_Example:_**
 
-> ![](images/list_006_16.png)
-
-Each entry in a _Tree View_ consists of a series of strings or values separated by a delimiter, similar to a directory structure. Duplicates at each level are grouped together:
+> Each entry in a _Tree View_ consists of a series of strings or values separated by a delimiter, similar to a directory structure. Duplicates at each level are grouped together:
 
 **_Given_** |  **_Yields_**  
 ---|---  
@@ -415,7 +403,7 @@ Accounting/Maintenance/Salesman
 Accounting/Orders/Entry  
 Accounting/Orders/Printing  
 Production/Maintenance/Schedule  
-Production/Maintenance/Equipment |  ![](images/list_006_17.jpg)  
+Production/Maintenance/Equipment |   
   
 When defining a _Tree View_ List Box type, the following attributes are available:
 
@@ -429,7 +417,7 @@ _Suppress Buttons_ |  By default, a tree view shows small buttons to the left of
 _Show Lines_ |  Sets the tree view to draw connecting lines between the various entries.  
 _*Format_ |  Button that launches the **Tree View Format Definition** dialogue, which is used to set the _Column Separator_ (delimiter character) and define default images to be displayed in the tree. You can define up to six default bitmaps or icons in tree views. If the **List Values** drop box (on **[Display](List%20Box%20Type.htm#display)** tab) is set to _Dynamic_ , the _Format_ button will be locked.  
 _*States_ |  Button that launches the **State Indicators** dialogue, which is used to set up images that will appear in front of a List Box entry that can be used to indicate whether the item has been selected or not. See **[Defining State Indicators](List%20Box%20Type.htm#definingstateind)**. If the **List Values** drop box (on **[Display](List%20Box%20Type.htm#display)** tab) is set to _Dynamic_ , the _States_ button will be locked.  
-_Corner Radius_ |  Sets the radius for the list box corners. Works only in **4D** mode. This option is available for all **[List Box Types](List%20Box%20Type.htm#types)** **_except_** Report View and Variable List Boxes. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 8 inclusive. See **[CornerRadius$](../../../control_object_properties/treeview_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :    ![](images/list_006_18.png) Corner Radius set to **Square** :    ![](images/list_006_19.png) Corner Radius set to a value of **8** :    ![](images/list_006_20.png)
+_Corner Radius_ |  Sets the radius for the list box corners. Works only in **4D** mode. This option is available for all **[List Box Types](List%20Box%20Type.htm#types)** **_except_** Report View and Variable List Boxes. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 8 inclusive. See **[CornerRadius$](../../../control_object_properties/treeview_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :    Corner Radius set to **Square** :    Corner Radius set to a value of **8** :   
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.

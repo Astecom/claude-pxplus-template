@@ -1,6 +1,6 @@
-# Maintaining Library Objects   
-  
-**Search/Replace Library Utility** |  **__**  
+# Maintaining Library Objects 
+
+**Search/Replace Library Utility** |  **_ _**  
 ---|---  
   
 The **Search/Replace Library** utility provides the capability to select and edit one or all object definitions within the current library.
@@ -30,8 +30,9 @@ _Replace With_ |  Value used to replace the original value entered in the _Searc
 **Options** |  Check boxes indicating which options are to be searched. Deselect any options that you want skipped. Click the _Select All_ check box to search all options.
 
 #### **Note:**  
-Make sure that the _Text Value_ check box is selected to search for mask information for a Multi-line input field.  
-  
+Make sure that the _Text Value_ check box is selected to search for mask information for a Multi-line input field.
+
+_(The Dependency Logic option for searching_ **[Dependency Definitions](../../Panel%20Designer/Options%20and%20Utilities/Dependency%20Definitions.md)** _was added in PxPlus 2025 Update 1.)_  
 **Match** |  |  _Match Using Case_ |  Sets the search to be case sensitive  
 ---|---  
 _Replace Using Case of Original Text_ |  Clones the original case in the replacement  
@@ -46,4 +47,10 @@ _Search Only_ |  Button used to step through all occurrences that match the valu
 #### **Important Note:**  
 Use as a precautionary measure before replacing values.  
   
-_Close_ |  Exits the **Search/Replace Library** utility.
+_Close_ |  Exits the **Search/Replace Library** utility.  
+  
+ 
+
+ 
+
+ 

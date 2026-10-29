@@ -24,9 +24,7 @@ From the PxPlus Command line |  Enter: **ED+**
   
 For the following example, the Ed+ program editor was invoked from the PxPlus IDE Main Launcher (Windows), and then two existing program files were loaded:
 
-> ![](images/ed_001_1.jpg)
-
-##  Menu Options
+> ##  Menu Options
 
 The options below are described in the order in which they appear on the menu bar: **[File](Ed%20Program%20Editor.htm#file)**, **[Edit](Ed%20Program%20Editor.htm#edit)**, **[Options](Ed%20Program%20Editor.htm#options)**, **[Tools](Ed%20Program%20Editor.htm#tools)**, **[Run](Ed%20Program%20Editor.htm#run)**, **[Version Control](Ed%20Program%20Editor.htm#versionctrl)**, **[Project](Ed%20Program%20Editor.htm#project)** and **[Help](Ed%20Program%20Editor.htm#help)**.
 
@@ -95,7 +93,7 @@ _S_ |  The _Search in Selection_ toggle button is used to search only in the sel
 _(The Find and Replace sub-menu was added in PxPlus 2023.)_
 
 _Find:_                Ctrl+F _Find Next:_        Ctrl+K _Find Previous:_ Ctrl+Shift+K _Replace:_           Ctrl+H  
-_Goto Line Number_ |  Opens a separate **Jump to line** window for entering a line number to go to in the program.      ![](images/ed_001_2.png) This window consists of the following: |  _Line no._ |  Enter the line number to go to.  
+_Goto Line Number_ |  Opens a separate **Jump to line** window for entering a line number to go to in the program.      This window consists of the following: |  _Line no._ |  Enter the line number to go to.  
 ---|---  
 _Go_ |  Positions the insertion cursor at the beginning of the specified line number.  
 _Cancel_ |  Cancels the operation, closes the **Jump to line** window and returns to the main editor panel.  
@@ -105,7 +103,7 @@ _(The renaming of the "Goto" option to "Goto Line Number" was added in PxPlus 20
 _Goto Line Number:_ Ctrl+G _(Shortcut was added in PxPlus 2019.)_  
 _Previous Goto Location_ |  Allows you to go backward through a sequence of previously entered or selected "Goto" locations, one at a time, within an open program file, starting with the most recent. This option is enabled after two or more "Goto" locations have been entered or selected. "Goto" locations are positions in a file that you jump to by using the _Goto Line Number_ option or by selecting the file's methods and labels from the _Book Marks_ list on the left. When the program file is closed, the "Goto" locations are cleared. _(The Previous Goto Location option was added in PxPlus 2026.)_ |  _ _  
 _Next Goto Location_ |  Allows you to go forward through a sequence of previously entered or selected "Goto" locations, one at a time, within an open program file. This option is enabled only after you use the _Previous Goto Location_ option. "Goto" locations are positions in a file that you jump to by using the _Goto Line Number_ option or by selecting the file's methods and labels from the _Book Marks_ list on the left. When the program file is closed, the "Goto" locations are cleared. _(The Next Goto Location option was added in PxPlus 2026.)_ |  _ _  
-_Autocomplete_ |  Displays a drop-down list with suggestions for completing the current word you are typing. **_Example:_**      ![](images/ed_001_3.png) The Autocomplete suggestions are based on PxPlus directives, system functions and system variables. It also makes suggestions based on the text already in the program; i.e. it can suggest variable names and statement labels if they already exist in the program. If the _Live Autocomplete_ check box (in **[Web Editor Preferences](Ed%20Program%20Editor.htm#preferences)**) is selected, the Autocomplete drop-down list will pop up automatically as you are typing without the need to manually invoke it. _(The Autocomplete option was added in PxPlus 2023.)_ |  _Autocomplete:_ Ctrl+Space  
+_Autocomplete_ |  Displays a drop-down list with suggestions for completing the current word you are typing. **_Example:_**      The Autocomplete suggestions are based on PxPlus directives, system functions and system variables. It also makes suggestions based on the text already in the program; i.e. it can suggest variable names and statement labels if they already exist in the program. If the _Live Autocomplete_ check box (in **[Web Editor Preferences](Ed%20Program%20Editor.htm#preferences)**) is selected, the Autocomplete drop-down list will pop up automatically as you are typing without the need to manually invoke it. _(The Autocomplete option was added in PxPlus 2023.)_ |  _Autocomplete:_ Ctrl+Space  
 _Advanced_ |  |  _Duplicate Lines_ |  Creates a duplicate of the selected lines.  
 ---|---  
 _Move Lines Up_ |  Shifts all the selected lines up one line.  
@@ -204,7 +202,7 @@ _Copy text_ |  Copies text to the Clipboard.
 _Paste text_ |  Pastes text from the Clipboard.  
 _Force update_ |  Forces update of the program to the server.  
 _Reformat current program_ |  Reorganizes the lines of code for the current program by applying proper formatting for indentation, if applicable.  
-_Go to Line Number_ |  Opens a separate **Jump to line** window for entering a line number to go to in the program. Same functionality as the **[Goto Line Number](Ed%20Program%20Editor.htm#goto)** option (**Edit** menu).      ![](images/ed_001_4.png) _(The Go to Line Number toolbar option was added in PxPlus 2026.)_  
+_Go to Line Number_ |  Opens a separate **Jump to line** window for entering a line number to go to in the program. Same functionality as the **[Goto Line Number](Ed%20Program%20Editor.htm#goto)** option (**Edit** menu).      _(The Go to Line Number toolbar option was added in PxPlus 2026.)_  
 _Previous Goto Location_ |  Allows you to go backward through a sequence of previously entered or selected "Goto" locations, one at a time, within an open program file, starting with the most recent. Same functionality as the **[Previous Goto Location](Ed%20Program%20Editor.htm#prevgoto)** option (**Edit** menu). This button is enabled after two or more "Goto" locations have been entered or selected. _(The Previous Goto Location option was added in PxPlus 2026.)_  
 _Next Goto Location_ |  Allows you to go forward through a sequence of previously entered or selected "Goto" locations, one at a time, within an open program file. This button is enabled only after you use the _Previous Goto Location_ option. _(The Next Goto Location option was added in PxPlus 2026.)_  
 _User preferences_ |  Launches the **[Web Editor Preferences](Ed%20Program%20Editor.htm#preferences)** window for specifying additional options.  
@@ -234,9 +232,7 @@ The **Web Editor Preferences** window is used to specify additional options to b
 
 To invoke this window, select _Preferences_ from the **Options** menu or click the User Preferences tool bar button beside the _Theme_ drop box.
 
-> ![](images/ed_001_5.jpg)
-
-This window consists of the following:
+> This window consists of the following:
 
 _User Identification_ |  A locked field that displays the current User ID.  
 ---|---  

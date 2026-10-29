@@ -14,9 +14,7 @@ To set up Two-Factor Authentication (2FA), click the _Two-Factor Authentication 
 
 The **Setup Two-Factor Authentication** window is displayed (shown below with a sample entry):
 
-> ![](images/two_004_1.jpg)
-
-This window consists of the following:
+> This window consists of the following:
 
 _Authentication Required_ |  This option controls whether Two-Factor Authentication will be set up or disabled on the system. Click the drop-down arrow for a list of selections: |  _Disabled_ |  **_(Default)_** Two-Factor Authentication is not set up.  
 ---|---  
@@ -30,7 +28,7 @@ _Use SSL/TLS_ |  Indicates if you want to connect to the email server securely, 
 _Send From_ |  Email address that you want the system to use as the "From" address in any emails that are sent.  
 _Userid_ |  User ID that is needed to sign on to the email server. Generally, this will be the same as the _Send From_ email address. **_(Defaults to the Send From address)_**  
 _Password_ |  Password associated with the User ID. It will be saved in an encrypted format in the system control file to minimize the potential of it being exposed. Click the _Password_ eye button to toggle between displaying an encrypted and unencrypted password. This is useful for checking that the password is entered correctly.  
-_Test Email_ |  Button that invokes the **Test Email** window for entering an email address to send a test email to (defaults to the _Send From_ email address). It is strongly recommended to use this button to ensure the settings are correct before saving:      ![](images/two_004_2.png)  
+_Test Email_ |  Button that invokes the **Test Email** window for entering an email address to send a test email to (defaults to the _Send From_ email address). It is strongly recommended to use this button to ensure the settings are correct before saving:       
 **SMS Text Message Server** |  Define the SMS server that will be used to validate the user: |  _SMS Provider_ |  Service provider that will be used to issue your SMS messages.
 
 #### **Important Note:**  
@@ -42,7 +40,7 @@ _Account Information_ |  Account information as required by the selected service
 #### **Important Note:**  
 See the **[*TOOLS/SMS](../../../utilities/sms.md)** Help page for details on the format of this field when entering account information, as this varies based on the service provider chosen.  
   
-_Test SMS_ |  Button that invokes the **Test SMS** window for entering a phone number to send a test SMS message to. It is strongly recommended to use this button to ensure the settings are correct before saving:      ![](images/two_004_3.png)  
+_Test SMS_ |  Button that invokes the **Test SMS** window for entering a phone number to send a test SMS message to. It is strongly recommended to use this button to ensure the settings are correct before saving:       
 **Authenticator App** |  Selecting the _Enable_ check box enables the **Authenticator App**  _Setup_ button in **[User Maintenance](Assigning%20Users%20to%20Classifications.htm#authenticator)**. This button is used for setting up a third-party authenticator app for Two-Factor Authentication. _(The ability to integrate to a third-party authenticator app was added in PxPlus 2026.)_  
 **Authentication Duration New/Expired Devices** | 
 

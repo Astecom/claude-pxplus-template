@@ -46,7 +46,7 @@ CornerRadius$ set to **Round** :
 >  y=100  
 >  y'CornerRadius$="round"  
 >   
->   ![](images/listbox_002_1.png)
+>  
 
 CornerRadius$ set to **Square** :
 
@@ -55,7 +55,7 @@ CornerRadius$ set to **Square** :
 >  y=100  
 >  y'CornerRadius$="square"  
 >   
->   ![](images/listbox_002_2.png)
+>  
 
 CornerRadius$ set to a value of **8** :
 
@@ -64,7 +64,7 @@ CornerRadius$ set to a value of **8** :
 >  y=100  
 >  y'CornerRadius$="8"  
 >   
->   ![](images/listbox_002_3.png)
+>  
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.
@@ -139,7 +139,7 @@ To turn List Box focus **_Off_** :
           y=100  
           y'FocusRect=0
 
-          ![](images/listbox_002_4.png)
+         
 
 To turn List Box focus back **_On_** :
 
@@ -148,7 +148,7 @@ To turn List Box focus back **_On_** :
           y=100  
           y'FocusRect=1
 
-          ![](images/listbox_002_5.png)
+         
 
 _(The FocusRect property was added in PxPlus 2026.)_  
   

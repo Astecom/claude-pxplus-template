@@ -13,8 +13,14 @@ _(The 'TI' system parameter was added in PxPlus 2024.)_
 
 ## Default
 
-**_On_** PNG transparent internal images will be used.
+**_On_**  PNG transparent internal images will be used.
 
 ## See Also
 
 **[Internal Images](../appendix/displaying_bitmaps~icons.htm#Mark2)**
+
+ 
+
+ 
+
+ 

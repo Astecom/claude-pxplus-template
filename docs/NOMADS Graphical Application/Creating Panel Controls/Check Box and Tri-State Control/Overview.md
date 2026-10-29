@@ -13,10 +13,10 @@ A _third_ control state can be added by enabling the **[Tri-State](Overview.htm#
 
 A _filled_ indicator may be applied as the third state for a _Tri-State control_ :
 
-> Unchecked |  ![](images/overview_004_1.jpg)  
+> Unchecked |   
 > ---|---  
-> Checked |  ![](images/overview_004_2.jpg)  
-> Filled |  ![](images/overview_004_3.jpg)  
+> Checked |   
+> Filled |   
   
 A predefined **[Data Class](../../../Data%20Dictionary/Data%20Classes/Overview.md)** can also be applied to a _Check Box_ control.
 
@@ -36,9 +36,7 @@ For information and examples on the use of **_dynamic data classes_** and **_dyn
 
 When creating or editing a _Check Box_ control, the **Check Box Properties** dialogue (pictured below using the **[Folder Style](../../Panel%20Designer/Folder%20Style/Using%20the%20Folder%20Style.md)** version of the NOMADS designer) is displayed:
 
-> ![](images/overview_004_4.jpg)
-
-**_Dynamic Control Properties_**
+> **_Dynamic Control Properties_**
 
 PxPlus 2018 introduces the capability to create **_dynamic control properties_** for Check Box controls when combined with **[Data Classes](../../../Data%20Dictionary/Data%20Classes/Overview.md)**. Dynamic data classes are created by selecting the _Dynamic_ check box in **[Data Class Definitions](../../../Data%20Dictionary/Data%20Classes/Checkbox.md)** maintenance. At run time, dynamic control properties are evaluated and **_automatically_** populated with values based on what is defined in the data class.
 
@@ -105,7 +103,7 @@ If a dynamic data class is entered, these properties will be set as dynamic and 
 _(Dynamic data classes and properties were added in PxPlus 2018.)  
 (The Center/Scale alignment and Scale bitmap options were added in PxPlus 2019 __Update 1_ _.)_  
   
-***Image Options** |  **_(Available when Bitmaps for Off/On/3rd States are selected)_** Sets advanced image options for the bitmap. Click the Additional Image Options button to the right of the **Image Options** multi-line to invoke the **Image Options** dialogue.      ![](images/overview_004_5.png) This dialogue consists of the following: |  **Options** |  |  _Image Transparency_ |  Bitmap transparency option. Click the drop-down arrow for a list of selections: _None, Pixel sets transparency_ or _'Light Gray' is transparent_.  
+***Image Options** |  **_(Available when Bitmaps for Off/On/3rd States are selected)_** Sets advanced image options for the bitmap. Click the Additional Image Options button to the right of the **Image Options** multi-line to invoke the **Image Options** dialogue.      This dialogue consists of the following: |  **Options** |  |  _Image Transparency_ |  Bitmap transparency option. Click the drop-down arrow for a list of selections: _None, Pixel sets transparency_ or _'Light Gray' is transparent_.  
 ---|---  
 _Flip Image_ |  Flips the image. Click the drop-down arrow for a list of selections: _None, Flip horizontally (left/right), Flip vertically (up/down)_ or _Flip horizontally and vertically_.  
 _Rotation Angle_ |  Counter clockwise rotation angle at which to display the image. Valid entries are 0 to 359.  
@@ -196,13 +194,13 @@ Setting a background color is not compatible with transparency. If a background 
   
 _Drop-List Button_ |  Extra button with an arrow bitmap is attached to the right of the main button. When the arrow bitmap button is clicked, the associated popup menu is displayed.  
 _Ignore Change Flag_ |  Select this check box when you do **_not_** want the NOMADS **[CHANGE_FLG](../../Appendix/NOMADS%20Variables/Overview.htm#reserved)** variable to be updated when the control value is changed. _(The Ignore Change Flag property was added in PxPlus 2017.)_  
-_Check Box Corner Radius_ |  Sets the corner radius for a check box that looks like a check box (no bitmap added), not for a check box that looks like a normal button. Works only in **4D** mode. Possible values are _Null_ (_blank_), _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CBCornerRadius$](../../../control_object_properties/checkbox_properties.htm#cbcornerradius)** property. **_Example:_** Check Box Corner Radius set to **Round** :      ![](images/overview_004_6.png) Check Box Corner Radius set to **Square** :      ![](images/overview_004_7.png) Check Box Corner Radius set to a value of **7** :      ![](images/overview_004_8.png)
+_Check Box Corner Radius_ |  Sets the corner radius for a check box that looks like a check box (no bitmap added), not for a check box that looks like a normal button. Works only in **4D** mode. Possible values are _Null_ (_blank_), _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CBCornerRadius$](../../../control_object_properties/checkbox_properties.htm#cbcornerradius)** property. **_Example:_** Check Box Corner Radius set to **Round** :      Check Box Corner Radius set to **Square** :      Check Box Corner Radius set to a value of **7** :     
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.
 
 _(The Check Box Corner Radius property was added in PxPlus 2026.)_  
-_Button Corner Radius_ |  Sets the corner radius for a check box only when it is drawn as a button, which occurs when a bitmap is added. Works only in **4D** mode. Possible values are _Null_ (_blank_), _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CornerRadius$](../../../control_object_properties/checkbox_properties.htm#cornerradius)** property. **_Example:_** Button Corner Radius set to **Round** :    ![](images/overview_004_9.png) Button Corner Radius set to **Square** :    ![](images/overview_004_10.png) Button Corner Radius set to a value of **10** :    ![](images/overview_004_11.png)
+_Button Corner Radius_ |  Sets the corner radius for a check box only when it is drawn as a button, which occurs when a bitmap is added. Works only in **4D** mode. Possible values are _Null_ (_blank_), _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CornerRadius$](../../../control_object_properties/checkbox_properties.htm#cornerradius)** property. **_Example:_** Button Corner Radius set to **Round** :    Button Corner Radius set to **Square** :    Button Corner Radius set to a value of **10** :   
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.

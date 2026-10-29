@@ -5,11 +5,7 @@
   
 This tutorial explains how to create the Webster+ Web page shown below using short codes saved in a simple text file. Sample code is provided, followed by a line-by-line explanation.
 
-> ![A screenshot of a computer
-
-AI-generated content may be incorrect.](images/how_036_1.png)
-
-Create the text file as follows:
+> Create the text file as follows:
 
 1. |  Open a text editor, such as Notepad.  
 ---|---  
@@ -60,9 +56,7 @@ Address:** |  "Name:" and "Address:" are the labels.
 
 Webster+ can refer to this text file in the same manner as an HTML page. The URL can set **pg** **$** equal to the text file name (e.g. **pg$** =HowTo.txt), as shown below. You can also define a link in **[Webster+ Setup](../Webster/Sidebar%20Links%20Maintenance.md)** with an _Action_ of _Webpage_ and an _Associated Name_ of the text file name (e.g. HowTo.txt).
 
-> ![](images/how_036_2.png)
-
-The ***obj/webbind** logic will automatically add this template in the "page Contents" section at run time.
+> The ***obj/webbind** logic will automatically add this template in the "page Contents" section at run time.
 
           <!DOCTYPE html>  
           <html lang="en">  

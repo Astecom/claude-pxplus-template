@@ -30,7 +30,7 @@ See the tutorial **[How to Set Up PxPlus Visual Studio Code Extension](How%20To/
 
 _(The PxPlus Visual Studio Code extension was added in PxPlus 2024.)_
 
-      ![](images/visual_004_1.png)
+     
 
 ## How to Install and Set Up the PxPlus Extension in Visual Studio Code
 
@@ -142,12 +142,12 @@ To navigate to different sections within a PxPlus program, use **_one_** of the 
 
   * Use the breadcrumb menu at the top of the editor tab. Click the **...** (_ellipsis_) to display a list of possible selections.  
   
-     ![](images/visual_004_2.png)  
+       
   
 
   * Select the **OUTLINE** section in the Explorer view to display a list of possible selections.  
   
-     ![](images/visual_004_3.png)
+    
 
 
 
@@ -191,9 +191,7 @@ When a PxPlus program is open and you begin typing, Auto Complete displays sugge
 
 Click the arrow to the far right of a suggestion to expand it and view its description. To manually trigger Auto Complete, press **Ctrl** \+ **Spacebar**.
 
-> ![](images/visual_004_4.png)
-
-_(Support for Auto Complete based on PxPlus Language elements was added in PxPlus 2026.)_
+> _(Support for Auto Complete based on PxPlus Language elements was added in PxPlus 2026.)_
 
 ##  PxPlus Extension Settings
 

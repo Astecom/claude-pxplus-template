@@ -25,7 +25,7 @@ CbCornerRadius$ set to **Round** :
 >  y=100  
 >  y'CBCornerRadius$="round"  
 >   
-> ![](images/cbcornerradius_002_1.png)
+> 
 
 CbCornerRadius$ set to **Square** :
 
@@ -33,7 +33,7 @@ CbCornerRadius$ set to **Square** :
 >  y=100  
 >  y'CBCornerRadius$="square"  
 >   
-> ![](images/cbcornerradius_002_2.png)
+> 
 
 CbCornerRadius$ set to a value of **7** :
 
@@ -41,7 +41,7 @@ CbCornerRadius$ set to a value of **7** :
 >  y=100  
 >  y'CBCornerRadius$="7"  
 >   
-> ![](images/cbcornerradius_002_3.png)
+> 
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.

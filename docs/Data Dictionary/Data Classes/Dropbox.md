@@ -5,9 +5,9 @@
   
 When creating or editing a data class for a _Drop Box_ control type, **Data Class Definitions** maintenance displays the following:
 
-  |  ![](images/dropbox_005_1.jpg)  
+  |    
 **Drop Box Data Class**  **([Load From File](Dropbox.htm#display) _On_)**  
-_(**Load From File** was added in PxPlus 2019)_ |  ![](images/dropbox_005_2.jpg)  
+_(**Load From File** was added in PxPlus 2019)_ |    
 **Drop Box Data Class**  **([Load From File](Dropbox.htm#display) _Off_)**  
 ---|---|---  
   
@@ -52,7 +52,7 @@ _Expression_ |  Enter an expression for the values to load in the drop box. The 
   
 _(The ability to use numeric elements and specify an Expression was added in PxPlus 2020.)_  
   
-_Include Key and Value_ |  **_(Available when Display Value is Fixed and a non-numeric element is selected)_** **_(Optional)_** Select this check box to use **_both_** the _Key_ value **_and_** the _Display Value_ to load the drop box in the following format: _Keyvalue: DisplayValue_. (By default, this check box is not selected.) **_Example:_** If the _Key_ is ClientIDKey:Client ID and the _Display Value_ is ClientName$, the drop box will load using **_both_** these values:    ![](images/dropbox_005_3.png)  
+_Include Key and Value_ |  **_(Available when Display Value is Fixed and a non-numeric element is selected)_** **_(Optional)_** Select this check box to use **_both_** the _Key_ value **_and_** the _Display Value_ to load the drop box in the following format: _Keyvalue: DisplayValue_. (By default, this check box is not selected.) **_Example:_** If the _Key_ is ClientIDKey:Client ID and the _Display Value_ is ClientName$, the drop box will load using **_both_** these values:     
 _Filter Test_ |  **_(Available when a Table is selected)_** **_(Optional)_**  Enter an expression to filter the records that will be loaded in the drop box if the expression is evaluated as True. **_Examples:_**    UCS(DepartmentCode$)=''EAST''    MID(ProductCode$,1,3)=''CAR''    ytdSales>0 _(Filter Test option was added in PxPlus 2020.)_  
 _Return Value_ |  **_(Available when a Table is selected)_** Select the return value when an entry is selected from the drop box. This value is used to define the **[Translation](../../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Drop%20Box%20Control/Drop%20Box%20Properties.htm#values)** table for the drop box. Click the drop-down arrow for a list of defined Key values for the selected _Table_. Defaults to the Primary key when a _Table_  is entered. If an element is selected for the _Display Value_ , then "Drop Box Display Value" will be added as an available selection to the top of the _Return Value_ drop-down list.  
 _Descriptive Field_ |  **_(Available when a Table is selected)_** **_(Optional)_** Specify a descriptive field (either _Fixed_ or _Expression_) to allow it to be available when creating display-only Multi-Line controls in the NOMADS Panel Designer. See **[Extended Class Browse](../../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Multi-Line%20Control/Extended%20Class%20Browse.md)**. |  _Fixed_ |  Click the drop-down arrow to select from a list of **_string_** elements in the selected _Table_. This list includes numeric elements (if defined), which display either as **=STR(**_value:_ "_format_ "**)** or **=STR(**_value_**)** , depending on whether a _Display_ format mask was defined for the numeric element in the Data Dictionary. **_Examples:_** |  =STR(_ytdSales_ :"##,###,##0.00") |  With _Display_ format mask ##,###,##0.00  
@@ -94,8 +94,8 @@ _Ignore Change Flag_ |  Select this check box when you do **_not_** want the NOM
 ---|---  
 _Input Length_ |  **_(Applicable when Allow Variable Input check box is selected)_** Maximum input characters. Can be _Fixed_ or numeric _Expression_.  
 _Corner Radius_ |  Sets the radius for the drop box corners. Works only in **4D** mode. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 3 inclusive. See **[CornerRadius$](../../control_object_properties/dropbox_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :  
-   ![](images/dropbox_005_4.png) Corner Radius set to **Square** :  
-   ![](images/dropbox_005_5.png) Corner Radius set to a value of **3** :    ![](images/dropbox_005_6.png)
+   Corner Radius set to **Square** :  
+   Corner Radius set to a value of **3** :   
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.

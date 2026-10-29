@@ -38,7 +38,7 @@ BackColour$](../properties/backcolor_.md)** |  Background color. (**_Default:_**
   
 _(The Bitmap Centered option was added in PxPlus 2018 Update 1.)_  
   
-[**Border$**](../properties/border_.md) |  Controls the type of border that will be used when drawing a button-style check box. Possible values and formats are _Solid_ , _None_ , _Double_ , _Groove_ , _Ridge_ , _Inset_ and _Outset_.      ![](images/checkbox_004_1.png) If not set, it will have the value of "Default" (or ""), which indicates that the system should use the system default button styling.
+[**Border$**](../properties/border_.md) |  Controls the type of border that will be used when drawing a button-style check box. Possible values and formats are _Solid_ , _None_ , _Double_ , _Groove_ , _Ridge_ , _Inset_ and _Outset_.      If not set, it will have the value of "Default" (or ""), which indicates that the system should use the system default button styling.
 
 #### **Note:**  
 This property is effective on a check box only when it is drawn as a button, which occurs when a bitmap is added.  
@@ -71,7 +71,7 @@ CbCornerRadius$ set to **Round** :
 >  y=100  
 > y'CBCornerRadius$="round"  
 >   
-> ![](images/checkbox_004_2.png)
+> 
 
 CbCornerRadius$ set to **Square** :
 
@@ -79,7 +79,7 @@ CbCornerRadius$ set to **Square** :
 >  y=100  
 >  y'CBCornerRadius$="square"  
 >   
-> ![](images/checkbox_004_3.png)
+> 
 
 CbCornerRadius$ set to a value of **7** :
 
@@ -87,7 +87,7 @@ CbCornerRadius$ set to a value of **7** :
 >  y=100  
 > y'CBCornerRadius$="7"  
 >   
-> ![](images/checkbox_004_4.png)
+> 
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.
@@ -120,7 +120,7 @@ CornerRadius$ set to **Round** :
 >  y=100  
 > y'CornerRadius$="round"  
 >   
->   ![](images/checkbox_004_5.png)
+>  
 
 CornerRadius$ set to **Square** :
 
@@ -128,7 +128,7 @@ CornerRadius$ set to **Square** :
 >  y=100  
 > y'CornerRadius$="square"  
 >   
->   ![](images/checkbox_004_6.png)
+>  
 
 CornerRadius$ set to a value of **10** :
 
@@ -136,7 +136,7 @@ CornerRadius$ set to a value of **10** :
 >  y=100  
 > y'CornerRadius$="10"  
 >   
-> ![](images/checkbox_004_7.png)
+> 
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.
@@ -189,7 +189,7 @@ To turn Check Box focus **_Off_** :
           y=100  
           y'FocusRect=0  
   
-          ![](images/checkbox_004_8.png)
+         
 
 To turn Check Box focus **_On_** :
 
@@ -197,7 +197,7 @@ To turn Check Box focus **_On_** :
           y=100  
           y'FocusRect=1  
   
-          ![](images/checkbox_004_9.png)
+         
 
 **_Example:_**
 
@@ -207,7 +207,7 @@ To turn Check Box focus **_Off_** (when a bitmap is added):
           y=100  
           y'FocusRect=0  
   
-          ![](images/checkbox_004_10.png)
+         
 
 To turn Check Box focus back **_On_** (when a bitmap is added):
 
@@ -215,7 +215,7 @@ To turn Check Box focus back **_On_** (when a bitmap is added):
           y=100  
           y'FocusRect=1  
   
-          ![](images/checkbox_004_11.png)
+         
 
 _(The FocusRect property was added in PxPlus 2026.)_  
   

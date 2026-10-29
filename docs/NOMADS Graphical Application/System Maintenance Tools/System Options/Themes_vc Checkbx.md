@@ -30,7 +30,7 @@ _Bitmap Button_ |  Button has a bitmap whose width is divided into four images. 
 #### **Note:**  
 This property is effective on a check box only when it is drawn as a button, which occurs when a bitmap is added.  
   
-_Border Style_ |  Style of button border. Options are _None, Solid, Double, Groove, Ridge, Inset_ and _Outset_ :     ![](images/themes_012_1.png) If not set, the default Windows style is used. This must be set to a non-blank value to use the _Border Width_ and various _Border Color_ settings.
+_Border Style_ |  Style of button border. Options are _None, Solid, Double, Groove, Ridge, Inset_ and _Outset_ :      If not set, the default Windows style is used. This must be set to a non-blank value to use the _Border Width_ and various _Border Color_ settings.
 
 #### **Note:**  
 This property is effective on a check box only when it is drawn as a button, which occurs when a bitmap is added.  
@@ -40,21 +40,21 @@ _Border Width_ |  Width of the button border (in pixels). Options are _None_ , _
 #### **Note:**  
 This property is effective on a check box only when it is drawn as a button, which occurs when a bitmap is added.  
   
-_CB Corner Radius_ |  Sets the corner radius for check boxes that look like check boxes (no bitmap defined), not for check boxes that look like normal buttons. Works only in **4D** mode. Possible values are _Null_ (_blank_), _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CBCornerRadius$](../../../control_object_properties/checkbox_properties.htm#cbcornerradius)** property **_Example:_**      ![](images/themes_012_2.png)  
+_CB Corner Radius_ |  Sets the corner radius for check boxes that look like check boxes (no bitmap defined), not for check boxes that look like normal buttons. Works only in **4D** mode. Possible values are _Null_ (_blank_), _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CBCornerRadius$](../../../control_object_properties/checkbox_properties.htm#cbcornerradius)** property **_Example:_**        
   
-     ![](images/themes_012_3.png)  
+       
   
-     ![](images/themes_012_4.png) To set the corner radius for check boxes created as buttons (when a bitmap is added), use the **[Corner Radius](Themes_vc%20Checkbx.htm#cornerradius)** property.
+     To set the corner radius for check boxes created as buttons (when a bitmap is added), use the **[Corner Radius](Themes_vc%20Checkbx.htm#cornerradius)** property.
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.
 
 _(CB Corner Radius property was added in PxPlus 2026.)_  
-_Corner Radius_ |  Sets the corner radius for a check box only when it is drawn as a button, which occurs when a bitmap is added. Works only in **4D** mode. Possible values are _Null_ (_blank_), _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CornerRadius$](../../../control_object_properties/checkbox_properties.htm#cornerradius)** property **_Example:_**      ![](images/themes_012_5.png)  
+_Corner Radius_ |  Sets the corner radius for a check box only when it is drawn as a button, which occurs when a bitmap is added. Works only in **4D** mode. Possible values are _Null_ (_blank_), _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CornerRadius$](../../../control_object_properties/checkbox_properties.htm#cornerradius)** property **_Example:_**        
   
-     ![](images/themes_012_6.png)  
+       
   
-     ![](images/themes_012_7.png) To set the corner radius for check boxes with no bitmap defined, use the **[CB Corner Radius](Themes_vc%20Checkbx.htm#cbcornerradius)** property.
+     To set the corner radius for check boxes with no bitmap defined, use the **[CB Corner Radius](Themes_vc%20Checkbx.htm#cbcornerradius)** property.
 
 #### **Note:**  
 Corner rounding is limited based on the control type and/or the control size.
@@ -84,21 +84,21 @@ _Focus Rectangle_ |  Controls whether a dotted focus rectangle displays around t
 
 Check Box focus is **_Off_** :
 
-     ![](images/themes_012_8.png)
+    
 
 Check Box focus is **_On_** :
 
-     ![](images/themes_012_9.png)
+    
 
 **_Example:_**
 
 Check Box focus is **_Off_** (when a bitmap is added):  
   
-     ![](images/themes_012_10.png)
+    
 
 Check Box focus is **_On_** (when a bitmap is added):  
   
-     ![](images/themes_012_11.png)
+    
 
 _(Focus Rectangle property was added in PxPlus 2026.)_  
   
