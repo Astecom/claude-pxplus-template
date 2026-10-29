@@ -4,7 +4,12 @@ PxPlus Claude Template
 Collection of assets that bring PxPlus expertise into Claude Code. The repository bundles:
 
 - A reusable `.pxplus-claude/` profile with Claude rules, prompts, and workflow helpers
-- An MCP server written in Node.js that exposes PxPlus-aware capabilities to Claude Code
+- An MCP server written in Node.js that exposes PxPlus-aware capabilities to Claude Code:
+  - documentation: `pxplus_search_docs`, `pxplus_get_doc`, `pxplus_list_docs`, `pxplus_control_properties` (with version check), `pxplus_error`
+  - code: `pxplus_syntax_check`, `pxplus_compile`, `pxplus_lst`, `pxplus_get_executable_path`
+  - data dictionary and data files: `pxplus_dict_read`, `pxplus_dict_embedded`, `pxplus_read_records`, `pxplus_dict_apply`
+
+  See [mcp-server/README.md](mcp-server/README.md) for each tool.
 - Project documentation (`instructions-and-rules.md`, `CLAUDE.md`) that stays up to date with each release
 
 ## Installation

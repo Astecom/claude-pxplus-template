@@ -32,6 +32,35 @@ This file contains must-read intructions regarding pxplus programming.
   - Don't set `includeFullContent: true` unless absolutely necessary
   - If using `includeFullContent`, reduce `maxContentLength` (e.g., 2000 instead of 3000)
 
+### Reading a whole page and more
+
+`pxplus_search_docs` cuts a long page off. To read one page in full, give its path (from a search result) to `pxplus_get_doc`:
+- `pxplus_get_doc(path: "directives/multi_line.md")`, also by name (`"MULTI_LINE"`) or by a link from another page
+- Only one part: `pxplus_get_doc(path: "MULTI_LINE", section: "OPT= Settings")`; a long page comes in parts (`nextOffset`)
+- The result lists the page's sections, the pages it links to and its version notes ("added in PxPlus 2020")
+
+Other documentation tools:
+- `pxplus_list_docs(filter: "control_object_properties/")`: the pages of a folder or with a word in their path or title
+- `pxplus_control_properties(control: "GRID", version: "22.00")`: all properties of a control, and per property whether that version has it (yes, no, partly, unknown). Since PxPlus 2016 a year and a version go together: 2025 = 22.00, 2026 = 23.00
+- `pxplus_error(number: 20)`: the message and possible reasons of an error number
+
+## Reading a Tokenized Program
+
+PxPlus programs and classes are often tokenized (binary). Use `pxplus_lst(filePath: "...")` to see one as text instead of reading the file directly.
+
+## Data Dictionary and Data Files
+
+These tools work through the PxPlus `*dict` objects, as Data Dictionary Maintenance does:
+- `pxplus_dict_read(dir)`: the tables of a `providex.ddf` folder; with `table`: its columns, indexes, IOList and whether its file matches the dictionary
+- `pxplus_dict_embedded(file)`: the definition inside a data file
+- `pxplus_read_records(dir, table)` or `(file)`: records, read-only, from a `key`, on a key number (`kno`), in parts (`nextKey`)
+- `pxplus_dict_apply(dir, operations)`: change the dictionary and its physical files; `dryRun: true` checks without changing anything
+
+Data files are the user's data:
+- **ALWAYS ask the user before** an operation that changes or deletes a file with records (`adjust_file`, `load_definition`, `delete_file`); the tool needs `confirm: true` for them. Show the `dryRun` result first
+- `adjust_file` takes fields over by name: a dropped or renamed column loses its data. A rename goes with `load_definition`. Never pass `allowDataLoss: true` without the user's explicit consent
+- A file with an embedded IO program (for example a change logger) opens only when that program is found: pass `prefixProgram`, `prefix` or a `setup` program of the project. Without it the tool reports the error (Error #121)
+
 ## PxPlus Syntax Checking
 
 Use the `pxplus_syntax_check` MCP tool to check PxPlus files for syntax errors after writing or modifying code.
