@@ -225,8 +225,12 @@ IF condition THEN {
     statement3
 }
 
-! Nested inline IF with TBL function
-result$ = TBL(condition=1, "true_value", "false_value")
+! Inline IF with the TBL function: TBL(position, expr_0, expr_1, ...) returns
+! expr_0 for 0, expr_1 for 1. A condition is 1 when true, 0 when false, so the
+! value for FALSE comes FIRST and the value for TRUE second:
+result$ = TBL(condition=1, "false_value", "true_value")
+! x=1: TBL(x=1,"no","yes") gives "yes"; x=2 gives "no"
+! All values must be the same type (all strings or all numbers)
 
 ! SWITCH/CASE
 SWITCH expression$
