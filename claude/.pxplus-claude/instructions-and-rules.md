@@ -54,7 +54,7 @@ These tools work through the PxPlus `*dict` objects, as Data Dictionary Maintena
 - `pxplus_dict_read(dir)`: the tables of a `providex.ddf` folder; with `table`: its columns, indexes, IOList and whether its file matches the dictionary
 - `pxplus_dict_embedded(file)`: the definition inside a data file
 - `pxplus_read_records(dir, table)` or `(file)`: records, read-only, from a `key`, on a key number (`kno`), in parts (`nextKey`)
-- `pxplus_dict_apply(dir, operations)`: change the dictionary and its physical files; `dryRun: true` checks without changing anything
+- `pxplus_dict_apply(dir, operations)`: change the dictionary and its physical files; `dryRun: true` checks without changing anything. Only there when the MCP server is started with `--enable-dict-apply`
 
 Data files are the user's data:
 - **ALWAYS ask the user before** an operation that changes or deletes a file with records (`adjust_file`, `load_definition`, `delete_file`); the tool needs `confirm: true` for them. Show the `dryRun` result first

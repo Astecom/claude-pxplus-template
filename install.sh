@@ -344,11 +344,12 @@ section "Claude Registration"
 MCP_SERVER_ENTRY="$(cd "$MCP_INSTALL_DIR" && pwd)/dist/index.js"
 note "Registering pxplus MCP server..."
 claude mcp remove pxplus >/dev/null 2>&1 || true
-if claude mcp add --transport stdio pxplus -- node "$MCP_SERVER_ENTRY" >/dev/null; then
+# A person works here, so pxplus_dict_apply (changing data dictionaries and files) is on
+if claude mcp add --transport stdio pxplus -- node "$MCP_SERVER_ENTRY" --enable-dict-apply >/dev/null; then
     ok "Claude CLI now points to the PxPlus MCP server"
 else
     warn "Automatic registration failed."
-    info "Register manually with: claude mcp add --transport stdio pxplus -- node \"$MCP_SERVER_ENTRY\""
+    info "Register manually with: claude mcp add --transport stdio pxplus -- node \"$MCP_SERVER_ENTRY\" --enable-dict-apply"
 fi
 
 section "Complete"

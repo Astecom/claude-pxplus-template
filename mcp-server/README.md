@@ -60,13 +60,19 @@ Through the PxPlus `*dict` objects, as Data Dictionary Maintenance does (the PxP
 - `pxplus_dict_read`: the tables of a `providex.ddf` folder (group, physical file, embedded IO program, records), or one table: columns, indexes, IOList and whether its file matches the dictionary.
 - `pxplus_dict_embedded`: the definition inside a data file itself.
 - `pxplus_read_records`: records of a table or a file, read-only (`OPEN INPUT`), from a key, on a key number, in parts (`nextKey`).
-- `pxplus_dict_apply`: a list of operations: create a dictionary, add/update/rename/drop tables, columns and indexes, and create, convert (`adjust_file`), re-describe (`load_definition`) or delete the physical file. `dryRun` checks without changing anything.
+- `pxplus_dict_apply` (off by default, see below): a list of operations: create a dictionary, add/update/rename/drop tables, columns and indexes, and create, convert (`adjust_file`), re-describe (`load_definition`) or delete the physical file. `dryRun` checks without changing anything.
 
 Safety, because these are data files:
 
 - a file with records is changed or deleted only with `confirm: true`;
 - `adjust_file` takes the fields over by name, so a dropped or renamed column loses its data; with records it refuses unless `allowDataLoss: true`. A rename goes with `load_definition`, which keeps the records as they are;
 - a file with an embedded IO program (for example a change logger) only opens when that program is found: give `prefixProgram` (or `prefix`, or a `setup` program that is CALLed first). Without it the tools give the error back (Error #121). With `prefix`, relative file names are found and created through it, as in the application.
+
+`pxplus_dict_apply` is offered only when the server starts with `--enable-dict-apply`, because it changes data files: turn it on where a person works with Claude Code, leave it off for agents that run without one (the pipeline), which then only read:
+
+```bash
+claude mcp add --transport stdio pxplus -- node /absolute/path/to/mcp-server/dist/index.js --enable-dict-apply
+```
 
 `npm run check-dict` runs the whole cycle in a temporary folder.
 
