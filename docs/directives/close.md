@@ -14,7 +14,7 @@
 _chan_ |  Channel or logical file number. 
 
 #### **Note:  
-** If running with the [**'FF'**](../parameters/ff.md) system parameter (FID Format) set to 2 (Thoroughbred), closing channel 0 will be treated the same as CLOSE (*).  
+** If running with the [**'FF'**](../parameters/ff.md) system parameter (FID Format) set to 2 (Thoroughbred®), closing channel 0 will be treated the same as CLOSE (*).  
   
 _stmtref_ |  Program line number or statement label to which to transfer control.   
   
@@ -64,4 +64,12 @@ Either of the two statements below will close channels 63, 5 and 7. The second s
 > close (CSTFILE),(PRDFILE),(ORDFILE) ! Just closes channels 63,5,7  
 >  close (*) ! Closes ALL open file channels (i.e. 63,5,7 and 30)
 
-Thoroughbred is a registered trademark of Thoroughbred Software International Inc.
+ 
+
+ 
+
+ 
+
+Thoroughbred® is a registered trademark of Thoroughbred Software International Inc.
+
+ 

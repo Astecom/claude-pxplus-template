@@ -1,6 +1,6 @@
 # Language Reference - Appendix 
 
-**Error Codes and Messages** |   
+**Error Codes and Messages** |     
 ---|---  
   
 Whenever PxPlus encounters an error, it sets the [**ERR**](../variables/err.md) system variable to an error code (an integer). The associated error message indicates the type of error.
@@ -12,6 +12,8 @@ Use the [**MSG( )**](../functions/msg.md) function to obtain the error message t
 > ?msg(4)  
 >  Error #4: Device not ready
 
+See **[Returning Error Codes and Messages](Returning%20Error%20Codes.md)**.
+
 A numerically arranged list of all the current error codes and their meanings is provided below.
 
 ##  Error #0
@@ -20,10 +22,10 @@ A numerically arranged list of all the current error codes and their meanings is
   
 **_Possible Reasons_**** _:_**  
   
-Cannot open a file that is locked by another user.  
-Cannot **READ** , **FIND** , **EXTRACT** or **INPUT** if a record is being extracted by another user.  
-Time**-** out occurred on a device.  
-Permission denied.  
+     Cannot open a file that is locked by another user.  
+     Cannot **READ** , **FIND** , **EXTRACT** or **INPUT** if a record is being extracted by another user.  
+     Time**-** out occurred on a device.  
+     Permission denied.  
   
 The BSY=stmtref option allows you to trap Error #0: Record/file busy. 
 
@@ -39,9 +41,9 @@ Combined length of data elements cannot exceed preset maximum record length (as 
   
 **_Possible Reasons:_**   
   
-On a READ: The end of the file has been reached. **_or_**  
-On a WRITE: The file is full or has reached a preset maximum record count.  
-[TCP] disconnection.  
+     On a READ: The end of the file has been reached. **_or_**  
+     On a WRITE: The file is full or has reached a preset maximum record count.  
+     [TCP] disconnection.  
   
 When PxPlus is processing a **[CLOSE](../directives/close.md)** directive and Error #2 is reported because of a full disk, the error is only reported once. Then PxPlus internally trashes the pending data and closes the channel. 
 
@@ -89,8 +91,8 @@ Invalid filename on a **SAVE** , **OPEN** , **LOAD** , **RUN** or **CALL** direc
   
 **_Possible Reasons:  
 _**  
-Filename too long, contains invalid characters or has invalid syntax. A null string is an invalid pathname.  
-In **[TCP]** : An invalid IP or DNS address. 
+     Filename too long, contains invalid characters or has invalid syntax. A null string is an invalid pathname.  
+     In **[TCP]** : An invalid IP or DNS address. 
 
 ##  Error #11
 
@@ -98,8 +100,8 @@ In **[TCP]** : An invalid IP or DNS address.
   
 ** _Possible Reasons:  
   
-_** Non-existent record specified in **KEY=** or **IND=** option. On a **READ** or **EXTRACT** directive (**KEY=** option only), index position goes to the record with the next higher record key. Use the **DOM=** option to trap and process this error.  
-**[TCP]** file I/O includes an **IND=**_value_ or **KEY=**_value_ for a client that is not connected.
+_**      Non-existent record specified in **KEY=** or **IND=** option. On a **READ** or **EXTRACT** directive (**KEY=** option only), index position goes to the record with the next higher record key. Use the **DOM=** option to trap and process this error.  
+     **[TCP]** file I/O includes an **IND=**_value_ or **KEY=**_value_ for a client that is not connected.
 
 ##  Error #12
 
@@ -107,49 +109,49 @@ _** Non-existent record specified in **KEY=** or **IND=** option. On a **READ** 
 **  
 **_Possible Reasons:_**   
   
-Cannot create a file (**DIRECT** , **INDEXED** ,**SORT** , etc.) if a file of the same given name already exists.   
-Filename does not exist. Cannot **ERASE** , **OPEN** , **LOAD** , **RUN** or **CALL** a non**-** existent file.   
-In **[TCP]** : Cannot **OPEN** , server is not listening. 
+     Cannot create a file (**DIRECT** , **INDEXED** ,**SORT** , etc.) if a file of the same given name already exists.   
+     Filename does not exist. Cannot **ERASE** , **OPEN** , **LOAD** , **RUN** or **CALL** a non**-** existent file.   
+     In **[TCP]** : Cannot **OPEN** , server is not listening. 
 
 ##  Error #13
 
-**File access mode invalid****  
+**File access mode invalid****   
 **  
 **_Possible Reasons:_**   
   
-Cannot send output to serial file unless first locked.   
-Cannot receive input from an output**-** only device (e.g. a printer).   
-Cannot send output to an input only device.  
-Cannot write given output to file without a **KEY=** option or not before extracting a record.   
-Cannot write to a non-externally keyed file using a **KEY=** option.   
-Cannot drop the only active window on a terminal.   
-OS returned an access mode violation or a permission denied status on an **OPEN INPUT** or **OPEN PURGE** directive for a file.   
-Attempt to apply/remove a password when the file is in read-only mode, not locked, or not empty. 
+     Cannot send output to serial file unless first locked.   
+     Cannot receive input from an output**-** only device (e.g. a printer).   
+     Cannot send output to an input only device.  
+     Cannot write given output to file without a **KEY=** option or not before extracting a record.   
+     Cannot write to a non-externally keyed file using a **KEY=** option.   
+     Cannot drop the only active window on a terminal.   
+     OS returned an access mode violation or a permission denied status on an **OPEN INPUT** or **OPEN PURGE** directive for a file.   
+     Attempt to apply/remove a password when the file is in read-only mode, not locked, or not empty. 
 
 ##  Error #14
 
-**Invalid I/O request for file state****  
+**Invalid I/O request for file state****   
 **  
 **_Possible Reasons:_**   
   
-Cannot access a file that is not opened.   
-Cannot unlock a file that is not locked.   
-Cannot open a logical file number (channel) that is already open.   
-On a **[CLOSE](../directives/close.md)** directive: Cannot close a channel that is not open, but no message is returned unless you used the **ERR=** option.   
-Attempt to apply a password to an unopened channel. 
+     Cannot access a file that is not opened.   
+     Cannot unlock a file that is not locked.   
+     Cannot open a logical file number (channel) that is already open.   
+     On a **[CLOSE](../directives/close.md)** directive: Cannot close a channel that is not open, but no message is returned unless you used the **ERR=** option.   
+     Attempt to apply a password to an unopened channel. 
 
 ##  Error #15
 
-**Operating system command failed****  
+**Operating system command failed****   
 **  
 **_Possible Reasons_**** _:_**  
   
-Returned from the operating system. For more details,**PRINT MSG(-1).** One possible reason: exhaustion of .bmp handles.   
-In **[TCP]** : Cannot open the socket locally or general TCP failure on file I/O. 
+     Returned from the operating system. For more details,**PRINT MSG(-1).** One possible reason: exhaustion of .bmp handles.   
+     In **[TCP]** : Cannot open the socket locally or general TCP failure on file I/O. 
 
 ##  Error #16
 
-**File/Disc is full****  
+**File/Disc is full****   
 **  
 Typically either the disk is full or the user has reached an allotted limit. The file being written to has no additional room for expansion.
 
@@ -159,57 +161,57 @@ Typically either the disk is full or the user has reached an allotted limit. The
 **_  
 Possible Reasons:_**   
   
-Cannot use a **KEY=** option when the file does not have a key.  
-Cannot have unequal lengths for the two parameters for an **AND( )** , **IOR( )** or **XOR( )** function.  
-Cannot **SAVE** , **LIST** or **MERGE** a file that has a key.  
-Cannot **WRITE** to a program file.  
-Attempt to apply a password to a non-keyed file.   
-Attempt to encrypt a non-VLR formatted file.
+     Cannot use a **KEY=** option when the file does not have a key.  
+     Cannot have unequal lengths for the two parameters for an **AND( )** , **IOR( )** or **XOR( )** function.  
+     Cannot **SAVE** , **LIST** or **MERGE** a file that has a key.  
+     Cannot **WRITE** to a program file.  
+     Attempt to apply a password to a non-keyed file.   
+     Attempt to encrypt a non-VLR formatted file.
 
 ##  Error #18
 
-**Program not loaded/Invalid program format****  
+**Program not loaded/Invalid program format****   
 **  
 Cannot **LOAD** , **RUN** or **CALL** a file that is not in the correct program format. 
 
 ##  Error #19
 
-**Program size too large****  
+**Program size too large****   
 **  
 Program exceeds the 64k limit.
 
 ##  Error #20
 
-**Syntax error****  
+**Syntax error****   
 **  
 The program statement contains a syntax error (usually just a typing error).
 
 ##  Error #21
 
-**Statement number is invalid****  
+**Statement number is invalid****   
 **  
 **_Possible Reasons:_**   
   
-Cannot use a line number in excess of maximum 65000.   
-Cannot edit/append to a non**-** existent line.   
-Cannot refer incorrectly to an existing line; e.g. **TBL=**_nnnn_ where _nnnn_ is not a table.   
-Program does not have line numbers. 
+     Cannot use a line number in excess of maximum 65000.   
+     Cannot edit/append to a non**-** existent line.   
+     Cannot refer incorrectly to an existing line; e.g. **TBL=**_nnnn_ where _nnnn_ is not a table.   
+     Program does not have line numbers. 
 
 ##  Error #22
 
-**Invalid compound statement  
+**Invalid compound statement****   
 **  
 Directive out of position. The particular directive **_must be the final item_** in a compound statement because it has the potential to transfer control; e.g. **GOTO** , **GOSUB** , etc. 
 
 ##  Error #23
 
-**Missing/Invalid variable****  
+**Missing/Invalid variable****   
 **  
 Mandatory variable is missing from the statement's syntax. 
 
 ##  Error #24
 
-**Attempt to duplicate a function name****  
+**Attempt to duplicate a function name****   
 **  
 Cannot create function of the same given name as one that already exists. 
 
@@ -219,17 +221,17 @@ Cannot create function of the same given name as one that already exists.
 **_  
 Possible Reasons:_**   
   
-Cannot call non**-** existent user**-** defined function (not defined or name misspelled).  
-Cannot exceed limit on number of recursive calls to a user defined function. (Maximum of 100 recursive calls, 100 levels deep)
+     Cannot call non**-** existent user**-** defined function (not defined or name misspelled).  
+     Cannot exceed limit on number of recursive calls to a user defined function. (Maximum of 100 recursive calls, 100 levels deep)
 
 ##  Error #26
 
-**Variable type invalid****  
+**Variable type invalid****   
 **  
 **_Possible Reasons:_**   
   
-Cannot use numeric value in string variable.   
-Cannot use string value in numeric variable. 
+     Cannot use numeric value in string variable.   
+     Cannot use string value in numeric variable. 
 
 ##  Error #27
 
@@ -245,12 +247,12 @@ The variable name for the **[NEXT](../directives/next.md)** directive does not m
 
 ##  Error #29
 
-**Invalid Mnemonic or position specification  
+**Invalid Mnemonic or position specification    
 **  
 **_Possible Reasons:_**   
   
-Unrecognized or invalid mnemonic (undefined or misspelled, etc.) on a **PRINT** or **INPUT** statement (only generated if you have already set the **['EG'](../mnemonics/eg.md)** mnemonic).  
-Invalid position in**@( )** function (outside of current window/scroll region boundaries).
+     Unrecognized or invalid mnemonic (undefined or misspelled, etc.) on a **PRINT** or **INPUT** statement (only generated if you have already set the **['EG'](../mnemonics/eg.md)** mnemonic).  
+     Invalid position in**  @( )** function (outside of current window/scroll region boundaries).
 
 ##  Error #30
 
@@ -278,13 +280,13 @@ The operating system has denied a request for additional memory. Either the amou
 
 ##  Error #34
 
-**Directive not allowed from COMMAND mode****  
+**Directive not allowed from COMMAND mode****   
 **  
 The particular directive cannot be executed from **COMMAND** mode. The **[FOR](../directives/for.md)** directive is one example. 
 
 ##  Error #35
 
-**Invalid date/time specified****  
+**Invalid date/time specified****   
 **  
 An invalid date or time has been specified on a **[SETDAY](../directives/setday.md)** or **[SETTIME](../directives/settime.md)** directives.
 
@@ -296,7 +298,7 @@ The parameters in an **[ENTER](../directives/enter.md)** directive do not match 
 
 ##  Error #37
 
-**Directive can only execute in subprogram****  
+**Directive can only execute in subprogram****   
 **  
 Cannot execute an **[ENTER](../directives/enter.md)** or **[EXIT](../directives/exit.md)** directive except in subprogram.
 
@@ -308,7 +310,7 @@ The particular directive cannot be used in a subprogram.
 
 ##  Error #39
 
-**Invalid record definition****  
+**Invalid record definition****   
 **  
 This message applies to ODBC data. 
 
@@ -316,8 +318,8 @@ This message applies to ODBC data.
 
 **Divide check or numeric overflow**  
   
-Cannot divide by zero. (To return zero for divide by zero errors, set the **['D0'](../parameters/d0.md)** parameter On.)  
-Cannot exceed the machine's limits on the result of an arithmetic operation.
+     Cannot divide by zero. (To return zero for divide by zero errors, set the **['D0'](../parameters/d0.md)** parameter On.)  
+     Cannot exceed the machine's limits on the result of an arithmetic operation.
 
 ##  Error #41
 
@@ -325,63 +327,63 @@ Cannot exceed the machine's limits on the result of an arithmetic operation.
   
 Either the value specified is not an integer or it exceeds the range allowed for the type of operation being performed.  
   
-Cannot use logical file number (channel) outside of permitted range.  
-Cannot set **PRECISION** to value outside of range **-** 1 to +18.  
-Cannot exceed 32767 elements in an array.  
-Cannot use line or column position **@...( )** function outside of pre-set window or screen boundaries.  
-Cannot return function value outside of existing range, for instance, a non**-** existent **TSK( )** number. 
+     Cannot use logical file number (channel) outside of permitted range.  
+     Cannot set **PRECISION** to value outside of range **-** 1 to +18.  
+     Cannot exceed 32767 elements in an array.  
+     Cannot use line or column position **@...( )** function outside of pre-set window or screen boundaries.  
+     Cannot return function value outside of existing range, for instance, a non**-** existent **TSK( )** number. 
 
 ##  Error #42
 
-**Subscript out of range/Invalid subscript****  
+**Subscript out of range/Invalid subscript****   
 **  
 The value of the subscript is beyond the minimum/maximum settings defined for the array. 
 
 ##  Error #43
 
-**Format mask invalid****  
+**Format mask invalid****   
 **  
 The format mask in a **PRINT** statement or a **STR( )** function is not large enough to contain the numeric value. Use the **['FI'](../parameters/fi.md)** parameter to suppress the message. 
 
 ##  Error #44
 
-**Invalid step value****  
+**Invalid step value****   
 **  
 Cannot use zero (0) for the **STEP** value in a **[FOR](../directives/for.md)** directive.
 
 ##  Error #45
 
-**Referenced statement invalid****  
+**Referenced statement invalid****   
 **  
 Incorrect reference to existing statement; e.g. **IOL=**_nnnn_ where _nnnn_ does not contain an IOList or **TBL=**_nnnn_ where _nnnn_ does not contain a **[TABLE](../directives/table.md)** directive.
 
 ##  Error #46
 
-**Length of string invalid****  
+**Length of string invalid****   
 **  
 This error is reported when the length of the string provided is not appropriate for the function of directive being executed.  
   
-Format mask is in excess of 8192 bytes.   
-Length of the string in the **KEY=** option cannot exceed the key length for the given file.   
-Cannot execute the **ASC( )** function on a null string. 
+     Format mask is in excess of 8192 bytes.   
+     Length of the string in the **KEY=** option cannot exceed the key length for the given file.   
+     Cannot execute the **ASC( )** function on a null string. 
 
 ##  Error #47
 
-**Substring reference out of string****  
+**Substring reference out of string****   
 **  
-**_Possible Reasons:_**   
+**_Possible Reasons:_**    
   
-Substring does not exist in string variable.  
-Substring exceeds the capacity of the variable. 
+     Substring does not exist in string variable.  
+     Substring exceeds the capacity of the variable. 
 
 ##  Error #48
 
-**Invalid input -- Try again****  
+**Invalid input -- Try again****   
 **  
 This error occurs when data input is checked against a validation list. It indicates one of the following:   
   
-Value for numeric variable is not in the range specified or has too many decimals.   
-Value for a string variable exceeds the maximum length allowed. 
+     Value for numeric variable is not in the range specified or has too many decimals.   
+     Value for a string variable exceeds the maximum length allowed. 
 
 ##  Error #49
 
@@ -391,9 +393,9 @@ The compiled statement contains invalid data and cannot be processed or decompil
   
 **_Possible Reasons:_**   
   
-The program on disk has been damaged.   
-The program was created using a feature from a newer version of PxPlus that is not supported by the version you are using.  
-A new version of PxPlus was installed without the correct LEX tables (/pvx/lib/_lex*.*).
+     The program on disk has been damaged.   
+     The program was created using a feature from a newer version of PxPlus that is not supported by the version you are using.  
+     A new version of PxPlus was installed without the correct LEX tables (/pvx/lib/_lex*.*).
 
 ##  Error #50
 
@@ -411,8 +413,8 @@ The VFU is not loaded because the mnemonic sequence is incorrect or other than n
   
 The current program has been saved with a password.   
   
-Cannot change or list the program without using the **[PASSWORD](../directives/password.md)** directive.  
-Cannot save a passworded program to a serial file. 
+     Cannot change or list the program without using the **[PASSWORD](../directives/password.md)** directive.  
+     Cannot save a passworded program to a serial file. 
 
 ##  Error #53
 
@@ -442,12 +444,12 @@ This error is only generated by the **SAVE** command. It warns that a statement 
 
 ##  Error #57
 
-**No such window defined****  
+**No such window defined****   
 **  
 **_Possible Reasons:_**   
   
-Non**-** existent window number: Cannot locate for a **'DROP'** /**'GOTO'**.  
-Cannot exceed window number 248 in creating new window. 
+     Non**-** existent window number: Cannot locate for a **'DROP'** /**'GOTO'**.  
+     Cannot exceed window number 248 in creating new window. 
 
 ##  Error #58
 
@@ -469,29 +471,29 @@ An attempt was made to access or set an invalid property or apply an invalid val
 
 ##  Error #61
 
-**Authorization failure****  
+**Authorization failure****   
 **  
 **_Possible Reasons:_**   
   
-Cannot run an unauthorized program or system function. Contact your dealer to obtain the proper activation keys.   
-Password record may have failed the internal CRC check.  
-When using WindX, remote access ('WindX authorization') has been denied.
+     Cannot run an unauthorized program or system function. Contact your dealer to obtain the proper activation keys.   
+     Password record may have failed the internal CRC check.  
+     When using WindX, remote access ('WindX authorization') has been denied.
 
 ##  Error #62
 
-**Not a development system****  
+**Not a development system****   
 **  
 Cannot create (or change access to) a secured program. Only developers can perform this task. 
 
 ##  Error #63
 
-**Not activated for this software package****  
+**Not activated for this software package****   
 **  
 Cannot save a program using a package ID without an activation key. 
 
 ##  Error #64
 
-**No valid LEX table loaded****  
+**No valid LEX table loaded****   
 **  
 The system is unable to locate or read the file containing the LEX (syntax) table (*lextbl.en). 
 
@@ -575,12 +577,12 @@ On an **[EDIT](../directives/edit.md)** directive: Resultant string does not con
 
 ##  Error #78
 
-**Invalid MSK specification****  
+**Invalid MSK specification****   
 **  
 **_Possible Reasons:_**   
   
-The mask specified in the **[MSK( )](../functions/msk.md)** function is invalid.   
-Cannot reuse as current mask if no previous mask already available. 
+     The mask specified in the **[MSK( )](../functions/msk.md)** function is invalid.   
+     Cannot reuse as current mask if no previous mask already available. 
 
 ##  Error #79
 
@@ -590,12 +592,12 @@ The IOList contains an invalid format specification.
 
 ##  Error #80
 
-**Invalid key definition, number or name****  
+**Invalid key definition, number or name****   
 **  
 **_Possible Reasons:_**   
   
-Invalid key definition on a **[KEYED](../directives/keyed.md)** directive.  
-Invalid key number referenced.
+     Invalid key definition on a **[KEYED](../directives/keyed.md)** directive.  
+     Invalid key number referenced.
 
 ##  Error #81
 
@@ -724,7 +726,7 @@ This error may also result because the system cannot find the PxPlus library.
 Reserved for future use.
 
 #### **Note****:**  
-Errors **105** to __**118** signal a logical error in the format of the Keyed file being referenced.  
+Errors **105** to _ _**118** signal a logical error in the format of the Keyed file being referenced.  
   
 Try to recover the file, if possible, either by restoring it from a backup or by running the PxPlus Keyed/Direct file key reconstruction utility (*UFAR).
 
@@ -750,7 +752,7 @@ The logical address field within the key/data block (offset 2,4) does not match 
 
 **Keyed file error (Record length invalid****)**  
   
-A data record read from the file has an invalid record length field. The record length ** _must not_** exceed the maximum record length for the file. See **[Note](list_of_messages.htm#note)** above. 
+A data record read from the file has an invalid record length field. The record length **_must not_** exceed the maximum record length for the file. See **[Note](list_of_messages.htm#note)** above. 
 
 ##  Error #109
 
@@ -878,6 +880,10 @@ Any error message over 255 is a reported operating system error. PxPlus reports 
   
 Use the following requests to determine what these errors are:
 
-> **PRINT MSG(**_error#_**)__**_or****_**PRINT MSG(**_RET_**)**
+> **PRINT MSG(**_error#_**)_ _**_or** **_**PRINT MSG(**_RET_**)**
 
-****
+** **
+
+ 
+
+ 

@@ -9,7 +9,7 @@
 ---|---  
 2\. _By Message Key:_ |  **MSG( [ = ]**_msg_key_ _$_ ,[_param1, param2, ..._][,**ERR=**_stmtref_]**)**  
 3\. _Message Library Setting:_ |  **MSG(*)**  
-4\. _Get OS Error Message:_ |  **MSG( + [ :**_oserrcode_ **]** **)** (added in PxPlus v8.0)  
+4\. _Get OS Error Message:_ |  **MSG( + [ :**_oserrcode_  **]**  **)**    (added in PxPlus v8.0)  
   
 **_Where_**** _:_**
 
@@ -69,7 +69,7 @@ The following examples illustrate the different uses for the **MSG( )** function
 **_Example 3:_**
 
 > ! Returns the current message library name, if any is in effect  
->  print msg(*)
+>      print msg(*)
 
 **_Example 4:_**
 
@@ -78,3 +78,9 @@ Use this function to obtain the PxPlus error message associated with an error nu
 > ?msg(14)  
 >   
 >  Error #14: Invalid I/O request for file state
+> 
+>  
+> 
+>  
+> 
+>  
