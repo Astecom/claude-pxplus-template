@@ -5,6 +5,9 @@
 !   DIR      <folder of providex.ddf>       (first; the folder becomes CWDIR)
 !   DRYRUN   1                              (check every step, change nothing)
 !   CONFIRM  1                              (allowed to change a file with records)
+!   OUTPUT   <file>                         (first line, optional: the output goes
+!                                            into this file instead of the screen,
+!                                            which a windowed PxPlus does not pass on)
 !   PREFIX   <search paths>                 (optional: PREFIX, e.g. to find an
 !   PREFIXPROGRAM <search paths>             embedded IO program; PREFIX PROGRAM)
 !   SETUP    <program>                      (optional: CALLed first, e.g. globals)
@@ -17,10 +20,11 @@
 !   OK <step> <text> / FAIL <step> <text> (the run stops) / DONE
 !   TOUCH <step> <file> for each physical file a step changes (also in a dry
 !   run; the MCP server checks them against the folders it may change alone)
-!   and for reading TABLE, COLUMN, INDEX, IOLIST, FILE and RECORD lines.
+!   and for reading TABLE, COLUMN, INDEX, IOLIST, FILE, RECORD and CHECK lines.
 ! ============================================================================
 !
 SETERR ERRH
+oc=0
 MARK$="@@DICT@@",TB$=$09$,FS$=$01$
 scratch$="",ddir$="",dryrun=0,confirm=0,halted=0,stepno=0,db=0
 planned$=SEP,plannedpf$=SEP
@@ -36,13 +40,20 @@ IF rq$<>"" \
 THEN GOSUB HANDLE_LINE
 WEND
 CLOSE (1)
-IF halted=0 \
-THEN PRINT MARK$+TB$+"DONE"
+IF halted=0 THEN {
+ln$=MARK$+TB$+"DONE"
+GOSUB EMIT
+}
+IF oc \
+THEN CLOSE (oc)
 QUIT
 !
 ! Any error: report it with the step, stop
 ERRH:
-PRINT MARK$+TB$+"FAIL"+TB$+STR(stepno)+TB$+MSG(ERR)+" (dict.pxprg line "+STR(TCB(5))+")"
+ln$=MARK$+TB$+"FAIL"+TB$+STR(stepno)+TB$+MSG(ERR)+" (dict.pxprg line "+STR(TCB(5))+")"
+GOSUB EMIT
+IF oc \
+THEN CLOSE (oc,ERR=*NEXT)
 QUIT
 !
 ! --- One line of the request -------------------------------------------------
@@ -53,6 +64,10 @@ SWITCH op$
 CASE "dir"
 ddir$=tname$
 CWDIR ddir$
+BREAK
+CASE "output"
+OPEN (2,ISZ=-1)tname$
+oc=2
 BREAK
 CASE "dryrun"
 dryrun=(tname$="1")
@@ -113,12 +128,21 @@ THEN pv$=pv$(1,LEN(pv$)-1)
 RETURN
 !
 OK:
-PRINT MARK$+TB$+"OK"+TB$+STR(stepno)+TB$+TBL(dryrun,"","would: ")+note$
+ln$=MARK$+TB$+"OK"+TB$+STR(stepno)+TB$+TBL(dryrun,"","would: ")+note$
+GOSUB EMIT
 RETURN
 !
 FAIL:
-PRINT MARK$+TB$+"FAIL"+TB$+STR(stepno)+TB$+note$
+ln$=MARK$+TB$+"FAIL"+TB$+STR(stepno)+TB$+note$
+GOSUB EMIT
 halted=1
+RETURN
+!
+! One line out: into the OUTPUT file, or on the screen
+EMIT:
+IF oc \
+THEN WRITE RECORD (oc)ln$+$0A$ \
+ELSE PRINT ln$
 RETURN
 !
 ! An output line: no TAB or line break inside a field; the fields are built
@@ -155,6 +179,9 @@ GOSUB READ_EMBEDDED
 BREAK
 CASE "read_records"
 GOSUB READ_RECORDS
+BREAK
+CASE "check_tables"
+GOSUB CHECK_TABLES
 BREAK
 CASE "add_table"
 GOSUB ADD_TABLE
@@ -980,7 +1007,83 @@ tp$=tp$(1,POS(SEP=tp$+SEP)-1)
 }
 cv$=STR(stepno)+FS$+tp$
 GOSUB CLEAN
-PRINT MARK$+TB$+"TOUCH"+TB$+cv$
+ln$=MARK$+TB$+"TOUCH"+TB$+cv$
+GOSUB EMIT
+RETURN
+!
+! --- Checking ----------------------------------------------------------------
+! Every table: is its file there, does it open, does it match the dictionary
+! (fields and keys), has it a primary key. Read-only. One CHECK line per table:
+! name, file, records, and the findings separated by "; " (none: all well)
+CHECK_TABLES:
+tlist$=db'GetTableList$(SEP),nbad=0,ntab=0
+WHILE tlist$<>""
+tname$=tlist$(1,POS(SEP=tlist$+SEP)-1),tlist$=tlist$(POS(SEP=tlist$+SEP)+1)
+IF tname$<>"" THEN {
+ntab++
+GOSUB CHECK_TABLE
+IF found$<>"" \
+THEN nbad++
+cv$=tname$+FS$+TBL(full$="",full$,pf$)+FS$+STR(records)+FS$+found$
+GOSUB CLEAN
+ln$=MARK$+TB$+"CHECK"+TB$+cv$
+GOSUB EMIT
+}
+WEND
+note$="checked "+STR(ntab)+" table(s), "+STR(nbad)+" with findings"
+GOSUB OK
+RETURN
+!
+CHECK_TABLE:
+found$=""
+GOSUB FILE_STATE
+IF db'GetIndexCount(tname$)=0 \
+THEN found$=found$+"; no index (no primary key)"
+IF STP(pf$)="" THEN {
+found$=found$+"; no physical file set"
+} ELSE {
+IF NOT(exists) \
+THEN found$=found$+"; file missing"
+IF openerr$<>"" \
+THEN found$=found$+"; does not open: "+openerr$
+IF exists AND openerr$="" THEN {
+GOSUB LOST_FIELDS
+IF lost$<>"" \
+THEN found$=found$+"; in the file, not in the dictionary: "+lost$
+! And the other way round: in the dictionary, not (yet) in the file
+missing$=""
+fl$=","+UCS(SUB(fiol$,"IOLIST ",""))+","
+rest$=UCS(SUB(db'GetIOList$(tname$),"IOLIST ",""))+","
+WHILE rest$<>"" AND rest$<>","
+fld$=rest$(1,POS(","=rest$)-1),rest$=rest$(POS(","=rest$)+1)
+IF fld$<>"" AND POS(","+fld$+","=fl$)=0 \
+THEN missing$=missing$+TBL(missing$="",",","")+fld$
+WEND
+IF missing$<>"" \
+THEN found$=found$+"; in the dictionary, not in the file: "+missing$+" (adjust_file)"
+GOSUB KEYS_DIFFER
+IF keysdiff$<>"" \
+THEN found$=found$+"; keys differ: "+keysdiff$
+}
+}
+IF found$<>"" \
+THEN found$=found$(3)
+RETURN
+!
+! The key names of the file against the index names of the dictionary
+KEYS_DIFFER:
+keysdiff$="",fkeys$=""
+OPEN INPUT (9,ERR=*NEXT)pf$
+fkeys$=FIN(9,"KEY_NAMES",ERR=*NEXT)
+CLOSE (9,ERR=*NEXT)
+fkeys$=UCS(SUB(fkeys$,SEP,","))
+dkeys$=UCS(SUB(db'GetIndexList$(tname$,","),SEP,","))
+IF fkeys$<>"" AND fkeys$(LEN(fkeys$),1)<>"," \
+THEN fkeys$=fkeys$+","
+IF dkeys$<>"" AND dkeys$(LEN(dkeys$),1)<>"," \
+THEN dkeys$=dkeys$+","
+IF fkeys$<>dkeys$ \
+THEN keysdiff$="file "+TBL(fkeys$="",fkeys$,"(none)")+" / dictionary "+TBL(dkeys$="",dkeys$,"(none)")
 RETURN
 !
 ! --- Reading -----------------------------------------------------------------
@@ -993,7 +1096,8 @@ GOSUB FILE_STATE
 ti=db'GetTableInfo(tname$)
 cv$=tname$+FS$+ti'Group$+FS$+ti'Description$+FS$+pf$+FS$+ti'IOProgram$+FS$+STR(exists)+FS$+STR(records)+FS$+openerr$+FS$+full$
 GOSUB CLEAN
-PRINT MARK$+TB$+"TABLE"+TB$+cv$
+ln$=MARK$+TB$+"TABLE"+TB$+cv$
+GOSUB EMIT
 }
 WEND
 note$="read tables"
@@ -1008,13 +1112,15 @@ GOSUB FILE_STATE
 ti=db'GetTableInfo(tname$)
 cv$=ti'Name$+FS$+ti'Group$+FS$+ti'Description$+FS$+pf$+FS$+ti'IOProgram$+FS$+STR(exists)+FS$+STR(records)+FS$+openerr$+FS$+full$
 GOSUB CLEAN
-PRINT MARK$+TB$+"TABLE"+TB$+cv$
+ln$=MARK$+TB$+"TABLE"+TB$+cv$
+GOSUB EMIT
 src=db,emb=0
 GOSUB EMIT_COLUMNS
 GOSUB EMIT_INDEXES
 cv$=db'GetIOList$(tname$)
 GOSUB CLEAN
-PRINT MARK$+TB$+"IOLIST"+TB$+cv$
+ln$=MARK$+TB$+"IOLIST"+TB$+cv$
+GOSUB EMIT
 IF exists AND openerr$="" THEN {
 fiol$="",keys$=""
 OPEN INPUT (9,IOL=*,ERR=*NEXT)pf$
@@ -1026,7 +1132,8 @@ keys$=FIN(9,"KEY_NAMES",ERR=*NEXT)
 CLOSE (9,ERR=*NEXT)
 cv$=fiol$+FS$+SUB(keys$,SEP,",")
 GOSUB CLEAN
-PRINT MARK$+TB$+"FILE"+TB$+cv$
+ln$=MARK$+TB$+"FILE"+TB$+cv$
+GOSUB EMIT
 }
 note$="read table "+tname$
 GOSUB OK
@@ -1049,12 +1156,14 @@ pf$=tname$
 GOSUB OPEN_STATE
 cv$=pf$+FS$+FS$+FS$+pf$+FS$+FS$+STR(exists)+FS$+STR(records)+FS$+openerr$+FS$+full$
 GOSUB CLEAN
-PRINT MARK$+TB$+"TABLE"+TB$+cv$
+ln$=MARK$+TB$+"TABLE"+TB$+cv$
+GOSUB EMIT
 GOSUB EMIT_COLUMNS
 GOSUB EMIT_INDEXES
 cv$=src'GetIOList$(emb)
 GOSUB CLEAN
-PRINT MARK$+TB$+"IOLIST"+TB$+cv$
+ln$=MARK$+TB$+"IOLIST"+TB$+cv$
+GOSUB EMIT
 note$="read embedded definition of "+tname$
 GOSUB OK
 RETURN
@@ -1071,7 +1180,8 @@ ELSE c=src'GetColumnInfo(tname$,ci)
 cv$=STR(ci)+FS$+c'Name$+FS$+c'Variable$+FS$+c'Type$+FS$+STR(c'Length)+FS$+STR(c'Scale)+FS$+c'Description$
 cv$=cv$+FS$+c'InternalFormat$+FS$+c'ExternalFormat$+FS$+c'Class$+FS$+STR(c'IsRequired)+FS$+STR(c'IsUppercase)+FS$+c'DefaultValue$
 GOSUB CLEAN
-PRINT MARK$+TB$+"COLUMN"+TB$+cv$
+ln$=MARK$+TB$+"COLUMN"+TB$+cv$
+GOSUB EMIT
 NEXT
 RETURN
 !
@@ -1090,7 +1200,8 @@ segs$=segs$+FS$+i'ColumnName$+":"+i'ColumnAttr$
 NEXT
 cv$=STR(xi)+FS$+i'Name$+FS$+STR(i'IsUnique)+segs$
 GOSUB CLEAN
-PRINT MARK$+TB$+"INDEX"+TB$+cv$
+ln$=MARK$+TB$+"INDEX"+TB$+cv$
+GOSUB EMIT
 NEXT
 RETURN
 !
@@ -1130,7 +1241,8 @@ CATCH
 END_TRY
 cv$=fiol$
 GOSUB CLEAN
-PRINT MARK$+TB$+"IOLIST"+TB$+cv$
+ln$=MARK$+TB$+"IOLIST"+TB$+cv$
+GOSUB EMIT
 ! Position on the first key >= start; then read on
 r$="",got=0
 READ RECORD (9,KNO=kno,KEY=start$,DOM=*NEXT)r$; got=1
@@ -1149,7 +1261,8 @@ GOSUB CLEAN
 rk$=cv$
 cv$=SUB(r$,TB$," ")
 cv$=SUB(SUB(cv$,$0A$," "),$0D$," ")
-PRINT MARK$+TB$+"RECORD"+TB$+rk$+TB$+SUB(cv$,SEP,TB$)
+ln$=MARK$+TB$+"RECORD"+TB$+rk$+TB$+SUB(cv$,SEP,TB$)
+GOSUB EMIT
 }
 WEND
 nextkey$=""

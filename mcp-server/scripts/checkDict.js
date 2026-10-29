@@ -13,7 +13,7 @@ import { mkdtempSync, mkdirSync, rmSync, writeFileSync, existsSync, readFileSync
 import { tmpdir } from 'os';
 import { join } from 'path';
 import { config } from '../dist/utils/config.js';
-import { dictReadTool, dictEmbeddedTool, dictApplyTool, readRecordsTool } from '../dist/tools/dictTools.js';
+import { dictReadTool, dictCheckTool, dictEmbeddedTool, dictApplyTool, readRecordsTool } from '../dist/tools/dictTools.js';
 
 if (!config.pxplusExecutablePath) {
   console.log('PxPlus is not configured (PXPLUS_EXECUTABLE_PATH); dictionary checks skipped');
@@ -142,6 +142,16 @@ try {
   check(/#121/.test(noPrefix?.openError || ''), `without prefixProgram its file gives the error back (${noPrefix?.openError})`);
   const withPrefix = (await dictReadTool.handler({ dir, prefixProgram: io + '/' })).data?.tables?.find(t => t.name === 'Log');
   check(withPrefix?.records === 0 && !withPrefix.openError, 'with prefixProgram it opens');
+
+  // The health check: a column only in the dictionary, a file that does not open
+  await apply([{ op: 'add_column', table: 'Klant', column: { name: 'Extra', type: 'S', length: 3 } }]);
+  const health = (await dictCheckTool.handler({ dir })).data || {};
+  const klantCheck = health.results?.find(t => t.name === 'Klant');
+  const logCheck = health.results?.find(t => t.name === 'Log');
+  check(klantCheck?.findings.some(f => /not in the file: EXTRA\$/.test(f)) && logCheck?.findings.some(f => /#121/.test(f)) && health.withFindings === 2,
+    `dict_check finds a column not yet in the file and a file that does not open (${JSON.stringify(health.results?.map(t => [t.name, t.findings]))})`);
+  const healthy = (await dictCheckTool.handler({ dir, prefixProgram: io + '/' })).data?.results?.find(t => t.name === 'Log');
+  check(healthy && healthy.findings.length === 0 && healthy.records === 0, `with prefixProgram the Log table is healthy (${JSON.stringify(healthy?.findings)})`);
 
   const removed = await apply([
     { op: 'delete_file', table: 'Klant' },

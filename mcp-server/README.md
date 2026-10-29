@@ -55,9 +55,10 @@ You should see `pxplus` in the list.
 
 ## Data dictionary and data files
 
-Through the PxPlus `*dict` objects, as Data Dictionary Maintenance does (the PxPlus side is `pxplus/dict.pxprg`). Requires `PXPLUS_EXECUTABLE_PATH`.
+Through the PxPlus `*dict` objects, as Data Dictionary Maintenance does (the PxPlus side is `pxplus/dict.pxprg`, which writes its answer into a file, so a windowed PxPlus works too). Requires `PXPLUS_EXECUTABLE_PATH`.
 
 - `pxplus_dict_read`: the tables of a `providex.ddf` folder (group, physical file, embedded IO program, records), or one table: columns, indexes, IOList and whether its file matches the dictionary.
+- `pxplus_dict_check`: every table at once: file missing, does not open (an embedded IO program not found: Error #121), fields or keys that differ from the dictionary, no primary key. Read-only.
 - `pxplus_dict_embedded`: the definition inside a data file itself.
 - `pxplus_read_records`: records of a table or a file, read-only (`OPEN INPUT`), from a key, on a key number, in parts (`nextKey`).
 - `pxplus_dict_apply` (off by default, see below): a list of operations: create a dictionary, add/update/rename/drop tables, columns and indexes, and create, convert (`adjust_file`), re-describe (`load_definition`) or delete the physical file. `dryRun` checks without changing anything.

@@ -144,6 +144,39 @@ export const dictReadTool: ToolHandler = {
   }
 };
 
+export const dictCheckTool: ToolHandler = {
+  name: 'pxplus_dict_check',
+  description: 'Check every table of a PxPlus data dictionary: is its physical file there, does it open (an embedded IO program not found gives Error #121), do its fields and keys match the dictionary, has it a primary key. Read-only. Returns the tables with findings first; give prefixProgram or setup for files with an embedded IO program.',
+  inputSchema: {
+    type: 'object',
+    properties: {
+      dir: { type: 'string', description: 'Folder of providex.ddf' },
+      ...ENVIRONMENT
+    },
+    required: ['dir']
+  },
+  handler: async (args: { dir: string } & Environment): Promise<ToolResponse> => {
+    try {
+      const configError = notConfigured();
+      if (configError) return configError;
+      const result = await runDict([{ op: 'check_tables' }], { dir: args.dir, ...environmentOf(args) });
+      const failed = failure(result);
+      if (failed) return failed;
+      const tables = result.lines.filter(l => l[0] === 'CHECK').map(([, name, file, records, found]) => ({
+        name, file, records: records === '-1' ? undefined : Number(records),
+        findings: (found || '').split('; ').filter(Boolean)
+      }));
+      tables.sort((a, b) => Number(b.findings.length > 0) - Number(a.findings.length > 0));
+      return {
+        success: true,
+        data: { dir: args.dir, tables: tables.length, withFindings: tables.filter(t => t.findings.length).length, results: tables }
+      };
+    } catch (error) {
+      return { success: false, error: error instanceof Error ? error.message : 'Unknown error while checking the dictionary' };
+    }
+  }
+};
+
 export const dictEmbeddedTool: ToolHandler = {
   name: 'pxplus_dict_embedded',
   description: 'Read the definition embedded in a PxPlus data file itself (columns, indexes, IOList), without a providex.ddf. Read-only. Needs prefixProgram or setup when the file has an embedded IO program.',
