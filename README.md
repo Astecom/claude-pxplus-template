@@ -7,7 +7,7 @@ Collection of assets that bring PxPlus expertise into Claude Code. The repositor
 - An MCP server written in Node.js that exposes PxPlus-aware capabilities to Claude Code:
   - documentation: `pxplus_search_docs`, `pxplus_get_doc`, `pxplus_list_docs`, `pxplus_control_properties` (with version check), `pxplus_error`
   - code: `pxplus_syntax_check`, `pxplus_compile`, `pxplus_lst`, `pxplus_get_executable_path`
-  - data dictionary and data files: `pxplus_dict_read`, `pxplus_dict_embedded`, `pxplus_read_records`, `pxplus_dict_apply` (only with `--enable-dict-apply`)
+  - data dictionary and data files: `pxplus_dict_read`, `pxplus_dict_check`, `pxplus_dict_embedded`, `pxplus_read_records`, `pxplus_dict_apply` (only with `--enable-dict-apply`; asks the person before it changes anything)
 
   See [mcp-server/README.md](mcp-server/README.md) for each tool.
 - Project documentation (`instructions-and-rules.md`, `CLAUDE.md`) that stays up to date with each release

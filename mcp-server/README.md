@@ -55,20 +55,23 @@ You should see `pxplus` in the list.
 
 ## Data dictionary and data files
 
-Through the PxPlus `*dict` objects, as Data Dictionary Maintenance does (the PxPlus side is `pxplus/dict.pxprg`). Requires `PXPLUS_EXECUTABLE_PATH`.
+Through the PxPlus `*dict` objects, as Data Dictionary Maintenance does (the PxPlus side is `pxplus/dict.pxprg`, which writes its answer into a file, so a windowed PxPlus works too). Requires `PXPLUS_EXECUTABLE_PATH`.
 
 - `pxplus_dict_read`: the tables of a `providex.ddf` folder (group, physical file, embedded IO program, records), or one table: columns, indexes, IOList and whether its file matches the dictionary.
+- `pxplus_dict_check`: every table at once: file missing, does not open (an embedded IO program not found: Error #121), fields or keys that differ from the dictionary, no primary key. Read-only.
 - `pxplus_dict_embedded`: the definition inside a data file itself.
 - `pxplus_read_records`: records of a table or a file, read-only (`OPEN INPUT`), from a key, on a key number, in parts (`nextKey`).
 - `pxplus_dict_apply` (off by default, see below): a list of operations: create a dictionary, add/update/rename/drop tables, columns and indexes, and create, convert (`adjust_file`), re-describe (`load_definition`) or delete the physical file. `dryRun` checks without changing anything.
 
 Safety, because these are data files:
 
-- a file with records is changed or deleted only with `confirm: true`;
+- `pxplus_dict_apply` first checks the whole plan (as `dryRun` does) and then asks the person in Claude Code to agree, in a form (MCP elicitation) that lists every step and the records involved. Only after "yes" does anything change. The model cannot agree for the person;
+- without a person (an automatic process, `claude -p`: the client cancels the question) it changes only dictionaries in the folders that whoever starts the server allowed in `PXPLUS_DICT_AUTO` (separated like `PATH`: `:` on macOS/Linux, `;` on Windows), and only when every physical file it changes is in that folder too. A relative physical file with `prefix`, `prefixProgram` or `setup` counts as outside, because PREFIX decides where it is;
+- `PXPLUS_DICT_LOG`: a file that gets one line per change: what, where and who agreed (the person, or the allowed folder);
 - `adjust_file` takes the fields over by name, so a dropped or renamed column loses its data; with records it refuses unless `allowDataLoss: true`. A rename goes with `load_definition`, which keeps the records as they are;
 - a file with an embedded IO program (for example a change logger) only opens when that program is found: give `prefixProgram` (or `prefix`, or a `setup` program that is CALLed first). Without it the tools give the error back (Error #121). With `prefix`, relative file names are found and created through it, as in the application.
 
-`pxplus_dict_apply` is offered only when the server starts with `--enable-dict-apply`, because it changes data files: turn it on where a person works with Claude Code, leave it off for agents that run without one (the pipeline), which then only read:
+`pxplus_dict_apply` is offered only when the server starts with `--enable-dict-apply`; the installers register the server with it:
 
 ```bash
 claude mcp add --transport stdio pxplus -- node /absolute/path/to/mcp-server/dist/index.js --enable-dict-apply

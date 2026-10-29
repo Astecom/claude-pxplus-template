@@ -1,5 +1,5 @@
 import { execFile } from 'child_process';
-import { mkdtemp, rm, writeFile } from 'fs/promises';
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'fs/promises';
 import { tmpdir } from 'os';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -75,6 +75,16 @@ export async function runDict(steps: DictStep[], options: DictOptions): Promise<
 
   const work = await mkdtemp(join(tmpdir(), 'pxplus-dict-'));
   try {
+    if (options.dryRun) {
+      // create_dictionary in a dry run: the next steps are checked against an empty dictionary here
+      const scratch = join(work, 'scratch');
+      await mkdir(scratch);
+      lines.splice(1, 0, ['SCRATCH', field(scratch)].join('\t'));
+    }
+    // The helper writes its lines into a file: a windowed PxPlus (Windows) does not pass PRINT on to stdout
+    const output = join(work, 'output.txt');
+    await writeFile(output, '');
+    lines.unshift(['OUTPUT', field(output)].join('\t'));
     const request = join(work, 'request.txt');
     await writeFile(request, lines.join('\n') + '\n', 'latin1');
     const timeout = Math.min(Math.max(1, options.timeoutSeconds || DEFAULT_DICT_TIMEOUT), MAX_DICT_TIMEOUT) * 1000;
@@ -86,13 +96,14 @@ export async function runDict(steps: DictStep[], options: DictOptions): Promise<
           else resolve(out);
         });
     });
-    return parse(stdout.toString(options.encoding || 'latin1'));
+    const written = await readFile(output);
+    return parse((written.length ? written : stdout).toString(options.encoding || 'latin1'), stdout.toString(options.encoding || 'latin1'));
   } finally {
     await rm(work, { recursive: true, force: true });
   }
 }
 
-function parse(text: string): DictResult {
+function parse(text: string, screen = ''): DictResult {
   const clean = stripAnsi(text).replace(/\x1b\[[!?0-9;]*[a-zA-Z]/g, '').replace(/\x1b[()][A-Z0-9]/g, '').replace(/\x1b[=>]/g, '');
   const result: DictResult = { steps: [], lines: [], done: false };
   const other: string[] = [];
@@ -111,8 +122,12 @@ function parse(text: string): DictResult {
       result.lines.push(parts);
     }
   }
+  // What PxPlus put on the screen itself (an error outside the helper's handler) helps when it did not finish
+  for (const raw of stripAnsi(screen).split(/\r?\n/)) {
+    if (raw.trim() && !raw.includes(MARK)) other.push(raw.replace(/\x1b[\[()=>][!?0-9;A-Za-z]*/g, '').trim());
+  }
   if (!result.done && other.length) {
-    result.output = other.slice(-20).join('\n');
+    result.output = other.filter(Boolean).slice(-20).join('\n');
   }
   return result;
 }
