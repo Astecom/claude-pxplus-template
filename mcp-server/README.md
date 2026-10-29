@@ -43,6 +43,12 @@ claude mcp list
 
 You should see `pxplus` in the list.
 
+## Reading the documentation
+
+- `pxplus_search_docs` finds pages by keywords or by name and gives snippets (or a cut-off part of the page).
+- `pxplus_get_doc` reads one page in full: by path (`directives/multi_line.md`), link (`../control_object_properties/multiline_properties.md`), file name (`multi_line`) or name (`MULTI_LINE`). Optionally one section (`"section": "OPT= Settings"`); a long page comes in parts (`nextOffset`). It lists the page's sections and the pages it links to.
+- `pxplus_list_docs` lists the pages in a folder (`control_object_properties/`) or with a word in their path or title; without a filter, the folders.
+
 ## pxplus_run (off by default)
 
 `pxplus_run` runs a PxPlus program locked in the macOS sandbox and reports its output, or the error number, line and message. It is meant for bots that can't start PxPlus themselves (a BotOffice local app), so the server offers it only when started with `--enable-pxplus-run`:

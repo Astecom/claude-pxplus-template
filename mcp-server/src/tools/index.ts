@@ -5,6 +5,7 @@ import { searchDocsTool } from './searchDocs.js';
 import { compileTool } from './compileTool.js';
 import { getExecutablePathTool } from './getExecutablePath.js';
 import { runTool } from './runTool.js';
+import { getDocTool, listDocsTool } from './getDoc.js';
 
 /**
  * pxplus_run is off by default: it is meant for bots that can't start PxPlus themselves (a BotOffice local app
@@ -20,6 +21,8 @@ export const tools: ToolHandler[] = [
   testTool,
   syntaxCheckTool,
   searchDocsTool,
+  getDocTool,
+  listDocsTool,
   compileTool,
   getExecutablePathTool,
   ...(process.argv.includes(RUN_FLAG) ? [runTool] : []),

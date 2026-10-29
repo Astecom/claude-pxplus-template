@@ -28,7 +28,7 @@ const GENERIC_NAMES = /^(overview|introduction|index|appendix)$/i;
 /**
  * A documentation page, prepared for ranking
  */
-interface Page {
+export interface Page {
   doc: any;
   title: string;              // "DTE( ) - Convert Date (System Functions)"
   names: Set<string>;         // the page's own name and file name, normalized: "dte"
@@ -93,7 +93,7 @@ function preparePage(doc: any): Page {
 /**
  * Load the documentation pages (lazy loading)
  */
-function loadSearchIndex(): { success: boolean; error?: string } {
+export function loadSearchIndex(): { success: boolean; error?: string } {
   if (pages) {
     return { success: true }; // Already loaded
   }
@@ -129,6 +129,13 @@ function loadSearchIndex(): { success: boolean; error?: string } {
       error: `Failed to load search index: ${error instanceof Error ? error.message : 'Unknown error'}`
     };
   }
+}
+
+/**
+ * All documentation pages (after loadSearchIndex)
+ */
+export function allPages(): Page[] {
+  return pages || [];
 }
 
 /**
@@ -247,7 +254,7 @@ function excerpt(content: string, terms: string[], maxLength: number): string {
  */
 export const searchDocsTool: ToolHandler = {
   name: 'pxplus_search_docs',
-  description: 'Search through PxPlus documentation using keywords or phrases. Returns relevant documentation pages with content snippets. Useful for finding information about PxPlus functions, directives, syntax, and features. A function, directive or parameter by its name ("DTE", "SETERR", "\'XT\' parameter") comes first.',
+  description: 'Search through PxPlus documentation using keywords or phrases. Returns relevant documentation pages with content snippets. Useful for finding information about PxPlus functions, directives, syntax, and features. A function, directive or parameter by its name ("DTE", "SETERR", "\'XT\' parameter") comes first. To read a whole page (long pages are cut off here), pass its path to pxplus_get_doc.',
   inputSchema: {
     type: 'object',
     properties: {
