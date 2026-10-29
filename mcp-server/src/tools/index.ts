@@ -18,6 +18,13 @@ import { dictReadTool, dictEmbeddedTool, dictApplyTool, readRecordsTool } from '
 export const RUN_FLAG = '--enable-pxplus-run';
 
 /**
+ * pxplus_dict_apply changes data dictionaries and data files, so it is off by default too: a person who works with
+ * Claude Code turns it on (and is asked before a file with records changes); agents without a person (the pipeline)
+ * only read.
+ */
+export const DICT_APPLY_FLAG = '--enable-dict-apply';
+
+/**
  * Tool Registry
  * Add new tools to this array to register them with the MCP server
  */
@@ -31,7 +38,7 @@ export const tools: ToolHandler[] = [
   errorTool,
   dictReadTool,
   dictEmbeddedTool,
-  dictApplyTool,
+  ...(process.argv.includes(DICT_APPLY_FLAG) ? [dictApplyTool] : []),
   readRecordsTool,
   compileTool,
   lstTool,

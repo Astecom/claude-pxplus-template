@@ -468,8 +468,9 @@ try {
 
 # Quote the path properly for Claude CLI
 $quotedPath = "`"$McpServerEntry`""
-$registerCommandForDisplay = "claude mcp add --transport stdio pxplus -- node $quotedPath"
-$registerArgs = @("mcp", "add", "--transport", "stdio", "pxplus", "--", "node", $McpServerEntry)
+# A person works here, so pxplus_dict_apply (changing data dictionaries and files) is on
+$registerCommandForDisplay = "claude mcp add --transport stdio pxplus -- node $quotedPath --enable-dict-apply"
+$registerArgs = @("mcp", "add", "--transport", "stdio", "pxplus", "--", "node", $McpServerEntry, "--enable-dict-apply")
 $registerOutput = $null
 try {
     $registerOutput = & $ClaudeCliPath @registerArgs 2>&1
