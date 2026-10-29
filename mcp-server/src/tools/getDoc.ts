@@ -1,6 +1,7 @@
 import { ToolHandler, ToolResponse } from '../types.js';
 import path from 'path';
 import { Page, loadSearchIndex, allPages, rankPages } from './searchDocs.js';
+import { versionNotes } from '../utils/versions.js';
 
 /**
  * A page path as the index has it: "../directives/multi_line.md", "directives/multi_line.htm#Mark4" and
@@ -55,8 +56,12 @@ function titleKey(text: string): string {
  * bold line)
  */
 function sectionOf(content: string, wanted: string): { start: number; end: number; title: string } | null {
+  // The title itself first ("Error #2" is not "Error #20"), otherwise the first title that contains it
+  return sectionMatching(content, key => key === titleKey(wanted)) || sectionMatching(content, key => key.includes(titleKey(wanted)));
+}
+
+function sectionMatching(content: string, matches: (key: string) => boolean): { start: number; end: number; title: string } | null {
   const lines = content.split('\n');
-  const want = titleKey(wanted);
   const levelOf = (line: string) => {
     const heading = line.match(/^(#{1,6})\s/);
     if (heading) return heading[1].length;
@@ -71,14 +76,14 @@ function sectionOf(content: string, wanted: string): { start: number; end: numbe
     if (start >= 0 && lineLevel > 0 && lineLevel <= level) {
       return { start, end: offset, title };
     }
-    if (start < 0 && lineLevel > 0 && titleKey(titleOf(line)).includes(want)) {
+    if (start < 0 && lineLevel > 0 && matches(titleKey(titleOf(line)))) {
       start = offset;
       level = lineLevel;
       title = titleOf(line);
     }
     offset += line.length + 1;
   }
-  return start >= 0 && want ? { start, end: content.length, title } : null;
+  return start >= 0 ? { start, end: content.length, title } : null;
 }
 
 /**
@@ -108,7 +113,7 @@ function linksOf(page: Page): string[] {
  */
 export const getDocTool: ToolHandler = {
   name: 'pxplus_get_doc',
-  description: 'Read one PxPlus documentation page in full, without the cut-off of pxplus_search_docs. Give the path from a search result ("directives/multi_line.md"), a link from another page ("../control_object_properties/multiline_properties.md"), a file name ("multi_line") or a name ("MULTI_LINE"). Optionally only one section ("Format 5", "OPT= Settings"). A long page comes in parts: call again with nextOffset. The result lists the sections and the pages it links to.',
+  description: 'Read one PxPlus documentation page in full, without the cut-off of pxplus_search_docs. Give the path from a search result ("directives/multi_line.md"), a link from another page ("../control_object_properties/multiline_properties.md"), a file name ("multi_line") or a name ("MULTI_LINE"). Optionally only one section ("Format 5", "OPT= Settings"). A long page comes in parts: call again with nextOffset. The result lists the sections, the pages it links to and the version notes ("added in PxPlus 2020").',
   inputSchema: {
     type: 'object',
     properties: {
@@ -149,6 +154,9 @@ export const getDocTool: ToolHandler = {
 
       let content: string = page.doc.content;
       let sectionTitle: string | undefined;
+      if (section !== undefined && !section.replace(/[^a-z0-9=$]/gi, '')) {
+        return { success: false, error: 'Section is empty', data: { sections: sectionsOf(content) } };
+      }
       if (section) {
         const part = sectionOf(content, section);
         if (!part) {
@@ -183,7 +191,9 @@ export const getDocTool: ToolHandler = {
           content: content.substring(start, end),
           // Only with the first part, to keep the next parts small
           sections: start === 0 && !section ? sectionsOf(page.doc.content) : undefined,
-          links: start === 0 ? linksOf(page) : undefined
+          links: start === 0 ? linksOf(page) : undefined,
+          // "(... added in PxPlus 2020.)": which version brought what
+          versionNotes: start === 0 ? versionNotes(content).map(note => note.text) : undefined
         }
       };
     } catch (error) {

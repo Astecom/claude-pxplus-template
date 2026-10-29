@@ -9,6 +9,8 @@
 
 import { searchDocsTool } from '../dist/tools/searchDocs.js';
 import { getDocTool, listDocsTool } from '../dist/tools/getDoc.js';
+import { controlPropertiesTool } from '../dist/tools/controlProperties.js';
+import { errorTool } from '../dist/tools/errorTool.js';
 
 const EXPECTED = [
   ['DTE', 'functions/dte.md'],
@@ -82,6 +84,27 @@ check((await getDocTool.handler({ path: 'no_such_page_xyz' })).success === false
 const listed = (await listDocsTool.handler({ filter: 'control_object_properties/' })).data || {};
 check(listed.pages?.some(p => p.path === 'control_object_properties/multiline_properties.md'),
   'list_docs lists a folder');
+
+check((await pageOf({ path: 'properties/cellisnumeric.md' })).versionNotes?.some(n => n.includes('2020')),
+  'get_doc gives the version notes of a page');
+check((await pageOf({ path: 'appendix/list_of_messages.md', section: 'Error #2' })).content?.startsWith('##  Error #2\n'),
+  'get_doc prefers the exact section title ("Error #2" is not "Error #20")');
+
+// pxplus_control_properties: the property table of a control, with versions
+const grid = (await controlPropertiesTool.handler({ control: 'GRID', filter: 'CellIsNumeric', version: '22.00' })).data || {};
+const numeric = grid.properties?.find(p => p.name === 'CellIsNumeric');
+check(numeric?.since === '2020' && numeric?.available === 'yes', 'control_properties: CellIsNumeric came in 2020, so 22.00 has it');
+const old = (await controlPropertiesTool.handler({ control: 'grid', filter: 'CellIsNumeric', version: '2019' })).data || {};
+check(old.properties?.[0]?.available === 'no', 'control_properties: 2019 does not have CellIsNumeric yet');
+const ml = (await controlPropertiesTool.handler({ control: 'Multi-Line' })).data || {};
+check(ml.count > 50 && ml.properties.some(p => p.name === 'BackColor$ / BackColour$'),
+  `control_properties: all properties of MULTI_LINE, with both spellings (${ml.count})`);
+check((await controlPropertiesTool.handler({ control: 'no_such_control' })).success === false, 'control_properties reports an unknown control');
+
+// pxplus_error: message and reasons of an error number
+const e20 = (await errorTool.handler({ number: 20 })).data || {};
+check(e20.message === 'Syntax error' && !e20.content.includes('Error #21'), `error 20 is "${e20.message}", without the next error`);
+check((await errorTool.handler({ number: 258 })).data?.message?.includes('Operating system error 2'), 'error above 255 is an OS error');
 
 console.log(failed ? `\n${failed} check(s) failed` : '\nAll checks passed');
 process.exit(failed ? 1 : 0);
