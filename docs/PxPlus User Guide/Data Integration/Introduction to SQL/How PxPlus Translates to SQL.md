@@ -1,6 +1,6 @@
 # Introduction to SQL
 
-**How PxPlus Translates to SQL** |  **__**  
+**How PxPlus Translates to SQL** |  **_ _**  
 ---|---  
   
 When a PxPlus application accesses an external database and table, file I/O directives and functions are mapped automatically to the equivalent SQL statements described previously. This process is described below.
@@ -9,13 +9,13 @@ For information on supported interfaces, see **[External Databases](../External%
 
 For information on the PxPlus input and output operations, see **[File Handling](../../File%20Handling/Introduction.md)**.
 
-To open an external database table for access from within PxPlus, the _filename_ must consist of a**[_tag_]** representing the supported interface, followed by the _database_ and _table_ name.
+To open an external database table for access from within PxPlus, the _filename_ must consist of a** [_tag_]** representing the supported interface, followed by the _database_ and _table_ name.
 
 **_Example:_**
 
 > OPEN (1) "[ODB]MYDB;CUSTOMER"
 
-The example above establishes a connection to the ODBC data source name (DSN) "MYDB" and table "Customer". Current database **[Interface Options](../External%20Databases/Selecting%20a%20Database%20Type.htm#options)** in PxPlus include: **[ODB]** ,**[OCI]** ,**[DB2]** and **[MYSQL]**. For the specific **_syntax_** for these interfaces, see **[[ODB]](../../../command_tags/odb.htm)**, **[[OCI]](../../../command_tags/oci.htm)**, **[[DB2]](../../../command_tags/db2.htm)** and **[[MYSQL]](../../../command_tags/mysql.htm)**.
+The example above establishes a connection to the ODBC data source name (DSN) "MYDB" and table "Customer". Current database **[Interface Options](../External%20Databases/Selecting%20a%20Database%20Type.htm#options)** in PxPlus include: **[ODB]** ,**[OCI]** ,**[DB2]** and **[MYSQL]**. For the specific **_syntax_** for these interfaces, see **[[ODB]](../../../command_tags/odb.md)**, **[[OCI]](../../../command_tags/oci.md)**, **[[DB2]](../../../command_tags/db2.md)** and **[[MYSQL]](../../../command_tags/mysql.md)**.
 
 Once the channel is defined as an external database file, PxPlus will automatically generate SQL statements in place of the input and output operations to that channel.
 
@@ -63,11 +63,11 @@ A subsequent**READ** translates to the following:
 
 Multiple**KEY=** clauses may be specified. The first**KEY=** clause defines the Primary key, which must be unique. All subsequent**KEY=** clauses define the alternate keys and can be referenced using the**KNO=** option in the**READ** and**WRITE** directives.
 
-The**KEY( )** ,**KEP( )** ,**KEL( )** ,**KEF( )** and**RNO( )** functions can be used against an external database, as well as the**RNO=** option.**KEN( )** does not return key information, but it does return information about the database. The**REFILE** directive is not supported.
+The**  KEY( )**,**KEP( )** ,**KEL( )** ,**KEF( )** and**RNO( )** functions can be used against an external database, as well as the**RNO=** option.**  KEN( )** does not return key information, but it does return information about the database. The**REFILE** directive is not supported.
 
 ## Building an IOList from an SQL Database
 
-If the**OPEN** directive includes the**IOL=*** option, then PxPlus automatically creates an**IOList** based on information in the external database.
+If the**OPEN** directive includes the**IOL=*** option, then PxPlus automatically creates an**  IOList** based on information in the external database.
 
 **_Example:_**
 
@@ -100,3 +100,9 @@ The**REC=** option consists of a series of column names separated by either _com
 In this example, REC=CST_ID,CST_NAME+CST_ADDR yields a record consisting of the contents of the CST_ID column, a field separator ($8A$), and the contents of CST_NAME padded to its maximum length, which is immediately followed by the contents of CST_ADDR.
 
 The record format specified is used as well to parse record data written to the file by PxPlus programs.
+
+ 
+
+ 
+
+ 

@@ -1,9 +1,11 @@
-# WindX™ Thin-Client  
-  
-**WindX Connection Manager** |   
+# WindX™ Thin-Client
+
+**WindX Connection Manager** |     
 ---|---  
   
 The WindX **Connection Manager** utility is designed to assist users that have multiple thin-client connections to multiple hosts. The **Connection Manager** provides users with the ability to define and save connection information in a control file that can later be recalled to simplify connection.
+
+     
 
 To invoke the **Connection Manager** , use one of the following methods:
 
@@ -16,12 +18,12 @@ From the PxPlus Command line or a program |  Run the "launcher" program found in
 #### **Note:**  
 The normal install for PxPlus and WindX creates a shortcut in the Start menu:  
   
-"<install dir>\pxplus.exe" launcher  
-_(starting directory is <install dir>\windx)_  
+     "<install dir>\pxplus.exe" launcher  
+     _(starting directory is <install dir>\windx)_  
   
 To force the **Connection Manager** to immediately connect to a specific server, specify the connection name in the Command Line as the first ARG to pass to PxPlus as follows (current directory is assumed to be the install directory):  
   
-"<install dir>\pxplus.exe" windx/launcher -arg "Connection"  
+     "<install dir>\pxplus.exe" windx/launcher -arg "Connection"  
   
 ## Connection Settings
 
@@ -60,20 +62,22 @@ _(The Make Link File button was added in PxPlus 2017.)_
 
 The PxPlus Simple Client Server, NThost and the Application Server allow additional connection parameters to be specified:
 
-|  **_Simple Client Server_** |  Name of program to run  
+  |  **_Simple Client Server_** |  Name of program to run  
 ---|---|---  
-|  **_NThost_** |  Name of program to run  
-|  **_Application Server_** |  Name of 'process' to run  
+  |  **_NThost_** |  Name of program to run  
+  |  **_Application Server_** |  Name of 'process' to run  
   
 #### **Note:**  
 The _Parameter(s)_ field is **_not_** used for Telnet connections.
 
 To run an SSH connection, four additional parameters can be specified, as shown in the example below:
 
+     
+
 The parameters for an SSH connection are:
 
 _User  
-Password_ |  **_(Required)_** User name and password.  
+Password_ |  The _User_ name and _Password_ are required if setting the _Term_ or _PxPlus Path_ fields; otherwise, _User_ and _Password_ are optional.  
 ---|---  
 _Term_ |  Enter a terminal type or click the drop-down arrow to select one from the list: _winterm_ , _xterm_ or _ansi_. _(The Term field was added in PxPlus 2025.)_  
 _PxPlus Path_ |  Enter the path to the directory where the PxPlus executable is located. _(The PxPlus Path field was added in PxPlus 2025.)_  
@@ -84,9 +88,9 @@ A Web shortcut can be provided for users who are connecting via Simple Client Se
 
 **_Example:_**
 
-|  **_For Simple Client Server_** |  windx://server:scs/4093/program  
+  |  **_For Simple Client Server_** |  windx://server:scs/4093/program  
 ---|---|---  
-|  **_For SSH_** |  windx://192.168.1.117:ssh/  
+  |  **_For SSH_** |  windx://192.168.1.117:ssh/  
   
 Windows shortcuts _(.url_ files) can be created, which users can put on the desktop.
 
@@ -98,3 +102,9 @@ The registry entries are created automatically when a user installs WindX; there
 ## See Also
 
 **[Link File Extensions](../PxPlus%20Installation%20and%20Configuration/Customizing%20PxPlus/PxPlus%20Link%20File%20Extensions.md)**
+
+ 
+
+ 
+
+ 

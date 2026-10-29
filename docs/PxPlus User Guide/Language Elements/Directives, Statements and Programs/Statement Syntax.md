@@ -1,6 +1,6 @@
 # Directives, Statements and Programs
 
-**Statement Syntax** |  **__**  
+**Statement Syntax** |  **_ _**  
 ---|---  
   
 A valid program statement requires at least one directive. Depending on the directives used, various arguments and syntax elements may be needed to complete the statement. The example below illustrates the format of a typical program statement:
@@ -16,8 +16,10 @@ A valid program statement requires at least one directive. Depending on the dire
 Total: |  **_Line Label_** (optional). Descriptive name up to 127 characters long, followed by a colon. Alphanumeric line labels can be used in place of line numbers to identify statements within the program.  
 PRINT |  **_Directive._** Keyword identifying the task to be performed.  
 a,b,c+d |  **_Arguments_** (optional). Data to be processed or system keywords that further define the directive. A space is required to separate the directive from its arguments. See **Arguments** below.  
-! Totals |  **_Comment_** (optional). Descriptive text beginning with an exclamation point**!** or the keyword**REM**. Text following an exclamation point is ignored by the system; i.e. the exclamation point terminates a statement and passes execution to the next line of code _._  
+! Totals |  **_Comment_** (optional). Descriptive text beginning with an exclamation point**!**  or the keyword**REM**. Text following an exclamation point is ignored by the system; i.e. the exclamation point terminates a statement and passes execution to the next line of code _._  
   
+ 
+
 #### **Note:**  
 Comments are very important for the readability and maintainability of a program. However, this text is included in the final compiled program, so be aware that excessive comments may increase memory requirements and degrade overall system performance.
 
@@ -39,8 +41,14 @@ A transfer of control into a compound statement starts processing from the **_fi
 
 > 0030 x=10;print x; gosub xyz; goto 1000
 
-Directives that transfer control without returning (e.g.,**GOTO** ,**EXITTO** ,**RETURN**) must appear at the end of a compound statement. The following is not valid because**RETURN** transfers control and the last statement is unreachable code:
+Directives that transfer control without returning (e.g.,**GOTO** ,**EXITTO** ,**  RETURN**) must appear at the end of a compound statement. The following is not valid because**RETURN** transfers control and the last statement is unreachable code:
 
 > print "hello"; return; if name$<>"" print "-", name$
 
-Some directives cannot be included in a compound statement. See individual directives for any restrictions. For a list of **_all_** directives, see **[Directives](../../../directives.md)** in the _PxPlus Language Reference_.
+Some directives cannot be included in a compound statement. See individual directives for any restrictions. For a list of **_all_** directives, see **[Directives](../../../directives.md)**.
+
+ 
+
+ 
+
+ 

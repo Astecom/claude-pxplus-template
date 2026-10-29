@@ -1,6 +1,6 @@
 # Directives, Statements and Programs
 
-**Saving, Loading and Executing a Program** |  **__**  
+**Saving, Loading and Executing a Program** |  **_ _**  
 ---|---  
   
 A PxPlus program is a collection of statements that are stored in memory (or saved to a file) for consecutive execution. In Command mode, the **_current program_** represents all the statements in memory that are immediately available for editing and/or execution. In Execution mode, the current program is also referred to as the **_main-line_** program (also known as _execution level 1_).
@@ -19,9 +19,9 @@ To retain your changes for later use, use the**SAVE** directive to copy the curr
 
 > SAVE "Myprogram"
 
-If the file name specified by _"Myprogram"_ does not exist, a new program file is created, and the program is written to it. If a program exists with the same name, it will be overwritten by the current program. Programs can also be saved in program libraries.
+If the file name specified by _" Myprogram"_ does not exist, a new program file is created, and the program is written to it. If a program exists with the same name, it will be overwritten by the current program. Programs can also be saved in program libraries.
 
-See **[[LIB] Program Library](../../../command_tags/lib.htm)** in the _PxPlus Language Reference_.
+See **[[LIB] Program Library](../../../command_tags/lib.md)**.
 
 ## Retrieving a Program File
 
@@ -48,14 +48,16 @@ It is possible to**RUN** /**CALL** /**PERFORM** /**LOAD** and**SAVE** PxPlus pro
 
 This would output the program to the text file PROG999. If desired, you can insert the keyword**EDIT** following the**SAVE** directive, and the system will save the program in formatted form. Text-based PxPlus programs do have some advantages.
 
-  * Use of more advanced editing/formatting functionality that is available in other types of editors (spell checking, multiple undo, etc.).  
-  
-
-  * Version control and configuration management systems.  
-  
-
+  * Use of more advanced editing/formatting functionality that is available in other types of editors (spell checking, multiple undo, etc.).
+  * Version control and configuration management systems.
   * Accessing multiple files via bulk editing tools.
 
 
 
 However, when running a text-based program from a PxPlus session, each statement must be evaluated for syntax and converted to tokenized code prior to execution. These extra steps may have an impact on system performance. One way to avoid a performance hit is to**LOAD** a text-based program prior to executing it. At this point, it can be**RUN** as the current program in memory.
+
+ 
+
+ 
+
+ 

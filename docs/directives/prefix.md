@@ -10,15 +10,15 @@
 2\. _Set Any Prefix Number_ _:_ |  **PREFIX**(_num_)[_search_string_ $]  
 3\. _Set Program Retrieval Rules_ _:_ |  **PREFIX PROGRAM**[_search_string_ $]  
 4\. _Specify Search Rules in Keyed File_ _:_ |  **PREFIX FILE** [_filename_ $]  
-5\. _Define Virtual Directory_ _:_ |  **PREFIX DIRECTORY**  _dirpfx_ $ = _dirpath_ _$_  
+5\. _Define Virtual Directory_ _:_ |  **PREFIX DIRECTORY**  _dirpfx_ $ = _dirpath$_  
   
 **_Where_** _:_
 
 _filename_ |  Name of a variable-length Keyed file containing data records that define the locations of specific files (in effect, a lookup or translation table).  
 ---|---  
 _num_ |  Numeric value between 0 (zero) and 9 that defines the **PREFIX** entry to use. If you omit this value, the default is 0 (_zero_).  
-_search_string_ _$_ |  One or more pathname prefixes (search locations) you want PxPlus to search when attempting to find files/programs. Optional string expression. Omit the string **PREFIX [(**_num_**)])** to have PxPlus remove a **PREFIX**. When you have more than one search location in a **PREFIX** directive, the different locations must be space separated. If you need to include a space within a directory name, then that directory location must be enclosed in double quotation marks: prefix "C:\Tmp\C:\Usr\""C:\Program Files\"""  
-_dirpfx_ _$_ |  Logical directory prefix that the program will use when referencing files.  
+_search_string$_ |  One or more pathname prefixes (search locations) you want PxPlus to search when attempting to find files/programs. Optional string expression. Omit the string **PREFIX [(**_num_**)])** to have PxPlus remove a **PREFIX**. When you have more than one search location in a **PREFIX** directive, the different locations must be space separated. If you need to include a space within a directory name, then that directory location must be enclosed in double quotation marks:      prefix "C:\Tmp\C:\Usr\""C:\Program Files\"""  
+_dirpfx$_ |  Logical directory prefix that the program will use when referencing files.  
 _dirpath_ |  Target actual directory to be used when using virtual directories.  
   
 ##  Description
@@ -38,6 +38,26 @@ If no numbered prefix is specified, then the **PREFIX** command affects PREFIX(0
 **_Example:_**
 
 > prefix "C:\TMP" would apply to PREFIX(0).
+
+**_Using Images_**
+
+When using a **PREFIX** , it is possible to have a situation where printing an image to **[*WINPRT*](../file_handling/~winprt~.md)** will work, whereas just changing the output to **[*VIEWER*](../file_handling/~viewer~.md)** will not. When you open/print to ***WINPRT*** , the printing is done in your current process, whereas when you use the ***VIEWER*** , the printing is done from a spawned session. This can cause a problem when the spawned session does not have the same **PREFIX** due to some logic in your START_UP or elsewhere in your application.
+
+**_Example:_**
+
+Suppose you have a file, "C:\MyApp\junk.bmp", which has an image in it, and you issue the following:
+
+> PREFIX "C:\MyApp\"
+
+You could then open ***WINPRT*** and issue:
+
+> PRINT (_ch_) 'PICTURE'(100,100,400,400,"junk.bmp")
+
+This will work fine. However, if you open ***VIEWER*** , the PRINT will not work because the ***VIEWER*** is in a spawned task. Only if the **PREFIX** is set in your START_UP program would the ***VIEWER*** be able to find the image.
+
+To avoid this problem, use the full pathname in the **'PICTURE'** mnemonic or, if using PxPlus, use the **PTH(**_" image"_**)** function to return the full pathname, as in the following:
+
+> PRINT (_ch_) 'PICTURE'(100,100,400,400,PTH("junk.bmp"))
 
 ##  Format 2
 
@@ -107,11 +127,11 @@ _(Support for the PREFIX FILE to include IOLISTs was added in PxPlus v8.11, buil
 >  ->run  
 >  open (1,iol=*)"/mydata/company"  
 >  print mid(lst(iol(1)),1,70)  
-> iolist CODE$,NAME$,ADDRESS$,COUNTRY$,ZIP$,ZIP2$,PLACE$,CLASS$,NAMEALFA  
+>  iolist CODE$,NAME$,ADDRESS$,COUNTRY$,ZIP$,ZIP2$,PLACE$,CLASS$,NAMEALFA  
 >  prefix file "mypfx.dat"  
 >  open(2,iol=*)"xyz"  
 >  print lst(iol(2))  
-> iolist A$,B$
+>  iolist A$,B$
 
 In addition, if the pathname (the first field) is empty in the **PREFIX FILE** record, the original file name will be used, allowing the **PREFIX FILE** to add only the open options and IOLIST.
 
@@ -121,14 +141,14 @@ As of PxPlus 2014, the **PREFIX FILE** may be defined with an internal key. This
 
 The PxPlus default is to search all prefixes in the following order:
 
-**OPEN** **Directive** |  **LOAD** / **RUN** / **CALL** / **PERFORM** / **SAVE** **Directives**  
+**OPEN**  **Directive** |  **LOAD**  / **RUN**  / **CALL**  / **PERFORM**  / **SAVE**  **Directives**  
 ---|---  
 1\. **PREFIX FILE** , if set; replaces pathname then continues sequence |  1\. **PREFIX FILE** , if set; replaces pathname then continues sequence  
-|  2\. Program Cache  
+  |  2\. Program Cache  
 2\. Current Directory; if '**CD'** system parameter is set |  3\. Current Directory; if '**CD'** system parameter is set  
 3\. **PREFIX** 0 to 9 |  4\. **PREFIX PROGRAM** if set  
 4\. **PREFIX PROGRAM** , if set |  5\. **PREFIX** 0 to 9  
-5\. Current Directory; if '**CD'** system parameter _not_ set |  6\. Current Directory; if '**CD'** system parameter  _not_ set  
+5\. Current Directory; if '**CD'** system parameter _not_ set |  6\. Current Directory; if '**CD'** system parameter _not_ set  
   
 The **PREFIX** search rules apply not only to files being found but also to files being created. PxPlus creates files in the first location that is permitted by the **PREFIX** rules. If the **['CD'](../parameters/cd.md)** system parameter (Check Current Directory) is **_On_** , then all files are created in the current directory (the first permitted location). If the **'CD'** system parameter is **_Off_** , then PxPlus creates the file in the first location permitted by the search rules above. Windows search rules are used to find DLLs (i.e. not **PREFIX** search rules or current directory).
 
@@ -138,9 +158,9 @@ Note that the initial check for **PROGRAM** cache checks for a match against the
 
 ##  Equals Signs for Matching
 
-Equals signs in a **PREFIX** search string have special meaning. Each character of the filename that corresponds by position to an _equals sign_ will be used to form a subdirectory name to be used in the search. For example, if you include one _equals sign_ , PxPlus will interpret that to mean that the first character of _filename_ $ is also the subdirectory name. If you include two _equals_ _signs_ , it will take the first two characters as matching the subdirectory name, and so on.
+Equals signs in a **PREFIX** search string have special meaning. Each character of the filename that corresponds by position to an _equals sign_ will be used to form a subdirectory name to be used in the search. For example, if you include one _equals sign_ , PxPlus will interpret that to mean that the first character of _filename_ $ is also the subdirectory name. If you include two _equals signs_ , it will take the first two characters as matching the subdirectory name, and so on.
 
-PxPlus automatically finds the location to retrieve or create files by looking first for a subdirectory with a name matching, character by character, in sequence, the portion of the filename that corresponds to the _equals_ _signs_. This allows you to sort files into subdirectories based on automated substitution of the first few characters of your filename and accelerates the search for and/or creation and saving of files in subdirectories.
+PxPlus automatically finds the location to retrieve or create files by looking first for a subdirectory with a name matching, character by character, in sequence, the portion of the filename that corresponds to the _equals signs_. This allows you to sort files into subdirectories based on automated substitution of the first few characters of your filename and accelerates the search for and/or creation and saving of files in subdirectories.
 
 **_Example:_**
 
@@ -166,7 +186,7 @@ If the **PREFIX** directive includes an _asterisk_ plus a specified extension as
 
 PxPlus will scan the disk for "c:\somedir\FOOFOO.PRG" and open that file if found. If "FOOFOO.PRG" is not found, PxPlus will attempt to find and open a file named "FOOFOO".
 
-**_Using Two Asterisks (**)_**
+**_Using Two Asterisks (**)_** 
 
 If the **PREFIX** directive includes two _asterisks_ plus a specified extension as a filename, the substitution described above for a single _asterisk_ will occur only if your **OPEN** directive includes a simple filename (i.e. a filename without an extension). If your filename is complex (e.g. MYFILE.DAT), no substitution occurs.
 
@@ -180,13 +200,13 @@ Since "open (chan)"FOOFOO" contains a simple filename, PxPlus will look first fo
 
 ##  Format 5
 
-**_Virtual Directories_**
+**_Virtual Directories_**  
 
-**PREFIX DIRECTORY** _dirpfx_ _$_ =_dirpath_ _$_
+**PREFIX DIRECTORY** _dirpfx$_ =_dirpath$_
 
-The **PREFIX DIRECTORY** format is used to define virtual directories within your PxPlus system. When the system is parsing pathnames, it will compare the pathname specified by the program with all the virtual directory names specified in the **PREFIX DIRECTORY** directive. If a match is found, the system will replace the directory name with the value specified in _dirpath_ _$_.
+The **PREFIX DIRECTORY** format is used to define virtual directories within your PxPlus system. When the system is parsing pathnames, it will compare the pathname specified by the program with all the virtual directory names specified in the **PREFIX DIRECTORY** directive. If a match is found, the system will replace the directory name with the value specified in _dirpath$_.
 
-To delete a virtual directory entry, set _dirpath_ _$_ to a null string.
+To delete a virtual directory entry, set _dirpath$_ to a null string.
 
 **_Example:_**
 
@@ -196,10 +216,10 @@ Suppose you issued the following directive:
 
 Any reference to "*usr/" would reference the directory "/user/mike"; therefore, accessing a file "*usr/tempdata" would actually reference "/user/mike/tempdata".
 
-If desired, the _dirpfx_ _$_ may consist of "*/**_name..._** ", in which case any pathname that ends with **_name..._** will be replaced with the value in _dirpath_ _$_.__(This option was added in PxPlus 8.30, build 9190.)
+If desired, the _dirpfx$_ may consist of "*/**_name..._** ", in which case any pathname that ends with **_name..._** will be replaced with the value in _dirpath$_._ _(This option was added in PxPlus 8.30, build 9190.)
 
 #### **Note:**  
-If the directory specified in _dirpath_ _$_ does not exist, the system will create it upon first reference.
+If the directory specified in _dirpath$_ does not exist, the system will create it upon first reference.
 
 ##  See Also
 
@@ -207,3 +227,9 @@ If the directory specified in _dirpath_ _$_ does not exist, the system will crea
 **Equals Signs for Matching****  
 ** **Asterisks as PREFIX Wildcards**  
 **[Using the PREFIX Directive](../PxPlus%20User%20Guide/File%20Handling/Prefix%20Processing/Overview.md)**
+
+ 
+
+ 
+
+ 

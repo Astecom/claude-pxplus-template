@@ -1,6 +1,6 @@
-# Object-Oriented Interface  
-  
-**rptdesigner** |  **__**  
+# Object-Oriented Interface
+
+**rptdesigner** |  **_ _**  
 ---|---  
   
 The **rptdesigner** object is a data member of the **[pvxreport](../pvxreport/Overview.md)** object interface, delegated to store and save Report Designer options.
@@ -13,7 +13,7 @@ The following table lists the properties of the **rptdesigner** object:
 ---|---  
 **AutoDisplayHTML** |  Boolean value (0/1). When **_On_** , the Report Designer will automatically display any reports generated in HTML format with the default browser. Default is **0**.  
 **AutoDisplayPDF** |  Boolean value (0/1). When **_On_** , the Report Designer will automatically display any reports generated in PDF format with the default PDF reader. Default is **0**.  
-**ColumnWidth** |  Default column width in inches or cm, depending on Metric setting. If set to **0** , the Designer default will be inch or 1 cm.  
+**ColumnWidth** |  Default column width in inches or cm, depending on Metric setting. If set to **0** , the Designer default will be ½ inch or 1 cm.  
 **Font$** |  The default font to use for new reports. Default is Arial,-15.  
 **Metric** |  Boolean value (0/1). When **_On_** , the ruler on the Designer display will use metric (centimeter) units. Default is inches.  
 **NumericFormatMask$** |  The default numeric format mask to use for group functions. Default is "###,###,##0.00-".  
@@ -29,11 +29,17 @@ The following table lists the methods of the **rptdesigner** object:
 
 **Method** |  **Description**  
 ---|---  
-**AddLibrary(**_LibName_ _$_**[**_,Sep$_**])** |  Adds a library or a _Sep$_ -separated list of libraries specified in _LibName_ _$_. If _Sep$_ is not specified, then a comma is assumed. The maximum number of default libraries is 99. Returns **1** if successful; **0** if not.  
+**AddLibrary(**_LibName_ _$_**[**_,Sep$_**])**   |  Adds a library or a _Sep$_ -separated list of libraries specified in _LibName_ _$_. If _Sep$_ is not specified, then a comma is assumed. The maximum number of default libraries is 99. Returns **1** if successful; **0** if not.  
 **ClearLibraries( )** |  Clears all default libraries. Returns **1**.  
 **GetLibrary$(**_idx_**)** |  Returns the name of the library specified by the index _idx_.  
 **GetLibraryList$([**_Sep$_**])** |  Returns a _Sep$_ -separated list of the default libraries. If _Sep$_ is not specified, a comma is used as the separator.  
 **LibraryCount( )** |  Returns the number of default libraries.  
 **LoadOptions( )** |  **_(Windows Only)_** Loads the option values from the client or local _pvxreport.ini_ file.  
 **RemoveLibrary(**_LibName_ _$_**)** |  Removes the library specified in _LibName_ _$_ from the list of defaults. Indexes of subsequent libraries are adjusted.  
-**SaveOptions( )** |  **_(Windows Only)_** Saves the option values in the client or local _pvxreport.ini_ file.
+**SaveOptions( )** |  **_(Windows Only)_** Saves the option values in the client or local _pvxreport.ini_ file.  
+  
+ 
+
+ 
+
+ 

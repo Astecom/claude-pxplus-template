@@ -9,7 +9,7 @@
 ---|---|---  
 2. |  _Clone Object:_ |  **NEW(**_obj_id_**[ FOR** _dependency_**]**[,**ERR=**_stmtref_]**)**  
   
-**_Where:_**
+**_Where:_** 
 
 _class$_ |  Object identifier of an existing Object. The cloning process does not run the ON_CREATE for the new clone nor provide access to files from the original.  
 ---|---  
@@ -25,7 +25,7 @@ Object identifier.
 The **NEW( )** function is used in **[Object Oriented Programming](../PxPlus%20User%20Guide/Object-Oriented%20PxPlus/Introduction.md)** to create a new object based on a specified class name or an existing object (_obj_id_ _)_. If the class name already exists, then its definition is used. If it has not been defined previously, the system attempts to load the program _class_.pvc and execute/define the **DEF CLASS** within it (the **DEF CLASS** clause must be at the start of the program). If the system is unable to properly determine the class definition, an Error #90: Unable to locate Object class definition is generated.
 
 #### **Note:**  
-WindX supports the use of the **NEW** function via the [WDX] or [LCL] tag. See **[[WDX] Direct Action to Client Machine](../command_tags/wdx.htm)** and **[[LCL] Access to Users Local Machine](../command_tags/lcl.htm)**.
+WindX supports the use of the **NEW** function via the [WDX] or [LCL] tag. See **[[WDX] Direct Action to Client Machine](../command_tags/wdx.md)** and **[[LCL] Access to Users Local Machine](../command_tags/lcl.md)**.
 
 **_Example:_**
 
@@ -40,7 +40,7 @@ If this is successful, the **NEW( )** function returns the object identifier ass
 In Customer.pvc:
 
 > ON_CREATE: \  
->  enter File_no
+>      enter File_no
 
 #### **Note:**  
 Use **[REF( )](ref.md)** to increment the reference count.
@@ -56,7 +56,7 @@ To establish this linkage, the **NEW** function includes a **FOR** option where 
 NEW(..... **FOR WINDOW**) |  ... the current window is destroyed.  
 NEW(..... **FOR CONTROL** _ctlid_) |  ... the specified control is destroyed.  
 NEW(..... **FOR FILE** _fileno_) |  ... the specified file is closed.  
-NEW(..... **FOR OBJECT [**  _objid_ **]** ) |  ... the current object or object specified is destroyed.  
+NEW(..... **FOR OBJECT [**  _objid_  **]**  ) |  ... the current object or object specified is destroyed.  
 NEW(..... **FOR PROGRAM**) |  ... the current program level is exited.  
   
 **_Where:_**
@@ -73,3 +73,9 @@ _(The object dependency capability for the NEW function was added in PxPlus v6.3
 [**Object Oriented Programming**](../PxPlus%20User%20Guide/Object-Oriented%20PxPlus/Introduction.md)  
 [**DEF CLASS Define Object Class**](../directives/def_class.md)  
 [**REF( ) Control Reference Count**](ref.md)
+
+ 
+
+ 
+
+ 

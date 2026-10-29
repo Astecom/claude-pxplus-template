@@ -1,5 +1,5 @@
-# Application Server  
-  
+# Application Server
+
 **Customizing**|   
 ---|---  
   
@@ -13,10 +13,10 @@ The Application Server language is dependent on how the message library is loade
 
 The order of the attempts is:
 
-1\. %LANG$ Global variable set possibly via a START_UP program  
-2\. Environment variable PVXLANG  
-3\. Environment variable LANG  
-4\. Default of **EN**
+     1.  %LANG$ Global variable set possibly via a START_UP program  
+     2.  Environment variable PVXLANG  
+     3.  Environment variable LANG  
+     4.  Default of **EN**
 
 ## Login and Change Password Dialogs
 
@@ -30,12 +30,12 @@ _Arguments:_ |  _LoginID_ _$, LoginPassword$, ChgPasswordFlag_ $
   
 **_Where:_**
 
-_??_ represents the language code. The arguments returned by the panel include:
+_??_  represents the language code. The arguments returned by the panel include:
 
-|  _LoginID_ _$_ |  String containing the user ID to send to the server daemon. If this is null, then ***CLIENT** will terminate without logging in.  
+  |  _LoginID_ _$_ |  String containing the user ID to send to the server daemon. If this is null, then ***CLIENT** will terminate without logging in.  
 ---|---|---  
-|  _LoginPasswrd_ _$_ |  String containing the password for _LoginID_ _$_ given.  
-|  _ChgPasswordFlag_ _$_ |  String containing a **1** , which indicates the user wishes to change their password, or any other value, which is ignored.  
+  |  _LoginPasswrd_ _$_ |  String containing the password for _LoginID_ _$_ given.  
+  |  _ChgPasswordFlag_ _$_ |  String containing a **1** , which indicates the user wishes to change their password, or any other value, which is ignored.  
   
 **_Change Password Screen_**
 
@@ -45,11 +45,11 @@ _Arguments:_ |  _Password1$, Password2$_
   
 **_Where:_**
 
-_??_ represents the language code. The arguments returned by the panel include:
+_??_  represents the language code. The arguments returned by the panel include:
 
-|  _Password1$_ |  String of the new password. If null, then the change password operation is aborted, and the ***CLIENT** program is terminated.  
+  |  _Password1$_ |  String of the new password. If null, then the change password operation is aborted, and the ***CLIENT** program is terminated.  
 ---|---|---  
-|  _Password2$_ |  String that must match _Password1$._  
+  |  _Password2$_ |  String that must match _Password1$._  
   
 ## Custom *CLIENT Programs
 
@@ -66,7 +66,7 @@ The protocol for the requests that the server accepts is similar to HTTP protoco
 
 The encoding is done using the following function:
 
-> **def** **fnEncrypt$(local dat$)=hta(rdx(hta(dat$)))**
+> **def**  **  fnEncrypt$(local dat$)=hta(rdx(hta(dat$)))**
 
 While this encoding is not difficult to break, it ensures that the text of all commands is encoded and not sent as readable text. This makes it much more difficult for people to obtain user ID's and passwords when you are not running SSL encryption. Only the commands sent to the server are encoded. The responses from the server are not. In addition, once the session has been started successfully and WindX has taken control, there is no further encoding in place.
 
@@ -76,11 +76,11 @@ Many customization features exist. The **%APSobject** and the ***CLIENT** progra
 
 All protocols require a $8A$ between any arguments in their <REQUEST> section, including a trailing **SEP** for the last field in the <REQUEST>.
 
-|  LOGIN |  Request Fields: _LoginID_ _$, LoginPassword$_  
+  |  LOGIN |  Request Fields: _LoginID_ _$, LoginPassword$_  
 ---|---|---  
-|  SESSION |  Request Fields: _Application$, Fid$, StartInDirectory$, ExtraCmdOptions$, ExtraArguments$_  
-|  PASSWORD |  Request Fields: _Password1$, Password2$_  
-|  QUIT |  Request Fields: NONE  
+  |  SESSION |  Request Fields: _Application$, Fid$, StartInDirectory$, ExtraCmdOptions$, ExtraArguments$_  
+  |  PASSWORD |  Request Fields: _Password1$, Password2$_  
+  |  QUIT |  Request Fields: NONE  
   
 **_Example:_**
 
@@ -96,12 +96,12 @@ All responses from the server are in the form of a single line of text ending in
 
 The Result Codes are 3-digit numerical codes:
 
-|  Codes 100 - 199 |  Are not sent to the clients but are used internally by the server.  
+  |  Codes 100 - 199 |  Are not sent to the clients but are used internally by the server.  
 ---|---|---  
-|  Codes 200 - 299 |  Indicate acceptance.  
-|  Codes 300 - 399 |  Indicate acceptance but further action is required.  
-|  Codes 400 - 499 |  Indicate failure.  
-|  Codes 500 - 599 |  Indicate a server level failure.  
+  |  Codes 200 - 299 |  Indicate acceptance.  
+  |  Codes 300 - 399 |  Indicate acceptance but further action is required.  
+  |  Codes 400 - 499 |  Indicate failure.  
+  |  Codes 500 - 599 |  Indicate a server level failure.  
   
 With **_codes 400 or higher_** , the server will automatically close the connection to the client right after it sends its response. If you wish to talk to the server, you must re-establish the connection.
 
@@ -130,10 +130,16 @@ An example of a response you would receive would be:
 
 The response codes typically received for a session request are:
 
-|  200 |  Successful. Session Token contained in text. Now wait for a 205.  
+  |  200 |  Successful. Session Token contained in text. Now wait for a 205.  
 ---|---|---  
-|  205 |  Go ahead. Both server and client are ready to connect to each other.  
-|  301 |  You must Login first.  
-|  410 |  Console Mode is not allowed.  
-|  412 |  Access to Application is denied.  
-|  414** _to_** 502 |  Other errors indicating specific failure. The specifics of the error is given with the <TEXT> returned.
+  |  205 |  Go ahead. Both server and client are ready to connect to each other.  
+  |  301 |  You must Login first.  
+  |  410 |  Console Mode is not allowed.  
+  |  412 |  Access to Application is denied.  
+  |  414** _to_** 502 |  Other errors indicating specific failure. The specifics of the error is given with the <TEXT> returned.  
+  
+ 
+
+ 
+
+ 

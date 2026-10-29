@@ -1,5 +1,5 @@
-# Panel Designer  
-  
+# Panel Designer
+
 **Panel Layout Utility**|   
 ---|---  
   
@@ -64,7 +64,7 @@ _Offset_ |  This number determines how many lines down (or up, if negative) the 
 ---|---  
 _Expression_ |  Select this option to enter an expression for the frame style.  
 _Folder Visual Class_ |  Assign a predefined Visual Class for a folder control.  
-**Header Embedded Panel** |  |  _Library_ |  Enter the library that contains the panel you want to embed or use the Query button. This option is available only when the _Include_ drop box selection is _Folders Only, add Headers_ ** _or_** _All Panels, add Headers_.  
+**Header Embedded Panel** |  |  _Library_ |  Enter the library that contains the panel you want to embed or use the Query button. This option is available only when the _Include_ drop box selection is _Folders Only, add Headers_  **_or_** _All Panels, add Headers_.  
 ---|---  
 _Panel_ |  Select a panel name from the list of panels in the selected library. This option is available when a library containing the panel to embed has been selected.
 
@@ -114,10 +114,10 @@ If the process encountered errors after applying the changes to all the selected
 
 > To resolve this error, use **_one_** of the following methods:
 
-|  Make the necessary size adjustments to the embedded panel and/or the panels listed on the error log. Then, run this utility again for only those panels on the error log by using the **Panels** tab to make your selections.  
+ |  Make the necessary size adjustments to the embedded panel and/or the panels listed on the error log. Then, run this utility again for only those panels on the error log by using the **Panels** tab to make your selections.  
 ---|---  
-|  Manually insert the embedded panel into each panel listed on the error log.  
-|  Reverse the panel layout changes that were applied to _all_ the panels, including those not listed on the error log. To do this, select _Revert .BAK Libraries_ from the _Include_ drop box. See **[Reverting .BAK Libraries](Panel%20Layout%20Utility.htm#reverting)** below. After that, make the necessary size adjustments, and then run this utility again for _all_ the panels in the library.  
+ |  Manually insert the embedded panel into each panel listed on the error log.  
+ |  Reverse the panel layout changes that were applied to _all_ the panels, including those not listed on the error log. To do this, select _Revert .BAK Libraries_ from the _Include_ drop box. See **[Reverting .BAK Libraries](Panel%20Layout%20Utility.htm#reverting)** below. After that, make the necessary size adjustments, and then run this utility again for _all_ the panels in the library.  
   
 ##  Reverting .BAK Libraries
 
@@ -142,4 +142,10 @@ Suppose you have a directory called _Work_ that contains two libraries, _Library
 4. |  The options on the **Layout** tab cannot be changed.  
 5. |  Select the _Next_ button to display the **Panels** tab. The **Include Panels** list displays only **.bak** files, one for each "processed" library stored in the path previously entered. All the **.bak** files are selected by default for the revert process, but you can deselect the check box beside the file(s) that you do not want included in this process. If no **.bak** files are listed, this indicates that the library or directory specified in step 3 does not contain any **.bak** files. As a result, the revert process cannot be performed.  
 6. |  Select the _Proceed_ button. A message displays when the processing is complete. At this point, the contents of the **.bak** files are restored to the original library, and the **.bak** files are removed.  
-7. |  Review the panels in NOMADS to verify that they have been restored to their previous state, prior to processing the last panel layout changes.
+7. |  Review the panels in NOMADS to verify that they have been restored to their previous state, prior to processing the last panel layout changes.  
+  
+ 
+
+ 
+
+ 

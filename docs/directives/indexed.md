@@ -6,8 +6,8 @@
 ##  Format
 
 **INDEXED** _filename$_ ,[_max_recs_],_rec_size_[,**SEP=**_char$_][,**ERR=**_stmtref_]  
-  
-**_Where:_**
+   
+**_Where:_** 
 
 _char$_ |  Separator character. Hex or ASCII string value.  
 ---|---  
@@ -23,7 +23,7 @@ Use the **INDEXED** directive to create a file that can be accessed either seque
 Use the **SEP=** option to set the default separator for a given file. Use any character from $00$ to $FF$, or use SEP=*. When the ***** (_asterisk_) is set as the value, fields will not be delimited. PxPlus writes records to the file with field type and length headers. This feature may provide better results in overall file performance.
 
 #### **Note:  
-** WindX in PxPlus supports the use of this directive via the [WDX] or [LCL] tags; e.g. INDEXED "[WDX]somefile.ext". Non-PxPlus versions require you to encapsulate the command in an EXECUTE directive with a [WDX] tag (i.e. EXECUTE "[WDX]..."). See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.htm) or **[[LCL] Access to Users Local Machine](../command_tags/lcl.htm)**.
+** WindX in PxPlus supports the use of this directive via the [WDX] or [LCL] tags; e.g. INDEXED "[WDX]somefile.ext". Non-PxPlus versions require you to encapsulate the command in an EXECUTE directive with a [WDX] tag (i.e. EXECUTE "[WDX]..."). See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.md) or **[[LCL] Access to Users Local Machine](../command_tags/lcl.md)**.
 
 ##  Example
 
@@ -34,6 +34,12 @@ Line 0200 creates a file with the following structure:
 
 Indexed file: C:\OTHER\MANUALS\PVX\CST\CSTFLE  
 ---  
-|  Maximum Record Size: |  140  
-|  Maximum # Records: |  (No limit)  
-|  Current # Records: |  0
+  |  Maximum Record Size: |  140  
+  |  Maximum # Records: |  (No limit)  
+  |  Current # Records: |  0  
+  
+ 
+
+ 
+
+ 

@@ -33,7 +33,7 @@ If the property 'FindColNo (or 'Column for Grid) is set, only data in that colum
 If both "W"rap and "S"ort options are specified, the system will use the starting point set in 'Item ('Row on Grid) and 'Column and determine the search direction based on the value at the starting point. If the value at the start point matches that of the search value, the "R" option will determine the search direction.
 
 #### **Note:**  
-Prior to PxPlus v11, this property and functionality was not available on the grid. In addition, the 'Column was not set nor were the 'FindOptions$ and 'FindColNo ** _(list view only)_** supported.
+Prior to PxPlus v11, this property and functionality was not available on the grid. In addition, the 'Column was not set nor were the 'FindOptions$ and 'FindColNo **_(list view only)_** supported.
 
 _(The FindItemText$ property was added in PxPlus v7.10.)  
 (Support for the Grid, the FindOptions$ and FindColNo properties was added in PxPlus v11.00.)_
@@ -68,4 +68,10 @@ To search a list box to find a specific value, set the FindItemText$ to the desi
 
 ## Used By 
 
-**DROP_BOX****GRID****LIST_BOX****LIST_VIEW****REPORT_VIEW****TREE_VIEW****VARDROP_BOX****VARLIST_BOX**
+**DROP_BOX** **GRID** **LIST_BOX** **LIST_VIEW** **REPORT_VIEW** **TREE_VIEW** **VARDROP_BOX** **VARLIST_BOX**
+
+ 
+
+ 
+
+ 

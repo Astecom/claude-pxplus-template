@@ -7,7 +7,7 @@ The information below provides detailed steps on how to set up an ODBC connectio
 
 ## Installation
 
-The first step is to install the required drivers. The install instructions and drivers **Microsoft SQL Server ODBC Driver 1.0 for Linux** can be found on the Microsoft download website at the following link: **<https://www.microsoft.com/en-us/download/details.aspx?id=28160>**.
+The first step is to install the required drivers. The install instructions and drivers **Microsoft® SQL Server® ODBC Driver 1.0 for Linux**  can be found on the Microsoft download website at the following link: **<https://www.microsoft.com/en-us/download/details.aspx?id=28160>**.
 
 #### **Note:**  
 The SQL Server ODBC Driver requires that unixODBC 2.3.0 or higher be installed. If unixODBC is not installed or an older version is installed, visit the Microsoft download website at the above link and then follow the directions provided in the **Install Instructions** section. You can also visit the unixODBC website at **[www.unixodbc.org](https://www.unixodbc.org/)** for downloads and installation instructions.
@@ -28,7 +28,7 @@ The newly installed driver will require a connection link to the ODBC through th
 >   
 >  [MSSQLTest]  
 >  Driver = SQL Server Native Client 11.0  
->  Server = [protocol:]server[,port] _i.e. Server = tcp:192.168.0.1,1433 (default port)_
+>  Server = [protocol:]server[,port]     _i.e. Server = tcp:192.168.0.1,1433 (default port)_
 
 At this point, it is a good idea to ensure that the connection is operational. To test the connection, try the following command:
 
@@ -47,8 +47,8 @@ Test the connection to the database with the following:
 
 > use database_name  
 >  select * from table_name;  
->  | KEY | DESCRIPTION |  
->  | PXP | PVX Plus Technologies |  
+>     | KEY | DESCRIPTION                |  
+>     | PXP | PVX Plus Technologies   |  
 > SQLRowCount returns 0  
 >  1 row fetched  
 >  SQL>
@@ -86,5 +86,11 @@ Without the _cursor_type_ _=dynamic_ parameter, the program will only read data 
 
 ## See Also
 
-**[[ODB] Open Database](../../command_tags/odb.htm)**  
+**[[ODB] Open Database](../../command_tags/odb.md)**  
 **[PREFIX FILE Directive](../../directives/prefix.md)**
+
+ 
+
+ 
+
+ 

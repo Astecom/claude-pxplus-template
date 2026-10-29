@@ -6,7 +6,7 @@
 ##  Format
 
 **XFA(**_varlist_[,**ERR=**_stmtref_]**)**  
-  
+   
 **_Where:_**
 
 _stmtref_ |  Program line number or statement label to which to transfer control.  
@@ -24,10 +24,10 @@ This function is included for compatibility with other languages.
 
 The **XFA( )** function returns extended field attribute information stored in a string template:
 
-|  **Format** |  **Returns**  
+  |  **Format** |  **Returns**  
 ---|---|---  
-|  XFA(_var_ _,_ " ") |  A list of variables  
-|  XFA(_var_ _,_ "_fieldname_ ") |  User**-** defined portion of the field  
+  |  XFA(_var_ _,_ " ") |  A list of variables  
+  |  XFA(_var_ _,_ "_fieldname_ ") |  User**-** defined portion of the field  
   
 **_Do Not Do This:_**
 
@@ -57,7 +57,7 @@ The **XFA( )** function returns extended field attribute information stored in a
 >  CITY  
 >  ZIP  
 >   
->  _  
+>  _À  
 >   
 >  cur  
 >   
@@ -75,4 +75,10 @@ The Hex string of the **XFA( )** function in the previous example reports the fo
 6,2 |  Field number, based on line feeds  
 8,2 |  Field offset if prior field is variable length  
 10,2 |  Field length  
-12, |  User-defined attributes
+12, |  User-defined attributes  
+  
+ 
+
+ 
+
+ 

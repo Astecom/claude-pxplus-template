@@ -5,9 +5,9 @@
   
 ##  Formats
 
-1. |  _Open PDF File:_ |  **OPEN (**_chan_**[,**_fileopt_**])"*PDF*[;**_option_**][;**_option_**] [...]"**  
+1. |  _Open PDF File:_ |  **OPEN (**_chan_**[,**_fileopt_**]) "*PDF*[;**_option_**][;**_option_**] [...] "**  
 ---|---|---  
-2. |  _PDF via WindX:_ |  **OPEN [INPUT] (**_chan_**[,**_fileopt_**])"[WDX]*PDF*[;**_option_**][;**_option_**] [...]"**  
+2. |  _PDF via WindX:_ |  **OPEN [INPUT] (**_chan_**[,**_fileopt_**]) "[WDX]*PDF*[;**_option_**][;**_option_**] [...] "**  
   
 **_Where:_**
 
@@ -24,13 +24,13 @@ For information on creating hyperlinks using text, pictures and rectangles, see 
 
 ##  Description
 
-Use ***PDF*** for directing output to a PDF (Postscript Document Format) compatible file. The interface to the PDF output is fundamentally the same as the interface to the Window's print spooler an application opens the logical file ***PDF*** instead of **[*WINPRT*](~winprt~.md)**.
+Use ***PDF*** for directing output to a PDF (Postscript Document Format) compatible file. The interface to the PDF output is fundamentally the same as the interface to the Window's print spooler  an application opens the logical file ***PDF*** instead of **[*WINPRT*](~winprt~.md)**.
 
 The **OPEN** pathname may specify a number of semi-colon separated options for the PDF file. A number of semi-colon separated options for the PDF file may be included as part of the pathname or as part of the **OPT=** clause:
 
-> **OPEN(**_chan_**)"PDF* [;**_option_**] [;**_option_**] []"  
+> **OPEN(**_chan_**) "PDF* [;**_option_**] [;**_option_**] [ ] "  
 > **  
-> **OPEN(**_chan_**,OPT="**_option_**;**_option_**;")"*PDF*"**
+> **OPEN(**_chan_**,OPT= "**_option_**;**_option_**; ")"*PDF*"**
 
 ***PDF*_Output Parameters_**
 
@@ -43,25 +43,25 @@ The following options can be used to define PDF output:
 **CREATOR=**_string_ |  Adds a _Creator_ tag to the PDF document.  
 **DISPLAY** |  Brings up an input window for the user to enter information, regardless if it is needed.  
 **DPI****=**_num_ |  Dots per inch used only when **[PIXELPOS](~pdf~.htm#Mark31)** is _On_. Defaults to 150. _(added in PxPlus 2020)_  
-**EMBED****= YES | NO | ALL** |  Determines if font can be embedded (**YES**), cannot be embedded (**NO** , thus only the 14 standard fonts supported), or mandates all fonts must be embedded (**ALL** , which results in a PDF/A-1b compliant file -- see below). This default value for this option can be set in the **[Config]** section of the **INI** using a **PDFEMBED=xxx** option. _(added in PxPlus v8.30)_  
-**ENCRYPT** |  Encrypts document. By default, a password is required; therefore, if no owner password is provided, the system will default to 'password'. _(added in PxPlus v8.30)_  
+**EMBED****= YES | NO | ALL** ¹ |  Determines if font can be embedded (**YES**), cannot be embedded (**NO** , thus only the 14 standard fonts supported), or mandates all fonts must be embedded (**ALL** , which results in a PDF/A-1b compliant file -- see below). This default value for this option can be set in the **[Config]** section of the **INI** using a **PDFEMBED=xxx** option. _(added in PxPlus v8.30)_  
+**ENCRYPT** ¹ |  Encrypts document. By default, a password is required; therefore, if no owner password is provided, the system will default to 'password'. _(added in PxPlus v8.30)_  
 **FILE=**_filename_ |  Allows specification of output file pathname.  
 **FORM=**_formname_ |  Allows specification of forms names. Default is **LETTER** size (8.5" x11"). See **Forms Handling**.  
 **INLINE** |  Can be used in conjunction with the **VIEW** option to have the system run the PDF viewer in line that is when the execution will be suspended until after the PDF viewer task is closed. _(added in PxPlus v11.00)_  
 **KEYWORDS=**_string_ |  Adds a _Keywords_ tag to the PDF document.  
-**MARGINS=**_top_**:**_left_**:**_right_**:**_bottom_ _  
+**MARGINS=**_top_**:**_left_**:**_right_**:**_bottom  
   
 or_ **MARGIN=**_top_**:**_left_**:**_right_**:**_bottom_ |  Defines margins. See **Margin Settings**.  
 **METRIC** |  Indicates that the PDF is to default to Metric paper size (A4) instead of 8.5 x11 (Letter) sized paper. _(added in PxPlus v8.30)_  
 **NOCOMPRESSION** |  Disable compression of the PDF file.  
-**NOCOPY** |  Disable document copy. _(added in PxPlus v8.30)_  
-**NOEDIT** |  Disable document editing. _(added in PxPlus v8.30)_  
-**NOENTRY** |  Disable form entry and annotation. _(added in PxPlus v8.30)_  
-**NOPRINT** |  Disable document printing. _(added in PxPlus v8.30)_  
-**OPENPSWD** =_password_ |  Sets password required to open/view the document. To function, the document must also have an **OWNERPSWD**. _(added in PxPlus v8.30)_  
+**NOCOPY** ¹  |  Disable document copy. _(added in PxPlus v8.30)_  
+**NOEDIT** ¹ |  Disable document editing. _(added in PxPlus v8.30)_  
+**NOENTRY** ¹ |  Disable form entry and annotation. _(added in PxPlus v8.30)_  
+**NOPRINT** ¹ |  Disable document printing. _(added in PxPlus v8.30)_  
+**OPENPSWD** =_password_ ¹ |  Sets password required to open/view the document. To function, the document must also have an **OWNERPSWD**. _(added in PxPlus v8.30)_  
 **ORIENTATION=LANDSCAPE | PORTRAIT** |  Defines how the report is intended to print. Default is **PORTRAIT**.  
 **OVERWRITE** |  Indicates that overwriting the output file is OK, no need to verify with the user.  
-**OWNERPSWD** =_password_ |  Sets the password to be used to identify the user as the document owner. _(added in PxPlus v8.30)_  
+**OWNERPSWD** =_password_ ¹ |  Sets the password to be used to identify the user as the document owner. _(added in PxPlus v8.30)_  
 **PAPERSIZE=**_formnumber_ |  Allows specification of form given internal form number. See **Forms Handling**.  
 **PIXELPOS** |  Set for pixel positioning instead of PDF positioning when using @X/Y(=_num_). Set **[DPI=](~pdf~.htm#Mark30)** to define pixel size. _(added in PxPlus 2020)_  
 **PRODUCER=**_string_ |  Adds a _Producer_ tag to the PDF document.  
@@ -70,7 +70,7 @@ or_ **MARGIN=**_top_**:**_left_**:**_right_**:**_bottom_ |  Defines margins. See
 **VIEW** |  **_(Only Available on Windows or When Using a WindX-based Client Server Interface)_** Launches a PDF viewer when the PDF file is closed. If no **FILE=** is specified, a temporary file is created and deleted when the user exits the PDF viewer. _(added in PxPlus v8.30)_  
 **WATERMARK=**_xxx_ |  Allows for the specification of an image that is to be printed on each page of the PDF output prior to any application-generated data. The image will be scaled and centered on the page. _(added in PxPlus 2014 - Feature Pack 1)_  
   
-> **These options require the use of the Haru PDF library and thus require that the['HP'](../parameters/hp.md) system parameter be set.**
+> ¹ **These options require the use of the Haru PDF library and thus require that the['HP'](../parameters/hp.md) system parameter be set.**
 
 **_PDF/A Compliant Output_**
 
@@ -80,20 +80,20 @@ To create a PDF/A compliant output file, you **_must_** declare that all fonts b
 
 Values for margin settings are typically given in 1000ths of an inch; however, the following also applies:
 
-  * If the value contains the _letter_ ** _I_** , it is considered  _inches._
-  * If the value contains the letter **_M_** , it is considered  _millimetres_.
+  * If the value contains the _letter_  **_I_** , it is considered _inches._
+  * If the value contains the letter **_M_** , it is considered _millimetres_.
   * If the value contains a decimal point or the value is less than 25, it is considered not as 1/1000 but as either _inches_ or _millimetres_.
 
 
 
 **_Example:_**
 
-|  MARGINS="250:250:250:250" |  All 4 margins are 250/1000's (1/4 inch).  
+  |  MARGINS="250:250:250:250" |  All 4 margins are 250/1000's (1/4 inch).  
 ---|---|---  
-|  MARGINS="1:1:1:1" |  All margins are 1 inch.  
-|  MARGINS="1i:1i:1i:1i" |  All margins are 1 inch.  
-|  MARGINS="1.25:1.25:1.25:1.25" |  All margins are 1-1/4 inches.  
-|  MARGINS="20m:20m:20m:20m" |  All margins are 20 millimeters.  
+  |  MARGINS="1:1:1:1" |  All margins are 1 inch.  
+  |  MARGINS="1i:1i:1i:1i" |  All margins are 1 inch.  
+  |  MARGINS="1.25:1.25:1.25:1.25" |  All margins are 1-1/4 inches.  
+  |  MARGINS="20m:20m:20m:20m" |  All margins are 20 millimeters.  
   
 ##  General Information
 
@@ -101,11 +101,11 @@ If neither the **FORM=** or **PAPERSIZE=** is given, or the value for either of 
 
 If both **FORM=** and **PAPERSIZE=** are given, the **FORM=** option has priority. See **Forms Handling**.
 
-If **FORM=** or **PAPERSIZE=** and **ORIENTATION=** is given, then the width and height as specified by **FORM=** or **PAPERSIZE=** is used. If the width is greater than the height and **PORTRAIT** was specified, then the width and height are swapped. If the height is greater than the width and **LANDSCAPE** was specified, then the height and width are swapped.
+If **FORM=** or **PAPERSIZE=** and **ORIENTATION=** is given, then the width and height as specified by **FORM=** or **PAPERSIZE=** is used. If the width is greater than the height and **PORTRAIT**  was specified, then the width and height are swapped. If the height is greater than the width and **LANDSCAPE**  was specified, then the height and width are swapped.
 
-If the **ASIS** or **DISPLAY** options are not specified and no **FILE=** is given, then the system prompts the user for the file. If **ASIS** is specified, but no **FILE=** has been defined by a prior open to ***PDF*** , then the system will generate an Error #12: File does not exist (or already exists). The filename specified by **FILE=** cannot have a **[WDX]** prefix. If the user wants output to go to a remote file, he/she should issue the **OPEN** as follows:
+If the **ASIS** or **DISPLAY** options are not specified and no **FILE=** is given, then the system prompts the user for the file. If **ASIS**  is specified, but no **FILE=** has been defined by a prior open to ***PDF*** , then the system will generate an Error #12: File does not exist (or already exists). The filename specified by **FILE=** cannot have a **[WDX]** prefix. If the user wants output to go to a remote file, he/she should issue the **OPEN** as follows:
 
-> **OPEN (**_nnn_**) "[WDX]*PDF*"**
+> **OPEN (**_nnn_**) "[WDX]*PDF* "**
 
 To simplify the logic behind this process and allow for developer customization, whenever ***PDF*** is opened, the input pathname is forwarded for processing to the user-defined program ***ext/pdf** (if it exists) or the PxPlus-supplied program ***ext/system/pdf**. It determines if the selection window should be presented and validates the **FORM=** and **PAPERSIZE=** options.
 
@@ -175,7 +175,7 @@ _(UTF-8 support was added in PxPlus 2016.)_
 
 If using the LibHaru ***PDF*** interface, i.e. **['HP'](../parameters/hp.md)** is **_On_** , then it is possible to specify the page orientation for each page using the [**'LM'**](../mnemonics/lm.md) mnemonic or a _landscape_ orientation and using the [**'PM'**](../mnemonics/pm.md) mnemonic for a _portrait_ orientation.
 
-You can switch between portrait and landscape modes when outputting PDF files using the 'LM' and 'PM' mnemonics if the mnemonic is issued ** _prior_** to outputting any data to the page.
+You can switch between portrait and landscape modes when outputting PDF files using the 'LM' and 'PM' mnemonics if the mnemonic is issued **_prior_** to outputting any data to the page.
 
 #### **Note:**  
 Issuing either of these mnemonics before or immediately after issuing the **['FF'](../mnemonics/ff.md)** mnemonic switches the orientation of the page.
@@ -194,17 +194,17 @@ _(Support for changing page orientation was added in PxPlus 2016.)_
 
 The following are known limitations that control options under the PxPlus PDF interface:
 
-|  |  Invalid mnemonics are ignored.  
+  |   |  Invalid mnemonics are ignored.  
 ---|---|---  
-|  |  **['BO'](../mnemonics/bo.md)** and **['EO'](../mnemonics/eo.md)** and user-defined mnemonics are ignored.  
-|  |  Only **['PEN'](../mnemonics/pen.md)**  _Solid_ , _Dashed_ , or _No Pen_ style options are supported.  
-|  |  Only **['FILL'](../mnemonics/fill.md)**  _Solid_ and _No Fill_ options are supported (no gradient fills, lines, or hashes).  
-|  |  **['PICTURE'](../mnemonics/picture.md)** support applies to the **_.jpg_** image format on macOS and AIX and to the **_.jpg_** and full color **_.png_** image formats on Linux. Transparency options are also only supported on Windows.  
+  |   |  **['BO'](../mnemonics/bo.md)** and **['EO'](../mnemonics/eo.md)** and user-defined mnemonics are ignored.  
+  |   |  Only **['PEN'](../mnemonics/pen.md)** _Solid_ , _Dashed_ , or _No Pen_ style options are supported.  
+  |   |  Only **['FILL'](../mnemonics/fill.md)** _Solid_ and _No Fill_ options are supported (no gradient fills, lines, or hashes).  
+  |   |  **['PICTURE'](../mnemonics/picture.md)** support applies to the **_.jpg_** image format on macOS and AIX and to the **_.jpg_** and full color **_.png_** image formats on Linux. Transparency options are also only supported on Windows.  
 _(Support for .jpg and .png images on Linux was added in PxPlus 2019.)_  
-|  |  **['RECTANGLE'](../mnemonics/rectangle.md)**  _Rounded_ options are **_not_** supported.  
-|  |  Compression is **_not_** supported for PDF files.  
-|  |  _Output element skipping_ is applied instead of _truncate_ ; i.e. PDF documents skip the processing of output elements that exist outside the page borders or flow over a page border. **[*WINPRT*](~winprt~.md)** displays as much of the element as possible while truncating the portion that flows over a border.  
-|  |  There is a limit of 8192 pages with the PDF LibHaru interface. Attempting to print beyond this limit will report an Error #2: END-OF-FILE on read or File full on write.  
+  |   |  **['RECTANGLE'](../mnemonics/rectangle.md)** _Rounded_ options are **_not_** supported.  
+  |   |  Compression is **_not_** supported for PDF files.  
+  |   |  _Output element skipping_ is applied instead of _truncate_ ; i.e. PDF documents skip the processing of output elements that exist outside the page borders or flow over a page border. **[*WINPRT*](~winprt~.md)** displays as much of the element as possible while truncating the portion that flows over a border.  
+  |   |  There is a limit of 8192 pages with the PDF LibHaru interface. Attempting to print beyond this limit will report an Error #2: END-OF-FILE on read or File full on write.  
   
 ##  Forms Handling
 
@@ -216,17 +216,17 @@ The PDF processor within the system will only utilize the width and height porti
 
 The **_Form Library_** is a keyed file. The PDF utility program will search for ***ext/forms.**_xx_ then for ***ext/system/forms.**_xx_ , where _xx_ is a language code. The properties for this file are:
 
-__ |  _Form Number_ |  Primary key, 3 digits (explained below).  
+_ _ |  _Form Number_ |  Primary key, 3 digits (explained below).  
 ---|---|---  
-__ |  _Name of Form_ |  Alternate key, 24 characters.  
-__ |  _Width_ |  This field contains the width of the paper in the units specified below.  
-__ |  _Height_ |  This field contains the height of the paper in the units specified below.  
-__ |  _Units of Measure_ |  Contains "**I** " for inches or "**M** " for mm.  
-__ |  _Priority_ |  Alternate key, Priority$+ Form number.  
+_ _ |  _Name of Form_ |  Alternate key, 24 characters.  
+_ _ |  _Width_ |  This field contains the width of the paper in the units specified below.  
+_ _ |  _Height  _ |  This field contains the height of the paper in the units specified below.  
+_ _ |  _Units of Measure_ |  Contains "**I** " for inches or "**M** " for mm.  
+_ _ |  _Priority_ |  Alternate key, Priority$+ Form number.  
   
 The _*ext/system/forms.en_ file is pre-loaded with standard form sizes. The PDF selector window allows additional forms to be added to the file. When the first form is added to this file by the end user, a copy of the file ***ext/system/forms._xx_** is made in ***ext/forms._xx_** , which is then used.
 
-To simplify installation of applications with custom forms, when the selection window is presented and a **FORM=** is specified, the form name will be automatically added if it does not already exist in the **_Forms Library_**. This allows applications to be created with hard-coded **FORM=** clauses in their **OPEN** command the system automatically creates the required form entry.
+To simplify installation of applications with custom forms, when the selection window is presented and a **FORM=** is specified, the form name will be automatically added if it does not already exist in the **_Forms Library_**. This allows applications to be created with hard-coded **FORM=** clauses in their **OPEN** command  the system automatically creates the required form entry.
 
 Form numbers are based on pre-defined form numbers used by MS Windows. As user-defined forms are added, new numbers will be assigned sequentially starting no lower than 256 (form numbers 0 to 255 are reserved).
 
@@ -279,9 +279,9 @@ _(Support for rectangle hyperlinks was added in PxPlus 2019.)_
 
 PxPlus includes PDF utility programs for processing options on an **OPEN** :
 
-|  ***** **ext/system/pdf** |  PxPlus-supplied program  
+  |  ***** **ext/system/pdf** |  PxPlus-supplied program  
 ---|---|---  
-|  ***** **ext/pdf** |  User-defined program  
+  |  ***** **ext/pdf** |  User-defined program  
   
 Both utility programs have the following format:
 
@@ -313,15 +313,39 @@ Once all the selections are made, the user can select _OK_ or _Cancel_ to confir
 
 Output to **[*WINPRT*](~winprt~.md)** can be automatically intercepted for PDF using the **['AP'](../parameters/ap.md)** system parameter. When **'AP'** is set, if the user selects _Output To File_ and includes a filename ending in **_.pdf_** , the system looks at the options selected during the ***WINPRT*** Printer Selection dialogue and processes the output through ***PDF*** instead of ***WINPRT***.
 
-**'AP'** may be set **_On_** in one of three ways:
+**'AP'**  may be set **_On_** in one of three ways:
 
-> Via SET_PARAM 'AP'
+>   Via SET_PARAM 'AP'
 
-> In an **INI** file **[Config]** section as **AutoEnablePDF=1**
+>   In an **INI** file **[Config]** section as **AutoEnablePDF=1**
 
-> From the System Menu on a dialogue (drop-down menu from clicking the icon in a window title bar) as Use Internal PDF Driver
+>   From the System Menu on a dialogue (drop-down menu from clicking the icon in a window title bar) as Use Internal PDF Driver
 
 By setting the **AutoEnablePDF=-1** in the **[Config]** section of your **INI** file, you can remove the entry from the dialogue system drop-down menu. However, you are still be able to turn the **['AP'](../parameters/ap.md)** parameter on and off programmatically.
+
+## Changing 'CP' and 'EP' Settings on *PDF* Output
+
+The default behavior in the system when issuing the **['CP'](../mnemonics/cp.md)** mnemonic is to take the current font (which normally is a 12-point font) and multiply by 5/8 rounding up. This results in an 8-point font; therefore, you get:
+
+> ->open (1) "*pdf*;file=c:\junk.pdf"  
+>  ->print mxc(1)  
+>  79  
+>  ->print (1) 'cp',  
+>  ->print mxc(1)  
+>  119  
+>  ->end
+
+If you want, you can override the **'CP'** font (and the **['EP'](../mnemonics/ep.md)** font) using the **[MNEMONIC](../directives/mnemonic.md)** directive:
+
+> ->open (1) "*pdf*;file=c:\junk.pdf"  
+>  ->print mxc(1)  
+>  79  
+>  ->mnemonic (1) 'cp'="Courier,-7":132,60  
+>  ->print (1) 'cp',  
+>  ->print mxc(1)  
+>  136
+
+Using a point size of -7 will give you 136 columns.
 
 ##  Default PDF Settings
 
@@ -339,3 +363,9 @@ In addition, **%PDF_DEFAULT$** can contain the option **VIEWER** , which will ma
 ['PICTURE' Define/Draw Picture](../mnemonics/picture.md)**  
 **['RECTANGLE' Draw a Rectangle](../mnemonics/rectangle.md)**  
 [***WINPRT* Windows Printing**](~winprt~.md)
+
+ 
+
+ 
+
+ 

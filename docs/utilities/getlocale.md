@@ -1,4 +1,4 @@
-# Utility Routines
+# Utilities
 
 ***GETLOCALE** |  **_Locale Settings_**  
 ---|---  
@@ -11,7 +11,7 @@ For a list of locale parameters in Windows and in Linux, see **[Locale Parameter
 
 **_Example:_**
 
-> **CALL "*getlocale"** ,"ABBREVMONTHNAMES",_ans_ _$_
+> **CALL "*getlocale"**,"ABBREVMONTHNAMES",_ans_ _$_
 
 This will return the abbreviated month names in the language set in the operating system:
 
@@ -81,4 +81,10 @@ NATIVECOUNTRYNAME |  Native name of country (e.g. "Deutschland")
 NATIVELANGUAGENAME |  Native name of language (e.g. "Deutsch")  
 SHORTDATE |  Short date format string (e.g. "MM/dd/yyyy")  
 THOUSAND |  Thousand separator (e.g. "," for 1,234.00)  
-TIMEFORMAT |  Time format string (e.g. "HH:mm:ss")
+TIMEFORMAT |  Time format string (e.g. "HH:mm:ss")  
+  
+ 
+
+ 
+
+ 

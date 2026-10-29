@@ -1,6 +1,6 @@
 # Data Files
 
-**Keyed Files** |  **__**  
+**Keyed Files** |  **_ _**  
 ---|---  
   
 This is the most common file format used in PxPlus. It contains at least one unique (primary key) field that identifies each record on the file. PxPlus supports internally and externally defined keys with record sizes up to 2GB. A wide variety of key segment options is available.
@@ -11,10 +11,10 @@ For information on EFF files, see **[Enhanced File Format](Enhanced%20File%20For
 
 Three types of Keyed files can be created:
 
-**** |  **[Direct Files](Keyed%20Files.htm#direct)** |  Consist of an external key (FLR/VLR, EFF)  
+** ** |  **[Direct Files](Keyed%20Files.htm#direct)** |  Consist of an external key (FLR/VLR, EFF)  
 ---|---|---  
-**** |  **[Sort Files](Keyed%20Files.htm#sort)** |  Consist of keys but no data (FLR/VLR, EFF)  
-**** |  **[Multi-Keyed Files](Keyed%20Files.htm#multi_keyed)** |  Consist of one or more keys (FLR/VLR, EFF)  
+** ** |  **[Sort Files](Keyed%20Files.htm#sort)** |  Consist of keys but no data (FLR/VLR, EFF)  
+** ** |  **[Multi-Keyed Files](Keyed%20Files.htm#multi_keyed)** |  Consist of one or more keys (FLR/VLR, EFF)  
   
 All PxPlus I/O directives work with keyed files. See **[Processing Data Files](../Processing%20Data%20Files/Overview.md)**.
 
@@ -56,7 +56,7 @@ A **_direct file_** is a keyed file with an external key. The key size must be s
 _filename$_ |  File name of the**DIRECT** (Keyed) file. String expression.  
 ---|---  
 _max_len_ |  Maximum length of the key for all records in the file. Numeric expression, integer.  
-_max_recs_ |  Maximum number of records in the file. Optional numeric expression. Use a comma with no value to set the default (zero - unlimited). If a positive value is supplied, PxPlus creates and pre-allocates disk space for the file (for FLR/VLR formats). With a negative value, PxPlus allocates sufficient disk space for the file (for FLR/VLR formats), but will set _max_recs_ back to zero.  
+_max_recs_ |  Maximum number of records in the file. Optional numeric expression. Use a comma with no value to set the default (zero - unlimited). If a positive value is supplied, PxPlus creates and pre-allocates disk space for the file (for FLR/VLR formats). With a negative value, PxPlus allocates sufficient disk space for the file (for FLR/VLR formats), but will set _  max_recs_ back to zero.  
 _rec_size_ |  Maximum size of the data portion of each record (excluding the key). Optional. Numeric expression. You can use: |  _No Value_ |  Default is VLR with maximum size of 256.  
 ---|---  
 _Positive Integer_ |  FLR of size specified.  
@@ -70,7 +70,7 @@ _Negative Integer_ |  VLR with maximum length specified.
 
 The **_sort file_** is a type of keyed file that consists of a key only with no data record portion. Key size must be specified, along with the file name. The **[SORT](../../../directives/sort.md)** directive is used to create a sort file:
 
-> **SORT** _filename$_**,**_max_keysize_ [, _max_rec_ ]
+> **SORT** _filename$_**,**_  max_keysize_ [, _max_rec_ ]
 
 **_Where:_**
 
@@ -121,7 +121,7 @@ The maximum key field length, including the field offset value, is 3839.
   
 "_attr_ " |  Attribute characters.  
 **:** |  Colon - the separator for elements in a key segment.  
-_max_recs_ |  Maximum number of records the file is allowed. Optional numeric expression. The default is zero (no limit). Use a comma with no value to set the default. If a positive value is supplied, PxPlus creates and pre-allocates disk space for the file (for FLR/VLR formats). With a negative value, PxPlus allocates sufficient disk space for the file (for FLR/VLR formats) but will set the _max_recs_ count back to zero (unlimited).  
+_max_recs_ |  Maximum number of records the file is allowed. Optional numeric expression. The default is zero (no limit). Use a comma with no value to set the default. If a positive value is supplied, PxPlus creates and pre-allocates disk space for the file (for FLR/VLR formats). With a negative value, PxPlus allocates sufficient disk space for the file (for FLR/VLR formats) but will set the _  max_recs_ count back to zero (unlimited).  
 _rec_size_ |  Maximum size of the data portion of the record (excluding the key). A negative value creates a variable length record (VLR) data file with the maximum record length equal to the positive value of this field. A positive value creates a fixed length record (FLR) formatted file. If you do not specify size, the default is VLR with a maximum record size of 256. The maximum record size for a VLR file is 31000 bytes. Attempting to create a VLR file with a record size more than 31000 bytes results in an FLR file with the requested record size.  
 _fileopt_ |  Supported file options: |  **BSZ=**_num_ |  Block size. Numeric expression (1 to 31K for VLR, 1 to 63K for EFF).  
 ---|---  
@@ -129,7 +129,7 @@ _fileopt_ |  Supported file options: |  **BSZ=**_num_ |  Block size. Numeric exp
 **SEP=**_char$_**_| *_** |  Default field separator character. Hex or ASCII string value.   
 **OPT=**_char$_ |  Single character parameter: |  "C" |  Compressed. Adds simple compression to record data.  
 ---|---  
-"U" |  Enable [**UpdatePlus™**](../../../directives/keyed.htm#updateplus) logic for file.  _(UpdatePlus™ was added to PxPlus version 7.65)_ Only supported on VLR and FLR files - no EFF support.  _(as of build 9180)_  
+"U" |  Enable [**UpdatePlus ™**](../../../directives/keyed.htm#updateplus) logic for file. _(UpdatePlus ™ was added to PxPlus version 7.65)_ Only supported on VLR and FLR files - no EFF support. _(as of build 9180)_  
 "X" |  Extended Record Size. Extends record sizes up to 2GB per record.  
 "Z" |  Set ZLib Compression for VLR and EFF Files.
 
@@ -147,15 +147,18 @@ OPT="2" generates Error #99: Feature not supported on platforms that do not offe
 
 The _key_definitions_ parameter contains one or more key declarations, each comma separated. The first key declaration is for the primary key; the remaining declarations are for the secondary keys. If an external key field is to be created, it must be a primary key and its length given as the first key declaration.
 
+#### **Note:**  
+The keys must always reside within the defined record size. For example, if a file is defined with a record size of 1000, then all keys must be located within the first 1000 bytes, regardless of whether the _Extended Record Size_ flag is enabled. The reason for this is that extended records are stored in multiple linked chunks, but internally, the key segments can only be built from the first chunk.
+
 Keys that exist with the data portion of the record are defined by a key declaration in the following format:
 
-> [{"_keyname_ ":}_field_ __no_ :_offset_ :_length_{:"_options_ "}]
+> [{"_keyname_ ":}_field_ __no:offset_ :_length_{:"_options_ "}]
 
 **_Where:_**
 
 _keyname_ |  This is an optional name for the key. Within the program, the key can be accessed either by its number (primary key is zero) or by using its key name.  
 ---|---  
-_field_no_ |  This value indicates the field number within the data record. If the _field_no_ is specified as zero, then the complete data record is considered a field. If desired, _field_no_ can be specified as KEY indicating the external key.  
+_field_no_ |  This value indicates the field number within the data record. If the _field_no_  is specified as zero, then the complete data record is considered a field. If desired, _field_no_  can be specified as KEY indicating the external key.  
 _offset_ |  This field contains the offset within the field to be used. One (1) indicates the first position.  
 _length_ |  This field contains the length of data to be used. If the actual _field_no_ specified is longer than the length, it will be truncated within the key value. If the field is shorter, it will be padded with nulls.  
 _options_ |  This optional string can consist of one or more of the following values: |  "#" |  Auto-increment - Space filled string. (See **Note** below.)  
@@ -172,10 +175,10 @@ If '.n' is provided, the value 'n' is assumed to be the number of digits to the 
 The conversion tables for upper/lowercase conversions are located in the PxPlus message file **[*MLFILE.EN](../../../PxPlus%20System%20Programs%20and%20Files/Message%20Library/Overview.md)**. You can set these tables using the **[DEF UCS and DEF LCS](../../../directives/def_cvs~dte~lcs~ucs.htm#Mark8)** directives and retrieve values using the **[UCS(*)](../../../functions/ucs.md)** and **[LCS(*)](../../../functions/lcs.md)** functions.  
   
 "D" |  Descending order (_Default:_ Ascending).  
-"I" |  Binary auto-increment. Field (1, 2, or 4 bytes in length) will be auto-incremented as records are added to the file. Key must be record-based; i.e. field is 0 and offset is location in record. (See **Note** below.)  
-"K[:n]" |  Null key suppression.  _n_ is the Hex value of the character to suppress if all characters match (defaults to $00$ if not specified). If the entire key evaluates to null, the key will not be a part of this key tree. This cannot be used on a primary key or in conjunction with the "N" option.  
+"I" |  Binary auto-increment. Field (1, 2, or 4 bytes in length) will be auto-incremented as records are added to the file. Key must be record-based; i.e. field is 0 and offset is location in record. (See  **Note** below.)  
+"K[:n]" |  Null key suppression. _n_ is the Hex value of the character to suppress if all characters match (defaults to $00$ if not specified). If the entire key evaluates to null, the key will not be a part of this key tree. This cannot be used on a primary key or in conjunction with the "N" option.  
 "L" |  Force lowercase for individual key segments to create lowercase insensitive keys.  
-"N[:n]" |  Null segment suppression.  _n_ __ is the Hex value of the character to suppress if all characters match. If any segment within the key evaluates to null, the key will not be a part of this key tree. This cannot be used on a primary key or in conjunction with the "K" option.  
+"N[:n]" |  Null segment suppression. _n  _is the Hex value of the character to suppress if all characters match. If any segment within the key evaluates to null, the key will not be a part of this key tree. This cannot be used on a primary key or in conjunction with the "K" option.  
 "S" |  Swapped (same as **SWP( )** type 7, Intel x86 style swapping only).  
 "T" |  Force automatic accent translation for individual key segments (i.e. to translate accented/extended characters to their non-accented counterparts). You will find this useful for sorting multilingual characters into a single unified sort sequence.  
   
@@ -219,6 +222,55 @@ There is a limit of 96 total data fields allowable in a file for use within keys
 
 If no external key is desired on the file, only key descriptors would be specified with the first key descriptor being considered the primary key.
 
+## Correcting Duplicate Unique Keys
+
+If, during the process of building a key tree structure for a data file, the system detects that a duplicate key exists, the system will display the following message:
+
+> _Duplicate key found at nnnnn_
+
+The value displayed in _nnnnn_ is the logical record address or index that can be used to locate and read the affected record.
+
+To correct this problem, read the record using an **IND=**_nnnnn_ clause, change/correct the key field(s), and issue a **WRITE** to update the record. The system will remove the incorrect key pointer and insert the appropriate new key pointer.
+
+**_Example:_**
+
+Let us create a file that will ultimately have duplicate keys:
+
+> ->keyed "keyfle",[1:1:6]  
+>  ->open (1) "keyfle"  
+>  ->write (1) "000001","123456"  
+>  ->write (1) "000002","123456"  
+>  ->close (1)
+
+> Add the index, which will cause the problem:
+
+> ->add index [2:1:6:"U"] to "keyfle"  
+>  Duplicate key found at index 2050  
+>  Done - loaded key number 1 with 2 keys
+
+During the addition of the new key, the system will attempt to load the key trees. Any errors will be reported both on the screen and on the PxPlus system logfile.
+
+#### **Note:**  
+Whenever a key table is loaded, a log is sent of the rebuild process (including errors) to the logfile specified in the INI file for the system. The contents of this logfile can be used to keep track of any records with keys that need to be corrected. On the Windows version, the output is also sent to the Trace window, which itself could be saved to a disk file if necessary.
+
+To repair the records, read by the record index and change the key:
+
+> ->open (1) "keyfle"  
+>  ->read (1,ind=2050) a$,b$  
+>  ->print a$,b$  
+>  000002123456  
+>  ->b$="999999"  
+>  ->write (1) a$,b$
+
+A reload of the keys is not required but can be used to verify the correction:
+
+> ->keyed load (1)  
+>  Done - loaded key number 0 with 2 keys  
+>  Done - loaded key number 1 with 2 keys
+
+#### **Note:**  
+Whenever a key table is loaded, a log is sent of the rebuild process (including errors) to the logfile specified in the INI file for the system. The contents of this logfile can be used to keep track of any records with keys that need to be corrected. On the Windows version, the output is also sent to the Trace window, which itself could be saved to a disk file if necessary.
+
 ## Using the Secondary Keys
 
 For the purposes of accessing multi-keyed data files, each key is assigned a key number. The primary key is assigned the key number of zero (0), the first secondary key is assigned one (1), and so on. When reading a multi-keyed file, the system performs the read based on the current key number being used. The key number is specified by the**KNO=** option in the **[WRITE](../../../directives/write.md)**, **[FIND](../../../directives/find.md)**, **[EXTRACT](../../../directives/extract.md)** directives or any of the key functions; i.e. **[KEC( )](../../../functions/kec.md)**, **[KEF( )](../../../functions/kef.md)**, **[KEL( )](../../../functions/kel.md)**, **[KEN( )](../../../functions/ken.md)**, **[KEP( )](../../../functions/kep.md)**, **[KEY( )](../../../functions/key.md)**. Once **KNO=** is specified, it remains the current key number until changed by a subsequent**KNO=** option. When a file is initially opened, the key number is set to zero (primary key).
@@ -248,3 +300,9 @@ If desired, the key definition for a memory file can include Key names.
 
 #### **Note:**  
 Unlike standard *MEMORY* files, *MEMORY* files created with key definitions cannot have record inserted by record index. The key fields are always used.
+
+ 
+
+ 
+
+ 

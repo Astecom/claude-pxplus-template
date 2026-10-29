@@ -41,9 +41,9 @@ The following window is displayed:
 
 > This window consists of the following:
 
-_Definition File_ |  Displays the pathname of the PxPlus system _Definition File_ (***win/nomads_properties.txt**) used to load %NOMADS properties into the grid.  
+_Definition File_ |  Displays the pathname of the PxPlus system _Definition File_  (***win/nomads_properties.txt**) used to load %NOMADS properties into the grid.  
 ---|---  
-_Settings File_ |  Displays the pathname of the user-defined _Settings File_ (**nomads_prop_save.txt**) used to save the values entered in the grid.
+_Settings File_ |  Displays the pathname of the user-defined _Settings File_  (**nomads_prop_save.txt**) used to save the values entered in the grid.
 
 #### **Note:**  
 The name and location of this file **_must not be changed_**. It is used exclusively for %NOMADS properties settings that are associated with a working directory.  
@@ -56,20 +56,20 @@ _Load Properties_ |  Button that is used to load the grid values with any non-nu
 To ensure that any new values are saved and %NOMADS object property values are updated, click the _Apply_ button.
 
 _(The Load Properties button was added in PxPlus 2023 Update 1.)_  
-_Copy To_ |  Launches the **Copy Settings File** window for copying the user-defined _Settings File_ (**nomads_prop_save.txt**) to another directory. If the "copy to" file already exists in the specified directory, a message will display.
+_Copy To_ |  Launches the **Copy Settings File** window for copying the user-defined _Settings File_ (**nomads_prop_save.txt**) to another directory. If the "copy to" file already exists in the specified directory, a message will display.      
 
 #### **Important Note:**  
 The default "copy to" file is **nomads_prop_save.txt**. This is the user-defined _Settings File_ that the %NOMADS object checks for when instantiated.  
   
-A different "copy to" file may be entered; however, if the file will be used to apply %NOMADS property settings in another location, the user-defined _Settings File_ ** _must_** be named "**nomads_prop_save.txt** ".  
+A different "copy to" file may be entered; however, if the file will be used to apply %NOMADS property settings in another location, the user-defined _Settings File_  **_must_** be named "**nomads_prop_save.txt** ".  
   
 _(Properties Grid)_ |  The grid lists available %NOMADS properties and is also used to define the settings for desired properties. See **[%NOMADS Properties](Appendix/NOMADS%20Variables/Overview.htm#properties)**. This grid consists of the following columns: |  _Category_ |  Each property is assigned to a category, which identifies the PxPlus feature or functionality affected by the property and makes it easier to find a particular property (i.e. _Get_File_Box_). Click the column heading to toggle between ascending or descending order.  
 ---|---  
 _Property_ |  By default, properties are initially sorted by _Category_ and then by _Property_ name for each _Category_. To sort the entire list by _Property_ name, click the _Property_ column heading to toggle between ascending or descending order.  
-_Set_ |  Select this check box to set the value entered for the property to allow it to be applied. This check box is selected automatically when a value is entered in the _Value/Expression_ column. If a value is entered ** _and_** the _Set_ check box is **_not_** selected, the value will **_not_** be applied after it is saved in the user-defined _Settings File_. To sort the entire list to see which properties have the _Set_ check box selected, click the _Set_ column heading.  
+_Set_ |  Select this check box to set the value entered for the property to allow it to be applied. This check box is selected automatically when a value is entered in the _Value/Expression_ column. If a value is entered **_and_** the _Set_ check box is **_not_** selected, the value will **_not_** be applied after it is saved in the user-defined _Settings File_. To sort the entire list to see which properties have the _Set_ check box selected, click the _Set_ column heading.  
 _Exp_ |  Select this check box if the value to be entered in the _Value/Expression_ column will be an **_expression_**.  
 _Value/Expression_ |  Enter a value for the property. Depending on the contents of the PxPlus system _Definition File_ , the value may be set by a check box, a string or numeric entry, selected from a query containing data from another table, or selected from a predefined list of possible values.  
-**Property Description** |  Describes the selected %NOMADS property and the method for setting its value when clicking on a row in the grid.  
+**Property Description** |  Describes the selected %NOMADS property and the method for setting its value when clicking on a row in the grid.     
 _Nomads Properties Help_ |  Hyperlink-style button that launches a concurrent panel displaying the **[%NOMADS Properties](Appendix/NOMADS%20Variables/Overview.htm#properties)** Help page. This panel can also be resized.  
 _Reset_ |  Clears the contents of the user-defined _Settings File_ so that properties can be defined again from the beginning. Prior to clearing this file, a message will display.  
 _Display Settings_ |  Displays the **_last saved_** contents of the user-defined _Settings File_ in a separate window (for viewing only).  
@@ -83,28 +83,35 @@ Each time that the %NOMADS object is instantiated, any values in the user-define
 
 The following syntax is used to apply the %NOMADS properties:
 
-> **call** "*win/propset;apply",%nomads,_"nomads_prop_save.txt"_
+> **call** "*win/propset;apply",%nomads,_" nomads_prop_save.txt"_
 
 **_Where:_**
 
-_"nomads_prop_save.txt"_ is the user-defined _Settings File_.
+_" nomads_prop_save.txt"_ is the user-defined _Settings File_.
 
 **_Example:_**
 
 Below is an example of a user-defined _Settings File_ that contains the property values that were entered using this utility:
 
-> Chart$="plus"  
->  Chart_Colors$=X$  
->  ! PublicAutoChart=1 (This line begins with ! (exclamation point), indicating it is a remark line. As a result, this value will not be applied.)  
->  FM_Clear_Option$="1"  
->  FM_Update_Option$="L"  
->  SuppressWindXMakeFolder=1
+>      Chart$="plus"  
+>       Chart_Colors$=X$  
+>  ! PublicAutoChart=1     (This line begins with ! (exclamation point), indicating it is a remark line. As a result, this value will not be applied.)  
+>       FM_Clear_Option$="1"  
+>       FM_Update_Option$="L"  
+>       SuppressWindXMakeFolder=1
 
 #### **Note:**  
 When instantiated, the %NOMADS object looks for the **nomads_prop_save.txt** file and uses the first file found using the current file prefixes.
 
 ## See Also
 
-**[%NOMADS Properties](Appendix/NOMADS%20Variables/Overview.htm#properties)**  
+**[How to Use the NOMADS Environment Maintenance Utility](../How%20To/How%20to%20Use%20Nomads%20Environment%20Maint.md)  
+[%NOMADS Properties](Appendix/NOMADS%20Variables/Overview.htm#properties)**  
 **[Property Maintenance Utility](Property%20Maintenance.md)**  
 **[START_UP Initialization Program](../PxPlus%20Installation%20and%20Configuration/Customizing%20PxPlus/START_UP%20Initialization%20Program.md)**
+
+ 
+
+ 
+
+ 

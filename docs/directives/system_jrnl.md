@@ -36,7 +36,7 @@ When journalization is enabled, you can set up and maintain a Data Mirroring sys
   
 _(The Data Mirroring Configuration interface was added in PxPlus 2017.)_
 
-## Journal Sequencing
+## Journal Sequencing 
 
 Journal files are limited to a size of 2GB. It is important to make sure that a journal file is closed and a new journal is started before exceeding this limit.
 
@@ -79,20 +79,20 @@ Types _w_ , _d_ and _+_ are **_PxPlus only_**.
 
 |  **Type** |  **Description** |  **Data** |  **Back Pointer Points To** |  **PxPlus Additional Data**  
 ---|---|---|---|---  
-"O" |  Jrnl Open |  Userid +";" + PTH(0) + ";" + FID(0) |  |   
-"C" |  Jrnl Close |  |  |   
+"O" |  Jrnl Open |  Userid +";" \+ PTH(0) + ";" \+ FID(0) |    |     
+"C" |  Jrnl Close |    |    |     
 "o" |  File Open |  Pathname |  Jrnl Open |  External Keysz  
-"c" |  File Close |  |  File Open |   
+"c" |  File Close |    |  File Open |     
 "B" |  Before Image |  Before contents of record |  File Open |  External Keysz  
 "A" |  After Image |  Updated/After image of record |  File Open |  External Keysz  
 "D" |  Delete Record  |  Image of record deleted |  File Open |  External Keysz  
-"E" |  Erase File |  Pathname of file |  Jrnl Open |   
-"R" |  Rename File |  Old name of file +$00$ + New name |  Jrnl Open |   
-"P" |  Purge File |  |  File Open |   
-"U" |  User Record |  Output from a SYSTEM_JRNL WRITE directive |  Jrnl Open |   
+"E" |  Erase File |  Pathname of file |  Jrnl Open |     
+"R" |  Rename File |  Old name of file +$00$ + New name |  Jrnl Open |     
+"P" |  Purge File |    |  File Open |     
+"U" |  User Record |  Output from a SYSTEM_JRNL WRITE directive |  Jrnl Open |     
 "w" |  Dictionary Write |  Dictionary record |  File Open |  Index  
-"d" |  Dictionary Remove |  |  File Open |  Index  
-"+" |  File Create |  FILE CREATE directive |  Jrnl Open |   
+"d" |  Dictionary Remove |    |  File Open |  Index  
+"+" |  File Create |  FILE CREATE directive |  Jrnl Open |     
 2-4 |  Record size in bytes  
 5-8 |  Time of day when record was written in seconds past 01/01/1970 GMT  
 9-12 |  Address of prior record for session  
@@ -103,9 +103,9 @@ Types _w_ , _d_ and _+_ are **_PxPlus only_**.
 After/Before Image points to file Open record. Open file record points to User login record.  
 17-20 |  4-byte binary value that contains:  
   
-For Keyed files: the size of any external key  
+     For Keyed files: the size of any external key  
   
-For Indexed files: the record address being updated  
+     For Indexed files: the record address being updated  
   
 The rest of the record is the before/after image of the data. The file itself has a 4-byte header with the address of the last record on the file.
 
@@ -116,7 +116,7 @@ Prior to PxPlus 2014, the journal header was only 16 bytes long. PxPlus 2014 add
 
 **_Close System Journal_**
 
-**SYSTEM_JRNL CLOSE**
+**SYSTEM_JRNL CLOSE** 
 
 This format closes the open system journal.
 
@@ -137,7 +137,7 @@ If you have enabled journalization for a data file, you cannot access that file 
 
 **_Disable_**** _Journalization_**
 
-**SYSTEM_JRNL DISABLE** _filename$_
+**SYSTEM_JRNL DISABLE** _filename$_  
 
 Use this format to disable journalization for the specified data file.
 
@@ -145,7 +145,7 @@ Use this format to disable journalization for the specified data file.
 
 **_Add Entry to File_**
 
-**SYSTEM_JRNL WRITE** _var_ _$_
+**SYSTEM_JRNL WRITE** _var_ _$_  
 
 This format adds the contents of _var_ _$_ to the currently open journal (serial file).
 
@@ -153,7 +153,7 @@ This format adds the contents of _var_ _$_ to the currently open journal (serial
 
 **_EFF Begin Transaction_**
 
-**SYSTEM_JRNL BEGIN**
+**SYSTEM_JRNL BEGIN** 
 
 This directive is used to mark the start of a transaction. All updates to file systems (EFF, ODB, DB2, Oracle, and MYSQL) will be deferred until the transaction completes and it is committed using the **SYSTEM_JRNL SAVE** directive.
 
@@ -177,7 +177,7 @@ This format is used to control Auto-commit mode of an EFF, ODBC, DB2, Oracle or 
 
 **_ODBC/OCI/EFF Commit Transaction_**
 
-**SYSTEM_JRNL SAVE**
+**SYSTEM_JRNL SAVE** 
 
 This format will commit all pending/deferred updates to a database transaction if Auto-commit mode is disabled. An Error #15 is reported if a database error occurs.
 
@@ -188,7 +188,7 @@ This format will commit all pending/deferred updates to a database transaction i
 
 **_Dynamic Transaction Auto-Commit_**
 
-**SYSTEM_JRNL BEGIN** **AUTO**
+**SYSTEM_JRNL BEGIN**  **AUTO**
 
 PxPlus provides enhanced Auto-commit logic that automatically uses transaction processing logic to defer all updates to a database until the application enters an idle state, such as waiting for input or issuance of a WAIT directive. This Dynamic Auto-commit improves both system performance and the reliability of updates since all changes to the database occur at the same time. This helps assure synchronization of all updates between files and/or databases.
 
@@ -201,7 +201,7 @@ To disable the Dynamic Auto-commit, re-enable Auto-commit by issuing **SYSTEM_JR
 
 **_ODBC/OCI/EFF Roll Back Transaction_**
 
-**SYSTEM_JRNL RESTORE**
+**SYSTEM_JRNL RESTORE** 
 
 This format will roll back and discard all pending/deferred updates within database transaction if Auto-commit mode is disabled. An Error #15 is reported if a database error occurs.
 
@@ -224,9 +224,9 @@ Specifying a null directory name will disable this feature. If the directory nam
 
 Each tracking file (log) is created with a unique name using the following format:
 
-__ |  _username_.MMDDHHMMSS.log |  **_Windows_**  
+_ _ |  _username_.MMDDHHMMSS.log |  **_Windows_**  
 ---|---|---  
-__ |  _username_.MMDD.PPPPP.NNN.log |  **_UNIX/Linux_**  
+_ _ |  _username_.MMDD.PPPPP.NNN.log |  **_UNIX/Linux_**  
   
 **_Where:_**
 
@@ -274,7 +274,7 @@ This directive can be used in conjunction with the auto-sequencing of log files,
 >  0080 !  
 > 0100 ! !^100  
 >  0110 if nextindex=0 or nextindex>filesize \  
->  then goto 0500  
+>                 then goto 0500  
 >  0120 read record (1,ind=nextindex,siz=20,err=0500)header$  
 >  0130 let type$=header$(1,1)  
 >  0140 let recsize=dec($00$+header$(2,3))  
@@ -282,15 +282,15 @@ This directive can be used in conjunction with the auto-sequencing of log files,
 >  0160 let priorrec=dec($00$+header$(9,4))  
 >  0170 let relatedrec=dec($00$+header$(13,4))  
 >  0180 let datarec$="";  
->  if recsize \  
->  then read record (1,ind=nextindex+20,siz=recsize-16,err=0500)datarec$  
+>           if recsize \  
+>                 then read record (1,ind=nextindex+20,siz=recsize-16,err=0500)datarec$  
 >  0190 let nextindex+=recsize  
 >  0200 !  
 > 0300 ! !^100 - Format & display  
 >  0310 let disprec$=sub(sub(datarec$,sep,"~"),esc,"~")  
 >  0320 let days=int(time/86400);  
->  if (days*86400)>time \  
->  then days--  
+>           if (days*86400)>time \  
+>                 then days--  
 >  0330 let time=time-days*86400  
 >  0340 let sv_by=prm('BY');set_param 'BY'=1970  
 >  0350 let t$=dte(days,time/3600:"%Ms%Dz/%Ys-%hz:%mz:%sz%p")  
@@ -303,31 +303,37 @@ This directive can be used in conjunction with the auto-sequencing of log files,
 
 **_Example 2_** \- The following illustrates the use of **SYSTEM_JRNL** for tracking potential file corruption (dirty file indicator):
 
-> Dir$="/SysJrnl.Dir/";  
->  directory Dir$,err=*next  
->  WorkFile$="WorkFile.Dat";  
->  keyed WorkFile$,10,0,-256,err=*next  
+>      Dir$="/SysJrnl.Dir/";  
+>      directory Dir$,err=*next  
+>      WorkFile$="WorkFile.Dat";  
+>      keyed WorkFile$,10,0,-256,err=*next  
 >  !  
 >  ! Generate a log file  
->  system_jrnl directory Dir$  
->  open (unt)WorkFile$;  
->  WorkFile=lfo  
->  write (WorkFile,key="Test")"Test","Record"  
+>      system_jrnl directory Dir$  
+>      open (unt)WorkFile$;  
+>      WorkFile=lfo  
+>      write (WorkFile,key="Test")"Test","Record"  
 >  ! List$=""  
->  select Log$ from Dir$ where pos(".log"=Log$)  
->  select File$ from Dir$+Log$  
->  if pos(File$+sep=List$) \  
->  then continue \  
->  else List$+=File$+sep  
->  print "Checking: ",File$," ",  
->  call "*ufac",err=*next,File$,1;  
->  print "Okay";  
->  continue  
->  print File$,":",msg(err)  
->  next record  
->  next record  
+>      select Log$ from Dir$ where pos(".log"=Log$)  
+>           select File$ from Dir$+Log$  
+>                if pos(File$+sep=List$) \  
+>                     then continue \  
+>                     else List$+=File$+sep  
+>                print "Checking: ",File$," ",  
+>                call "*ufac",err=*next,File$,1;  
+>                print "Okay";  
+>                continue  
+>                print File$,":",msg(err)  
+>           next record  
+>      next record  
 >  !  
->  close (WorkFile)
+>      close (WorkFile)
 
 #### **Note:**  
 As of PxPlus 2016, the *UFAC file check utility no longer supports split files, multi-segmented files and files greater than 2GB, as rebuilding the entire file is a more efficient process.
+
+ 
+
+ 
+
+ 

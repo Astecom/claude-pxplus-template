@@ -15,4 +15,10 @@ This property is used to define the number of lines that each entry on a list bo
 
 ## Used By 
 
-**LIST_BOX****REPORT_VIEW**
+**LIST_VIEW** **  REPORT_VIEW**
+
+ 
+
+ 
+
+ 

@@ -1,11 +1,11 @@
-# Utility Routines 
+# Objects
 
 ***OBJ/IMAGE** |  **_Create Image Object_**  
 ---|---  
   
 ## Format
 
-_oHandle_ __ = **NEW("*obj/image",**_imageFilename_ _$_**[** , _imageType_ _$_**][** ,_dpi$_**][** , _width$_**][** , _height$_**])**
+_oHandle_ _ _ = **NEW( "*obj/image", **_imageFilename_ _$_**[** , _imageType_ _$_**][** ,_dpi$_**][** , _width$_**][** , _height$_**])**
 
 **_Where:_**
 
@@ -29,7 +29,7 @@ You can use the **@X/Y(=**_num_**)** function to use pixel positioning when addi
 
 The following **_property_** is supported:
 
-|  **ImageChannel******|  Channel of image to create. Use this to add things to the image.  
+  |  **ImageChannel******|  Channel of image to create. Use this to add things to the image.  
 ---|---|---  
   
 On UNIX/Linux, **ImageChannel** cannot be used as an input channel for the 'PICTURE' mnemonic, as this only supports *BITMAP*.
@@ -49,3 +49,9 @@ The following code provides an example of creating an image with the ***obj/imag
 ## See Also
 
 **[@X( ) / @Y( ) Convert X/Y Coordinates](../functions/~x.md)**
+
+ 
+
+ 
+
+ 

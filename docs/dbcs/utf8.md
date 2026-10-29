@@ -1,6 +1,6 @@
 # UTF-8/Unicode and DBCS Support
 
-**UTF-8 Facilities and Support** |   
+**UTF-8 Facilities and Support** |     
 ---|---  
   
 **UTF-8** (8-bit Unicode Transformation Format) provides a method to store Unicode data in 8-bit bytes. It uses variable-length character encoding to represent the various Unicode values. It is able to represent any universal character in the Unicode standard, yet maintains backwards compatibility with ASCII.
@@ -51,7 +51,7 @@ The **[INPUT](../directives/input.md)** directive will convert extended ASCII to
 3 |  4 |  The system **[POS](../functions/pos.md)** function will assume the data is UTF-8 encoded when attempting to advance its pointer (increment value).  
 4 |  8 |  The system **[MID](../functions/mid.md) **function will assume the data is UTF-8 encoded when attempting to sub-string data.  
 5 |  16 |  The in-line sub-string logic will assume the data is UTF-8 encoded when attempting to sub-string data.  
-6 |  32 |  Used to control UTF-8 support in the **[CVS](../functions/cvsextend.md)**, **[UCS](../functions/ucs.md)** and **[LCS](../functions/lcs.md)** functions.  _(**UTF-8** support was added in PxPlus 2017.)_  
+6 |  32 |  Used to control UTF-8 support in the **[CVS](../functions/cvsextend.md)**, **[UCS](../functions/ucs.md)** and **[LCS](../functions/lcs.md)** functions. _(**UTF-8** support was added in PxPlus 2017.)_  
   
 To enable UTF-8 logic, you will set the value of the 'U8' system parameter to a value made up of the above sum of the above option values.
 
@@ -63,7 +63,7 @@ PxPlus handles this problem by only detecting the field separator when not proce
 
 ## Functions
 
-**OPT= For Selective Override**
+**OPT= For Selective Override**  
 
 The functions LEN, MID, POS, UCS, LCS, CVS support a ,OPT="..." specification that can be used to override the default UTF-8 encoding as defined above. If OPT="U" is added to the end of any of these functions, the system will consider the data being processed as UTF-8. If OPT="B" is present, then the data will be consider standard binary/ASCII values.
 
@@ -117,4 +117,10 @@ These values can be stored and retrieved from a file, as such the NOMADS screen 
 Simply make sure the 'U8' parameter is set. It is **_strongly_** recommended that you set this in your START_UP program if you are planning on using it.
 
 #### **Note:**  
-To simplify the conversion of the Euro currency symbol (****) which historically has been coded as $80$ in Windows, the UTF-8 convertor will automatically change $80$ to $20AC$, which is its associated Unicode equivalent. Note that this translation is**only** done when going from UTF-8 to Unicode, not vice versa, as application should start using the proper Unicode values.
+To simplify the conversion of the Euro currency symbol (****) which historically has been coded as $80$ in Windows, the UTF-8 convertor will automatically change $80$ to $20AC$, which is its associated Unicode equivalent. Note that this translation is **only** done when going from UTF-8 to Unicode, not vice versa, as application should start using the proper Unicode values.
+
+ 
+
+ 
+
+ 

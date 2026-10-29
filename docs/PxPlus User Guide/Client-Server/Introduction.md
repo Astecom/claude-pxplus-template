@@ -1,6 +1,6 @@
 # Introduction to Using PxPlus
 
-**Client-Server** |  **__**  
+**Client-Server** |  **_ _**  
 ---|---  
   
 PxPlus includes several facilities that allow your processing workload and/or data to be distributed over network-connected systems, client workstations and shared servers. They allow you to maintain heavy processing and data storage on a secure central server while delivering a flexible user-oriented interface to multiple desktop systems and/or portable devices. The information below explains how the various technologies (i.e. WindX) will work with your PxPlus applications.
@@ -13,7 +13,7 @@ Transmission Control Protocol/Internet Protocol **(TCP/IP)** is the primary comm
 
 When a TCP/IP connection is established between client and server, the client requests a connection to a specific server by giving its IP address and a service identifier (port/socket number). On the host computer, an application establishes itself by identifying its service number, which typically ranges from 1 to 65535. Typically, numbers below 2000 are reserved for specific Internet applications, while numbers above are available for general use.
 
-PxPlus has built-in support for TCP/IP protocol, which allows developers to create new services or to interact with existing services over a network. The **[[TCP]](../../command_tags/tcp.htm)** interface is used to communicate directly via TCP/IP. The **[[RPC]](../../command_tags/rpc.htm)** remote process control provides a basic method to read/write data in PxPlus files, as well as to execute PxPlus background tasks on one or more remote servers via TCP/IP.
+PxPlus has built-in support for TCP/IP protocol, which allows developers to create new services or to interact with existing services over a network. The **[[TCP]](../../command_tags/tcp.md)** interface is used to communicate directly via TCP/IP. The **[[RPC]](../../command_tags/rpc.md)** remote process control provides a basic method to read/write data in PxPlus files, as well as to execute PxPlus background tasks on one or more remote servers via TCP/IP.
 
 These TCP/IP-based facilities are not required when using the client-server deployment options. The PxPlus thin-client and hosting products described in this section are distributed with pre-built connection/processing functionality that is independent of your hardware and network implementations. Another consideration for remote file access is PxPlus ODBC Client-Server. See **[PxPlus SQL ODBC Driver](../../odbc/pxplus_odbc.md)**.
 
@@ -77,7 +77,7 @@ PxPlus includes some server-side indicators for detecting a thin-client session.
 
 Once PxPlus on the server recognizes the existence of the client station, it changes internal settings that route graphical requests to the thin-client. Graphical directives and functions invoked by the application are tokenized and sent to the client.
 
-Code that may be executed on either side needs to indicate if it is to execute on the server or the client. Execution defaults to the server side. To perform an operation on the client side, use the **[[WDX]](../../command_tags/wdx.htm)** tag.
+Code that may be executed on either side needs to indicate if it is to execute on the server or the client. Execution defaults to the server side. To perform an operation on the client side, use the **[[WDX]](../../command_tags/wdx.md)** tag.
 
 **_Example:_**
 
@@ -88,7 +88,7 @@ When using the Application Server, an OOP object **%APS** is created on both the
 
 **_Mnemonics_**
 
-Thin-clients respond directly to the internal form of all mnemonics. Therefore, unlike conventional terminals, no translation table is required. Mnemonics, such as **'CS'** , are transmitted as $1B$+"CS", and screen position commands, such as**@(1,2)** , are sent as $1B$+"@2"+CHR(1)+CHR(2). Long-form mnemonics, such as **'[WINDOW](../../mnemonics/window.md)'** and **'[DROP](../../mnemonics/drop.md)'**, are sent in their native form as well.
+Thin-clients respond directly to the internal form of all mnemonics. Therefore, unlike conventional terminals, no translation table is required. Mnemonics, such as **'CS'** , are transmitted as $1B$+"CS", and screen position commands, such as**  @(1,2)**, are sent as $1B$+"@2"+CHR(1)+CHR(2). Long-form mnemonics, such as **'[WINDOW](../../mnemonics/window.md)'** and **'[DROP](../../mnemonics/drop.md)'**, are sent in their native form as well.
 
 **_Graphical Control Requests_**
 
@@ -150,7 +150,7 @@ The Plug-in download for WindX is for installation on **_Windows client machines
 
 **_Running PxPlus Applications in WindX_**
 
-Any file type that PxPlus can access may be accessed locally across a WindX connection (Serial, Keyed, Indexed, ODBC, OCI, TCP, etc.). WindX allows you to **CALL** programs that exist on the client; however, you may not **LOAD** or **RUN** local programs. The **[*WindX.utl Utility](../../windx/windxutl.md)** may be used to simplify many client requests.
+Any file type that PxPlus can access may be accessed locally across a WindX connection (Serial, Keyed, Indexed, ODBC, OCI, TCP, etc.). WindX allows you to **CALL** programs that exist on the client; however, you may not **LOAD**  or **RUN** local programs. The **[*WindX.utl Utility](../../windx/windxutl.md)** may be used to simplify many client requests.
 
 OOP objects and COM controls may be utilized by the server for WindX clients via:
 
@@ -166,3 +166,11 @@ Multiple options are available for upgrading/updating PxPlus-based client-server
 **_AutoUpdater_**
 
 This utility is included with the PxPlus base activation to provide a means for automatically updating (or downgrading) and repairing client installations of WindX. It can be configured to check for and install critical patches/upgrades on all client workstations whenever they are connected to the server.
+
+ 
+
+ 
+
+ 
+
+ 

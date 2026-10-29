@@ -3,7 +3,7 @@
 **Style Sheet Usage**|   
 ---|---  
   
-By using a Cascading Style Sheet (CSS), you can tailor most controls in an application. If a NOMADS control has a class defined (see **[Data Classes](../Data%20Dictionary/Data%20Classes/Overview.md)**), the system automatically inserts an **nmdClass=' '** into the control definition. You can test this in CSS Style Sheets using Selectors.
+By using a Cascading Style Sheet (CSS), you can tailor most controls in an application. If a NOMADS control has a class defined (see **[Data Classes](../Data%20Dictionary/Data%20Classes/Overview.md)**), the system automatically inserts an **nmdClass=' …'** into the control definition. You can test this in CSS Style Sheets using Selectors.
 
 **_Example:_**
 
@@ -49,3 +49,9 @@ To exclude the column header, you can include multiple selectors, as in the foll
 > div[nmdClass="BILLING"] div[id$="_2"][id^="gc_"] {cursor: no-drop; background-color: Orange;}
 
 Using **^=** omits the column headers and selects only Grid cells. This example would result in a no-drop cursor and Orange background on all column 2 cells in any Grid with a NOMADS class of "BILLING".
+
+ 
+
+ 
+
+ 

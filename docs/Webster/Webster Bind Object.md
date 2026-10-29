@@ -1,4 +1,4 @@
-# Webster+
+# Webster+ Web Development Toolkit
 
 **Webster+ HTML Merge/Bind Object**|   
 ---|---  
@@ -7,15 +7,15 @@ Much of Webster+'s capabilities stem from its dynamic creation of Web pages (ref
 
 While you can put any of your own HTML in the HTML file, short codes are designed to simplify the process. For example, you could use an HTML editor to directly include input in an HTML page; however, if you wanted to include a query, specify a format or other characteristics, the HTML you would need to provide would be significant. Using short codes, you could simply include something like:
 
-> **[input ClientID$ format="000000" ttl="Enter client" query=scrnlib;ClientQry]**
+> **[input  ClientID$ format="000000" ttl="Enter client" query=scrnlib;ClientQry]**
 
 The above short code would generate all the HTML required to apply the format, tip and associated query button.
 
-Short codes consist of a series of square bracket enclosed ( **[]** ) keywords with options that, when run through the bind utility (***obj/webbind**), control the generation of an HTML page. Short codes can be used to control layout, insert titles or sub-titles, define sections on your HTML pages, define input controls and forms, and provide options for conditional generation based on embedded PxPlus logic and variables. See **[Short Codes](Short%20Codes.md)**.
+Short codes consist of a series of square bracket enclosed ( **[ ]** ) keywords with options that, when run through the bind utility (***obj/webbind**), control the generation of an HTML page. Short codes can be used to control layout, insert titles or sub-titles, define sections on your HTML pages, define input controls and forms, and provide options for conditional generation based on embedded PxPlus logic and variables. See **[Short Codes](Short%20Codes.md)**.
 
 The format of the short code is:
 
-> **[ shortcode option option option ]**
+> **[ shortcode option option  option ]**
 
 **_Where:_**
 
@@ -32,7 +32,7 @@ The **shortcode** itself will describe the type of information to be included in
 #### **Note:**  
 To include an actual open or close square bracket in the page, precede the bracket with a _backslash_ , as in **\\[** and **\\]**.
 
-The merge/bind object **"*obj/webbind"** does the actual binding of the HTML pages with your application data, along with all other processing of the short codes. It is part of Webster+ and accessible through **%Webster'Bind**. See **[Bind Object Methods](Bind%20Object%20Methods.md)**.
+The merge/bind object **" *obj/webbind"** does the actual binding of the HTML pages with your application data, along with all other processing of the short codes. It is part of Webster+ and accessible through **%Webster'Bind**. See **[Bind Object Methods](Bind%20Object%20Methods.md)**.
 
 Webster+ will automatically "bind" your data values in memory when your process completes with whatever HTML page file is identified in the global variable **%BIND_FILE$**. The name of the file will be automatically preserved in the resultant bound HTML page and restored into the **%BIND_FILE$** variable when the next input from the form is received.
 
@@ -42,4 +42,14 @@ One of the enhanced features of the bind process is its ability to use the PxPlu
 
 > [input ClientID$ usefile=_filename$_]
 
-This allows for dynamic pages generated based on the file specified and NOMADS data class settings. You can also use the [usefile  _filename$_] to specify a default file to use if no filename is provided on the **usefile=** option.
+This allows for dynamic pages generated based on the file specified and NOMADS data class settings. You can also use the [usefile _filename$_] to specify a default file to use if no filename is provided on the **usefile=** option.
+
+## See Also
+
+**[Webster+ Object](Webster%20Object.md)**
+
+ 
+
+ 
+
+ 

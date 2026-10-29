@@ -18,8 +18,14 @@ _(The 'EA**'** system parameter was added in PxPlus 2019.)_
 
 ## Default
 
-**_Off_** The legacy custom PxPlus password hash algorithm is used for new file passwords.
+**_Off_**  The legacy custom PxPlus password hash algorithm is used for new file passwords.
 
 ##  See Also
 
 [**PASSWORD Apply Password and Encryption**](../directives/password.md)
+
+ 
+
+ 
+
+ 

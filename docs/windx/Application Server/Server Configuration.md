@@ -7,9 +7,9 @@ The Application Server includes a utility for creating and setting up server cha
 
 This utility may be launched from a shortcut supplied with the PxPlus for Windows installation. Otherwise, the Command line syntax is described as follows:
 
-|  In **_Windows_** : |  _PVXpath$_ **[-hd] [apscfg.ini] *appserv\config [ARG**  _arguments_**]**  
+  |  In **_Windows_** : |  _PVXpath$_  **[-hd] [apscfg.ini] *appserv\config [ -ARG** _arguments_**]**  
 ---|---|---  
-|  In **_UNIX/Linux_** : |  _PVXpath$_ **"*appserv"/config**  
+  |  In **_UNIX/Linux_** : |  _PVXpath$_  **" *appserv"/config**  
   
 **_Where:_**
 
@@ -146,10 +146,10 @@ _User Password_ |  **_Windows_** option for setting the password for the user ID
 _User Domain_ |  **_Windows_** option for specifying the domain name for the user ID given in the User Name. It is only used by the **[CmdAsUser](Server%20Configuration.htm#options)** utility and is not required under UNIX/Linux. This is used only when _Run All as Default User_ is set or when sessions connect anonymously.  
 **State** |  These fields allow an administrator to control the current state of the Application Server being configured.  
 _Disable Server_ |  Check box to determine whether this server can be started (if currently not running). If disabled, the server will terminate before it starts accepting connections.  
-_Disable New Connections_ |  Check box for disabling new sessions (for maintenance purposes). If set, then a _Reason_ should be specified to present to users attempting to connect. Only new sessions that are started from the client's PC will be disabled  it does not affect currently connected users. Current users will still be able to spawn additional sessions, but new connections via *CLIENT will be refused. This setting does not affect the configuration system's ability to talk to the server daemons.  
+_Disable New Connections_ |  Check box for disabling new sessions (for maintenance purposes). If set, then a _Reason_ should be specified to present to users attempting to connect. Only new sessions that are started from the client's PC will be disabled -- it does not affect currently connected users. Current users will still be able to spawn additional sessions, but new connections via *CLIENT will be refused. This setting does not affect the configuration system's ability to talk to the server daemons.  
 _Disable All Connections_ |  Check box to prevent all new sessions from being started. This includes new Client sessions (from *CLIENT), as well as any newly spawned sessions from currently connected users. This will not affect currently connected users, but it will prevent current users or potential users from starting new sessions of any kind. This setting does not affect the configuration system's ability to talk to the server daemons.  
 _Reason_ |  Descriptive reason for disabling the server. If either the _Disable New Connections_ or _Disable All Connections_ check box is set, then the user will receive an error message informing him/her that the server is disabled for the reason provided.  
-**Options** |   
+**Options** |     
 _Show Sessions in Taskbar_ |  **_Windows_** option that determines whether the client sessions that get launched show up as a button on the Window's task bar.  
 _Use CmdAsUser_ |  **_Windows_** option that determines whether the Application Server is to use the **CmdAsUser** utility to launch sessions on the server as specific users.
 
@@ -191,10 +191,12 @@ _User Requests_ |  Time limit (in seconds) that a connected client has to make a
 _Admin Requests_ |  Time limit (in seconds) for internal administration requests between the Configuration system and running server daemons.  
 _Re-Connect Timeout_ |  Time limit (in seconds) that a connecting client has to perform a reconnect from the moment the Application Server daemon realizes that the connection has been severed. Server-side processes will be kept running for this length of time before terminating. Once terminated, the client will not be able to reconnect to that session.  
   
+ 
+
 #### **Note:**  
 When the reconnect limit is set to a value other than 0, the Application Server daemon will maintain a 64K buffer of data for each PxPlus process serviced, and the Client will maintain a 64K buffer of data it last sent to the server.
 
-Clients will only be able to reconnect to their sessions within the same instance of the client. If the client exits and its process terminates, then it will not have the information required to reconnect  therefore, a reconnect would not be possible.
+Clients will only be able to reconnect to their sessions within the same instance of the client. If the client exits and its process terminates, then it will not have the information required to reconnect - therefore, a reconnect would not be possible.
 
 The client may not notice that its connection to the server has been severed. The client will only notice this happening if the user is currently performing some task within the client. That is, the client may sit idle for an extended period of time and not notice that the connection had been severed when a user begins to type or click the mouse - the server daemons reconnect timeout may have already expired, and the user will not be able reconnect.
 
@@ -225,7 +227,7 @@ _PxPlus EXE_ |  Location on the server of the PxPlus executable to run this appl
 _Server INI_ |  **_Windows_** option for naming the INI file to use for the server-side PxPlus process. A null or <Default> setting indicates using the same INI that the Application Server daemon itself is using.  
 _Lead Program_ |  Actual name of the PxPlus program to be run, known in PxPlus as the _lead program_. If null or CONSOLE, then this is classified as a console session and is subject to console restrictions.  
 _Extra CMD Options_ |  Options that are to go between the lead program name and any statement on the Command line. It is intended for system parameter settings (e.g. -XT=1 or -XT=0 -NE=1). Extra command line options are supplied to the server-side process after the lead program name, but before any **-ARG** values. **_Example:_** _ServSideCMD "LeadProgram" XtraCMDoptions$_ **-ARG ...** The client can send additional command line arguments. Any such additional arguments will be added to the end of this argument string.  
-_Arguments_ |  Command line arguments for the server-side process. These arguments will be available to the launching process via the **[ARG( )](../../functions/arg.md)** function and **[NAR](../../variables/nar.md)** system variable. These are supplied to the server-side process as **ARG** values. **_Example:_** _ServSideCMD "LeadProgram"_ **-ARG**  _arguments$_  
+_Arguments_ |  Command line arguments for the server-side process. These arguments will be available to the launching process via the **[ARG( )](../../functions/arg.md)** function and **[NAR](../../variables/nar.md)** system variable. These are supplied to the server-side process as **- ARG** values. **_Example:_** _ServSideCMD "LeadProgram"_ **-ARG**  _arguments$_  
 _Start-In Directory_ |  Server directory where the Application Server is to launch the process for running the specified lead program. This will become the home working directory (HWD) of the process.  
 _Init Window_ |  Initial window. Available selections are _Normal, Minimized, Maximized, Hidden_.  
 **Options** |  These fields provide On/Off functionality for Application properties.  
@@ -238,8 +240,8 @@ _Allow Client to Set Start-In Directory_ |  Check box to enable the client to re
 _Client Type_ |  Client software permitted to access this application. Available selections are _Any Client Type, WindX Clients Only, JavX Clients Only_.  
 _WindX Ver_ |  Minimum version of WindX that may run this application. See **[Version Codes](Server%20Configuration.htm#version)** below.  
 _Max WindX Ver_ |  Maximum version of WindX that may run this application. See **[Version Codes](Server%20Configuration.htm#version)** below.  
-_JavX Ver_ |  Minimum version of JavX that may run this application. See **[Version Codes](Server%20Configuration.htm#version)** below.  
-_Max JavX Ver_ |  Maximum version of JavX that may run this application. See **[Version Codes](Server%20Configuration.htm#version)** below.  
+_JavX  Ver_ |  Minimum version of JavX that may run this application. See **[Version Codes](Server%20Configuration.htm#version)** below.  
+_Max JavX  Ver_ |  Maximum version of JavX that may run this application. See **[Version Codes](Server%20Configuration.htm#version)** below.  
 **OS Level** |  These fields set properties needed for running applications under UNIX/Linux.  
 _Default Umask_ |  Umask setting for running this application.
 
@@ -257,11 +259,11 @@ You can set just the software revision, just the internal client level, or both.
 
 **_Example:_**
 
-|  0.00.0000/00 |  No level checking is performed.  
+  |  0.00.0000/00 |  No level checking is performed.  
 ---|---|---  
-|  5.01.0000/00 |  Only a software level of "5.01.0000" is checked.  
-|  0.00.0000/08 |  Only an internal client level of "08" is checked.  
-|  5.01.0123/09 |  Both the software revision and the internal client level are checked.  
+  |  5.01.0000/00 |  Only a software level of "5.01.0000" is checked.  
+  |  0.00.0000/08 |  Only an internal client level of "08" is checked.  
+  |  5.01.0123/09 |  Both the software revision and the internal client level are checked.  
   
 ##  Users
 
@@ -293,7 +295,7 @@ _Password Change at Next Logon_ |  Check box to force the user to change a passw
 **Server User** |  These fields allow you to define the name, password and Windows domain that the server uses when launching processes on the server for a remote user. These settings are only in effect either when running under a UNIX/Linux environment or when using **[CmdAsUser](Server%20Configuration.htm#options)** in a Windows environment.
 
 #### **Note:**  
-The **[Run All as Default User](Server%20Configuration.htm#defaultuser)** setting (**Server** panel) has an effect on these settings  when this option is selected, these settings are ignored.  
+The **[Run All as Default User](Server%20Configuration.htm#defaultuser)** setting (**Server** panel) has an effect on these settings -- when this option is selected, these settings are ignored.  
   
 _Server User Name Same as Remote User Name_ |  Check box to enable the _Remote User Name_ and _Password_ , along with the default user's (or current Windows domain) to be used to start the server process. Otherwise, the following values _(Server User Name, Password, Domain)_ must be set.  
 _Server User Name_ |  User ID on the server for running these processes.  
@@ -309,7 +311,7 @@ Run Any Configured App_ |  This field determines what the user may run: any prog
 
 The **Service** panel sets up the Application Server daemon to be run as a Windows service.
 
-**Service Properties** |   
+**Service Properties** |     
 ---|---  
 _Name_ |  A unique service name, generated automatically.  
 _Display Name  
@@ -373,16 +375,22 @@ Application Server configuration and run-time files are located under _Lib/_apps
 
 The following files are updated by the system at run time:
 
-|  _Sessions.pvk_ |  Existing sessions since daemon started, relevant records cleared each time the daemon is started or stopped. This file also stores the location of the PxPlus executable.  
+  |  _Sessions.pvk_ |  Existing sessions since daemon started, relevant records cleared each time the daemon is started or stopped. This file also stores the location of the PxPlus executable.  
 ---|---|---  
-|  _Pid.pvk_ |  Lock file for tracking running daemons, configuration screens, records added by daemons and configuration automatically.  
-|  _Locate.pvk_ |  Tracks screen location and columns to display for the **[Sessions](Server%20Configuration.htm#sessions)** list for the **Application Server Configuration** utility, records added automatically.  
+  |  _Pid.pvk_ |  Lock file for tracking running daemons, configuration screens, records added by daemons and configuration automatically.  
+  |  _Locate.pvk_ |  Tracks screen location and columns to display for the **[Sessions](Server%20Configuration.htm#sessions)** list for the **Application Server Configuration** utility, records added automatically.  
   
 **_Static Information_**
 
 The following data files are used specifically for the configuration of Application Server daemons. These are based on your changes to the **Application Server Configuration** utility and should be preserved/copied if you decide to change the location of your existing server:
 
-|  _Server.pvk_ |  1 record per server daemon, tracking your selected information on a per-server basis.  
+  |  _Server.pvk_ |  1 record per server daemon, tracking your selected information on a per-server basis.  
 ---|---|---  
-|  _Apps.pvk_ |  1 record per application per server daemon, tracking your selected information for configuration applications within an Application Server daemon.  
-|  _Users.pvk_ |  1 record per user per server daemon, tracking your selected information for users within an Application Server daemon.
+  |  _Apps.pvk_ |  1 record per application per server daemon, tracking your selected information for configuration applications within an Application Server daemon.  
+  |  _Users.pvk_ |  1 record per user per server daemon, tracking your selected information for users within an Application Server daemon.  
+  
+ 
+
+ 
+
+ 

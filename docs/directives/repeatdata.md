@@ -8,7 +8,7 @@
 1\. _Replicate Output Sent to One File on Another_: |  **REPEAT DATA TO** _file1_**ON** _file2_ , **ERR=**_stmtref_  
 ---|---  
 2\. _Terminate Replication_: |  **REPEAT DATA TO** _file1_**END** , **ERR=**_stmtref_  
-3\. _Define a Control File for Auto-Replication_: |  **REPEAT DATA CONTROL FILE** _ctrlfile$_ , **ERR=**_stmtref_  
+3\. _Define a Control File for Auto-Replication_: |  **REPEAT DATA CONTROL FILE** _  ctrlfile$_, **ERR=**_stmtref_  
 4\. _Define an Error Handler for Replication_: |  **REPEAT DATA ERROR_HANDLER** _errhdlr_ _$_ , **ERR=**_stmtref_  
   
 **_Where_** _:_
@@ -52,7 +52,7 @@ The system will check to see if the file you are repeating data for itself is th
 
 **_Terminate Replication_**
 
-**REPEAT DATA TO** _file1_**END** , **ERR=**_stmtref_
+**REPEAT DATA TO** _file1_**  END**, **ERR=**_stmtref_
 
 This format terminates the replication of the output going to _file1_.
 
@@ -60,7 +60,7 @@ This format terminates the replication of the output going to _file1_.
 
 **_Define a Control File for Auto-Replication_**
 
-**REPEAT DATA CONTROL FILE** _ctrlfile$_ , **ERR=**_stmtref_
+**REPEAT DATA CONTROL FILE** _  ctrlfile$_, **ERR=**_stmtref_
 
 This format defines the control file that the system will check to see if automatic replication is desired. If the pathname of a file being updated matches an entry in this control file, the system will initiate replication automatically. The pathname check is performed whenever the first output operation is done to a file.
 
@@ -93,58 +93,64 @@ If the error handler exits with an error itself (EXIT _nnn_), the application wi
 
 In the following example, the printed report will be sent both to the viewer and to a PDF file. All **PRINT** directives will send output to both files.
 
-> begin  
->  open (1)"*viewer*"  
->  open (2)"*pdf*;file=\junk.pdf"  
->  **repeat data to 1 on 2**  
->  print (1)'font'("Courier New",1),'DF',  
->  while 1  
->  read data COMPANY$,CUSTNO$,NAME$,ADDR$,OWES,end=*break  
->  if LINESLEFT<1 or COMPANY$<>CURCOMP$ \  
->  then gosub NEWPAGE  
->  print (1)CUSTNO$,@(10),NAME$,@(40),ADDR$,@(70),OWES:"-$###,##0.00"  
->  LINESLEFT--  
->  wend  
->  end  
+>      begin  
+>      open (1)"*viewer*"  
+>      open (2)"*pdf*;file=\junk.pdf"  
+>      **repeat data to 1 on 2**  
+>            print (1)'font'("Courier New",1),'DF',  
+>           while 1  
+>                read data COMPANY$,CUSTNO$,NAME$,ADDR$,OWES,end=*break  
+>                if LINESLEFT<1 or COMPANY$<>CURCOMP$ \  
+>                     then gosub NEWPAGE  
+>                print (1)CUSTNO$,@(10),NAME$,@(40),ADDR$,@(70),OWES:"-$###,##0.00"  
+>                LINESLEFT--  
+>           wend  
+>      end  
 >  !  
 > NEWPAGE:  
->  if PAGENO<>0 \  
->  then print (1)'FF',  
->  PAGENO++  
->  print (1)"Page:",PAGENO:"###0",@(30),"Client list for "+COMPANY$  
->  print (1)  
->  print (1)"Client",@(10),"Name",@(40),"Address",@(70),"Balance"  
->  print (1)"------",@(10),dim(20,"-"),@(40),dim(20,"-"),@(70),"------------"  
->  print (1)  
->  LINESLEFT=50  
->  CURCOMP$=COMPANY$  
->  return  
->  data "ABC","000047","Cyclops Car Dealer","6675 Cherry",3.12  
->  data "ABC","000122","Global Undergarments","823 Maple Lodge Court",99.54  
->  data "ABC","000192","The Hungry Incorporated","5582 2nd Avenue",.55  
->  data "ABC","000295","The Hungry Magazine","8576 Major Mackenzie",71.74  
->  data "ABC","000310","New Dimensions Company","8052 Center Avenue",5.93  
->  data "ABC","000332","Cyclops Computing","7723 Fantasy Island",7.61  
->  data "DEF","000355","Kitty Kay Undergarments","2124 Major Mackenzie",4.55  
->  data "DEF","000385","New Age Importers","1743 Allstate Parkway",73.84  
->  data "DEF","000461","SOTA Golf club","4377 Major Mackenzie",63.66  
->  data "DEF","000555","Mike was here","8450 Buga-Buga Drive",11.43
+>      if PAGENO<>0 \  
+>           then print (1)'FF',  
+>      PAGENO++  
+>      print (1)"Page:",PAGENO:"###0",@(30),"Client list for "+COMPANY$  
+>      print (1)  
+>      print (1)"Client",@(10),"Name",@(40),"Address",@(70),"Balance"  
+>      print (1)"\------",@(10),dim(20,"-"),@(40),dim(20,"-"),@(70),"\------------"  
+>      print (1)  
+>      LINESLEFT=50  
+>      CURCOMP$=COMPANY$  
+>      return  
+>      data "ABC","000047","Cyclops Car Dealer","6675 Cherry",3.12  
+>      data "ABC","000122","Global Undergarments","823 Maple Lodge Court",99.54  
+>      data "ABC","000192","The Hungry Incorporated","5582 2nd Avenue",.55  
+>      data "ABC","000295","The Hungry Magazine","8576 Major Mackenzie",71.74  
+>      data "ABC","000310","New Dimensions Company","8052 Center Avenue",5.93  
+>      data "ABC","000332","Cyclops Computing","7723 Fantasy Island",7.61  
+>      data "DEF","000355","Kitty Kay Undergarments","2124 Major Mackenzie",4.55  
+>      data "DEF","000385","New Age Importers","1743 Allstate Parkway",73.84  
+>      data "DEF","000461","SOTA Golf club","4377 Major Mackenzie",63.66  
+>      data "DEF","000555","Mike was here","8450 Buga-Buga Drive",11.43
 
 File replication can be cascaded for output to multiple files. For example, the logic in NEWPAGE could be changed to produce one PDF file for each company:
 
 > NEWPAGE:  
->  if PAGENO<>0 \  
->  then print (1)'FF',  
->  **close (3)  
->  open (3)"*pdf*;file=\"+COMPANY$+".pdf"  
->  print (3)'font'("Courier New",1),'DF', ! Set font  
->  repeat data to 2 on 3**  
->  PAGENO++  
->  print (1)"Page:",PAGENO:"###0",@(30),"Client list for "+COMPANY$  
->  print (1)  
->  print (1)"Client",@(10),"Name",@(40),"Address",@(70),"Balance"  
->  print (1)"------",@(10),dim(20,"-"),@(40),dim(20,"-"),@(70),"------------"  
->  print (1)  
->  LINESLEFT=50  
->  CURCOMP$=COMPANY$  
->  return
+>      if PAGENO<>0 \  
+>           then print (1)'FF',  
+>      **close (3)  
+>       open (3)"*pdf*;file=\"+COMPANY$+".pdf"  
+>      print (3)'font'("Courier New",1),'DF', ! Set font  
+>      repeat data to 2 on 3**  
+>           PAGENO++  
+>           print (1)"Page:",PAGENO:"###0",@(30),"Client list for "+COMPANY$  
+>           print (1)  
+>           print (1)"Client",@(10),"Name",@(40),"Address",@(70),"Balance"  
+>           print (1)"\------",@(10),dim(20,"-"),@(40),dim(20,"-"),@(70),"\------------"  
+>           print (1)  
+>           LINESLEFT=50  
+>           CURCOMP$=COMPANY$  
+>           return
+
+ 
+
+ 
+
+ 

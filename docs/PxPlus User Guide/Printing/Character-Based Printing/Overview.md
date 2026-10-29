@@ -1,6 +1,6 @@
-# Printing  
-  
-**Character-Based Printing** |  **__**  
+# Printing
+
+**Character-Based Printing** |  **_ _**  
 ---|---  
   
 The syntax elements available for character-based printing in PxPlus are intended primarily to service _converted_ or _legacy_ applications that are limited to _line-oriented_ output. If a PxPlus application is designed to run on Windows, then it should employ complete graphical (display and print) functionality. See **[Printing in MS Windows](../Printing%20in%20MS%20Windows/Printing%20in%20MS%20Windows.md)**.
@@ -86,15 +86,15 @@ However, the following style of coding will** _not_** work properly when using a
 
 You can also use text justification mnemonics to override the normal handling of string and numeric data. Normally, the following mnemonics are required only when the individual fields are grouped into a single variable that is being sent to a printer using a proportionally spaced font:
 
-|  **['JC'](../../../mnemonics/jc.md)** |  _Justify Centre_  
+  |  **['JC'](../../../mnemonics/jc.md)** |  _Justify Centre_  
 ---|---|---  
-|  **['JD'](../../../mnemonics/jd.md)** |  _Justify Decimal-Aligned_  
-|  **['JL'](../../../mnemonics/jl.md)** |  _Left-Justify Text_  
-|  **['JN'](../../../mnemonics/jn.md)** |  _Right-Justify for Numeric_  
-|  **['JR'](../../../mnemonics/jr.md)** |  _Right-Justify Numeric_  
-|  **['JS'](../../../mnemonics/js.md)** |  _Left-Justify String_  
+  |  **['JD'](../../../mnemonics/jd.md)** |  _Justify Decimal-Aligned_  
+  |  **['JL'](../../../mnemonics/jl.md)** |  _Left-Justify Text_  
+  |  **['JN'](../../../mnemonics/jn.md)** |  _Right-Justify for Numeric_  
+  |  **['JR'](../../../mnemonics/jr.md)** |  _Right-Justify Numeric_  
+  |  **['JS'](../../../mnemonics/js.md)** |  _Left-Justify String_  
   
-The**'+S'** mnemonic automatically replaces the underscore, dash and equals sign (_, - and =) with solid lines. The solid line technique also only applies to fields that are printed separately. See **['+S' & '-S'](../../../mnemonics/+s.md)** mnemonic.
+The**'+S'** mnemonic automatically replaces the underscore, dash and equals sign (_,  \- and =) with solid lines. The solid line technique also only applies to fields that are printed separately. See **['+S' & '-S'](../../../mnemonics/+s.md)** mnemonic.
 
 **_Example:_**
 
@@ -104,3 +104,9 @@ The**'+S'** mnemonic automatically replaces the underscore, dash and equals sign
 >  40 PRINT (CHAN)'-S',@(0),A$,@(12),B$,@(24),C$,@(36),"No solid lines"   
 >  50 PRINT (CHAN)'+S',@(0),A$,@(12),B$,@(24),C$,@(36),"Solid lines"   
 >  60 PRINT (CHAN)'+S',@(0),A$+" "+B$+" "+C$,@(36),"No solid lines" 
+
+ 
+
+ 
+
+ 

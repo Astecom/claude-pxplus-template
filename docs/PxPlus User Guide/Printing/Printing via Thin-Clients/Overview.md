@@ -1,11 +1,11 @@
 # Printing
 
-**Printing via Thin-Clients** |  **__**  
+**Printing via Thin-Clients** |  **_ _**  
 ---|---  
   
-Print requests are handled differently, depending on the thin-client type. Methods for printing via **WindX** are outlined below.
+Print requests are handled differently, depending on the thin-client type. Methods for printing via **WindX**  are outlined below.
 
-Windows printers can be accessed via**WindX** by prefixing the name of the print destination with the **[[WDX]](../../../command_tags/wdx.htm)** tag.
+Windows printers can be accessed via**WindX** by prefixing the name of the print destination with the **[[WDX]](../../../command_tags/wdx.md)** tag.
 
 **_Example:_**
 
@@ -30,3 +30,9 @@ To make all**OPEN** printer requests WindX aware:
 >  OPEN (1)%WINDX$+"*WINDEV*;AsIs"   
 >  OPEN (1)%WINDX$+"*WINPRT*;HP Laser Jet on \\\Main_Server\HPLaser"   
 >  OPEN (1)%WINDX$+"*WINPRT*;HP Laser Jet;Orientation=Landscape"
+
+ 
+
+ 
+
+ 

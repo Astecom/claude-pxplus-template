@@ -1,5 +1,5 @@
-# Application Server  
-  
+# Application Server
+
 **Session Object Properties**|   
 ---|---  
   
@@ -9,8 +9,8 @@ Each new session, whether created from a request by ***CLIENT** or from a ***SER
 
 The following test can be applied to determine if program code is running within an Application Server session:
 
-if %APS and %APS'SessionID$>""  
-then UsingAppServer=1  
+     if %APS and %APS'SessionID$>""  
+        then UsingAppServer=1  
   
 Not all properties will be available in all sessions or for all circumstances.
 
@@ -31,7 +31,7 @@ The following **%APS** properties provide information about the PxPlus process o
 **Arguments$** |  Additional arguments passed to this session by a request from the client.  
 **ClientConnectionID$** |  Internal socket number (IND value) that the server daemon has for the client side of the connection.  
 **ClientConnTimeStamp** |  8-decimal place Julian time/date when the client-side process connected to the server daemon.  
-**ClientDomain$** |  **_(Windows Only)_** OS domain name from the client-side workstation.  
+**ClientDomain$** |  **_(Windows Only)_**  OS domain name from the client-side workstation.  
 **ClientLang$** |  The 2-character language code that the client is using.  
 **ClientNID$** |  PxPlus **NID**(machine ID) from the client-side process.  
 **ClientOS$** |  Descriptive name of the client's operating system.  
@@ -46,20 +46,20 @@ _**
 **2** = WindX clients only  
 **ClientTCPProperties$** |  String of TCP/IP characteristics: IP; socket; machine for the channel that the client-side process has opened to the server daemon.  
 **ClientUID$** |  PxPlus UID from the client-side process.  
-**ClientUSR1$** |  The client's user-defined string information from the **USR1** argument.  
-**ClientUSR2$** |  The client's user-defined string information from the **USR2** argument.  
-**ClientUSR3$** |  The client's user-defined string information from the **USR3** argument.  
-**ClientUSR4$** |  The client's user-defined string information from the **USR4** argument.  
+**ClientUSR1$** |  The client's user-defined string information from the **- USR1** argument.  
+**ClientUSR2$** |  The client's user-defined string information from the **- USR2** argument.  
+**ClientUSR3$** |  The client's user-defined string information from the **- USR3** argument.  
+**ClientUSR4$** |  The client's user-defined string information from the **- USR4** argument.  
 **ClientWHnd$** |  **_(Windows Only)_** OS Window handle for the client-side process (from the client machine).  
 **ClientWHO$** |  PxPlus **WHO** from the client-side process.  
-**ConnMethod$** |  **""** if the session was started by ***CLIENT** or **"Spawn"** if started by ***SERVER;SPAWN**.  
+**ConnMethod$** |  **" " **if the session was started by ***CLIENT** or **" Spawn" **if started by ***SERVER;SPAWN**.  
 **CreatedTimeStamp** |  8-decimal place Julian time/date when the session was first created.  
 **DestroyedTimeStamp** |  8-decimal place Julian time/date when the session was terminated.  
 **DetachSpawns$** |  **0** = Spawns new sessions as attached processes  
 **1** = nohup any new spawns  
 **ExtraCMDOptions$** |  Additional command line parameters passed to this session by a request from the client.  
 **FIDValue$** |  **FID(0)** value requested by the client.  
-**KeepAlives$** |  **0** = No KeepAlives  
+**KeepAlives$**   |  **0** = No KeepAlives  
 **1** = Using KeepAlives  
 **Lang$** |  Language code: EN or FR, etc.  
 **LeadProgram$** |  CONSOLE for a console mode session, or PxPlus program name used as the lead program for the server-side session (**LPG** contains internal use information only).  
@@ -89,9 +89,9 @@ _**
   
 **_Where:  
   
-_** **0** = None connected  
-**1** = One side connected  
-**2** = Both sides connected  
+_**     **0** = None connected  
+    **1** = One side connected  
+    **2** = Both sides connected  
 **255** = Terminated  
 **ShowSpawnsOnDesktop$** |  **_(Windows Only)  
 _**  
@@ -102,14 +102,14 @@ _**
   
 ## Client-Side Information
 
-The following **%APS** properties provide information about the PxPlus process on the client-side:
+The following **%APS  **properties provide information about the PxPlus process on the client-side:
 
 **AllowReconnect** |  Numeric value indicating what type of reconnect, if any, is allowed for this session.  
 ---|---  
 **AppName$** |  Name of the application that the user requested to be run.  
 **ClientArguments$** |  Additional arguments for the server process that the client requested.  
 **ClientCMDOptions$** |  Additional command line parameters for the server process that the client requested.  
-**ClientDomain$** |  **_(Windows Only)_** Client workstation's OS domain name.  
+**ClientDomain$** |  **_(Windows Only)_**  Client workstation's OS domain name.  
 **ClientFID$** |  **FID(0)** value requested by the client.  
 **ClientINI$** |  INI file in use for the client-side process.  
 **ClientLabel$** |  Name of the entry point for the client-side program which was launched to start the physical session, usually "" or **Spawn**.  
@@ -120,10 +120,10 @@ The following **%APS** properties provide information about the PxPlus process o
 **ClientStartinDirectory$** |  The start-in directory for the server process that the client requested (not the client's start-in directory).  
 **ClientTCPProperties$** |  String of TCP/IP characteristics: IP; socket; machine for the channel that the client-side process has opened to the server daemon.  
 **ClientUID$** |  PxPlus **UID** from the client-side process.  
-**ClientUSR1$** |  Value that has passed to the client on the command line for **USR1**.  
-**ClientUSR2$** |  Value that has passed to the client on the command line for **USR2**.  
-**ClientUSR3$** |  Value that has passed to the client on the command line for **USR3**.  
-**ClientUSR4$** |  Value that has passed to the client on the command line for **USR4**.  
+**ClientUSR1$** |  Value that has passed to the client on the command line for **- USR1**.  
+**ClientUSR2$** |  Value that has passed to the client on the command line for **- USR2**.  
+**ClientUSR3$** |  Value that has passed to the client on the command line for **- USR3**.  
+**ClientUSR4$** |  Value that has passed to the client on the command line for **- USR4**.  
 **ClientWHnd$** |  **_(Windows Only)_** OS Window handle for the client-side process.  
 **ClientWHO$** |  PxPlus **WHO** from the client-side process.  
 **KeepAlives$** |  **0** = Do not use KeepAlives  
@@ -138,4 +138,10 @@ The following **%APS** properties provide information about the PxPlus process o
 **ServerName$** |  IP address or DNS resolvable machine name of the server that the client used to contact the server initially.  
 **ServerSocket$** |  TCP/IP port or socket number that the client used to contact the server.  
 **SessionID$** |  Session identification token. Each session is identified by a unique token between 17 and 24 characters.  
-**SocketOptions$** |  TCP/IP socket options that the client-side session is using to talk to the server daemon.
+**SocketOptions$** |  TCP/IP socket options that the client-side session is using to talk to the server daemon.  
+  
+ 
+
+ 
+
+ 

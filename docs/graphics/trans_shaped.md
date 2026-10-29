@@ -13,11 +13,11 @@ The [**'OPTION'( )**](../mnemonics/option.htm#frame) mnemonic in PxPlus has a "F
 
 The valid options are:
 
-|  **"NONE"** |  The window has no border/frame.  
+  |  **" NONE"** |  The window has no border/frame.  
 ---|---|---  
-|  **"CAPTION"** |  The window has a border and caption line.  
-|  **"THICK"** |  The window has a thick border.  
-|  **"THIN"** |  The window has a thin border (usually a single pixel wide black line).  
+  |  **" CAPTION"** |  The window has a border and caption line.  
+  |  **" THICK"** |  The window has a thick border.  
+  |  **" THIN"** |  The window has a thin border (usually a single pixel wide black line).  
   
 ## Window Transparency
 
@@ -25,7 +25,7 @@ There are two types of transparency supported within PxPlus:
 
 **Full Window Transparency** |  Provides the ability for a window within the system to have see-through characteristics. That is, the user will be able to see the windows behind the current window.  
   
-This feature is controlled by the PxPlus **'OPTION' mnemonic "[TRANSPARENCY](../mnemonics/option.htm#transparency)"** option. This option allows the application to change the transparency of a window from "0" (non-transparent normal window) to "100" (fully transparent invisible window).  
+This feature is controlled by the PxPlus **'OPTION' mnemonic "[TRANSPARENCY](../mnemonics/option.htm#transparency)"** option. This option allows the application to change the transparency of a window from "0" (non-transparent  normal window) to "100" (fully transparent invisible window).  
 ---|---  
 **Transparent Masking** |  Provides the ability to set a colour that is used to define a transparency mask. Wherever that colour occurs in the window will be transparent and allow access to the window/screen below.  
   
@@ -75,8 +75,8 @@ Notice that we created the window with a "GREEN" background, you'll see why late
 >  0210 IF CTL=4 THEN BREAK  
 >  0220 WEND  
   
-**Complete program below:**  
-|  |  0010 ! Create the Window  
+ **Complete program below:  **  
+  |  |  0010 ! Create the Window  
 0020 PRINT 'SHOW'(-1),'4D',  
 0030 PRINT 'DIALOGUE'(5,5,20,10,"Smiley",'_GREEN',OPT="c"),'SHOW'(-1),  
 0040 PRINT 'SR','CS',  
@@ -98,4 +98,10 @@ Notice that we created the window with a "GREEN" background, you'll see why late
 0200 OBTAIN (0)'C0',*  
 0210 IF CTL=4 THEN BREAK  
 0220 WEND  
----
+---  
+  
+ 
+
+ 
+
+ 

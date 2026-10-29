@@ -1,6 +1,6 @@
 # Web Server Reference
 
-**Editing Configuration Details** |  **__**  
+**Editing Configuration Details** |  **_ _**  
 ---|---  
   
 ## Edit Button
@@ -21,20 +21,20 @@ You can create up to 100 port monitors (each with a different "root" directory, 
 ---|---  
 _Server_ |  Your server name can be up to 14 characters long and is case sensitive. The server name is solely for your reference.  
   
-**_Example:_** Test Server  
+**_Example:_**      Test Server  
 _Description_ |  Using your site name is recommended, e.g. **www.mydomain.com**. This description is used for Directory Browsing if the browser does not send a host_name.  
 _TCP Socket_ |  This is the TCP/IP socket number you want this port monitor to oversee. **_Do not_** use a duplicate of one that is in use by other applications. Web servers typically default to port 80. You can override the default with any valid TCP socket number.   
   
-**_Example:_** You can use **4000** as your port number to resolve a potential conflict with Apache, which defaults to port 80.  
+**_Example:_**      You can use **4000** as your port number to resolve a potential conflict with Apache, which defaults to port 80.  
   
 (Valid range: 1 to 65535. Ports below 2000 are normally reserved for standard Internet applications, such as FTP and mail services.)  
 _Default Root Dir_ |  The Web Server will treat this as the "Root" directory for a given port monitor and will restrict clients' access to files in this "root" directory and its sub-directories.  
   
-**_Example:_** \pvx410\direxions\web\webroot If you make use of Virtual Directories, then the default Root directory will be used if either the browser does not send the HOST NAME typed in by the user or if you do not have a directory set up for the specific HOST NAME in your Virtual Directory Mapping. See **[Details Configuration](Overview.htm#details)**.  
+**_Example:_**      \pvx410\direxions\web\webroot If you make use of Virtual Directories, then the default Root directory will be used if either the browser does not send the HOST NAME typed in by the user or if you do not have a directory set up for the specific HOST NAME in your Virtual Directory Mapping. See **[Details Configuration](Overview.htm#details)**.  
 _Default Doc_ |  You can declare one or more default document names, e.g. **home.htm**. When the client requests a Directory: |  (a) |  If you have declared default documents, then the Web Server responds to a browser's Directory request with the first of your listed default documents that exists in the directory. The Web Server scans the directory for default documents in the order in which they appear on your list.  
 ---|---  
-(b) |  If you do not declare default document names (or none of the documents exist), then the Web Server responds to a browser's Directory request in one of two possible ways: If Directory Browsing is _On_ , the Web Server returns a directory listing.  
-If Directory Browsing is _Off_ , the Web Server returns an **_Error 403 Forbidden_**. See **[Port Style Configuration](Overview.htm#portstyle)**.  
+(b) |  If you do not declare default document names (or none of the documents exist), then the Web Server responds to a browser's Directory request in one of two possible ways:       If Directory Browsing is _On_ , the Web Server returns a directory listing.  
+      If Directory Browsing is _Off_ , the Web Server returns an **_Error 403 Forbidden_**. See **[Port Style Configuration](Overview.htm#portstyle)**.  
 _Secure (HTTPS)_ |  Selecting this check box tells the system that the server supports HTTPS. When selected, the _Cert/Key_ field becomes enabled. A Certificate/Key file must also be provided.  
 _Cert/Key_ |  **_(Available when the Secure (HTTPS) check box is selected)_** Specify the pathname of the file that contains both your SSL Certificate and Key.  
   
@@ -46,8 +46,8 @@ _Deny Start_ |  **_On:_** The port monitor cannot be started. If the port monito
   
 **_Off:_** The base launcher will automatically start the port monitor or you can manually start it.  
 _Server Enabled_ |  **_On:_** The port monitor is available to serve incoming requests from clients.  
-  
-** _Off:_** Your port monitor returns a **_Server Busy_** message to any browser making a request. (The port monitor will still accept administration commands.)  
+   
+**_Off:_** Your port monitor returns a **_Server Busy_** message to any browser making a request. (The port monitor will still accept administration commands.)  
 _Directory Browsing_ |  **_On:_** When the user requests a directory listing, the Web Server returns a directory listing page.
 
 #### **Exception:   
@@ -95,4 +95,10 @@ _Statistics_ |  Jumps to **Web Server Statistics** , which displays port monitor
 
   
 _Debug_ |  Jumps to **Debugging Configuration**. See **[Troubleshooting](../Troubleshooting/Overview.md)**.  
-_Remove_ |  Use this button to remove a server (port monitor) from your Web Server configuration.
+_Remove_ |  Use this button to remove a server (port monitor) from your Web Server configuration.  
+  
+ 
+
+ 
+
+ 

@@ -54,7 +54,7 @@ The second fastest way to load a grid is to load it row by row. Each row must in
 >  GRID LOAD mygrid.ctl,0,0, a$+SEP+b$+SEP+c$+SEP  
 >  NEXT RECORD
 
-This method is slower, as the grid control must be refreshed as each row is added. To speed this up, you can hide the grid while it is being loaded, or you can turn the screen refresh _Off_ by printing the **'-U'** mnemonic before the grid is loaded and then turn it back _On_ by printing the **'+U'** mnemonic when done. See **['+U' & '-U'](../mnemonics/+u.md)** mnemonics. This will speed up the grid load in both the WindX and non-WindX environments.
+This method is slower, as the grid control must be refreshed as each row is added. To speed this up, you can hide the grid while it is being loaded. This will speed up the grid load in both the WindX and non-WindX environments. Or, in a non-WindX environment, you can turn the screen refresh _Off_ by printing the **'-U'** mnemonic before the grid is loaded and then turn it back _On_ by printing the **'+U'** mnemonic when done. See **['+U' & '-U'](../mnemonics/+u.md)** mnemonics.
 
 **_Example:_**
 
@@ -71,20 +71,23 @@ This method is slower, as the grid control must be refreshed as each row is adde
 
 When using the **'-U'** and **'+U'** mnemonics, the grid control will be displayed, as well as any properties that are set prior to printing **'-U'**. If you set column headings and formats prior to turning _Off_ screen refresh, these will be displayed. However, the loading of the grid rows with data will not be shown until screen refresh is turned back _On_ with **'+U'**.
 
+#### **Note:**  
+The **'-U'** and **'+U'** mnemonics have no effect when changing a grid using properties.
+
 If the grid has been formatted with column names, you can also load the grid row by row by using grid row properties **['LOADIOLIST$](../properties/loadiolist_.md)** and **['ROWDATA$](../properties/rowdata_.md)**. See **[Load/Access by Row Grid Properties](../control_object_properties/grid_by_row.md)**.
 
 **_Example:_**
 
-> rowIOList$=myGrid.ctl'LoadIOList$ ! Gets the IOList for grid row
+>      rowIOList$=myGrid.ctl'LoadIOList$ ! Gets the IOList for grid row
 
 > Then, the row can be loaded using the **[GRID LOAD](../directives/grid.htm#Mark16)** directive:
 
-> GRID LOAD mygrid.ctl,0,row,REC(rowIOList$)
+>      GRID LOAD mygrid.ctl,0,row,REC(rowIOList$)
 
 > Or, it can be loaded using the **'ROWDATA$** property:
 
-> mygrid.ctl'row=row  
->  mygrid'ctl'RowData$=rec(rowIOList$)
+>      mygrid.ctl'row=row  
+>      mygrid'ctl'RowData$=rec(rowIOList$)
 
 Using properties to load a grid is slower in a WindX environment, as every property **SET** or **GET** requires a packet to be sent on the WindX connection.
 
@@ -198,11 +201,11 @@ However, there are two ways to combine access to properties to reduce the number
 
 **_Example:_**
 
-> mygrid.ctl'row.colno.celltype$.value.$
+>      mygrid.ctl'row.colno.celltype$.value.$
 
 > A string comprised of the row and column numbers, a celltype and value as strings separated by a trailing separator character would be used to set the four properties:
 
-> mygrid.ctl'row.colno.celltype.value.$=str(row)+"/"+str(col)+"/ellipsis/"+val$+"/"
+>      mygrid.ctl'row.colno.celltype.value.$=str(row)+"/"+str(col)+"/ellipsis/"+val$+"/"
 
 > In this case, the last character of the assigned string, "/", is used to separate the values into the associated properties. The separator can be any character depending on usage.
 
@@ -211,7 +214,7 @@ You can also use pseudo multi-properties to read multiple property values. In th
 **_Example:_**
 
 > S$=mygrid.ctl'sep$  
->  X$=mygrid.ctl'row.colno.celltype$.value.$  
+>  X$=mygrid.ctl'row.colno.celltype.value.$  
 >  READ DATA FROM X$, SEP=S$ TO R,C,Type$,Val$
 
 In the above examples, rather than sending five packets over a WindX connection, only two packets would be required: one to get the separator (not needed if the default is used) and one for the other four properties.
@@ -240,3 +243,9 @@ There is a limit on the number of properties that can be included in pseudo mult
 In the above examples, two packets would be sent on a WindX connection, one for setting **'_PropList$** and one for **'_PropValues$**. A third packet would be sent as well if **'_PropSep$** were set. **'_PropList$** and **'_PropSep$** can be changed as needed but do not need to be reset if they do not change.
 
 The limit on the number of properties that can be processed in one statement is dependent on the maximum PxPlus statement length (32K).
+
+ 
+
+ 
+
+ 

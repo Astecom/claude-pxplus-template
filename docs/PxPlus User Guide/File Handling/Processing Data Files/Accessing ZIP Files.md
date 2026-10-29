@@ -1,6 +1,6 @@
 # Processing Data Files 
 
-**Accessing ZIP Files** |  **__**  
+**Accessing ZIP Files** |  **_ _**  
 ---|---  
   
 A ZIP file (.ZIP) is a compressed archive file format. A ZIP file usually contains a single or multiple file/directory entries that have been compressed. ZIP files are often used for email attachments and backup archival purposes.
@@ -9,7 +9,7 @@ A ZIP file (.ZIP) is a compressed archive file format. A ZIP file usually contai
 
 Using PxPlus, you can:
 
-  * Create and/or open a ZIP file using the **[OPEN [CREATE]](../../../directives/open.htm)** directive.
+  * Create and/or open a ZIP file using the **[OPEN [CREATE]](../../../directives/open.md)** directive.
   * Get metadata about all of the files/directories contained within the ZIP archive using the **[FIN( )](../../../functions/fin.md)** system function.
   * Extract and read the compressed data of the files within the ZIP archive using the **[READ RECORD](../../../directives/read_record.md)** or **[EXTRACT FILE](../../../directives/extract_file.md)** directive.
   * Compress and append files/directories to the ZIP archive using the **[WRITE RECORD](../../../directives/write_record.md)** or **[INSERT FILE](../../../directives/insert_file.md)** directive.
@@ -74,28 +74,28 @@ PxPlus supports the following uses of **READ RECORD** for ZIP files:
 
 
 
-> **READ RECORD** (_chan_) data$
+>      **READ RECORD** (_chan_) data$
 
   * **_By Key -_** Where the key is the filename of the file within the ZIP archive.
 
 
 
-> **READ RECORD** (_chan_ , KEY="filename") data$
+>      **READ RECORD** (_chan_ , KEY="filename") data$
 
   * **_By Record Number -_** Where the record number assigned to the files/directory entries is based on the order that they were added into the ZIP archive. Record numbers start at one.
 
 
 
-> **READ RECORD** (_chan_ , RNO=recNum) data$
+>      **READ RECORD** (_chan_ , RNO=recNum) data$
 
   * **_By Index Number -_** Where the index number assigned to the files/directory entries is based on the order that they were added into the ZIP archive. Index numbers start at zero.
 
 
 
-> **READ RECORD** (_chan_ , IND=indNum) data$
+>      **READ RECORD** (_chan_ , IND=indNum) data$
 
 #### **Note:  
-** It is also possible to use the **[SELECT RECORD](../../../directives/select.md)** directive to extract from a ZIP file. As the entries in a ZIP file are not sortable, the use of BEGIN and END with the **SELECT RECORD** is **_not_** supported.
+** It is also possible to use the **[SELECT RECORD](../../../directives/select.md)** directive to extract from a ZIP file. As the entries in a ZIP file are not sortable, the use of BEGIN and END with the **SELECT RECORD**  is **_not_** supported.
 
 ##  Appending to a ZIP File
 
@@ -130,13 +130,13 @@ PxPlus supports appending both files and directories:
 
 
 
-> **WRITE RECORD** (_chan_ , KEY="filename") contents$
+>      **WRITE RECORD** (_chan_ , KEY="filename") contents$
 
   * To _append a directory_ to the end of the ZIP archive, issue a **[WRITE RECORD](../../../directives/write_record.md)** directive, where the _key_ is the name of the _directory_ to append to the ZIP archive, and _contents_ is an empty string. Directory names must end in a '**/** ' _(forward slash)_ to be recognized as directory names.
 
 
 
-> **WRITE RECORD** (_chan_ , KEY="dir/") ""
+>      **WRITE RECORD** (_chan_ , KEY="dir/") ""
 
 ## Removing from a ZIP File
 
@@ -146,19 +146,19 @@ To _remove a file/directory entry_ from a ZIP archive, you can use the **[REMOVE
 
 
 
-> **REMOVE** _(__chan_ _)_
+>      **REMOVE** _(__chan_ _)_
 
   * **_By Key -_** Where the key is the name of the file/directory entry within the ZIP archive. If it is a directory name, it must end in a '**/** ' _(forward slash)._
 
 
 
-> **REMOVE** (_chan_ , KEY="filename")
+>      **REMOVE** (_chan_ , KEY="filename")
 
   * **_By Index Number -_** Where the index number assigned to the files/directory entries is based on the order that they were added into the ZIP archive. Index numbers start at zero.
 
 
 
-> **REMOVE** (_chan_ , IND=indNum)
+>      **REMOVE** (_chan_ , IND=indNum)
 
 ## See Also
 
@@ -168,3 +168,9 @@ To _remove a file/directory entry_ from a ZIP archive, you can use the **[REMOVE
 **[READ RECORD Directive](../../../directives/read_record.md)  
 [REMOVE Directive](../../../directives/remove.md)**  
 **[WRITE RECORD Directive](../../../directives/write_record.md)**
+
+ 
+
+ 
+
+ 

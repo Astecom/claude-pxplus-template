@@ -25,4 +25,10 @@ _(The LoadPoint property was added in PxPlus v8.11.)
 
 ## Used By 
 
-**DROP_BOX****LIST_BOX****LIST_VIEW****REPORT_VIEW****VARDROP_BOX****VARLIST_BOX**
+**DROP_BOX** **LIST_BOX** **LIST_VIEW** **REPORT_VIEW** **  VARDROP_BOX ****VARLIST_BOX**
+
+ 
+
+ 
+
+ 

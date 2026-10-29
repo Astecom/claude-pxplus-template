@@ -9,6 +9,8 @@ SSL/TLS encodes the data, rendering it unreadable to anyone who may try to inter
 
 For information on how SSL/TLS can be used with PxPlus applications, see **[PxPlus SSL/TLS Support](ssl_tls_certificates.htm#support)**.
 
+For answers to some commonly asked questions about SSL/TLS, see **[Frequently Asked Questions](ssl_tls_faq.md)**.
+
 ## Certificates and Encryption Keys
 
 To be able to generate an SSL/TLS link, a server requires an SSL/TLS certificate. While it is possible to generate your own certificate using tools available on the Internet, you should only use these internally or for testing your site. With self-generated certificates, users will likely receive warning messages on their browsers stating that the certificate has not been authenticated and may not be from a "trusted authority".
@@ -45,7 +47,7 @@ PxPlus uses OpenSSL to provide SSL/TLS functionality. On Windows/Mac, PxPlus shi
 
 _(The environment variables PXP_CRYPTO_LIB and PXP_SSL_LIB were added in PxPlus 2020.)_
 
-SSL/TLS is available for all TCP/IP connections. See **[[TCP] Transmission Control Protocol](command_tags/tcp.htm)**.
+SSL/TLS is available for all TCP/IP connections. See **[[TCP] Transmission Control Protocol](command_tags/tcp.md)**.
 
 Control of SSL/TLS for existing TCP/IP connections is possible using the **SETDEV SET** directive or the **PRINT 'OPTION'** mnemonic with SSL/TLS specific options. See **[SETDEV SET](directives/setdev_set.md)** directive, **['OPTION'](mnemonics/option.md)** mnemonic and **[TCP Options](mnemonics/option.htm#tcp_options)**. For an example of switching an unsecure TCP connection to a secure one, see **[Changing from Non-Secure to Secure](command_tags/tcp.htm#connections)**.
 
@@ -67,14 +69,14 @@ Global settings for handling SSL/TLS can be set by using either of the following
 
 Specific **[Environment Variables](PxPlus%20Installation%20and%20Configuration/Customizing%20PxPlus/Environment%20Variables.md)**:
 
-> **PVX_CERTIFICATES** =**IGNORE** **|** **VALIDATE** **|** **TRUSTREQD**  
+> **PVX_CERTIFICATES** =**IGNORE**  **|**  **VALIDATE**  **|**  **TRUSTREQD**  
 > **PVX_CERTSTORE** =_pathname_  
 > **PXP_CRYPTO_LIB** =_pathname_  
 > **PXP_SSL_LIB** =_pathname_
 
 PxPlus **[INI Settings](PxPlus%20Installation%20and%20Configuration/Customizing%20PxPlus/INI%20Contents.md)**:
 
-> **Certificates** =**IGNORE** **|** **VALIDATE** **|** **TRUSTREQD**  
+> **Certificates** =**IGNORE**  **|**  **VALIDATE**  **|**  **TRUSTREQD**  
 > **CertStore** =_pathname_  
 > **AllowedCiphers** =_list_  
 > **IPV4Only** =0 **|** 1  
@@ -86,13 +88,13 @@ If SSL/TLS encryption is being used with your PxPlus application, the **[FIN( )]
 
 The following **_keywords_** pertain specifically to SSL:
 
-|  **X509_ISSUER** |  Who issued the certificate  
+  |  **X509_ISSUER** |  Who issued the certificate  
 ---|---|---  
-|  **X509_SUBJECT** |  Who the certificate was issued to  
-|  **X509_NOT_BEFORE** |  Earliest date the certificate is valid for  
-|  **X509_NOT_AFTER** |  Latest date the certificate is valid for  
-|  **X509_KEYTYPE** |  Type of key in the certificate (DSA/RAS and number of bits)  
-|  **SSL_CIPHER** |  SSL connection cipher used information as per the OPENSSL SSL_cipher_description specs  
+  |  **X509_SUBJECT** |  Who the certificate was issued to  
+  |  **X509_NOT_BEFORE** |  Earliest date the certificate is valid for  
+  |  **X509_NOT_AFTER** |  Latest date the certificate is valid for  
+  |  **X509_KEYTYPE** |  Type of key in the certificate (DSA/RAS and number of bits)  
+  |  **SSL_CIPHER** |  SSL connection cipher used information as per the OPENSSL SSL_cipher_description specs  
   
 All X509 keywords return information about the remote certificate; i.e. from either the server certificate (if a client requests it) or the client certificate (if the server requests it). Any of the X509 requests can be prefixed with MY_ to return the local station's certificate information.
 
@@ -101,3 +103,13 @@ All X509 keywords return information about the remote certificate; i.e. from eit
 > MY_X509_KEYTYPE, MY_X509_SUBJECT
 
 These requests can only be made once a connection is established. When made on a server, the X509/SSL information pertains to the last/current socket connected.
+
+## See Also
+
+**[Frequently Asked Questions](ssl_tls_faq.md)**
+
+ 
+
+ 
+
+ 

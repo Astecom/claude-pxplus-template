@@ -1,11 +1,11 @@
-# Utility Routines
+# Utilities
 
 ***NEXTSEQ** |  **_Return Next Logical Primary Sequence_**  
 ---|---  
   
 ## Invocation
 
-**CALL "*Nextseq",**_next_seq_ _$, file_channel_
+**CALL "*Nextseq", **_next_seq_ _$, file_channel_  
 
 **_Where:_**
 
@@ -31,3 +31,9 @@ The following two methods are provided to assign the user prefix:
 Currently, the Data Dictionary Maintenance and File Maintenance RID Generation logic uses this routine to assign the next higher sequence numbers.
 
 _(The *NextSeq utility and capability were added in PxPlus v10.20.)_
+
+ 
+
+ 
+
+ 

@@ -1,6 +1,6 @@
 # Writing and Modifying Program Code
 
-**Version Control** |  **__**  
+**Version Control** |  **_ _**  
 ---|---  
   
 PxPlus provides a built-in versioning system for programs, allowing the developer to maintain multiple versions of a program on a program file. The system recognizes two types of versions: **_Committed_** versions, which are generally versions that become part of an official release, and **_Interim_** versions, which represent the versions of a program saved during the development process.
@@ -37,9 +37,9 @@ To a large extent, the management of multiple versions is done automatically by 
 
 To control the number of versions of a program that a program file will contain, the system applies the following logic:
 
-|  Old Interim versions of a program are subject to automatic removal from a program file during the SAVE process. The **['+R'](../../../parameters/plusr.md)** system parameter limits the number of Interim versions a program file will contain. Once a file has the number of Interim versions specified by the '+R' parameter, the next Interim version will cause the oldest prior Interim version to be removed. The default setting for '+R' is set to five, which means the system will maintain the last five Interim versions on a program file. You can set the '+R' parameter to any value between 0 and 200 as desired. Setting '+R' to 0 (zero) effectively disables the saving of Interim versions of the program.  
+ |  Old Interim versions of a program are subject to automatic removal from a program file during the SAVE process. The **['+R'](../../../parameters/plusr.md)** system parameter limits the number of Interim versions a program file will contain. Once a file has the number of Interim versions specified by the '+R' parameter, the next Interim version will cause the oldest prior Interim version to be removed. The default setting for '+R' is set to five, which means the system will maintain the last five Interim versions on a program file. You can set the '+R' parameter to any value between 0 and 200 as desired. Setting '+R' to 0 (zero) effectively disables the saving of Interim versions of the program.  
 ---|---  
-|  Committed versions are neither counted nor affected by the '+R' parameter nor will they be subject to automatic removal during the SAVE process. They must be manually removed with the **[VER](../../../commands/version.md)** command or through an **[*IT - Integrated Toolkit](../../../toolkit1/overview.md)** or **[Ed+](../../../Ed%20Program%20Editor.md)** utility.  
+ |  Committed versions are neither counted nor affected by the '+R' parameter nor will they be subject to automatic removal during the SAVE process. They must be manually removed with the **[VER](../../../commands/version.md)** command or through an **[*IT - Integrated Toolkit](../../../toolkit1/overview.md)** or **[Ed+](../../../Ed%20Program%20Editor.md)** utility.  
   
 ## Version Control Utilities
 
@@ -59,8 +59,8 @@ Two commands are available from Command mode to provide access to the versioning
 
 **RECALL** |  Entering this command will recall and load the last version (version prior to the currently saved version) of the current program from the program file into your current workspace.  
 ---|---  
-**RECALL** 2 |  Entering a simple number following the RECALL command will allow you to recall prior versions. The number specified will be used to determine the version to recall: RECALL 1 would recall the prior version or the program.  
-RECALL 2 would indicate the version before that, and so on.  
+**RECALL** 2 |  Entering a simple number following the RECALL command will allow you to recall prior versions. The number specified will be used to determine the version to recall:      RECALL 1 would recall the prior version or the program.  
+     RECALL 2 would indicate the version before that, and so on.  
 **RECALL**  _vn.nn.nnnn_ |  Entering _vn.nn.nnnn_ recalls a specific version from the program file.  
   
 The **VER** command can be used to view and change the versions information on the current program or a series of programs.
@@ -68,3 +68,9 @@ The **VER** command can be used to view and change the versions information on t
 ## See Also
 
 **[PxPlus Version Control System Using TortoiseSVN](../../../PxPlus%20Version%20Control%20System%20Using%20TortoiseSVN/Introduction.md)**
+
+ 
+
+ 
+
+ 

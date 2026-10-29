@@ -1,4 +1,4 @@
-# 
+#  
 
 **PxPlus Application Framework**|   
 ---|---  
@@ -16,15 +16,15 @@ The framework includes the following components that are designed to work togeth
 ---|---  
 **Basic Application Structural Components** |  The framework can be easily incorporated into either a single or multi-company environment with customization of the display based on the company preferences (i.e. colors and themes settings and the handling of user input options such as tabbing within grid cells, query styles and other NOMADS design elements). The framework also includes logic for breaking down the application into sub-systems such as Accounting, Payroll or General Ledger. This sub-system structure can then be used by the system security components to control which users have access to which tasks by company and by sub-system.  
 **Internal Infrastructure Components** |  The framework provides tools for maintaining the infrastructure (i.e. parameters, code tables, messages, etc.) by including parameters by workstation, user and company, as well as system-wide. Additional modules provide access to tools designed for international systems with support for country tables and currency conversion routines.  
-**Development Components** |  The framework provides developers with a variety of tools that make development easier: |  Enhanced data classes that provide automatic input validation  
+**Development Components** |  The framework provides developers with a variety of tools that make development easier: |    Enhanced data classes that provide automatic input validation  
 ---  
-Loading of drop boxes  
-Improved data formatting  
-Segmented data entry  
-Direct access to on-the-fly data entry for missing and new data elements  
-Grid tools to allow for the automatic loading, validation and formatting of columns and cells within the grid  
-Components that are designed to simplify the creation of header and detail maintenance routines such as invoice header and lines  
-Built-in support for secondary extended grid entry  
+  Loading of drop boxes  
+  Improved data formatting  
+  Segmented data entry  
+  Direct access to on-the-fly data entry for missing and new data elements  
+  Grid tools to allow for the automatic loading, validation and formatting of columns and cells within the grid  
+  Components that are designed to simplify the creation of header and detail maintenance routines such as invoice header and lines  
+  Built-in support for secondary extended grid entry  
 **Documentation System** |  The framework provides a PxPlus Wiki-based documentation component that is pre-loaded with documentation pertaining to the framework, its various modules, their functions and properties. The Wiki is designed to be run locally or on the Web with built-in interfaces to the Navigation system. See **[PxPlus Wiki System](PxPlus%20Framework.htm#pxpluswiki)**.  
   
 ##  PxPlus Wiki System
@@ -37,11 +37,11 @@ The actual documentation text is maintained and formatted using Wiki-style encod
 
 The Wiki is automatically launched by the framework Navigation system. It can also be launched in your current directory by executing the following command:
 
-> **CALL "*FW/Launcher;Wiki"** ,_portno_
+> **CALL "*FW/Launcher;Wiki"**,_portno_
 
 **_Where:_**
 
-_portno_ is the port on which you want the Wiki to respond. If a _portno_ is not provided, port 80 is used.
+_portno_ is the port on which you want the Wiki to respond. If a _portno_  is not provided, port 80 is used.
 
 Once it is launched, you can get to the Wiki using the following URL:
 
@@ -53,7 +53,7 @@ _portno_ is the port number you specified on the CALL to launch the Wiki. It can
 
 ##  Framework Installer
 
-The PxPlus framework can be installed in a new directory as the basis of a new application or on top of existing application. The installer program ***FW/Install** is used to install the framework and perform the various steps required to update your system:
+The PxPlus framework can be installed in a new directory as the basis of a new application or on top of existing application. The installer program ***FW/Install**  is used to install the framework and perform the various steps required to update your system:
 
 > **RUN "*FW/Install"**
 
@@ -103,7 +103,7 @@ The Wiki documentation system can be run stand-alone using **[EZWeb Server](EZWe
 
 To launch the Wiki stand-alone, run the following command from within the directory you want to browse:
 
-> **CALL "*FW/Launcher;Wiki_Only"** ,  _port_
+> **CALL "*FW/Launcher;Wiki_Only"**, _port_
 
 **_Where:_**
 
@@ -127,4 +127,10 @@ When security is first enabled, a default User ID of _Admin_ with a password of 
   
 ---|---  
 _Editor_ |  Setting the default class to _Editor_ enables basic security, which allows all users to edit pages but not change any system settings. A logon option is provided, which allows privileged users (_Admin_ class) to log on and make system changes.  
-_Reader_ |  Setting the default class to _Reader_ enables full security, which allows users to view pages and requires users to log on with a User ID that belongs to the _Editor_ class in order to edit a page.
+_Reader_ |  Setting the default class to _Reader_ enables full security, which allows users to view pages and requires users to log on with a User ID that belongs to the _Editor_ class in order to edit a page.  
+  
+ 
+
+ 
+
+ 

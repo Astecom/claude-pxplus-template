@@ -1,5 +1,5 @@
-# File Maintenance Generator  
-  
+# File Maintenance Generator
+
 **Button** |  **_Step 6: Field Layout_**  
 ---|---  
   
@@ -9,9 +9,9 @@ _(The ability to add/edit a Button was added in PxPlus 2021 Update 1.)_
 
 To invoke this window, use one of the following methods:
 
-Click the _Add Object_ button (above the _Layout Grid_) and select the _Button_ option. **_OR_**
+      Click the _Add Object_ button (above the _Layout Grid_) and select the _Button_ option. **_OR_**
 
-Right click on a cell in the _Layout Grid_ , select _Add Object_ from the popup menu and then select the _Add or Edit a Button_ option.
+      Right click on a cell in the _Layout Grid_ , select _Add Object_ from the popup menu and then select the _Add or Edit a Button_ option.
 
 > This window is divided into two tabbed folder panels, **[NOMADS](Button.htm#nomads)** and **[Webster+](Button.htm#webster)**, for defining Button properties, depending on whether a NOMADS panel, a Webster+ HTML page, or both are being generated.
 
@@ -32,12 +32,12 @@ _(The Drop List button type was added in PxPlus 2022.)_
   
 _Text_ |  Enter the button text or leave blank. If left blank, a bitmap (NOMADS panel) and/or a symbol (Webster+ page) must be entered; otherwise, a message will display.  
 _Span Multiple Lines_ |  **_(Applicable for NOMADS Panels Only)_** When selected **_(Default)_** , the Button spans according to its size. Fields placed in the rows below the Button and below the adjoining cell (in a two-column layout) are pushed down to accommodate the Button. The field in the adjoining cell remains in place beside the Button. Deselecting this option allows fields to be placed beside the Button (in a two-column layout). However, fields below the Button (in the same column) are not pushed down, which may result in overlapping and hidden fields. This option works the same for Smart List Boxes, Smart Charts, Images and Embedded Panel/HTML Short Codes. For an example using a Smart List Box, see **[Example - Span Multiple Lines](Listbox.htm#span_example)**.  
-**NOMADS** |   
+**NOMADS** |     
 _Include Button on NOMADS Panel_ |  **_(Available when_ [NOMADS Panel](Object%20Definition.htm#formtype) _check box is selected for Form Type)_** When adding a new Button, this check box is selected by default to enable the options on the NOMADS folder panel.  
 **Appearance** |  |  _Bitmap_ |  **_(Available when button Type is Standard or Hyperlink)_** Bitmap to display on the Button. Click the Bitmap Library button to select a bitmap or enter the text value for the bitmap (e.g. !Checkmark).  
 ---|---  
 _Position_ |  **_(Available when button Type is Standard or Hyperlink)_** Bitmap position on the Button: _Left**(Default)**_ , _Right_. _Top_ or _Bottom_. This option is enabled when button _Text_ is entered. _(The Top and Bottom bitmap positions were added in PxPlus 2022 Update 1.)_  
-_Popup Library_ |  **_(Available when button Type is Drop List)_** Library path for the popup menu. Click the drop-down arrow for a list of (up to nine) previous library selections. Click the Browse button to look through the directory structure to find the library or type the library path. An expression can also be entered by preceding the expression with an **_=_**_(equals sign)_ ; e.g. _=libname$_ or _="mylib.en"_.
+_Popup Library_ |  **_(Available when button Type is Drop List)_** Library path for the popup menu. Click the drop-down arrow for a list of (up to nine) previous library selections. Click the Browse button to look through the directory structure to find the library or type the library path. An expression can also be entered by preceding the expression with an **_=_**_(equals sign)_ ; e.g. _=libname$_ or _= "mylib.en"_.
 
 #### **Note:**  
 The Library name may be a specific or generic reference. See [**Cascading Language Suffixes**](../../Multilingual%20Capabilities/Cascading%20Language%20Suffixes/Overview.md).  
@@ -46,7 +46,7 @@ _Popup Panel_ |  **_(Available when button Type is Drop List)_** Popup menu name
 _Visual Class_ |  Associate a **[Visual Class](../../System%20Maintenance%20Tools/System%20Options/Visual%20Classes.md)** for setting up default settings for the Button control such as font, color and various attributes. Click the drop-down arrow for a list of pre-defined visual classes.
 
 #### **Note:**  
-Visual class names that begin with an "*"  _(asterisk)_ are pre-defined visual classes used by PVX Plus and may be subject to change without notice.  
+Visual class names that begin with an "*" _(asterisk)_  are pre-defined visual classes used by PVX Plus and may be subject to change without notice.  
   
 _(The Popup Library and Popup Panel options were added in PxPlus 2022.)_  
   
@@ -57,7 +57,7 @@ _Height_ |  Enter the height for the Button in number of lines or use the spinne
 _(The default Button Height of 1.5 for NOMADS was added in PxPlus 2023.)_  
   
 **When Button Pressed Logic** |  Logic to be executed when focus leaves the Button or the state of the control has changed. Click the drop-down arrow to add/edit logic. See **[Actions and Parameters](../../Program%20Interaction/Events%20Logic/Actions%20and%20Parameters.md)**.  
-**Webster+** |   
+**Webster+** |     
 _Include Button on Webster+ Page_ |  **_(Available when_ [HTML Page](Object%20Definition.htm#formtype) _check box is selected for Form Type)_** When adding a new Button, this check box is selected by default to enable the options on the Webster+ folder panel.  
 **Appearance** |  |  _Symbol_ |  **_(Available when button Type is Standard or Hyperlink)_** A symbol can be optionally added to the button text. It can be either a Font Awesome symbol or a standard PxPlus bitmap selected from the Bitmap Library lookup button. For a list of Font Awesome symbols, visit <https://fontawesome.com/v4/icons/>.
 
@@ -80,10 +80,16 @@ _(The default Button Height of 2 for Webster+ was added in PxPlus 2023.)_
   
 **HTML** |  |  _Event/URL_ |  If the button _Type_ is set to _Standard_ or _Drop List_ , an **[HTML Event](../../../Webster/Webster%20Events.md)** can be entered for the Button. For _Standard_ buttons only, you can add a **[target=_xxx_](../../../Webster/Short%20Code%20Options.htm#target)** short code option or any other short code options to the event, separated by a space (e.g. sample_event target=same). See Webster+ **[Short Code Options](../../../Webster/Short%20Code%20Options.md)**. Instead of an event, you can add a hyperlink by entering a **[link=_xxx_](../../../Webster/Short%20Code%20Options.htm#link)** short code option as the first five characters in the _HTML Event_ field (e.g. link=page:invoices target=same). If the button _Type_ is set to _Hyperlink_ , either an HTML Event or a URL (preceded with http:// or https://) must be entered; otherwise, a message will display if left blank. _(The ability to add Webster+ short code options to Standard buttons was added in PxPlus 2022 Update 1.)_  
 ---|---  
-_Other Options_ |  One or multiple short code options associated with the **[[button]](../../../Webster/Short%20Codes.htm#button)** short code can be entered. Multiple options must be separated by a space. See Webster+ **[Short Code Options](../../../Webster/Short%20Code%20Options.md)**. **_Example:_** **tip=** FloatingTip  
-**tip=** FloatingTip **link=** https://www.pvxplus.com
+_Other Options_ |  One or multiple short code options associated with the **[[button]](../../../Webster/Short%20Codes.htm#button)** short code can be entered. Multiple options must be separated by a space. See Webster+ **[Short Code Options](../../../Webster/Short%20Code%20Options.md)**. **_Example:_**      **tip=** FloatingTip  
+     **tip=** FloatingTip **link=** https://www.pvxplus.com
 
 #### **Important Note:**  
 The _Other Options_ field should not be used for entering **class=**_xxx_ or **event=**_xxx_ short code options.
 
-_(The Other Options field was added in PxPlus 2023 Update 1.)_
+_(The Other Options field was added in PxPlus 2023 Update 1.)_  
+  
+ 
+
+ 
+
+ 

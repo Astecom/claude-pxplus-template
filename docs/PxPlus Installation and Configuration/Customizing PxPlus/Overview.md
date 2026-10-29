@@ -1,6 +1,6 @@
-# PxPlus Installation and Configuration
+# PxPlus Installation and Setup
 
-**Customizing PxPlus** |  **__**  
+**Customizing PxPlus** |  **_ _**  
 ---|---  
   
 The PxPlus environment is dynamic. There are many ways to customize PxPlus to suit your development and/or application requirements.
@@ -17,3 +17,9 @@ You can add/change devices and modify other aspects of the underlying operating 
 [System Messages](System%20Messages.md)  
 [Windows Services](Windows%20Services.md)  
 [PxPlus Link File Extensions (.pxplus and .windx)](PxPlus%20Link%20File%20Extensions.md)**
+
+ 
+
+ 
+
+ 

@@ -1,6 +1,6 @@
 # Introduction to SQL
 
-**Data Access Using SQL** |  **__**  
+**Data Access Using SQL** |  **_ _**  
 ---|---  
   
 The basic SQL commands for accessing data are**SELECT** (to read and return data),**UPDATE** (to alter existing data records),**INSERT** (to add records) and**DELETE** (to remove data records), which are explained below.
@@ -32,7 +32,7 @@ You can also specify that only certain columns are to be retrieved by stating th
 
 The**INSERT** statement is used to**WRITE** new data to a SQL table.
 
-> **INSERT INTO** _table(columns_)   
+> **INSERT INTO** _  table(columns_)   
 > **VALUES** (_values_)
 
 The**INSERT** directive is used to add new rows to an SQL database:
@@ -45,7 +45,7 @@ Depending on the database definition, each field may have validation rules, such
 
 The**UPDATE** directive is used to alter the contents of all rows in the database that satisfy the condition.
 
-> **UPDATE** _table_**SET** _column=value,_  
+> **UPDATE** _table_**SET** _column=value, …_  
 > **WHERE** _condition_
 
 If no condition (**WHERE** clause) is specified, all records in the table are altered:
@@ -58,7 +58,7 @@ This statement would set the column NAME to Acme Plumbing for all rows/records i
 
 The**DELETE** directive is used to remove rows from a table.
 
-> **DELETE FROM** _table_   
+> **DELETE FROM** _table_    
 > **WHERE** _condition_
 
 Like the**UPDATE** directive, there is almost always a **WHERE** clause to identify the rows to be removed:
@@ -68,3 +68,9 @@ Like the**UPDATE** directive, there is almost always a **WHERE** clause to ident
 The above SQL statement will result in the deletion of all rows in the Customer table, whereas the following will result in the removal of only those records that have CUSTOMER_NO = "1234".
 
 > DELETE FROM "Customer" WHERE CUSTOMER_NO = "1234"
+
+ 
+
+ 
+
+ 

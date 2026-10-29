@@ -1,6 +1,6 @@
 # External Databases
 
-**Conversion Process** |  **__**  
+**Conversion Process** |  **_ _**  
 ---|---  
   
 The conversion process moves the data from the PxPlus database to the new tables in the target database. It may also involve some program modifications for the application to function correctly and efficiently with the new database.
@@ -99,11 +99,11 @@ The**REC=** phrase is used to control the formatting of the data record as viewe
 
 The simple format is:
 
-> **REC=**_fieldspec_**{ ,**_or_**\+ }**_fieldspec_****
+> **REC=**_fieldspec_**{ ,**_or_**\+ }**_  fieldspec_****
 
 **_Where:_**
 
-The _fieldspec_ contains the name of the field and optional format, length and scale. Fields are separated by either a **,** (_comma_) or **+** (_plus sign_). When _comma_ -separated, then a field delimiter is inserted. When _plus_ -separated, then the field is padded to full size and no separator is inserted. Literals may be included if enclosed in apostrophes.
+The _  fieldspec_ contains the name of the field and optional format, length and scale. Fields are separated by either a **,** (_comma_) or **+** (_plus sign_). When _comma_ -separated, then a field delimiter is inserted. When _plus_ -separated, then the field is padded to full size and no separator is inserted. Literals may be included if enclosed in apostrophes.
 
 **_Example:_**
 
@@ -123,19 +123,19 @@ Any column name can be followed by an optional colon and format specification. T
 
 The possible data types are:
 
-|  **P** |  Packed (BIN) data  
+  |  **P** |  Packed (BIN) data  
 ---|---|---  
-|  **H** |  Data is stored in HEX  
-|  **B** |  Data is a Binary field  
-|  **D** |  Field is a Date  
+  |  **H** |  Data is stored in HEX  
+  |  **B** |  Data is a Binary field  
+  |  **D** |  Field is a Date  
   
 Some examples would be:
 
-|  CST_ID:7 |  (_string, seven characters long_)  
+  |  CST_ID:7 |  (_string, seven characters long_)  
 ---|---|---  
-|  OWING:8.2 |  (_8 digits with 2 decimal places_)  
-|  AMOUNT:P4.2 |  (_4 bytes containing BIN value scaled by 100_)  
-|  NAME:B30 |  (_30-byte binary field_)  
+  |  OWING:8.2 |  (_8 digits with 2 decimal places_)  
+  |  AMOUNT:P4.2 |  (_4 bytes containing BIN value scaled by 100_)  
+  |  NAME:B30 |  (_30-byte binary field_)  
   
 It is a good idea to include the field descriptions for all fields, since this prevents PxPlus from having to read the table's data dictionary to determine field sizes and types. If PxPlus has to use the database dictionary, the**REC=** values may be overwritten.
 
@@ -163,20 +163,20 @@ The**KEY=** clause can be used to define the field(s) that comprise the record k
 
 The following is an example of the definition for a Keyed file:
 
-**File:** |  ICALPXF |   
+**File:** |  ICALPXF |     
 ---|---|---  
 **Fields:** |  Company |  2 char  
-**** |  Alpha_sort |  10 char  
-**** |  Item_num |  20 char  
-**** |  Stocked |  1 char  
-**** |  Update_Inventory |  1 char  
+** ** |  Alpha_sort |  10 char  
+** ** |  Item_num |  20 char  
+** ** |  Stocked |  1 char  
+** ** |  Update_Inventory |  1 char  
 **Key 1:** |  Company, Item_num  
 **Key 2:** |  Company, Alpha_sort, Item_num  
 **Key 3:** |  Company, Stocked, Alpha_sort, Item_num  
 **Key 4:** |  Company, Update_Inventory, Alpha_sort, Item_num  
 **Key 5:** |  Company, Stocked, Update_inventory, Alpha_sort, Item_num  
   
-**_Definition:_ **
+**_Definition:_  **
 
 > [DB2]MYDB;IC_ITEM_ALPHA;   
 >  REC=COMPANY, ALPHA_SORT, ITEM_NUM, STOCKED, UPDATE_INVENTORY;   
@@ -207,23 +207,23 @@ While databases do not typically support an Indexed-style table structure, PxPlu
 
 The following is an example of the definition for an Indexed file:
 
-**File:** |  PODABC.SOA |  |   
+**File:** |  PODABC.SOA |    |     
 ---|---|---|---  
-**Index field:** |  IndexSql |  Numeric 8 |   
-**Fields Rec#0:** |  RecordsActivelyUsed |  Numeric 19.7 |   
-**** |  MaximumRecordsInFile |  Numeric 19.7 |   
-**** |  NextNewIndexAvailable |  Numeric 19.7 |   
-**** |  LastRemovedIndexRecord |  Numeric 19.7 |   
+**Index field:** |  IndexSql |  Numeric 8 |     
+**Fields Rec#0:** |  RecordsActivelyUsed |  Numeric 19.7 |     
+** ** |  MaximumRecordsInFile |  Numeric 19.7 |     
+** ** |  NextNewIndexAvailable |  Numeric 19.7 |     
+** ** |  LastRemovedIndexRecord |  Numeric 19.7 |     
 **Fields other:** |  StdMessageLine1 |  50 char |  (concatenated with)  
-**** |  StdMessageLine2 |  50 char |   
+** ** |  StdMessageLine2 |  50 char |     
   
 **_Definition:_**
 
 > [MYSQL]MyDB;POD_POMessage;   
->  IND=IndexSql:8; TYP=IndexSql,1,8; REC=?"00000000"+   
+>  IND=IndexSql:8; TYP=IndexSql,1,8; REC=?"00000000"\+   
 >  RecordsActivelyUsed:19.7, MaximumRecordsInFile:19.7,   
 >  NextNewIndexAvailable:19.7, LastRemovedIndexRecord:19.7+   
->  ?"........"+ StdMessageLine1:50+ StdMessageLine2:50+ ' '
+>  ?"........"\+ StdMessageLine1:50+ StdMessageLine2:50+ '             '
 
 ## Defining a Direct File
 
@@ -244,18 +244,18 @@ The**KEYDATA=** option is used to define a single column name for the data that 
 
 The following is an example of the definition for a Direct file whose key is not made up of column data and contains two record types:
 
-**File:** |  ARWABC.SOA |  |   
+**File:** |  ARWABC.SOA |    |     
 ---|---|---|---  
 **Fields "F" rec:** |  RecordNo |  1 char |  (concatenated with..)  
-**** |  FromDivision |  2 char |  (concatenated with..)  
-**** |  FromCustomerNumber |  7 char |  (concatenated with..)  
-**** |  ToDivision |  2 char |  (concatenated with..)  
-**** |  ToCustomerNumber |  7 char |   
+** ** |  FromDivision |  2 char |  (concatenated with..)  
+** ** |  FromCustomerNumber |  7 char |  (concatenated with..)  
+** ** |  ToDivision |  2 char |  (concatenated with..)  
+** ** |  ToCustomerNumber |  7 char |     
 **Fields "T" rec:** |  RecordNo |  1 char |  (concatenated with..)  
-**** |  ToDivision |  2 char |  (concatenated with..)  
-**** |  ToCustomerNumber |  7 char |  (concatenated with..)  
-**** |  FromDivision |  2 char |  (concatenated with..)  
-**** |  FromCustomerNumber |  7 char |   
+** ** |  ToDivision |  2 char |  (concatenated with..)  
+** ** |  ToCustomerNumber |  7 char |  (concatenated with..)  
+** ** |  FromDivision |  2 char |  (concatenated with..)  
+** ** |  FromCustomerNumber |  7 char |     
   
 **_Definition:_**
 
@@ -287,11 +287,11 @@ To define a Sort file, the table definition should contain the columns that are 
 
 An example of an**OPEN** definition for this type of file follows:
 
-**File:** |  ARCALX |   
+**File:** |  ARCALX |     
 ---|---|---  
 **Fields:** |  Company |  2 char  
-**** |  Alpha_Sort_Key |  10 char  
-**** |  Customer_Num |  10 char  
+** ** |  Alpha_Sort_Key |  10 char  
+** ** |  Customer_Num |  10 char  
   
 **_Definition:_**
 
@@ -302,9 +302,9 @@ An example of an**OPEN** definition for this type of file follows:
 
 The**TOP=** option is a method to limit the number of rows being retrieved for a result set. The syntax varies between databases, but the effect is the same. It reduces data transfer.
 
-Specifying the**TOP=**_nnn_ option, either in the appropriate database section of the PxPlus INI file or on the**OPEN** options, indicates to PxPlus that the database accepts the**"SELECT TOP _nnn_** _..."_ SQL command. If this option is not present, then PxPlus assumes that the database does not support this capability. The DB2, MySQL, and Oracle interfaces also support **TOP=** ; however, they use the database specific syntax.
+Specifying the**TOP=**_  nnn_ option, either in the appropriate database section of the PxPlus INI file or on the**OPEN** options, indicates to PxPlus that the database accepts the** "SELECT TOP _nnn_** _... "_ SQL command. If this option is not present, then PxPlus assumes that the database does not support this capability. The DB2, MySQL, and Oracle interfaces also support **TOP=** ; however, they use the database specific syntax.
 
-If**TOP=** is provided using the value -1, then the **[KEF( )](../../../functions/kef.md)**,**[KEL( )](../../../functions/kel.md)** and **[KEP( )](../../../functions/kep.md)** functions will generate code that requests only a single record from the database. Without the option, these functions generate SQL statements that will result in a dataset the size of the table being generated.
+If**TOP=** is provided using the value -1, then the **[KEF( )](../../../functions/kef.md)**,** [KEL( )](../../../functions/kel.md)** and **[KEP( )](../../../functions/kep.md)** functions will generate code that requests only a single record from the database. Without the option, these functions generate SQL statements that will result in a dataset the size of the table being generated.
 
 In addition, if this option is specified with a positive non-zero value, then the standard read next logic will limit its reads to a series of**SELECT** statements, each limited to the number specified. This may reduce unneeded data selections from occurring. For example, consider a file with 1,000 records that are grouped by individual prefixes so that never more than 20 records are retrieved. By adding**TOP=20** , the database will stop generating the result set once it has found 20 records.
 
@@ -326,29 +326,29 @@ If reading the above using Job as the sort sequence and a**TOP=** value of 1, th
 > 0001, MANAGER   
 >  0003, SALESREP
 
-This is because the result set is exhausted after one**READ** , so PxPlus would generate a**WHERE** clause with the value greater than the value just read.
+This is because the result set is exhausted after one**  READ**, so PxPlus would generate a**WHERE** clause with the value greater than the value just read.
 
 The SQL statements are:
 
 > SELECT TOP 1 * FROM Employee WHERE Job > ''   
 >   
->  A**READ** retrieves ID 0001. The next**READ** returns no data, so the next SQL statement is:  
+>     A**READ** retrieves ID 0001. The next**READ** returns no data, so the next SQL statement is:  
 >   
 >  SELECT TOP 1 * FROM Employee WHERE Job > 'MANAGER'   
 >   
->  A**READ** retrieves ID 0003. The next**READ** returns no data, so the next SQL statement is:  
+>     A**READ** retrieves ID 0003. The next**READ** returns no data, so the next SQL statement is:  
 >   
 >  SELECT TOP 1 * FROM Employee WHERE Job > 'SALESREP'   
 >   
->  This returns end-of-file.
+>     This returns end-of-file.
 
 ## Stored Procedure for RNO
 
-This applies to applications that use the**RNO( )** function in PxPlus. The**RNO=** file access option requires that the system is able to position itself to a record specified by its logical sequence within a file/table. Unfortunately, there is no equivalent functionality within most external databases.
+This applies to applications that use the**  RNO( )** function in PxPlus. The**RNO=** file access option requires that the system is able to position itself to a record specified by its logical sequence within a file/table. Unfortunately, there is no equivalent functionality within most external databases.
 
 The standard PxPlus implementation of access by**RNO** involves**SELECT** s of the complete data set, then skipping forward to the specified record. This is a slow process that can have a major impact on the system performance. If possible, consider re-engineering code using**RNO**.
 
-To improve the performance when running against an external database, use the**EXEC_SPRNO** option on the database**OPEN** and execute a stored procedure to duplicate this functionality. The**RNO( )** search is performed on the host, which minimizes data transfer and provides much faster access times. The disadvantage to this approach is that database-specific knowledge is required to create the stored procedure.
+To improve the performance when running against an external database, use the**EXEC_SPRNO** option on the database**OPEN** and execute a stored procedure to duplicate this functionality. The**  RNO( )** search is performed on the host, which minimizes data transfer and provides much faster access times. The disadvantage to this approach is that database-specific knowledge is required to create the stored procedure.
 
 The following stored procedure has been used with MS SQL Server:
 
@@ -364,14 +364,14 @@ The following stored procedure has been used with MS SQL Server:
 >  Division:2+VendorNumber:7+Source:2+PayeeName:30,CheckAmount   
 >  :19.7;EXEC_SPRNO 
 
-You must create a stored procedure for each table and key for which an**RNO** is needed.
+You must create a stored procedure for each table and key for which an**RNO**  is needed.
 
-> _Format:_**spRNO** _tablename_keynumber_
+> _Format:_**  spRNO** _  tablename_keynumber_
 
 The**RNO** stored procedure (written for MS SQL Server):
 
 > CREATE PROCEDURE [spRNOAPB_CheckHistory_0]   
->  (@rno int)   
+>  (@rno      int)   
 >  AS BEGIN   
 >  SET NOCOUNT ON   
 >  DECLARE @BankCode VARCHAR (1)   
@@ -398,7 +398,7 @@ Many applications read data files sequentially looking for selected records, suc
 
 To accomplish this task, the**TSQL=** option was added for external databases. The TSQL option allows a manually defined**SQL SELECT** directive that is going to be used to retrieve the file data for the application.
 
-When using a TSQL directive, simple**READ NEXT** statements (or**KEY( )** functions) will execute the SQL command provided in order to obtain the data. The SQL statement must be constructed manually - PxPlus won't do it.
+When using a TSQL directive, simple**READ NEXT** statements (or**  KEY( )** functions) will execute the SQL command provided in order to obtain the data. The SQL statement must be constructed manually - PxPlus won't do it.
 
 Use of the TSQL function requires application changes, as well as a fair amount of SQL expertise. It is not an easy change to implement, but the results can be very impressive in the areas implemented.
 
@@ -442,14 +442,14 @@ This requires the definition of values to be returned by the contents of the fie
 
 The contents of the value to match can contain a number of special characters that are designed for simplified matching:
 
-|  **_._** |  _(Period)_ Matches any character.  
+  |  **_._** |  _(Period)_  Matches any character.  
 ---|---|---  
-|  **[abc]** |  Matches any of the characters a, b, or c.  
-|  **[0-9]** |  Matches any of the characters between 0 and 9.  
-|  **[ ]** |  Matches end-of-string/no data.  
-|  **^** |  If the first character is a '^', then records that do not match the string are selected; e.g. '?^PROD' selects anything that does not match PROD.  
+  |  **[abc]** |  Matches any of the characters a, b, or c.  
+  |  **[0-9]** |  Matches any of the characters between 0 and 9.  
+  |  **[ ]** |  Matches end-of-string/no data.  
+  |  **^** |  If the first character is a '^', then records that do not match the string are selected; e.g. '?^PROD' selects anything that does not match PROD.  
   
-The column names specified in the**TYP=** clause can be followed by a comma and a length specifier, if you only want the first _nnn_ columns used in the match. 
+The column names specified in the**TYP=** clause can be followed by a comma and a length specifier, if you only want the first _  nnn_ columns used in the match. 
 
 **_Example:_**
 
@@ -457,22 +457,28 @@ The clause TYP=CST_ZIP,3 would only check the first three positions of the field
 
 **File:** |  GCOMP (two record types "G/L" and "DPT")  
 ---|---  
-**All record:** |  Prefix Key |  3 char |   
-**** |  Company Key |  2 char |   
-**** |  Id Key |  10 char |  (Dept. or Acct. No.)  
-**** |  Name |  35 char |  (Dept. or G/L Name)  
-**"DPT" rec:** |  Restriction_flag |  1 char |   
-**"G/L" rec:** |  Control_acct |  1 char |   
-**** |  Stmt_A_Line |  4 numeric |   
-**** |  Stmt_B_Line |  4 numeric |   
-**** |  Subaccount_flag |  1 char |   
-**** |  Inventory_acct |  1 char |   
-**** |  Print_zero |  1 char |   
+**All record:** |  Prefix Key |  3 char |     
+** ** |  Company Key |  2 char |     
+** ** |  Id Key |  10 char |  (Dept. or Acct. No.)  
+** ** |  Name |  35 char |  (Dept. or G/L Name)  
+**" DPT" rec:** |  Restriction_flag |  1 char |     
+**" G/L" rec:** |  Control_acct |  1 char |     
+** ** |  Stmt_A_Line |  4 numeric |     
+** ** |  Stmt_B_Line |  4 numeric |     
+** ** |  Subaccount_flag |  1 char |     
+** ** |  Inventory_acct |  1 char |     
+** ** |  Print_zero |  1 char |     
   
-**_Definition:_ **
+**_Definition:_  **
 
 > [db2]MyDB;GL_Dept_master;   
 >  KEY=Prefix,Company,Id; TYP=Prefix;   
 >  REC=?"DPT",Prefix,Company,Id,Name,Restriction_flag,?"G/L",   
 > Prefix,Company,Id,Name,Control_acct,Stmt_A_Line,Stmt_B_Line,   
 > Subaccount_flag,Inventory_acct,Print_zero
+
+ 
+
+ 
+
+ 

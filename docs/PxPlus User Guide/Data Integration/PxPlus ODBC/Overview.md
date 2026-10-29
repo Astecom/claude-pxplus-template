@@ -1,6 +1,6 @@
 # Data Integration
 
-**PxPlus SQL ODBC Driver** |  **__**  
+**PxPlus SQL ODBC Driver** |  **_ _**  
 ---|---  
   
 The PxPlus SQL ODBC Driver enables any ODBC-compliant application on Windows or UNIX/Linux platforms to communicate with your PxPlus database from any location on the network.
@@ -18,7 +18,7 @@ _Client/Server_ |  Accesses remote PxPlus data over a network
 For more information, see **[PxPlus SQL ODBC Driver](../../../odbc/pxplus_odbc.md)**.
 
 #### **Note:**  
-If you are trying to access third party data from PxPlus, see **[[ODB] Open Database](../../../command_tags/odb.htm)**.
+If you are trying to access third party data from PxPlus, see **[[ODB] Open Database](../../../command_tags/odb.md)**.
 
 **_About ODBC_**
 
@@ -65,10 +65,10 @@ The PxPlus SQL ODBC Driver supports three basic types of data: strings, numerics
 
 The SELECT statement is used to establish logical relationships between data files (usually referred to as _joining_ files). A typical JOIN would be:
 
-> SELECT _cst_id,cst_name_ ,_smn_name_ FROM Customer, Salesman   
->  WHERE _smn_id_ =_cst_smn_
+> SELECT _  cst_id,cst_name_,_  smn_name_ FROM Customer, Salesman   
+>       WHERE _  smn_id_ =_  cst_smn_
 
-The statement reads the entire Customer file and, for each customer, reads the Salesman file for any records whose _smn_id_ matches _cst_smn_. If the field _smn_id_ is a Key field for the file, then the PxPlus SQL ODBC Driver reads the file directly by key; otherwise, the file is read in its entirety. The WHERE clause can be used to selectively filter out any unwanted data.
+The statement reads the entire Customer file and, for each customer, reads the Salesman file for any records whose _  smn_id_ matches _  cst_smn_. If the field _  smn_id_ is a Key field for the file, then the PxPlus SQL ODBC Driver reads the file directly by key; otherwise, the file is read in its entirety. The WHERE clause can be used to selectively filter out any unwanted data.
 
 The PxPlus SQL ODBC Driver can sort the data on any field using the ORDER BY clause of the SELECT statement. If the ORDER BY fields match any of the key fields of the primary file, then the primary file is accessed by this key. In addition, you can GROUP data BY common fields.
 
@@ -77,3 +77,9 @@ The PxPlus SQL ODBC Driver can sort the data on any field using the ORDER BY cla
 ## ODBC Client/Server
 
 For greater performance and security over the network (without the need for additional software), consider the Client/Server version of the **[PxPlus SQL ODBC Driver](../../../odbc/pxplus_odbc.md)**. This interface performs optimization of query processing on the server side to ensure safe high-speed access to your data, particularly for implementing distributed multi-user applications.
+
+ 
+
+ 
+
+ 

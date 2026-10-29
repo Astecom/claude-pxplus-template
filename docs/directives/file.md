@@ -5,9 +5,9 @@
   
 ##  Format
 
-**FILE** _file_info_[,**ERR=**_stmtref_]  
-  
-**_Where:_**
+**FILE** _  file_info_[,**ERR=**_stmtref_]  
+   
+**_Where:_** 
 
 _file_info_ |  Contents provide the internal file description for the file to create. String expression.  
 ---|---  
@@ -32,7 +32,7 @@ This directive is **_not supported_** by WindX. When you need to create files on
 **[FID( ) Return File Information Descriptor](../functions/fid.md)**  
 **[PURGE Clear Data from a File](purge.md)**  
 **[REFILE Clear Record from File](refile.md)**  
-**[[WDX] Direct Action to Client Machine](../command_tags/wdx.htm)**
+**[[WDX] Direct Action to Client Machine](../command_tags/wdx.md)** 
 
 ##  Example
 
@@ -42,3 +42,9 @@ close (2)
 erase "PRNTFL"  
 file F$  
 open (2)F$(25,60)
+
+ 
+
+ 
+
+ 

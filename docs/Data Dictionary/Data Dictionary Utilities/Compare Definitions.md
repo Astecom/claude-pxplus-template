@@ -1,6 +1,6 @@
 # Data Dictionary Utilities 
 
-**Compare Definitions** |  **__**  
+**Compare Definitions** |  **_ _**  
 ---|---  
   
 The **Data Dictionary Compare** utility is used to compare two tables from the same or different data dictionaries or physical files (or a combination of both). It compares file attributes, fields and key structures in one table with the fields in another. All common field names (and record formats for non-normalized files) will have their characteristics compared. The utility reports all changes, as well as any new or deleted fields.
@@ -32,5 +32,11 @@ _source1$_ |  Full path of the _providex.ddf_ or physical file with embedded dic
 _table1$_ |  Table you want to compare **_from_**. Leave blank to indicate _all_.  
 _source2$_ |  Pathname of the _providex.ddf_ or physical file with embedded dictionary that you want to compare **_against_**. Enter * to use the physical files associated with the tables from _source1$_.  
 _table2$_ |  Table you want to compare **_against_**. Leave blank to indicate _all._  
-_result$_ |  A SEP-delimited string containing "**_what is being compared_** " + SEP + "_source1$ result_ " + SEP + "_source2$ result_ ".  
-_suppress$_ |  The flag "1" will suppress details on new/deleted files.
+_result$_ |  A SEP-delimited string containing "**_what is being compared_** " \+ SEP + "_source1$ result_ " \+ SEP + "_source2$ result_ ".  
+_suppress$_ |  The flag "1" will suppress details on new/deleted files.  
+  
+ 
+
+ 
+
+ 

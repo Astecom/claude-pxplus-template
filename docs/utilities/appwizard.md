@@ -1,4 +1,4 @@
-# Utility Routines
+# Utilities
 
 ***TOOLS/APPWIZARD** |  **_Generate an Android or iOS App_**  
 ---|---  
@@ -22,9 +22,9 @@ PVX Plus Technologies does **_not_** publish the generated app to an app store. 
   
 Both Google and Apple require you to have a developer account, which is not free, in order to upload/publish on their app stores.  
   
-To **_sign up_** for a Google Play developer account, use this link: **[Google Play Developer Account](https://play.google.com/apps/publish/signup)**.  
+    To **_sign up_** for a Google Play developer account, use this link: **[Google Play Developer Account](https://play.google.com/apps/publish/signup)**.  
   
-To **_sign up_** for the Apple Developer program, use this link: **[Apple Developer Program](https://developer.apple.com/programs/enroll/)**.
+    To **_sign up_** for the Apple Developer program, use this link: **[Apple Developer Program](https://developer.apple.com/programs/enroll/)**.
 
 After generating an app, the next steps are to **[Upload to an App Store](appwizard.htm#upload_appstore)**, **[Test the App](appwizard.htm#test_app)**, and then **[Publish the App](appwizard.htm#publish_app)**.
 
@@ -43,7 +43,7 @@ The **Generate an Android or iOS App** window is displayed.
 
 > If you are not on a graphical device or if automation is desired, it is possible to generate an app programmatically:
 
-> **CALL "*tools/appwizard;send_request"** , _dest_email_ _$, app_type$, app_id$, app_name$, version$, icon_path$, icon_bkg_clr$, target_url$, result$_
+> **CALL "*tools/appwizard;send_request"**, _dest_email_ _$, app_type$, app_id$, app_name$, version$, icon_path$, icon_bkg_clr$, target_url$, result$_
 
 The fields/arguments are:
 
@@ -77,11 +77,11 @@ Forward and Back history navigation is disabled since this app is designed for i
 
 Barcode scanning is slightly different in iOS compared to Android:
 
-|  In **_iOS_** , barcode scanning integrates directly into the camera of the mobile device. The interface is simply the display of the camera, and if you focus on a barcode, it will be scanned. Supported barcode types are Aztec, Code 39/93/128, Data Matrix, EAN-8/13, ITF, PDF 417, QR Code, UPC-A/E.  
+ |  In **_iOS_** , barcode scanning integrates directly into the camera of the mobile device. The interface is simply the display of the camera, and if you focus on a barcode, it will be scanned. Supported barcode types are Aztec, Code 39/93/128, Data Matrix, EAN-8/13, ITF, PDF 417, QR Code, UPC-A/E.  
   
   
 ---|---  
-|  In **_Android_** , barcode scanning is handled by integrating with the Barcode Scanner app; therefore, the app must be installed for barcode scanning to work. This makes it easier to use the interface and expanded barcode type support provided by Barcode Scanner apps. Supported barcode types are Aztec, Codabar, Code 39/93/128, Data Matrix, EAN-8/13, ITF, MaxiCode, PDF 417, RSS-14/Expanded, QR Code, and UPC-A/E.  
+ |  In **_Android_** , barcode scanning is handled by integrating with the Barcode Scanner app; therefore, the app must be installed for barcode scanning to work. This makes it easier to use the interface and expanded barcode type support provided by Barcode Scanner apps. Supported barcode types are Aztec, Codabar, Code 39/93/128, Data Matrix, EAN-8/13, ITF, MaxiCode, PDF 417, RSS-14/Expanded, QR Code, and UPC-A/E.  
   
 See **[Bar Code Reading](../iNOMADS/Bar%20Code%20Reading.md)**.
 
@@ -119,6 +119,8 @@ If the Application Loader program is not available, go to the App Store and inst
   
 6. |  From the Application Loader program, select the generated app IPA file to upload. For details, visit the **[Upload Your App Binary Files with Application Loader](https://help.apple.com/itc/apploader/#/apdATD1E12-D1E1A1303-D1E12A1126)** Web site.  
   
+ 
+
 #### **Note:**  
 When the app is uploaded, Apple puts the app through some automated tests. A delay of up to of 30 minutes may be expected before the uploaded app is available in App Store Connect.
 
@@ -201,3 +203,9 @@ The Apple app review process usually takes between one to three days.
 **[iNomads](../iNOMADS/iNOMADS%20Introduction.md)  
 [iNomads Classes](../iNOMADS/iNomads%20Classes.md)  
 [Bar Code Reading](../iNOMADS/Bar%20Code%20Reading.md)**
+
+ 
+
+ 
+
+ 

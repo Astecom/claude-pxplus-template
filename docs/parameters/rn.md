@@ -7,7 +7,7 @@
 
 Controls when and how rounding will occur. The valid values for **'RN'** below are additive:
 
-1 |  On any assignment  
+1 |  Only applies to LET assignments  
 ---|---  
 2 |  On any Add, Subtract  
 4 |  On any Multiply, Divide, Power, or Modulus  
@@ -19,12 +19,19 @@ Controls when and how rounding will occur. The valid values for **'RN'** below a
   
 ##  Default
 
-**'RN'=1** (on any assignment)
+**'RN'=1** (Only applies to LET assignments)
 
 ##  See Also
 
+**['NR' No Intermediate Rounding on Division](nr.md)**  
 **['RS' Round STR( ), Formatting and Functions](rs.md)**
 
 ##  Example
 
-The statement SET_PARAM 'RN'=644 sets the parameter to round on any multiply or divide + with a **[WRITE](../directives/write.md)** directive + on all compares. (The sum of 4+128+512 is 644.)
+The statement **SET_PARAM 'RN'=644** sets the parameter to round on any multiply or divide + with a **[WRITE](../directives/write.md)** directive + on all compares. (The sum of 4+128+512 is 644.)
+
+ 
+
+ 
+
+ 

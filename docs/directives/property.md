@@ -5,16 +5,16 @@
   
 ##  Formats
 
-1\. _Declare Property:_ |  **PROPERTY [HIDE]**_prop1_ **[OBJECT]**_, prop2_**[OBJECT]**_, ..._  
+1\. _Declare Property:_ |  **PROPERTY [HIDE]**_prop1_  **[OBJECT]**_, prop2_**[OBJECT]**_, ..._  
 ---|---  
-2\. _Specify Read/Write Procedure:_ |  **PROPERTY [HIDE]**  _prop1_ **[_getOptions_] [_setOptions_]**, _prop2_ ...  
+2\. _Specify Read/Write Procedure:_ |  **PROPERTY [HIDE]**  _prop1_  **[_getOptions_] [_setOptions_]**, _prop2_ ...  
   
-**_Where_** _:_
+**_Where_** _:_  
 
 _prop1  
-prop2_ |  Property names treated like any other variable in the system. (In **[Object Oriented Programming](../PxPlus%20User%20Guide/Object-Oriented%20PxPlus/Introduction.md)**, data is referred to as _properties_.)  
+prop2_ |  Property names  treated like any other variable in the system. (In **[Object Oriented Programming](../PxPlus%20User%20Guide/Object-Oriented%20PxPlus/Introduction.md)**, data is referred to as _properties_.)  
 ---|---  
-**_getOptions_** |  Defined as **{**  _=expr_ **|** **[ OBJECT ]** **[ GET**  _label_ **] }** (See **[Example](property.htm#Mark8)**) **_Where:_** |  _expr_ |  Defines an expression that will be evaluated to return the property value when referenced externally or via the object handle. By default, if an expression is used to define a property, the system will not allow the property to be **SET** externally unless a specific **SET** procedure is defined.  
+**_getOptions_** |  Defined as **{**  _=expr_  **|**  **[ OBJECT ]**  **[ GET**  _label_  **] }** (See **[Example](property.htm#Mark8)**) **_Where:_** |  _expr_ |  Defines an expression that will be evaluated to return the property value when referenced externally or via the object handle. By default, if an expression is used to define a property, the system will not allow the property to be **SET** externally unless a specific **SET** procedure is defined.  
 ---|---  
 **GET** |  Keyword indicating that logic is to be called when properties are _read_.  
 _label_ |  Can be a statement label within the program or **ERR** to restrict read access.  
@@ -35,10 +35,10 @@ A property name can be followed by a **GET** _label_ to define the location of t
 
 **_Example:_**
 
-> property ExtendedAmount get Extension  
+>      property ExtendedAmount get Extension  
 >    
 >  Extension:  
->  return Quantity*Price
+>      return Quantity*Price
 
 If the logic resides outside of the defining program, then the name of the program and entry point can be provided in quotes instead.
 
@@ -47,7 +47,7 @@ If the logic required to do a read is simply a formula, then it can be inserted 
   
 **_Example:_**  
   
-property ExtendedAmount=Quantity*Price
+     property ExtendedAmount=Quantity*Price
 
 Specify the **SET** _label_ to intercept all of the property updates. With **SET** in place, the system calls the logic whenever the property is being updated and passes it the value being set.
 
@@ -64,9 +64,9 @@ Like the **GET** option, an external program/entry point can be provided:
 Invline contains:
 
 > ChgQty:  
->  enter NewQty  
->  if NewQty=Quantity \  
->  then return  
+>      enter NewQty  
+>      if NewQty=Quantity \  
+>           then return  
 > ! .. Update inventory then return
 
 Use the keyword **ERR** to prevent the user from being able to **GET** or **SET** a property following the **GET** or **SET** declaration:
@@ -106,3 +106,9 @@ These examples illustrate the use of the **PROPERTY** directive:
 > property errmsg_valid$="Invalid input data:\n\n"
 
 > property objChild object set err
+
+ 
+
+ 
+
+ 

@@ -9,16 +9,17 @@ This page provides answers to some commonly asked questions about the PxPlus SQL
 ---  
 **[Should I use the 32-bit or 64-bit PxPlus SQL ODBC Driver?](odbc_faq.htm#Mark1)**  
 **[I'm creating a new Data Source Name (DSN) for Windows configuration. Why isn't my installed PxPlus SQL ODBC Driver listed?](odbc_faq.htm#Mark2)**  
-**[I'm trying to configure a Data Source Name (DSN). Why am I getting the following error(s): _"The setup routines could not be found"_ and/or _"The specified DSN contains an architecture mismatch"_?](odbc_faq.htm#Mark3)**  
+**[I'm trying to configure a Data Source Name (DSN). Why am I getting the following error(s): _" The setup routines could not be found"_ and/or _" The specified DSN contains an architecture mismatch"_?](odbc_faq.htm#Mark3)**  
 **[I set up a Data Source Name (DSN), but why don't I see any tables?](odbc_faq.htm#Mark4)**  
 **[I can see my tables, but why can't I access them?](odbc_faq.htm#Mark5)**  
 **[I can access all of my tables, but why can't I access any Views?](odbc_faq.htm#Mark6)**  
 **[Can I perform a join between more than two tables?](odbc_faq.htm#Mark7)**  
 **[Why is my SQL query so slow?](odbc_faq.htm#Mark8)**  
-**[Why am I getting a _"Network Communication"_ error and/or an _"ISAM Communication"_ error?](odbc_faq.htm#Mark9)**  
+**[Why am I getting a _" Network Communication"_ error and/or an _" ISAM Communication"_ error?](odbc_faq.htm#Mark9)**  
 **[Is version _X_ of the PxPlus SQL ODBC Driver compatible with version _Y_ of the PxPlus SQL Server?](odbc_faq.htm#Mark10)**  
 **[Does the PxPlus SQL ODBC Driver work with Sage 100?](odbc_faq.htm#Mark11)**  
 **[Can I test the PxPlus SQL ODBC Driver and/or PxPlus SQL Server before purchasing?](odbc_faq.htm#Mark12)**  
+**[Does the PxPlus SQL ODBC Driver trigger Embedded IO?](odbc_faq.htm#Mark14)**  
   
 #### **Note:**  
 The information given on this page assumes that you are using the latest version of the PxPlus ODBC products. If you are encountering issues, check that you are using the latest version.
@@ -58,7 +59,7 @@ If you are using **_Windows 7_** and install a 32-bit PxPlus SQL ODBC Driver, an
 
 On **_Windows 8 and higher_** , the ODBC Data Sources application is labeled as 32-bit or 64-bit; therefore, this becomes less of an issue.
 
-##  I'm trying to configure a Data Source Name (DSN). Why am I getting the following error(s): _"The setup routines could not be found"_ and/or _"The specified DSN contains an architecture mismatch"_?
+##  I'm trying to configure a Data Source Name (DSN). Why am I getting the following error(s): _" The setup routines could not be found"_ and/or _" The specified DSN contains an architecture mismatch"_?
 
 The reason that these errors are occurring likely has to do with the 64-bit Windows having two versions of the ODBC Data Sources application: a 32-bit version and a 64-bit version.
 
@@ -80,24 +81,24 @@ If you are using a data dictionary, check that the _Data Dictionary_ setting con
 
 If you are using an INI file, check that the _INI File_ setting includes the path to the INI file and the name of the file. In addition, check that the permissions on the file are permissive enough for read access for the user using the PxPlus SQL ODBC Driver.
 
-If you are using a client/server ODBC setup, check that the _Catalog_ setting on the **Server** tab correctly corresponds to a _Catalog_ defined on the PxPlus SQL Server to which you are connecting. In addition, check that **_on the server_** , a _Catalog_ is defined with the name in the DSN and that the _Data Dictionary / INI File_ settings are correct as described above for the local DSN.
+If you are using a client/server ODBC setup, check that the _Catalog_ setting on the **Server** tab correctly corresponds to a _Catalog_ defined on the PxPlus SQL Server to which you are connecting. In addition, check that **_on the server_** , a _Catalog_  is defined with the name in the DSN and that the _Data Dictionary / INI File_ settings are correct as described above for the local DSN.
 
 #### **Note:**  
 A good way to test that you can see all tables is to use the _Test Connection_ button in the **Debug** tab of the DSN. It will report the number of tables it found defined in the data dictionary or INI file.
 
 For details on configuring the _Data Dictionary_ , _INI File_ and _Catalog_ settings for a DSN, see:
 
-**[PxPlus SQL ODBC Driver Configuration (Windows)](configuration_procedures/odbc_driver_configuration_windows.md)**  
-**[PxPlus SQL ODBC Driver Configuration (UNIX/Linux)](configuration_procedures/odbc_driver_configuration_unix_linux.md)**
+     **[PxPlus SQL ODBC Driver Configuration (Windows)](configuration_procedures/odbc_driver_configuration_windows.md)**  
+     **[PxPlus SQL ODBC Driver Configuration (UNIX/Linux)](configuration_procedures/odbc_driver_configuration_unix_linux.md)**
 
 For details on configuring a _Catalog_ for the SQL Server, see:
 
-**[PxPlus SQL Server Configuration (Windows)](configuration_procedures/server_settings_windows.md)**  
-**[PxPlus SQL Server Configuration (UNIX/Linux)](configuration_procedures/server_settings_unix_linux.md)**
+     **[PxPlus SQL Server Configuration (Windows)](configuration_procedures/server_settings_windows.md)**  
+     **[PxPlus SQL Server Configuration (UNIX/Linux)](configuration_procedures/server_settings_unix_linux.md)**
 
 ##  I can see my tables, but why can't I access them?
 
-Check the actual location of the physical files and then verify that your  _Data Dictionary_ , _INI File_ and/or _Prefix_ settings points to the correct location.
+Check the actual location of the physical files and then verify that your _Data Dictionary_ , _INI File_ and/or _Prefix_ settings points to the correct location.
 
 If you are using a client/server ODBC setup, check that the _Catalog_ setting correctly corresponds to a _Catalog_ defined on the PxPlus SQL Server to which you are connecting. In addition, check that **_on the server_** , a _Catalog_ is defined with the name in the Data Source Name (DSN) and that the _Prefix_ setting is correct.
 
@@ -108,11 +109,11 @@ A good way to test that you can see and access all tables is to use the _Test Sc
 
 For details on configuring the _Prefix_ setting for a DSN or SQL Server, see:
 
-**[PxPlus SQL ODBC Driver Configuration (Windows)](configuration_procedures/odbc_driver_configuration_windows.md)**  
-**[PxPlus SQL ODBC Driver Configuration (UNIX/Linux)](configuration_procedures/odbc_driver_configuration_unix_linux.md)**
+     **[PxPlus SQL ODBC Driver Configuration (Windows)](configuration_procedures/odbc_driver_configuration_windows.md)**  
+     **[PxPlus SQL ODBC Driver Configuration (UNIX/Linux)](configuration_procedures/odbc_driver_configuration_unix_linux.md)**
 
-**[PxPlus SQL Server Configuration (Windows)](configuration_procedures/server_settings_windows.md)**  
-**[PxPlus SQL Server Configuration (UNIX/Linux)](configuration_procedures/server_settings_unix_linux.md)**
+     **[PxPlus SQL Server Configuration (Windows)](configuration_procedures/server_settings_windows.md)**  
+     **[PxPlus SQL Server Configuration (UNIX/Linux)](configuration_procedures/server_settings_unix_linux.md)**
 
 For details on how to determine if the data dictionary and INI files point to the correct physical file locations, see [**Data Dictionary Maintenance**](../Data%20Dictionary/Data%20Dictionary%20Maintenance/Overview.md) and [**INI Definition**](table_definitions/ini_definition.md).
 
@@ -137,11 +138,11 @@ If you have a requirement to use a different architecture SQL ODBC Driver as com
 
 For details on configuring the _Path to Views DLL_ setting for a Data Source Name (DSN), see:
 
-**[PxPlus SQL ODBC Driver Configuration (Windows)](configuration_procedures/odbc_driver_configuration_windows.md)**  
-**[PxPlus SQL ODBC Driver Configuration (UNIX/Linux)](configuration_procedures/odbc_driver_configuration_unix_linux.md)**
+     **[PxPlus SQL ODBC Driver Configuration (Windows)](configuration_procedures/odbc_driver_configuration_windows.md)**  
+     **[PxPlus SQL ODBC Driver Configuration (UNIX/Linux)](configuration_procedures/odbc_driver_configuration_unix_linux.md)**
 
-**[PxPlus SQL Server Configuration (Windows)](configuration_procedures/server_settings_windows.md)**  
-**[PxPlus SQL Server Configuration (UNIX/Linux)](configuration_procedures/server_settings_unix_linux.md)**
+     **[PxPlus SQL Server Configuration (Windows)](configuration_procedures/server_settings_windows.md)**  
+     **[PxPlus SQL Server Configuration (UNIX/Linux)](configuration_procedures/server_settings_unix_linux.md)**
 
 ##  Can I perform a join between more than two tables?
 
@@ -160,7 +161,7 @@ The most common reason for an SQL query that is being processed by a PxPlus SQL 
 
 To help ease this problem, two effective strategies are available. The first strategy is to try to always use key fields in the WHERE clause of the SQL query. When you filter based on a key, the PxPlus SQL ODBC Driver can go directly to the data in question instead of having to read through the entire file. The second strategy is to minimize the amount of data you ask the PxPlus SQL ODBC Driver to read. This means that, wherever possible, avoid joining large tables and use more restrictive joins instead of a cross join.
 
-##  Why am I getting a _"Network Communication"_ error and/or an _"ISAM Communication"_ error?
+##  Why am I getting a _" Network Communication"_ error and/or an _" ISAM Communication"_ error?
 
 These errors are typically caused by incorrect settings for the _Server Name or IP_ field and/or the _TCP/IP Port_ field for the Data Source Name (DSN). Check that the network name or IP address and the port are correct. You can verify the port on which the SQL Server is running by looking at the Configuration application (if it is running on Windows) or looking at the **pxpsqlsvr.conf** file (if it is running on UNIX/Linux).
 
@@ -175,8 +176,8 @@ In addition, check that there is no client/server version mismatch. For details 
 
 For details on configuring the _Server Name or IP_ and/or _TCP/IP Port_ settings for a DSN, see:
 
-**[PxPlus SQL ODBC Driver Configuration (Windows)](configuration_procedures/odbc_driver_configuration_windows.md)**  
-**[PxPlus SQL ODBC Driver Configuration (UNIX/Linux)](configuration_procedures/odbc_driver_configuration_unix_linux.md)**
+     **[PxPlus SQL ODBC Driver Configuration (Windows)](configuration_procedures/odbc_driver_configuration_windows.md)**  
+     **[PxPlus SQL ODBC Driver Configuration (UNIX/Linux)](configuration_procedures/odbc_driver_configuration_unix_linux.md)**
 
 ##  Is version _X_ of the PxPlus SQL ODBC Driver compatible with version _Y_ of the PxPlus SQL Server?
 
@@ -201,24 +202,40 @@ Yes. However, it is important to keep in mind that it is impossible to guarantee
 
 For details on configuring the _Password_ setting for a DSN, see:
 
-**[PxPlus SQL ODBC Driver Configuration (Windows)](configuration_procedures/odbc_driver_configuration_windows.md)**  
-**[PxPlus SQL ODBC Driver Configuration (UNIX/Linux)](configuration_procedures/odbc_driver_configuration_unix_linux.md)**
+     **[PxPlus SQL ODBC Driver Configuration (Windows)](configuration_procedures/odbc_driver_configuration_windows.md)**  
+     **[PxPlus SQL ODBC Driver Configuration (UNIX/Linux)](configuration_procedures/odbc_driver_configuration_unix_linux.md)**
 
 ##  Can I test the PxPlus SQL ODBC Driver and/or PxPlus SQL Server before purchasing?
 
-Yes. When installing the product, leave the _Serial Number_ and _User Count_ fields blank and enter _DEMO_ for the _Activation Key_ field. Alternatively, you can just leave all the fields blank. The product will then install and allow you to use all of the features but limit the number of rows returned to 10 for all queries. In addition, each time you use the product, you will be presented with message box popups informing you that you are using a non-activated/demo product. These message box popups will prevent you from testing any background applications that use the PxPlus SQL ODBC Driver or testing the running of the PxPlus SQL Server as a service/background process. The reason for this is that when running in the background, you cannot see and clear the message box popups.
+Yes. When installing the product, leave the _Serial Number_ and _User Count_  fields blank and enter _DEMO_ for the _Activation Key_ field. Alternatively, you can just leave all the fields blank. The product will then install and allow you to use all of the features but limit the number of rows returned to 10 for all queries. In addition, each time you use the product, you will be presented with message box popups informing you that you are using a non-activated/demo product. These message box popups will prevent you from testing any background applications that use the PxPlus SQL ODBC Driver or testing the running of the PxPlus SQL Server as a service/background process. The reason for this is that when running in the background, you cannot see and clear the message box popups.
 
 If you decide to purchase the PxPlus SQL ODBC Driver while running in Demo mode, you can activate the product without reinstalling. For the Windows PxPlus SQL ODBC Driver, open one of your Data Source Names (DSN), select the **Activation** tab and enter the activation information. For the UNIX/Linux PxPlus SQL ODBC Driver, edit the license file and enter your activation information. For the Windows PxPlus SQL Server, use the Configuration application, select the **Activation** tab and enter the activation information. For the UNIX/Linux PxPlus SQL Server, edit the **pxpsqlsvr.conf** file and enter the activation information.
 
 For details on activation during installation, see:
 
-**[ODBC Product Installation and Activation (Windows)](installation_procedures/odbc_product_installation_activation.md)**  
-**[ODBC Product Installation and Activation (UNIX/Linux)](installation_procedures/odbc_product_installation_activation_unix.md)**
+     **[ODBC Product Installation and Activation (Windows)](installation_procedures/odbc_product_installation_activation.md)**  
+     **[ODBC Product Installation and Activation (UNIX/Linux)](installation_procedures/odbc_product_installation_activation_unix.md)**
 
 For details on activating an installed product, see:
 
-**[PxPlus SQL ODBC Driver Configuration (Windows)](configuration_procedures/odbc_driver_configuration_windows.md)**  
-[**PxPlus SQL ODBC Driver Configuration (UNIX/Linux)**](configuration_procedures/odbc_driver_configuration_unix_linux.md)
+     **[PxPlus SQL ODBC Driver Configuration (Windows)](configuration_procedures/odbc_driver_configuration_windows.md)**  
+     [**PxPlus SQL ODBC Driver Configuration (UNIX/Linux)**](configuration_procedures/odbc_driver_configuration_unix_linux.md)
 
-**[PxPlus SQL Server Configuration (Windows)](configuration_procedures/server_settings_windows.md)**  
-**[PxPlus SQL Server Configuration (UNIX/Linux)](configuration_procedures/server_settings_unix_linux.md)**
+     **[PxPlus SQL Server Configuration (Windows)](configuration_procedures/server_settings_windows.md)**  
+     **[PxPlus SQL Server Configuration (UNIX/Linux)](configuration_procedures/server_settings_unix_linux.md)**
+
+##  Does the PxPlus SQL ODBC Driver trigger Embedded IO?
+
+Embedded I/O programs are PxPlus programs and require a PxPlus environment in which to run.
+
+The ODBC Driver does not require PxPlus and can be installed on a workstation that has no PxPlus whatsoever; therefore, the ODBC Driver does not use embedded I/O procedures.
+
+If you want/need to have your embedded IO procedure run against files which are being accessed by ODBC, we suggest that you create a "View" of the file that will be accessible by the ODBC interface and run within a PxPlus environment and thus will honor your embedded IO settings.
+
+ 
+
+ 
+
+ 
+
+ 

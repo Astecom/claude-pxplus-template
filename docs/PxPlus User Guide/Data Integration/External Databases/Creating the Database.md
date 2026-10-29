@@ -1,6 +1,6 @@
 # External Databases
 
-**Creating the Database** |  **__**  
+**Creating the Database** |  **_ _**  
 ---|---  
   
 The step subsequent to installing a chosen database system is to create a database, or databases, for the application. When doing so, be aware of case sensitivity and the sort (collation) sequence of the database.
@@ -37,7 +37,7 @@ An inadvertent lowercase key in a data file can cause problems.
 
 **_Example:_**
 
-Assume the keys 
+Assume the keys …
 
 > CAR010, CAR020, Car025, CAR100, CAR150
 
@@ -94,10 +94,16 @@ Within Microsoft SQL, trailing spaces are considered redundant. This means that 
 
 **_Example:_**
 
-> "ABC" is treated the same as "ABC "
+> "ABC" is treated the same as "ABC      "
 
 In most cases, this does not cause any application problems, but if the application is sensitive to it, then the key fields should be defined as Binary.
 
 Another issue is that the null character (HEX 00) cannot be stored in standard text columns. Therefore, if null bytes are significant to your application, then the column should be declared as Binary.
 
 A null character is used internally to indicate the end of a SQL statement; therefore, not having the field declared as Binary will result in the SQL statement being truncated.
+
+ 
+
+ 
+
+ 

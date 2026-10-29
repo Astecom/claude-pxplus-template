@@ -9,9 +9,9 @@ When you select an item from the **File Elements** list in the **[Query Definiti
 
 To change the values for a selected element, launch the **Column Options** window by using one of the following methods:
 
-Click the _Column Options_ button on the **Query Definition** toolbar.  
-Double click on the element.  
-Right click on the element and then select _Update column properties_ from the popup menu.
+      Click the _Column Options_ button on the **Query Definition** toolbar.  
+      Double click on the element.  
+      Right click on the element and then select _Update column properties_ from the popup menu.
 
 The **Column Options** window for the selected element is displayed:
 
@@ -44,9 +44,9 @@ _Program_ |  Name of the program called to format the display of the string data
   
 ---  
 _Sort Key Length_ |  **_(Available when Use Sort Algorithm option is selected)_** Number of characters to be used to sort the column when using a sort algorithm. Default value is the length of the field to a maximum of 128.  
-_Date Sort_ |  **_(Query+, Drop Query)_** ** _(Available when Date Sort option is selected)_** Enter or select a string consisting of D, M and/or Y (day, month year) to describe the order in which they occur in the data. **_Example:_** A date in the format MMDDYY would be MDY.  
+_Date Sort_ |  **_(Query+, Drop Query)_**  **_(Available when Date Sort option is selected)_** Enter or select a string consisting of D, M and/or Y (day, month year) to describe the order in which they occur in the data. **_Example:_** A date in the format MMDDYY would be MDY.  
 **'Tip' Values** |  **_(Numeric Only, Query+, Drop Query and Classic Query with Sort by Column Option)_** **_(Optional)_** Tip values to be displayed when the mouse is placed over the column heading. Values include _Total_ , Average, _Minimum_ and _Maximum_. Column tips are also supported in Webster+ queries. See Webster+ **[query=xxx](../../../Webster/Short%20Code%20Options.htm#query)**. _(Webster+ support for column tips was added in PxPlus 2024.)_  
-**Hotlink Logic** |  **_(Query+ and Drop Query)_** Logic to execute when the column is double clicked. Click the drop-down arrow for a list of event actions: _Ignore,__Link, Call_ and _Execute_. See **[Actions and Parameters](../../Program%20Interaction/Events%20Logic/Actions%20and%20Parameters.md)**. The specified logic overrides selecting the query record. Columns with a hotlink are displayed in the color defined by the **'OPTION'("StdLvueHotlinkClr",color$)** setting and are underlined while hovering over the column. See **[OPTION](../../../mnemonics/option.htm#hotlinkclr)** mnemonic. |  _Webster Hotlink_ |  Specify a hotlink for the column to be used in a **[Webster+](../../../Webster/Webster.md)** environment. Links may specify URLs, pages or events, starting with _http://_ , _https://_ , _page:_ or _event:._ Additional URL parameters can follow the page/program name separated by an **&**  _(ampersand)_ ; e.g. &_fieldname$_ =. **_Example:_** _page_ :_pagename_ &_fieldname_ _$_ =$1 The Webster+ hotlink is translated into a Webster+ **[[link]](../../../Webster/Short%20Codes.htm#link)** short code: [link _page_ :_pagename_ &_fieldname_ _$_ =$1] This results in a hyperlink to the specified page name with _fieldname$_ as the variable to be passed to the page/program and $1 being substituted with the value in the column.  
+**Hotlink Logic** |  **_(Query+ and Drop Query)_** Logic to execute when the column is double clicked. Click the drop-down arrow for a list of event actions: _Ignore,__Link, Call_ and _Execute_. See **[Actions and Parameters](../../Program%20Interaction/Events%20Logic/Actions%20and%20Parameters.md)**. The specified logic overrides selecting the query record. Columns with a hotlink are displayed in the color defined by the **'OPTION'( "StdLvueHotlinkClr",color$)** setting and are underlined while hovering over the column. See **[OPTION](../../../mnemonics/option.htm#hotlinkclr)** mnemonic. |  _Webster Hotlink_ |  Specify a hotlink for the column to be used in a **[Webster+](../../../Webster/Webster.md)** environment. Links may specify URLs, pages or events, starting with _http://_ , _https://_ , _page:_ or _event:._ Additional URL parameters can follow the page/program name separated by an **&**  _(ampersand)_ ; e.g. &_fieldname$_ =. **_Example:_**    _page_ :_pagename_ &_fieldname_ _$_ =$1 The Webster+ hotlink is translated into a Webster+ **[[link]](../../../Webster/Short%20Codes.htm#link)** short code:    [link _page_ :_pagename_ &_fieldname_ _$_ =$1] This results in a hyperlink to the specified page name with _fieldname$_ as the variable to be passed to the page/program and $1 being substituted with the value in the column.  
 ---|---  
 _Target_ |  **_(Optional)_** Specify a Webster+ target browser window where the results of a link or event will be displayed. Selections are null **_(Default)_** , _Same_ , _New_ or _Popup_. |  _Same_ |  To have the output replace the current page.  
 ---|---  
@@ -56,7 +56,7 @@ _Popup_ |  To create a popup overlaid window. When selected, an input control wi
 _(The Hotlink Logic option was added in PxPlus 2018.)  
 (The Webster Hotlink option was added in PxPlus 2021 Update 1.)_  
   
-**Query** |  **_(Classic Query Only)_** Optional sub-query assigned to the column. |  _Library_ |  Select a library name from the drop-down list, click the Browse button to look through the directory structure to find the library or type the library path. An expression can also be entered by preceding the expression with an **=**_(equals sign)_ ; e.g. _=libname$_ or _="mylib.en"_.
+**Query** |  **_(Classic Query Only)_** Optional sub-query assigned to the column. |  _Library_ |  Select a library name from the drop-down list, click the Browse button to look through the directory structure to find the library or type the library path. An expression can also be entered by preceding the expression with an **=**_(equals sign)_ ; e.g. _=libname$_ or _= "mylib.en"_.
 
 #### **Note:  
 ** The Library name may be a specific or generic reference. See [**Cascading Language Suffixes**](../../Multilingual%20Capabilities/Cascading%20Language%20Suffixes/Overview.md).  
@@ -74,3 +74,9 @@ _Security_ |  Launches the **[Object Security Definition](../../System%20Mainten
 ## See Also
 
 **[Query Definition](Query%20Definition.md)**
+
+ 
+
+ 
+
+ 

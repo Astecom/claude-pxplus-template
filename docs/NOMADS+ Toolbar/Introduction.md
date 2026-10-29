@@ -1,6 +1,6 @@
-# Panel Designer  
-  
-**Using NOMADS+ Toolbar** |  **__**  
+# Panel Designer
+
+**Using NOMADS+ Toolbar** |  **_ _**  
 ---|---  
   
 The NOMADS+ Toolbar is a toolset that is used for application screen development and works in conjunction with the Design panel. The NOMADS+ Toolbar consists of two main components: **_NOMADS+ Toolbar_** and **_Design panel_**. Each of these windows can be moved and positioned anywhere on the desktop. The functionality of the other components, such as _Properties_ , _Header Panel_ , etc., remains unchanged.
@@ -16,7 +16,9 @@ Starting with PxPlus 2025, the NOMADS+ Toolbar is the panel designer by default,
 
 Below is an example of the NOMADS+ Toolbar. The design panel on the right shows the _ProductCode_ multi-line control is selected, and the NOMADS+ **[Controls Grid](Introduction.htm#controlgrid)** on the left shows the corresponding PRODUCTCODE row is highlighted.
 
-The NOMADS+ Toolbar is comprised of a **Menu Bar**, **[Controls Toolbar](Introduction.htm#controlbar)**, **Ribbon Bar**, **Control Grid** and a separate Design panel. The name of the current project is also displayed.
+     
+
+The NOMADS+ Toolbar is comprised of a **Menu Bar**, **[Controls Toolbar](Introduction.htm#controlbar)**, **Ribbon Bar**, **[Controls Grid](Introduction.htm#controlgrid)** and a separate Design panel. The name of the current project is also displayed.
 
 _(The project name display was added in PxPlus 2023.)_
 
@@ -57,6 +59,8 @@ _Test_ |  Switch to test mode. Same as the _Test_ tool bar button.
 _Close_ |  Exits the NOMADS+ Toolbar/Design panel with the option to save/abandon changes.  
 _Delete Panel_ |  Delete the panel from the current library.  
   
+ 
+
 **Edit** |  Drop-down menu for panel editing options. These may also be invoked via quick key sequences (where indicated). A list of Edit Keys is also available on the NOMADS+ Toolbar **[Help](Introduction.htm#help)** menu.  
 ---|---  
 _Undo_ |  Undo up to 50 changes. Same as the _Undo_ tool bar button.  
@@ -76,6 +80,8 @@ _Grid Alignment_ |  Change grid alignment for the current panel.
 _Show grid_ |  Display grid lines on the panel.  
 _Tab order_ |  Launch the **Tab Order Definition** dialogue. See **[Tab Order](../NOMADS%20Graphical%20Application/Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Tab%20Order.md)**.  
   
+ 
+
 **Controls** |  These options are also accessible as buttons in the **[Controls Toolbar](Introduction.htm#controlbar)**.  
 ---|---  
 _Button_ |  Single button.  
@@ -101,6 +107,8 @@ _Embed Panel_ |  Place contents of another panel onto the current panel.
 _Group Items_ |  Used for selecting multiple controls in a group so that the same function (i.e. copying/pasting, moving, deleting) can be applied to them at the same time. When this tool is selected, use the mouse to draw a selection box around the controls to be grouped. (Similar functionality to the **_Pointer Tool_**.)  
 _Pointer Tool_ |  Use the Pointer Tool **_(default)_** for selecting either a single control or for drawing a selection box around multiple controls in a group so that the same function (i.e. copying/pasting, moving, deleting) can be applied to them at the same time. (Similar functionality to the **_Pointer Tool_** used in **[Property Sheets](../NOMADS%20Graphical%20Application/Panel%20Designer/Properties%20Table/Overview.md)**.) Setting the _Default to Pointer_ option (on the **[Panel](Introduction.htm#panel)** menu) to **_Off_** changes the default from the **_Pointer Tool_** to the **_Button_** control. _(The Pointer tool and Default to Pointer option in NOMADS+ were added in PxPlus 2019.)_  
   
+ 
+
 **Options** |  Miscellaneous options.  
 ---|---  
 _Create Label For Dictionary Element_ |  When selected (displays a check mark), this option generates a fonted text label for a data dictionary _Element_ control (see **[Data Element Controls](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Introduction.htm#Mark5)**) when the control is drawn on the panel. At the same time, the **[Include Element Label](Introduction.htm#label)** check box is selected. Both of these options remain selected until either one is deselected or the Panel Designer is exited. _(The Include Element Label check box was added in PxPlus 2018 Update 0001.)_
@@ -115,6 +123,8 @@ To **_apply_** this option: |  1. |  Select the _Create Label For Dictionary Ele
 4. |  A **[Fonted Text Properties](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Text%20Control/Text.md)** window displays for the generated element label. By default, the label is positioned to the left of the control but can be adjusted if needed.  
 _Change Bulk Edit/Property Sort Order_ |  Opens the **[Change Bulk Edit/Property Sort Order](../NOMADS%20Graphical%20Application/Panel%20Designer/Options%20and%20Utilities/Change%20Sort%20Order.md)** window for customizing how property groupings are displayed in **[Property Sheets](../NOMADS%20Graphical%20Application/Panel%20Designer/Properties%20Table/Overview.md)**, the **[Panel Bulk Edit Utility](../NOMADS%20Graphical%20Application/Panel%20Designer/Options%20and%20Utilities/Bulk%20Edit%20Utility.md)**, and the **[Library Bulk Edit and Search Utility](../NOMADS%20Graphical%20Application/NOMADS%20Development/Maintaining%20Library%20Objects/Library%20Bulk%20Edit.md)** (for the **Properties to Edit** grid).  
   
+ 
+
 **Utilities** |  Drop-down menu for panel/library utilities.  
 ---|---  
 _Bulk Edit_ |  Allows you to change the design properties of two or more selected panel controls within the current active panel. See **[Panel Bulk Edit Utility](../NOMADS%20Graphical%20Application/Panel%20Designer/Options%20and%20Utilities/Bulk%20Edit%20Utility.md)**.  
@@ -134,6 +144,8 @@ _Nomads+_ |  Launches a multi-functional dialogue that combines folder style and
 _Property Sheets_ |  Displays the properties for a selected control using a two-column table format. See **[Using Property Sheets](../NOMADS%20Graphical%20Application/Panel%20Designer/Properties%20Table/Overview.md)**.  
 _Folder Style_ |  Displays the properties for a selected control using a tabbed folder format. See **[Using Folder Style](../NOMADS%20Graphical%20Application/Panel%20Designer/Folder%20Style/Using%20the%20Folder%20Style.md)**.  
   
+ 
+
 **Sizing** |  Drop-down menu for panel and/or objects sizing.  
 ---|---  
 _Fixed_ |  Panel size is fixed and objects have fixed sizes and locations.  
@@ -142,11 +154,15 @@ _Resizable/Auto Scroll_ |  Panel is resizable, and objects have fixed sizes. How
 _Resizable/Auto Size_ |  Panel is resizable, and objects are resized and relocated based on the ratio of the original size to the new panel size.  
 _Resizable/Custom_ |  Panel is resizable, and each object can be resized (Auto Size) or remain fixed in size (Fixed). Auto size objects are automatically relocated, whereas fixed-sized objects will have the following _Movement_ options available: Default, Default (Centered), or Anchored (Top, Bottom, Left, Right, Top/Left, Top/Right, Bottom/Left and Bottom/Right).  
   
+ 
+
 **Projects** |  Drop-down menu for projects.  
 ---|---  
 _Create New Project_ |  Launches the **[Create Project](../PxPlus%20IDE/IDE%20Main%20Launcher.htm#createproject)** dialogue for entering a new project for the current working directory. Click the Query button to select a different working directory.  
 _Add to Project_ |  Launches the **Add to Project** dialogue for adding the current task to an existing project that is selected from the _Project_ drop box. To manage all the tasks within a project, see **[Project Maintenance](../Project%20Maintenance.md)**. For information on adding tasks to a project from other locations, see **[Adding Tasks to Projects from Other Locations](../PxPlus%20IDE/Adding%20Tasks%20to%20Projects%20from%20Other%20Locations.md)**.  
   
+ 
+
 **iNomads** | 
 
 #### **Note:**  
@@ -160,14 +176,20 @@ _Run transaction_ |  Displays the current **_saved_** panel in iNomads in "test"
 #### **Note:**  
 This "test" functionality is **_not_** available when running WindX.  
   
+ 
+
 **Panel Details** |  Launches the **Panel Details** dialog. _(The Panel Details dialog was added in PxPlus 2018.)_  
 ---|---  
-|  Launches the **Panel Details** dialog, which contains a summary list of panel information and includes the following categories: **[Alternate Panels](../NOMADS%20Graphical%20Application/Program%20Interaction/Alternate%20Panel%20Layouts/Overview.md)**, **[Dependencies](../NOMADS%20Graphical%20Application/Panel%20Designer/Options%20and%20Utilities/Dependency%20Definitions.md)**, **[Drag And Drop](../NOMADS%20Graphical%20Application/Panel%20Designer/Options%20and%20Utilities/Drag%20and%20Drop%20Utility.md)**, **[Groups](../NOMADS%20Graphical%20Application/Panel%20Designer/Options%20and%20Utilities/Group%20Assignment%20\(Panel%20Level\).htm)**, **[Menu](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Menu%20Bar/Menu%20Bar%20Definition.md)**, **[Substitute Panels](../NOMADS%20Graphical%20Application/Program%20Interaction/Substitute%20Panels.md)**, **[User CTLS](../NOMADS%20Graphical%20Application/Panel%20Designer/Options%20and%20Utilities/User-Defined%20CTLs.md)** and **[Visual Classes](../NOMADS%20Graphical%20Application/Panel%20Designer/Options%20and%20Utilities/Visual%20Class%20Assignment%20\(Panel%20Level\).htm)**. The category headings are clickable, invoking the associated utility program to edit the panel.  
+  |  Launches the **Panel Details** dialog, which contains a summary list of panel information and includes the following categories: **[Alternate Panels](../NOMADS%20Graphical%20Application/Program%20Interaction/Alternate%20Panel%20Layouts/Overview.md)**, **[Dependencies](../NOMADS%20Graphical%20Application/Panel%20Designer/Options%20and%20Utilities/Dependency%20Definitions.md)**, **[Drag And Drop](../NOMADS%20Graphical%20Application/Panel%20Designer/Options%20and%20Utilities/Drag%20and%20Drop%20Utility.md)**, **[Groups](../NOMADS%20Graphical%20Application/Panel%20Designer/Options%20and%20Utilities/Group%20Assignment%20\(Panel%20Level\).htm)**, **[Menu](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Menu%20Bar/Menu%20Bar%20Definition.md)**, **[Substitute Panels](../NOMADS%20Graphical%20Application/Program%20Interaction/Substitute%20Panels.md)**, **[User CTLS](../NOMADS%20Graphical%20Application/Panel%20Designer/Options%20and%20Utilities/User-Defined%20CTLs.md)** and **[Visual Classes](../NOMADS%20Graphical%20Application/Panel%20Designer/Options%20and%20Utilities/Visual%20Class%20Assignment%20\(Panel%20Level\).htm)**. The category headings are clickable, invoking the associated utility program to edit the panel.        
   
+ 
+
 **Wiki Info** |  _(The Wiki Info menu option was added in PxPlus 2023.)_  
 ---|---  
-|  Spawns EZWeb for the **[PxPlus Wiki](../PxPlus%20Wiki/PxPlus%20Wiki.md)** (if not already running) and then displays panel information for the current NOMADS panel in a new tab on your default Web browser. **_Example:_** When the PxPlus Wiki launches, the information for the current panel, Product_Mnt, displays:  
+|  Spawns EZWeb for the **[PxPlus Wiki](../PxPlus%20Wiki/PxPlus%20Wiki.md)** (if not already running) and then displays panel information for the current NOMADS panel in a new tab on your default Web browser. **_Example:_** When the PxPlus Wiki launches, the information for the current panel, Product_Mnt, displays:       
   
+ 
+
 **Help** |  Additional Help options.  
 ---|---  
 _Edit Keys_ |  Provides a list of keystroke combinations that are mapped to NOMADS functionality; i.e. Ctrl + S = Save, Ctrl + C = Copy, Ctrl + V = Paste.
@@ -177,9 +199,11 @@ The standard edit keys **Home** and **End** apply only when using the **[Folder 
   
 _About_ |  NOMADS Designer version number.  
   
-**Quit** |   
+ 
+
+**Quit** |     
 ---|---  
-|  Exits the NOMADS+ Toolbar/Design panel with the option to save/abandon changes.  
+  |  Exits the NOMADS+ Toolbar/Design panel with the option to save/abandon changes.  
   
 ##  Controls Toolbar
 
@@ -187,10 +211,10 @@ The **_Controls_** toolbar is a collection of creation tools that are used when 
 
 **_To create a control:_**
 
-|  1. |  Click the appropriate tool in the _Controls_ toolbar.  
+  |  1. |  Click the appropriate tool in the _Controls_ toolbar.  
 ---|---|---  
-|  2. |  Draw the control on the panel by holding down the left mouse button, dragging the dotted outline to the desired size and releasing the mouse button. The control's **Properties** window displays.  
-|  3. |  Enter the associated logic and set other design properties as needed.  
+  |  2. |  Draw the control on the panel by holding down the left mouse button, dragging the dotted outline to the desired size and releasing the mouse button. The control's **Properties** window displays.  
+  |  3. |  Enter the associated logic and set other design properties as needed.  
   
 For information on drawing, resizing, moving and arranging objects in the Panel Designer, see **[Creating Panel Controls](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Introduction.md)** and **[Modifying Objects](../NOMADS%20Graphical%20Application/Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Modifying%20Objects.md)**.
 
@@ -214,17 +238,17 @@ For information on drawing, resizing, moving and arranging objects in the Panel 
 __(Support for .NET controls was added in PxPlus 2025.)_  
 |  **[Embed Panel](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Embedded%20Panels/Overview.md)** |  Allows you to place the contents of another panel onto the current panel.  
 |  **Group Items** |  Used for selecting multiple controls in a group so that the same function (i.e. copying/pasting, moving, deleting) can be applied to them at the same time. When this tool is selected, use the mouse to draw a selection box around the controls to be grouped. (Similar functionality to the **_Pointer Tool_**.)  
-|  **Data Class** |  **_(Available only if Data Class Definitions file exists)_** This button (or the Query down arrow) displays a list of defined data classes stored in the _providex.dcl_ file. For information on creating data classes, see **[Data Classes](../Data%20Dictionary/Data%20Classes/Overview.md)**. Select a data class for the type of control to be placed on the panel. When selected, the text _Data Class_ is replaced with the name of the selected class, and the button color changes to dark red. When the control is drawn, the **Properties** window is automatically loaded with information from the selected class.  
+|  **Data Class** |  **_(Available only if Data Class Definitions file exists)_** This button (or the Query down arrow) displays a list of defined data classes stored in the _providex.dcl_ file. For information on creating data classes, see **[Data Classes](../Data%20Dictionary/Data%20Classes/Overview.md)**. Select a data class for the type of control to be placed on the panel. When selected, the text _Data Class_  is replaced with the name of the selected class, and the button color changes to dark red. When the control is drawn, the **Properties** window is automatically loaded with information from the selected class.  
 |  **File** |  **_(Available only if Data Dictionary file exists)_** This button (or the Query down arrow) displays a list of dictionary files stored in the _providex.ddf_ file. Select the dictionary file that contains the element(s) to be placed on the panel, and then use the _Element_ button to select an element from the selected file. When a file is selected, the text _File_ is replaced with the name of the selected file, and the button color changes to dark red.  
-|  **Element** |  **_(Available only if Data Dictionary file exists)_** If a dictionary _File_ was selected previously, this button (or the Query down arrow) displays a list of the elements in the selected file only. If **_no_** dictionary _File_ was selected, this button displays a list of **_all_** the elements in **_all_** dictionary files (sorted by _Table Name_). Elements are stored in the _providex.dde_ file. For information on defining elements, see **[Element Description](../Data%20Dictionary/Data%20Dictionary%20Maintenance/Element%20Description.md)**. Select an element to be placed on the panel. When selected, the text _Element_ is replaced with the name of the selected element. If a dictionary _File_ was not selected previously, then the text _File_ is replaced with the name of the dictionary file containing the selected element. The _Element_ button color changes to dark red. When the control is drawn, the **Properties** window is displayed for the selected element.
+|  **Element** |  **_(Available only if Data Dictionary file exists)_** If a dictionary _File_  was selected previously, this button (or the Query down arrow) displays a list of the elements in the selected file only. If **_no_** dictionary _File_  was selected, this button displays a list of **_all_** the elements in **_all_** dictionary files (sorted by _Table Name_). Elements are stored in the _providex.dde_ file. For information on defining elements, see **[Element Description](../Data%20Dictionary/Data%20Dictionary%20Maintenance/Element%20Description.md)**. Select an element to be placed on the panel. When selected, the text _Element_  is replaced with the name of the selected element. If a dictionary _File_  was not selected previously, then the text _File_ is replaced with the name of the dictionary file containing the selected element. The _Element_ button color changes to dark red. When the control is drawn, the **Properties** window is displayed for the selected element.
 
 #### **Note:**  
   
 **_When drawing a data element control:_**  
   
-If the element was defined with a data class that is **_not dynamic_** , the element values will be written to the control properties.  
+   If the element was defined with a data class that is **_not dynamic_** , the element values will be written to the control properties.  
   
-If the element was defined with a **_dynamic_** data class, a message will ask if the element values are to overwrite data class values for corresponding properties. Respond _Yes_ to apply the element values or _No_ to apply the data class values. See **[Dynamic Control Properties](../Data%20Dictionary/Data%20Classes/Dynamic.md)**.  
+   If the element was defined with a **_dynamic_** data class, a message will ask if the element values are to overwrite data class values for corresponding properties. Respond _Yes_ to apply the element values or _No_ to apply the data class values. See **[Dynamic Control Properties](../Data%20Dictionary/Data%20Classes/Dynamic.md)**.  
   
 _(Dynamic data classes and properties were added in PxPlus 2018.)_  
   
@@ -257,13 +281,13 @@ The **_Ribbon Bar_** consists of functions that are commonly used for the develo
 |  _Cut_ |  Cut selected object(s).  
 |  _Copy_ |  Copy selected object(s).  
 |  _Paste_ |  Paste object(s) from the Clipboard.  
-|  _Commit_ |  Invokes the TortoiseSVN Commit procedure for committing panel changes to the repository. This option is enabled only if **_both_** of the following conditions are met: The programs/files associated with the current panel are integrated with the **[PxPlus Version Control System Using TortoiseSVN](../PxPlus%20Version%20Control%20System%20Using%20TortoiseSVN/Introduction.md)**. Changes to the current panel have been saved.  
+|  _Commit_ |  Invokes the TortoiseSVN Commit procedure for committing panel changes to the repository. This option is enabled only if **_both_** of the following conditions are met:    The programs/files associated with the current panel are integrated with the **[PxPlus Version Control System Using TortoiseSVN](../PxPlus%20Version%20Control%20System%20Using%20TortoiseSVN/Introduction.md)**.    Changes to the current panel have been saved.  
 |  _Up  
 Down_ |  Moves a selected row up or down within the grid _only_ if that row has the **Tab Stop** check box selected. Moving a selected row changes the tab order of the controls in the current panel.  
   
 The tab order can also be modified in the **Tab Order Definition** window, which is accessed either by selecting _Tab order_ from the _Edit_ menu or by selecting _Tab Order Definition_ from the _Utilities_ menu. See **[Tab Order](../NOMADS%20Graphical%20Application/Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Tab%20Order.md)**.  
-|  **Test using Alternate/Substitute Panels** |  **_(Available only when_ [Alternate Panels](../NOMADS%20Graphical%20Application/Program%20Interaction/Alternate%20Panel%20Layouts/Overview.md)** _**and/or**_**[Substitute Panels](../NOMADS%20Graphical%20Application/Program%20Interaction/Substitute%20Panels.md)** _**have been assigned to the current panel)**_ Select this check box to test the alternate or substitute panel logic for the current panel when the **[Test](Introduction.htm#test)** option is selected. To test the current panel without the alternate or substitute panel logic, uncheck this option _(default)_. _(The Test using Alternate/Substitute Panels check box was added in PxPlus 2017 Update 0002.)_  
-|  **Suppress Groups** |  Click the text portion of this button to launch the **[Suppress Groups](../NOMADS%20Graphical%20Application/Panel%20Designer/Options%20and%20Utilities/Suppress%20Groups.md)** utility that is used for choosing which group(s) of controls to display or temporarily suppress from displaying on the current panel in the NOMADS Panel Designer. Click the drop down arrow to access a _Display All Groups_ option for displaying all groups on the current panel. _(The Suppress Groups utility was added in PxPlus 2021.)_  
+|  **Test using Alternate/Substitute Panels** |  **_(Available only when_  [Alternate Panels](../NOMADS%20Graphical%20Application/Program%20Interaction/Alternate%20Panel%20Layouts/Overview.md)** _ **and/or**_** [Substitute Panels](../NOMADS%20Graphical%20Application/Program%20Interaction/Substitute%20Panels.md)** _ **have been assigned to the current panel)**_ Select this check box to test the alternate or substitute panel logic for the current panel when the **[Test](Introduction.htm#test)** option is selected.      To test the current panel without the alternate or substitute panel logic, uncheck this option _(default)_. _(The Test using Alternate/Substitute Panels check box was added in PxPlus 2017 Update 0002.)_  
+|  **Suppress Groups** |  Click the text portion of this button to launch the **[Suppress Groups](../NOMADS%20Graphical%20Application/Panel%20Designer/Options%20and%20Utilities/Suppress%20Groups.md)** utility that is used for choosing which group(s) of controls to display or temporarily suppress from displaying on the current panel in the NOMADS Panel Designer. Click the drop down arrow to access a _Display All Groups_ option for displaying all groups on the current panel.      _(The Suppress Groups utility was added in PxPlus 2021.)_  
   
 ##  Controls Grid
 
@@ -274,7 +298,7 @@ The **_Controls_** grid displays all the controls in the current panel in tab or
 _Control_ |  Unique name assigned to the control.  
 ---|---  
 _(Properties Button)_ |  Brings up the properties window for the selected control. Works the same as the _Properties_ button on the **[Ribbon Bar](Introduction.htm#ribbonbar)**. **_Example:_** If the row selected is a _Multi-Line_ control, clicking the _Properties_ button invokes the **Multi-Line Properties** window.  
-_Type_ |  Type of control (i.e. _Button_ , _Multi Line_ , etc.). When creating **[List Box](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/List%20Box%20Controls/List%20Box%20Type.md)**, **[Chart](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Chart%20Control/Chart.md)** and **[Shape](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Shape%20Control/Shape.md)** controls, the specific _type_ of List Box, Chart and Shape is also displayed. _(The specific type of List Box, Chart and Shape was added in PxPlus 2019.)_  
+_Type_ |  Type of control (i.e. _Button_ , _Multi Line_ , etc.). When creating **[List Box](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/List%20Box%20Controls/List%20Box%20Type.md)**, **[Chart](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Chart%20Control/Chart.md)** and **[Shape](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Shape%20Control/Shape.md)** controls, the specific _type_ of List Box, Chart and Shape is also displayed.      _(The specific type of List Box, Chart and Shape was added in PxPlus 2019.)_  
 _Text_ |  Text associated with the control.  
 _Column_ |  Starting column position of the control.  
 _Line_ |  Starting line position of the control.  
@@ -282,4 +306,10 @@ _Width_ |  Width of the control in number of columns.
 _Height_ |  Height of the control in number of lines.  
 _Tab Stop_ |  Indicates whether the control is included in the tabbing sequence.  
 _Movement_ |  Indicates the resizing behavior set for the control. See **[Panel Resizing](../NOMADS%20Graphical%20Application/Panel%20Designer/Resizing%20and%20Persistence/Panel%20Resizing.md)**.  
-_(Delete Button)_ |  Deletes the currently selected control. If the control was deleted in error, use the _Undo_ toolbar button to bring it back. The deleted control is not written to the Clipboard; therefore, it cannot be pasted. _(The Delete button was added in PxPlus 2020.)_
+_(Delete Button)_ |  Deletes the currently selected control. If the control was deleted in error, use the _Undo_ toolbar button to bring it back. The deleted control is not written to the Clipboard; therefore, it cannot be pasted. _(The Delete button was added in PxPlus 2020.)_  
+  
+ 
+
+ 
+
+ 

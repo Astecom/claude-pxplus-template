@@ -9,7 +9,9 @@ By using **_dynamic control properties_** , changes to existing panels and contr
 
 When a data class is entered for the control, information from the data class is loaded into the control's properties. If the data class is **_dynamic_** , the dynamic control properties are **_automatically_** set to _Dynamic_ initially and assigned a **%NOMADS'class'** variable that corresponds to a data class field (i.e. **%NOMADS'class'length**). **_Dynamic_** data classes are created by selecting the _Dynamic_ check box in **[Data Class Definitions](Overview.htm#Mark1)** maintenance.
 
-Control properties designated as **_dynamic_** can be _manually_ switched to dynamic or non-dynamic. A control can have a combination of dynamic **_and_** non-dynamic control properties **_only_** when a data class is entered.
+Control properties designated as **_dynamic_**  can be _manually_ switched to dynamic or non-dynamic. A control can have a combination of dynamic **_and_** non-dynamic control properties **_only_** when a data class is entered.
+
+See **[How to Use Dynamic Control Properties](../../How%20To/How%20to%20Use%20Dynamic%20Control%20Properties.md)**.
 
 Dynamic control properties are available for Multi-Lines, Drop Boxes, List Boxes and Check Boxes.
 
@@ -40,11 +42,11 @@ _(The Load From File functionality was added in PxPlus 2019.)_
 
 The examples below show how to create, apply and use dynamic data classes, as well as how to manually set dynamic properties:
 
-|  **[Example 1](Dynamic.htm#Example1):** |  **_Creating and Applying a Dynamic Data Class_**  
+  |  **[Example 1](Dynamic.htm#Example1):** |  **_Creating and Applying a Dynamic Data Class_**  
 ---|---|---  
-|  **[Example 2](Dynamic.htm#Example2):** |  **_Manually Setting Dynamic Properties_**  
-|  **[Example 3](Dynamic.htm#Example3):** |  **_Using Dynamic Data Classes_**  
-|  **[Example 4](Dynamic.htm#Example4):** |  **_Applying a Dynamic Data Class Using Property Sheets_**  
+  |  **[Example 2](Dynamic.htm#Example2):** |  **_Manually Setting Dynamic Properties_**  
+  |  **[Example 3](Dynamic.htm#Example3):** |  **_Using Dynamic Data Classes_**  
+  |  **[Example 4](Dynamic.htm#Example4):** |  **_Applying a Dynamic Data Class Using Property Sheets_**  
   
 **_Example 1_**** _: Creating and Applying a Dynamic Data Class_**
 
@@ -52,7 +54,7 @@ This example shows that the **_dynamic_** data class, NAME, is created for a Mul
 
 The NAME data class is applied to the CUSTOMER_NAME Multi-Line control. Information from the NAME data class is loaded into the control's properties. The _Dynamic Class_ check box indicates that the selected data class is dynamic. Dynamic control properties are automatically set to _Dynamic_ initially and assigned a **%NOMADS'class'** variable.
 
-|    
+  |    
 **_* Indicates properties that can be Dynamic_** |  |    
 **_Dynamic control properties automatically set to "Dynamic"_**  
 ---|---|---|---  
@@ -67,7 +69,7 @@ When the NAME data class is applied to the CUSTOMER_NAME multi-line control, inf
 
 Because NAME is **_not_** a dynamic data class, the dynamic control properties are **_not_** automatically set to _Dynamic_ , but they can be **_manually_** set. This is indicated by the _Dynamic_ option in the _Initial Value_ drop box in the screenshot below.
 
-|    
+  |    
 **_Data class not Dynamic_** |  |    
 **_Dynamic control properties can be manually set to "Dynamic"_**  
 ---|---|---|---  
@@ -80,14 +82,14 @@ To begin, create a **_dynamic_** data class for a drop box control. Enter CREDIT
 
 Next, apply the CREDIT data class to the CREDIT_CARD drop box control. Information from the CREDIT data class is loaded into the control's properties. Dynamic control properties are automatically set to _Dynamic_ initially and assigned a **%NOMADS'class'** variable. In this example, **List Values** is set to _Dynamic_ and assigned a **%NOMADS'class'values$** variable.
 
-|    
+  |    
 **_Dynamic data class "CREDIT" created_** |  |    
 **_Dynamic data class "CREDIT" applied to the drop box control_**  
 ---|---|---|---  
   
 At run time, the CREDIT_CARD drop box is automatically populated with the **List Values** entered for the CREDIT data class.
 
-|    
+  |    
 **_Dynamic drop box at run time_**  
 ---|---  
   
@@ -97,7 +99,7 @@ To do this requires **_one change_** \- adding the two selections to the **List 
 
 At run time, because the **List Values** property is **_dynamic_** , this drop box is automatically populated with the two additional selections entered for the CREDIT data class.
 
-|    
+  |    
 **_List Values modified in the Dynamic data class "CREDIT"_** |  |    
 **_Dynamic drop box at run time_**  
 ---|---|---|---  
@@ -122,7 +124,7 @@ The example below shows the **_dynamic_** data class NAME applied to the _Custom
   
   
   
-**_Assign Data Class dialog_**  
+**_                          Assign Data Class dialog_**  
 ---|---|---  
   
 ##  Dynamic Control Properties
@@ -163,7 +165,15 @@ Values |  Help Reference
 Floating Tip  
 Message Bar |  N/A |  N/A  
   
+ 
+
 #### **Note:**  
 Data classes can also be assigned to an entire grid or to individual cells in [**Grid Presets Definition**](../../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Grid%20Control/Presets%20Definition.htm#dataclasses) by selecting the _Class_ property.
 
 _(Tree View States were added to Dynamic Data Classes in PxPlus 2019.)_
+
+ 
+
+ 
+
+ 

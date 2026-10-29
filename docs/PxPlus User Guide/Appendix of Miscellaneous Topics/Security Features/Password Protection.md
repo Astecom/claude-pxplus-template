@@ -1,13 +1,13 @@
 # Security Features
 
-**Password Protection** |  **__**  
+**Password Protection** |  **_ _**  
 ---|---  
   
 There are several places in PxPlus to assign passwords for restricting access to programs and data files at the language level and in the development environment.
 
 ## Program Security
 
-The **[PASSWORD](../../../directives/password.md)** directive may be used to place a user-specified password on the current _program code._ Simply load the program, enter the**PASSWORD** directive, followed by the desired _password,_ and then save the program. Once saved with a password, the program may not be listed or modified in any way without first removing the password by re-entering the**PASSWORD** directive with the correct password string.
+The **[PASSWORD](../../../directives/password.md)** directive may be used to place a user-specified password on the current _program code._ Simply load the program, enter the**PASSWORD** directive, followed by the desired _  password,_ and then save the program. Once saved with a password, the program may not be listed or modified in any way without first removing the password by re-entering the**PASSWORD** directive with the correct password string.
 
 If the password string is preceded by an*****_asterisk_ , the**PASSWORD** directive defines a common password which will be automatically applied to all passworded programs as they are loaded and assigned to all new programs.
 
@@ -17,9 +17,9 @@ The **['EL'=](../../../parameters/el.md)** system parameter can be used to check
 
 ## Data Passwording and Encryption
 
-The**PASSWORD** directive can also be used to assign passwords to _files_ with the option to encrypt data. The**KEY=**_pswd_ _$_ option is required to**OPEN** files that have been passworded. Encryption is only available for VLR and EFF files. To define/change a password, you must have exclusive access to the file and it must be empty.
+The**PASSWORD** directive can also be used to assign passwords to _files_ with the option to encrypt data. The**KEY=**_pswd$_ option is required to**OPEN** files that have been passworded. Encryption is only available for VLR and EFF files. To define/change a password, you must have exclusive access to the file and it must be empty.
 
-The different syntax formats for passwording data via the **[PASSWORD](../../../directives/password.md)** directive are listed and described in the _PxPlus Language Reference_.
+For the different syntax formats for passwording data, see **[PASSWORD](../../../directives/password.md)** directive.
 
 The following table shows the usage, access level, and encryption associated with each syntax format used to assign a password to a data file:
 
@@ -42,4 +42,10 @@ The following are some of the other password-related mechanisms used in the PxPl
 ---|---  
 **_Views System_** |  The PxPlus Views System allows you to lock View definitions with a password to control modification.  
 **_Application Server_** |  The administrator is able to set passwording for server-side access, as well as on remote user access to the application server.  
-**_Multi-Lines_** |  Creating a Multi-Line control in NOMADS and at the language level includes the option to cover password entries using the**$**_dollar sign_ symbol as substitute for each character entered. The **[Auto Complete](../../../NOMADS%20Graphical%20Application/System%20Maintenance%20Tools/System%20Options/Auto%20Complete.md)** feature is disabled when the Multi-Line is used for a password field.
+**_Multi-Lines_** |  Creating a Multi-Line control in NOMADS and at the language level includes the option to cover password entries using the**$**_dollar sign_ symbol as substitute for each character entered. The **[Auto Complete](../../../NOMADS%20Graphical%20Application/System%20Maintenance%20Tools/System%20Options/Auto%20Complete.md)** feature is disabled when the Multi-Line is used for a password field.  
+  
+ 
+
+ 
+
+ 

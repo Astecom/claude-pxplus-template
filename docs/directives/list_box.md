@@ -1,5 +1,5 @@
-# Directives  
-  
+# Directives
+
 **LIST_BOX** |  **_Create/Control List Box_**  
 ---|---  
   
@@ -8,25 +8,25 @@ These formats also apply to **List View List Boxes**, **[Report View List Boxes]
 
 ##  Formats
 
-1\. _Define/Create List Box:_ |  **LIST_BOX** _ctl_id_ ,**@(**_col,ln,wth,ht_**)**[, _ctrlopt_]  
+ 1\. _Define/Create List Box:_ |  **LIST_BOX** _ctl_id_ ,**@(**_col,ln,wth,ht_**)**[, _ctrlopt_]  
 ---|---  
-2\. _Delete_ _:_ |  **LIST_BOX REMOVE** _ctl_id_ [,**ERR** =_stmtref_]  
-3\. _Disable/Enable_ _:_ |  **LIST_BOX** {**DISABLE** | **ENABLE**} _ctl_id_[,**ERR** =_stmtref_]  
-4\. _Set Focus_ _:_ |  **LIST_BOX GOTO** _ctl_id_ [,**ERR** =_stmtref_]  
-5\. _Load via Delimited String_ _:_ |  **LIST_BOX LOAD** _ctl_id,dlm_list_ _$_ [,**ERR** =_stmtref_]  
-6\. _Load Via Array:_ |  **LIST_BOX LOAD** _ctl_id,array_name_ _$_ **{ALL}** [,**ERR** =_stmtref_]
+ 2\. _Delete_ _:_ |  **LIST_BOX REMOVE** _ctl_id_ [,**ERR** =_stmtref_]  
+ 3\. _Disable/Enable_ _:_ |  **LIST_BOX** {**DISABLE** | **ENABLE**} _ctl_id_[,**ERR** =_stmtref_]  
+ 4\. _Set Focus_ _:_ |  **LIST_BOX GOTO** _  ctl_id_ [,**ERR** =_stmtref_]  
+ 5\. _Load via Delimited String_ _:_ |  **LIST_BOX LOAD** _ctl_id,dlm_list$_ [,**ERR** =_stmtref_]  
+ 6\. _Load Via Array:_ |  **LIST_BOX LOAD** _ctl_id,array_name$_  **{ALL}** [,**ERR** =_stmtref_]
 
 #### **Note:**  
 The curly braces enclosing **{ALL}** are part of Format 6.  
   
-7\. _Load/Delete Index Element:_ |  **LIST_BOX LOAD** _ctl_id,index_ _,_{_element$ |_ *__}[,**ERR** =_stmtref_]  
-8\. _Find Element_ _:_ |  **LIST_BOX FIND** _ctl_id,index,var_ _$_ [,**ERR** =_stmtref_]  
-9\. _Read Current Selection:_ |  **LIST_BOX READ** _ctl_id,var_ _$_ [,_mode$_][,**ERR** =_stmtref_]  
+ 7\. _Load/Delete Index Element:_ |  **LIST_BOX LOAD** _ctl_id,index,_{_element$ |_ *_ _}[,**ERR** =_stmtref_]  
+ 8\. _Find Element_ _:_ |  **LIST_BOX FIND** _ctl_id,index,var$_ [,**ERR** =_stmtref_]  
+ 9\. _Read Current Selection:_ |  **LIST_BOX READ** _ctl_id,var$_ [,_mode$_][,**ERR** =_stmtref_]  
 10\. _Read Current Index:_ |  **LIST_BOX READ** _ctl_id,var_ [,_mode$_][,**ERR** =_stmtref_]  
-11\. _Write Current Selection_ _:_ |  **LIST_BOX WRITE** _ctl_id,element_ _$_ [,**ERR** =_stmtref_]  
+11\. _Write Current Selection_ _:_ |  **LIST_BOX WRITE** _ctl_id,element$_ [,**ERR** =_stmtref_]  
 12\. _Write Current Index_ _:_ |  **LIST_BOX WRITE** _ctl_id,index_ [,**ERR** =_stmtref_]  
 13\. _Clear Current Selection_ _:_ |  **LIST_BOX WRITE** _ctl_id_ , ""[,**ERR=**_stmtref_]  
-14\. _Set Focus Notification_: |  **LIST_BOX SET_FOCUS** _ctl_id_ ,_alt_ctl_ ,[,**ERR** =_stmtref_]  
+14\. _Set Focus Notification_: |  **LIST_BOX SET_FOCUS** _ctl_id_ ,_  alt_ctl_,[,**ERR** =_stmtref_]  
 15\. _Report All Changes_ _:_ |  **LIST_BOX AUTO** _ctl_id_ [,**ERR** =_stmtref_]  
 16\. _Hide/Show_ _:_ |  **LIST_BOX** {**HIDE** | **SHOW**} _ctl_id_[,**ERR** =_stmtref_]  
   
@@ -35,24 +35,24 @@ The curly braces enclosing **{ALL}** are part of Format 6.
 **@(**_col,ln,wth,ht_**)** |  Position and size of the list box region. Numeric expressions. Column and line coordinates for top left corner, width in number of columns and height in number of lines. Note that width and height are for the total area (box plus text/description). Use line value -1 to display the check box on the tool bar.  
 ---|---  
 _alt_ctl_ |  CTL value to generate when the list box gains focus.  
-_array_name_ _$_ |  Name of array to load into list box. String variable followed by **{ALL}**.  
+_array_name$_ |  Name of array to load into list box. String variable followed by **{ALL}**.  
 _ctl_id_ |  Unique logical identifier for the list box (any integer **-** 32000 to +32000). Avoid integers that conflict with keyboard definitions (e.g. 4 cancels CTL=4 for the **F4** key) or [**Negative CTL Definitions**](../appendix/negative_ctl_definitions.md). Use this value with the **[Apostrophe Operator](../appendix/apostrophe_operator.md)** to access various **Dynamic Properties**.  
 _ctrlopt_ |  Control options. Supported options for **LIST_BOX** include: |  **ERR=**_stmtref_ |  Error transfer  
 ---|---  
-**FMT** =_def_ _$_ |  Format definitions depending on the list box type  
-**FNT=**_"font,size_ [_,attr_]_"_ |  Font name, size, optional properties (See [**'FONT'**](../mnemonics/font.md) mnemonic)  
+**FMT** =_def$_ |  Format definitions depending on the list box type  
+**FNT=**_" font,size_ [_,attr_]_"_ |  Font name, size, optional properties (See [**'FONT'**](../mnemonics/font.md) mnemonic)  
 **KEY=**_char$_ |  Hot key  
 **MNU=**_ctl_ |  CTL value associated with right-click menu event  
 **MSG=**_text$_ |  Message line  
 **OPT=**_char$_ |  Single character parameter/option (See **LIST_BOX OPT= Settings**)  
 **TBL=**_char$_ |  Translation characters  
 **TIP=**_text$_ |  Mouse pointer message (To change the color, see [**'TC'=**](../parameters/tc.md) system parameter)  
-_dlm_list_ _$_ |  Delimited list of elements to load. String expressions.  
+_dlm_list$_ |  Delimited list of elements to load. String expressions.  
 _element$_ |  Single element to load. Maximum string size 8kb. The *****  _(asterisk)_ can be used instead to _delete_ an element (e.g. list_box load 86,4,* removes element 4 from a list_box whose _ctl_id_ is 86).  
 _index_ |  Position of the element in the list box. Numeric expression. Integers: the index of the first element is 1.  
 _mode$_ |  String variable. PxPlus returns a single-character Hex value in this variable to report the last method/keystroke the user chose to toggle the list box ($01$ for **MOUSE-CLICK** or $0D$ for **Enter**).  
 _stmtref_ |  Program line number or statement label to which to transfer control.  
-_var_ _[$]_ |  Receives the value of the selected element (string variable) or index (numeric variable).  
+_var[$]_ |  Receives the value of the selected element (string variable) or index (numeric variable).  
   
 ##  Description
 
@@ -60,9 +60,9 @@ Use the **LIST_BOX** directive to create and control list boxes on the screen. A
 
 > **Formatted List Boxes**
 
-> **List View** **List Boxes**
+> **List View**  **List Boxes**
 
-> **Tree View** **List Boxes**
+> **Tree View**  **List Boxes**
 
 #### **Note:**  
 A standard Windows list box can only use vertical scrollbars; however, you can use List View list boxes or grids to incorporate horizontal scrollbars into applications.
@@ -77,17 +77,17 @@ The **[Apostrophe Operator](../appendix/apostrophe_operator.md)** can be used wi
 
 For the properties available for manipulating the different list box types, see the following:
 
-|  For **_List Box_** : |  See **[LIST_BOX Properties](../control_object_properties/listbox_properties.md)**  
+  |  For **_List Box_** : |  See **[LIST_BOX Properties](../control_object_properties/listbox_properties.md)**  
 ---|---|---  
-|  For **_List View_** : |  See **[LIST_VIEW Properties](../control_object_properties/listview_properties.md)**  
-|  For **_Report View_** : |  See **[REPORT_VIEW Properties](../control_object_properties/reportview_properties.md)**  
-|  For **_Tree View_** : |  See **[TREE_VIEW Properties](../control_object_properties/treeview_properties.md)**  
+  |  For **_List View_** : |  See **[LIST_VIEW Properties](../control_object_properties/listview_properties.md)**  
+  |  For **_Report View_** : |  See **[REPORT_VIEW Properties](../control_object_properties/reportview_properties.md)**  
+  |  For **_Tree View_** : |  See **[TREE_VIEW Properties](../control_object_properties/treeview_properties.md)**  
   
 **LIST_BOX OPT=_Settings_**
 
 The following single character **OPT=** settings are used to refine list box definitions and to establish List View controls _(_ OPT="r" for _Report Style_ or OPT="l" for _List Style)_ and Tree View controls (OPT="e"):
 
-"!" |  **_(Tree View_** ** _Controls Only)_** _Exclamation Mark_. Data has bitmaps or icons.  
+"!" |  **_(Tree View_**  **_Controls Only)_** _Exclamation Mark_. Data has bitmaps or icons.  
   
 **_Example:_**
 
@@ -101,47 +101,47 @@ If the OPT= setting includes "!", you can use **LIST_BOX LOAD** statements to de
 >   
 >  list_box write 100,"{Cat.bmp}Cat"
 
-Bitmaps or icons you define for individual elements using **LIST_BOX LOAD** statements will _override_ any default bitmaps or icons (defined using **FMT** =). See **Tree View** **Format Options**.  
+Bitmaps or icons you define for individual elements using **LIST_BOX LOAD** statements will _override_ any default bitmaps or icons (defined using **FMT** =). See **Tree View**  **Format Options**.  
 ---|---  
 "#" |  **_(Not Supported for Tree View Controls)_** _Pound Sign_. Users can select more than one entry from the list box. If OPT="#" and items were loaded in a single string, then when you read/write the element(s) highlighted in the list box, the item(s) will be separated by the delimiter character defined in the **['SepLoad$](../properties/sepload_.md)** property. This property defaults to $00$ or is set whenever a multi-item **LIST_BOX LOAD** statement is executed. **_Example:_**
 
-> print 'CS';  
->  begin ;  
->  list  
->  list_box 100,@(2,16,12,6),opt="#"  
->  list_box load 100,"Cat/Dog/Pig/";  
->  wait 1  
+>      print 'CS';  
+>      begin ;  
+>      list  
+>      list_box 100,@(2,16,12,6),opt="#"  
+>      list_box load 100,"Cat/Dog/Pig/";  
+>      wait 1  
 >  ! If you read the ITEMS$ now, the returned value is null:  
->  list_box read 100,ITEMS$;  
->  wait 1;  
->  print ITEMS$+"Before Write"  
->  list_box write 100,"Cat";  
->  wait 1 ! Select "Cat"  
->  list_box read 100,ITEMS$;  
->  print ITEMS$  
->  list_box load 100,2,*;  
->  wait 1 ! Removes "Dog"  
->  list_box write 100,2 ! Select second item  
->  list_box read 100,ITEMS$;  
->  wait 1;  
->  print ITEMS$  
->  escape  
+>      list_box read 100,ITEMS$;  
+>      wait 1;  
+>      print ITEMS$+"Before Write"  
+>      list_box write 100,"Cat";  
+>      wait 1 ! Select "Cat"  
+>      list_box read 100,ITEMS$;  
+>      print ITEMS$  
+>      list_box load 100,2,*;  
+>      wait 1 ! Removes "Dog"  
+>      list_box write 100,2 ! Select second item  
+>      list_box read 100,ITEMS$;  
+>      wait 1;  
+>      print ITEMS$  
+>      escape  
 >   
 >  ->run  
->  Before Write  
->  Cat/  
->  Cat/Pig/  
+>      Before Write  
+>      Cat/  
+>      Cat/Pig/  
   
-"|" |  **_(Tree View_** ** _Controls Only)_** _Pipe_. Show connecting lines.  
+"|" |  **_(Tree View_**  **_Controls Only)_** _Pipe_. Show connecting lines.  
   
 **_Example:_**
 
 > list_box 100,@(10,10,10,10),opt="e,|"
 
 If OPT="|", the Tree View displays connecting lines between various nodes of the tree.  
-"~" |  _Tilde._ No height adjustment. Normally, a list box displays an integral number of lines. If OPT="|", the list box will _not_ be forced to show only complete lines. PxPlus will truncate the last line horizontally (i.e. displaying a partial line to ensure that the height of the list box matches the size you defined).  
+"~" |  _Tilde.  _No height adjustment. Normally, a list box displays an integral number of lines. If OPT="|", the list box will _not_ be forced to show only complete lines. PxPlus will truncate the last line horizontally (i.e. displaying a partial line to ensure that the height of the list box matches the size you defined).  
 "A" |  Auto signal is _On_. PxPlus returns a signal on all changes in the list box.  
-"b" |  **_(List View (Report Style) and Tree View Controls Only)_** Suppress column heading or expansion and collapse buttons. In **List View _(Report Style)_**_,_ "b" suppresses the column header buttons. **_Example:_**
+"b" |  **_(List View (Report Style) and Tree View Controls Only)_** Suppress column heading or expansion and collapse buttons. In **List View  _(Report Style)_**_,_ "b" suppresses the column header buttons. **_Example:_**
 
 > list_box 100,@(10,10,10,10),opt="r,b"
 
@@ -153,7 +153,7 @@ When you use "b" for a **_Tree View_** , the "**+** " and "**-** " buttons (for 
 "d" |  List box is permanently disabled (cannot be enabled).  
 "D" _or_ "1" |  List box is initially disabled.  
 "e" |  Define Tree View Control object. By default, a Tree View shows the data as a tree with tree level {+} and {**-**} buttons (for the expansion and collapse of the tree). A Tree View displays and maintains the data in sorted order. When you add elements to a Tree View list box, PxPlus automatically creates and inserts the elements. Bitmaps or icons are optional. See **Tree View List Boxes**.  
-"E" |  **_(Tree View_** ** _Controls Only)_** _Edit Mode_. This enables automatic editing; i.e. the user can double click on an item to change its value. The editing of items does **_not_** support the following input options:
+"E" |  **_(Tree View_**  **_Controls Only)_** _Edit Mode_. This enables automatic editing; i.e. the user can double click on an item to change its value. The editing of items does **_not_** support the following input options:
 
   * Format mask processing
   * Justification (right/center)
@@ -167,9 +167,9 @@ When you use "b" for a **_Tree View_** , the "**+** " and "**-** " buttons (for 
   
 "h" |  List box is permanently hidden (cannot be shown).  
 "H" |  List box is initially hidden.  
-"l" |  _Lowercase "L"_. Define List View (List Style) control object. This is a simple multi-column list of the first element of data. It lists a series of data columns as items from which the user can select. (Columns wrap from the bottom of one to the top of the next column.) You can include an optional bitmap or an icon in the first column (i.e. as the first piece of data in the row/line). See **List View** **List Boxes**.  
+"l" |  _Lowercase "L"_. Define List View (List Style) control object. This is a simple multi-column list of the first element of data. It lists a series of data columns as items from which the user can select. (Columns wrap from the bottom of one to the top of the next column.) You can include an optional bitmap or an icon in the first column (i.e. as the first piece of data in the row/line). See **List View**  **List Boxes**.  
 "L" |  List box is initially locked.  
-"p" |  **_(List View_** ** _Controls Only)_** Highlight partial match(es). If OPT="p", **WRITE** directives with strings are interpreted as selecting/highlighting those items whose leading characters match the data you are writing. **_Example:_** If you write "ABC", then the first item that starts with "ABC" is highlighted (or all items that start with "ABC" if **[OPT="#"](list_box.htm#Mark46)** is also set to allow users to make multiple selections):
+"p" |  **_(List View_**  **_Controls Only)_** Highlight partial match(es). If OPT="p", **WRITE** directives with strings are interpreted as selecting/highlighting those items whose leading characters match the data you are writing. **_Example:_** If you write "ABC", then the first item that starts with "ABC" is highlighted (or all items that start with "ABC" if **[OPT="#"](list_box.htm#Mark46)** is also set to allow users to make multiple selections):
 
 > list_box 100,@(10,10,10,10),opt="l,p,#"  
 >   
@@ -177,7 +177,7 @@ When you use "b" for a **_Tree View_** , the "**+** " and "**-** " buttons (for 
 > _  
 >  list_box 100,@(10,10,10,10),opt="r,p"  
   
-"q" |  **_(List View_** ** _(Report Style) and Tree View_** ** _Controls Only)_** Disable sorting. In **List View _(Report Style)_** , that suppresses the use of the column header button to sort data. **_Example:_**
+"q" |  **_(List View_**  **_(Report Style) and Tree View_**  **_Controls Only)_** Disable sorting. In **List View _(Report Style)_** , that suppresses the use of the column header button to sort data. **_Example:_**
 
 > list_box 100,@(10,10,10,10),opt="r,q"
 
@@ -188,12 +188,12 @@ In **_Tree View_** , items added to the list are always added at the end of thei
 "r" |  _(Lowercase "R")_ Define List View (Report Style) control object. This has column headings and variable column widths and alignments. Each column of data has an optional {column-header} button for sorting data. You can include an optional bitmap or an icon for the first column (i.e. as the first piece of data in the row/line). See **List View List Boxes**.  
 "s" |  List box will scroll in a 'Scrollable' window.  
 "T" |  Strip trailing spaces when reading or writing data for a list box.  
-"v" |  **_(List View_** ** _(Report Style) Controls Only)_** First column highlight. **_Example:_**
+"v" |  **_(List View_**  **_(Report Style) Controls Only)_** First column highlight. **_Example:_**
 
 > list_box 100,@(10,10,10,10),opt="r,v"
 
 Use **OPT='v'** to control the highlight style for individual list boxes and override any system-wide use of the print mnemonic **'+V'**. If **OPT='v'** , the user can only click in the _first_ column to highlight a row in the list box. See **['+V' & '-V'](../mnemonics/+v.md)** mnemonics.  
-"V" |  **_(List View_** ** _(Report Style) Controls Only)_** Full row highlight. **_Example:_**
+"V" |  **_(List View_**  **_(Report Style) Controls Only)_** Full row highlight. **_Example:_**
 
 > list_box 100,@(10,10,10,10),opt="r,V"
 
@@ -205,9 +205,9 @@ Use **OPT='V'** to control the highlight style for individual list boxes and ove
 
 **_Define/Create List Box_**
 
-**LIST_BOX** _ctl_id_ ,**@(**_col,ln,wth,ht_**)**[,_ctrlopt_]
+**LIST_BOX** _ctl_id_ ,**  @(**_col,ln,wth,ht_**)**[,_ctrlopt_]
 
-Use this format to define or create a list box and give it a unique identifier in _ctl_id_. When a user selects an item from a list box, the item's associated _ctl_id_ is used in generating a CTL value. Use an integer or numeric expression between **-** 32000 and +32000 for the _ctl_id_.
+Use this format to define or create a list box and give it a unique identifier in _ctl_id_. When a user selects an item from a list box, the item's associated _ctl_id_  is used in generating a CTL value. Use an integer or numeric expression between **-** 32000 and +32000 for the _ctl_id_.
 
 Depending on the implementation, the list box may also require some control options:
 
@@ -217,7 +217,7 @@ Depending on the implementation, the list box may also require some control opti
 **OPT=** |  **OPT=** expands the definition. See **LIST_BOX OPT= Settings**.  
   
 #### **Note:**  
-Some of the settings (including OPT="r", OPT="l", and OPT="e") are used specifically for the creation of **List View** **List Boxes** and **Tree View** **List Boxes**.  
+Some of the settings (including OPT="r", OPT="l", and OPT="e") are used specifically for the creation of **List View**  **List Boxes** and **Tree View**  **List Boxes**.  
   
 **_Example:_**
 
@@ -225,12 +225,12 @@ The example below creates a list box that generates a CTL=100 when an item is se
 
 > print 'CS';  
 >  list  
-> list_box 100,@(2,14,12,6),fnt="*"  
-> list_box load 100,"Dog/Cat/Pig/";  
+>  list_box 100,@(2,14,12,6),fnt="*"  
+>  list_box load 100,"Dog/Cat/Pig/";  
 >  wait 1  
-> list_box write 100,"Cat";  
+>  list_box write 100,"Cat";  
 >  wait 1  
-> list_box load 100,1,*;  
+>  list_box load 100,1,*;  
 >  wait 1  
 >  end
 
@@ -249,9 +249,9 @@ Use the **LIST_BOX REMOVE** format to delete a list box. (To delete an individua
 
 **_Disable/Enable_**
 
-**LIST_BOX** {**DISABLE** | **ENABLE**} _ctl_id_ [,**ERR** =_stmtref_]
+**LIST_BOX**  {**DISABLE** | **ENABLE**} _ctl_id_ [,**ERR** =_stmtref_]
 
-Use the **LIST_BOX DISABLE** format to gray out a list box so that it will be visible but __ inaccessible to users. To reactivate it, use **LIST_BOX ENABLE**.
+Use the **LIST_BOX DISABLE** format to gray out a list box so that it will be visible but _ _ inaccessible to users. To reactivate it, use **LIST_BOX ENABLE**.
 
 ##  Format 4
 
@@ -267,14 +267,14 @@ Use the **LIST_BOX GOTO** format to set the focus on a list box, ready for the n
 
 Use the **LIST_BOX LOAD** formats below to add or delete the elements in a list box. The formats set up the elements using a delimited string, an array of string elements or individually.
 
-**LIST_BOX LOAD** _ctl_id,dlm_list_ _$_ [,**ERR** =_stmtref_]
+**LIST_BOX LOAD** _ctl_id,dlm_list$_ [,**ERR** =_stmtref_]
 
 **_Load via Delimited String_**
 
 When you load elements into a list box from a delimited string, the last character in the string must be a delimiter. That ending delimiter must be identical to the separator between the elements in the string:
 
 > list_box load 11000,"Fox/Cat/Dog/Cow/Sheep/Horse/Pig/Elephant/Ant/"  
-> list_box load 15000,"Fox"+sep+"Cat"+sep+"Dog"+sep
+>  list_box load 15000,"Fox"+sep+"Cat"+sep+"Dog"+sep
 
 If loading data with images:
 
@@ -292,19 +292,19 @@ For information on internal/external images and recognized image file types, see
 
 PxPlus displays these images to the left of the related elements in the Tree View. Bitmaps or icons you define for the individual elements in **LIST_BOX LOAD** statements will _override_ any default **FMT=** images in a **LIST_BOX** definition.
 
-See **LIST_BOX OPT= Settings** and **Tree View** **List Boxes**.
+See **LIST_BOX OPT= Settings** and **Tree View**  **List Boxes**.
 
-**LIST_BOX LOAD** _ctl_id,array_name_ _$_ **{ALL}** [,**ERR** =_stmtref_]
+**LIST_BOX LOAD** _ctl_id,array_name$_  **{ALL}** [,**ERR** =_stmtref_]
 
 **_Load Via Array_**
 
-When an array is loaded into a list box, the curly braces in **{ALL}** must be included in the syntax. 
+When an array is loaded into a list box, the curly braces in **{ALL}**  must be included in the syntax. 
 
-**LIST_BOX LOAD** _ctl_id,index_ _,_{_element$ |_ *__}__[,**ERR** =_stmtref_]
+**LIST_BOX LOAD** _ctl_id,index,_{_element$ |_ *_ _}_ _[,**ERR** =_stmtref_]
 
 **_Load/Delete Index Element_**
 
-When a list box is loaded one element at a time, the index value refers to the index before the element to be inserted. (Use a value of 1 to insert an element at the start of the list. If the value of the index is 0  _(zero)_ , the element will be appended to the end of the list.)
+When a list box is loaded one element at a time, the index value refers to the index before the element to be inserted. (Use a value of 1 to insert an element at the start of the list. If the value of the index is 0 _(zero)_ , the element will be appended to the end of the list.)
 
 If you have more elements on the data list than the physical screen size of the list box can display at one time, PxPlus automatically supplies vertical scrollbars. To remove or delete individual elements from the box, use **LIST_BOX LOAD** with an *****  _(asterisk)_ instead of the element string:
 
@@ -328,7 +328,7 @@ _(The LoadPoint property was added in PxPlus v8.11.)
 
 **_Find Element_**
 
-**LIST_BOX FIND** _ctl_id,index,var_ _$_ [,**ERR** =_stmtref_]
+**LIST_BOX FIND** _ctl_id,index,var$_ [,**ERR** =_stmtref_]
 
 Use a string variable to get the specific element's text from a list box. By passing a specific element number, you can retrieve the text of that element into a string variable
 
@@ -336,7 +336,7 @@ Use a string variable to get the specific element's text from a list box. By pas
 
 **LIST_BOX FIND** _ctl_id,0,var$_ [,**ERR** =_stmtref_]
 
-If the _index value_ of 0  _(zero)_ is used, PxPlus will return the complete contents of the list box.
+If the _index value_ of 0 _(zero)_ is used, PxPlus will return the complete contents of the list box.
 
 _(The ability to issue a FIND 0 was added in PxPlus v7.10.)_
 
@@ -352,9 +352,9 @@ Use **LIST_BOX READ** formats to read which element in the list box has been sel
 
 Once this value is read, it is reset to $00$.
 
-PxPlus returns an EOM value and event when the user hits the **Insert** or **Delete** keys, **Insert** returns $2D$, **Delete** returns $2E$.
+PxPlus returns an EOM value and event when the user hits the **Insert** or **Delete**  keys, **Insert** returns $2D$, **Delete** returns $2E$.
 
-**LIST_BOX READ** _ctl_id,var_ _$_ [,_mode$_][,**ERR** =_stmtref_]
+**LIST_BOX READ** _ctl_id,var$_ [,_mode$_][,**ERR** =_stmtref_]
 
 **_Read Current Selection_**
 
@@ -375,7 +375,7 @@ If **LIST_BOX READ** includes an OPT="A" setting, all changes will have an effec
 
 Use the **LIST_BOX WRITE** formats to make the element the current selection, highlighted in the list box.
 
-**LIST_BOX WRITE** _ctl_id,element_ _$_ [,**ERR** =_stmtref_]
+**LIST_BOX WRITE** _ctl_id,element$_ [,**ERR** =_stmtref_]
 
 **_Write Selection_**
 
@@ -387,7 +387,7 @@ If you create a Tree View with OPT="!", then you can use **LIST_BOX LOAD** state
 
 > list_box write 100,"{Cat.ico}Cat"
 
-Bitmaps and icons you define for individual elements in **LIST_BOX LOAD** statements will _override_ any **FMT=** images. See **Format 1: Define/Create List Box** and **Tree View** **Format Options** _._
+Bitmaps and icons you define for individual elements in **LIST_BOX LOAD** statements will _override_ any **FMT=** images. See **Format 1: Define/Create List Box** and **Tree View**  **Format Options** _._
 
 **LIST_BOX WRITE** _ctl_id,index_ [,**ERR** =_stmtref_]
 
@@ -402,7 +402,7 @@ A **WRITE** to the list box using an index of 0 _(zero)_ will reset all highligh
 
 **_Clear Current Selection_**
 
-**LIST_BOX WRITE** _ctl_id_ ,__ ""__[,**ERR=**_stmtref_]
+**LIST_BOX WRITE** _ctl_id_ ,_ _ ""_ _[,**ERR=**_stmtref_]
 
 Use this format to clear the currently selected entry in a list box.
 
@@ -413,7 +413,7 @@ This behavior can be altered by use of the **['+N' & '-N'](../mnemonics/+n.md)**
 
 **_Set Focus Notification_**
 
-**LIST_BOX SET_FOCUS** _ctl_id_ ,_alt_ctl_ ,[,**ERR** =_stmtref_]
+**LIST_BOX SET_FOCUS** _ctl_id_ ,_  alt_ctl_,[,**ERR** =_stmtref_]
 
 Use the **SET_FOCUS** format to set an alternate CTL value to be generated whenever focus shifts to the list box.
 
@@ -429,13 +429,13 @@ Use the **LIST_BOX AUTO** format to have PxPlus generate a CTL value automatical
 
 **_Hide/Show_**
 
-**LIST_BOX** {**HIDE** | **SHOW**} _ctl_id_[,**ERR** =_stmtref_]
+**LIST_BOX**  {**HIDE** | **SHOW**} _ctl_id_[,**ERR** =_stmtref_]
 
 With the**LIST_BOX HIDE** format, the list box remains active but is not displayed. It is still accessible programmatically. Use the **SHOW** format to restore the display and user access.
 
 ##  Formatted List Boxes
 
-Formatted list boxes are created using the _format definition_ option in the **LIST_BOX** definition. The information in the **FMT** = _def_ _$_ string expression describes each of the columns and/or rows. Each column is formatted with an alignment code, usually followed by a width in column units. The list of columns is a space**-** separated string enclosed in quotation marks. Each new row is delineated by a **/**  _(slash)_.
+Formatted list boxes are created using the _format definition_ option in the **LIST_BOX** definition. The information in the **FMT** = _def$_ string expression describes each of the columns and/or rows. Each column is formatted with an alignment code, usually followed by a width in column units. The list of columns is a space**-** separated string enclosed in quotation marks. Each new row is delineated by a **/**  _(slash)_.
 
 **_Example:_**
 
@@ -476,7 +476,7 @@ To change the color of any field in a formatted list box, simply prefix the data
 > Blue |  **['BLUE'](../mnemonics/blue.md)** |  **['_BLUE'](../mnemonics/blue.md)**  
 > Cyan |  **['CYAN'](../mnemonics/cyan.md)** |  **['_CYAN'](../mnemonics/cyan.md)**  
 > Green |  **['GREEN'](../mnemonics/green.md)** |  **['_GREEN'](../mnemonics/green.md)**  
-> Light Gray |  |  **['SF'](../mnemonics/sf.md)**+**['_WHITE'](../mnemonics/white.md)**  
+> Light Gray |    |  **['SF'](../mnemonics/sf.md)**+** ['_WHITE'](../mnemonics/white.md)**  
 > Magenta |  **['MAGENTA'](../mnemonics/magenta.md)** |  **['_MAGENTA'](../mnemonics/magenta.md)**  
 > Red |  **['RED'](../mnemonics/red.md)** |  **['_RED'](../mnemonics/red.md)**  
 > White |  **['WHITE'](../mnemonics/white.md)** |  **['_WHITE'](../mnemonics/white.md)**  
@@ -510,13 +510,13 @@ The following example creates a formatted list box using the standard definition
 
 ##  List View List Boxes
 
-**_List View_** list boxes are created by setting **OPT=**_char$_ in the definition. See [**Format** **1: Define/Create List Box**](list_box.htm#Mark6).
+**_List View_** list boxes are created by setting **OPT=**_char$_ in the definition. See [**Format**  **1: Define/Create List Box**](list_box.htm#Mark6).
 
 Two List View styles are supported:
 
-**_List Style_** |  OPT="l" (lowercase L) defines a simple multi-column list of the first element of data. _List Style_ lists a series of data columns as elements from which the user can select. (Columns wrap from the bottom of one to the top of the next column.) When loading the List View  _(List Style)_ list box, you can include an optional bitmap or icon to be displayed as the first piece of data in the row/line.  
+**_List Style_** |  OPT="l" (lowercase L) defines a simple multi-column list of the first element of data. _List Style_ lists a series of data columns as elements from which the user can select. (Columns wrap from the bottom of one to the top of the next column.) When loading the List View _(List Style)_ list box, you can include an optional bitmap or icon to be displayed as the first piece of data in the row/line.  
 ---|---  
-**_Report Style_** |  OPT="r" defines a list with column headings and variable column widths and alignments. In a _Report Style_ list box, each column of data has an optional {column-header} button, which can be used to select the column for sorting. When loading the _Report Style_ List View __ list box, you can include optional bitmaps or icons in the first column, as the first piece of data in the row or line. The following settings (**OPT=** values) can also be used to refine the definition of a _Report Style_ List View: |  "b" |  Suppress column header buttons  
+**_Report Style_** |  OPT="r" defines a list with column headings and variable column widths and alignments. In a _Report Style_ list box, each column of data has an optional {column-header} button, which can be used to select the column for sorting. When loading the _Report Style_ List View _ _ list box, you can include optional bitmaps or icons in the first column, as the first piece of data in the row or line. The following settings (**OPT=** values) can also be used to refine the definition of a _Report Style_ List View: |  "b" |  Suppress column header buttons  
 ---|---  
 "p" |  Highlight partial matches  
 "q" |  Disable column sorting  
@@ -547,16 +547,16 @@ The position/size values within the **['PICTURE'](../mnemonics/picture.md)** mne
 
 > begin  
 >  FORMAT$="[SalesRep]10 [Name]18 [Dept]C8 [Quota]R14 [Merit]10"  
-> list_box 10,@(5,5,60,15),opt="rV",fmt=FORMAT$,fnt="*guifont"  
+>  list_box 10,@(5,5,60,15),opt="rV",fmt=FORMAT$,fnt="*guifont"  
 >  while 1  
->  read ("/users/mike king/demo/data/salesrep",end=*break)  
->  if YTDSALES>=100000 \  
->  then QUOTA$="!checkedbox" \  
->  else QUOTA$="!xinbox"  
->  QUOTA$='picture'(0,0,0,0,QUOTA$)  
->  if YTDSALES>500000 \  
->  then QUOTA$+='picture'(0,0,0,0,"!Star")  
->  list_box load 10,0,SALESREPCODE$+sep+NAME$+sep+DEPARTMENT$+sep+str(YTDSALES:"$#,###,##0")+sep+QUOTA$+sep  
+>      read ("/users/mike king/demo/data/salesrep",end=*break)  
+>      if YTDSALES>=100000 \  
+>           then QUOTA$="!checkedbox" \  
+>           else QUOTA$="!xinbox"  
+>      QUOTA$='picture'(0,0,0,0,QUOTA$)  
+>      if YTDSALES>500000 \  
+>           then QUOTA$+='picture'(0,0,0,0,"!Star")  
+>      list_box load 10,0,SALESREPCODE$+sep+NAME$+sep+DEPARTMENT$+sep+str(YTDSALES:"$#,###,##0")+sep+QUOTA$+sep  
 >  wend  
 >  input *
 
@@ -565,7 +565,7 @@ _(The ability to insert multiple images in a List View was added in PxPlus v9.00
 #### **Note:**  
 The unique logical identifier (_ctl_id_) assigned during the creation of a List View list box can be used with the **[Apostrophe Operator](../appendix/apostrophe_operator.md)** to dynamically read and alter a wide variety of control attributes (properties). See **[LIST_VIEW Properties](../control_object_properties/listview_properties.md)**.
 
-**_List View Format Options_** __
+**_List View Format Options_** _ _
 
 Use **FMT** = to define List View column widths, titles and the placement of an optional bitmap or icon. You can include a series of space-separated column definitions with an optional column title in [_square brackets_], alignment code and width specification:
 
@@ -575,16 +575,16 @@ List View **FMT** = settings can include the following:
 
 _Column Title_ |  Enclosed in square brackets, the column title is placed ahead of the column alignment and width. **_Example:  
   
-..._** **[Company]** L10  
+_**      ... **[Company]** L10  
 ---|---  
 _Column Alignment and Width_ |  Alignment codes for left, right and center (L, R, C) are used as prefixes to the width (in columns). The first column is always left aligned, and setting it to right or center alignment has no effect.  
   
 **_Example:  
   
-_** list_box 10000,@(5,5,35,10),fmt="[Company]**L10** ..."  
+_**      list_box 10000,@(5,5,35,10),fmt="[Company]**L10** ..."  
   
 This indicates that column 1, Company, is _left_ justified and _10_ columns wide.  
-_Hotlink_ |  **_(List View (Report Style) Controls Only)_** The "H" option defines the column as a _hotlink_ column. Columns with a hotlink are displayed in the color defined by the **'OPTION'("StdLvueHotlinkClr",color$)** setting and are underlined while hovering over the column. See **[StdLvueHotlinkClr](../mnemonics/option.htm#hotlinkclr)** in the **OPTION** mnemonic.
+_Hotlink_ |  **_(List View (Report Style) Controls Only)_** The "H" option defines the column as a _hotlink_ column. Columns with a hotlink are displayed in the color defined by the **'OPTION'( "StdLvueHotlinkClr",color$)** setting and are underlined while hovering over the column. See **[StdLvueHotlinkClr](../mnemonics/option.htm#hotlinkclr)** in the **OPTION** mnemonic.
 
 #### **Note:**  
 The **[ColumnClicked](../properties/columnclicked.md)** property contains the column number of the column where the last mouse click occurred in the List View.
@@ -595,26 +595,26 @@ _Bitmaps or Icons_ |  To include a bitmap or icon to the left of a line, place t
 #### **Note:  
 ** Internal PxPlus bitmaps are generally 20 pixels wide by 16 pixels high.
 
-**_Image Scaling_** When adding an image in a List View control, the **_size_** of the image and the **_height_** of the row within the control are determined as follows: |  |  1. |  All images will take on the size of the first image defined for the List View control:  
+**_Image Scaling_** When adding an image in a List View control, the **_size_** of the image and the **_height_** of the row within the control are determined as follows: |    |  1. |  All images will take on the size of the first image defined for the List View control:  
   
-Images in the first column defined as a "bitmap" will be considered first, then images embedded in the row contents using the **['PICTURE'](../mnemonics/picture.md)** mnemonic will be used.  
+    Images in the first column defined as a "bitmap" will be considered first, then images embedded in the row contents using the **['PICTURE'](../mnemonics/picture.md)** mnemonic will be used.  
   
-The image size may be overridden on the first 'PICTURE' set into the List View through its X/Y co-ordinates.  
+    The image size may be overridden on the first 'PICTURE' set into the List View through its X/Y co-ordinates.  
   
 **_Example:_**  
   
-PICTURE' (0,0, @X (=100), @Y (=50), "_image_ ") defines the image size as 100 pixels wide by 50 pixels high regardless of the actual size of the image provided.  
+     PICTURE' (0,0, @X (=100), @Y (=50), "_image_ ") defines the image size as 100 pixels wide by 50 pixels high regardless of the actual size of the image provided.  
 ---|---|---  
-|  2. |  Once the size has been set:  
+  |  2. |  Once the size has been set:  
   
-Any image **_larger_** than the defined size will be scaled down to fit.  
+    Any image **_larger_** than the defined size will be scaled down to fit.  
   
-Any image **_smaller_** than the defined size will be centered within the defined size.  
-|  3. |  If the **[LinesPerRow](../properties/linesperrow.md)** property is set and images are used, the system will use the **_smaller_** of the height of the row (based on LinesPerRow) **_or_** the first image if the image size is **_not_** overridden.  
+    Any image **_smaller_** than the defined size will be centered within the defined size.  
+  |  3. |  If the **[LinesPerRow](../properties/linesperrow.md)** property is set and images are used, the system will use the **_smaller_** of the height of the row (based on LinesPerRow) **_or_** the first image if the image size is **_not_** overridden.  
   
-If the image size is overridden, then the overriding size will be used.  
+    If the image size is overridden, then the overriding size will be used.  
   
-If this overridden height is _larger_ than the LinesPerRow height, then an overlapping or cropping of the image may result.  
+    If this overridden height is _larger_ than the LinesPerRow height, then an overlapping or cropping of the image may result.  
   
 To find out the height of a List View row in pixels, use the **[LinePixels](../properties/linepixels.md)** property **_(Read Only)_**.
 
@@ -624,27 +624,27 @@ Image scaling for List View controls is supported in the **[iNomads](../iNOMADS/
 _(The LinePixels property was added in PxPlus 2017.)  
 (Support for Image Scaling was added in PxPlus 2017.)_  
   
-_UpperCase_ _Sort_ |  **_(List View and Report View List Boxes)_** A "U" code can be added as a prefix to the width for a column to sort the column based on the PxPlus lower/uppercase character translation tables.  
+_UpperCase Sort_ |  **_(List View and Report View List Boxes)_** A "U" code can be added as a prefix to the width for a column to sort the column based on the PxPlus lower/uppercase character translation tables.  
   
 **_Example:_**  
   
-[Company]UL10 _(The UpperCase Sort property was added in PxPlus 2018.)_  
+     [Company]UL10 _(The UpperCase Sort property was added in PxPlus 2018.)_  
 _Numerical Column Sorting Code_ |  Specialized codes for a List View column that indicate the column data should be considered as numeric data and sorted according to the logical numerical value. The possible codes are as follows: |  **#** |  A **#**  _(pound sign)_ indicates that the data has been formatted using the **[STR( )](../functions/str.md)** function and contains a consistent number of decimal places as applied by a format mask. Since the data is formatted, PxPlus recognizes the character you assign in the **['DP'](../parameters/dp.md)** system parameter as the decimal point for sorting. Default is 'DP'=46 or 'DP'=ASC(".").  
   
 **_Example:_**  
   
-The column [Amount] contains formatted data, is right justified, and column width is 12: list_box 100,@(5,5,35,10),fmt="[Amount]#R12"  
+The column [Amount] contains formatted data, is right justified, and column width is 12:      list_box 100,@(5,5,35,10),fmt="[Amount]#R12"  
 ---|---  
-**N** |  An **N** indicates that the data is unformatted may contain the default ASC(".") decimal point followed by varying numbers of digits.  
+**N** |  An **N** indicates that the data is unformatted  may contain the default ASC(".") decimal point followed by varying numbers of digits.  
   
 **_Example:_**  
   
-The column [Amount] contains unformatted numeric data, is centered, and column width is 10: list_box 100,@(5,5,35,10),fmt="[Amount]NC6"  
+The column [Amount] contains unformatted numeric data, is centered, and column width is 10:      list_box 100,@(5,5,35,10),fmt="[Amount]NC6"  
 **Y, M, D** |  The format codes **Y** , **M** or **D** indicate _Date_ columns for a List View control. The codes indicate that a column contains data that is to be treated as a date for sorting purposes, include up to three characters showing the order of the date as it appears in the data (MD, DMY, MDY, YMD ...). The system does not translate or format the data, but recognizes and sorts it as date values. The data must contain some sort of alpha separator (dashes or slashes, etc.) between the individual values.  
   
 **_Example:_**  
   
-DMY supports the sorting of dates where the data is in _day-month-year_ order (15-11-99, 01\JUL\2002, etc.) and could be specified as: list_box 100,@(5,5,35,10),fmt="[Sent]DMYL11" The column data is parsed into a maximum of three fields and treats any alpha field it encounters as a month name. Month names must match those currently in use by the **[DTE( )](../functions/dte.md)** function. If the column contains additional data beyond the date, up to 10 of these additional characters are included in a secondary sort for the column.  
+DMY supports the sorting of dates where the data is in _day-month-year_ order (15-11-99, 01\JUL\2002, etc.) and could be specified as:      list_box 100,@(5,5,35,10),fmt="[Sent]DMYL11" The column data is parsed into a maximum of three fields and treats any alpha field it encounters as a month name. Month names must match those currently in use by the **[DTE( )](../functions/dte.md)** function. If the column contains additional data beyond the date, up to 10 of these additional characters are included in a secondary sort for the column.  
   
 Load List View data into the columns from SEP**-** delimited data strings. See **[Format 6: Load via Delimited String](list_box.htm#Mark43)**.
 
@@ -677,24 +677,24 @@ _ List View (_Report Style_) list box supports first column highlight (where the
 
 **_Example:_****_List View (Report Style)_**
 
-> open (1)"."  
->  set_param 'SD'  
->  list_box 10,@(5,5,25,10),opt="r",fmt="[Name]L15 {} [Size]R7"  
+>      open (1)"."  
+>      set_param 'SD'  
+>      list_box 10,@(5,5,25,10),opt="r",fmt="[Name]L15 {} [Size]R7"  
 >  LOOP:  
->  read (1,end=0150)F$  
->  if mid(F$,-1)=dlm \  
->  then B$="!File",SZ$="<dir>";  
->  goto LOADIT  
->  B$=""  
->  open input (2,isz=-1)F$  
->  X$=fin(2)  
->  close (2)  
->  SZ$=str(dec(X$(1,4)))  
+>      read (1,end=0150)F$  
+>      if mid(F$,-1)=dlm \  
+>           then B$="!File",SZ$="<dir>";  
+>                   goto LOADIT  
+>      B$=""  
+>      open input (2,isz=-1)F$  
+>      X$=fin(2)  
+>      close (2)  
+>      SZ$=str(dec(X$(1,4)))  
 >  LOADIT:  
->  list_box load 10,0,F$+sep+B$+sep+SZ$+sep  
->  goto LOOP  
->  close (1)  
->  escape
+>      list_box load 10,0,F$+sep+B$+sep+SZ$+sep  
+>      goto LOOP  
+>      close (1)  
+>      escape
 
 **_Horizontal Bar Charts in List Views_**
 
@@ -734,7 +734,7 @@ This would result in a List View something like this:
 
 If we want to include the percentage as a number following the bar, we could make the following change:
 
-> 0090 let bar$='fill'(pct,"Green")**+ str(pct)+"%"**
+> 0090 let bar$='fill'(pct,"Green")**+str(pct)+ "%"**
 
 This would result in the following:
 
@@ -767,7 +767,7 @@ Negative percentage values will be treated as 0 _(zero)_ for both displaying and
 
 ##  Tree View List Boxes
 
-A**Tree View** control object can be created by setting OPT="e" in the definition of a list box. See **Format 1: Define/Create List Box**. Tree Views provide a hierarchical view of the data using a collapsible tree structure to represent a list box. As items are loaded into the Tree View, PxPlus automatically parses the entries based on your given delimiter and creates all intervening tree levels required.
+A**  Tree View **control object can be created by setting OPT="e" in the definition of a list box. See **Format 1: Define/Create List Box**. Tree Views provide a hierarchical view of the data using a collapsible tree structure to represent a list box. As items are loaded into the Tree View, PxPlus automatically parses the entries based on your given delimiter and creates all intervening tree levels required.
 
 **_Example:_**
 
@@ -786,67 +786,69 @@ The unique logical identifier (ctl_id) assigned during the creation of a Tree Vi
 
 OPT="e" establishes a Tree View definition. Several other **OPT** = settings can be used to refine the definition:
 
-|  "!" |  Bitmaps or icons  
+  |  "!" |  Bitmaps or icons  
 ---|---|---  
-|  "|" |  Show connecting lines  
-|  "b" |  Suppress expansion/collapse buttons  
-|  "E" |  Enable automatic editing  
-|  "q" |  Disable sorting  
+  |  "|" |  Show connecting lines  
+  |  "b" |  Suppress expansion/collapse buttons  
+  |  "E" |  Enable automatic editing  
+  |  "q" |  Disable sorting  
   
 See **LIST_BOX OPT= Settings**.
 
-**_Tree View Format Options_** __
+**_Tree View Format Options_** _ _
 
-Use **FMT** = settings to define default images to be displayed in the tree _(optional)_. When adding bitmaps and icons, enclose the image name in {_curly braces_}. Use a leading _exclamation point_ ( **!** ) to identify the image as internal or specify the relative path and filename to access an image file that is external. For more information on internal/external images and recognized image file types, see [**Displaying Bitmaps/Icons**](../appendix/displaying_bitmaps~icons.md).
+Use **FMT** = settings to define default images to be displayed in the tree _(optional)_. When adding bitmaps and icons, enclose the image name in {_curly braces_}. Use a leading _exclamation point_  ( **!** ) to identify the image as internal or specify the relative path and filename to access an image file that is external. For more information on internal/external images and recognized image file types, see [**Displaying Bitmaps/Icons**](../appendix/displaying_bitmaps~icons.md).
 
-Filenames are **_mandatory_** in FMT={_images$_} clauses. Place them inside {_curly braces_} in a _pipe_ ( **|** ) separated list:
+Filenames are **_mandatory_** in FMT={_images$_} clauses. Place them inside {_curly braces_} in a _pipe_  ( **|** ) separated list:
 
 > list_box A,@(x,y,10,10),opt="e",fmt="{Cat.ico|Dog.bmp|Pig.bmp}"
 
 Null values in FMT={_images$_} are **_not_** allowed. For instance, FMT={||Pig.bmp} generates an Error #23: Missing/Invalid variable.
 
-Ensure that all bitmaps or icons in the same **LIST_BOX** control are the same size (**_mandatory_**). If you include different sizes, PxPlus treats the size of the first bitmap/icon as the size of all images for a given list box.
+When using bitmaps in Tree View list boxes, ensure that all bitmaps/icons in the same Tree View **LIST_BOX** control are the same size (**_mandatory_**). If you include different sizes, PxPlus treats the size of the first bitmap/icon as the size of all subsequent images for a give Tree View **LIST_BOX**.
+
+Generally, all PVX Plus internal bitmaps are 20 pixels wide by 16 pixels high. If you are going to make your own bitmaps to be used in conjunction with the internal images, you should use the same size.
 
 If you use internal bitmaps, PxPlus converts the background light gray to match the background color of the **LIST_BOX** entries. You can define up to six default bitmaps or icons in Tree Views. The _order_ of the images determines when they are used:
 
-> 1\. Default overall bitmap or icon: always used with any listed entries that do not have subordinates.  
+> 1.  Default overall bitmap or icon: always used with any listed entries that do not have subordinates.  
 >   
->  2\. Default bitmap or icon for items with subordinates.  
+>  2.  Default bitmap or icon for items with subordinates.  
 >   
->  3\. Default bitmap or icon for items with subordinates if the tree level is expanded (i.e. shown) in Tree View.  
+>  3.  Default bitmap or icon for items with subordinates if the tree level is expanded (i.e. shown) in Tree View.  
 >   
->  4\. Bitmap or icon for entries that do not have any subordinates when the item is selected.  
+>  4.  Bitmap or icon for entries that do not have any subordinates when the item is selected.  
 >   
->  5\. Bitmap or icon for entries that have subordinates when selected.  
+>  5.  Bitmap or icon for entries that have subordinates when selected.  
 >   
->  6\. Bitmap or icon for entries that have subordinates when selected and level is expanded.
+>  6.  Bitmap or icon for entries that have subordinates when selected and level is expanded.
 
 #### **Note:**  
 When OPT="e,!" (Tree View data has bitmaps or icons), any images you set up for individual elements in Tree View **LIST_BOX LOAD** and **WRITE** statements will **_override_** the default **FMT=** bitmap or icon for the individual element.
 
 **_Example:_****_Tree View_**
 
-> list_box 10,@(5,5,25,10),opt="e|",fmt="{!diskette|!File|!File_open}",sep=dlm  
->  F=1,D$="."  
+>      list_box 10,@(5,5,25,10),opt="e|",fmt="{!diskette|!File|!File_open}",sep=dlm  
+>      F=1,D$="."  
 >  NXTDIR:  
->  set_param 'SD'=1  
->  open (F)D$  
+>      set_param 'SD'=1  
+>      open (F)D$  
 >  NXTFILE: \  
->  read (F,end=ENDDIR)F$  
->  if F$(1,1)="." \  
->  then goto NXTFILE  
->  if mid(F$,-1)<>dlm \  
->  then list_box load 10,0,pth(F)+dlm+F$;  
->  goto NXTFILE  
->  D$=pth(F)+dlm+F$  
->  F++  
->  goto NXTDIR  
+>      read (F,end=ENDDIR)F$  
+>      if F$(1,1)="." \  
+>           then goto NXTFILE  
+>      if mid(F$,-1)<>dlm \  
+>           then list_box load 10,0,pth(F)+dlm+F$;  
+>                   goto NXTFILE  
+>      D$=pth(F)+dlm+F$  
+>      F++  
+>      goto NXTDIR  
 >  ENDDIR: \  
->  close (F)  
->  F--  
->  if F>0 \  
->  then goto NXTFILE  
->  escape
+>      close (F)  
+>      F--  
+>      if F>0 \  
+>           then goto NXTFILE  
+>      escape
 
 #### **Note:**  
 Use **SEP=DLM** when reading directories to have PxPlus append the operating system delimiter to sub-directory names.
@@ -857,3 +859,9 @@ Use **SEP=DLM** when reading directories to have PxPlus append the operating sys
 **[LIST_VIEW Properties](../control_object_properties/listview_properties.md)  
 [REPORT_VIEW Properties](../control_object_properties/reportview_properties.md)**  
 **[TREE_VIEW Properties](../control_object_properties/treeview_properties.md)**
+
+ 
+
+ 
+
+ 

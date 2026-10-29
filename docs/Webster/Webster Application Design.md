@@ -1,4 +1,4 @@
-# Webster+
+# Webster+ Web Development Toolkit
 
 **Webster+ Application Design**|   
 ---|---  
@@ -8,7 +8,7 @@ Within Webster+, the application starts upon receipt of a URL request from a bro
 Any program or page referenced in the URL that starts with an ***** (_asterisk_) indicates that the request is for a Webster+ utility program/page. The system will therefore look for that program/page in the **_*webster_** directory.
 
 #### **Note:**  
-You can override any of these programs/pages by creating your own version and placing it in your application directory, replacing the ***** (_asterisk_) in the file name with an **_** (_underscore_). Therefore, things such as the page **_*default_** would first look to see if there is an  __default.html_ page in your application or otherwise use _*webster/pages/default.html_.
+You can override any of these programs/pages by creating your own version and placing it in your application directory, replacing the ***** (_asterisk_) in the file name with an **_** (_underscore_). Therefore, things such as the page **_*default_** would first look to see if there is an __default.html_ page in your application or otherwise use _*webster/pages/default.html_.
 
 If neither a page nor a program is specified, the system will load the page **_*default_**.
 
@@ -21,7 +21,7 @@ Technically, if the application does not want to have Webster+ generate the page
 
 The page should contain input fields, buttons, or menu items that either accept/display values or provide a way to send 'events' to the applications. Input fields, such as standard inputs, check boxes, radio buttons or lists, will have their respective values returned to the application. These, along with button and menu items, can have events associated with them.
 
-These events will be received by the program identified in the HTML panels **[form** _xxx_**]** short code. When an event is triggered, the event name will be passed to the program in the variable **__event$_**.
+These events will be received by the program identified in the HTML panels **[form**  _xxx_**]** short code. When an event is triggered, the event name will be passed to the program in the variable **__event$_**.
 
 Once the initial page has been sent, the application can, upon receipt of an event, regenerate and resend the page, send a different page, or update values on the page.
 
@@ -74,10 +74,10 @@ The above code would generate a page similar to this:
 
 In addition to the __event$_ variable, the following variables would also be present:
 
-|  __changed$_ |  Name of variable that changed and caused event ("Custid$")  
+  |  __changed$_ |  Name of variable that changed and caused event ("Custid$")  
 ---|---|---  
-|  __prog$_ |  Name of program ("MyProg")  
-|  __topmenu$_ |  Top menu to display (used by default Webster+ template)  
+  |  __prog$_ |  Name of program ("MyProg")  
+  |  __topmenu$_ |  Top menu to display (used by default Webster+ template)  
   
 ## See Also
 
@@ -85,3 +85,9 @@ In addition to the __event$_ variable, the following variables would also be pre
 [Short Codes](Short%20Codes.md)  
 [Short Code Options](Short%20Code%20Options.md)  
 [Short Codes Examples](Webster%20Code%20Examples.md)**
+
+ 
+
+ 
+
+ 

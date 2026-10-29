@@ -28,5 +28,11 @@ Use the **LOCK** directive to reserve a given file for exclusive processing by t
 ...  
 0100 print "Cannot open GLFILE"  
 0110 stop  
-0120 print "GL still in usetry later"  
+0120 print "GL still in usetry later"  
 0130 stop
+
+ 
+
+ 
+
+ 

@@ -1,6 +1,6 @@
-# Event-Handler Routines   
-  
-**Background Loading** |  **__**  
+# Event-Handler Routines 
+
+**Background Loading** |  **_ _**  
 ---|---  
   
 The Background Loading event in NOMADS allows you to define a program/entry point to be invoked to load the contents of a **[List Box](../../Creating%20Panel%20Controls/List%20Box%20Controls/Overview.md)**, **[Drop Box](../../Creating%20Panel%20Controls/Drop%20Box%20Control/Overview.md)** or **[Grid](../../Creating%20Panel%20Controls/Grid%20Control/Overview.md)**. At run time, NOMADS will check for the presence of user input, and if none is received, the Background Loading event is triggered. Multiple controls on the panel can be set up to load in the background using this functionality.
@@ -21,11 +21,11 @@ To assign Background Loading logic for a **List Box** , **Drop Box** or **Grid**
 
 The status of a Background Load is stored in the variable _controlname_.load. The four possible values are:
 
-**0** |  __ |  _Load not yet completed_ |  |  Value is assigned after panel is drawn.  
+**0** |  _ _ |  _Load not yet completed_ |    |  Value is assigned after panel is drawn.  
 ---|---|---|---|---  
-**1** |  __ |  _Load completed_ |  } |  Set by the application.  
-**-1** |  __ |  _Force reload_ |  }|   
-**-2** |  |  NOMADS assigns this value when moving between tabs.  
+**1** |  _ _ |  _Load completed_ |  } |  Set by the application.  
+**-1** |  _ _ |  _Force reload_ |  }|   
+**-2** |    |  NOMADS assigns this value when moving between tabs.  
   
 To end a load, simply set _controlname_.load equal to 1.
 
@@ -47,7 +47,7 @@ The following example loads two list boxes using the background load option:
 >  IF z>10000 \  
 >  THEN lb2.load=1;  
 >  EXIT  
->  SETTRACE PRINT "loading another 100 items starting at "+ \   
+>  SETTRACE PRINT "loading another 100 items starting at "\+ \   
 >  STR(c)+" for lb2"   
 >  FOR I=c TO z  
 >  LIST_BOX LOAD LB2.CTL,0,STR(I)   
@@ -60,10 +60,16 @@ The following example loads two list boxes using the background load option:
 >  IF y>80000 \  
 >  THEN lb3.load=1;  
 >  EXIT  
->  SETTRACE PRINT "loading another 100 items starting at "+ \  
+>  SETTRACE PRINT "loading another 100 items starting at "\+ \  
 >  STR(x)+" for lb3"  
 >  FOR I=x TO y  
 >  LIST_BOX LOAD LB3.CTL,0,STR(I)  
 >  NEXT  
 >  x=y+1  
 >  EXIT
+
+ 
+
+ 
+
+ 

@@ -6,16 +6,16 @@
 ##  Format
 
 **CREATE TABLE** _filename$_ ,[,_extkey_len_][,_key_def$_][,_max_recs_][,_rec_size_][_,fileopt_]  
-  
-**_Where:_**
+    
+**_Where:_** 
 
 _filename$_ |  Name of the Keyed file to create. String expression.  
 ---|---  
 _extkey_len_ |  Numeric expression. Length of the external key for all records in the file.  
 _key_def_ _$_ |  String expression defining the key. The Keyed file can be single or multi-keyed. A key definition is made up of one or more key field definitions ranging from 0 to 15 for FLR/VLR files or 0 to 255 for EFF files. Use integers for specific field numbers, 0 (zero for record-based offsets) or KEY to reference a value based on an external key. The key definition formats are as follows: |  **_Single Key Field:_** |  **[**["_keyname_ _"_**:**]_field_**:**_offset_**:**_len_[**:** "_attr_ "] **]**  
 ---|---  
-**_Composite Key Fields (Using the + Operator):_** |  **[**[_"keyname"_**:**]_field_**:**_offset_**:**_len_[**:**_"attr"_] ]**_+_**[_field_**:**_offset_**:**_len_[**:**_"attr"_] **]**  
-**_Multi-Keyed Alternate Key Fields are Comma-Delimited:_** |  **[**[_"keyname"_**:**]_field_**:**_offset_**:**_len_[**:**_"attr"_] ]**_,_**[[_"keyname"_**:**]_field_**:**_offset_**:**_len_[**:**_"attr"_] **]**  
+**_Composite Key Fields (Using the + Operator):_** |  **[**[_" keyname"_**:**]_field_**:**_offset_**:**_len_[**:**_" attr"_] ]**_+_**[_field_**:**_offset_**:**_len_[**:**_" attr"_] **]**  
+**_Multi-Keyed Alternate Key Fields are Comma-Delimited:_** |  **[**[_" keyname"_**:**]_field_**:**_offset_**:**_len_[**:**_" attr"_] ]**_,_**[[_" keyname"_**:**]_field_**:**_offset_**:**_len_[**:**_" attr"_] **]**  
   
 #### **Note:  
 ** The _outer_ set of square brackets in the above formats are part of the syntax. The _inner_ brackets indicate optional syntax items (i.e. the brackets enclosing the optional [:"_attr_ "] are not part of the syntax).  
@@ -37,7 +37,7 @@ _max_recs_ |  Maximum number of records the file is allowed. Optional numeric ex
 _rec_size_ |  Maximum size of the data portion of the record (excluding the key). A negative value creates a variable-length record (VLR) data file with the maximum record length equal to the positive value of this field. A positive value creates a fixed-length record (FLR) formatted file. If you do not specify size, the default is VLR with a maximum record size of 256.  
 _fileopt_ |  Supported file options (see **[File Options](../appendix/input~output_and_control_options.htm#Mark1)**): |  **BSZ=**_num_ |  Block size. Numeric expression (1 - 63).  
 ---|---  
-**ERR=**_stmtref_ __ |  Error transfer.  
+**ERR=**_stmtref_ _ _ |  Error transfer.  
 **SEP=**_char$_**_| *_** |  Default field separator character. Hex or ASCII string value.  
 **OPT=**_char$_ |  Single character parameter: |  "C" |  Compressed. Adds simple compression to record data.  
 ---|---  
@@ -61,7 +61,7 @@ For more information on VLR/FLR, see [**KEYED**](keyed.md) directive.
 
 PxPlus considers the first key specified for an **_EFF_** file to be the primary key. Every record must have a unique primary key. You can have duplicate secondary keys from record to record. There is a maximum of 255 keys allowed on a file with a maximum of 255 data components making up these 255 keys. For **_VLR/FLR_** files, there is a maximum of 16 key fields allowed on a file with a maximum of 96 data components making up the 16 keys. There is no limit (other than the maximum of 96 key components) to the number of fields that comprise a key.
 
-If a given filename already exists, PxPlus returns Error #12: File does not exist (or already exists). 
+If a given filename already exists, PxPlus returns Error #12: File does not exist (or already exists).
 
 Keys have the following limits:
 
@@ -71,17 +71,20 @@ Keys have the following limits:
 
 
 
-**_Enhanced File Format (EFF) Notes_**
+#### **Note:**  
+The keys must always reside within the defined record size. For example, if a file is defined with a record size of 1000, then all keys must be located within the first 1000 bytes, regardless of whether the _Extended Record Size_ flag is enabled. The reason for this is that extended records are stored in multiple linked chunks, but internally, the key segments can only be built from the first chunk.
+
+**_Enhanced File Format (EFF) Notes_** 
 
 EFF records are always variable length. In future, EFF files will support transactions. See [**SYSTEM_JRNL**](system_jrnl.md) directive.
 
 The following file limitations exist for EFF files:
 
-|  1. |  63Kb (64512 bytes) is the maximum block size.  
+  |  1. |  63Kb (64512 bytes) is the maximum block size.  
 ---|---|---  
-|  2. |  The maximum record size is 64000 bytes. When using extended records, the record size is limited to 32000 bytes when created, although records can be as large as 2GB.  
-|  3. |  EFF files do not support the multi-segmented techniques available for VLR files.  
-|  4. |  **_Refer to the table for sample file size limitations._** The block size determines the maximum file size. EFF files will only use 3-byte pointers _(as of PxPlus v6.00)_. The ability to use 4-byte pointers is part of the design to allow larger file sizes and will be enabled in a future version of PxPlus. |  **Block Size** |  **3-Byte Pointers** |  **4-Byte Pointers**(_future_)  
+  |  2. |  The maximum record size is 64000 bytes. When using extended records, the record size is limited to 32000 bytes when created, although records can be as large as 2GB.  
+  |  3. |  EFF files do not support the multi-segmented techniques available for VLR files.  
+  |  4. |  **_Refer to the table for sample file size limitations._** The block size determines the maximum file size. EFF files will only use 3-byte pointers _(as of PxPlus v6.00)_. The ability to use 4-byte pointers is part of the design to allow larger file sizes and will be enabled in a future version of PxPlus. |  **Block Size** |  **3-Byte Pointers** |  **4-Byte Pointers**(_future_)  
 ---|---|---  
 (KB) |  Max Pages per Inventory Segment |  Max Addressable Pages |  Size of File in MB |  Max Pages per Inventory Segment |  Max Addressable Pages |  Size of File in MB  
 4 |  1,022 |  2,056,264 |  8,032 |  818 |  1,645,816 |  6,429  
@@ -110,3 +113,9 @@ The following file limitations exist for EFF files:
 [**DROP INDEX Drop Key from Keyed File**](drop_index.md)  
 [**RENAME..INDEX Rename Keys in Keyed File**](rename_index.md)  
 [**SORT Create File for Sorting**](sort.md)
+
+ 
+
+ 
+
+ 

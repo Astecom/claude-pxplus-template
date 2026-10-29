@@ -5,7 +5,7 @@
   
 ##  Format
 
-**ERASE[ TABLE]**_name$_**[** ,**OPT=**_options$_**] [** ,**ERR=**_stmtref_ __**]**
+**ERASE[ TABLE]**_name$_**[** ,**OPT=**_options$_**] [** ,**ERR=**_stmtref_ _ _**]**  
 
 **_Where:_**
 
@@ -22,7 +22,7 @@ _stmtref_ |  Program line number or statement label to which to transfer control
 Use the **ERASE** directive to delete the file or directory you name. All disk space that was used by the file or directory is returned to the system. If you erase a file, all data in the file is lost.
 
 #### **Note:  
-** WindX in PxPlus supports the use of this directive via the [WDX] or [LCL] tags; e.g. ERASE "[WDX]somefile.ext". Non-PxPlus versions require you to encapsulate the command in an EXECUTE directive with a [WDX] tag (i.e. EXECUTE "[WDX]..."). See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.htm) or **[[LCL] Access to Users Local Machine](../command_tags/lcl.htm)**.
+** WindX in PxPlus supports the use of this directive via the [WDX] or [LCL] tags; e.g. ERASE "[WDX]somefile.ext". Non-PxPlus versions require you to encapsulate the command in an EXECUTE directive with a [WDX] tag (i.e. EXECUTE "[WDX]..."). See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.md) or **[[LCL] Access to Users Local Machine](../command_tags/lcl.md)**.
 
 _(The TABLE option was added in PxPlus v6.30.)  
 (The ERASE logic to delete related segments was added in PxPlus v7.00.)_
@@ -39,3 +39,9 @@ If you want to erase the contents of a file that may have multiple segments you 
 
 0010 erase "PRNTFL"  
 0030 erase "SRTFL1",err=0040
+
+ 
+
+ 
+
+ 

@@ -5,12 +5,30 @@
   
 ## Description
 
-**_(Using PxPlus 2019 or later)_**
+Sets which version of the JSON constructor to use.
 
-Setting the **'JV'** parameter to 0 reverts the JSON constructor back to its original version, which is prior to version 1 released in PxPlus 2019.
+**JV** |  **Version** |  **Description**  
+---|---|---  
+0 |  JSON constructor Version 0 |  Initial release.  
+1 |  JSON constructor Version 1 |  Enhanced JSON processing.  
+2 |  JSON constructor Version 2 |  Improved performance in the generation of large JSON strings. See **Note**.  
+  
+#### **Note:**  
+When using '**JV** '=2, all data is automatically sorted.
 
-_(The 'JV' system parameter was added in PxPlus 2019.)_
+_(The 'JV' system parameter was added in PxPlus 2019.)  
+(Support to change the default value from 'JV'=1 to the new version 'JV'=2 was added in PxPlus 2022.)_
 
 ## Default
 
-**1**
+**2**
+
+## See Also
+
+**[*OBJ/JSON  JSON Object](../utilities/obj_json.md)**
+
+ 
+
+ 
+
+ 

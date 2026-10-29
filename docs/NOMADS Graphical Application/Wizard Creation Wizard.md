@@ -30,10 +30,10 @@ _Navigation Bar_ |  This section extends across the bottom of the panel and cons
 #### **Note:**  
 To guide you in completing the wizard and panels, you may find it helpful to refer to the program and panels used to create the Wizard Creation Wizard utility. The program _Wz_wizard_ resides in the ***plus/winutl** directory, and the associated panels listed below reside in the library file ***plus/winutl/scrnlib.en** :  
   
-_Wz_wiz_ (Main wizard panel)  
-_Wz_wel_ (Welcome tab)  
-_Wz_1_ to _Wz_4_ (Tabs for Steps 1 through 4)  
-_Wz_fin_ (Finish tab)
+_      Wz_wiz_ (Main wizard panel)  
+_      Wz_wel_ (Welcome tab)  
+_      Wz_1_ to _Wz_4_ (Tabs for Steps 1 through 4)  
+_      Wz_fin_ (Finish tab)
 
 ##  Wizard Creation Wizard Steps
 
@@ -92,11 +92,11 @@ Define the options for customizing the **Welcome** and **Finish** pages for the 
 
 **Picture at the top of the Welcome Page**  
 ---  
-_Picture Path_ |  Specify the full pathname to the image file or corresponding expression for the image that can be optionally included on the **Welcome** page. This image will display in the upper left corner of the **Welcome** page. If you **[Open the Library File](NOMADS%20Development/Library%20Object%20Selection/Opening%20a%20Library%20File.md)** in NOMADS and view the completed wizard panel, it will contain an image type control named WELCOME_IMAGE. If _Picture Path_ is blank, then no image control will be created. Upon completion of the wizard, the image entered will be scaled and dynamic. See **[Image Properties](Creating%20Panel%20Controls/Image%20Control/Image.htm#imageproperties)**.  
+_Picture Path_ |  Specify the full pathname to the image file or corresponding expression for the image that can be optionally included on the **Welcome** page. This image will display in the upper left corner of the **Welcome** page. If you **[Open the Library File](NOMADS%20Development/Library%20Object%20Selection/Opening%20a%20Library%20File.md)** in NOMADS and view the completed wizard panel, it will contain an image type control named WELCOME_IMAGE. If _Picture Path_  is blank, then no image control will be created. Upon completion of the wizard, the image entered will be scaled and dynamic. See **[Image Properties](Creating%20Panel%20Controls/Image%20Control/Image.htm#imageproperties)**.  
 **Enter the text for the Welcome page**  
 |  Enter the text to display on the **Welcome** page.  
 **Help Link for the Welcome Page**  
-_Help Link Text_ |  Enter the text to display on a Web-style Help link button that can be optionally included on the **Welcome** page. If you **[Open the Library File](NOMADS%20Development/Library%20Object%20Selection/Opening%20a%20Library%20File.md)** in NOMADS and view the completed wizard panel, it will contain a button type control named BUTTON_HELP. If the _Help Link Text_ is blank, then no button control will be created.
+_Help Link Text_ |  Enter the text to display on a Web-style Help link button that can be optionally included on the **Welcome** page. If you **[Open the Library File](NOMADS%20Development/Library%20Object%20Selection/Opening%20a%20Library%20File.md)** in NOMADS and view the completed wizard panel, it will contain a button type control named BUTTON_HELP. If the _Help Link Text_  is blank, then no button control will be created.
 
 #### **Note:**  
 If _Help Link Text_ is entered, then you will need to edit the BUTTON_HELP control on the WEL panel (i.e. _NAME_WEL_) after completing the wizard to enter the correct Help Reference (go to the **[User Aid](Creating%20Panel%20Controls/Button%20Control/Overview.htm#useraid)** tab on the button's properties window using the **[NOMADS Panel Designer](Panel%20Designer/Introduction.md)**).  
@@ -157,7 +157,7 @@ If the maximum 150 characters is entered, you may need to adjust the width of th
 
 **_Example:_**  
   
-For the Wizard Creation Wizard utility, the title for Step 1 is defined as _Step 1: Name and Location Define the Wizard and Program names and locations._ This text is saved in the completed wizard program as _stepxtitle_ _$_ (**_where_**  _x_ is the step number) or _finishtitle_ _$_ (for the **Finish** page).  
+     For the Wizard Creation Wizard utility, the title for Step 1 is defined as _Step 1: Name and Location  Define the Wizard and Program names and locations._ This text is saved in the completed wizard program as _stepxtitle_ _$_ (**_where_**  _x_ is the step number) or _finishtitle_ _$_ (for the **Finish** page).  
 _Name_ |  Text to display below each step button. A maximum of 25 characters can be entered.
 
 #### **Note:**  
@@ -176,3 +176,9 @@ To launch the main Wizard panel (i.e. _NAME_WIZ_) in the **[NOMADS Panel Designe
 When the _Finish_ button is selected, a wizard program is created in the directory specified in the _Program Directory_ field (see **[Program Directory](Wizard%20Creation%20Wizard.htm#directory)**). At the same time, NOMADS panels are created for the wizard and all the steps in the library file specified in the _Screen Library_ field (see **[Screen Library](Wizard%20Creation%20Wizard.htm#screenlib)**).
 
 With the basic structure for the wizard created, the wizard program and panels are ready to be modified as needed to customize the wizard's appearance and complete its functionality.
+
+ 
+
+ 
+
+ 

@@ -17,7 +17,7 @@
 _dir_ _$_ |  Initial directory to display. String expression.  
 ---|---  
 _def_ex_ _$_ |  Default file extension to use if no file extension is specified via the file extension drop box or the file path input field. Optional. String expression. **_Example:_** "txt"  
-_ex_list_ _$_ |  List of standard file extensions (e.g. .jpg, .pdf, .txt, etc.). Comma or your choice of character as the delimiter (the last extension **_must_** end with the delimiter). Optional. String expression. To define a list of file extensions along with their associated descriptions, use the format **_Description|*.XXX,_** as in the following examples: **_Example:_** |  Applications|*.exe,Text|*.txt,PDFs|*.pdf,All|*.*, |  In this list of file extensions, four descriptions are specified. Each description is associated with **_one_** file extension:  
+_ex_list_ _$_ |  List of standard file extensions (e.g. .jpg, .pdf, .txt, etc.). Comma or your choice of character as the delimiter (the last extension **_must_** end with the delimiter). Optional. String expression. To define a list of file extensions along with their associated descriptions, use the format **_Description|*.XXX,_** as in the following examples: **_Example:_**   |  Applications|*.exe,Text|*.txt,PDFs|*.pdf,All|*.*, |  In this list of file extensions, four descriptions are specified. Each description is associated with **_one_** file extension:  
   
 _Applications_ (displays all _.exe_ files)  
 _Text_ (displays all _.txt_ files)  
@@ -30,8 +30,8 @@ If defining only one file type, a delimiter (i.e. comma) **_must_** be added to 
 ---|---  
 Text|*.txt;*.log,Images|*.png;*.bmp;*.jpg;*.jpeg, |  In this list of file extensions, two descriptions are specified. Each description is associated with **_multiple_** file extensions:  
 _  
-Text_ (displays all _.txt_ ** _and_** _.log_ files)  
-_Images_ (displays all _.png_ , _.bmp_ , _.jpg_ ** _and_**  _.jpeg_ files)
+Text_ (displays all _.txt_  **_and_** _.log_ files)  
+_Images_ (displays all _.png_ , _.bmp_ , _.jpg_  **_and_**  _.jpeg_ files)
 
 #### **Note:**  
 Use the _semi-colon_ to separate multiple file extensions.  
@@ -42,7 +42,7 @@ _stmtref_ |  Program line number or statement label to which to transfer control
 _title$_ |  Window title. String expression. If not specified, the defaults for the various formats will be used.  
   
 #### **Note:**  
-**GET_FILE_BOX** is supported when you use WindX with UNIX file systems and supported calls to [WDX]. See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.htm).
+**GET_FILE_BOX** is supported when you use WindX with UNIX file systems and supported calls to [WDX]. See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.md).
 
 ##  Description
 
@@ -71,7 +71,7 @@ Use the **READ** format to make sure that the file you want returned exists:
 
 > get_file_box read X$,"C:\VX","File to View"
 
-If no _title$_ is supplied, the window title will read as: "File to be Read".
+If no _title$_  is supplied, the window title will read as: "File to be Read".
 
 ##  Format 3
 
@@ -95,7 +95,7 @@ If no _title$_ is supplied, the window title will read as: "File to be Written".
 
 Use the **DIRECTORY** format to return a directory name to the application. The system will only allow the user to select a directory starting with directory set in _dir_ _$_.
 
-If no _title$_ is supplied, the window title will read as: "Browse for Folder".
+If no _title$_  is supplied, the window title will read as: "Browse for Folder".
 
 **_(For Windows XP or later)_** The optional _root$_ parameter sets the highest level directory in which browsing can occur (overriding what is set in _dir_ _$_). When _not_ using WindX or iNomads, then the terms "_My Computer_ " and "_My Documents_ " can be used, as well as the full path to an existing folder.
 
@@ -107,7 +107,7 @@ If no _title$_ is supplied, the window title will read as: "Browse for Folder".
 
 Use the **LIST** format to specify multiple selections for **GET_FILE_BOX READ**. If a single entry is selected, then _path$_ will contain the full path of the file (as with a **GET_FILE_BOX READ**). If more than one entry is selected, then _path$_ will consist of the full directory where the files are located terminated by **SEP** , followed by a delimited list of the selected files where the delimiter is defined by the **['GS'](../parameters/gs.md)** parameter.
 
-If no _title$_ is supplied, the window title will read as: "File to be Read".
+If no _title$_  is supplied, the window title will read as: "File to be Read".
 
 #### **Note:**  
 Windows ignores selected directories. This format is **_not_** supported in the text version of **GET_FILE_BOX**.
@@ -115,3 +115,9 @@ Windows ignores selected directories. This format is **_not_** supported in the 
 ## See Also
 
 **[GET_FILE_BOX File Selection Dialog](../PxPlus%20User%20Guide/Graphical%20User%20Interfaces/Interface%20Windows/Getfilebox.md)**
+
+ 
+
+ 
+
+ 

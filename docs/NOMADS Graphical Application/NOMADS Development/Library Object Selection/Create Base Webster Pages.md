@@ -18,14 +18,14 @@ To invoke this utility, use one of the following methods:
 
 **Location** |  **Method**  
 ---|---  
-From **[NOMADS Library Object Selection](Overview.md)** |  Select _Webster+ > Create Base Webster+ Panel(s)_ from the top menu bar.
+From **[NOMADS Library Object Selection](Overview.md)** |  Select _Webster+ > Create Base Webster+ Page(s)_ from the top menu bar.
 
 #### **Note:**  
 This menu option is enabled only when a Webster+ **_pages_** directory has been defined.  
   
 This is done by selecting the **[Define Webster+ Pages Directory](Menu%20Options.htm#webster)** option from the _Webster+_ menu.  
   
-From **[NOMADS Library Object Selection](Overview.md)** |  Select an individual _Object Name_ in the Object List. Then, right click to display the popup menu. Select the _Create Base Webster+ Panel_ option.  
+From **[NOMADS Library Object Selection](Overview.md)** |  Select an individual _Object Name_ in the Object List. Then, right click to display the popup menu. Select the _Create Base Webster+ Page_ option.  
   
 If this utility is accessed from the right click popup menu, only the selected panel is converted, and the conversion happens without displaying an additional dialog. When the conversion is completed, a message box displays.
 
@@ -90,10 +90,10 @@ This table provides information about what is not converted for the HTML pages.
 
 Logic Associated with the Panel Header:  
   
-**Pre-Display** Logic **Post-Display** Logic **On Exit** Logic |  If there is logic to be executed at any time while loading the form, this can be accomplished with the use of the **[[execute]](../../../Webster/Short%20Codes.htm#execute)** short code. **_Example:_** [execute perform "_panel_name.wbs_ ;_method_name_ ",err=*proceed] **_Where:_** _panel_name.wbs_ is the name of the program created by the utility. _method_name_ is the name of the method manually added to that program.  
+     **Pre-Display** Logic      **Post-Display** Logic      **On Exit** Logic |  If there is logic to be executed at any time while loading the form, this can be accomplished with the use of the **[[execute]](../../../Webster/Short%20Codes.htm#execute)** short code. **_Example:_**      [execute perform "_panel_name.wbs_ ;_method_name_ ",err=*proceed] **_Where:_**      _panel_name.wbs_ is the name of the program created by the utility.      _method_name_ is the name of the method manually added to that program.  
 ---|---  
 Foreground and Background Colors for the Panel |  This can be controlled by other means in Webster+.  
-Some Control Types: Shapes other than Horizontal lines Frames with Heights of more than 1 line Horizontal Scrollbars Vertical Scrollbars Charts not loaded via SmartLoad External Controls Embedded Panels |  These controls are converted only as red text (using the **[[show]](../../../Webster/Short%20Codes.htm#show)** short code) as a reminder to the developer that they were not actually converted to the Webster+ HTML page. The HTML added for these controls should be removed after the conversion is completed.  
+Some Control Types:      Shapes other than Horizontal lines      Frames with Heights of more than 1 line      Horizontal Scrollbars      Vertical Scrollbars      Charts not loaded via SmartLoad      External Controls      Embedded Panels |  These controls are converted only as red text (using the **[[show]](../../../Webster/Short%20Codes.htm#show)** short code) as a reminder to the developer that they were not actually converted to the Webster+ HTML page. The HTML added for these controls should be removed after the conversion is completed.  
 **Post Create** and **When Receiving Focus** Logic for individual controls |  While the **On Change** (**When Button Pressed** , **When Entry is Selected** or **On Change**) logic is converted to a Webster+ event, any **Post Create** or **When Receiving Focus** logic defined for a control is **_not_** converted.  
 Precise Screen Layout |  Controls within approximately the same line in NOMADS will be converted on the same Webster+ line with **_three_** non-breakable spaces (**& nbsp**) between each control for separation. Each approximate line is surrounded by the **[[section whole]](../../../Webster/Short%20Codes.htm#section)** and [\section] short codes. After conversion, the HTML file should be edited by replacing all or some of these whole sections with the appropriate Webster+ section short codes - [section half], [section third], [section quarter] and [section flex] - to control the Webster+ screen layout and resizing as required.  
 Background Colors for Check Boxes and Radio Buttons |  In NOMADS, these colors control the color of the actual check box or radio button portion of the control only. In Webster+, the **[fill_xxxxx](../../../Webster/Webster%20Defined%20Classes.htm#fill)** classes control the background color of the entire control; therefore, these colors are **_not_** converted.  
@@ -118,7 +118,7 @@ All of the above event methods are created as an outline with only the method la
 
 See **[Example PxPlus .wbs Program](Create%20Base%20Webster%20Pages.htm#Mark3)** below.
 
-## Example NOMADS Panel Conversion
+## Example  NOMADS Panel Conversion
 
 For this example, a simple NOMADS panel (Sample) has been defined as shown below:
 
@@ -201,29 +201,29 @@ The developer would need to edit the HTML files as follows:
 > ! sample.wbs - Webster program for sample panel  
 >  ! Initially generated by Create Base Webster+ Page(s) Utility on 15/04/25  
 >  !  
->  %webster'BindFile$="c:\webster2024\pages/sample.html"  
+>   %webster'BindFile$="c:\webster2024\pages/sample.html"  
 >  !  
 >  ! Handle events  
->  GOTO LNO("EVENT_"+_event$,ERR=*NEXT)  
->  %webster'msgbox("Invalid event: "+_event$,"Internal Error - "+PGM(-3),"!")  
+>   GOTO LNO("EVENT_"+_event$,ERR=*NEXT)  
+>   %webster'msgbox("Invalid event: "+_event$,"Internal Error - "+PGM(-3),"!")  
 >  !  
->  EXIT  
+>   EXIT  
 >  !  
 >  EVENT_MULTI_LINE_1_CHANGED:  
 >  ! Perform ";change_input_1"  
->  EXIT  
+>   EXIT  
 >  !  
 >  EVENT_MULTI_LINE_2_CHANGED:  
 >  ! Perform ";change_input_2"  
->  EXIT  
+>   EXIT  
 >  !  
 >  EVENT_RADIO_BUTTON_1_PRESSED:  
 >  ! Perform ";change_radio_button"  
->  EXIT  
+>   EXIT  
 >  !  
 >  EVENT_CHECK_BOX_1_PRESSED:  
 >  ! Perform ";change_check_box"  
->  EXIT
+>   EXIT
 
 ## See Also
 
@@ -235,3 +235,9 @@ The developer would need to edit the HTML files as follows:
 **[Webster+ Object Methods](../../../Webster/Webster%20Object%20Methods.md)**  
 **[Webster+ Object Properties](../../../Webster/Webster%20Object%20Properties.md)**  
 **[Webster+ Defined Classes](../../../Webster/Webster%20Defined%20Classes.md)**
+
+ 
+
+ 
+
+ 

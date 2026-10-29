@@ -1,14 +1,16 @@
-# Installation Instructions
+# Activation and Registration
 
-**Command Line Activation Parameters** |  **__**  
+**Command Line Activation Parameters** |  **_ _**  
 ---|---  
   
-The PxPlus activation for Windows and UNIX/Linux can be set up to run directly from the command line. The activation utility supports various parameters that can be used in place of the interface/prompts.
+The PxPlus activation for Windows and UNIX/Linux can be set up to run directly from the Command line. The activation utility supports various parameters that can be used in place of the interface/prompts.
 
 #### **Important Note:_  
-_** When performing an activation from the command line, ensure that _all_ key-related parameters are supplied together and contain valid information. These specific parameters are listed with an *****_asterisk_ below. Arguments that include spaces must be enclosed in quotes; e.g. -n "ABC Industries Ltd."
+_** When performing an activation from the Command line, ensure that _all_ key-related parameters are supplied together and contain valid information. These specific parameters are listed with an *****_(asterisk)_ below.  
+  
+Arguments that include spaces must be enclosed in quotes; e.g. -n "ABC Industries Ltd."
 
-**Windows** command prompt _pxpwactv.exe_ parameters:
+**Windows** command prompt **_pxpwactv.exe_** parameters:
 
 **Parameter** |  **Description**  
 ---|---  
@@ -22,7 +24,7 @@ _** When performing an activation from the command line, ensure that _all_ key-r
 **-l**  _xxxx_ |  _xxxx_ is the LIB directory  
 **-n**  _name_ |  * _name_ is the registered name for the user  
   
-**UNIX/Linux** prompt  _pxpreg_ parameters:
+**UNIX/Linux** prompt **_pxpreg_** parameters:
 
 **Parameter** |  **Description**  
 ---|---  
@@ -38,4 +40,12 @@ _** When performing an activation from the command line, ensure that _all_ key-r
 **-?** |**-h** |  View list of options  
   
 #### **Note:**  
-Activations are verified by PxPlus at start up, not by the activation utility. Therefore, if an activation is recorded incorrectly, the session will fail and return the error message: NO VALID ACTIVATION FOUND!! See **[Troubleshooting](../Troubleshooting/Activation%20Messages.md)**.
+Activations are verified by PxPlus at start up, not by the activation utility.  
+  
+If an activation is recorded incorrectly, the session will fail and return the error message: NO VALID ACTIVATION FOUND!! See **[Activation Messages](../Troubleshooting/Activation%20Messages.md)**.
+
+ 
+
+ 
+
+ 

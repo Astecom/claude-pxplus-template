@@ -7,7 +7,7 @@
 
 **WAIT** _seconds_  
   
-** _Where_ _:_**
+** _Where_ _:_**  
 
 _seconds_ |  Value determines the number of seconds to wait. Numeric expression. Maximum 86400 seconds.
 
@@ -15,8 +15,7 @@ _seconds_ |  Value determines the number of seconds to wait. Numeric expression.
 **_Prior to PxPlus 2016_ ,** the maximum number was 9999 seconds.  
 _  
 **As of PxPlus 2016**_**,** the maximum number was increased to 86400 seconds (equivalent of 24 hours).  
-- Wait has a minimum of 1 second, its not more precise than that  
-
+  
 ---|---  
   
 ##  Description
@@ -38,3 +37,9 @@ The accuracy of the timing varies from operating system to operating system. On 
 **_Example:_**  
   
 print 'image'("Bar"),'fill'(1,4),'pen'(1,1,4),'image'(""), wait 0
+
+ 
+
+ 
+
+ 

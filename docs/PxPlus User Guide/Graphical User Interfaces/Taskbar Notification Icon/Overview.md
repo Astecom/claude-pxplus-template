@@ -1,19 +1,19 @@
 # Graphical User Interfaces
 
-**Taskbar Notification Icon** |  **__**  
+**Taskbar Notification Icon** |  **_ _**  
 ---|---  
   
-In PxPlus for Windows, the **[BUTTON](../../../directives/button.md)**, **[CHECK_BOX](../../../directives/check_box.md)** and **[TRISTATE_BOX](../../../directives/tristate_box.md)** directives (with **OPT="Y"** setting) can be used to place an icon in the _Taskbar Notification Area_(also known as the _System Tray_) in the bottom right corner of the MS Windows desktop.
+In PxPlus for Windows, the **[BUTTON](../../../directives/button.md)**, **[CHECK_BOX](../../../directives/check_box.md)** and **[TRISTATE_BOX](../../../directives/tristate_box.md)** directives (with **OPT= "Y"** setting) can be used to place an icon in the _Taskbar Notification Area_(also known as the _System Tray_) in the bottom right corner of the MS Windows desktop.
 
-Different aspects of this type of control may be defined, including the icon used, floating tip, balloon information and right mouse menu. Depending on the number of _states_ required, **BUTTON** is used to define one icon, **CHECK_BOX** toggles between two different icons, and **TRISTATE_BOX** cycles between three icons. The ability to cycle between states is controlled using the **'Value** property.
+Different aspects of this type of control may be defined, including the icon used, floating tip, balloon information and right mouse menu. Depending on the number of _states_ required, **BUTTON**  is used to define one icon, **CHECK_BOX** toggles between two different icons, and **TRISTATE_BOX** cycles between three icons. The ability to cycle between states is controlled using the **'Value** property.
 
 ## Creation Format
 
 Apart from the fact that each directive defines a specific number of images (states), the creation format for a taskbar notification icon is basically the same, regardless of which directive is used:
 
-> **BUTTON** [*****] _ctl_id_ , **@(**_col,ln,wth,ht_**)=**_contents$_[,_ctrlopt_], **OPT="Y"**
+> **BUTTON**  [*****] _ctl_id_ , **@(**_col,ln,wth,ht_**)=**_contents$_[,_ctrlopt_], **OPT= "Y"**
 
-In the above syntax example, **OPT="Y"** identifies this control as an icon to be placed in the _Taskbar Notification Area._ The _contents_ $ argument defines the icon image inside **{ }**  _braces,_ followed by text information to be used as the title for a balloon message. See **[Balloon Text](Overview.htm#balloontext)**.
+In the above syntax example, **OPT= "Y"** identifies this control as an icon to be placed in the _Taskbar Notification Area._ The _contents_ $ argument defines the icon image inside **{ }**  _braces,_ followed by text information to be used as the title for a balloon message. See **[Balloon Text](Overview.htm#balloontext)**.
 
 **_Example:_**
 
@@ -44,11 +44,11 @@ Balloons may be specified via the control option **MSG=** during creation or may
 
 The format of the **MSG=** or **'Msg$** string is:
 
-> **"**{_icon_} _text_**;QUIET;REALTIME"**
+> **"**{_icon_} _text_**;QUIET;REALTIME "**
 
 **_Where:_**
 
-_{icon}_ |  Balloon icon. Optional. Must appear before _text_ when used. If no braces are present, then no icon appears in the balloon. If **{ }** (_braces_ with no contents) are given, then the icon currently in use by the PxPlus session will be used. Any other icon specification follows PxPlus' icon specification conventions. {**!ERROR**}, {**!INFO**} or {**!WARNING**} define built-in icons that use the Windows standard icons and potentially any sound associated.  
+_{icon}_ |  Balloon icon. Optional. Must appear before _text_ when used. If no braces are present, then no icon appears in the balloon. If **{ }**  (_braces_ with no contents) are given, then the icon currently in use by the PxPlus session will be used. Any other icon specification follows PxPlus' icon specification conventions. {**!ERROR**}, {**!INFO**} or {**!WARNING**} define built-in icons that use the Windows standard icons and potentially any sound associated.  
 ---|---  
 _text_ |  Balloon text. This may contain CRLF ($0D0A$) to specify line breaks. The maximum length is 255 characters.  
 **;QUIET** |  Turns off sound associated with the balloon tip (if any). Optional. Must appear after _text_ when used.  
@@ -89,23 +89,23 @@ CTL values will be generated when the user clicks with the mouse or uses the key
 
 The events include the following:
 
-> **LEFT MOUSE CLICK**  _or_ **SPACEBAR** generates _ctl_id_ of control, EOM= $01$.
+>  **LEFT MOUSE CLICK**  _or_  **SPACEBAR** generates _ctl_id_ of control, EOM= $01$.
 
-> **LEFT DOUBLE MOUSE CLICK**  _or_ **Enter** generates _ctl_id_ of control, EOM= $02$.
+>  **LEFT DOUBLE MOUSE CLICK**  _or_  **Enter** generates _ctl_id_ of control, EOM= $02$.
 
 If the **MNU=**_ctl_ option is specified on creation or the **'MenuCtl** property is set:
 
-> **RIGHT MOUSE CLICK**  _or_ **RIGHT DOUBLE MOUSE CLICK** generates value of **MNU=**_ctl_ , **'MenuCtl** property, or EOM= $11$.
+>  **RIGHT MOUSE CLICK**  _or_  **RIGHT DOUBLE MOUSE CLICK** generates value of **MNU=**_ctl_ , **'MenuCtl** property, or EOM= $11$.
 
 If the **MNU=**_ctl_ option is _not_ specified or the **'MenuCtl** property is _not_ set:
 
-> **RIGHT MOUSE CLICK** generates _ctl_id_ of control, EOM= $11$.
+>  **RIGHT MOUSE CLICK** generates _ctl_id_ of control, EOM= $11$.
 
-> **RIGHT DOUBLE MOUSE CLICK** generates _ctl_id_ of control, EOM= $12$.
+>  **RIGHT DOUBLE MOUSE CLICK** generates _ctl_id_ of control, EOM= $12$.
 
 If **'OnFocusCTL** property is set:
 
-> Any click on the balloon generates value of **'OnFocusCTL** property, EOM= $FF$. No event will be fired when clicking on the balloon if **'OnFocusCTL** is not set.
+>  Any click on the balloon generates value of **'OnFocusCTL** property, EOM= $FF$. No event will be fired when clicking on the balloon if **'OnFocusCTL** is not set.
 
 #### **Note:**  
 When the user clicks on the notification icon or balloon, focus is _not_ automatically returned to the PxPlus application window. Focus remains in the taskbar notification area, as the user may hit Escape to cancel a menu selection.
@@ -120,4 +120,8 @@ To display the balloon:
 
 > BUTTON ON *10
 
-> 
+>  
+
+ 
+
+ 

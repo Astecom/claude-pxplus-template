@@ -1,24 +1,24 @@
 # Control Objects
 
-**Grid Control** |  **__**  
+**Grid Control** |  **_ _**  
 ---|---  
   
-**GRID** _ctl_id_ , **@(**_col,ln,wth,ht_**)** [, _ctrlopt_ ]   
+**GRID** _  ctl_id_, **@(**_col,ln,wth,ht_**)** [, _ctrlopt_ ]   
 **GRID** { **REMOVE** | **DISABLE** | **ENABLE** | **LOCK** | **UNLOCK** } _ctl_id_  
 **GRID** { **GOTO** | **HIDE** | **SHOW** | **AUTO** } _ctl_id_  
-**GRID SET_FOCUS** _ctl_id, ctl_val_  
-**GRID ADD** _ctl_id_ , _col_ , _row_  
-**GRID LOAD** _ctl_id, col,row, contents$_  
-**GRID DELETE** _ctl_id, col,row_  
-**GRID CLEAR** _ctl_id, col,row_ [, _width,height_ ]   
-**GRID READ** _ctl_id_ , _col_ , _row_ , _var_ _$_ , _eom_ _$_  
-**GRID READ NEXT** _ctl_id_ , _col_ , _row_ , _var_ _$_ , _eom_ _$  
-_**GRID SELECT** _ctl_id_ , _col,row_ [, _width,height_ ]   
-**GRID SELECT READ** _ctl_id_ , _col,row_  
-**GRID SELECT READ NEXT** _ctl_id_ , _col,row_  
-**GRID SELECT RESET** _ctl_id_  
-**GRID FIND** _ctl_id_ , _col_ , _row_ , _var_ _$_  
-**GRID WRITE** _ctl_id, col, row, contents$_
+**GRID SET_FOCUS** _  ctl_id, ctl_val_  
+**GRID ADD** _  ctl_id_, _col_ , _row_  
+**GRID LOAD** _  ctl_id, col,row, contents$_  
+**GRID DELETE** _  ctl_id, col,row_  
+**GRID CLEAR** _  ctl_id, col,row_ [, _width,height_ ]   
+**GRID READ** _  ctl_id_, _col_ , _row_ , _var_ _$_ , _eom_ _$_  
+**GRID READ NEXT** _  ctl_id_, _col_ , _row_ , _var_ _$_ , _eom_ _$  
+_**GRID SELECT** _  ctl_id_, _col,row_ [, _width,height_ ]   
+**GRID SELECT READ** _  ctl_id_, _col,row_  
+**GRID SELECT READ NEXT** _  ctl_id_, _col,row_  
+**GRID SELECT RESET** _  ctl_id_  
+**GRID FIND** _  ctl_id_, _col_ , _row_ , _var_ _$_  
+**GRID WRITE** _  ctl_id, col, row, contents$_
 
 PxPlus includes the ability to create a highly flexible and complex grid control. Grids provide a spreadsheet-style format - basically a two-dimensional array of editable cells in columns and rows that may comprise multi-line (default), check box, button, drop box, or any combination of formats (each cell can be a different type). For syntax details, see **[GRID](../../../directives/grid.md)** directive.
 
@@ -57,7 +57,7 @@ When creating a grid,**FMT=** settings allow you to format columns by defining c
 
 The column title is displayed in the column header line. Cell types include various types of input boxes, buttons, check boxes and drop boxes.
 
-See **[Cell Types](Grid.htm#cell_types)** below for a list of cell types that can be assigned to a grid. The default cell type is "Normal", which is a text cell containing one line of data. The column name assigns a variable name (string or numeric) to the column. The alignment character may be**L** (_left_),**C** (_centred_),**R** (_right_). Default is **L**.
+See **[Cell Types](Grid.htm#cell_types)** below for a list of cell types that can be assigned to a grid. The default cell type is "Normal", which is a text cell containing one line of data. The column name assigns a variable name (string or numeric) to the column. The alignment character may be**L**  (_left_),**C** (_centred_),**R** (_right_). Default is **L**.
 
 It is also possible to format the grid after creation using **[Dynamic Control Properties](../Introduction.htm#dynamic)**. This method allows you to format the grid by rows, columns, individual cells, or all cells. Use the grid **'Row** and **'Column($)** properties to designate affected rows/columns/cells, then set the desired formatting properties.
 
@@ -68,13 +68,13 @@ For some**GRID** syntax (e.g.**GOTO** ,**FIND** keywords), both column and row c
 > GRID GOTO GRID_ID,2,1 ! Puts focus on column 2 row 1   
 >  GRID FIND GRID_ID,3,4,val$ ! Retrieves value of column 3 row 4
 
-Other syntax allows you specify a particular row or column (or the entire grid), as well as a particular cell. To specify an entire row, set the column to 0  _zero_. To specify an entire column, set the row to 0  _(zero)_. To specify the entire grid, set both to 0:
+Other syntax allows you specify a particular row or column (or the entire grid), as well as a particular cell. To specify an entire row, set the column to 0 _zero_. To specify an entire column, set the row to 0 _(zero)_. To specify the entire grid, set both to 0:
 
 > GRID LOAD GRID_ID,0,0,"" ! Clears the entire grid   
 > GRID DELETE 100,0,2 ! Deletes row 2   
 >  GRID DELETE 100,3,0 ! Deletes column 3
 
-When setting properties for rows, columns, or individual cells within the grid, **['Row](../../../properties/row.md)** and **['Column](../../../properties/column.md)** (or **['Column$](../../../properties/column_.md)**) properties must be specified to identify the cell(s) involved. The special 0  _(zero)_ values can be used to specify rows, columns or the entire grid:
+When setting properties for rows, columns, or individual cells within the grid, **['Row](../../../properties/row.md)** and **['Column](../../../properties/column.md)** (or **['Column$](../../../properties/column_.md)**) properties must be specified to identify the cell(s) involved. The special 0 _(zero)_ values can be used to specify rows, columns or the entire grid:
 
 > GRID_ID'Row=n,GRID_ID'Column=0,GRID_ID'Lock=1 ! Locks all cells in row n
 
@@ -141,7 +141,7 @@ The following cell types can be assigned using the **[FMT=](../../../directives/
 "CheckMarkRecessed" |  Recessed check box that uses a check mark.  
 "DropBox" |  A text cell that, when editing, allows the user to make a selection from a drop-down list. The drop list is loaded from the **['Text$](../../../properties/text_.md)** property. Drop boxes provide a multiple character search capability that makes it easier to search for an exact match in a drop box list. See **[Multiple Character Search](Grid.htm#search)** below. _(Multiple character search in drop boxes was added in PxPlus 2019.)_  
 "DropBoxHideBtn" |  Same as "DropBox", but the drop-down button is shown only when focus is on the cell. Drop boxes provide a multiple character search capability that makes it easier to search for an exact match in a drop box list. See **[Multiple Character Search](Grid.htm#search)** below. _(Multiple character search in drop boxes was added in PxPlus 2019.)_  
-"Ellipsis" |  Normal text cell that will show three dots () if text exceeds displayable area. **Ctrl - Enter** can be used to force a new line in the cell (inserts $0D0A$ into cell value).  
+"Ellipsis" |  Normal text cell that will show three dots ( ) if text exceeds displayable area. **Ctrl - Enter** can be used to force a new line in the cell (inserts $0D0A$ into cell value).  
 "EllipsisDrop" |  Same as "Ellipsis", but forces the cell to drop vertically only during an edit. **Ctrl - Enter** can be used to force a new line in the cell (inserts $0D0A$ into cell value).  
 "FlatButton" |  A flat button that shows no visible change when clicked. _(Added in PxPlus 2014 Feature Pack 1 - Update 0001)_  
 "FlatButtonInOnly" |  A button that looks flat only when not depressed. _(Added in PxPlus 2014 Feature Pack 1 - Update 0001)_  
@@ -204,13 +204,13 @@ The following example creates a grid with "Normal", "Button", "DropBox", "Lookup
 >  X'ROW=8;   
 >  FOR I=1 TO 10;   
 >  X'COLUMN=I;   
->  X'BACKCOLOUR$="RGB:"+STR(RND(200)+55)+" "+STR(RND(200)+55)+" "+ \   
+>  X'BACKCOLOUR$="RGB:"+STR(RND(200)+55)+" "+STR(RND(200)+55)+" "\+ \   
 >  STR(RND(200)+55);   
 >  NEXT   
 >  X'ROW=9;   
 >  FOR I=1 TO 10;   
 >  X'COLUMN=I;   
->  X'TEXTCOLOUR$="RGB:"+STR(RND(200)+55)+" "+STR(RND(200)+55)+" "+ \   
+>  X'TEXTCOLOUR$="RGB:"+STR(RND(200)+55)+" "+STR(RND(200)+55)+" "\+ \   
 >  STR(RND(200)+55);   
 >  NEXT   
 >  FOR I=1 TO 10;   
@@ -240,7 +240,7 @@ Drop boxes provide a multiple character search capability that makes it easier t
 #### **Note:**  
 Multiple character search applies to the following drop box **[Cell Types](Grid.htm#cell_types)**: "DropBox", "DropBoxHideBtn", "VarDropBox" and "VarDropBoxHideBtn".
 
-To use this capability effectively, the characters **_must_** be entered within a second of one another and **_must_** exactly match the start of an item in the drop box.
+To use this capability effectively, the characters **_must_** be entered within a ½ second of one another and **_must_** exactly match the start of an item in the drop box.
 
 **_Example:_**
 
@@ -250,7 +250,7 @@ Assume that a drop box contains the following items:
 >  C30000  
 >  C50000
 
-Typing the character "c" followed within second by the number "3" would select the "C30000" item.
+Typing the character "c" followed within ½ second by the number "3" would select the "C30000" item.
 
 #### **Note:**  
 In drop boxes, searching always starts from the current selection and wraps.
@@ -278,7 +278,7 @@ Dynamic properties can also be used to set column names. This is done by setting
 >  X'COLUMN=3,X'VALUE$="Price",X'TEXT$="PRICE",X'COLUMNWIDTH=12   
 >  X'COLUMN=4,X'VALUE$="Qty",X'TEXT$="QTY",X'COLUMNWIDTH=10
 
-Columns can be referenced either by column number using the **['Column](../../../properties/column.md)** property or by column name using the **['Column$](../../../properties/column_.md)** property. If you set **'Column$** with the name of a variable, then internally, the column number is used as a pointer. If you read the property**'Column** , then the column number is returned.**'Column$** returns the name of the column. Column swapping has no impact on an application that uses logical column names to identify a column.
+Columns can be referenced either by column number using the **['Column](../../../properties/column.md)** property or by column name using the **['Column$](../../../properties/column_.md)** property. If you set **'Column$** with the name of a variable, then internally, the column number is used as a pointer. If you read the property**  'Column**, then the column number is returned.**'Column$** returns the name of the column. Column swapping has no impact on an application that uses logical column names to identify a column.
 
 **_Example:_**
 
@@ -290,7 +290,7 @@ Once created, the grid can be updated using **[GRID LOAD](../../../directives/gr
 
 All column and row specifications are base 1; therefore, the topmost cell is 1,1. By default, there are also column and row headers that can be accessed by column and/or row -1. These headers may not be included in any range specifications.
 
-If you write to a grid when the column number is 0  _zero_ , then all columns will be affected by the change. If the row number is 0, then all rows will be affected by the change. If both are 0, then all cells will be affected.
+If you write to a grid when the column number is 0 _zero_ , then all columns will be affected by the change. If the row number is 0, then all rows will be affected by the change. If both are 0, then all cells will be affected.
 
 Data may be loaded into a grid in three ways, using the**GRID LOAD** directive, dynamic properties, and named columns. For information and examples on the different ways to speed up grid interactions, see **[How to Speed Up Grid Loading and Processing](../../../How%20To/How%20to%20Speed%20Up%20Grid.md)**.
 
@@ -387,8 +387,8 @@ When the contents of a cell in a grid are modified, a CTL value is generated for
 
 To assure that no change ever gets lost, all changes are placed in a**READ** queue. Whenever a**GRID READ** request is executed, if there is additional input in the queue, another CTL event is initiated. This ensures that, should any CTL events be lost, the changed data will be preserved. However, it does pose a problem due to potential race conditions when the host is unable to keep up with the user input. Superfluous CTL events may be received. To avoid this problem, the**GRID READ** directive receives an Error #2 End of file if no data is in the**READ** queue.
 
-#### **Warning!_  
-_** Under NOMADS, the **READ** is handled automatically and should **_not_** be attempted by your application.
+#### **Warning!_   
+_** Under NOMADS, the **READ**  is handled automatically and should **_not_** be attempted by your application.
 
 ## Retrieving Data
 
@@ -410,16 +410,16 @@ To retrieve the contents of the cell that currently has focus, use the **['Curre
 
 The grid allows multiple cells to be selected across multiple columns and rows. To return the contents of each selected cell, the **['SelectCount](../../../properties/selectcount.md)**, **['SelectIndex](../../../properties/selectindex.md)**, **['SelectRow](../../../properties/selectrow.md)**, **['SelectColumn](../../../properties/selectcolumn.md)**, **['SelectValue$](../../../properties/selectvalue_.md)** and **['SelectText$](../../../properties/selecttext_.md)** properties can be used:
 
-|  **['SelectCount](../../../properties/selectcount.md)** |  Number of items/cells selected. Set to zero to deselect all.  
+  |  **['SelectCount](../../../properties/selectcount.md)** |  Number of items/cells selected. Set to zero to deselect all.  
 ---|---|---  
-|  **['SelectIndex](../../../properties/selectindex.md)** |  Index the selected cell. Set to point to a selected cell; e.g., set to 1 to point at the first cell selected, 2 to point at the second cell selected, etc.  
+  |  **['SelectIndex](../../../properties/selectindex.md)** |  Index the selected cell. Set to point to a selected cell; e.g., set to 1 to point at the first cell selected, 2 to point at the second cell selected, etc.  
   
 The following properties are used to access selected cells based on the location defined by **'SelectIndex** :
 
-|  **['SelectRow](../../../properties/selectrow.md)** |  Row number of selected cell  
+  |  **['SelectRow](../../../properties/selectrow.md)** |  Row number of selected cell  
 ---|---|---  
-|  **['SelectColumn](../../../properties/selectcolumn.md)** |  Column number of selected cell  
-|  **['SelectValue$](../../../properties/selectvalue_.md)** |  Value within selected field  
+  |  **['SelectColumn](../../../properties/selectcolumn.md)** |  Column number of selected cell  
+  |  **['SelectValue$](../../../properties/selectvalue_.md)** |  Value within selected field  
   
 **_Example:_**
 
@@ -454,7 +454,7 @@ The following properties are used to access selected cells based on the location
 > SLval$=gr'SelectValue$   
 > SLcol=gr'SelectColumn   
 > SLrow=gr'SelectRow   
->  MSGBOX "Cell Value: "+PAD(SLval$,50)+SEP+"Column:"+STR(SLcol)+SEP+"Row: "+ \   
+>  MSGBOX "Cell Value: "+PAD(SLval$,50)+SEP+"Column:"+STR(SLcol)+SEP+"Row: "\+ \   
 >  STR(SLrow),"Selection Item "+STR(T)+" of "+STR(TotalSelected)   
 >  NEXT T   
 >  END
@@ -476,10 +476,10 @@ Reading more than one property at a time is not typically a problem. However, wh
 
 To reduce the amount of network traffic, three special "common" properties can be used to retrieve and set the values from multiple properties at the same time:
 
-**** |  **['_PropList$](../../../properties/_proplist_.md)** |  Comma-separated list of property names to read/write  
+** ** |  **['_PropList$](../../../properties/_proplist_.md)** |  Comma-separated list of property names to read/write  
 ---|---|---  
-**** |  **['_PropSep$](../../../properties/_propsep_.md)** |  Character used as a field separator between values  
-**** |  **['_PropValues$](../../../properties/_propvalue_.md)** |  String that contains values for each of the properties in **_PropList$**  
+** ** |  **['_PropSep$](../../../properties/_propsep_.md)** |  Character used as a field separator between values  
+** ** |  **['_PropValues$](../../../properties/_propvalue_.md)** |  String that contains values for each of the properties in **_PropList$**  
   
 #### **Note:**  
 These are considered to be "common to all" and do not appear in the list of properties when querying a particular object (via**'***_tick asterisk_).
@@ -514,11 +514,11 @@ This would actually result in three exchanges with WindX: one to get '**_PropSep
 
 The grid interface supports drag and drop functionality. Grids have four properties that are used to support drag and drop:
 
-**** |  **['DraggedColumn](../../../properties/draggedcolumn.md)** |  Column where the drag started from  
+** ** |  **['DraggedColumn](../../../properties/draggedcolumn.md)** |  Column where the drag started from  
 ---|---|---  
-**** |  **['DraggedRow](../../../properties/draggedrow.md)** |  Row where the drag started from  
-**** |  **['DroppedOnColumn](../../../properties/droppedoncolumn.md)** |  Column dropped on  
-**** |  **['DroppedOnRow](../../../properties/droppedonrow.md)** |  Row dropped on  
+** ** |  **['DraggedRow](../../../properties/draggedrow.md)** |  Row where the drag started from  
+** ** |  **['DroppedOnColumn](../../../properties/droppedoncolumn.md)** |  Column dropped on  
+** ** |  **['DroppedOnRow](../../../properties/droppedonrow.md)** |  Row dropped on  
   
 When dragging off a grid, the starting point must be a column or row header. If a column header is used and column swapping is enabled using the **['SwapEnabled](../../../properties/swapenabled.md)** property, then the drop target must be a control other than the grid itself. This is because dragging a column header within the grid is the method used to swap columns.
 
@@ -534,3 +534,9 @@ When dragging off a grid, the starting point must be a column or row header. If 
 >  1670 GRID ADD G2,0,R; LET G2'ROW=R   
 >  1680 LET G2'ROWDATA$=REC(G2'LOADIOLIST$)   
 >  1690 RETURN 
+
+ 
+
+ 
+
+ 

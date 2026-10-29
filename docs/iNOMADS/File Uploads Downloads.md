@@ -23,8 +23,8 @@ _asciiflg_ __|  If specified, a non-zero _asciiflg_ indicates that the file cont
 #### **Note:**  
 Browser security rules mandate that:  
   
-The user cannot be forced to comply.  
-The file name cannot be provided from the server.
+    The user cannot be forced to comply.  
+    The file name cannot be provided from the server.
 
 ## Examples
 
@@ -39,3 +39,9 @@ The file name cannot be provided from the server.
 **_Example 3_ \- Upload a picture of a receipt**:
 
 > %inomads'upload_file("receipt.png",receiptDirPath$+DLM+STR(receiptNum)+".png")
+
+ 
+
+ 
+
+ 

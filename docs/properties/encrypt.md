@@ -9,7 +9,7 @@ Apply encryption on input
 
 The 'Encrypt$ property for multi-lines can be set on fields that are to be kept confidential by the user (such as a password) and that the system only needs to verify that the user has entered the same value as opposed to knowing what the user entered. When the 'Encrypt$ property is set, the control will return the SHA1 hash key of the value set in 'Encrypt$ followed by the value in the field. This is an industry standard hashing algorithm that is generally acceptable for security purposes.
 
-**Example:** If the input field contains the value "MyPassword", then setting the 'Encrypt$ property to "Hide the Password:" -- when you read the field, it will return the value of HSH ("Hide the Password:MyPassword",-1) which is its SHA1 value. This is a one-way encrypt into a 40 byte (20 Hex characters or 160 bit) value (visit **<https://en.wikipedia.org/wiki/SHA-1>**).
+**Example:** If the input field contains the value "MyPassword", then setting the 'Encrypt$ property to "Hide the Password:" \-- when you read the field, it will return the value of HSH ("Hide the Password:MyPassword",-1) which is its SHA1 value. This is a one-way encrypt into a 40 byte (20 Hex characters or 160 bit) value (visit **<https://en.wikipedia.org/wiki/SHA-1>**).
 
 #### **Note:**  
 When the Encrypt$ property is set, you cannot load a value into the multi-line, you can only clear it. Any attempt to set a value in the multi-line is ignored (since a write back would be trying to write back the SHA1 value).
@@ -29,3 +29,9 @@ _(The Encrypt$ property was added in PxPlus v11.50.)_
 ## Used By
 
 **MULTI_LINE**
+
+ 
+
+ 
+
+ 

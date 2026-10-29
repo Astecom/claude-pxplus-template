@@ -32,7 +32,7 @@ Use the **DEFCTL WINDOW** format to maintain the definition for the current wind
 
 **DEFCTL** [**WINDOW**] _eom_ _$_ ={_ctl_ -_val_ | *****} 
 
-Use **DEFCTL** to define an additional CTL value to be returned for a given **EOM** (End-of-Message) value or to delete one. The **EOM** string is the sequence of characters received from the terminal to end the current input. The first character of the string must be a non**-** printable character between $00$ and $1F$, or $7F$:
+Use **DEFCTL** to define an additional CTL value to be returned for a given **EOM**  (End-of-Message) value or to delete one. The **EOM** string is the sequence of characters received from the terminal to end the current input. The first character of the string must be a non**-** printable character between $00$ and $1F$, or $7F$:
 
 > 0010 defctl $09$=6 ! Set TAB key to return CTL=6  
 >  0020 defctl $1B38$=7 ! Set HOME <esc>H to CTL=7  
@@ -86,7 +86,7 @@ PxPlus will call $CTL-500 whenever anyone hits the hot key **Ctrl-A** throughout
 
 ##  During Conversions
 
-When you convert BBx-style programs to PxPlus, it is sometimes necessary to have function and edit keys return single-character values.
+When you convert BBx®-style programs to PxPlus, it is sometimes necessary to have function and edit keys return single-character values.
 
 To do this, set both the ['**EL** '](../mnemonics/el.md) and ['**FL** '](../mnemonics/fl.md) mnemonics and then use **DEFCTL** to redefine the mapped values and allow standard PxPlus functions to continue to operate.
 
@@ -94,28 +94,36 @@ To do this, set both the ['**EL** '](../mnemonics/el.md) and ['**FL** '](../mnem
 
 This example redefines function keys **F5** through **F8** to return a single Hex character ($F5$ through $F8$ respectively). It also maps some of the input edit keys to single character codes.
 
-> defctl $000074$=5 ! Reset F5 TO CTL=5  
+>      defctl $000074$=5 ! Reset F5 TO CTL=5  
 >  ! ^ 100 - Map F5-F8 to return $F5$ through $F8$  
->  print 'FL',"2"+chr(4)+chr(1)+$F5$, ! F5 = $F5$  
->  print 'FL',"2"+chr(5)+chr(1)+$F6$, ! F6 = $F6$  
->  print 'FL',"2"+chr(6)+chr(1)+$F7$, ! F7 = $F7$  
->  print 'FL',"2"+chr(7)+chr(1)+$F8$, ! F8 = $F8$  
->  defctl $F5$=5  
->  defctl $F6$=6  
->  defctl $F7$=7  
->  defctl $F8$=8  
+>      print 'FL',"2"+chr(4)+chr(1)+$F5$, ! F5 = $F5$  
+>      print 'FL',"2"+chr(5)+chr(1)+$F6$, ! F6 = $F6$  
+>      print 'FL',"2"+chr(6)+chr(1)+$F7$, ! F7 = $F7$  
+>      print 'FL',"2"+chr(7)+chr(1)+$F8$, ! F8 = $F8$  
+>      defctl $F5$=5  
+>      defctl $F6$=6  
+>      defctl $F7$=7  
+>      defctl $F8$=8  
 >  ! ^ 100 - Change Edit keys to single character  
->  print 'EL',"2"+chr(4)+chr(1)+$01$, ! Home = $01$  
->  print 'EL',"2"+chr(5)+chr(1)+$1A$, ! End = $1A$  
->  print 'EL',"2"+chr(6)+chr(1)+$15$, ! PGUP = $15$  
->  print 'EL',"2"+chr(7)+chr(1)+$06$, ! PGDN = $06$  
->  print 'EL',"2"+chr(8)+chr(1)+$14$, ! Insert = $14$  
->  print 'EL',"2"+chr(9)+chr(1)+$18$, ! Delete = $18$  
->  defctl $01$=-1010 ! Home  
->  defctl $1A$=-1018 ! End  
->  defctl $15$=-1014 ! PGUP  
->  defctl $06$=-1013 ! PGDN  
->  defctl $14$=-1009 ! Insert  
->  defctl $18$=-1007 ! Delete
+>      print 'EL',"2"+chr(4)+chr(1)+$01$, ! Home = $01$  
+>      print 'EL',"2"+chr(5)+chr(1)+$1A$, ! End = $1A$  
+>      print 'EL',"2"+chr(6)+chr(1)+$15$, ! PGUP = $15$  
+>      print 'EL',"2"+chr(7)+chr(1)+$06$, ! PGDN = $06$  
+>      print 'EL',"2"+chr(8)+chr(1)+$14$, ! Insert = $14$  
+>      print 'EL',"2"+chr(9)+chr(1)+$18$, ! Delete = $18$  
+>      defctl $01$=-1010 ! Home  
+>      defctl $1A$=-1018 ! End  
+>      defctl $15$=-1014 ! PGUP  
+>      defctl $06$=-1013 ! PGDN  
+>      defctl $14$=-1009 ! Insert  
+>      defctl $18$=-1007 ! Delete
 
-BBx is a registered trademark of BASIS International Ltd.
+ 
+
+ 
+
+ 
+
+BBx® is a registered trademark of BASIS International Ltd.
+
+ 

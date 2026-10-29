@@ -1,13 +1,13 @@
-# Google Workspace Objects
+# Google Workspace® Objects
 
 **Frequently Asked Questions**|   
 ---|---  
   
-This page provides answers to some commonly asked questions about setting up and using the Google Workspace Drive, Docs and Sheets objects.
+This page provides answers to some commonly asked questions about setting up and using the Google Workspace® Drive, Docs and Sheets objects.
 
-**[Do I need to get a separate Client ID and Client Secret for each Google Workspace object?](Google%20Objects_faq.htm#Mark1)**
+**[Do I need to get a separate Client ID and Client Secret for each Google Workspace® object?](Google%20Objects_faq.htm#Mark1)**
 
-**[Do I have to set up all three APIs/scopes if I want to use only one of the Google Workspace objects?](Google%20Objects_faq.htm#Mark2)**
+**[Do I have to set up all three APIs/scopes if I want to use only one of the Google Workspace® objects?](Google%20Objects_faq.htm#Mark2)**
 
 **[How do I save a Docs document or a Sheets spreadsheet?](Google%20Objects_faq.htm#Mark3)**
 
@@ -15,11 +15,11 @@ This page provides answers to some commonly asked questions about setting up and
 
 **[Can I have multiple files/folders with the same name?](Google%20Objects_faq.htm#Mark5)**
 
-## Do I need to get a separate Client ID and Client Secret for each Google Workspace object?
+## Do I need to get a separate Client ID and Client Secret for each Google Workspace® object?
 
-No. Once you have obtained a Client ID and Client Secret, the same ones are used for each Google Workspace object.
+No. Once you have obtained a Client ID and Client Secret, the same ones are used for each Google Workspace® object.
 
-## Do I have to set up all three APIs/scopes if I want to use only one of the Google Workspace objects?
+## Do I have to set up all three APIs/scopes if I want to use only one of the Google Workspace® objects?
 
 No; however, Google Drive API/scope is required whether you will be using only the Google Docs or the Google Sheets object. The Google Docs and Google Sheets objects use the Google Drive API/scope to handle the files.
 
@@ -37,4 +37,12 @@ When a document or spreadsheet is opened, the text "Last edit was _xx_ days ago"
 
 Yes. Each file/folder is assigned a unique ID, which allows multiple files/folders to have the same name.
 
-Google Workspace is a registered trademark of Google LLC
+ 
+
+Google Workspace® is a registered trademark of Google LLC
+
+ 
+
+ 
+
+ 

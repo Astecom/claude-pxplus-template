@@ -25,8 +25,14 @@ _(The 'SO' system parameter was added in PxPlus 2018.)_
 
 ## Default
 
-**_Off_** Select optimization for non-join selects is **_Off_**.
+**_Off_**  Select optimization for non-join selects is **_Off_**.
 
 ##  See Also
 
 [**SELECT Select/Query From ... Where**](../directives/select.md)
+
+ 
+
+ 
+
+ 

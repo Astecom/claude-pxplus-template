@@ -1,6 +1,6 @@
 # Special File Handling
 
-***TBRED*** |  **_Direct Access to Thoroughbred_**** _Files_**  
+***TBRED*** |  **_Direct Access to Thoroughbred_** ®** _Files_**  
 ---|---  
   
 ##  Format
@@ -17,7 +17,7 @@ _hostfile_ |  The _hostfile_ text contains the name of the file as it would be s
   
 ##  Description
 
-The TBDIO file IO server provides remote read/write access to Thoroughbred keyed and indexed files. Access to the files is provided through TCP/IP to a PxPlus server running the PLUSTIO.pls program on your host Unix/Linux system. The TBDIO takes the requests and pipes them through to a Thoroughbred application program that itself performs the IO, thereby assuring proper data formatting and file integrity.
+The TBDIO file IO server provides remote read/write access to Thoroughbred® keyed and indexed files. Access to the files is provided through TCP/IP to a PxPlus server running the PLUSTIO.pls program on your host Unix/Linux system. The TBDIO takes the requests and pipes them through to a Thoroughbred® application program that itself performs the IO, thereby assuring proper data formatting and file integrity.
 
 From the application perspective, you have three options to access the TBDIO server, as described below.
 
@@ -39,7 +39,7 @@ The object interface provides basic methods to open, close, read, write, and rem
 
 ## Method 2: Using *TBRED*
 
-You can use the "*TBRED* file declaration to open the file, as in "*tbred*;file=_xxxxx_ " **_where_** _xxxxx_ is the file on the Thoroughbred server:
+You can use the "*TBRED* file declaration to open the file, as in "*tbred*;file=_xxxxx_ " **_where_** _xxxxx_ is the file on the Thoroughbred® server:
 
 > %TBDIO_Server$="name_of_server"  
 >   
@@ -53,7 +53,7 @@ Once this file is opened, your application can issue normal READ, WRITE, REMOVE 
 
 If you do not want to change your OPEN statements, you can create a link file accessible from the PxPlus session, which links to the TBDIO driver to open the remote file.
 
-The system is provided with a standard link file **"_tbred_"** that can be found in the PxPlus _Lib_ directory. Copy this link file to a new file (use the name of the file you wish to open in Thoroughbred). When the system opens this file, it will connect to the TBDIO server, and it will attempt to open a Thoroughbred file of the same name.
+The system is provided with a standard link file **" _tbred_"** that can be found in the PxPlus _Lib_ directory. Copy this link file to a new file (use the name of the file you wish to open in Thoroughbred®). When the system opens this file, it will connect to the TBDIO server, and it will attempt to open a Thoroughbred® file of the same name.
 
 **_Example:_**
 
@@ -76,17 +76,17 @@ The TBDIO interface supports the following directives and functions:
   
 ## Technical Background
 
-The TBDIO server consists of three components: the PxPlus TCPIP server program, the TBDIO IO service program and a default IPLINPUT that is used to access Thoroughbred. The server itself is designed to be run in the background on your UNIX server in the directory where you have the Thoroughbred installed and where you execute the command to launch it (./b).
+The TBDIO server consists of three components: the PxPlus TCPIP server program, the TBDIO IO service program and a default IPLINPUT that is used to access Thoroughbred®. The server itself is designed to be run in the background on your UNIX server in the directory where you have the Thoroughbred® installed and where you execute the command to launch it (./b).
 
 The files provided in the _*plus/tbdio_ directory _( <pxplus dir>/lib/_plus/tbdio)_ are:
 
 > **PLUSTIO.pls** \- PxPlus server program
 
-> **PLUSTIO.tbd** \- Thoroughbred file access module
+> **PLUSTIO.tbd** \- Thoroughbred® file access module
 
 > **PLUSTIO.ipl** \- IPLINPUT for the process
 
-To run the TBDIO server, you must first copy these from the PxPlus library into your Thoroughbred directory. Once the files have been copied, you can run the server.
+To run the TBDIO server, you must first copy these from the PxPlus library into your Thoroughbred® directory. Once the files have been copied, you can run the server.
 
 #### **Note:**  
 You will need to modify the IPLINPUT to access your data directories.
@@ -116,4 +116,10 @@ The *TBRED* interface supports MSORT files and the use of alternate keys. The SO
 
 FIN (nn, "KEY_NAMES") can be used to retrieve the list of SORT names.
 
-Thoroughbred****is a registered trademark of Thoroughbred Software International Inc.
+Thoroughbred**®** is a registered trademark of Thoroughbred Software International Inc.
+
+ 
+
+ 
+
+ 

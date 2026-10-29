@@ -1,6 +1,6 @@
 # NOMADS Graphical Application
 
-**System Maintenance Tools** |  **__**  
+**System Maintenance Tools** |  **_ _**  
 ---|---  
   
 This table lists various options and utilities that are available for the system level configuration, maintenance and operation of NOMADS.
@@ -9,7 +9,7 @@ Other utilities for handling libraries and objects can be accessed via **[Librar
 
 **Option/Utility** |  **Description**  
 ---|---  
-**[Security Manager](Security%20Manager/Overview.md)** |  Optional security system that uses security classifications to identify and control user access and provides the option to set up **[Two-Factor Authentication](Security%20Manager/Overview.htm#tfa)** (TFA) for added security. _(The option to set up Two-Factor Authentication was added in PxPlus 2023.)_  
+**[Security Manager](Security%20Manager/Overview.md)** |  Optional security system that uses security classifications to identify and control user access and provides the option to set up **[Two-Factor Authentication](Security%20Manager/Overview.htm#tfa)** (2FA) for added security. _(The option to set up Two-Factor Authentication was added in PxPlus 2023.)_  
 **[System Defaults](System%20Options/System%20Defaults.md)** |  Used for establishing a set of system defaults to be used as the common starting point for future graphical user interface designs.  
 **[Message Library Maintenance](../Message%20Library%20Maintenance/Overview.md)** |  Used for setting up message libraries that can be accessed by various different graphical user interface applications.  
 **[User Defined Colors](System%20Options/User%20Defined%20Colours.md)** |  Allows access to a 255-color palette to establish customized colors for reuse throughout your applications.  
@@ -23,4 +23,10 @@ Other utilities for handling libraries and objects can be accessed via **[Librar
 **[Change Directory](System%20Options/Change%20Directory.md)** |  Allows you to change your working directory for the current session.  
 **[Application Parameter Configuration](Application%20Parameters.md)** |  Used by developers to define custom parameters specific to their applications and set their values.  
 **[NOMADS Wiki Help](Nomads%20Wiki%20Help.md)** |  The _Wiki_ Help option in NOMADS generates Help documentation directly from a panel and displays it in the **[PxPlus Wiki](../../PxPlus%20Wiki/PxPlus%20Wiki.md)**.  
-**[Nomads.ini File](nomadsini.md)** |  User-specific environment settings related to the appearance of your NOMADS session are recorded automatically by NOMADS in the _nomads.ini_ file.
+**[Nomads.ini File](nomadsini.md)** |  User-specific environment settings related to the appearance of your NOMADS session are recorded automatically by NOMADS in the _nomads.ini_ file.  
+  
+ 
+
+ 
+
+ 

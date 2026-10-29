@@ -10,10 +10,10 @@ Defines the format of information returned by the **FID( )** function. Possible 
 **Format** |  **Returns FID Compatible With**  
 ---|---  
 0 |  PxPlus standard format  
-1 |  Thoroughbred emulation  
+1 |  Thoroughbred® emulation  
 2 |  Rexon emulation  
-3 |  BBx emulation  
-4 |  Enhanced BBx emulation  
+3 |  BBx® emulation  
+4 |  Enhanced BBx® emulation  
   
 Sequential files are reported as binary files for the **FID( )** function. File type will be set to $03$ rather than a $01$ in position (1,1) of the FID.  
   
@@ -34,5 +34,11 @@ The **FID( )** and **FIN( )** key descriptor layouts will be changed whenever th
 [**FIN( ) Return File Information**](../functions/fin.md)
 
   
-BBx is a registered trademark of BASIS International Ltd.  
-Thoroughbred is a registered trademark of Thoroughbred Software International Inc.
+BBx® is a registered trademark of BASIS International Ltd.  
+Thoroughbred® is a registered trademark of Thoroughbred Software International Inc.
+
+ 
+
+ 
+
+ 

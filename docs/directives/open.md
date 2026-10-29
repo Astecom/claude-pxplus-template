@@ -1,43 +1,43 @@
-# Directives   
-  
+# Directives 
+
 **OPEN** |  **_Open a File for Processing_**  
 ---|---  
   
 ##  Formats
 
-1. |  [_Open File/Device Channel_](open.htm#Mark8) _:_ |  **OPEN [ CREATE ] [ END ]** (_chan_[_,fileopt_])**[ TABLE ]**_string$_ **[ FOR**  _dependency_ **]**  
+1. |  [_Open File/Device Channel_](open.htm#Mark8) _:_ |  **OPEN [ CREATE ] [ END ]** (_chan_[_,fileopt_])**[ TABLE ]**_string$_  **[ FOR**  _dependency_  **]**  
 ---|---|---  
-2. |  [_Open for Read-Only Mode_](open.htm#Mark11) _:_ |  **OPEN INPUT** (_chan_[_,fileopt_])**[ TABLE ]**_string$_ **[ FOR**  _dependency_ **]**  
-3. |  [_Open Locked_](open.htm#Mark13) _:_ |  **OPEN [ CREATE ] [ END ] LOCK** (_chan_[_,fileopt_])**[ TABLE ]**_string$_ **[ FOR**  _dependency_ **]**  
-4. |  [_Open Locked and Pre-Cleared_](open.htm#Mark16) _:_ |  **OPEN [ CREATE ] PURGE** (_chan_[_,fileopt_])**[ TABLE ]**_string$_ **[ FOR**  _dependency_ **]**  
-5. |  [_Open Static Keyed File Read Only_](open.htm#Mark18) _:_ |  **OPEN LOAD** (_chan_[_,fileopt_])**[ TABLE ]**_string$_ **[ FOR**  _dependency_ **]**  
-6. |  [_Open File for Use in Object (OOP)_](open.htm#Mark20)_:_ |  **OPEN OBJECT** (_chan_[_,fileopt_])**[ TABLE ]**_string$_ **[ FOR**  _dependency_ **]**  
-7. |  _Open Dictionary_ _:_ |  **OPEN DICTIONARY [ DIRECTORY ]**_string$_ **[ FOR**  _dependency_ **]**  
-8. |  _Compatibility Mode Open_ _:_ |  **OPEN+**(_chan_[_,fileopt_])**[ TABLE ]**_string$_ **[ FOR**  _dependency_ **]**  
+2. |  [_Open for Read-Only Mode_](open.htm#Mark11) _:_ |  **OPEN INPUT** (_chan_[_,fileopt_])**[ TABLE ]**_string$_  **[ FOR**  _dependency_  **]**  
+3. |  [_Open Locked_](open.htm#Mark13) _:_ |  **OPEN [ CREATE ] [ END ] LOCK** (_chan_[_,fileopt_])**[ TABLE ]**_string$_  **[ FOR**  _dependency_  **]**  
+4. |  [_Open Locked and Pre-Cleared_](open.htm#Mark16) _:_ |  **OPEN [ CREATE ] PURGE** (_chan_[_,fileopt_])**[ TABLE ]**_string$_  **[ FOR**  _dependency_  **]**  
+5. |  [_Open Static Keyed File Read Only_](open.htm#Mark18) _:_ |  **OPEN LOAD** (_chan_[_,fileopt_])**[ TABLE ]**_string$_  **[ FOR**  _dependency_  **]**  
+6. |  [_Open File for Use in Object (OOP)_](open.htm#Mark20)_:_ |  **OPEN OBJECT** (_chan_[_,fileopt_])**[ TABLE ]**_string$_  **[ FOR**  _dependency_  **]**  
+7. |  _Open Dictionary_ _:_ |  **OPEN DICTIONARY [ DIRECTORY ]**_string$_  **[ FOR**  _dependency_  **]**  
+8. |  _Compatibility Mode Open_ _:_ |  **OPEN+**(_chan_[_,fileopt_])**[ TABLE ]**_string$_  **[ FOR**  _dependency_  **]**  
 9. |  _[Open Read/Write Pipe to Executable](open.htm#Mark24):_ |  **OPEN** (_chan_) "**|** "+_exe_path_ _$_  
 10. |  _[Open Read Pipe to Executable](open.htm#Mark24):_ |  **OPEN** (_chan_) "**<** "+_exe_path_ _$_  
 11. |  _[Open Write Pipe to Executable](open.htm#Mark24):_ |  **OPEN** (_chan_) "**>** "+_exe_path_ _$_  
   
-**_Where:_**
+**_Where:_** 
 
 _chan_ |  Can be a numeric expression indicating the open channel number to use or a string expression containing the pathname or table name (if string is prefixed by the keyword **TABLE**) of the file to use.  
 ---|---  
 _fileopt_ |  Supported file options (see **[File Options](../appendix/input~output_and_control_options.htm#Mark1)**): |  **BSY** =_stmtref_ |  Traps Error #0: Record/file busy  
 ---|---  
-**BSZ=**_num_ __ |  Block size  
-**ERR=**_stmtref_ __ |  Error transfer  
+**BSZ=**_num_ _ _ |  Block size  
+**ERR=**_stmtref_ _ _ |  Error transfer  
 **IOL=**_iolref_ |  Default IOList  
-**ISZ=**_num_ |  Open file in binary mode. When using the **ISZ=** option, the following **_limits_** apply to EFF files: **ISZ=1** indicates greater than 2GB access  
-**ISZ >1** is limited to 2GB  
+**ISZ=**_num_   |  Open file in binary mode. When using the **ISZ=** option, the following **_limits_** apply to EFF files:    **ISZ=1** indicates greater than 2GB access  
+   **ISZ >1** is limited to 2GB  
 **KEY=**_pswd_ _$_ |  Password to open file (See [**PASSWORD**](password.md) directive)  
 **NBF=**_num_ |  Dedicated number of buffers  
 **OPT=**_char$_ |  File open option string  
 **REC=**_name$_ |  Record prefix where the **_name_** of the variable (rather than its contents) defines the prefix (**REC=VIS _(_**_name$)_ can also be used where the **_contents_** of the _name$_ variable defines the prefix) An **[Example](open.htm#Mark10)** that uses the **REC=** option is provided below. For information on using the **REC=** option, see **[Prefixing Variables in an IOList via REC=](../PxPlus%20User%20Guide/File%20Handling/Processing%20Data%20Files/Input%20and%20Output%20Parameters.htm#Mark1)**.  
 **TIM=**_num_ |  Number of seconds to try and open the file for  
-_stmtref_ |  Program line number or statement label to which to transfer control  
+_      stmtref_ |  Program line number or statement label to which to transfer control  
 _string$_ |  Name of the file, table or device to open. The string expression can include a specialty filename or file tag (e.g. ***MEMORY*** , **[RPC]** , etc.).  
 **CREATE** |  If **OPEN** directive includes the **CREATE** keyword: If the file specified does not exist, it will be created as a SERIAL file and then opened.  
-**END** |  If **OPEN** directive includes the **END** keyword: The file will be opened for output at the end of the file as opposed to the start of the file.  
+**END** |  If **OPEN** directive includes the **END**  keyword: The file will be opened for output at the end of the file as opposed to the start of the file.  
 **TABLE** |  See **[TABLE Option](open.htm#Table)**.  
 _dependency_ |  Other object, window, file, control or such on which this object is dependent. If this other item is deleted from the system, the object will also be deleted. See **[Dependencies](open.htm#Mark23)**.  
 _exe_path_ _$_ |  External executable to send data to and/or read data from via standard input (**stdin**) and standard output (**stdout**).  
@@ -51,7 +51,7 @@ _(The TABLE option was added in PxPlus v6.30.)
 Use this directive to open a file or device and assign a logical file number to it.
 
 #### **Note:**  
-WindX in PxPlus supports the use of this directive via the [WDX] or [LCL] tags; e.g. OPEN "[WDX]somefile.ext". Non-PxPlus versions require you to encapsulate the command in an EXECUTE directive with a [WDX] tag (i.e. EXECUTE "[WDX]..."). See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.htm) or **[[LCL] Access to Users Local Machine](../command_tags/lcl.htm)**.
+WindX in PxPlus supports the use of this directive via the [WDX] or [LCL] tags; e.g. OPEN "[WDX]somefile.ext". Non-PxPlus versions require you to encapsulate the command in an EXECUTE directive with a [WDX] tag (i.e. EXECUTE "[WDX]..."). See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.md) or **[[LCL] Access to Users Local Machine](../command_tags/lcl.md)**.
 
 **_Error Messages on OPEN_**
 
@@ -71,7 +71,7 @@ If you use a channel that is already **OPEN** , the system returns an Error #14:
 
 Use the **OPT=** parameter to define options for a variety of file types. For example, on ODBC/database files, the option string can provide record layout declarations, database connection options, etc. For * **MEMORY** * files, it can contain the key definitions, and on Windows COM ports, you can specify communications port settings (e.g. OPT="9600,n,8,1,x" where the values represent baud rate, parity, data bits, stop bits and xon/xoff flow control). See [**COM Ports and Serial Devices**](../appendix/com_ports_and_serial_devices.md).
 
-The **OPT="ZIP"** file option can be used with the **OPEN CREATE** directive to specify to PxPlus to create a ZIP file.
+The **OPT= "ZIP"** file option can be used with the **OPEN CREATE** directive to specify to PxPlus to create a ZIP file.
 
 See the specific file type definitions in the [**Special Command Tags**](../command_tags.md) section for details on the various **OPT=** values supported by PxPlus.
 
@@ -126,11 +126,11 @@ To establish this linkage, the file **OPEN** directive includes a **FOR** option
 
 **Syntax** |  **Causes the Object to be Deleted When**  
 ---|---  
-OPEN(..... **FOR WINDOW**) |  ... the current window is destroyed.  
-OPEN(..... **FOR CONTROL** _ctlid_) |  ... the specified control is destroyed.  
-OPEN(..... **FOR FILE** _fileno_) |  ... the specified file is closed.  
-OPEN(..... **FOR OBJECT [**  _objid_ **]** ) |  ... the current object or object specified is destroyed.  
-OPEN(..... **FOR PROGRAM**) |  ... the current program level is exited.  
+OPEN(.....) **FOR WINDOW** |  ... the current window is destroyed.  
+OPEN(.....) **FOR CONTROL** _ctlid_ |  ... the specified control is destroyed.  
+OPEN(.....) **FOR FILE** _fileno_ |  ... the specified file is closed.  
+OPEN(.....) **FOR OBJECT**  _objid_ |  ... the current object or object specified is destroyed.  
+OPEN(.....) **FOR PROGRAM** |  ... the current program level is exited.  
   
 **_Where:_**
 
@@ -155,13 +155,13 @@ _(The object dependency capability for the OPEN directive was added in PxPlus 20
 
 **_Open File/Device Channel_**
 
-**OPEN [ CREATE ] [ END ]** (_chan_[,_fileopt_]) **[ TABLE ]**  _string$_ **[ FOR**  _dependency_ **]**
+**OPEN [ CREATE ] [ END ]** (_chan_[,_fileopt_]) **[ TABLE ]**  _string$_  **[ FOR**  _dependency_  **]**
 
 The given file or device must be opened before the program can gain access to it. You can normally have a maximum of 127 files open at any time in a session (less under some operating systems). In the extended file access mode **'XF'** , you can open up to 65000 files, subject to operating system limitations.
 
 In Windows, use a **:**_(colon)_ at the end of a filename to open an LPT _n_ port number directly. For example, **LPT1** and **LPT1:** are considered to be the same device.
 
-PxPlus supports the use of the **OPEN CREATE** directive with **OPT="ZIP"** to create ZIP files.
+PxPlus supports the use of the **OPEN CREATE** directive with **OPT= "ZIP"** to create ZIP files.
 
 #### **Note:**  
 The actual number of files you can open at any one time depends on operating system parameters. Consult your system configuration information for details on how to increase the number of files you can open.
@@ -180,11 +180,11 @@ The actual number of files you can open at any one time depends on operating sys
 
 **_Open for Read-Only Mode_**
 
-**OPEN INPUT** (_chan_[,_fileopt_]) **[ TABLE ]**  _string$_ **[ FOR**  _dependency_ **]**
+**OPEN INPUT** (_chan_[,_fileopt_]) **[ TABLE ]**  _string$_  **[ FOR**  _dependency_  **]**
 
-If you use the **OPEN INPUT** format, the program cannot update the file (opened as read only).
+If you use the **OPEN INPUT** format, the program cannot update the file (opened as Read Only).
 
-Use this format to open a disk directory or to access files with read-only permissions. See **[Accessing Directory Files](../PxPlus%20User%20Guide/File%20Handling/Processing%20Data%20Files/Accessing%20Directory%20Files.md)**.
+Use this format to open a disk directory or to access files with Read-Only permissions. See **[Accessing Directory Files](../PxPlus%20User%20Guide/File%20Handling/Processing%20Data%20Files/Accessing%20Directory%20Files.md)**.
 
 The **OPEN INPUT** directive under UNIX will not lock a text mode device.
 
@@ -192,7 +192,7 @@ The **OPEN INPUT** directive under UNIX will not lock a text mode device.
 
 **_Open Locked_**
 
-**OPEN [ CREATE ] [ END ] LOCK** (_chan_[,_fileopt_]) **[ TABLE ]**  _string$_ **[ FOR**  _dependency_ **]**
+**OPEN [ CREATE ] [ END ] LOCK** (_chan_[,_fileopt_]) **[ TABLE ]**  _string$_  **[ FOR**  _dependency_  **]**
 
 Using this format, the file is reserved for exclusive use prior to the **OPEN**. However, if another user already has the file **OPEN** , the **LOCK** format of the directive fails, and the program will be returned with an Error #0: Record/file busy.
 
@@ -210,22 +210,22 @@ Under UNIX, /dev/null and /dev/console files are not locked when opened; however
 >  00070 execute "[WDX]SERIAL ""D:\JUNK\TEST\TST_OUT"""  
 >  00130 let no_file$="Y"  
 >  00140 let in_file=hfn;  
->  open (in_file)in_file$  
+>              open (in_file)in_file$  
 >  00150 let f$=fin(in_file)  
 >  00160 close (in_file)  
 >  00165 let pd=pos(dlm=in_file$,-1);  
->  if pd<>0 \  
->  then let inn_file$=in_file$(pd+1) \  
->  else let inn_file$=in_file$  
+>              if pd<>0 \  
+>                   then let inn_file$=in_file$(pd+1) \  
+>                   else let inn_file$=in_file$  
 >  00170 let chars=dec(f$(1,4))  
 >  00180 !  
 >  00190 let blk_size=1024,done$="N",c=0  
 >  00200 if chars<blk_size \  
->  then let blk_size=chars  
+>                   then let blk_size=chars  
 >  00210 !  
 >  00220 open (in_file,isz=blk_size)in_file$  
 >  00230 let o_file=hfn;  
->  open lock (o_file,isz=blk_size)%wdx$+o_file$  
+>              open lock (o_file,isz=blk_size)%wdx$+o_file$  
 >  00250 let cur_byte=0,st_byte=0,se_byte=0  
 >  00260 let r_c=blk_size  
 >  00500 ! !500  
@@ -233,22 +233,22 @@ Under UNIX, /dev/null and /dev/console files are not locked when opened; however
 > 00520 !  
 >  00530 read record (in_file,end=0700)in_rec$  
 >  00540 let l=l+1;  
->  print @(0,5),l  
+>              print @(0,5),l  
 >  00550 write record (o_file)in_rec$  
 >  00555 let by=by+len(in_rec$)  
 >  00556 let tst=chars-by;  
->  if tst<blk_size \  
->  then let r_c=tst  
+>              if tst<blk_size \  
+>                   then let r_c=tst  
 >  00590 goto 0530
 
 #### **Note:**  
-WindX supports the use of **SERIAL** and **ERASE** commands via the **[[WDX]](../command_tags/wdx.htm)** tag. It is not necessary to embed these commands in an **EXECUTE** directive.
+WindX supports the use of **SERIAL** and **ERASE** commands via the **[[WDX]](../command_tags/wdx.md)** tag. It is not necessary to embed these commands in an **EXECUTE** directive.
 
 ##  Format 4
 
 **_Open Locked and Pre-Cleared_**
 
-**OPEN [ CREATE ] PURGE** (_chan_[,_fileopt_]) **[ TABLE ]**  _string$_ **[ FOR**  _dependency_ **]**
+**OPEN [ CREATE ] PURGE** (_chan_[,_fileopt_]) **[ TABLE ]**  _string$_  **[ FOR**  _dependency_  **]**
 
 If you use the **OPEN PURGE** format, the file will be locked and pre-cleared (purged) prior to the completion of the **OPEN** statement.
 
@@ -256,7 +256,7 @@ If you use the **OPEN PURGE** format, the file will be locked and pre-cleared (p
 
 **_Open Static Keyed File Read Only_**
 
-**OPEN LOAD** (_chan_[,_fileopt_]) **[ TABLE ]**  _string$_ **[ FOR**  _dependency_ **]**
+**OPEN LOAD** (_chan_[,_fileopt_]) **[ TABLE ]**  _string$_  **[ FOR**  _dependency_  **]**
 
 With the **OPEN LOAD** format, the file is assumed to be a static Keyed file (i.e. no other task on the system will update this file) and is opened for **READ** access only. Whenever a portion of the file's key structure is read into memory, it will be kept in memory until you **CLOSE** the file. This yields extremely fast access to static files by reducing the disk I/O and effectively caches the file in memory.
 
@@ -276,7 +276,7 @@ _(OPEN LOAD Caching was added in PxPlus 2019.)_
 
 **_Open File for Use in Object (OOP)_**
 
-**OPEN OBJECT** (_chan_[,_fileopt_]) **[ TABLE ]**  _string$_ **[ FOR**  _dependency_ **]**
+**OPEN OBJECT** (_chan_[,_fileopt_]) **[ TABLE ]**  _string$_  **[ FOR**  _dependency_  **]**
 
 In **[Object Oriented Programming](../PxPlus%20User%20Guide/Object-Oriented%20PxPlus/Introduction.md)**, the **OPEN OBJECT** directive indicates that a file being opened is for the exclusive use of an object. Only the object itself can alter the state of the file, and once the object is deleted, the file is automatically closed. Any external attempt to alter the state of the file returns an Error #13: File access mode invalid.
 
@@ -284,29 +284,29 @@ The file is not closed on an external **BEGIN**. It will only be closed when the
 
 **_Example:_**
 
-> def class "Customer"  
->  property CUST_NO$,NAME$,ADDR$,CITY$,SALESMAN$,AMT_OWING  
->  local FILE_NO  
+>      def class "Customer"  
+>      property CUST_NO$,NAME$,ADDR$,CITY$,SALESMAN$,AMT_OWING  
+>      local FILE_NO  
 >  !  
->  function FIND(X$)  
->  enter C$  
->  read (FILE_NO,key=C$) ! Loads all the variables  
->  return 1  
+>      function FIND(X$)  
+>      enter C$  
+>      read (FILE_NO,key=C$) ! Loads all the variables  
+>      return 1  
 >  !  
->  function NEXT()  
->  read (FILE_NO,end=*next);  
->  return 1  
->  return 0  
+>      function NEXT()  
+>      read (FILE_NO,end=*next);  
+>      return 1  
+>      return 0  
 >  !  
->  function UPDATE()  
->  write (FILE_NO);  
->  return 1  
->  end def  
+>      function UPDATE()  
+>      write (FILE_NO);  
+>      return 1  
+>      end def  
 >  !  
 >  ON_CREATE:  
->  FILE_NO=hfn  
->  open object (FILE_NO,iol=*)"ARCUST"  
->  return
+>      FILE_NO=hfn  
+>      open object (FILE_NO,iol=*)"ARCUST"  
+>      return
 
 > The file is opened in the ON_CREATE. There is no need to worry about closing the file since the system does it automatically.
 
@@ -327,7 +327,7 @@ The file is not closed on an external **BEGIN**. It will only be closed when the
 
 **_Open Dictionary_**
 
-**OPEN DICTIONARY [ [DIRECTORY]**_string$_ **]** **[ FOR**  _dependency_**]**
+**OPEN DICTIONARY [ [DIRECTORY]**_string$_  **]**  **[ FOR**  _dependency_  **]**
 
 If desired, files can be referenced by their logical table as opposed to their physical file pathname. Before referencing files by their table name, you must define where the data dictionary is in the system by using the **OPEN DICTIONARY** directive.
 
@@ -348,21 +348,21 @@ _(The TABLE option was added in PxPlus v6.30.)_
 
 **OPEN+_Compatibility Mode Open_**
 
-**OPEN+** (_chan_[,_fileopt_]) **[ TABLE ]**  _string$_ **[ FOR**  _dependency_ **]**
+**OPEN+** (_chan_[,_fileopt_]) **[ TABLE ]**  _string$_  **[ FOR**  _dependency_  **]**
 
-The compatibility mode **OPEN+** directive is designed to simplify the conversion of applications from BBx. It provides the following functionality:
+The compatibility mode **OPEN+** directive is designed to simplify the conversion of applications from BBx®. It provides the following functionality:
 
   * Opens files that do not have recognized file headers in Binary mode (same as ISZ=-1) as opposed to considering them as Serial text mode files.
-  * Processes field separators in the same manner as BBx; that is, $00$, $0D, $0A$, and $1C$ through $1F$ are all considered field separators.
+  * Processes field separators in the same manner as BBx®; that is, $00$, $0D, $0A$, and $1C$ through $1F$ are all considered field separators.
   * Changes the logic for a **[READ](read.md)** directive when dealing with a Binary file to scan up to the next delimiter, regardless of the length.
   * Processes the following **OPT=** string values:
 
-|  **O_RDONLY** |  Opens the file as **INPUT** only (same as **OPEN INPUT**).  
+  |  **O_RDONLY** |  Opens the file as **INPUT** only (same as **OPEN INPUT**).  
 ---|---|---  
-|  **O_EXCL** |  Opens the file for exclusive access (same as **OPEN LOCK**).  
-|  **O_APPEND** |  Opens the file but sets the logical position for serial files at EOF so that subsequent data will be appended to the file.  
-|  **O_TRUNC** |  Opens the file and pre-clears all existing data from it (same as **OPEN PURGE** followed by **UNLOCK** once cleared).  
-|  **O_CREATE** |  Opens the file if it exists; else creates a text file (Serial/Binary file).  
+  |  **O_EXCL** |  Opens the file for exclusive access (same as **OPEN LOCK**).  
+  |  **O_APPEND** |  Opens the file but sets the logical position for serial files at EOF so that subsequent data will be appended to the file.  
+  |  **O_TRUNC** |  Opens the file and pre-clears all existing data from it (same as **OPEN PURGE** followed by **UNLOCK** once cleared).  
+  |  **O_CREATE** |  Opens the file if it exists; else creates a text file (Serial/Binary file).  
   
 The conversion utility ***conv.bbx/cv_gui** (as of PxPlus build 9163) allows for the automatic translation of all **OPEN** directives to **OPEN+**.
 
@@ -380,8 +380,8 @@ _(The OPEN+ capability was added in PxPlus v7.00, build 9163.)_
 
 **|** |  Both **stdin** and **stdout**  
 ---|---  
-**< ** |  Only **stdin**  
-**> ** |  Only **stdout**  
+**<  ** |  Only **stdin**  
+**>  ** |  Only **stdout**  
   
 You can interact with an external executable (_exe_path_ _$_) by using **|** (_pipes_), which allow you to send data to the executable via standard input (**stdin**) and read data from the executable via standard output (**stdout**).
 
@@ -393,4 +393,12 @@ You can interact with an external executable (_exe_path_ _$_) by using **|** (_p
 >  write record (lfo)".exit"  
 >  close (lfo)
 
-BBx is a registered trademark of BASIS International Ltd.
+ 
+
+BBx® is a registered trademark of BASIS International Ltd.
+
+ 
+
+ 
+
+ 

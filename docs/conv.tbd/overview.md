@@ -1,9 +1,9 @@
 # Conversion Utilities
 
-**Toolkit for Conversion from Thoroughbred**|   
+**Toolkit for Conversion from Thoroughbred®**|   
 ---|---  
   
-This section outlines the steps required to convert an existing Thoroughbred application to PxPlus. The toolkit described herein is located in the _*conv.tbd_ directory and consists of a number of programs, which convert the programs and data files.
+This section outlines the steps required to convert an existing Thoroughbred® application to PxPlus. The toolkit described herein is located in the _*conv.tbd_ directory and consists of a number of programs, which convert the programs and data files.
 
 #### **Note:**  
 The _*conv.tbd_ directory will be found in the _lib_ directory where PxPlus was installed along with the various other system utilities, the system will replace the _asterisks_ ( ***** ) with _underscores_ ( **_** ). For the purposes of this documentation, it is assumed that PxPlus has been installed in _/pxplus_ thus *conv.tbd will be in _/pxplus/lib/_conv.tbd_.
@@ -26,8 +26,8 @@ This section covers the following topics:
 
 The following system parameters setting should be reviewed when running converted programs:
 
-  * System parameter [**'47'**](../parameters/47.md) that emulates the error 47 suppression logic found in Thoroughbred
-  * Options to have **CLOSE (0)** close all files when the system parameter [**'FF'**](../parameters/ff.md) (_FID Format_) is set to Thoroughbred emulation
+  * System parameter [**'47'**](../parameters/47.md) that emulates the error 47 suppression logic found in Thoroughbred®
+  * Options to have **CLOSE (0)** close all files when the system parameter [**'FF'**](../parameters/ff.md) (_FID Format_) is set to Thoroughbred® emulation
   * System parameter [**'+5'**](../parameters/plus5.md) forces line numbers to be output as five digits for compatibility
 
 
@@ -43,4 +43,10 @@ A few additional PxPlus specific features can also help:
 
 > INPUT @(5,5),X$:(YES$ =1000, NO$ =2000)
 
-Thoroughbred is a registered trademark of Thoroughbred Software International, Inc.
+ 
+
+ 
+
+ 
+
+Thoroughbred® is a registered trademark of Thoroughbred Software International, Inc.

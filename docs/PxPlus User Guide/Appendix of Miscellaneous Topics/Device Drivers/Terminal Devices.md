@@ -1,6 +1,6 @@
 # Device Drivers
 
-**Terminal Devices** |  **__**  
+**Terminal Devices** |  **_ _**  
 ---|---  
   
 Historically, the main user interface hardware of a computer (keyboard and video display) was called a terminal. However, this definition is not as common today with the advent of personal computers, graphical user interface environments, and the variety of operating systems and interface devices available. While the term is still used on occasion, "terminal" is usually associated with a system's command line shell or console-style environment; e.g. text terminal or terminal window.
@@ -28,12 +28,12 @@ The following is an example of a terminal device driver. In general, terminal dr
 >  1100 MNEMONIC (LFO)'LD'=ESC+"R"   
 >  1110 MNEMONIC (LFO)'LI'=ESC+"E"   
 >  1120 MNEMONIC (LFO)'RB'=$07$   
->  1130 MNEMONIC (LFO)'RM'=ESC+" "+$0000$+ESC+"("+   
+>  1130 MNEMONIC (LFO)'RM'=ESC+" "+$0000$+ESC+"("\+   
 >  1130:ESC+"H"+$03$+ESC+"G0"   
 >  1140 MNEMONIC (LFO)'SB'=ESC+")"   
 >  1150 MNEMONIC (LFO)'SF'=ESC+"("   
 >  1160 ! Define Attribute output table   
->  1170 MNEMONIC (LFO)'AT'=ESC+"G\A"+"&"+$0F$+"T"+   
+>  1170 MNEMONIC (LFO)'AT'=ESC+"G\A"+"&"+$0F$+"T"\+   
 >  1170:$10$+"0p4t2r6v8x<|:z>~"   
 >  1180 MNEMONIC (LFO)'GS'=ESC+"H"+$02$   
 >  1190 MNEMONIC (LFO)'GE'=ESC+"H"+$03$   
@@ -41,7 +41,7 @@ The following is an example of a terminal device driver. In general, terminal dr
 >  9000 ! 9000 - Load terminal control keys   
 >  9010 RUN "*TTY"
 
-A terminal device driver is typically much larger than a printer device driver. This has to do with the fact that more mnemonics are required for a terminal than for a printer. While it is not necessary to define matches within a terminal driver for all PxPlus mnemonics, it is better to define as many as possible. For example, if no**'CL'** mnemonic is specified, PxPlus will output spaces in order to clear a line (this is not very efficient). The only mnemonic absolutely necessary is the internal mnemonic **['@@'](../../../mnemonics/~~.md)** that is used to define how to position the cursor.
+A terminal device driver is typically much larger than a printer device driver. This has to do with the fact that more mnemonics are required for a terminal than for a printer. While it is not necessary to define matches within a terminal driver for all PxPlus mnemonics, it is better to define as many as possible. For example, if no**'CL'** mnemonic is specified, PxPlus will output spaces in order to clear a line (this is not very efficient). The only mnemonic that is absolutely necessary is the internal mnemonic **['@@'](../../../mnemonics/~~.md)** that is used to define how to position the cursor.
 
 The**DEFTTY** command is also mandatory. This directive indicates to PxPlus that the device is a terminal (not a printer).**DEFTTY** must contain two additional parameters: (1) the default number of columns, and (2) the default number of lines.
 
@@ -55,14 +55,14 @@ Terminal device drivers supplied with PxPlus should not be modified directly. In
 
 Follow the steps below:
 
-|  1. |  If it does not already exist, create the***UDEV** directory (e.g. /pvx/lib/_udev).  
+  |  1. |  If it does not already exist, create the***UDEV** directory (e.g. /pvx/lib/_udev).  
 ---|---|---  
-|  2. |  Create a new program.
+  |  2. |  Create a new program.
 
 #### **Note:**  
 **_Do not modify/overwrite the original driver._** Place only modified or additional content in the supplemental driver. This program should terminate using an**END** directive (do not use RUN "*TTY").  
   
-|  3. |  Save the new program in***UDEV** using the same file name as the original driver.  
+  |  3. |  Save the new program in***UDEV** using the same file name as the original driver.  
   
 At run time, PxPlus will start by calling the original driver. The***TTY** program will automatically locate and**CALL** the supplemental version of the device driver from***UDEV**. For example, if you need to make modifications to***DEV/VT100** , you would create a second file as***UDEV/VT100** to include the changes -***TTY** checks the***UDEV** directory for the supplemental**VT100** driver immediately after it runs the original***DEV/VT100** driver.
 
@@ -74,11 +74,11 @@ This risk can be avoided using a technique similar to creating a supplemental dr
 
 Follow the steps below:
 
-|  1. |  Create a new program that contains only two commands. **_Example:_** DEFTTY 80,25  
-RUN "*TTY" This will be the starting device driver. The maximum lines and columns must be set here and cannot be changed in the supplemental program. Save it in***DEV** (e.g., /pvx/lib/_dev).  
+  |  1. |  Create a new program that contains only two commands. **_Example:_**      DEFTTY 80,25  
+     RUN "*TTY" This will be the starting device driver. The maximum lines and columns must be set here and cannot be changed in the supplemental program. Save it in***DEV** (e.g., /pvx/lib/_dev).  
 ---|---|---  
-|  2. |  If it does not already exist, create the ***UDEV** directory (e.g., /pvx/lib/_udev).  
-|  3. |  Create a new program to map the mnemonics and control sequences required for running the new device. This program should terminate using an **[END](../../../directives/end.md)** directive. (Do **_not_** use RUN "*TTY").   
+  |  2. |  If it does not already exist, create the ***UDEV** directory (e.g., /pvx/lib/_udev).  
+  |  3. |  Create a new program to map the mnemonics and control sequences required for running the new device. This program should terminate using an **[END](../../../directives/end.md)** directive. (Do **_not_** use RUN "*TTY").   
   
 Save this file in***UDEV** using the same name as the starting device driver (created in step 1).  
   
@@ -91,7 +91,7 @@ Terminal display mnemonics are described below. For information on mnemonics, se
 
 Some mnemonics require dynamic information (variables) to generate specific output sequences (e.g. the line and column number defined in the **['@@'](../../../mnemonics/~~.md)** mnemonic). There are 11 variables that may be included in the output sequence. Identifying these variables is done by specifying a **\**_(backslash)_ , followed by a one-character variable identifier and output formatting information.
 
-_Define Variable:_**=ESC+"[_\_**_id_char_**{**_modifier_**}**_fmt_code_**"**
+_Define Variable:_**=ESC+ "[_\_**_id_char_**{**_modifier_**}**_  fmt_code_**"**
 
 **_Where:_**
 
@@ -150,10 +150,10 @@ The attribute values (\A) are comprised of a binary value representing the vario
 
 Three mnemonics are used to control the display of the terminal cursor:
 
-|  **['C0'](../../../mnemonics/c_.md)** |  Hide cursor command sequence  
+  |  **['C0'](../../../mnemonics/c_.md)** |  Hide cursor command sequence  
 ---|---|---  
-|  **['C1'](../../../mnemonics/c_.md)** |  Regular cursor display sequence  
-|  **['C2'](../../../mnemonics/c_.md)** |  Insert mode cursor display sequence  
+  |  **['C1'](../../../mnemonics/c_.md)** |  Regular cursor display sequence  
+  |  **['C2'](../../../mnemonics/c_.md)** |  Insert mode cursor display sequence  
   
 #### **Note:   
 **Within Windows, the values declared for 'C1' and 'C2' determine the cursor size/shape. The default value for 'C1' is $10$, and for 'C2', it is $11$.  
@@ -168,7 +168,7 @@ In PxPlus, the actual value of the hex digit represents the thickness of the lin
 
 **_'GD' - Graphic Characters_**
 
-The **['GD'](../../../mnemonics/gd.md)** mnemonic is used to define the 11 characters that can be used for text mode line-drawing operations. The standard line-drawing characters are A-K (and for compatibility 0-9 and colon). See **['GD'](../../../mnemonics/gd.md)** mnemonic in the _PxPlus Language Reference_.
+The **['GD'](../../../mnemonics/gd.md)** mnemonic is used to define the 11 characters that can be used for text mode line-drawing operations. The standard line-drawing characters are A-K (and for compatibility 0-9 and colon).
 
 **_'CP' and 'SP' - Screen Size_**
 
@@ -194,12 +194,18 @@ The text plain font must always be a fixed font.
 
 Two special mnemonics are also supported for character translation:
 
-|  **'*I'** |  Defines a 256-byte table of characters. As PxPlus receives each character of input, it is used as an offset into this table. The byte found at the offset is the actual character value returned to the program.  
+  |  **'*I'** |  Defines a 256-byte table of characters. As PxPlus receives each character of input, it is used as an offset into this table. The byte found at the offset is the actual character value returned to the program.  
 ---|---|---  
-|  **'*O'** |  Defines a 256-byte table, which is used during output. If defined, each character output is used to offset into the table to get the true character to send to the device.  
+  |  **'*O'** |  Defines a 256-byte table, which is used during output. If defined, each character output is used to offset into the table to get the true character to send to the device.  
   
 ## Defining Control Key Values
 
 Within the device driver, the**DEFCTL** directive can be used to define the terminal input sequences for the various function and editing keys. To simplify the process of defining these keys, the PxPlus utility***TTY** is called. It reads the system file "*KYBRD.CFG" which contains the key configuration information and will automatically load them.
 
 The utility***UCK** is provided to allow the user to define and change the keyboard map based on the terminal type and user ID.
+
+ 
+
+ 
+
+ 

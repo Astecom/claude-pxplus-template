@@ -1,5 +1,5 @@
-# iNomads  
-  
+# iNomads
+
 **Running Your Application**|   
 ---|---  
   
@@ -68,11 +68,11 @@ Since your application is being run on a browser, the system can only provide li
 
 Some of the most common restrictions that your application may have to avoid are:
 
-|  You cannot access local files or programs using the "[WDX]" prefix. This includes OPEN, EXECUTE, INVOKE and SYSTEM_HELP.  
+ |  You cannot access local files or programs using the "[WDX]" prefix. This includes OPEN, EXECUTE, INVOKE and SYSTEM_HELP.  
 ---|---  
-|  The Clipboard Read/Write functions are not allowed as it could allow you to see what the user had in his/her Clipboard buffer.  
-|  OLE/COM objects are not directly supported as they could violate end user security, and the browser may not be running on a platform that supports these functions such as an iPhone. There is a facility within the system to provide for emulation of OLE/COM components.  
-|  The CHART control is currently not implemented.  
+ |  The Clipboard Read/Write functions are not allowed as it could allow you to see what the user had in his/her Clipboard buffer.  
+ |  OLE/COM objects are not directly supported as they could violate end user security, and the browser may not be running on a platform that supports these functions such as an iPhone. There is a facility within the system to provide for emulation of OLE/COM components.  
+ |  The CHART control is currently not implemented.  
   
 #### **Note:**  
 Development is ongoing within the iNomads product with the intent to provide alternatives that can be used both within the browsers and within non-browser environments.
@@ -86,3 +86,9 @@ To access a list of Object Properties and Methods, see **[Object Properties and 
 **[Transaction Maintenance](Transaction%20Maintenance.md)**  
 **[Built-in Popup Windows](Built-in%20Popup%20Windows.md)  
 [Overriding Controls](Overriding%20Controls.md)**
+
+ 
+
+ 
+
+ 

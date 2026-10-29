@@ -3,6 +3,13 @@
 **.NET Interface**|   
 ---|---  
   
+#### **Important Note:**  
+All formats are **_Windows only_** , and you must have installed **Windows Desktop Runtime 8**.  
+  
+If using 64-bit PxPlus, you must have the x64 Runtime installed. If using 32-bit PxPlus, you must have the x86 Runtime installed.  
+  
+The .NET interface can be used when running under WindX, in which case, **Windows Desktop Runtime 8** must be installed on client machines.
+
 The **.NET Interface** section consists of a list of How To Tutorials related to working with the .NET Interface.
 
 Use these links to access a particular tutorial.
@@ -17,7 +24,12 @@ Use these links to access a particular tutorial.
   
 ## See Also
 
-**[Introduction to PxPlus Training Guide](../PxPlus%20Training%20Intro.md)**  
-**[PxPlus Knowledge Center](../PxPlus%20Knowledge.md)  
-[PxPlus User Forum](../PxPlus%20Forum.md)  
-[PxPlus Video Library](../PxPlus%20Video%20Library.md)**
+**[.NET Interface](../Dot%20Net%20Interface.md)**  
+**[Creating a .NET Object Using DEF OBJECT Directive](../directives/def_object.md)**  
+**[Creating a .NET Object Using NOMADS](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/COM%20Control/COM%20Control.htm#extcontrol)**
+
+ 
+
+ 
+
+ 

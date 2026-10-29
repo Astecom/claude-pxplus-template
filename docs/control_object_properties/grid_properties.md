@@ -23,7 +23,7 @@ The table below lists properties that apply to the entire **_grid_**.
 ---|---  
 1 |  Signal all changes to the value of the control regardless of why the change occurred.  
 2 |  Signal all changes done by the user but not done by the program.  
-**[AutoColSize](../properties/autocolsize.md)** |  This property is used to control the automatic adjustment of column sizes so that the total space occupied by the columns will fill the control width. When this property is set to 1, the system will adjust all columns in the control so that the sum of the column widths will completely fill the control width exclusive of any scrollbars that may be present. Once set, any resizing of the control will again re-apply the automatic columns sizing logic. (**_Default:_** 0 - No automatic column resizing) When adjusting the column sizes, the system will compute the new size based on percentages. **_Example:_** Consider the following - Control has three columns:
+**[AutoColSize](../properties/autocolsize.md)** |  This property is used to control the automatic adjustment of column sizes so that the total space occupied by the columns will fill the control width. When this property is set to 1, the system will adjust all columns in the control so that the sum of the column widths will completely fill the control width exclusive of any scrollbars that may be present. Once set, any resizing of the control will again re-apply the automatic columns sizing logic. (**_Default:_**  0 - No automatic column resizing) When adjusting the column sizes, the system will compute the new size based on percentages. **_Example:_** Consider the following - Control has three columns:
 
   * Column 1 is 40 pixels wide.
   * Column 2 is 10 pixels wide.
@@ -36,8 +36,8 @@ If this control had AutoColSize enabled, it would determine that column 1 was 40
 1 |  The grid will track thumb movements on the vertical scrollbar.  
 2 |  The grid will track thumb movements on the horizontal scrollbar.  
 3 |  The grid will track thumb movements on both scrollbars.  
-**[BackHilight1$](../properties/backhilight1_.md)** |  Background color, alternating lines: Background color for every second line. (**_Default:_** "DEFAULT") If set to other than the value "DEFAULT", the color set in this property will be used as the background color on every second line in a list. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**.  
-**[BackHilight2$](../properties/backhilight2_.md)** |  Background color, alternating three lines: Background color for every third line. (**_Default:_** "DEFAULT") If set to other than the value "DEFAULT", the color set in this property will be used as the background color on every third line in a list. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**.  
+**[BackHilight1$](../properties/backhilight1_.md)** |  Background color, alternating lines: Background color for every second line. (**_Default:_**  "DEFAULT") If set to other than the value "DEFAULT", the color set in this property will be used as the background color on every second line in a list. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**.  
+**[BackHilight2$](../properties/backhilight2_.md)** |  Background color, alternating three lines: Background color for every third line. (**_Default:_**  "DEFAULT") If set to other than the value "DEFAULT", the color set in this property will be used as the background color on every third line in a list. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**.  
 **[Border](../properties/border.md)** |  Add border: 1 - Border; 0 - No border (**_Default:_** 1)
 
 #### **Note:**  
@@ -79,12 +79,12 @@ DraggedColno](../properties/draggedcolumn.md)** |  Column number dragged from. T
 DroppedOnColno](../properties/droppedoncolumn.md)** |  This property indicates the column number (cell) where the mouse was released/items dropped. See [**Drag and Drop**](dragdropgrid.md).  
 **[DroppedOnRow](../properties/droppedonrow.md)** |  This property indicates the row number (cell) where the mouse is released/items dropped. See [**Drag and Drop**](dragdropgrid.md).  
 **[Enabled](../properties/enabled.md)** |  Enabled indicator: 1 = True; 0 = False (**_Default:_** 1)  
-**[EnterMode](../properties/entermode.md)** |  This property is used to define how the ENTER key will be processed with the control. For the grid, possible values are: |  |  0 |  Normal processing (edits cell).  
+**[EnterMode](../properties/entermode.md)** |  This property is used to define how the ENTER key will be processed with the control. For the grid, possible values are: |    |  0 |  Normal processing (edits cell).  
 ---|---|---  
-|  1 |  Move right across a grid by column, exit on last column.  
-|  2 |  Move right across a grid by column, wrap to first column of next row, exit on last column of last row.  
-|  3 |  Move down by row, hold on last row.  
-|  4 |  Move down by row, return to column 1, hold on last row.  
+  |  1 |  Move right across a grid by column, exit on last column.  
+  |  2 |  Move right across a grid by column, wrap to first column of next row, exit on last column of last row.  
+  |  3 |  Move down by row, hold on last row.  
+  |  4 |  Move down by row, return to column 1, hold on last row.  
   
 (**_Default for Grid:_** The default setting is 0.)
 
@@ -104,7 +104,7 @@ Prior to PxPlus v8.11 (build 9182), this property was only available on the grid
 **[FillColor$  
 FillColour$](../properties/fillcolor.md)** |  This property defines the color to be used to fill in the empty regions of a grid (blank space to the right and below the grid). Any valid PxPlus color or RGB specification can be used. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**. A value of DEFAULT indicates that the system is to use the default 'Windows' background color as selected by the user.  
 **[FindColNo](../properties/findcolno.md)** |  This property is used to control which column the 'FindItemText will search. If not set, the search encompasses all rows/columns within the grid. See **[FindItemText$](../properties/finditemtext.md)** property and **[FindOptions$](../properties/findoptions.md)** property. (**_Default:_** 0 - No column specified; searches all columns)  
-**[FindItemText$](../properties/finditemtext.md)** |  This property, when set, causes the system to search the list box or grid for the text supplied. If the text is found, the system will set the **['Column](../properties/column.md)** and **['Item](../properties/item.md)** (or **['Row](../properties/row.md)**) property for the control to the entry where the match was found. If no match is found, the 'Column and 'Item ('Row for the grid) property is set to zero. A typical use of this property would be to locate a value in the list box and then change or delete it. It can also be used to validate that an entry exists in the list box. This property is generally only written to. Reading this value will return the same as reading the **['ItemText$](../properties/itemtext_.md)** property. **Controlling the Search (List View/Grid Only):** The search is controlled by the settings found in 'FindOptions$. These options are provided as a series of characters in 'FindOptions$: |  **Char.** |  **Function**  
+**[FindItemText$](../properties/finditemtext.md)** |  This property, when set, causes the system to search the list box or grid for the text supplied. If the text is found, the system will set the **['Column](../properties/column.md)** and **['Item](../properties/item.md)** (or **['Row](../properties/row.md)**) property for the control to the entry where the match was found. If no match is found, the 'Column and 'Item ('Row for the grid) property is set to zero. A typical use of this property would be to locate a value in the list box and then change or delete it. It can also be used to validate that an entry exists in the list box. This property is generally only written to. Reading this value will return the same as reading the **['ItemText$](../properties/itemtext_.md)** property. **Controlling the Search  (List View/Grid Only):** The search is controlled by the settings found in 'FindOptions$. These options are provided as a series of characters in 'FindOptions$: |  **Char.** |  **Function**  
 ---|---  
 C |  Search is case insensitive.  
 A |  Accents will be ignored when comparing data.  
@@ -113,7 +113,7 @@ W |  Search should start from current position and wrap around.
 S |  Data is sorted.  
 R |  Search backwards.  
   
-**Search Range (List View/Grid Only):** When searching, if the "W"rap option is not specified, the search will start from the beginning of the data in the control and proceed through the end. If the "R"everse option is set, the search starts at the end and proceeds to the beginning. If the "W"rap option is set, the search will start from the position immediately after that specified in the 'Item ('Row for Grid) and 'Column and search through all the data wrapping around the end/start back to the starting point.
+**Search Range  (List View/Grid Only):** When searching, if the "W"rap option is not specified, the search will start from the beginning of the data in the control and proceed through the end. If the "R"everse option is set, the search starts at the end and proceeds to the beginning. If the "W"rap option is set, the search will start from the position immediately after that specified in the 'Item ('Row for Grid) and 'Column and search through all the data wrapping around the end/start back to the starting point.
 
 If the property 'FindColNo (or 'Column for Grid) is set, only data in that column will be searched. If the "S"ort option is specified, only the column specified in the **['Sort](../properties/sort.md)** property will be checked and its setting (Ascending/Descending) will be used to determine the assumed sort sequence. If 'Sort is not set, the system will assume that the column specified in 'FindColNo has been pre-sorted in Ascending order. If 'FindColNo is not set, then the system will assume the first column is to be used and is in ascending sequence. 
 
@@ -128,22 +128,22 @@ Prior to PxPlus v11, this property and functionality was not available on the gr
 
 To change the value of the list box entry of "CAT" to "DOG" for list box "LIST1", you could do the following:
 
-List1'FindItemText$="CAT" ! Locate the item  
-List1'ItemText$ = "DOG" ! Change the value
+     List1'FindItemText$="CAT" ! Locate the item  
+     List1'ItemText$ = "DOG" ! Change the value
 
 **_Example 2:_ Locate and delete an item from a list box**
 
 To locate and delete a value from a list box:
 
-List1'FindItemText$="CAT" ! Locate the item to delete  
-LIST_BOX LOAD List1, List1'Item, *
+     List1'FindItemText$="CAT" ! Locate the item to delete  
+     LIST_BOX LOAD List1, List1'Item, *
 
 **_Example 3:_ Validate the existence of an item in a list**
 
 To search a list box to find a specific value, set the FindItemText$ to the desired search value then read 'Item. If zero, the item does not exist.
 
-List1'FindItemText$=X$ ! Locate the item  
-IF List1'Item=0 THEN MSGBOX X$+" is not found"  
+     List1'FindItemText$=X$ ! Locate the item  
+     IF List1'Item=0 THEN MSGBOX X$+" is not found"  
   
 **[FindOptions$](../properties/findoptions.md)** |  This property is used to control how the 'FindItemText will search the data in the grid. It can have one of the following characters specified in its value: |  **Char.** |  **Function**  
 ---|---  
@@ -154,7 +154,7 @@ W |  Search should start from current position and wrap around.
 S |  Data is sorted.  
 R |  Search backwards.  
   
-(**_Default_** value is "" - no options specified.)
+(**_Default_** value is "" \- no options specified.)
 
 See [**'FindItemText$**](../properties/finditemtext.md) and **['FindColNo](../properties/findcolno.md)** properties.  
   
@@ -187,6 +187,14 @@ HdrTextColour$](../properties/hdrtextcolor_.md)** |  This property sets the colo
 By **_default_** , the compiled IOList generated for the grid uses fields formatted as **CHR**(_dlm_). See **CHR**(_dlm_) in the **[IOLIST](../directives/iolist.htm#Mark2)** directive.  
   
 **[LoadList$](../properties/loadlist_.md)** |  This property contains the list of columns that will be returned in **['RowData](../properties/rowdata_.md)** as a string of column names separated by a delimiter _(last character of string)_. See [**Loading/Accessing by Row**](grid_by_row.md). By **_default_** , the list of columns will contain the column names starting from the first column (far left) through the end of the grid. It can be altered by setting either the 'LoadList$ or 'LoadIOList$ property.  
+**[Lock](../properties/lock.md)** |  Lock status. Possible values are: |  0 |  Unlock **_(Default)_**  
+---|---  
+1 |  Lock  
+2 |  Lock (cell contents can be selected/copied) **_(Grid Only)_**  
+-1 |  Permanently locked **_(Multi-Line Only)_**  
+  
+_(The Lock status of 2 was added in PxPlus 2019.)_  
+  
 **[LockBottom](../properties/lockbottom.md)** |  Number of rows at the bottom of the grid to exclude from sorting. See **[LockTop](../properties/locktop.md)** property.  
 **[LockButtonColor$  
 LockButtonColour$](../properties/lockbtnclr_.md)** |  Background color for locked system-generated buttons in a grid, including drop box buttons and query buttons. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**. _(The LockButtonColor$ property was added in PxPlus 2025.)_  
@@ -211,33 +219,33 @@ MenuColno](../properties/menucolumn.md)** |  This property indicates the column 
 **[MenuRow](../properties/menurow.md)** |  This property indicates the row number of a selected cell on a right-click of the mouse.  
 **[Msg$](../properties/msg_.md)** |  Message line text for the control.  
 **[MultiSelect](../properties/multiselect.md)** |  Select multiple cells: 1 = On; 0 = Off (**_Default:_** 1)  
-**[ObjectID](../properties/objectid.md)** |  User object method. (**_Default:_** 0 - No object specified) The 'ObjectID property allows applications to intercept property values and add methods to controls. When set to a valid Object ID by the application, you can add methods and add/override property logic for any control in the system. When set in the system, it allows the application to logically request methods against the control that, in turn, will be performed by the related Object ID. It will also first check the object for any property requests and if the property is defined in the object set or get that property instead of the controls. To allow the specified object to get true access to the control, while executing within the object identified by the 'ObjectID property, the system will direct any property requests directly to the control. **Sample used to add a GetValue$ and SetValue method to a grid** Grid Object definition (GRID.PVC): 0010 DEF CLASS "grid"  
-0020 LOCAL _CTLNO  
-0030 FUNCTION GETVALUE$(COL,ROW)  
-0040 ENTER C,R  
-0050 LET _CTLNO'COLUMN=C  
-0060 LET _CTLNO'ROW=R  
-0070 RETURN _CTLNO'VALUE$  
-0080 FUNCTION SETVALUE(COL,ROW,VALUE$)  
-0090 ENTER C,R,V$  
-0100 LET _CTLNO'COLUMN=C  
-0110 LET _CTLNO'ROW=R  
-0120 LET _CTLNO'VALUE$=V$  
-0130 RETURN 1  
-0140 END DEF  
-0150 ON_CREATE:  
-0160 ENTER CTLNO  
-0170 LET _CTLNO=CTLNO  
-0180 LET _CTLNO'OBJECTID=_OBJ  
-0190 RETURN Test program to create the grid and assign the Object to the grid control: 0010 GRID 10,@(30,2,40,15)  
-0020 GRID ADD 10,10,10  
-0030 LET X=10  
-0040 LET O=NEW("grid",X)  
-0050 FOR I=1 TO 3  
-0060 X'SETVALUE(I,I,"Hi there")  
-0070 NEXT  
-0080 PRINT X'GETVALUE$(2,2)  
-0090 ESCAPE
+**[ObjectID](../properties/objectid.md)** |  User object method. (**_Default:_** 0 - No object specified) The 'ObjectID property allows applications to intercept property values and add methods to controls. When set to a valid Object ID by the application, you can add methods and add/override property logic for any control in the system. When set in the system, it allows the application to logically request methods against the control that, in turn, will be performed by the related Object ID. It will also first check the object for any property requests and if the property is defined in the object set or get that property instead of the controls. To allow the specified object to get true access to the control, while executing within the object identified by the 'ObjectID property, the system will direct any property requests directly to the control. **Sample used to add a GetValue$ and SetValue method to a grid** Grid Object definition (GRID.PVC):      0010 DEF CLASS "grid"  
+     0020 LOCAL _CTLNO  
+     0030 FUNCTION GETVALUE$(COL,ROW)  
+     0040 ENTER C,R  
+     0050 LET _CTLNO'COLUMN=C  
+     0060 LET _CTLNO'ROW=R  
+     0070 RETURN _CTLNO'VALUE$  
+     0080 FUNCTION SETVALUE(COL,ROW,VALUE$)  
+     0090 ENTER C,R,V$  
+     0100 LET _CTLNO'COLUMN=C  
+     0110 LET _CTLNO'ROW=R  
+     0120 LET _CTLNO'VALUE$=V$  
+     0130 RETURN 1  
+     0140 END DEF  
+     0150 ON_CREATE:  
+     0160 ENTER CTLNO  
+     0170 LET _CTLNO=CTLNO  
+     0180 LET _CTLNO'OBJECTID=_OBJ  
+     0190 RETURN Test program to create the grid and assign the Object to the grid control:      0010 GRID 10,@(30,2,40,15)  
+     0020 GRID ADD 10,10,10  
+     0030 LET X=10  
+     0040 LET O=NEW("grid",X)  
+     0050 FOR I=1 TO 3  
+     0060 X'SETVALUE(I,I,"Hi there")  
+     0070 NEXT  
+     0080 PRINT X'GETVALUE$(2,2)  
+     0090 ESCAPE
 
 #### **Note:**  
 When a control is deleted from the system, any object identified by an 'ObjectID property will be automatically dropped.  
@@ -270,14 +278,14 @@ RowHeaderBackColour$](../properties/rowhdrbackclr_.md)** |  Sets the background 
 RowHeaderLineColour$](../properties/rowhdrlineclr_.md)** |  Sets the color of the border lines drawn between rows when the **['ExcelStyle](../properties/excelstyle.md)** property is set for the **_leading left column only_** of the grid (Colno -1) and does **_not_** affect the grid top row (Row -1). For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**. _(The RowHeaderLineColor$ property was added in PxPlus 2025.)_  
 **[RowHeaderTextColor$  
 RowHeaderTextColour$](../properties/rowhdrtextclr_.md)** |  Sets the text color for the leading left column only of the grid (Colno -1) and does not affect the grid top row (Row -1). For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**. _(The RowHeaderTextColor$ property was added in PxPlus 2024.)_  
-**[RowHiLight](../properties/rowhilight.md)** |  Row selection highlight: 1 = Row highlight; 0 = Cell highlight. This enables selection of a full row rather than limited to cells. Only locked cells are highlighted. One side effect is that when the cells are locked, the grid becomes a fancy list view. The **[SelectCount](../properties/selectcount.md)** property returns the number of selected cells; however, when the **RowHiLight** property is set, **SelectCount** returns the number of rows: **_Example:_** 0010 BEGIN  
-0020 LET G=10  
-0030 GRID G,@(20,10,50,12)  
-0040 GRID ADD G,5,9  
-0050 LET G'ROWHILIGHT=1  
-0060 GRID SELECT G,0,0  
-0070 PRINT G'SELECTCOUNT  
-0080 INPUT *  
+**[RowHiLight](../properties/rowhilight.md)** |  Row selection highlight: 1 = Row highlight; 0 = Cell highlight. This enables selection of a full row rather than limited to cells. Only locked cells are highlighted. One side effect is that when the cells are locked, the grid becomes a fancy list view. The **[SelectCount](../properties/selectcount.md)** property returns the number of selected cells; however, when the **RowHiLight** property is set, **SelectCount** returns the number of rows: **_Example:_**    0010 BEGIN  
+   0020 LET G=10  
+   0030 GRID G,@(20,10,50,12)  
+   0040 GRID ADD G,5,9  
+   0050 LET G'ROWHILIGHT=1  
+   0060 GRID SELECT G,0,0  
+   0070 PRINT G'SELECTCOUNT  
+   0080 INPUT *  
 **[RowsHigh](../properties/rowshigh.md)** |  Number of rows defined in the grid.  
 **[ScrollWheel](../properties/scrollwheel.md)** |  Set scroll wheel increment. This property is used to define how many lines each click of the scroll wheel will move a list box or grid. Possible values are: |  0 |  Scroll wheel support (all events go to parent window).  
 ---|---  
@@ -287,14 +295,14 @@ RowHeaderTextColour$](../properties/rowhdrtextclr_.md)** |  Sets the text color 
 4 |  If control does not have focus, then scroll when mouse hovers over this control (otherwise, same as 2).  
 **[SelectColumn$  
 SelectColno](../properties/selectcolumn.md)** |  **_(Read Only)_** Column number of selected cell. See [**Multiple Selections**](multipleselect.md).  
-**[SelectCount](../properties/selectcount.md)** |  Number of items/cells selected. See [**Multiple Selections**](multipleselect.md). This property returns the number of selected cells; however, when the **[RowHiLight](../properties/rowhilight.md)** property is set, **SelectCount** returns the number of rows: **_Example:_** 0010 BEGIN  
-0020 LET G=10  
-0030 GRID G,@(20,10,50,12)  
-0040 GRID ADD G,5,9  
-0050 LET G'ROWHILIGHT=1  
-0060 GRID SELECT G,0,0  
-0070 PRINT G'SELECTCOUNT  
-0080 INPUT * Set the **SelectCount** property to zero to deselect all items.  
+**[SelectCount](../properties/selectcount.md)** |  Number of items/cells selected. See [**Multiple Selections**](multipleselect.md). This property returns the number of selected cells; however, when the **[RowHiLight](../properties/rowhilight.md)** property is set, **SelectCount** returns the number of rows: **_Example:_**    0010 BEGIN  
+   0020 LET G=10  
+   0030 GRID G,@(20,10,50,12)  
+   0040 GRID ADD G,5,9  
+   0050 LET G'ROWHILIGHT=1  
+   0060 GRID SELECT G,0,0  
+   0070 PRINT G'SELECTCOUNT  
+   0080 INPUT * Set the **SelectCount** property to zero to deselect all items.  
 **[SelectIndex](../properties/selectindex.md)** |  Index to 'SelectItem: Set this property to point to a selected element; e.g. 1 points to the first item selected, 2 points to the second item selected, etc. See [**Multiple Selections**](multipleselect.md).  
 **[SelectRow](../properties/selectrow.md)** |  **_(Read Only)_** Row number of selected cell. See [**Multiple Selections**](multipleselect.md).  
 **[SelectText$](../properties/selecttext_.md)** |  Text contained within the highlight: This allows for cut, copy and paste within a graphical user interface input region. See [**Multiple Selections**](multipleselect.md).  
@@ -305,7 +313,7 @@ SelectColno](../properties/selectcolumn.md)** |  **_(Read Only)_** Column number
 **[SignalOnExit](../properties/signalonexit.md)** |  This property controls whether a 'Change' signal will be generated when the control (or region of a grid control) is exited regardless of whether the control's value changes. Normally, controls only signal changes when the control loses focus **_and_** the contents have changed. Setting 'SignalOnExit allows a change signal to also be generated whenever focus leaves the control (or region for grid). |  0 |  No signal on exit unless control value has changed.  
 ---|---  
 1 |  Signal on exit regardless of whether value has changed (on grid, signals whenever changing cell).  
-2 |  Signal when changing row or on exit of grid (sets column value to 0 and row value to last row exited)._**(Grid Only)**_  
+2 |  Signal when changing row or on exit of grid (sets column value to 0 and row value to last row exited)._ **(Grid Only)**_  
 3 |  Signal when exiting the grid (sets column and row values to zero). **_(Grid Only)_**  
 **[SkipLockedCells](../properties/skiplockedcells.md)** |  Skip over locked cells. Possible values are: |  0 |  Do not skip over locked cells.  
 ---|---  
@@ -313,13 +321,13 @@ SelectColno](../properties/selectcolumn.md)** |  **_(Read Only)_** Column number
 2 |  Skip over locked cells when advancing _vertically_ (Up/Down arrow).  
 3 |  Skip over locked cells **_both_**  _vertically_ and _horizontally_.  
 **[Sort](../properties/sort.md)** |  Column sorting: Sorts the contents of the control. In grids, this property sets the number of the column on which the data is to be sorted. Positive integers indicate normal ascending sort order; negative integers indicate descending order. (**_Default for Grid:_** 0) When using the grid sort on numeric data, the currency sign, thousands separator, and decimal point are ignored. The values used to represent these characters are established when the grid is first created.  
-**[Sort$](../properties/sort_.md)** |  Sort by column name: This sets a column name (inside quotes) by which to sort. A _minus sign_ indicates descending order. **_Example:_** x'Sort$ = "- col_name" (Locked rows are included in the sort.)  
+**[Sort$](../properties/sort_.md)** |  Sort by column name: This sets a column name (inside quotes) by which to sort. A _minus sign_ indicates descending order. **_Example:_** x'Sort$ = "\- col_name" (Locked rows are included in the sort.)  
 **[SortCaseSensitive](../properties/sortcasesensitive.md)** |  This property is used to control whether the case of the data will be ignored when sorting data within the grid. If this property is On (**_Default:_** 1), then values will be sorted as such that uppercase data will be placed before lowercase data. If this property is Off (0), then the case of the data will be ignored. (**_Default:_** 1 - Data is sorted with uppercase before lowercase.)
 
 #### **Important Note:** _  
 _ This property has been deprecated as of PxPlus v11 by the **['SortOrder](../properties/sortorder.md)** property, which allows for control not only of sort case but also accented characters and supports a system wide default.  
   
-**[SortGrouping](../properties/sortgrouping.md)** |  This property is used to control the sorting of a grid by defining the number of lines that make up a logical group within the grid. (**_Default:_** 1 - Each line is independent.) **_Example:_** If each logical entry in the grid contained two lines, you would set 'SortGrouping to 2. This will cause the sort to keep each pair of lines together when sorting. In terms of the values being sorted, only the data in sort column from the first line are considered when sorting. The contents of the secondary lines within the group will not be considered.  
+**[SortGrouping](../properties/sortgrouping.md)** |  This property is used to control the sorting of a grid by defining the number of lines that make up a logical group within the grid. (**_Default:_** 1 - Each line is independent.) **_Example:_**      If each logical entry in the grid contained two lines, you would set 'SortGrouping to 2. This will cause the sort to keep each pair of lines together when sorting. In terms of the values being sorted, only the data in sort column from the first line are considered when sorting. The contents of the secondary lines within the group will not be considered.  
 **[SortNullLast](../properties/sortnull.md)** |  This property is used to control how null entries will be sorting within the grid. f this property is set to **_Off_** (**_Default:_** 0), then null values will be sorted first. If this property is set to **_On_** (1), then null values will be placed at the end of the sorted data. (**_Default:_** 0 - Null values occur first in the sort sequence.)  
 **[SortOrder$](../properties/sortorder.md)** |  Sorting control settings. This property is used to control how column data will be sorted in the grid. It can have one of the following values or be set to Null, which indicates the sort order is defined by the system StdSortOrder setting using the **[SETDEV SET](../directives/setdev_set.md)** directive or the **['OPTION'](../mnemonics/option.md)** mnemonic. |  Null |  Uses StdSortOrder setting (if StdSortOrder not set, uses raw sort).  
 ---|---  
@@ -365,7 +373,7 @@ _(The SuppressHdr property was added in PxPlus 2020.)_
 **[TipColno](../properties/tipcolno.md)** |  Column number for the cell that is requesting its tip. In response to an OnTipCtl event, the program can read this property and set the appropriate cell tip value. See **['TipRow](../properties/tiprow.md)** property.  
 **[TipRow](../properties/tiprow.md)** |  Row number for the cell that is requesting its tip. In response to an OnTipCtl event, the program can read this property and set the appropriate cell tip value. See **['TipColno](../properties/tipcolno.md)** property.  
 **[Top](../properties/top.md)** |  Top of control in pixels.  
-**[TopVisibleRow](../properties/topvisiblerow.md)** |  This property is used to access the row number that is currently displayed at the top of the grid. It can be used to determine/control vertical scrolling of the data. (**_Default:_**__ Not Applicable) If set, it must be set to a value between 1 and the number of rows in the grid. Setting this property to a row near the bottom of the grid contents does not always guarantee that the row identified will be the first row on the grid. The system will attempt to leave the bottom few rows visible; however, it will assure that the row indicated is visible.  
+**[TopVisibleRow](../properties/topvisiblerow.md)** |  This property is used to access the row number that is currently displayed at the top of the grid. It can be used to determine/control vertical scrolling of the data. (**_Default:_**_ _ Not Applicable) If set, it must be set to a value between 1 and the number of rows in the grid. Setting this property to a row near the bottom of the grid contents does not always guarantee that the row identified will be the first row on the grid. The system will attempt to leave the bottom few rows visible; however, it will assure that the row indicated is visible.  
 **[TrackColor$  
 TrackColour$](../properties/trackcolor_.md)** |  Cell tracking color. Header cells corresponding to a cell that currently has focus are switched to the color set by this property as the user moves around the grid. This provides a visual cue to the user for which column and row they are on currently. Only header cells that use their default color will change to the tracking color. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**. (**_Default:_** "DEFAULT")  
 **[Visible](../properties/visible.md)** |  Control visible flag: 1 = Yes; 0 = No (**_Default:_** 1)  
@@ -381,26 +389,28 @@ The following properties **_apply to a cell_** in the grid:
 #### **Note:**  
 Any of the cell properties below can be applied to the **_entire_** grid by setting **_both_** the _Column_ and _Row_ to 0 (zero).
 
+ 
+
 **Property** |  **Description**  
 ---|---  
-**[Align$](../properties/align_.md)** |  Text alignment of the data in a grid cell. Possible values are: |  |  "BC" |  Bottom-Center |  "ML" |  Middle-Left  
+**[Align$](../properties/align_.md)** |  Text alignment of the data in a grid cell. Possible values are: |    |  "BC" |  Bottom-Center |  "ML" |  Middle-Left  
 ---|---|---|---|---  
-|  "BL" |  Bottom-Left |  "MR" |  Middle-Right  
-|  "BR" |  Bottom-Right |  "R" |  Right  
-|  "C" |  Center |  "TC" |  Top-Center  
-|  "L" |  Left |  "TL" |  Top-Left (**_Default_**)  
-|  "MC" |  Middle-Center |  "TR" |  Top-Right  
+  |  "BL" |  Bottom-Left |  "MR" |  Middle-Right  
+  |  "BR" |  Bottom-Right |  "R" |  Right  
+  |  "C" |  Center |  "TC" |  Top-Center  
+  |  "L" |  Left |  "TL" |  Top-Left (**_Default_**)  
+  |  "MC" |  Middle-Center |  "TR" |  Top-Right  
   
 _(The alignment values "MC", "ML" and "MR" were added in PxPlus 2014 FP1 Update 0001.)_  
   
 **[AutoCompName$](../properties/autocompname.md)** |  Name of a defined Auto Complete entry. Auto Complete entries are assigned to individual cells and are used to show text suggestions when a user types a partial entry. See **[Assigning Auto Complete Entries](../NOMADS%20Graphical%20Application/System%20Maintenance%20Tools/System%20Options/Auto%20Complete.htm#assign_auto_compl_entries)**.  
 **[AutoValue$](../properties/autovalue.md)** |  List of entries to load into Auto Complete drop box. See [**'CellAutoCtl**](../properties/cellautoctl.md) property.  
 **[BackColor$  
-BackColour$](../properties/backcolor_.md)** |  Background color. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**. (**_Default:_** "DEFAULT")  
-**[Bitmap$](../properties/bitmap_.md)** |  Bitmap to appear in a grid cell. **_Example:_** !Stop (embedded bitmap)  
-C:\windows\clouds.bmp (external bitmap)  
+BackColour$](../properties/backcolor_.md)** |  Background color. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**. (**_Default:_**  "DEFAULT")  
+**[Bitmap$](../properties/bitmap_.md)** |  Bitmap to appear in a grid cell. **_Example:_**      !Stop (embedded bitmap)  
+     C:\windows\clouds.bmp (external bitmap)  
 **[BottomBorder](../properties/bottomborder.md)** |  Bottom border of cell (thickness): 0 to 3 pixels (**_Default:_** 0)  
-**[BottomLeftTick$](../properties/bottomlefttick_.md)** |  When set to a color, this property displays a tick in the bottom left corner of the cell. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**. (**_Default:_** "DEFAULT")  
+**[BottomLeftTick$](../properties/bottomlefttick_.md)** |  When set to a color, this property displays a tick in the bottom left corner of the cell. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**. (**_Default:_**  "DEFAULT")  
 **[CellAutoCtl](../properties/cellautoctl.md)** |  Generates ctl_id to signal Auto Complete: ctl_id to signal that the list of entries for the Auto Complete drop box is to be loaded via the **[AutoValue$](../properties/autovalue.md)** property.  
 **[CellBlankWhenZero](../properties/cellblankwhenzero.md)** |  When this property is set and cell contents are displayed, if the cell contains **_no_** non-zero numeric characters (1-9), the cell will be displayed as if null although the actual contents will be preserved. _(The CellBlankWhenZero property was added in PxPlus 2020.)_  
 **[CellDClick](../properties/celldclick.md)** |  Cell double click. Possible values are: |  0 |  Enter Edit mode when cell is double clicked. (**_Default_**)  
@@ -426,15 +436,15 @@ _The CelliNomadsClass property was added in PxPlus 2018._
 **[CellTip$](../properties/celltip_.md)** |  Tip for cell: Tip message.  
 [**CellType** **$**](../properties/celltype_.md) |  Grid cell type. (**_Default:_** "Normal") For a list of available cell type values, see **[Cell Types](../directives/grid.htm#Mark8)** as described in the **GRID** directive.  
 **[Class](../properties/class.md)** |  Apply a data class to a grid cell: The Class property can also be set in **[Grid Presets Definition](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Grid%20Control/Presets%20Definition.htm#dataclasses)** when using the NOMADS Panel Designer. See **[Data Classes](../Data%20Dictionary/Data%20Classes/Overview.md)**.  
-**[Font$](../properties/font_.md)** |  This property is used to reference the font for a cell. It will contain (or can be set to) a string containing 3 comma-separated fields of the font name, size and attributes. **_Example:_** To set the font to Arial, 1.5 times normal size, and Bold, the format would be xxx'Font$="Arial,1.5,B". When setting the 'Font$ property on a **_grid_** for all columns/rows ('Column=0 and 'Row=0), the system will check that the current default **[Row Height](../properties/rowheight.md)** is large enough to accommodate the font selected. If the default row height is too small, the system will automatically adjust the default and all existing row heights to a size large enough to accommodate the font size. See **['FONT'](../mnemonics/font.md)** mnemonic. _(Support for the automatic adjustment of row height was added in PxPlus 2019.)_  
+**[Font$](../properties/font_.md)** |  This property is used to reference the font for a cell. It will contain (or can be set to) a string containing 3 comma-separated fields of the font name, size and attributes. **_Example:_**      To set the font to Arial, 1.5 times normal size, and Bold, the format would be xxx'Font$="Arial,1.5,B". When setting the 'Font$ property on a **_grid_** for all columns/rows ('Column=0 and 'Row=0), the system will check that the current default **[Row Height](../properties/rowheight.md)** is large enough to accommodate the font selected. If the default row height is too small, the system will automatically adjust the default and all existing row heights to a size large enough to accommodate the font size. See **['FONT'](../mnemonics/font.md)** mnemonic. _(Support for the automatic adjustment of row height was added in PxPlus 2019.)_  
 **[JoinColumns](../properties/joincolumns.md)** |  Merge two or more columns (left to right): Set this property in the column that starts the join (leftmost) to the total number of joined columns - that number of columns will be merged into one. For columns belonging to an existing join, this property returns a negative integer indicating the column's current position within the join.  
 **[JoinRows](../properties/joinrows.md)** |  Merge two or more rows (downward): Set this property in the row that starts the join (uppermost) to the total number of joined rows - that number of rows will be merged into one. For rows belonging to an existing join, this property returns a negative integer indicating the row's current position within the join.  
 **[LeftBorder](../properties/leftborder.md)** |  Left border of cell (thickness): 0 to 3 pixels (**_Default:_** 0)  
 **[Len](../properties/len.md)** |  Input length of cell.  
-**[Lock](../properties/lock.md)** |  Lock status: Possible values are: |  0 |  Unlock **_(Default)_**  
+**[Lock](../properties/lock.md)** |  Lock status: Possible values are: |   0 |  Unlock **_(Default)_**  
 ---|---  
-1 |  Lock  
-2 |  Lock (cell contents can be selected/copied) **_(Grid Only)_**  
+ 1 |  Lock  
+ 2 |  Lock (cell contents can be selected/copied) **_(Grid Only)_**  
 -1 |  Permanently locked **_(Multi-Line Only)_**  
   
 _(The Lock status of 2 was added in PxPlus 2019.)_  
@@ -445,7 +455,7 @@ LockBackColour$](../properties/lockbackclr_.md)** |  Background color when the g
 LockTextColour$](../properties/locktextclr_.md)** |  Foreground text color when the grid cell is locked. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**. _(The LockTextColor$ property was added in PxPlus 2024.)_  
 **[Nul$](../properties/nul_.md)** |  String text to display when the value of the grid cell is empty: If a numeric format string has been assigned, then the text is displayed when the value is 0 (zero).  
 **[PriorValue$](../properties/priorvalue_.md)** |  This property contains the value last returned when the grid cell was read. _(The PriorValue$ property was added in PxPlus 2018.)_  
-**[Query](../properties/query.md)** |  Assign a query to a grid cell. The expression should include the query definition name and library in the following format: "_QueryName,Library_ ". When defined, the grid cell will display a lookup button with a bitmap, if a bitmap has been set; otherwise, the lookup button will display a **?** (_question_ _mark_) by default. The Query property can also be set in **[Grid Presets Definition](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Grid%20Control/Presets%20Definition.htm#queries)** when using the NOMADS Panel Designer.  
+**[Query](../properties/query.md)** |  Assign a query to a grid cell. The expression should include the query definition name and library in the following format: "_QueryName,Library_ ". When defined, the grid cell will display a lookup button with a bitmap, if a bitmap has been set; otherwise, the lookup button will display a **?** (_question mark_) by default. The Query property can also be set in **[Grid Presets Definition](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Grid%20Control/Presets%20Definition.htm#queries)** when using the NOMADS Panel Designer.  
 **[RightBorder](../properties/rightborder.md)** |  Right border of cell (thickness): 0 to 3 pixels.  
 **[SpellCheck](../properties/spellcheck.md)** |  Enable spell checking. For a multi-line and grid cell, set this property to non-zero to enable spell checking on the input field. Reading this property will determine whether spell checking is enabled. (**_Default:_** 0) _(The SpellCheck property was added in PxPlus 2019.)_  
 **[Text$](../properties/text_.md)** |  Text of item or label. In a grid, this property applies to the following cell types: "BarChart", "Button", "DropBox" and ""DropBoxHideBtn", "UseTextEllipsis", "UseTextNormal" and "UseTextSingleLine", "VarDropBox" and VarDropBoxHideBtn". See **[Cell Types](../directives/grid.htm#Mark8)** as described in the **GRID** directive.  
@@ -463,6 +473,8 @@ The following properties **_apply to a column_** in the grid:
 #### **Note:**  
 Any of the column properties below can be applied to the **_entire_** grid by setting **_both_** the _Column_ and _Row_ to 0 (zero).
 
+ 
+
 **Property** |  **Description**  
 ---|---  
 **[AutoFit](../properties/autofit.md)** |  This property, when set to any value, forces the associated grid to resize the column currently selected by the **['Colno](../properties/colno.md)** or **['Column](../properties/column.md)** property to the width required to fit its contents. If the currently selected column is set to zero, **_all_** columns in the grid will be resized. The value set in 'AutoFit indicates how many rows to check, with zero indicating **_all_** rows and the column header. Any value other than zero specifies the number of rows (starting at the first row) to take into account in computing the new column width. A non-zero setting may be used to minimize the time it might take to scan all the rows in a large grid. Reading this property returns zero, as the value of the property itself has no meaning, and simply the act of setting it causes the grid to be updated.
@@ -474,7 +486,7 @@ _(The AutoFit property was added in PxPlus 2017.)_
 **[ColumnPixels](../properties/columnpixels.md)** |  Width of column in pixels.  
 **[ColumnSizeLock](../properties/columnsizelock.md)** |  This property controls the ability of the user to resize the width of a column by dragging the column header. If set to 0, the column may not be resized. If set to 1, the column is resizable. (**_Default:_** 0 (fixed size) When used with the grid, this property is only valid when the grid itself is deemed resizable (the **[Resizable](../properties/resizable.md)** property > 0).  
 **[ColumnWidth](../properties/columnwidth.md)** |  Width of column in column units.  
-**[SortColFmt$](../properties/sortcolfmt.md)** |  This property is used to control the sorting of grid columns when a sort by date is required. (**_Default:_** Default value is "" - no sorting definition). Normally, when the grid sorts columns, it does so by either a _numeric_ value comparison or a _string_ compare. If the column contains a _date_ , you need to tell the system the format of the date being provided so it can determine which value is the year, month or day respectively. The SortColFmt$ property is used to control the sorting of date columns. This property can be set from one to three characters long where each character can be a '**#** ', '**S** ', '**Y** ', '**M** ' or '**D** ' as follows:
+**[SortColFmt$](../properties/sortcolfmt.md)** |  This property is used to control the sorting of grid columns when a sort by date is required. (**_Default:_** Default value is "" \- no sorting definition). Normally, when the grid sorts columns, it does so by either a _numeric_ value comparison or a _string_ compare. If the column contains a _date_ , you need to tell the system the format of the date being provided so it can determine which value is the year, month or day respectively. The SortColFmt$ property is used to control the sorting of date columns. This property can be set from one to three characters long where each character can be a '**#** ', '**S** ', '**Y** ', '**M** ' or '**D** ' as follows:
 
   * If set to '**#** ', the column will be sorted based on the assumption that all data in the column is numeric.
   * If set to '**S** ', the assumption is that all data in the column are strings and will be sorted based on string values.
@@ -483,11 +495,11 @@ _(The AutoFit property was added in PxPlus 2017.)_
 **_Example:_** If the date is of the form day, month, then year, the 'SortColFmt$ property should be set to "DMY".
 
 #### **Note:**  
-For a date sort to work properly, the dates in the column must have a divider, such as a _dash_ ( **-** ), separating the date components.  
+For a date sort to work properly, the dates in the column must have a divider, such as a _dash_  ( **-** ), separating the date components.  
   
 **_Example:_**  
   
-01-01-2016  
+     01-01-2016  
   
 A date such as 01012016 does not sort.
 
@@ -496,9 +508,9 @@ If this field is **_not_** set, the column will be pre-scanned to determine if a
 #### **Note:**  
 When forcibly sorting numerically, mixing numeric and non-numeric data will result in an incorrect and somewhat random sort sequence based on the original input sequence.  
   
-**[SortOnHdrClick](../properties/sortonhdrclick.md)** |  This property is used to control the sorting of grid columns based on the user clicking the column header. For the grid, the property exists **_both_** for the complete grid **_and_** on each column. To reference the grid settings, set **['Column](../properties/column.md)** to zero prior accessing to the property. To reference a column, set the 'Column property to the desired column prior to access. Possible values are: |  0 |  Disable sorting on click of column header.  
+**[SortOnHdrClick](../properties/sortonhdrclick.md)** |  This property is used to control the sorting of grid columns based on the user clicking the column header. For the grid, the property exists **_both_** for the complete grid **_and_** on each column. To reference the grid settings, set **['Column](../properties/column.md)** to zero prior accessing to the property. To reference a column, set the 'Column property to the desired column prior to access. Possible values are: |   0 |  Disable sorting on click of column header.  
 ---|---  
-1 |  Enable sorting on click of column header.  
+ 1 |  Enable sorting on click of column header.  
 -1 |  Use grid default setting. **_(Column Only)_**  
   
 (**_Default for Grid:_** 0 - Column sorting is disabled on the grid and all columns.)
@@ -511,6 +523,8 @@ The following properties **_apply to a row_** in the grid:
 
 #### **Note:**  
 Any of the row properties below can be applied to the **_entire_** grid by setting **_both_** the _Column_ and _Row_ to 0 (zero).
+
+ 
 
 **Property** |  **Description**  
 ---|---  
@@ -528,3 +542,9 @@ Any of the row properties below can be applied to the **_entire_** grid by setti
 **['COLOUR' & '_COLOUR' Mnemonic](../mnemonics/colour.md)**  
 **[Using Property Names](../control_object_properties.htm#Mark1)**  
 **[Compound Properties](compound_properties.md)**
+
+ 
+
+ 
+
+ 

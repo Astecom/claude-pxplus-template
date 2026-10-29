@@ -1,11 +1,11 @@
 # File Handling
 
-**Prefix Processing** |  **__**  
+**Prefix Processing** |  **_ _**  
 ---|---  
   
 The **[PREFIX](../../../directives/prefix.md)** directive allows you to specify up to 10 different prefix strings to be inserted automatically in front of all file name references:
 
-> **PREFIX** [_search_string_ _$_]
+> **PREFIX**  [_search_string_ _$_]
 
 The prefixes are provided as a string to the **PREFIX** directive using a blank as a separator character:
 
@@ -49,25 +49,25 @@ PxPlus automatically finds the location to retrieve or create files by looking f
 **_Example:_**
 
 > 0010 PREFIX "==/"   
->    
+>  …   
 >  0100 OPEN (1) "ARDATA"   
 >  0110 OPEN (2) "CSTDTA"   
->    
+>  …   
 >  0300 RUN "ARPOST"
 
 The following searches would be performed:
 
-|  **_File:_** |  **_1 st Search:_** |  **_2 nd Search:_**  
+  |  **_File:_** |  **_1 st Search:_** |  **_2 nd Search:_**  
 ---|---|---|---  
-|  ARDATA |  AR/ARDATA |  ARDATA  
-|  CSTDTA |  CS/CSTDTA |  CSTDTA  
-|  ARPOST |  AR/ARPOST |  ARPOST  
+  |  ARDATA |  AR/ARDATA |  ARDATA  
+  |  CSTDTA |  CS/CSTDTA |  CSTDTA  
+  |  ARPOST |  AR/ARPOST |  ARPOST  
   
 ## Asterisk Wildcards
 
 You can also use *****  _asterisk_ and ******  _double asterisk_ as wildcard characters to support the use of file name extensions without modifying your code. With the wildcard characters, you can rename files on disk with a common file extension without modifying the program code.
 
-**_Using_** _***** **Single Asterisk**_
+**_Using_** _ *****  **Single Asterisk**_
 
 If the **[PREFIX](../../../directives/prefix.md)** directive includes a single **_*_**_asterisk_ plus a specified extension as a file name, PxPlus inserts the file name from your **OPEN** command in place of the _asterisk_ and searches for the file name with the added prefix:
 
@@ -81,7 +81,7 @@ In the example above, PxPlus scans the disk for "c:\somedir\FOOFOO.PRG" and open
 
 In this case, PxPlus does not add the .PRG extension when it executes the search to find and open MyFile.Dat.
 
-**_Using_** _****** **Double Asterisk**_
+**_Using_** _ ******  **Double Asterisk**_
 
 If the **[PREFIX](../../../directives/prefix.md)** directive includes two ******  _asterisks_ plus a specified extension, PxPlus inserts the file name from your **OPEN** command in place of the _asterisks_ and searches first for the file name with the extension specified in the prefix:
 
@@ -117,7 +117,7 @@ The PxPlus default is to search all prefixes in the following order:
 ---|---  
 1\. **PREFIX FILE,** if set; replaces pathname then continues sequence 2\. Current Directory; if **['CD'](../../../parameters/cd.md)** system parameter is set 3\. **PREFIX** 0 to 9 4\. **PREFIX PROGRAM,** if set 5\. Current Directory; if **['CD'](../../../parameters/cd.md)** system parameter _not_ set |  1\. **PREFIX FILE,** if set; replaces pathname then continues sequence 2\. Program Cache 3\. Current Directory; if **['CD'](../../../parameters/cd.md)** system parameter is set 4\. **PREFIX PROGRAM** , if set 5\. **PREFIX** 0 to 9 6\. Current Directory; if **['CD'](../../../parameters/cd.md)** system parameter _not_ set  
   
-The**PREFIX** search rules apply not only to files being found but also to files being created. PxPlus creates files in the first location that is permitted by the**PREFIX** rules. If **'CD'** (_Search Current Directory_) is on, then all files are created in the current directory (the first permitted location). If the **'CD'** system parameter is off, then PxPlus creates the file in the first location permitted by the search rules above.
+The**PREFIX** search rules apply not only to files being found but also to files being created. PxPlus creates files in the first location that is permitted by the**PREFIX** rules. If **'CD'**  (_Search Current Directory_) is on, then all files are created in the current directory (the first permitted location). If the **'CD'** system parameter is off, then PxPlus creates the file in the first location permitted by the search rules above.
 
 For syntax details, see **'[CD](../../../parameters/cd.md)'** parameter.
 
@@ -128,3 +128,9 @@ Use the**ENABLE** and**DISABLE** directives to control which of the numbered pre
 The initial check for**PROGRAM** cache checks for a match against the original file names. If you used CALL "ABCD" and you had previously loaded a program with the same name, PxPlus would use the one in cache. This eliminates the directory searches involved, but if you have duplicate program names in your system, it is possible to get the wrong one; i.e., if you CALL "ABCD", change the directory/prefix, then re- CALL "ABCD". If this happens for duplicate program names in your system, either clear the cache or do not use it.
 
 For syntax details, see **[DISABLE](../../../directives/disable.md)** and **[ENABLE](../../../directives/enable.md)** directives.
+
+ 
+
+ 
+
+ 

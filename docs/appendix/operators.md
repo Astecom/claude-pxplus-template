@@ -1,5 +1,5 @@
-# Language Reference - Appendix   
-  
+# Language Reference - Appendix 
+
 **Operators**|   
 ---|---  
   
@@ -11,13 +11,13 @@ See **[Numeric Values](../PxPlus%20User%20Guide/Language%20Elements/Data%20Types
 
 The following operators are used to perform calculations:
 
-|  **+** |  _Where:_ A + B **_adds_** A to B  
+|  **+** |  _Where:_   A + B **_adds_** A to B  
 ---|---|---  
-|  **-** |  _Where:_ A - B **_subtracts_** B from A  
-|  ***** |  _Where:_ A * B **_multiplies_** A by B  
-|  **/** |  _Where:_ A / B **_divides_** A by B  
-|  **^** |  _Where:_ A ^ B raises A to the **_power_** of B (** is equivalent to ^)  
-|  **|** |  _Where:_ A | B divides A's **_remainder_** by B  
+|  **-** |  _Where:_   A - B **_subtracts_** B from A  
+|  ***** |  _Where:_   A * B **_multiplies_** A by B  
+|  **/** |  _Where:_   A / B **_divides_** A by B  
+|  **^** |  _Where:_   A ^ B raises A to the **_power_** of B (** is equivalent to ^)  
+|  **|** |  _Where:_   A | B divides A's **_remainder_** by B  
   
 ##  Assignment Operators
 
@@ -62,7 +62,7 @@ With **_post_** -increment or decrement, the value returned is the value of the 
 > A=0, Y$=""   
 >  READ (1,IND=A++,ERR=*NEXT)X$; Y$+=X$; GOTO *SAME  
 >   
-> ** _or_**   
+> ** _or_**    
 >   
 >  Y$+=RCD(1,IND=A++,ERR=*NEXT); GOTO *SAME
 
@@ -74,7 +74,7 @@ Use the **LIKE** operator for string comparisons. The PxPlus default (with the *
 
 > IF A$ LIKE "ABC" THEN ... 
 
-To make your conversions from Thoroughbred easier, set **'TL'** to **_On_**. With this parameter **_On_** , the **LIKE** operator emulates the Thoroughbred matching of patterns.
+To make your conversions from Thoroughbred® easier, set **'TL'** to **_On_**. With this parameter **_On_** , the **LIKE** operator emulates the Thoroughbred® matching of patterns.
 
 See **[SET_PARAM](../directives/set_param.md)** directive, **[MSK( )](../functions/msk.md)** function and **['TL'](../parameters/tl.md)** system parameter.
 
@@ -84,4 +84,12 @@ The apostrophe operator is used to assign, retrieve, list, and make dynamic chan
 
 For the syntax and use of the apostrophe, see **[Apostrophe Operator](apostrophe_operator.md)**.
 
-Thoroughbred is a registered trademark of Thoroughbred Software International Inc.
+ 
+
+ 
+
+ 
+
+Thoroughbred® is a registered trademark of Thoroughbred Software International Inc.
+
+ 

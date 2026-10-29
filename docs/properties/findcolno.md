@@ -22,4 +22,10 @@ _(The FindColNo property was added in PxPlus v11.00.)_
 
 ## Used By
 
-**GRID****REPORT_VIEW**
+**GRID** **REPORT_VIEW**
+
+ 
+
+ 
+
+ 

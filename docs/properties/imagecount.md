@@ -13,4 +13,10 @@ Number of images contained in a bitmap button: 1 to 4
 
 ## Used By
 
-**BUTTON** **CHECK_BOX** **RADIO_BUTTON** **TRISTATE_BOX**
+**BUTTON** •**CHECK_BOX** •**RADIO_BUTTON** •**TRISTATE_BOX**
+
+ 
+
+ 
+
+ 

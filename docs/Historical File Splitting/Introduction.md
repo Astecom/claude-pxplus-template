@@ -28,10 +28,10 @@ When doing a WRITE/UPDATE with a key that does exist, the record will be modifie
 
 ## See Also
 
-|  **[Maintenance Methods](Maintenance%20Methods.md)** |  Lists the maintenance methods used with this utility  
+  |  **[Maintenance Methods](Maintenance%20Methods.md)** |  Lists the maintenance methods used with this utility  
 ---|---|---  
-|  **[Embedded IO Methods](Embedded%20IO%20Methods.md)** |  Lists the embedded IO methods used with this utility  
-|  **[Split File Maintenance Utility](Split%20File%20Maintenance%20Utility.md)** |  Describes the text mode and graphical interfaces used to access this utility  
+  |  **[Embedded IO Methods](Embedded%20IO%20Methods.md)** |  Lists the embedded IO methods used with this utility  
+  |  **[Split File Maintenance Utility](Split%20File%20Maintenance%20Utility.md)** |  Describes the text mode and graphical interfaces used to access this utility  
   
 ## File Control Structure
 
@@ -55,16 +55,22 @@ This object handles the embedded IO calls to the primary logical file and forwar
 
 The data dictionary of the control file contains the following:
 
-● Name of the associated files
+     ●   Name of the associated files
 
-● List of Read Only/Input files
+     ●   List of Read Only/Input files
 
-● Definition of the field to test when adding records to determine which segment to use
+     ●   Definition of the field to test when adding records to determine which segment to use
 
-● Definition of the test values for each segment
+     ●   Definition of the test values for each segment
 
-● List of keys and the following key attributes:
+     ●   List of keys and the following key attributes:
 
-> \- Unique key indicator requiring the same key value to not occur in any other file  
->  \- Indicator that determines whether the keys are ascending/descending between files or if the key order is not file dependent  
->  (For example, keys based on date added would be ascending between files, whereas keys based on other data such as product code would not be.)
+> -   Unique key indicator requiring the same key value to not occur in any other file  
+>  -   Indicator that determines whether the keys are ascending/descending between files or if the key order is not file dependent  
+>     (For example, keys based on date added would be ascending between files, whereas keys based on other data such as product code would not be.)
+
+ 
+
+ 
+
+ 

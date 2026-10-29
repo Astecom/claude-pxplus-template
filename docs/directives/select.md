@@ -7,24 +7,24 @@
 
 1\. _Open, Read and Query Records:_  
 ---  
-**SELECT** _iolist_ __**[** ,**REC=**_string$_**] FROM {**__**[ TABLE ]**_filename$_ **|**  _chan_**}[ ,KNO=**_num_ **|**_name$_**]**  
-|  **[ BEGIN** _key$_**[ :**_key$_**: ... ] ]**  
-|  **[** **END** _key$_ **[ :**_key$_ **: ... ] ]**  
-|  **[ [ STATIC ]** **WHERE** _expression_**]**  
-|  **[ WITH [ REQUIRED ]**  _select_**]**  
-|  **[** ,**ERR=**_stmtref_ **]**  
+     **SELECT** _iolist  _**[** ,**REC=**_string$_**] FROM {**_ _**[ TABLE ]**_filename$_  **|**  _chan_**}[ ,KNO=**_num_  **|**_name$_**]**  
+  |  **[ BEGIN  **_key$_** [ : **_key$_**  : ... ] ]**  
+  |  **[**  **END  **_key$_  **[ :**_key$_  **: ... ] ]**  
+  |  **[ [ STATIC ]**  **WHERE** _expression_**]**  
+  |  **[ WITH [ REQUIRED ]**  _select_**]**  
+  |  **[** ,**ERR=**_stmtref_  **]**  
 2\. _Return Full Record Contents:_  
-**SELECT RECORD** _var$_**FROM {**__**[ TABLE ]**_filename$_ **|**  _chan_**}[ ,KNO=**_num_ **|**_name$_**]**  
-|  **[ BEGIN** _key$_**[ :**_key$_**: ... ] ]**  
-|  **[** **END** _key_ **[ :**_key$_ **: ... ] ]**  
-|  **[ [ STATIC ]** **WHERE** _expression_**]**  
-|  **[** ,**ERR=**_stmtref_ **]**  
+     **SELECT RECORD** _  var$ _**FROM {**_ _**[ TABLE ]**_filename$_  **|**  _chan_**}[ ,KNO=**_num_  **|**_name$_**]**  
+  |  **[ BEGIN  **_key$_** [ : **_key$_**  : ... ] ]**  
+  |  **[**  **END  **_key_  **[ :**_key$_  **: ... ] ]**  
+  |  **[ [ STATIC ]**  **WHERE** _expression_**]**  
+  |  **[** ,**ERR=**_stmtref_  **]**  
 3\. _Return Key Portion of the Record:_  
-**SELECT KEY** _var$_**FROM {**__**[ TABLE ]**_filename$_ **|**  _chan_**}[ ,KNO=**_num_ **|**_name$_**]**  
-|  **[ BEGIN** _key$_**[ :**_key$_**: ... ] ]**  
-|  **[** **END** _key$_ **[ :**_key$_ **: ... ] ]**  
-|  **[ [ STATIC ]** **WHERE** _expression_**]**  
-|  **[** ,**ERR=**_stmtref_ **]**  
+     **SELECT KEY** _  var$ _**FROM {**_ _**[ TABLE ]**_filename$_  **|**  _chan_**}[ ,KNO=**_num_  **|**_name$_**]**  
+  |  **[ BEGIN  **_key$_** [ : **_key$_**  : ... ] ]**  
+  |  **[**  **END  **_key$_  **[ :**_key$_  **: ... ] ]**  
+  |  **[ [ STATIC ]**  **WHERE** _expression_**]**  
+  |  **[** ,**ERR=**_stmtref_  **]**  
   
 #### **Note:**  
 An **ERR=** can be added after an **END=** , as well as before and after a **WHERE**.
@@ -36,10 +36,10 @@ _chan_ |  Channel or logical file number to be read from.
 _expression_ |  Condition must return _true_ or _false_. Numeric or string expression.  
 _filename$_ |  Name of the file to be opened and read from. String expression.  
 _iolist_ |  List of variables to be read from the file. The order in which the variables are specified (_A$, B$, C$, ...)_ corresponds to how the fields are read from each record (1st, 2nd, 3rd, ...). If you use an *****  _(asterisk)_ , then all fields defined by the embedded data dictionary will be returned. You can use an **IOL=**_iolref_ as your _iolist_.  
-_var_ _$_ |  String variable. Receives the contents of the record or key being read. If you use an *****  _(asterisk)_ , then the record or key contents will **_not_** be saved.  
-**KNO=**_num_ **|**_name$_ |  File access key value (_num_) or name (_name$_).  
-**BEGIN** _key$_ **[ :**_key$_ **: ... ]** |  Starting key of the range to select.  _key_ _$_ is a string expression. Multiple colon-separated segments may be specified if needed.  
-**END** _key$_ **[ :**_key$_ **: ... ]** |  Ending key of the range to select.  _key_ _$_ is a string expression. Multiple colon-separated segments may be specified if needed.  
+_var$_ |  String variable. Receives the contents of the record or key being read. If you use an *****  _(asterisk)_ , then the record or key contents will **_not_** be saved.  
+**KNO=**_num_  **|**_name$_ |  File access key value (_num_) or name (_name$_).  
+**BEGIN** _key$_  **[ :  **_key$_  **: ... ]** |  Starting key of the range to select. _key$_ is a string expression. Multiple colon-separated segments may be specified if needed.  
+**END** _key$_  **[ :  **_key$_  **: ... ]** |  Ending key of the range to select. _key$_ is a string expression. Multiple colon-separated segments may be specified if needed.  
 _string$_ |  Record prefix. (**REC=VIS(**_string$_**)** can also be used.)  
 _select_ |  Another **SELECT** directive used to define a join. See **[Join Select](select.htm#Mark6)**.  
 _stmtref_ |  Program line number or statement label to which to transfer control.  
@@ -70,13 +70,21 @@ For non-join selects on **[Keyed](../PxPlus%20User%20Guide/File%20Handling/Data%
 
 _(The TABLE option was added in PxPlus v6.30.)_
 
+**_Why does SELECT with an opened file seem to miss records?_**
+
+When using a **SELECT** with a file that you have manually opened in your application, it is important to remember that the **SELECT** will start from the current position in the file **_unless_** you include a **BEGIN** or **END** clause on the **SELECT** directive.
+
+Including a **BEGIN** forces the system to reposition to the specified key prior the start of the **SELECT** loop.
+
+To ensure processing of the complete file, use **BEGIN ""**. An **END** is not needed.
+
 ##  External Database Access
 
 If you are working with an external database such as MySQL or Microsoft SQL Server, PxPlus will use the **WHERE** clause to filter the results **_before_** they are returned to PxPlus. Filtering the results **_before_** they are returned to PxPlus is generally much faster, as this reduces the number of file reads and writes, as well as network traffic.
 
 PxPlus will filter **_before_** if the **WHERE** expression consists of the following format:
 
-> _field_ **[** $**]** **comparison_op**  _literal_ **[** **{AND | OR}**  _field_**[** $**]** **comparison_op**  _literal_ **]**...
+> _field_  **[** $**]**  **comparison_op**  _literal_  **[**  **{AND | OR}**  _field_**[** $**]**  **comparison_op**  _literal_  **]**...
 
 **_Example:_**
 
@@ -90,9 +98,9 @@ If the **WHERE** expression contains any variables that **_do not match_** datab
 >    
 > **SELECT** addresses **WHERE** city$=search_city$
 
-In this case, the results must be filtered ** _after_** because PxPlus does not know if the variable's value will change for each row processed by the **SELECT**. You can, however, use the **STATIC WHERE** syntax to force PxPlus to use the **WHERE** clause to filter the results **_before_** they are returned to PxPlus. **STATIC WHERE** will use the beginning value of any variables in the expression that **_do not match_** database table field names to filter the results.
+In this case, the results must be filtered **_after_** because PxPlus does not know if the variable's value will change for each row processed by the **SELECT**. You can, however, use the **STATIC WHERE** syntax to force PxPlus to use the **WHERE** clause to filter the results **_before_** they are returned to PxPlus. **STATIC WHERE** will use the beginning value of any variables in the expression that **_do not match_**  database table field names to filter the results.
 
-**STATIC WHERE** can only force the results to be filtered ** _before_** they are returned if the only reason it was not filtered **_before_** was the use of any variables that **_do not match_** database table field names. If any arithmetic or function calls are used in the **WHERE** expression, the results will always be filtered **_after_**. You can easily do the function calls and/or arithmetic before the **SELECT** call and store the result in a variable, and then use the variable in a **STATIC WHERE** expression to accomplish the same thing.
+**STATIC WHERE** can only force the results to be filtered **_before_** they are returned if the only reason it was not filtered **_before_** was the use of any variables that **_do not match_** database table field names. If any arithmetic or function calls are used in the **WHERE** expression, the results will always be filtered **_after_**. You can easily do the function calls and/or arithmetic before the **SELECT** call and store the result in a variable, and then use the variable in a **STATIC WHERE** expression to accomplish the same thing.
 
 _(Support for the WHERE clause to filter results was added in PxPlus 2017.)_
 
@@ -108,9 +116,9 @@ Suppose you need to print the Employee Name and Department Name of all U.S.-base
 
 A single **SELECT** can be used to join the Employee and Department tables on the Department ID and filter the results of the join based on the country:
 
-> **SELECT** *,**REC=** empl$ **FROM** "employee" **WHERE** empl.country$="US" **WITH SELECT** *,**REC=** dept$ **FROM** "department" **WHERE** empl.dept_id=dept.dept_id  
->  **PRINT** empl.name$ + " " + dept.name$  
-> **NEXT** **RECORD**
+> **SELECT** *,**REC=** empl$ **FROM** "employee" **WHERE**  empl.country$="US" **WITH SELECT** *,**REC=** dept$ **FROM** "department" **WHERE**  empl.dept_id=dept.dept_id  
+>       **PRINT** empl.name$ + " " \+ dept.name$  
+> **NEXT**  **RECORD**
 
 #### **Note:**  
 Join selects are supported for **_both_** PxPlus data files **_and_** external database tables.
@@ -119,7 +127,7 @@ Join selects are supported for **_both_** PxPlus data files **_and_** external d
 
 For join selects on **[Keyed](../PxPlus%20User%20Guide/File%20Handling/Data%20Files/Keyed%20Files.md)** or **[EFF](../PxPlus%20User%20Guide/File%20Handling/Data%20Files/Enhanced%20File%20Format.md)** PxPlus data files, select optimization is always enabled, regardless of the **['SO'](../parameters/so.md)** system parameter.
 
-For join selects on external databases where all tables in the select join are from the same database, the system will attempt to optimize the SQL query. The SQL query will be optimized by generating a single join SQL query instead of multiple SQL queries. Executing a single SQL query to do the join is significantly faster than doing the join with multiple SQL queries and then having PxPlus join the records. PxPlus cannot optimize the join select if any of the external database tables was opened with any of the following options set: **IND=** , **TYP=** , **RECDATA=** , **KEYDATA=** , and **TSQL=**.
+For join selects on external databases where all tables in the select join are from the same database, the system will attempt to optimize the SQL query. The SQL query will be optimized by generating a single join SQL query instead of multiple SQL queries. Executing a single SQL query to do the join is significantly faster than doing the join with multiple SQL queries and then having PxPlus join the records. PxPlus cannot optimize the join select if any of the external database tables was opened with any of the following options set:  **IND=** , **TYP=** , **RECDATA=** , **KEYDATA=** , and **TSQL=**.
 
 If using join selects on external databases, the **WHERE** expression of the first **SELECT** directive may be sent as part of the SQL query if it is optimizable. For joins, only comparisons involving fields from the first (left) _select_ table can be optimized. If you have any comparisons involving fields from other _select_ tables **_and_** are doing an inner join, you can move those comparisons to a join condition **WHERE** expression. See **[External Database Access](select.htm#Mark5)**.
 
@@ -139,7 +147,7 @@ For both formats, you can specify ***** (_asterisk_) instead of a variable to ig
 **_Example:_**
 
 > **SELECT KEY** * **FROM** "ABC" **BEGIN** "0002" **END** "0004"  
->  count++  
+>      count++  
 > **NEXT RECORD**
 
 See **[Example](select.htm#Mark4)**.
@@ -174,14 +182,20 @@ The following example illustrates use of the **SELECT WHERE** clause:
 >  0100 iolist VEND$,NAME$,ADDR1$,ADDR2$,CITY$,PROV$,POSTAL$,INV_DT$,INV,AMT,TERMS,DUE_DT$  
 >  0110 print "DONE"; end
 
-In the following example, **SELECT KEY** is issued to return the key portion of the record:
+In the following example, **SELECT KEY**  is issued to return the key portion of the record:
 
 > select key cst_name$ from "cstfile",kno=1 begin StartName$ end StartName$+$FF$ where cst_name$<>SkipName$  
->  print cst_name$  
+>      print cst_name$  
 >  next record
 
 The following example uses the **SELECT RECORD** directive to return the full record contents:
 
 > select record r$ from "cstfile",kno=1 begin "D" end "D"+$FF$  
->  print r$  
+>      print r$  
 >  next record
+
+ 
+
+ 
+
+ 

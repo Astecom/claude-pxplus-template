@@ -1,13 +1,13 @@
 # Printing
 
-**Printing in MS Windows** |  **__**  
+**Printing in MS Windows** |  **_ _**  
 ---|---  
   
 PxPlus for Windows includes two logical device names for accessing Windows printers: ***WINPRT*** and***WINDEV***. When used in an**OPEN** statement, these devices will invoke the print subsystem API at run time. Logical device names for printing to **_file types_** in Windows are described under **[Logical Printers](../Logical%20Printers/Overview.md)**.
 
 The standard interface,***WINPRT*** , is designed to handle typical hard copy print requests. It allows your application to print any variety of character and graphical output (i.e. bitmap images and proportional fonts) and employ a full suite of**PRINT** options and mnemonics.
 
-***WINDEV*** supports the direct-to-device printing methods associated more with legacy and/or converted applications. This interface accepts the _raw_ print escape sequences that are otherwise ignored in the Windows print system. It sends output using a _pass-through_ mode _,_ which tells the printer driver to read the raw data and queue the job. See **[Raw Printing](../Character-Based%20Printing/Overview.htm#rawprinting)**.
+***WINDEV*** supports the direct-to-device printing methods associated more with legacy and/or converted applications. This interface accepts the _raw_ print escape sequences that are otherwise ignored in the Windows print system. It sends output using a _pass-through_  mode _,_ which tells the printer driver to read the raw data and queue the job. See **[Raw Printing](../Character-Based%20Printing/Overview.htm#rawprinting)**.
 
 This section focuses on the access and control of hard copy print destinations from PxPlus in Windows (and WindX) primarily through ***WINPRT*** and***WINDEV***.
 
@@ -41,7 +41,7 @@ OPEN (2)"*WINPRT*;ASIS;file=hello.txt"
 #### **Note:**  
 This option does **_not_** apply to***WINDEV***.  
   
-**DEFAULT** |  Use the**DEFAULT** keyword to**OPEN** the printer that is currently set as the default in Windows. Again, users will not have access to the printer selection dialogue and cannot alter the settings at run time. **_Example:_** If the default printer is _"Bills Desk - Canon",_ then the print jobs in the examples below will be sent to that Canon printer: OPEN (1)"*WINPRT*;DEFAULT"   
+**DEFAULT** |  Use the**DEFAULT** keyword to**OPEN** the printer that is currently set as the default in Windows. Again, users will not have access to the printer selection dialogue and cannot alter the settings at run time. **_Example:_** If the default printer is _" Bills Desk - Canon",_ then the print jobs in the examples below will be sent to that Canon printer: OPEN (1)"*WINPRT*;DEFAULT"   
 OPEN (2)"*WINPRT*;DEFAULT;copies=5;orientation=landscape;offset=300:600"   
 OPEN (3)"*WINDEV*;DEFAULT" ***WINPRT*** allows you to override printer settings with the**DEFAULT** option, but the changed properties must be valid for the appropriate driver.
 
@@ -124,13 +124,13 @@ To enable access to printers defined on a Windows server under WindX, use the ke
 
 WINPRT_SETUP SERVER ...
 
-**WINPRT_SETUP READ** _var$_ |  Returns the name of the current default printer.  
+**WINPRT_SETUP READ** _  var$_ |  Returns the name of the current default printer.  
 ---|---  
 **WINPRT_SETUP WRITE** _printer$_ |  Changes the current default printer.  
-**WINPRT_SETUP INPUT** _var$_ |  Prompts the user with the Windows printer selection dialogue and returns the name of the printer selected by the user.  
-**WINPRT_SETUP LIST** _var$_ |  Generates a list of all the printers defined in the system.  
-**WINPRT_SETUP DIRECTORY** _var$_ |  Generates a list of all printers with just the printer portion of the names (excludes the "ON Device" portion).  
-**WINPRT_SETUP READ PROPERTIES** _var$_ |  Returns the property settings associated with your current default printer.  
+**WINPRT_SETUP INPUT** _  var$_ |  Prompts the user with the Windows printer selection dialogue and returns the name of the printer selected by the user.  
+**WINPRT_SETUP LIST** _  var$_ |  Generates a list of all the printers defined in the system.  
+**WINPRT_SETUP DIRECTORY** _  var$_ |  Generates a list of all printers with just the printer portion of the names (excludes the "ON Device" portion).  
+**WINPRT_SETUP READ PROPERTIES** _  var$_ |  Returns the property settings associated with your current default printer.  
 **WINPRT_SETUP WRITE PROPERTIES** _settings$_ |  Changes one or more of the default printer properties. Multiple options can be specified by separating settings with semi-colons. See **[WINPRT_SETUP Properties](../../../directives/winprt_setup.htm#Mark5)**. |  **COLLATE=YES | NO | AUTO** |  **PAPERLENGTH=**_num_ (1/10 _mm_)  
 ---|---  
 **COLOR=YES | NO**(or **COLOUR**) |  **PAPERSIZE=**_num_  
@@ -166,6 +166,32 @@ The currently selected default printer name can be determined as follows:
 >  ?PRTR$   
 > HPLaserJet III on \\\machine_1\hp
 
+## Finding the "Location" Property of a Windows Printer
+
+For the "location" of a Windows printer, you need to read the following registry entry:
+
+> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Print\Printers\_< printer name>_\Location
+
+**_Where:_**
+
+> _< printer name>_ is the name of the printer.
+
+You can use the following logic in your programs to get this value:
+
+> LET OBJ_WINAPI=NEW("*obj/winapi")  
+>  LET REGKEY$="HKEY_LOCAL_MACHINE"  
+>  LET REGSUBKEY$="SOFTWARE\Microsoft\Windows NT\" \+ "CurrentVersion\Print\Printers\"  
+>  !  
+>  ! Add the printer name you got from WINPRT_SETUP LIST  
+>  !  
+>  LET REGSUBKEY$+="hp psc 1200 series"  
+>  LET NAME$="Location"  
+>  OBJ_WINAPI'GETREGISTRYVALUE(REGKEY$,REGSUBKEY$,NAME$,VALUE$)  
+>  !  
+>  PRINT "Location is:",VALUE$  
+>  !  
+>  DROP OBJECT OBJ_WINAPI
+
 ## Aborting a Windows Print Job
 
 The **['AB'](../../../mnemonics/ab.md)** mnemonic is used to abort a print job from the Windows spooler.
@@ -175,3 +201,9 @@ The **['AB'](../../../mnemonics/ab.md)** mnemonic is used to abort a print job f
 > PRINT (30)'AB' ! To cancel the current job
 
 Look for the name (title bar caption) of your current PxPlus window to find your print job in the Windows print spooler job listing. How much gets printed after the abort is determined by the printer driver and by the print spooler options _Start Printing After the First Page_ or _Start Print After the Last Page_.
+
+ 
+
+ 
+
+ 
