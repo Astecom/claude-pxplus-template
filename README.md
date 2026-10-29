@@ -10,6 +10,7 @@ Collection of assets that bring PxPlus expertise into Claude Code. The repositor
   - data dictionary and data files: `pxplus_dict_read`, `pxplus_dict_check`, `pxplus_dict_embedded`, `pxplus_read_records`, `pxplus_dict_apply` (only with `--enable-dict-apply`; asks the person before it changes anything)
 
   See [mcp-server/README.md](mcp-server/README.md) for each tool.
+- The PxPlus manual as searchable documentation (`docs/`, from https://manual.pvxplus.com), up to **PxPlus 2026 (23.00)**, including PxPlus 2025 Update 1 (22.10). `pxplus_control_properties` uses its version notes to say whether a PxPlus version has a property (for example `CornerRadius$` and `FocusRect`: 23.00, not 22.00). `mcp-server/scripts/fetchDocs.py` brings it up to date for a new version (see [mcp-server/README.md](mcp-server/README.md#updating-the-documentation))
 - Project documentation (`instructions-and-rules.md`, `CLAUDE.md`) that stays up to date with each release
 
 ## Installation

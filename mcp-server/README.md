@@ -65,7 +65,7 @@ npm run build-docs-index && npm run check-docs-search
 
 The release info page (what is new per release, including the updates such as 22.10) links to more manual pages than the release notes; the script reads it for those links only.
 
-The docs go up to PxPlus 2026 (23.00).
+The docs go up to PxPlus 2026 (23.00), including 2025 Update 1 (22.10). Example credentials in the manual (such as a Twilio account SID and auth token) are replaced by placeholders, because GitHub's push protection refuses them.
 
 ## Data dictionary and data files
 
