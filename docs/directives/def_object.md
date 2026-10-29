@@ -5,18 +5,21 @@
   
 ##  Formats
 
-1. |  _Invisible External Object:_ |  **DEF OBJECT**  _ext_id,objDef_ _$_[,_arg_ __1_[$],_arg_ __2_[$],,_arg_n_[$]][,**ERR=**_stmtref_]  
+1. |  _Invisible External Object:_ |  **DEF OBJECT**  _ext_id,objDef_ _$_[,_arg_ __1_[$],_arg_ __2_[$], ,_arg_n_[$]][,**ERR=**_stmtref_]  
 ---|---|---  
-2. |  _Visible External Object_ _:_ |  **DEF OBJECT**  _ext_id_ ,**@(**_col,ln,wth,ht_**)**{,|=} _objDef_ _$_[,_arg_ __1_[$],_arg_ __2_[$],,_arg_n_[$]] [,**ERR=**_stmtref_]  
+2. |  _Visible External Object_ _:_ |  **DEF OBJECT**  _ext_id_ ,**@(**_col,ln_ _,wth,ht_**)**{,|=} _objDef_ _$_[,_arg_ __1_[$],_arg_ __2_[$], ,_arg_n_[$]] [,**ERR=**_stmtref_]  
 3. |  _List Available COM Objects_ _:_ |  **DEF OBJECT** _ext_id_ , "*" [,**ERR=**_stmtref_]  
+_The following were added in PxPlus 2026:_  
+4. |  _[List Available .NET System DLLs and then Objects](def_object.htm#Mark17):_ |  **DEF OBJECT**  _ext_id_ , "**[.NET]*** " [,**ERR=**_stmtref_]  
+5. |  _[List Available .NET Objects for the Given DLL](def_object.htm#Mark18):_ |  **DEF OBJECT**  _ext_id_ , "**[.NET]**_DllName_ ,*" [,**ERR=**_stmtref_]  
   
 **_Where:_**
 
 "*" |  An _asterisk_ displays registered COM controls.  
 ---|---  
-**@(**_col,ln,wth,ht_**)** |  Numeric expressions. Column and line coordinates for top left corner, width in number of columns and height in number of lines.  
+**@(**_col,ln_ _,wth,ht_**)** |  Numeric expressions. Column and line coordinates for top left corner, width in number of columns and height in number of lines.  
 _ext_id_ |  Numeric variable to receive a handle (memory pointer to object).  
-_objDef_ _$_ |  For **COM** objects, this should be the name by which the COM object is registered in the Windows system registry sub-key HKEY_CLASSES_ROOT. For **[.NET](../Dot%20Net%20Interface.md)** objects, this should be a string prefixed with [.NET] and followed by either the path of the .NET dll or the name of the .NET system dll in the Global Assembly Cache (GAC), followed by a comma and then the namespace and object name of the .NET object to load (i.e. System.Windows.Forms.MonthCalendar).
+_objDef_ _$_ |  For **COM** objects, this should be the name by which the COM object is registered in the Windows system registry sub-key HKEY_CLASSES_ROOT. For **[.NET](../Dot%20Net%20Interface.md)** objects, this should be a string prefixed with [.NET] and followed by either the path of the .NET DLL or the name of the .NET system DLL in the Global Assembly Cache (GAC), followed by a comma and then the namespace and object name of the .NET object to load (i.e. System.Windows.Forms.MonthCalendar).
 
 #### **Important Note:**  
 The object name is **_case sensitive_** , as .NET objects are case sensitive.  
@@ -27,7 +30,8 @@ The object name is **_case sensitive_** , as .NET objects are case sensitive.
 
 For an embedded **Chromium Browser** object, this should be *Browser. See **[*BROWSER Chromium Browser Object](../utilities/browser.md)**. _(The Chromium Browser object was added in PxPlus 2017.)  
 (.NET support was added in PxPlus 2025.)_  
-_arg_1_[$],_arg_2_[$],,_arg_n_[$] |  You can optionally pass in arguments when creating .NET objects. These arguments can be strings, numbers, or .NET object handles. See **[PvxHandle$](def_object.htm#Mark12)**. _(The optional arguments were added in PxPlus 2025.)_  
+_arg_1_[$],_arg_ __2_[$], ,_arg_n_[$] |  You can optionally pass in arguments when creating .NET objects. These arguments can be strings, numbers, or .NET object handles. See **[PvxHandle$](def_object.htm#Mark12)**. _(The optional arguments were added in PxPlus 2025.)_  
+_DllName_ |  Either the path of the .NET DLL or the name of the .NET system DLL in the Global Assembly Cache (GAC). _(Support for specifying the .NET DLL was added in PxPlus 2026.)_  
   
 ##  Description
 
@@ -36,7 +40,7 @@ The **DEF OBJECT** directive is used to create a new instance of a specified ext
 Upon successful execution of **DEF OBJECT** , a reference to the object _objDef_ _$_ will be placed into the supplied numeric variable _ext_id_.
 
 #### **Note:  
-** WindX in PxPlus supports the use of this directive via the [WDX] or [LCL] tags; e.g. DEF OBJECT "[WDX]somefile.ext". Non-PxPlus versions require you to encapsulate the command in an **EXECUTE** directive with a [WDX] tag (i.e. EXECUTE "[WDX]..."). See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.htm) or **[[LCL] Access to Users Local Machine](../command_tags/lcl.htm)**.
+** WindX in PxPlus supports the use of this directive via the [WDX] or [LCL] tags; e.g. DEF OBJECT "[WDX]somefile.ext". Non-PxPlus versions require you to encapsulate the command in an **EXECUTE** directive with a [WDX] tag (i.e. EXECUTE "[WDX]..."). See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.md) or **[[LCL] Access to Users Local Machine](../command_tags/lcl.md)**.
 
 For **COM** objects, this is done through the PxPlus Event Handling interface and Component Object Model (COM), an industry-standard technology used by applications to expose methods, properties and events to development tools, macro languages and other applications. See **[Automation in PxPlus](../Automation%20in%20PxPlus/Introduction.md)**.
 
@@ -44,8 +48,12 @@ For **COM** objects, this is done through the PxPlus Event Handling interface an
 
 Once you define a **[.NET](../Dot%20Net%20Interface.md)** object, you can use it like any PxPlus object through properties, methods and events.
 
+To work with a .NET object that provides an indexer that allows you to access elements via **[index]** , use the **[PvxGetAt](def_object.htm#Mark13)** and **[PvxSetAt](def_object.htm#Mark14)** PxPlus extension methods.
+
+_(The PvxGetAt and PvxSetAt methods were added in PxPlus 2026.)_
+
 #### **Important Note:**  
-All formats are **_Windows only_** , and you must have installed **Windows Desktop Runtime 8**.  
+All formats are **_Windows only_** , and you must have installed**Windows Desktop Runtime 8**.  
   
 If using 64-bit PxPlus, you must have the x64 Runtime installed. If using 32-bit PxPlus, you must have the x86 Runtime installed.  
   
@@ -78,28 +86,61 @@ ext_id'NotPvx_Day=12
   
 ext_id'NotPvx_Log("foxtrot")
 
-The .NET objects also define several **_extended_** ** _properties_**:
+##  Properties and Methods
 
-**PvxCaseSensitive******|  **_(Read/Write Property)_** Used to control whether the .NET objects properties and methods are case sensitive. Case sensitivity may be needed if a .NET object defines multiple properties or methods with the same name using different case. |  0 |  Properties and methods are case insensitive. _(Default)_  
+The .NET objects also define several **_extended_**  **_properties and methods_**.
+
+The **_extended properties_** are listed below:
+
+**Property** |  **Description**  
+---|---  
+**PvxCaseSensitive** |  **_(Read/Write Property)_** Used to control whether the .NET objects properties and methods are case sensitive. Case sensitivity may be needed if a .NET object defines multiple properties or methods with the same name using different case. |  0 |  Properties and methods are case insensitive. _(Default)_  
 ---|---  
 1 |  Properties and methods are case sensitive.  
-**PvxCol******|  **_(Read/Write Property)_** Used to get/set the position of the left side of the .NET container form control (in columns) from the left side of the panel.  
-**PvxCols******|  **_(Read/Write Property)_** Used to get/set the width (in columns) of the .NET container form control. It also sets the width (in columns) of the .NET control itself while maintaining any offset with the size of the form previously established. If the object is not a control, then setting this property has no effect.  
-**PvxLine******|  **_(Read/Write Property)_** Used to get/set the position of the top of the .NET container form control (in lines) from the top of the panel.  
-**PvxLines** |  **_(Read/Write Property)_** Used to get/set the height (in lines) of a .NET container form control. It also sets the height (in lines) of the .NET control itself while maintaining any offset with the size of the form previously established. If the object is not a control, then setting this property has no effect.  
-**PvxEvents[$]** |  **_(Read-Only Property)_** Returns the PxPlus class object that is handling events or returns a list of events names (depending on the **$** suffix) for the object. Subscribed to events will be prefixed with a **+** (_plus sign_) while unsubscribed events will be prefixed with a ****(_minus sign_). If no events are subscribed to this, returns an empty string.  
-**PvxForm******|  **_(Read-Only Property)_** Returns the handle/ctl to the .NET form container object for the .NET control.  
-**PvxHandle$******|  **_(Read-Only Property)_** Used for assigning or passing in a .NET object to a .NET object constructor, property or method. **_Examples:_** def object font,"[.NET]System.Drawing,System.Drawing.Font","Verdana",12,fontStyle'PvxHandle$ dotNetObjA'AddObj(dotNetObjB'PvxHandle$) dotNetObjA'ChildObj$ = dotNetObjB'PvxHandle$
+**PvxCol** |  **_(Read/Write Property)_** Used to get/set the position of the left side of the .NET container form control (in columns) from the left side of the panel.  
+**PvxCols** |  **_(Read/Write Property)_** Used to get/set the width (in columns) of the .NET container form control. It also sets the width (in columns) of the .NET control itself while maintaining any offset with the size of the form previously established. If the object is not a control, then setting this property has no effect.  
+**PvxDllName$** |  The value given in the **DEF OBJECT** call after **[.NET]** , or if *****  _(asterisk)_ was used, the value selected from the **Select System DLL** dialog. _(The PvxDllName$ property was added in PxPlus 2026.)_  
+**PvxEvents[$]** |  **_(Read-Only Property)_** Returns the PxPlus class object that is handling events or returns a list of events names (depending on the **$** suffix) for the object. Subscribed to events will be prefixed with a **+** (_plus sign_) while unsubscribed events will be prefixed with a **** (_minus sign_). If no events are subscribed to this, returns an empty string.  
+**PvxException$** |  **_(Read-Only Property)_** Returns the last .NET exception error message. **_Examples:_** This first example throws an exception when creating the object, since -10 is not a valid size. The exception information will be included in the **MSG(-1)**. If you are working from the PxPlus Command Line, it will display in red text after the error message.      def object mylist,"[.NET]System.Runtime,System.Collections.ArrayList",-10 This second example invokes a method with a bad argument value that throws an exception. The exception information will be in **PvxException$** :      def object sb,"[.NET]System.Runtime,System.Text.StringBuilder"  
+     sb'insert(-10,"hi")  
+     ?sb'PvxException$
+
+#### **Note:**  
+.NET exceptions during **DEF OBJECT** will be returned as part of the **MSG(-1)** error message.
+
+_(The PvxException$ property was added in PxPlus 2026.)_  
+**PvxForm** |  **_(Read-Only Property)_** Returns the handle/ctl to the .NET form container object for the .NET control.  
+**PvxHandle$** |  **_(Read-Only Property)_** Used for assigning or passing in a .NET object to a .NET object constructor, property or method. **_Examples:_**      def object font,"[.NET]System.Drawing,System.Drawing.Font","Verdana",12,fontStyle'PvxHandle$      dotNetObjA'AddObj(dotNetObjB'PvxHandle$)      dotNetObjA'ChildObj$ = dotNetObjB'PvxHandle$
 
 #### **Note:**  
 In the third example above, the **$** at the end of **ChildObj** is not a string type, even though it is an object reference.  
   
 This is done so that it can be assigned with the special property **PvxHandle$** , which is a string type, and you cannot assign a string type to a non-string type.  
   
-**PvxHeight******|  **_(Read/Write Property)_** Used to get/set the height (in pixels) of a .NET container form control. It also sets the height (in pixels) of the .NET control itself while maintaining any offset with the size of the form previously established. If the object is not a control, then setting this property has no effect.  
-**PvxLeft******|  **_(Read/Write Property)_** Used to get/set the left border (in pixels) of a .NET container form control. If the object is not a control, then setting this property has no effect.  
-**PvxTop******|  **_(Read/Write Property)_** Used to get/set the top border (in pixels) of a .NET container form control. If the object is not a control, then setting this property has no effect.  
-**PvxWidth******|  **_(Read/Write Property)_** Used to get/set the width (in pixels) of a .NET container form control. It also sets the width (in pixels) of the .NET control itself while maintaining any offset with the size of the form previously established. If the object is not a control, then setting this property has no effect.  
+**PvxHeight** |  **_(Read/Write Property)_** Used to get/set the height (in pixels) of a .NET container form control. It also sets the height (in pixels) of the .NET control itself while maintaining any offset with the size of the form previously established. If the object is not a control, then setting this property has no effect.  
+**PvxLeft** |  **_(Read/Write Property)_** Used to get/set the left border (in pixels) of a .NET container form control. If the object is not a control, then setting this property has no effect.  
+**PvxLine** |  **_(Read/Write Property)_** Used to get/set the position of the top of the .NET container form control (in lines) from the top of the panel.  
+**PvxLines** |  **_(Read/Write Property)_** Used to get/set the height (in lines) of a .NET container form control. It also sets the height (in lines) of the .NET control itself while maintaining any offset with the size of the form previously established. If the object is not a control, then setting this property has no effect.  
+**PvxObjName$** |  The value given in the **DEF OBJECT** call after **[.NET]**_DllName_ , or if *****  _(asterisk)_ was used, the value selected from the **Select System Object** dialog. _(The PvxObjName$ property was added in PxPlus 2026.)_  
+**PvxTop** |  **_(Read/Write Property)_** Used to get/set the top border (in pixels) of a .NET container form control. If the object is not a control, then setting this property has no effect.  
+**PvxWidth** |  **_(Read/Write Property)_** Used to get/set the width (in pixels) of a .NET container form control. It also sets the width (in pixels) of the .NET control itself while maintaining any offset with the size of the form previously established. If the object is not a control, then setting this property has no effect.  
+  
+The **_extended methods_** are listed below:
+
+**Method** |  **Description**  
+---|---  
+**PvxGetAt[$](_index_[$])** |  Returns the value at the given index from the .NET object. The index can be a number, string, or .NET object handle. Equivalent to doing a **myArray[**_index_**]** in .NET. See **[PvxGetAt and PvxSetAt Examples](def_object.htm#Mark15)**.
+
+#### **Note:**  
+The index, if a number, starts at zero; i.e. the first index is 0, the second index is 1, etc.
+
+_(The PvxGetAt method was added in PxPlus 2026.)_  
+**PvxSetAt(**_index_**[$],**_  value**[**_**$])** |  Assigns the given value to the element of the given index of the .NET object. The index can be a number, string, or .NET object handle. Equivalent to doing a **myArray[**_index_**]=**_value_ in .NET. See **[PvxGetAt and PvxSetAt Examples](def_object.htm#Mark15)**.
+
+#### **Note:**  
+The index, if a number, starts at zero; i.e. the first index is 0, the second index is 1, etc.
+
+_(The PvxSetAt method was added in PxPlus 2026.)_  
   
 You can/should drop/delete any .NET objects once they are no longer needed to free up resources (ctls/memory):
 
@@ -111,38 +152,42 @@ If returning a .NET object via a property or method, you should save the handle/
   
 This is true even if creating the .NET object just to pass it in as an argument to another object.
 
-Events can be subscribed to and unsubscribed to via **[ON EVENT](on_event.md)**, just like COM and *Browser. All .NET events have two arguments, _sender_ and _evtArgs_ , where _sender_ is the .NET object that triggered the event while _evtArgs_ is a .NET object that contains additional event arguments, if needed. What these are exactly will depend on the .NET object, and you can use the .NET objects documentation to find out details about specific events, _evtArgs_. Event arguments are supported only when handling events via a class.
+**_Events_** can be subscribed to and unsubscribed to via **[ON EVENT](on_event.md)**, just like COM and *Browser. All .NET events have two arguments, _sender_ and _evtArgs_ , where _sender_ is the .NET object that triggered the event while _evtArgs_ is a .NET object that contains additional event arguments, if needed. What these are exactly will depend on the .NET object, and you can use the .NET objects documentation to find out details about specific events, _evtArgs_. Event arguments are supported only when handling events via a class.
 
-Everything in .NET is an object, even numbers and strings. When passing in arguments to create an object or to call a method, and when setting properties, PxPlus will automatically convert a PxPlus **_number_** to a .NET Int16, UInt16, Int32, UInt32, Int64, UInt64, or Double object, and a PxPlus **_string_** to a .NET String, Char, Char[], Byte, Bye[], SByte, or SByte[] object, and a PxPlus **0** or **1** to a .NET Boolean object. What the PxPlus number or string gets converted to depends on the .NET property or argument type. Other .NET property or argument types are **_not_** converted, and you need to use a .NET object handle. When setting a property of a non-converted type or when passing in an argument via **DEF OBJECT** or a method call, use the **PvxHandle** **$** property of a PxPlus .NET object. See **[PvxHandle$](def_object.htm#Mark12)** for examples.
+Everything in .NET is an **_object_** , even numbers and strings. When passing in arguments to create an object or to call a method, and when setting properties, PxPlus will automatically convert a PxPlus **_number_** to a .NET Int16, UInt16, Int32, UInt32, Int64, UInt64, or Double object, and a PxPlus **_string_** to a .NET String, Char, Char[], Byte, Bye[], SByte, or SByte[] object, and a PxPlus **0** or **1** to a .NET Boolean object. What the PxPlus number or string gets converted to depends on the .NET property or argument type. Other .NET property or argument types are **_not_** converted, and you need to use a .NET object handle. When setting a property of a non-converted type or when passing in an argument via **DEF OBJECT** or a method call, use the **PvxHandle$** property of a PxPlus .NET object. See **[PvxHandle$](def_object.htm#Mark12)** for examples.
 
-The return value of a property or method is also automatically converted where .NET Int16, UInt16, Int32, UInt32, Int64, UInt64, or Double objects are converted to PxPlus **_numbers_** , .NET String, Char, Char[], Byte, Bye[], SByte, or SByte[] objects are converted to PxPlus **_strings_** , and a .NET Boolean object is converted to a **0** or **1**. Other types are **_not_** converted and are returned to PxPlus as a handle/ctl to the.NET object, which can then be used the same as the originally created .NET object.
+The **_return value_** of a property or method is also automatically converted where .NET Int16, UInt16, Int32, UInt32, Int64, UInt64, or Double objects are converted to PxPlus **_numbers_** , .NET String, Char, Char[], Byte, Bye[], SByte, or SByte[] objects are converted to PxPlus **_strings_** , and a .NET Boolean object is converted to a **0** or **1**. Other types are **_not_** converted and are returned to PxPlus as a handle/ctl to the.NET object, which can then be used the same as the originally created .NET object.
 
-In .NET, enumerator objects are common. Enumerators allow you to have a pre-set list of named values that a property can be set to. PxPlus treats the enumerator as a .NET object. The enumerator object will have properties for each of the named values. These properties return their own enumerator object set to that named value. The enumerator object is set to a specific named value via the **value_** property with a numeric representation of which named enumerator it is. If you know the numeric value for the named enumerator type you want, you can set the **value_** property directly.
+.NET **_arrays_** are not converted automatically; however, the **[*Tools/DotNetConvert](../utilities/dotnetconversion.md)** utility can be used to convert from/to PxPlus arrays.
+
+_(The *Tools/DotNetConvert utility was added in PxPlus 2026.)_
+
+In .NET, **_enumerator objects_** are common. Enumerators allow you to have a pre-set list of named values that a property can be set to. PxPlus treats the enumerator as a .NET object. The enumerator object will have properties for each of the named values. These properties return their own enumerator object set to that named value. The enumerator object is set to a specific named value via the **value_** property with a numeric representation of which named enumerator it is. If you know the numeric value for the named enumerator type you want, you can set the **value_** property directly.
 
 #### **Note:**  
 Care should be taken to give returned enumerator objects handles so you can drop/delete them when done.  
   
-def object fontStyle,"[.NET]System.Drawing,System.Drawing.FontStyle"  
-bold=fontStyle'Bold  
-drop object fontStyle  
-def object font,"[.NET]System.Drawing,System.Drawing.Font","Verdana",12,bold'PvxHandle$  
-drop object bold  
-  
-drop object font
+     def object fontStyle,"[.NET]System.Drawing,System.Drawing.FontStyle"  
+     bold=fontStyle'Bold  
+     drop object fontStyle  
+     def object font,"[.NET]System.Drawing,System.Drawing.Font","Verdana",12,bold'PvxHandle$  
+     drop object bold  
+       
+     drop object font
 
-In .NET, some objects are value type objects where each time you return the object, it will be a unique object. In this case, you cannot just access that value type object's properties or methods to change it and have the parent object changed. You must get a handle to a value type object, modify it, and then set the parent object property to the modified value type object. For example, enumerators are value type objects. You want to drop/delete these objects when finished with them.
+In .NET, some objects are **_value type objects_** where each time you return the object, it will be a unique object. In this case, you cannot just access that value type object's properties or methods to change it and have the parent object changed. You must get a handle to a value type object, modify it, and then set the parent object property to the modified value type object. For example, enumerators are value type objects. You want to drop/delete these objects when finished with them.
 
-In .NET, non-value type objects will return the same object each time they are accessed. You can access a non-value type object's properties and methods to change the behavior of the parent object. PxPlus will use the same ctl value each time you access these types of objects. You generally do not drop/delete these objects, as they are part of the parent object.
+In .NET, **_non-value type objects_** will return the same object each time they are accessed. You can access a non-value type object's properties and methods to change the behavior of the parent object. PxPlus will use the same ctl value each time you access these types of objects. You generally do not drop/delete these objects, as they are part of the parent object.
 
-Static .NET classes are supported as well. A static class is a class with only static members, such as System.Math, which can be used to get constant values and perform operations on passed-in values but does not store any data. You do a **DEF OBJECT** on it the same as you would a .NET object and work with it in the same way.
+**_Static .NET classes_** are supported as well. A static class is a class with only static members, such as System.Math, which can be used to get constant values and perform operations on passed-in values but does not store any data. You do a **DEF OBJECT** on it the same as you would a .NET object and work with it in the same way.
 
-Error messages are returned via **MSG(-1)**.
+Error messages are returned via **MSG(-1)**. Further error information can be accessed via the .NET exception messages using the **[PvxException$](def_object.htm#Mark16)** extended property.
 
 ##  Format 1
 
 **_Define Invisible External Object_**
 
-**DEF OBJECT**  _ext_id,objDef_ _$_[,_arg_ __1_[$],_arg_ __2_[$],,_arg_n_[$]][,**ERR=**_stmtref_]
+**DEF OBJECT**  _ext_id,objDef_ _$_[,_arg_ __1_[$],_arg_ __2_[$], ,_arg_n_[$]][,**ERR=**_stmtref_]
 
 Use this format to create a link to an invisible external object (COM, .NET or *Browser). This format associates the object with the current window, yet it is hidden from view.
 
@@ -160,19 +205,19 @@ Once the definition is complete, _this_ext_id_ will contain a handle to the obje
 
 **_Define Visible External Object_**
 
-**DEF OBJECT**  _ext_id_ ,**@(**_col,ln,wth,ht_ **)**{,|=} _objDef_ _$_[,_arg_ __1_[$],_arg_ __2_[$],,_arg_n_[$]] [,**ERR=**_stmtref_]
+**DEF OBJECT**  _ext_id_ ,**@(**_col,ln_ _,wth,ht_**)**{,|=} _objDef_ _$_[,_arg_ __1_[$],_arg_ __2_[$], ,_arg_n_[$]] [,**ERR=**_stmtref_]
 
 This format defines a visible object and associates it with a location in the current window:
 
 > def object numvar,@(col,row,wide,high),"object_name",err=2000  
-> def object numvar,@(col,row,wide,high)="object_name",err=2000
+>  def object numvar,@(col,row,wide,high)="object_name",err=2000
 
 > def object numvar,@(col,row,wide,high),"[.NET]dll_path,object_name",err=2000  
-> def object numvar,@(col,row,wide,high)="[.NET]dll_path,object_name",err=2000
+>  def object numvar,@(col,row,wide,high)="[.NET]dll_path,object_name",err=2000
 
 For graphical .NET controls, a .NET form is created, and the .NET control requested is added to it. The form is then embedded at the coordinates given in the **DEF OBJECT** directive. The .NET control is positioned at the top left of the .NET form and given the same width and height as the form. The end result is that you see only your .NET control embedded in the PxPlus screen. You can, however, change the position and size of the control within a .NET frame, if needed. You may want to do this if the form supports menus, for example, where you can position the control lower in the frame and shorten the height to make room for the menu.
 
-The position and size of the .NET frame is controlled via the following **[properties](def_object.htm#Mark13)**: **PvxCol** , **PvxCols** , **PvxLine** , **PvxLines** , **PvxLeft** , **PvxTop** , **PvxHeight** and **PvxWidth**. The position and size of the .NET control within the .NET form is controlled via the .NET object properties **Left** , **Top** , **Height** , **Width** , **Bottom** and **Right**.
+The position and size of the .NET frame is controlled via the following **[Properties](def_object.htm#Mark13)**: **PvxCol** , **PvxCols** , **PvxLine** , **PvxLines** , **PvxLeft** , **PvxTop** , **PvxHeight** and **PvxWidth**. The position and size of the .NET control within the .NET form is controlled via the .NET object properties **Left** , **Top** , **Height** , **Width** , **Bottom** and **Right**.
 
 When moving and/or resizing the .NET container form control via the **Pvx** _nnnnn_ properties, the size of the .NET control will be moved and/or resized as well. If the position/size of the .NET control was modified to be different from the form, then that difference will be maintained when moving/resizing. For example, if you moved the .NET control lower and made it shorter than the form to fit a menu, and then you move and/or resize the form, the space created at the top for the menu will be kept intact.
 
@@ -191,37 +236,120 @@ Only WinForms graphical .NET controls are supported.
 
 **_List Available COM Objects_**
 
-**DEF OBJECT** _ext_id_ , "*" [,**ERR=**_stmtref_]
+**DEF OBJECT** _ext_id_ , "*" [,**ERR** **=**_stmtref_]
 
 Use this format to display a pop-up window listing the COM controls currently installed on the system.
 
-##  Examples
+##  Format 4
+
+**_List Available .NET System DLLs and then Objects_**
+
+**DEF OBJECT**  _ext_id_ , "**[.NET]** *" [,**ERR=**_stmtref_]
+
+Use this format to display a pop-up window for selecting a .NET system DLL from a list box. After that, another pop-up window displays for selecting an object from the system DLL.
+
+After the .NET system DLL **_and_** the object are selected, **DEF OBJECT** completes as if those values were provided in the call, and a .NET object handle is stored in _objid_.
+
+#### **Note:**  
+If the selected object cannot be created without arguments, an Error #15 will display with the .NET exception information included in the error message.
+
+**_Example:_**
+
+The example below will ask you to first select a .NET system DLL and then select an object from that DLL. It will then create the object and return the handle to the object in _o_ :
+
+     def object o,"[.NET]*"
+
+To print your selection, you can use:
+
+     ?o'PvxDllName$
+
+     ?o'PvxObjName$
+
+_(Format 4 was added in PxPlus 2026.)_
+
+##  Format 5
+
+**_List Available .NET Objects for the Given DLL_**
+
+**DEF OBJECT**  _ext_id_ , "**[.NET]**_DllName_ ,*" [,**ERR=**_stmtref_]
+
+Use this format to display a pop-up window for selecting a .NET object from the DLL.
+
+After the .NET object is selected, **DEF OBJECT** completes as if that object was provided in the call, and a .NET object handle is stored in _objid_.
+
+#### **Note:**  
+If the selected object cannot be created without arguments, an Error #15 will display with the .NET exception information included in the error message.
+
+**_Example:_**
+
+The example below will only ask you to select an object from the given DLL. It will then create the object and return the handle to the object in _o_.
+
+     def object o,"[.NET]System.Windows.Forms,*"
+
+To print your selection, you can use:
+
+     ?o'PvxObjName$
+
+_(Format 5 was added in PxPlus 2026.)_
+
+## Examples
 
 **_COM Examples:_**
 
-> def object X,"*"
+          def object X,"*"
 
-> def object X,"Word.Application",err=*next
+          def object X,"Word.Application",err=*next
 
-> def object X,@(1,1,70,20)="Word.Document"
+          def object X,@(1,1,70,20)="Word.Document"
 
-> def object X,"[dcom]MyServer;Shell.Explorer"
+          def object X,"[dcom]MyServer;Shell.Explorer"
 
-> def object X,@(10,2,20,10)="[file]c:\y documents\test.doc"
+          def object X,@(10,2,20,10)="[file]c:\y documents\test.doc"
 
-> def object X,"VCF1.VCF1Ctrl.1;License=8041207972768742028669631967"
+          def object X,"VCF1.VCF1Ctrl.1;License=8041207972768742028669631967"
 
-> def object X,"[running or new]Excel.Application"
+          def object X,"[running or new]Excel.Application"
 
 .**_NET Examples:_**
 
-> def object mathDotNet,"[.NET]mscorlib,System.Math"
+          def object mathDotNet,"[.NET]mscorlib,System.Math"
 
-> def object devExpressGrid,@(80,1,50,20),"[.NET]C:\Program Files\DevExpress 24.2\Components\Bin\NetCore\DevExpress.XtraGrid.v24.2.dll,DevExpress.XtraGrid.GridControl"
+          def object devExpressGrid,@(80,1,50,20),"[.NET]C:\Program Files\DevExpress 24.2\Components\Bin\NetCore\DevExpress.XtraGrid.v24.2.dll,DevExpress.XtraGrid.GridControl"
 
-> def object font,"[.NET]System.Drawing,System.Drawing.Font","Verdana",12,fontStyle'PvxHandle$,err=bad_font
+          def object font,"[.NET]System.Drawing,System.Drawing.Font","Verdana",12,fontStyle'PvxHandle$,err=bad_font
 
-> def object calendarDotNet,@(100,10,30,20),"[.NET]System.Windows.Forms,System.Windows.Forms.MonthCalendar"
+          def object calendarDotNet,@(100,10,30,20),"[.NET]System.Windows.Forms,System.Windows.Forms.MonthCalendar"
+
+**_PvxGetAt_ _and PvxSetAt Examples:_**
+
+This first example uses **[PvxGetAt](def_object.htm#Mark13)** to access an index of a columns list. The result is a column object that is used to access and set the name property. This will change the text for the column header:
+
+          def object datagridview1,@(20,0,70,8),"[.NET]System.Windows.Forms,System.Windows.Forms.DataGridView"  
+          datagridview1'columncount=3  
+          datagridview1'rowcount=4  
+          cols=datagridview1'columns  
+          cols'PvxGetAt(0)'Name$="AAAAA"  
+          cols'PvxGetAt(1)'Name$="BBBBB
+
+This second example accesses and sets an element of the array list object. The first print will be 10; the second print will be 15:
+
+          def object mylist,"[.NET]System.runtime,System.Collections.ArrayList"  
+          mylist'Add(10)  
+          mylist'Add("text")  
+          ?mylist'PvxGetAt(0)  
+          ?mylist'PvxGetAt$(1)  
+          mylist'PvxSetAt(0,15)  
+          ?mylist'PvxGetAt(0)
+
+This third example is a hash table object that is like an associate array where the array is indexed via a string or any object in the .NET hash table. The print results will be "Hello" and then "World":
+
+          def object myhashtbl,"[.NET]System.runtime,System.Collections.Hashtable"  
+          myhashtbl'pvxSetAt("one","Hello")  
+          myhashtbl'pvxSetAt("two","World")  
+          ?myhashtbl'pvxGetAt$("one")  
+          ?myhashtbl'pvxGetAt$("two")
+
+_(The PvxGetAt and PvxSetAt examples were added in PxPlus 2026.)_
 
 ##  See Also
 
@@ -231,3 +359,9 @@ Use this format to display a pop-up window listing the COM controls currently in
 **[Automation in PxPlus](../Automation%20in%20PxPlus/Introduction.md)  
 [External Controls - *Browser, ActiveX (COM), PVX Plus, .NET](../NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/COM%20Control/COM%20Control.md)  
 [How To Tutorials (for .NET Interface)](../How%20To/Dot%20NET%20Tutorials%20Intro.md)**
+
+ 
+
+ 
+
+ 

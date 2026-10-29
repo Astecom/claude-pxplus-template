@@ -1,5 +1,5 @@
-# Utility Routines  
-  
+# Utilities
+
 ***TOOLS/HOSTTEST** |  **_Test *plus/cs/spawn Interface_**  
 ---|---  
   
@@ -26,3 +26,9 @@ _(The HostTest utility was added in PxPlus 2022.)_
 ## See Also
 
 **[WindX™ Thin-Client](../windx.md)**
+
+ 
+
+ 
+
+ 

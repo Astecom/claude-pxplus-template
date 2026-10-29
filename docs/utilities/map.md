@@ -1,11 +1,11 @@
-# Utility Routines
+# Utilities
 
 ***MAP** |  **_Display Google Map_**  
 ---|---  
   
 ## Invocation
 
-**CALL "*map"** , _street$, city$, state$, country$_
+**CALL "*map"**, _street$, city$, state$, country$_
 
 **_Where:_**
 
@@ -23,9 +23,15 @@ While generally you pass four arguments to this routine, technically you can pas
 
 **_Typical Calling Sequence:_**
 
-> **CALL "*map"** , "_25 Centurian Blvd_.", "_Markham_ ", "_Ontario_ ", "_Canada_ "
+> **CALL "*map"**, "_25 Centurian Blvd_.", "_Markham_ ", "_Ontario_ ", "_Canada_ "
 
 #### **Note:**  
 As with all other Google Maps interfaces, the system global variable **%GoogleAPIKey$** will need to be set to your API key as supplied by Google.
 
 _(The Map utility was added in PxPlus 2022.)_
+
+ 
+
+ 
+
+ 

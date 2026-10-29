@@ -1,5 +1,5 @@
-#   
-  
+#  
+
 **iNomads**|   
 ---|---  
   
@@ -7,7 +7,7 @@
 
 iNomads provides a Web-based environment that allows NOMADS screens and panels to be run over the Web from any industry standard Web browser. Unlike standard NOMADS panels, the target device does not have to be running WindX or be a Windows workstation. No download or install is required by the end user. Standard browser functionality (HTML and JavaScript) is used to render and process the panels.
 
-While some functionality is limited because the application is running within a browser, iNomads provides a number of advantages over running your application using WindX. The most important advantage is that iNomads requires no special software to be loaded on the workstation. Virtually any browser that supports JavaScript and Style Sheets can be used. This allows end users to access and run their application from an Internet caf, at a client's location, at a hotel or conference business center, even on a cell phone. With no software download or installation requirements, NOMADS-based applications can run from virtually anywhere and via any Web compatible device.
+While some functionality is limited because the application is running within a browser, iNomads provides a number of advantages over running your application using WindX. The most important advantage is that iNomads requires no special software to be loaded on the workstation. Virtually any browser that supports JavaScript and Style Sheets can be used. This allows end users to access and run their application from an Internet café, at a client's location, at a hotel or conference business center, even on a cell phone. With no software download or installation requirements, NOMADS-based applications can run from virtually anywhere and via any Web compatible device.
 
 iNomads also extends standard NOMADS functionality to provide for a better, faster online experience utilizing the latest in Ajax technologies. Controls that contain large data sets, such as Grids and List Views, are downloaded on demand automatically. In addition, since there is tight integration between the server and the browser client, application logic that interacts with the controls actually interacts with what are effectively shadow controls on the server. This further reduces transmissions between the server and the browser, making iNomads, in many cases, faster than standard NOMADS for many applications.
 
@@ -98,3 +98,9 @@ To understand how to set up and use iNomads, you should be familiar with the fol
 ## See Also
 
 **[Frequently Asked Questions](Frequently%20Asked%20Questions.md)**
+
+ 
+
+ 
+
+ 

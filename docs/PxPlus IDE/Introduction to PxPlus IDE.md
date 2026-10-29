@@ -1,14 +1,16 @@
-# 
+#  
 
-**PxPlus IDE** |  **_Integrated Development Environment_**  
+**PxPlus IDE** |  **_Integrated Development Environment  _**  
 ---|---  
   
 The **PxPlus IDE** (**I** ntegrated **D** evelopment **E** nvironment) is a project-based development environment that combines all the features of PxPlus and presents them in a modern interface. It is designed to provide application developers with convenient accessibility to all the development, installation and setup tools available in the PxPlus Development Suite.
 
 The PxPlus IDE can be accessed from a Windows platform and from a Web browser. When PxPlus is installed, two new **_shortcuts_** are created:
 
-|  **_PxPlus IDE  
+  |  **_PxPlus IDE  
+  
 PxPlus Web IDE_** |  Launches PxPlus IDE on a **_Windows_** platform. See **[IDE Main Launcher (Windows)](IDE%20Main%20Launcher.md)**.  
+  
 Launches PxPlus IDE from a **_Web_** browser. See **[IDE Main Launcher (Web)](IDE%20Main%20Launcher_Web.md)**.  
 ---|---|---  
   
@@ -25,6 +27,8 @@ The PxPlus IDE Main Launcher includes the following:
 ##  Working with Projects
 
 Projects provide a method for organizing and managing the various tasks and settings used in the development of business applications. Each project requires a working directory and a settings file. The settings file is used to save project settings and the data that defines the project contents. Projects can be defined with an optional title bar color to help identify individual projects. The **[Projects](IDE%20Main%20Launcher.htm#projects)** menu on the IDE menu bar provides options for creating and maintaining projects.
+
+See **[Benefits of Using Projects](Introduction%20to%20PxPlus%20IDE.htm#benefits)**.
 
 Projects can also be used when working in the **[NOMADS Session Manager](../NOMADS%20Graphical%20Application/NOMADS%20Development/Getting%20Started.htm#sessionmgr)**, which is invoked by entering **nom** from the PxPlus Command line. See **[How to Use Projects from the NOMADS Session Manager](../How%20To/How%20to%20Use%20Projects%20Nom%20Session%20Mgr.md)**.
 
@@ -55,11 +59,11 @@ The settings that can be saved by project include:
   * **[HTML Editor](../HTML%20Editor.md)** settings
   * **[Report Designer](../Report%20Writer/Designing%20a%20Report/Report%20Designer/Overview.md)** settings
   * Port Number used for each of the following:  
-**[EZWeb Server](../EZWebServer/EZweb%20Introduction.htm#Mark1)**  
-**[Webster+ Installation](../Webster/Webster%20Setup.htm#installation)**
+    **[EZWeb Server](../EZWebServer/EZweb%20Introduction.htm#Mark1)**  
+    **[Webster+ Installation](../Webster/Webster%20Setup.htm#installation)**
   * Database information for each of the following:  
-**[Bulk Database Export Utility](../Data%20Dictionary/Data%20Dictionary%20Maintenance/Bulk%20Database%20Export.md)**  
-**[Database Import Utility](../Data%20Dictionary/Data%20Dictionary%20Maintenance/Database%20Import.md)**
+    **[Bulk Database Export Utility](../Data%20Dictionary/Data%20Dictionary%20Maintenance/Bulk%20Database%20Export.md)**  
+    **[Database Import Utility](../Data%20Dictionary/Data%20Dictionary%20Maintenance/Database%20Import.md)**
 
 
 
@@ -71,3 +75,29 @@ Tasks can be project-related or non-project and are driven by the **[Task](IDE%2
 
 _(The ability to save tasks and settings by project was added in PxPlus 2023.)  
 (The ability to save Bulk Database Export and Database Import information by project was added in PxPlus 2023 Update 1.)_
+
+##  Benefits of Using Projects
+
+Using projects provides several key benefits:
+
+**_Centralized Organization of Development Tasks and Settings_**  
+  
+Projects provide a structured way to group all relevant components (such as Data Dictionary/Data Classes, NOMADS library objects, programs, reports, and data files) into a single, cohesive unit. This simplifies the management of complex applications by keeping related items together.
+
+**_Persistent and Shareable Configuration_**  
+  
+Each project uses a settings file to save the project's configurations (i.e. IDE settings, project settings, etc.). These files are stored outside of PxPlus, allowing settings to persist across software releases and be shared among multiple projects.
+
+**_Improved Development Workflow and Environment Control_**  
+  
+Projects define a working directory and can include a Start_up program, ensuring that each task launches in the correct environment. This provides consistency in run-time behavior.
+
+**_Visual Identification and Task Segregation_**  
+  
+Projects can have a custom title bar color to make it easier to identify and distinguish between different projects.
+
+ 
+
+ 
+
+ 

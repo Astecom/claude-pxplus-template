@@ -22,20 +22,68 @@ _Tab Position_ |  **_(Not Applicable to Tabless Folders)_** Tabs placement. Clic
 _Left (Rotated)_ and _Right (Rotated)_ tab positions do **_not_** support bitmaps and images.  
   
 _Tab Width_ |  **_(Not Applicable to Tabless Folders)_** Uniform width to be used for all tabs. When the _Tab Position_ selected is _Top, Bottom, Left (Rotated)_ or _Right (Rotated)_ , you can either enter a tab width or leave it blank. Leaving it blank will trigger NOMADS to automatically calculate the tab width by using the folder width and the number of tabs. When the _Tab Position_ selected is _Left Sidebar_ or _Right Sidebar_ , a tab width must be entered, as NOMADS will not automatically calculate it if left blank. Format mask: ###.  
+**Attributes**  
+_Tab Corner Radius_ |  Sets the radius for the tab button corners. Works only in **4D** mode. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CornerRadius$](../../../properties/cornerradius_.md)** property. **_Example:_** Tab Corner Radius set to **Round** : |    
+**_Tabs Position = Top_** |    
+**_Tabs Position = Left Sidebar_**  
+---|---  
+  
+Tab Corner Radius set to **Square** :
+
+  
+**_Tabs Position = Top_** |    
+**_Tabs Position = Left Sidebar_**  
+---|---  
+  
+Tab Corner Radius set to a value of **10** :
+
+  
+**_Tabs Position = Top_** |    
+**_Tabs Position = Left Sidebar_**  
+---|---  
+  
+#### **Note:**  
+Corner rounding is limited based on the control type and/or the control size.
+
+_(Tab Corner Radius property was added in PxPlus 2026.)_  
+  
+_Tab Focus Rectangle_ |  Controls whether a dotted focus rectangle displays around the tab button text. By default, the focus rectangle is shown (On). Possible values are: |    |  _Default_ |  Uses the default setting.  
+---|---|---  
+  |  _Display_ |  Focus rectangle is shown (On).  
+  |  _Suppress_ |  Focus rectangle is not shown (Off).  
+  
+**_Example:_**
+
+Tab focus is **_Off_** :
+
+  
+**_Tabs Position = Top_** |    
+**_Tabs Position = Left Sidebar_**  
+---|---  
+  
+Tab focus is **_On_** :
+
+  
+**_Tabs Position = Top_** |    
+**_Tabs Position = Left Sidebar_**  
+---|---  
+  
+_(Tab Focus Rectangle property was added in PxPlus 2026.)_  
+  
 **Colors**  
-_Click the dotted_ _Query button or double click inside the cell to access_ **[Color Selections](../../Appendix/Color%20Selections.md)** _. Valid formats for color selections include predefined system colors (e.g. Light Red), Custom (RGB codes), HTML Hex Color Codes, User Defined colors (e.g. Color17) and string Expressions._ _After a color property is set, a tick in the selected color displays in the top left corner. A floating tip with a sample of the selected color displays when hovering the mouse over the color setting._ _(The color tick and color tip were added in PxPlus 2018.)  
+_Click the dotted_ _Query button or double click inside the cell to access_**[Color Selections](../../Appendix/Color%20Selections.md)** _. Valid formats for color selections include predefined system colors (e.g. Light Red), Custom (RGB codes), HTML Hex Color Codes, User Defined colors (e.g. Color17) and string Expressions._ _After a color property is set, a tick in the selected color displays in the top left corner. A floating tip with a sample of the selected color displays when hovering the mouse over the color setting._ _(The color tick and color tip were added in PxPlus 2018.)  
 __(The Color Selections Query button and dialog were added in PxPlus 2020.)_  
 _Background_ |  Background color of the folder panel and a folder tab in its default state. To just set the folder tab color, set the _Background_ property to _Default_ and then set the **[Tab Color](Themes_vc%20Fldr.htm#tab_color)** property under **Colors (States)** below. To set a gradient color for the folder tabs, set the _Tab Color_ and **[Tab Color 2](Themes_vc%20Fldr.htm#tab_color2)** properties under **Colors (States)** below. These will override the tab color set in the _Background_ property.  
 _Foreground_ |  Foreground text color on a tab in its default state.  
 **Colors (States)**  
-_Click the dotted_ _Query button or double click inside the cell to access_ **[Color Selections](../../Appendix/Color%20Selections.md)** _. Valid formats for color selections include predefined system colors (e.g. Light Red), Custom (RGB codes), HTML Hex Color Codes, User Defined colors (e.g. Color17) and string Expressions._ _After a color property is set, a tick in the selected color displays in the top left corner. A floating tip with a sample of the selected color displays when hovering the mouse over the color setting._ _(The Color (States) category for Folder controls was added in PxPlus 2022.)_  
+_Click the dotted_ _Query button or double click inside the cell to access_**[Color Selections](../../Appendix/Color%20Selections.md)** _. Valid formats for color selections include predefined system colors (e.g. Light Red), Custom (RGB codes), HTML Hex Color Codes, User Defined colors (e.g. Color17) and string Expressions._ _After a color property is set, a tick in the selected color displays in the top left corner. A floating tip with a sample of the selected color displays when hovering the mouse over the color setting._ _(The Color (States) category for Folder controls was added in PxPlus 2022.)_  
 _Active Tab Border Color_ |  **_(NOMADS Only)_** Color of the active folder tab border on sidebar tabs. _(Active Tab Border Color property was added in PxPlus 2024.)_  
 _Active Tab Color_ |  **_(NOMADS Only)_** Background color of the folder tab when the folder is active. See _Active Tab Color 2_ below. _(Active Tab Color property was added in PxPlus 2022.)_  
 _Active Tab Color 2_ |  **_(NOMADS Only)_** Used in conjunction with _Active Tab Color_ to generate a two-color gradient fill on the folder tab when the folder is active. The gradient fill starts with the _Active Tab Color_ at the top and flows to the _Active Tab Color 2_ at the bottom. _Active Tab Color**must**_ be specified; otherwise, _Active Tab Color 2_ will be ignored. _(Active Tab Color 2 property was added in PxPlus 2022.)_  
 _Active Text Color_ |  **_(NOMADS Only)_** Foreground text color of the folder tab when the folder is active. _(Active Text Color property was added in PxPlus 2022.)_  
 _Disable Tab Border Color_ |  **_(NOMADS Only)_** Color of the disabled folder tab border on sidebar tabs. _(Disable Tab Border Color property was added in PxPlus 2024.)_  
 _Disable Tab Color_ |  **_(NOMADS Only)_** Background color of the folder tab when the folder is disabled. See _Disable Tab Color 2_ below. _(Disable Tab Color property was added in PxPlus 2022.)_  
-_Disable Tab Color 2_ |  **_(NOMADS Only)_** Used in conjunction with _Disable Tab Color_ to generate a two-color gradient fill on the folder tab when the folder is disabled. The gradient fill starts with the _Disable Tab Color_ at the top and flows to the _Disable Tab Color 2_ at the bottom. _Disable Tab Color**must**_ be specified; otherwise, _Disable Tab Color 2_ will be ignored. _(Disable Tab Color 2 property was added in PxPlus 2022.)_  
+_Disable Tab Color 2_ |  **_(NOMADS Only)_** Used in conjunction with _Disable_ _Tab Color_ to generate a two-color gradient fill on the folder tab when the folder is disabled. The gradient fill starts with the _Disable_ _Tab Color_ at the top and flows to the _Disable_ _Tab Color 2_ at the bottom. _Disable Tab Color**must**_ be specified; otherwise, _Disable Tab Color 2_ will be ignored. _(Disable Tab Color 2 property was added in PxPlus 2022.)_  
 _Disable Text Color_ |  **_(NOMADS Only)_** Foreground text color of the folder tab when the folder is disabled. _(Disable Text Color property was added in PxPlus 2022.)_  
 _Hover Tab Border Color_ |  **_(NOMADS Only)_** Color of the folder tab border on sidebar tabs while hovering. _(Hover Tab Border Color property was added in PxPlus 2024.)_  
 _Hover Tab Color_ |  **_(NOMADS Only)_** Background color of the folder tab when the mouse is over the tab. See _Hover Tab Color 2_ below. _(Hover Tab Color property was added in PxPlus 2022.)_  
@@ -47,9 +95,15 @@ _Tab Color 2_ |  **_(NOMADS Only)_** Used in conjunction with _Tab Color_ to gen
 **Font**  
 _Font_ |  Click the dotted Query button or double click inside the cell to specify font properties and attributes such as _Bold_ , _Italics_ , _Alignment_ (default: _Left Justify_), _Word Wrap_ , etc. See **[Font Properties](Font%20Properties.md)**. _(The Use 'Font Name' only check box option was added in PxPlus 2025.)_  
 **Other**  
-_iNomads Class_ |  Assign an iNomads class to the control. The iNomads class contains class attribute references used when defining the control in the HTML code generated in iNomads. An iNomads class reference must start with an alpha character (A-Z or a-z), followed by any combination of A-Z, a-z, 0-9, underscore or dash. Multiple references may be entered, separated by a space. For a list of pre-defined classes, see [**iNomads Classes**](../../../iNOMADS/iNomads%20Classes.md). _(iNomads Class property was added in PxPlus 2020.)_  
+_iNomads_ _Class_ |  Assign an iNomads class to the control. The iNomads class contains class attribute references used when defining the control in the HTML code generated in iNomads. An iNomads class reference must start with an alpha character (A-Z or a-z), followed by any combination of A-Z, a-z, 0-9, underscore or dash. Multiple references may be entered, separated by a space. For a list of pre-defined classes, see [**iNomads Classes**](../../../iNOMADS/iNomads%20Classes.md). _(iNomads Class property was added in PxPlus 2020.)_  
   
 ## See Also
 
 **[Themes](Themes.md)**  
 **[Visual Classes](Visual%20Classes.md)**
+
+ 
+
+ 
+
+ 

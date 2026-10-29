@@ -13,8 +13,8 @@ These formats also apply to [ **MULTI_LINE Rich Text Word Processor Controls**](
 2._Delete_ _:_ |  **MULTI_LINE REMOVE** _ctl_id_[,**ERR=**_stmtref_]  
 3._Disable/Enable:_ |  **MULTI_LINE**{**DISABLE** |**ENABLE**} _ctl_id_[,**ERR=**_stmtref_]  
 4._Set Focus_ _:_ |  **MULTI_LINE GOTO** _ctl_id_[,**ERR=**_stmtref_]  
-5._Read Current Value_ _:_ |  **MULTI_LINE READ** _ctl_id_**,**_var_ _$_[,_e_o_m_ _$_][,**ERR=**_stmtref_]  
-6._Load Value_ _:_ |  **MULTI_LINE WRITE** _ctl_id_**,**_contents_ _$_[,**ERR=**_stmtref_]  
+5._Read Current Value_ _:_ |  **MULTI_LINE READ** _ctl_id_**,**_var$_[,_e_o_m$_][,**ERR=**_stmtref_]  
+6._Load Value_ _:_ |  **MULTI_LINE WRITE** _ctl_id_**,**_contents$_[,**ERR=**_stmtref_]  
 7._Notify re: Focus_ _:_ |  **MULTI_LINE SET_FOCUS** _ctl_id_**,**_alt_ctl_[,**ERR=**_stmtref_]  
 8._Report All Changes_ _:_ |  **MULTI_LINE AUTO** _ctl_id_[,**ERR=**_stmtref_]   
 9._Prevent/Allow Changes_ _:_ |  **MULTI_LINE**{**LOCK** | **UNLOCK**} _ctl_id_[,**ERR=**_stmtref_]  
@@ -30,7 +30,7 @@ _ctl_id_ |  Unique logical identifier for Multi-Line input (any integer **-** 32
 _ctrlopt_ |  Control options. Supported options for **MULTI_LINE** include: |  **ERR=**_stmtref_ |  Error transfer.  
 ---|---  
 **FMT=**_mask$_ |  For valid options, see [**Data Format Masks**](../appendix/data_format_masks.md). FMT="!" can be used to indicate that the field should be displayed as blank if the value is 0; however, do not use FMT="!" if you wish to display a 0 being entered or if the value being entered can have 0 as its integral component; e.g. - 0.99 or .12.  
-**FNT=**_"font,size_[_,attr_]_"_ |  Font name, size, optional properties. See [**'FONT'**](../mnemonics/font.md) mnemonic.  
+**FNT=**_" font,size_[_,attr_]_"_ |  Font name, size, optional properties. See [**'FONT'**](../mnemonics/font.md) mnemonic.  
 **KEY=**_char$_ |  Hot key.  
 **LEN=**_num_ |  Maximum input characters. You can use the **LEN=** option in conjunction with the **FMT=** option to limit the number of characters allowed for a **MULTI_LINE WRITE** that violates the format mask.  
 **MNU=**_ctl_ |  CTL value associated with right-click menu event.  
@@ -39,9 +39,9 @@ _ctrlopt_ |  Control options. Supported options for **MULTI_LINE** include: |  *
 **OPT=**_char$_ |  Single character parameter/option. See **MULTI_LINE OPT= Settings**.  
 **TBL=**_char$_ |  Translation characters.  
 **TIP=**_text$_ |  Mouse pointer message. To change the colour, see [**'TC'=**](../parameters/tc.md) system parameter.  
-_e_o_m_ _$_ |  String variable. PxPlus returns a single-character Hex value in this variable to report the last method/keystroke the user chose to terminate the Multi-Line input field (e.g. $0D$ for **Enter** as the **EOM** character for a 1-line Multi-Line input field, or $09$ for **Tab** to exit a Multi-Line input field). For function keys, the character will be $80$ plus the function key number (e.g. $82$=F2, $83$=F3).  
+_e_o_m$_ |  String variable. PxPlus returns a single-character Hex value in this variable to report the last method/keystroke the user chose to terminate the Multi-Line input field (e.g. $0D$ for **Enter** as the **EOM** character for a 1-line Multi-Line input field, or $09$ for **Tab** to exit a Multi-Line input field). For function keys, the character will be $80$ plus the function key number (e.g. $82$=F2, $83$=F3).  
 _stmtref_ |  Program line number or statement label to which to transfer control.  
-_var_ _$_ |  String variable to receive the text/contents of the Multi-Line input field.  
+_var$_ |  String variable to receive the text/contents of the Multi-Line input field.  
   
 ##  Description
 
@@ -53,7 +53,7 @@ The [**Apostrophe Operator**](../appendix/apostrophe_operator.md) can be used wi
 
 See **[MULTI_LINE Properties](../control_object_properties/multiline_properties.md)** for the list of properties available for manipulating a Multi-Line object.
 
-**MULTI_LINE OPT=_Settings_**
+**MULTI_LINE OPT=_Settings_** 
 
 The valid parameters for **OPT=**_char$_ are:
 
@@ -73,6 +73,7 @@ The valid parameters for **OPT=**_char$_ are:
 "I" |  Activate Implied decimal point input for this control (overrides the [**'+I'**](../mnemonics/+i.md) mnemonic setting).  
 "i" |  Disable Implied decimal point input for this control (overrides the [**'+I'**](../mnemonics/+i.md) mnemonic setting).  
 "L" |  _Lock_. User can set focus but cannot change the Multi-Line input region.  
+"m" |  _Vertically Center._ Text is centered vertically in the Multi-Line input region. **_Example:_** MULTI_LINE 100,@(10,15,12,3),opt="m"    _(The "m" option was added in PxPlus 2026.)_  
 "N" |  _Signal To/From Null._ Generates a CTL value signal when value changes from null to non-null and vice versa.  
 "R" |  _Right Justify._  
 "r" |  _Rich Text Editor._ Multi-Line provides Rich Text Editor capabilities. See **[Rich Text Editor](multi_rtf.md)**.  
@@ -91,17 +92,17 @@ When the Auto Complete feature is applied to a Multi-Line control, it will predi
 
 Auto Complete may be set up using the **HLP=** option:
 
-> multi_line  _ctl_id_ _,@__(col,ln,wth,ht)_ ,**HLP=** "**[AutoComplete]**_parameters$_ "
+> multi_line _ctl_id,@(col,ln,wth,ht)_ ,**HLP=** "**[AutoComplete]**_parameters$_ "
 
 Quotes or apostrophes can be used to surround any of the Auto Complete parameter values so that trailing or leading spaces remain intact, as in the following examples:
 
 **_Example (Using Quotes):_**
 
-> multi_line 100,@(10,10,30,1),hlp="[AutoComplete]DATAFILE=test.dat;FIELD=2;PREFIX=""CLIENTCO """
+> multi_line 100,@(10,10,30,1),hlp="[AutoComplete]DATAFILE=test.dat;FIELD=2;PREFIX=""CLIENTCO       """
 
 **_Example (Using Apostrophes):_**
 
-> multi_line 100,@(10,10,30,1),hlp="[AutoComplete]DATAFILE=test.dat;FIELD=2;PREFIX='CLIENTCO '"
+> multi_line 100,@(10,10,30,1),hlp="[AutoComplete]DATAFILE=test.dat;FIELD=2;PREFIX='CLIENTCO       '"
 
 The parameter list (_parameters$_) can consist of any of the following options separated by **;** (_semi-colons_):
 
@@ -110,21 +111,23 @@ The parameter list (_parameters$_) can consist of any of the following options s
 **DATAFILE=**_path$_ |  Name of keyed file that contains the words/phrases. This file should be resident and accessible on the local workstation.  
 **EXPIRED=**_num_ |  Number of days a given record will be used before expiry. If this is not set or set to 0, the words/phrases do not expire.  
 **FIELD=**_num_ |  Field that is being displayed.  
-**KNO=**_num_ __ |  Key number to be used.  
+**KNO=**_num  _ |  Key number to be used.  
 **LENGTH=**_num_ |  Maximum number of characters that will be displayed.  
-**OFFSET=**_num_ |  Starting position within the field to be displayed.  
+**OFFSET=**_num_   |  Starting position within the field to be displayed.  
 **PREFIX=**_string$_ |  Prefix that will be used for searching matching words/phrases.  
 **READONLY=YES | NO** |  PxPlus does not automatically update the key file when user enters a new word and/or phrase. **_Default_** is **YES**.
 
 #### **Note:**  
 If the user is going to be using live data that is not supposed to be updated, ensure that **READONLY=YES**.  
   
+ 
+
 #### **Note:**  
 The **'AutoComplete$** property can also be used (with the above parameter list).  
   
 **_Example:_**  
   
-AutoComplete$="DataFile=PxPlus.dat;Readonly=NO"  
+     AutoComplete$="DataFile=PxPlus.dat;Readonly=NO"  
   
 Existing parameters will not be reset unless they are set specifically when the **AutoComplete$** property is set. If you need to reset all parameters in the list, set the **AutoComplete$** property to a null string.
 
@@ -226,28 +229,28 @@ The following code sample invokes the Calendar feature using both methods, the *
 >  0110 if C=4 then escape  
 >  0120 goto 0100
 
-## Format 1
+## Format 1 
 
 **_Define/Create Multi-Line_**
 
 **MULTI_LINE** _ctl_id_ ,**@(**_col,ln,wth,ht_**)**[,_ctrlopt_]  
   
-Use this format to define or create a Multi-Line input field. The **FNT=** option establishes the font for Multi-Line input. If you omit this option, PxPlus uses the "System" default font. If you specify **FNT="*"** , standard text mode fixed font is used.
+Use this format to define or create a Multi-Line input field. The **FNT=** option establishes the font for Multi-Line input. If you omit this option, PxPlus uses the "System" default font. If you specify **FNT= "*"**, standard text mode fixed font is used.
 
 If you define a Multi-Line input field as occupying more than one line, PxPlus adds scrollbars and automatic word wrapping. If you define the input area as only one line high, the Multi-Line input region will not have a vertical scrollbar but will scroll horizontally as required:
 
 > multi_line 100,@(2,14,12,6)  
-> multi_line write 100,"Now is the time for all"  
+>  multi_line write 100,"Now is the time for all"  
 >  obtain *  
 >  if ctl=100 \  
->  then multi_line read 100,X$
+>      then multi_line read 100,X$
 
 This creates a Multi-Line input field that generates a CTL=100 when its value changes and the user exits the Multi-Line input region.
 
 #### **Important Note:**  
 When defining a Multi-Line **_with a height greater than one_** , it is strongly advised to use a different separator character rather than the <Std> default, as the <Std> default can also be translated as a field separator when the user presses Enter to add another line during data entry.
 
-## Format 2
+## Format 2 
 
 **_Delete Multi-Line_**
 
@@ -255,7 +258,7 @@ When defining a Multi-Line **_with a height greater than one_** , it is strongly
 
 This format to deletes a Multi-Line input field.
 
-## Format 3
+## Format 3 
 
 **_Disable/Enable Multi-Line_**
 
@@ -263,7 +266,7 @@ This format to deletes a Multi-Line input field.
 
 Use the **MULTI_LINE DISABLE** format to gray out a Multi-Line input region so that it will be visible but inaccessible to users. To reactivate it, use **MULTI_LINE ENABLE**.
 
-## Format 4
+## Format 4 
 
 **_Set Focus_**
 
@@ -271,11 +274,11 @@ Use the **MULTI_LINE DISABLE** format to gray out a Multi-Line input region so t
 
 Use the **MULTI_LINE GOTO** format to set the focus on the Multi-Line input field, ready for the user's next action.
 
-## Format 5
+## Format 5 
 
 **_Read Current Value_**
 
-**MULTI_LINE READ** _ctl_id_ ,_var_ _$_[, _e_o_m_ _$_] [,**ERR** =_stmtref_]
+**MULTI_LINE READ** _ctl_id_ ,_var$_[, _e_o_m$_] [,**ERR** =_stmtref_]
 
 If the user enters more than one line of text, PxPlus will delimit each line, either using the system **SEP** character or the character you specify in the **SEP=** option of a directive. By default, Multi-Line input fields auto-wrap text; therefore, the **SEP** character will only be returned on the **READ** if the user inserts a carriage return.
 
@@ -295,23 +298,23 @@ Once this value is read, it is reset to $00$.
 
 Use the **MULTI-LINE READ** format to read the contents of the Multi-Line input field.
 
-## Format 6
+## Format 6 
 
 **_Load Value_**
 
-**MULTI_LINE WRITE** _ctl_id_ ,_contents_ _$_[,**ERR** =_stmtref_]
+**MULTI_LINE WRITE** _ctl_id_ ,_contents$_[,**ERR** =_stmtref_]
 
 When you write string expressions into the Multi-Line input, you must use a delimiter set by either the **SEP=** or the **DLM=** option.
 
-## Format 7
+## Format 7 
 
 **_Notify re: Focus_**
 
-**MULTI_LINE SET_FOCUS** _ctl_id_**,**_ctl_ __val_[**,ERR=**_stmtref_]
+**MULTI_LINE SET_FOCUS** _ctl_id_**,**_ctl_val_[**,ERR=**_stmtref_]
 
 This format generates a CTL value whenever focus shifts to the Multi-Line input region.
 
-## Format 8
+## Format 8 
 
 **_Report All Changes_**
 
@@ -319,7 +322,7 @@ This format generates a CTL value whenever focus shifts to the Multi-Line input 
 
 Use the **MULTI_LINE AUTO** format to generate a control automatically whenever there is a change.
 
-## Format 9
+## Format 9 
 
 **_Prevent/Allow Changes_**
 
@@ -327,7 +330,7 @@ Use the **MULTI_LINE AUTO** format to generate a control automatically whenever 
 
 Use the **MULTI_LINE LOCK** or **UNLOCK** formats to prevent or allow access to the Multi-Line input field. Use a **LOCK** to limit the user's permissions to "view only" for data such as notes and instructions.
 
-## Format 10
+## Format 10 
 
 **_Hide/Show_**
 
@@ -338,3 +341,9 @@ With the**MULTI_LINE HIDE** format, the Multi-Line remains active but is not dis
 ## See Also
 
 **[MULTI_LINE Properties](../control_object_properties/multiline_properties.md)**
+
+ 
+
+ 
+
+ 

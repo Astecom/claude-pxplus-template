@@ -15,7 +15,7 @@ _;entry$_ |  Name of starting statement label to use as entry point in the subpr
   
 **_Example:_**  
   
-call "get_pizza;order",top_1,top_2 ...  
+     call "get_pizza;order",top_1,top_2 ...  
 _stmtref_ |  Program line number or statement label to which to transfer control.  
 _arglist_ _..._ |  Comma-separated list of variables, literals or expressions.  
 _variable_ |  Can either be a numeric or string variable that will be initialized with the value from the _expression_ prior execution of the called program.  
@@ -29,14 +29,14 @@ _(The WITH clause was added in PxPlus 2021.)_
 
 Use the **CALL** directive to transfer control to a subprogram. The current program state is saved and the specified subprogram is loaded and executed. If you use arguments, they are received in the called subprogram for its use via the **ENTER** directive.
 
-The called program should terminate with an **EXIT** , which may be replaced by an **END** or **STOP**. 
+The called program should terminate with an **EXIT** , which may be replaced by an **END**  or **STOP**. 
 
 #### **Note:  
-** WindX in PxPlus supports the use of this directive via the [WDX] or [LCL] tags; e.g. CALL "[WDX]somefile.ext". Non-PxPlus versions require you to encapsulate the command in an EXECUTE directive with a [WDX] tag (i.e. EXECUTE "[WDX]..."). See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.htm) or **[[LCL] Access to Users Local Machine](../command_tags/lcl.htm)**.
+** WindX in PxPlus supports the use of this directive via the [WDX] or [LCL] tags; e.g. CALL "[WDX]somefile.ext". Non-PxPlus versions require you to encapsulate the command in an EXECUTE directive with a [WDX] tag (i.e. EXECUTE "[WDX]..."). See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.md) or **[[LCL] Access to Users Local Machine](../command_tags/lcl.md)**.
 
 **_Arguments for_ CALL _and_ ENTER**
 
-Normally, the total number of arguments in the **CALL** and **ENTER** statements must match. Each argument in the **CALL** statement must correspond in relative position and in type (numeric or string) to a variable in the **ENTER** statement. If you use a shorter list of arguments in a **CALL** statement than in the **ENTER** statement, make sure to maintain relative position and type up to the point where you shorten the list (and include error handling options). Otherwise, the following error will occur: Error #36: ENTER parameters don't match those of the CALL.
+Normally, the total number of arguments in the **CALL** and **ENTER** statements must match. Each argument in the **CALL** statement must correspond in relative position and in type (numeric or string) to a variable in the **ENTER** statement. If you use a shorter list of arguments in a **CALL** statement than in the **ENTER** statement, make sure to maintain relative position and type up to the point where you shorten the list (and include error handling options). Otherwise, the following error will occur:  Error #36: ENTER parameters don't match those of the CALL.
 
 #### **Warning!**  
 If you pass an argument to the subprogram using a simple variable (e.g. A$,Z), then any changes to the variable in the subprogram will have an effect in the calling program.  
@@ -77,7 +77,7 @@ In addition, PxPlus allows the specification of a line number instead of a label
 
 _(Specification of a line number was added in PxPlus v7.10, build 9170.)_
 
-**CALL _and_ ENTER _from ASCII Programs_**
+**CALL _and_ ENTER _from ASCII Programs_** 
 
 When you run programs from ASCII text files, the **CALL** and **ENTER** with no arguments will always fail because the system thinks that the variables have already been assigned. To work around this, use the **PERFORM** directive or save the called program in a program file.
 
@@ -95,10 +95,16 @@ When you run programs from ASCII text files, the **CALL** and **ENTER** with no 
 
 In ABCDEF:
 
-0030 enter Z,X,A$,B$,V$
+     0030 enter Z,X,A$,B$,V$
 
-Z will receive the value of A A will reflect changes in Z.  
-X will receive the value of 4*F.  
-A$ will receive the value of Z$ Z$ will reflect changes in A$.  
-B$ will receive the string from X$(4,5), which will not change.  
-V$ will receive Q$ but Q$ cannot be changed.
+     Z will receive the value of A  A will reflect changes in Z.  
+     X will receive the value of 4*F.  
+     A$ will receive the value of Z$  Z$ will reflect changes in A$.  
+     B$ will receive the string from X$(4,5), which will not change.  
+     V$ will receive Q$ but Q$ cannot be changed.
+
+ 
+
+ 
+
+ 

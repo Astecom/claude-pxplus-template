@@ -1,6 +1,6 @@
 # Data Dictionary Objects 
 
-**Database and PVXDb Objects** |  **__**  
+**Database and PVXDb Objects** |  **_ _**  
 ---|---  
   
 **Database** and **PVXDb** are the primary objects for data dictionary maintenance. Methods belonging to primary object methods are described in the tables below. Methods are organized according to functionality: **[Creating and Updating Files](DataBase%20and%20PVXDb%20Objects.htm#creatingfiles)**, **[Accessing Information](DataBase%20and%20PVXDb%20Objects.htm#accessinginfo)** and **[Updating Definitions and Tables](DataBase%20and%20PVXDb%20Objects.htm#updatingdef)**.
@@ -9,11 +9,11 @@
 
 The following table lists and describes the methods used for creating, deleting and importing data dictionary files:
 
-**Database** **Methods** |  **Description**  
+**Database**  **Methods** |  **Description**  
 ---|---  
 **AdjustTable(** "_table_ "**)  
   
-AdjustTable(**"_table", pass$, lvl_**)** |  Reapplies any dictionary changes to the physical table if the file already exists. If the physical file has a password, then enter the file's password and password level.  
+AdjustTable(**"_table ", pass$, lvl_**)** |  Reapplies any dictionary changes to the physical table if the file already exists. If the physical file has a password, then enter the file's password and password level.  
 **Close(**_fh_**)** |  **_(PVXDb Only)_** Close the physical table.  
 **CreateDataBase(**_x$_**)** |  Create the PxPlus data dictionary control files. _x_ _$_ is the full path where the files are to be created.  
 **CreateTable(** "_table_ "**)** |  Create the physical table.  
@@ -31,7 +31,7 @@ _table_ , if specified, indicates the table name in the data dictionary.
 LoadDictionary(**_fh_ _, target$, pass$, lvl_**)** |  Loads/updates the dictionary information for the table identified by _fh_ into the file specified by _target$_. It should be noted that the dictionary information will be taken from the Database definition and not the physical file referenced by _fh_. The physical file _target$_ must exist, and if it has a password, its password and password level are required.  
 **Open(** "_table_ "**)  
   
-Open(**"_table", pass$_**)** |  **_(PVXDb Only)_** Return file handle to be used for subsequent **READ/WRITE** commands. Include password for physical file, if required.  
+Open(**"_table ", pass$_**)** |  **_(PVXDb Only)_** Return file handle to be used for subsequent **READ/WRITE** commands. Include password for physical file, if required.  
 **SetDataBase(**_x$_**)** |  Sets the dictionary source files to be used for all subsequent methods.  
   
 _x_ _$_ is the full path to the source files.  
@@ -44,12 +44,12 @@ These methods access information related to a data dictionary definition _(table
 ---|---  
 **GetAltIOList$(**_fh_**)** |  Return table's alternate IOList, if any.  
 **GetColumnCount(**_fh_**)** |  Return total number of data columns present in the specified table.  
-**GetColumnDescription$(**_fh_ , _n_ | _n$_**)** |  Return queried data column's description.  
+**GetColumnDescription$(**_fh_ , _n  _| _n$_**)** |  Return queried data column's description.  
 **GetColumnInfo(**_fh_ _, n_ | _n$_**)** |  Return a **ColumnInfo** object that contains a description of the column. This object is static and will be reused on all subsequent calls to this function. It will be released when the database object is released. You can pass either a column number or name (which may contain a trailing **$**).  
 **GetColumnList$(**_fh_ _, sep$_**)** |  Return a list of all the data columns' names for the specified table. The default separator is a Hex$8A$; however, you can specify _sep_ _$_ to be used.  
 **GetColumnName$(**_fh_ , _n_**)** |  Return name of column (specified by column number). Name is type independent. Strings will not have trailing **$**. An error will be generated if the name accessed has an invalid column number.  
 **GetColumnNo(**_fh_ , _n$_**)** |  Return queried data column's number.  
-**GetColumnVariable$(**_fh_ , _n_ | _n$_**)** |  Return the variable name of column (specified by column number). For string variables, the return value will have a trailing **$**.  
+**GetColumnVariable$(**_fh_ , _n  _| _n$_**)** |  Return the variable name of column (specified by column number). For string variables, the return value will have a trailing **$**.  
 **GetGroupList$(**_sep_ _$_**)** |  Return a list of all the groups presently found in the currently set _providex.ddf_. The default separator is a Hex $8A$; however, you can specify the _sep_ _$_ to be used.  
 **GetIndexCount(**_fh_**)** |  Return the number of indices on the table.  
 **GetIndexDescription$(**_fh_ _, n_ | _n$_**)** |  Return a list of the column descriptions that were used to make up the index, each separated by a **+** (_plus sign_). Columns in descending order are appended with "/d". You can pass either an index name or number (where the primary key is 1). _(The appending of "/d" to indicate descending order was added in PxPlus 2022.)_  
@@ -72,7 +72,7 @@ These methods access information related to a data dictionary definition _(table
 **GetTableName$(**_fh_**)** |  **_(Only Supports Numeric Parameter)_** Return logical table name.  
 **_The following only applies to tables with variant records:_**  
 **GetRecordName$(**_fh_**)** |  Return logical name of the current record type.  
-**GetRecordNo( )** |  Return numeric value of the currently set record type (what **SetRecordNo** had been set to).  
+**GetRecordNo( )** |  Return numeric value of the currently set record type (what **SetRecordNo**  had been set to).  
 **GetRecordTypes(**_fh_**)** |  Return number of record types for the specified table.  
 **GetVariantInfo(**_fh_**)** |  Return **VariantInfo** object that contains information about the non-normalized information. This object is static and will be reused on all subsequent calls.  
 **SetRecordNo(**_n_**)** |  Set record type to be dealt with by all subsequent **GetColumn** type methods. If not set, then the default record type is 1. (Maximum record number is 36.)  
@@ -81,11 +81,11 @@ These methods access information related to a data dictionary definition _(table
 
 These methods will update the data dictionary definition. The first parameter (_fh_ in the examples below) can be a string (table name) or a number (channel number). A table name indicates that the data dictionary files will be read; otherwise, the channel number will be used for querying the physical table.
 
-When updating the data dictionary, you will need to issue an **AdjustTable(** **)** to make the changes onto the physical tables. When updating physical tables, you may want to issue an **ImportTable(** **)** to have the change reflected into the data dictionary.
+When updating the data dictionary, you will need to issue an **AdjustTable(**  **)** to make the changes onto the physical tables. When updating physical tables, you may want to issue an **ImportTable(**  **)** to have the change reflected into the data dictionary.
 
 **Update Methods** |  **Description**  
 ---|---  
-**AddColumn(**_fh_ , _obj_**)** |  Add a new column based on the description supplied by the **ColumnInfo** object. The new column will be assigned the next available position in the table. Assigning the column number property has no effect on an **AddColumn(** **)** method.  
+**AddColumn(**_fh_ , _obj_**)** |  Add a new column based on the description supplied by the **ColumnInfo** object. The new column will be assigned the next available position in the table. Assigning the column number property has no effect on an **AddColumn(**  **)** method.  
 **AddIndex(**_fh_ , _obj_**)** |  Add a new index to the table based on the description in the **IndexInfo** object. The new index will be assigned the next index number. In the case of a physical table, the index will be loaded and made accessible. Any current positional information in the table will be lost (the table will be closed/reopened).
 
 #### **Note:**  
@@ -98,9 +98,9 @@ This function may fail due to concurrent access to the table - it requires exclu
 **  
 DropKeyColumn(**_fh_ _, n_ | _n$_**)** |  Deletes the specified column from that table. In the case of a physical file, the file will be recreated, and all the data for that column will be lost. In addition, all index information containing this column will be adjusted.  
   
-**_Example:_** FieldA + FieldB  
-Delete Column FieldA  
-New Index is FieldB  
+**_Example:_**      FieldA + FieldB  
+     Delete Column FieldA  
+     New Index is FieldB  
 **DropIndex(**_fh_ _, n_ | _n$_**)** |  Delete specified index for _fh_. Any current positional information in the table will be lost (the table will be closed/reopened).
 
 #### **Note:  
@@ -161,7 +161,7 @@ _** X$ = Obj'Segment(3)'Attributes$
 **SetValues(**_val_ _$_ , _iol_obj_ _$_**)** |  Set object's properties to the value or values specified.  
   
 _iol_obj_ _$_ = **CPL(** "_iolistname_ _$, attributes$_ "**)**  
-_val_ _$_ = "_newname_ " + **SEP** \+ "Enter your Name"  
+_val_ _$_ = "_newname_ " \+ **SEP** \+ "Enter your Name"  
   
 **Object'SetValues**(_val_ _$, iol_obj$_) will return 1 if passed, 0 if failed.  
 **Idxinfo Properties** |  **Description**  
@@ -182,18 +182,18 @@ _val_ _$_ = "_newname_ " + **SEP** \+ "Enter your Name"
 
 **+** |  Zero-filled, right-justified ASCII numeric (e.g. "0001").  
 ---|---  
-**#** |  Space-filled, right-justified ASCII numeric (e.g. " 1").  
+**#** |  Space-filled, right-justified ASCII numeric (e.g. "   1").  
 **I** |  Binary integer in native machine format. Field length is limited to 1, 2 or 4 bytes.  
 **ColumnName$** |  Name of column based on current segment.  
 **ColumnNullCharacter$** |  ASCII hexadecimal value. The default is a null byte ($00$).  
 **ColumnOffset** |  Offset into current segment's column (zero-based).  
 **ColumnWidth** |  Width to use of current segment's column (zero indicates full column).  
-**IsExternal** |  **_(PVX-Hosted DB Only)_** Boolean indicator for external key.  
+**IsExternal** |  **_(PVX-Hosted DB Only)_**  Boolean indicator for external key.  
 **IsUnique** |  Boolean indicator for unique index.  
 **Name$** |  Name of the index.  
 **NullCharacter$** |  ASCII hexadecimal value. The default is a null byte ($00$).  
 **NullSuppress** |  **_(PVX Only)_** Suppresses index if key is completely null.  
-**SegCount** |  **_(Read Only)_** Number of segments for index.  
+**SegCount** |  **_(Read Only)_**  Number of segments for index.  
 **SegNo** |  Current segment number being referenced.  
   
 **_Colinfo_**
@@ -209,13 +209,13 @@ _X$_ = Value found in _name$_ for this object
 **InitValues( )** |  Initializes this object's properties. Strings will be set to null, numeric and Booleans to zero.  
 **SetValues(**_val_ _$_ , _iol_obj_ _$_**)** |  Set object's properties to the value or values specified:  
   
-_iol_obj_ _$_ = **CPL(**_"iolistname$, attributes$"_**)**  
+_iol_obj_ _$_ = **CPL(**_" iolistname$, attributes$"_**)**  
 _val_ _$_ = "_newname_ "+**SEP** +"Enter your Name"  
 **  
 Object'SetValues**(_val_ _$, iol_obj$_) will return 1 if passed, 0 if failed.  
 **Validate(**_val_ | _val_ _$_**)** |  Validate the contents of the column. Will return 1 if valid, 0 if not. Reason for rejection will be in **ErrorCode$** / **ErrorMessage$**.  
 **ViewForceType( )** |  **_Internal (PxPlus) Use Only_**  
-**Colinfo Properties** |  **Description**  
+**Colinfo  Properties** |  **Description**  
 **AlternateName$** |  Alternate name for data field used to convert legacy applications.  
 **Class$** |  Class used to define data.  
 **ColumnNo** |  Column number.  
@@ -270,7 +270,7 @@ Object'SetValues**(_val_ _$, iol_obj$_) will return 1 if passed, 0 if failed.
 
 **Tblinfo \- Provides information about the file**  
 ---  
-**Tblinfo** **Methods** |  **Description**  
+**Tblinfo**  **Methods** |  **Description**  
 **GetValues$**(_iol_obj_ _$_) |  Return value of queried property or properties as a data record:  
   
 _iol_obj_ _$_ = **CPL(** "_iolistname_ _$_ ")  
@@ -283,7 +283,7 @@ _iol_obj_ _$_ = **CPL**("_iolistname_ _$, description$_ ")
 _val_ _$_ = "_newname_ "+**SEP** +"Enter your Name"  
 **  
 Object'SetValues**(_val_ _$, iol_obj$_) will return 1 if successful, 0 if failed.  
-**Tblinfo** **Properties** |  **Description**  
+**Tblinfo**  **Properties** |  **Description**  
 **BlockSize$** |  Specify a block size when creating a data file. Null or 'Default' = Let language determine the most suitable size. Valid ranges are: |  **1 - 31** |  Variable format  
 ---|---  
 **1 - 32** |  Fixed format  
@@ -295,9 +295,9 @@ Object'SetValues**(_val_ _$, iol_obj$_) will return 1 if successful, 0 if failed
 **IOProgram$** |  Name of the program that contains logic for controlling file access.  
 **IsDataCompression** |  Boolean indicator for data compression.  
 **IsExtendedRecords** |  Boolean indicator for records larger than 32 KB.  
-**IsZlibCompression** |  **_(Applies to VLR and EFF Files Only)_** Boolean indicator for data compression.  
-**LastChangeBy$** |  **_(Read Only)_** User ID.  
-**LastChangeDate$** |  **_(Read Only)_** Date and User ID in the format: CCYY/MM/DD HH:MM:SS-USERID.  
+**IsZlibCompression** |  **_(Applies to VLR and EFF Files Only)_**  Boolean indicator for data compression.  
+**LastChangeBy$** |  **_(Read Only)_**  User ID.  
+**LastChangeDate$** |  **_(Read Only)_**  Date and User ID in the format: CCYY/MM/DD HH:MM:SS-USERID.  
 **Name$** |  Logical file name.  
 **Notes$** |  Provide free-form area for recording notes on the table and its use (limited to 1024 characters).  
 **Options$** |  **_File Options_** \- Allows you to directly set these options; e.g. obj'Options$="XC". Setting any of these values will also change the Boolean indicator for these values: |  **C** |  Data compression  
@@ -320,11 +320,11 @@ You may only select one of these options:
   
 **_Variantinfo_**
 
-**Variantinfo** **\- Provides a common means to update or change non-normalized record information for a definition (_table_) or file**  
+**Variantinfo**  **\- Provides a common means to update or change non-normalized record information for a definition (_table_) or file**  
 ---  
-**Variantinfo Methods** |  **Description**  
-**AddConditionSegment**(_num_) |  Add new condition segment at the position specified by _num_. If _num_ is null, then a new condition segment will be added at the end. Your variant object's **ConditionSegment** will be positioned to the new segment added.  
-**AddFormatSegment**(_num_) |  Add new format segment at the position specified by _num_. If _num_ is null, then a new format segment will be added at the end. Your variant object's **FormatSegment** will be positioned to the new segment added.  
+**Variantinfo  Methods** |  **Description**  
+**AddConditionSegment**(_num_) |  Add new condition segment at the position specified by _num_. If _num_ is null, then a new condition segment will be added at the end. Your variant object's **ConditionSegment**  will be positioned to the new segment added.  
+**AddFormatSegment**(_num_) |  Add new format segment at the position specified by _num_. If _num_ is null, then a new format segment will be added at the end. Your variant object's **FormatSegment**  will be positioned to the new segment added.  
 **ConditionSegment**(_n_) |  Simple method to change condition segments. Returns object ID after setting condition segment.  
   
 Allows the user to code:   
@@ -334,8 +334,8 @@ Obj'ConditionSegment (2)'Length=10
 ** _or  
   
 _** X$ = Obj'ConditionSegment(2)'ColumnName$  
-**DropConditionSegment**(_num_) |  Remove condition segment at the position specified by _num_. If _num_ is null, then the last condition segment will be removed. Your variant object's **ConditionSegment** will be positioned to the removed segment.  
-**DropFormatSegment**(_num_) |  Remove format segment at the position specified by _num_. If _num_ is null, then the last format segment will be removed. Your variant object's **FormatSegment** will be positioned to the removed segment.  
+**DropConditionSegment**(_num_) |  Remove condition segment at the position specified by _num_. If _num_ is null, then the last condition segment will be removed. Your variant object's **ConditionSegment**  will be positioned to the removed segment.  
+**DropFormatSegment**(_num_) |  Remove format segment at the position specified by _num_. If _num_ is null, then the last format segment will be removed. Your variant object's **FormatSegment**  will be positioned to the removed segment.  
 **FormatSegment**(_n_) |  Simple method to change format segments. Returns object ID after setting format segment. Allows the user to code:  
   
 Obj'FormatSegment (2)'Length=10  
@@ -353,7 +353,7 @@ _X$_ = Value found in _name$_ for this object
   
 _iol_obj_ _$_ = **CPL**("_iolistname_ _$, description$_ ")  
 _val_ _$_ = "_newname_ "+**SEP** +"Enter your Name" **Object'SetValues**(_val_ _$, iol_obj$_) will return 1 if passed, 0 if failed.  
-**Variantinfo Properties** |  **Description**  
+**Variantinfo  Properties** |  **Description**  
 **ColumnName$** |  Name of column based on current condition segment.  
 **ConditionCount** |  **_(Read Only)_** Number of condition segments for this non-normalized definition.  
 **ConditionSegment** |  Current condition being referenced.  
@@ -362,4 +362,10 @@ _val_ _$_ = "_newname_ "+**SEP** +"Enter your Name" **Object'SetValues**(_val_ _
 **Length** |  Length of data in total bytes/digits.  
 **Name$** |  Name of the record type.  
 **Offset** |  Offset into current segment's column (zero-based).  
-**TestCondition$** |  Condition for this record type.
+**TestCondition$** |  Condition for this record type.  
+  
+ 
+
+ 
+
+ 

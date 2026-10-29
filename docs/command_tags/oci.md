@@ -5,7 +5,7 @@
   
 ##  Format
 
-**OPEN (**_chan_[_fileopt_]**)"[OCI]**_sid_[_fileopt_]**"**
+**OPEN (**_chan_[_fileopt_]**) "[OCI]**_sid_[_fileopt_]**"**
 
 **_Where:_**
 
@@ -45,12 +45,12 @@ The **OPEN** options for connecting to an Oracle server are:
 
 **AUTO_INDEX=Y | N** |  Used to include hints and index numbers to SELECT statements.  
 ---|---  
-**DATEFMT=**_format_ |  Date format mask applying to all date fields in table. This can be a combination of Y M D with any other characters. **_Example:_** To convert dates to 4-character year, month and day: DATEFMT=YYYYMMDD Other characters are inserted as is. DATEFMT=YY/MM/DD with a date of March 1, 2004 would be returned as 04/03/01.  
+**DATEFMT=**_format_ |  Date format mask applying to all date fields in table. This can be a combination of Y M D with any other characters. **_Example:_** To convert dates to 4-character year, month and day:    DATEFMT=YYYYMMDD Other characters are inserted as is. DATEFMT=YY/MM/DD with a date of March 1, 2004 would be returned as 04/03/01.  
 **DEBUGIT=**_xxxx_ |  String to append to SQL statement along with program name and line number for debugging purposes. This must indicate the comment character(s) appropriate to the database.  
   
 **_Example:_**  
   
-"--" is the comment identifier for Microsoft SQL Server; anything after "--" is ignored by SQL Server when compiling the SQL statement.  
+"\--" is the comment identifier for Microsoft SQL Server; anything after "\--" is ignored by SQL Server when compiling the SQL statement.  
 **EXTROPT=**_xxxx_ |  Controls the format of the SELECT statement used to process an EXTRACT. By default, PVX generates a SELECT * FROM _table_ FOR UPDATE WHERE...  
   
 When **EXTROPT=**_text_ , then _text_ is substituted in place of FOR UPDATE. In addition, if the first character of _text_ is $, then the remaining characters of _text_ are placed at the end of the SELECT statement rather than after the filename. This allows for different variations of SQL to be supported.  
@@ -58,19 +58,19 @@ When **EXTROPT=**_text_ , then _text_ is substituted in place of FOR UPDATE. In 
 **IOPROG=**_progname_ |  Emulates the embedded I/O program logic available with a true PxPlus file.  
 **KEY=**_fld_ _, fld_ |  Identifies fields that make up the key(s). For named keys, enter ***NAME:_keyname_**.  
   
-**OPEN**(_chan_)"**[OCI]**_sid_ ;_table_ ;**KEY=**_field_ ,_field_ ,***NAME:_keyname_** " Use the **:D** option to indicate that the key segment is to be sorted in descending order. KEY=KeyFld1,KeyFld2:D,KeyFld3  
+   **OPEN**(_chan_)"**[OCI]**_sid_ ;_table_ ;**KEY=**_field_ ,_field_ ,***NAME:_keyname_** " Use the **:D** option to indicate that the key segment is to be sorted in descending order.    KEY=KeyFld1,KeyFld2:D,KeyFld3  
 **KEYDATA=**_fld_ |  Identifies a column that represents the key. This is used to emulate an external key where the data is not duplicated in data.  
 **MAS90DATE** |  Reformats the contents of a date column to and from the Sage MAS 90 date format.  
 **MAS90SET** |  Sets flags for Sage MAS 90 emulation, such as turning on the **MAS90DATE** conversion.  
 **NONULLS=** |  Inserts zero-length strings rather than nulls into the target database and does not generate **WHERE** clauses checking for **IS NULL** or **IS NOT NULL**. (**_INI Supported_**) Set to **1** , **Y** or **y** to enable or **0** , **N** or **n** to disable. If the application does not work correctly when moving from Version 5 or lower, then set **NONULLS=P** to indicate that keys are handled the same as pre-Version 6.  
-**NOSTRIP** |  Keeps trailing spaces.  _(Default)_  
+**NOSTRIP** |  Keeps trailing spaces. _(Default)_  
 **NULLPADKEY=Y | N** |  Set to **1** , **Y** or **y** to force keys to be padded to full length with the null character, **$00$**.  
 **ORACLE= Y | N** |  Indicates if the database uses ORACLE SQL sequence (either **Y** or **N**). If **ORACLE=** and **TOP=** are used, then SELECT commands are generated as SELECT * FROM (SELECT * FROM TABLE) WHERE ROWNUM < 1\. _Default_ is **Y.**  
 **PREPARE= Y | N** |  Set to **1** , **Y** or **y** to use prepared statements. Prepared statements are pre-compiled SQL that may improve performance. _Default_ is **N**.  
 **PSWD=**_xxxx_ _._ |  Specifies password.  
 **REC=**_fld_ _, fld, ..._ |  Provides the column names, type, and size. This is typically done to improve performance. If this information is not provided, then PxPlus must query the database for this information. See [**ODB/OCI/DB2 Record Processing**](oci.htm#Mark12).  
 **RECDATA=**_fld_ |  Identifies a column to return as full record. This can be used for variant records that use complex rules to identify the record type.  
-**SHARED** |  Sets all tables to share a single connection to the Oracle database.  _(Default)_  
+**SHARED** |  Sets all tables to share a single connection to the Oracle database. _(Default)_  
 **STDDATE** |  Overrides the above formatting on individual columns.  
 **STRIP** |  Removes trailing spaces from fields  
 **TEXTMAX=**_nnn_ |  Overrides maximum size for text fields. (_Default_ is 8192 bytes.)  
@@ -97,10 +97,10 @@ _(Support to allow the use of global variables for defining database Link/Prefix
 [**WRITE RECORD Write Record**](../directives/write_record.md)  
 [**OPEN Open a File for Processing**](../directives/open.md)  
 **[IOLIST Specify Variable List](../directives/iolist.md)**  
-**[[ADO] Microsoft SQL Server Interface](ADO.htm)**  
-**[[DB2] DB2 Support](db2.htm)**  
-**[[MYSQL] Open MySql Native Database Link](mysql.htm)**  
-**[[ODB] Open Database](odb.htm)**  
+**[[ADO] Microsoft SQL Server Interface](ADO.md)**  
+**[[DB2] DB2 Support](db2.md)**  
+**[[MYSQL] Open MySql Native Database Link](mysql.md)**  
+**[[ODB] Open Database](odb.md)**  
 **[Database Export Utility](../Data%20Dictionary/Data%20Dictionary%20Maintenance/Database%20Export.md)**
 
 ##  ODB/OCI/DB2 Record Processing
@@ -109,7 +109,7 @@ The **REC=** phrase is used to control the formatting of the data record as view
 
 The simple format is:
 
-> **REC=**_fieldspec_**{** **,** **| + }**  _fieldspec_ ****
+> **REC=**_fieldspec_**{**  **,**  **| + }**  _fieldspec_  ****
 
 **_Where:_**
 
@@ -131,19 +131,19 @@ Any column name can be followed by an optional colon and format specification. T
 
 The possible data types are:
 
-|  **P** |  Packed (BIN) data  
+  |  **P** |  Packed (BIN) data  
 ---|---|---  
-|  **H** |  Data is stored in Hex  
-|  **B** |  Data is a Binary field  
-|  **D** |  Field is a Date  
+  |  **H** |  Data is stored in Hex  
+  |  **B** |  Data is a Binary field  
+  |  **D** |  Field is a Date  
   
 **_Example:_**
 
-|  CST_ID:7 |   
+  |  CST_ID:7 |     
 ---|---|---  
-|  OWING:8.2 |  (8 digits with 2 decimal places)  
-|  AMOUNT:P4.2 |  (4 bytes containing BIN value scaled by 100)  
-|  NAME:B30 |  (30 byte binary field)  
+  |  OWING:8.2 |  (8 digits with 2 decimal places)  
+  |  AMOUNT:P4.2 |  (4 bytes containing BIN value scaled by 100)  
+  |  NAME:B30 |  (30 byte binary field)  
   
 It is a good idea to include the field descriptions for all fields since this prevents PxPlus from having to read the table's data dictionary to determine field sizes and types.
 
@@ -157,14 +157,14 @@ Literals may be inserted within the record layout to insert padding where a fiel
 
 To emulate multi-record type files (variant records), the database record must contain _all possible columns_. If record type 1 consists of the fields Prefix and Value when Prefix="ABC", and record type 2 consists of the fields Prefix and Percentage when the second and third characters of Prefix="EF", the database record would contain three columns Prefix, Value and Percentage.
 
-**TYP=** specifies the field(s) that determine the record type. Using a **?** in the **REC=** clause defines the value. Special masking options for **?** include:
+**TYP=** specifies the field(s) that determine the record type. Using a **?**  in the **REC=**  clause defines the value. Special masking options for **?**  include:
 
-|  **.** |  Any one character (i.e. wildcard character)  
+  |  **.** |  Any one character (i.e. wildcard character)  
 ---|---|---  
-|  **[abc]** |  Any one of bracketed characters  
-|  **[0-9]** |  Any character from 0 to 9  
-|  **[ ]** |  Indicates end-of-field  
-|  **^** |  Indicates records that don't match  
+  |  **[abc]** |  Any one of bracketed characters  
+  |  **[0-9]** |  Any character from 0 to 9  
+  |  **[ ]** |  Indicates end-of-field  
+  |  **^** |  Indicates records that don't match  
   
 **_Example:_**
 
@@ -183,3 +183,9 @@ Using the statement read(chan)A$,B:
 The following would insert a new record into the database consisting of "XEF",0,50.5:
 
 > write (chan)"XEF",50.5
+
+ 
+
+ 
+
+ 

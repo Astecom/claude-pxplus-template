@@ -13,12 +13,7 @@ Below is a list of all the options supported by Webster+.
 ---|---  
 **align** =_xxx_ |  Allows specification of the alignment. When used with a **[[col]](Short%20Codes.htm#col)** short code to define a column in a list, valid options are "left", "right", and "center". When used with a **[[picture]](Short%20Codes.htm#picture)**, it can include one or two words: the first indicating the horizontal alignment ("left", "center" or "right") and the second being the vertical alignment ("top", "center" or "bottom"). If only one word is provided, the second is assumed to be "center".  
 **begin** =_xxx_ |  Defines the starting key to be used when loading a file into a list box. If omitted, the data will start from the first record of the file.  
-**calc=**_xxx_ |  Defines a simple calculation that can be done **_locally_** on the browser to set/change the value of the input based on a formula and other fields. To specify fields in a grid, you must prefix the field name with the name of the grid, a **:** (_colon_), then the name of the field. When referencing fields from a grid, if the input with the **calc=** specified is **_not_** also in the same grid, the referenced grid columns will be totaled during the computation. If **_both_** the input **_and_** referenced field are on the same grid, then the value for the same row will be used. To have the system provide the sum of a column from a list box, you must prefix the field name with the name of the list box, a **:** (_colon_), then the column number.
-
-#### **Note:**  
-The calculation specified must be in JavaScript. Care should be taken when writing a calculation to avoid HTML special characters. To escape HTML special characters, use the **[CVS( )](../functions/cvsextend.md)** function with HTML as the output data format.
-
-_(Support to provide the sum of a column from a list box was added in PxPlus 2024.)_  
+**calc=**_xxx_ |  Defines a simple calculation that can be done **_locally_** on the browser to set/change the value of the input based on a formula and other fields. See **[Using Functions and Operators](Using%20Functions%20and%20Operators.md)**. To specify fields in a grid, you must prefix the field name with the name of the grid, a **:** (_colon_), then the name of the field. When referencing fields from a grid, if the input with the **calc=** specified is **_not_** also in the same grid, the referenced grid columns will be totaled during the computation. If **_both_** the input **_and_** referenced field are on the same grid, then the value for the same row will be used. To have the system provide the sum of a column from a list box, you must prefix the field name with the name of the list box, a **:** (_colon_), then the column number. _(Support to provide the sum of a column from a list box was added in PxPlus 2024.)_  
 **chart** =_xxx_ |  Defines the name of the chart in the Query to be displayed.  
 **class** =_xxx_ |  Defines the HTML class (CSS) to be applied to the item. The classes can be predefined either in a CSS file or in a dynamically created class. See **[Webster+ Defined Classes](Webster%20Defined%20Classes.md)**.  
 **colsep** =_x_ |  Defines the character that separates the columns of data when accepting data from the source HTML. If omitted, the default is a TAB character. To use non-printable characters, define using (CHR(nn)) and in (CHR(1)) to use $01$ as separator character.  
@@ -31,11 +26,11 @@ The UI of most browsers filter the list based in the current value of the input;
 **default=**_xxx_ |  This option can be used with an **[[input]](Short%20Codes.htm#input)** or **[[list]](Short%20Codes.htm#list)** short code to define the default/initial value for the field.
 
 #### **Note:**  
-This value is **_only_** set if the variable is empty (**""** for string variable or **0** for numeric).  
+This value is **_only_** set if the variable is empty (**" "** for string variable or **0** for numeric).  
   
 **disabled** |  Indicates that the control should be disabled.  
 **drop** |  When used on a **[[list]](Short%20Codes.htm#list)** short code, a drop down list is generated, regardless of the data/column definitions.  
-**dropmenu** =_xxx_ |  This option can be used on a **[[button]](Short%20Codes.htm#button)** short code to cause the inclusion of a drop arrow on the right edge of the button that will launch the menu specified by '_xxx'_. **_Example:_** [menu id=MenuID hide][item event=aaa]Option 1[item event=bbb]Option 2[item event=ccc]Option 3[/menu] [button event=do_button_stiff dropmenu=MenuID]Button Text[/button] Each option can have an event (or link) tied to it. The MenuID used in the button must match the ID= for a menu defined on the page. The menu can be used by multiple buttons. _(The dropmenu option was added in PxPlus 2022.)_  
+**dropmenu** =_xxx_ |  This option can be used on a **[[button]](Short%20Codes.htm#button)** short code to cause the inclusion of a drop arrow on the right edge of the button that will launch the menu specified by '_xxx'_. **_Example:_**      [menu id=MenuID hide][item event=aaa]Option 1[item event=bbb]Option 2[item event=ccc]Option 3[/menu]      [button event=do_button_stiff dropmenu=MenuID]Button Text[/button] Each option can have an event (or link) tied to it. The MenuID used in the button must match the ID= for a menu defined on the page. The menu can be used by multiple buttons. _(The dropmenu option was added in PxPlus 2022.)_  
 **dropon** =_xxx_ |  This option can be specified on a drag and drop list and defines a comma-separated list of drag and drop lists into which its items can be dropped. If no **dropon** option is specified, then items on the drag and drop list can be dropped on any drag and drop list. See **[Drag and Drop Lists](Webster%20Drag%20Drop%20Lists.md)**. _(The dropon option was added in PxPlus 2022.)_  
 **end** =_xxx_ |  Defines the highest key to be used when loading a file into a list box. If omitted, the file will be processed up to the end-of-file.  
 **event** =_xxx_ |  Indicates that when the control gets changed or triggered, what event is to be sent to the program specified in the **[[form]](Short%20Codes.htm#form)** short code. The value '_xxx_ ' will be found in the variable __event$_ when the program is run. Event names starting with an ***** (_asterisk_) are reserved for system use. See **[Special Webster+ Events](Webster%20Events.md)**. If no value (=_xxx_) is supplied, the name of the control, if applicable, is used.
@@ -60,10 +55,10 @@ The system only looks at the first character of the option; thus, **gridlines** 
 **itemclass** =_xxx_ |  Defines the HTML class (CSS) to be applied to each of the items in a drag and drop list. See **[Drag and Drop Lists](Webster%20Drag%20Drop%20Lists.md)**. The classes can be predefined either in a CSS file or in a dynamically created class. See **[Webster+ Defined Classes](Webster%20Defined%20Classes.md)**. _(The itemclass option was added in PxPlus 2022.)_  
 **key** =_xxxxxxxx_ |  Allows specification of the Google Map API key alignment. For information about the key and its usage, see **[Google Maps Interface](../Extended%20NOMADS%20Objects/Google%20Maps%20Interface/Google%20Maps%20Interface%20Overview.md)**. _(The key option was added in PxPlus 2022.)_  
 **len** =_nnn_ |  Specifies the maximum length of the input. If not specified, there will be no present maximum length allowed.  
-**link** =_xxx_ |  Defines a URL to be opened, program to run, or page to display when the item is selected. The value of '_xxx_ ' can be one of the following: |  |  A URL, such as http://www.yahoo.com.  
+**link** =_xxx_ |  Defines a URL to be opened, program to run, or page to display when the item is selected. The value of '_xxx_ ' can be one of the following: |   |  A URL, such as http://www.yahoo.com.  
 ---|---  
-|  The keyword '_program_ ' followed by a **:** (_colon_) and the name of a program to run. If you want to pass values to this program, append a list of values in the form **& variable=value&variable=value**.  
-|  The keyword '_page_ ' followed by a **:** (_colon_) and the name of the file containing the HTML for the page you want bound and rendered. As with _'program'_ above, you can pass variables to the page.  
+ |  The keyword '_program_ ' followed by a **:** (_colon_) and the name of a program to run. If you want to pass values to this program, append a list of values in the form **& variable=value&variable=value**.  
+ |  The keyword '_page_ ' followed by a **:** (_colon_) and the name of the file containing the HTML for the page you want bound and rendered. As with _'program'_ above, you can pass variables to the page.  
   
 When a link is used in conjunction with a **[[list]](Short%20Codes.htm#list)** column or input field, you can include $1 in the URL, which the system will replace with the column/field value.
 
@@ -76,7 +71,7 @@ The **link** option is not compatible with the **[event](Short%20Code%20Options.
 **maxwidth** =_nnn_  
 **minwidth** =_nnn_ |  These options can be used to specify the maximum and minimum size of a **[[section]](Short%20Codes.htm#section)** and are typically used with the **flex** section. _(The maxwidth and minwidth options were added in PxPlus 2023.)_  
 **media** =_xxx_ |  Allows for the specification of the media type when including a CSS file using the **[[cssfile]](Short%20Codes.htm#cssfile)** short code.  
-**menu** =_xxx_ |  For **[[input]](Short%20Codes.htm#input)** short codes, the **menu** =_xxx_ option defines the menu you want displayed when the user does a right click (context menu selection) on a control. The '_xxx_ ' value should be the ID of the menu you want displayed and must be included in the HTML. For **[[menu]](Short%20Codes.htm#menu)** short codes, the value of '_xxx_ ' defines the key to the system menu definition table, which will contain the menu definition.  
+**menu** =_xxx_ |  For **[[input]](Short%20Codes.htm#input)** short codes, the **menu** =_xxx_ option defines the menu you want displayed when the user does a right click (context menu selection) on a control. The '_xxx_ ' value should be the ID of the menu you want displayed and must be included in the HTML. For **[[menu]](Short%20Codes.htm#menu)** or **[[menubar]](Short%20Codes.htm#menubar)** short codes, the value of '_xxx_ ' defines the key to the system menu definition table, which will contain the menu definition.  
 **min** =_nnn_ |  Defines the minimum value that can be entered for a number **[[input]](Short%20Codes.htm#input)** control.  
 **noborder** |  Can be specified on a menu to indicate that no border is to be drawn around the border.  
 **nocopy** |  Can be specified on a **[[picture]](Short%20Codes.htm#picture)** short code to create an image that cannot directly be copied using a right mouse click.  
@@ -112,9 +107,9 @@ For information on some of these options, visit <https://www.w3schools.com/icons
 #### **Note:**  
 Queries that display a Calculator, a Google map or an Open File selection dialog are also available in Webster+:  
   
-query=*win/query.en;calc (displays a Calculator keypad)  
-query=*win/query.en;map (displays a Google map)  
-query=*win/query.en;openfile (displays an Open File selection dialog)  
+   query=*win/query.en;calc (displays a Calculator keypad)  
+   query=*win/query.en;map (displays a Google map)  
+   query=*win/query.en;openfile (displays an Open File selection dialog)  
   
 **queryif** =_xxx_ |  This option can be added to a **[[list]](Short%20Codes.htm#list)** short code that has a query. The '_xxx_ ' must be a numeric/logical expression that will be evaluated and, if zero (false), will result in the suppression of the query. When suppressed, the column titles will appear; however, no data will be shown.  
 **required** _=xxx_ |  Indicates that this field **_must_** be present. The system will not allow a panel to be posted to your underlying application if a required field has no data. When used on the **[[security]](Short%20Codes.htm#security)** short code, defines a comma-separated list of classes required.  
@@ -130,7 +125,7 @@ query=*win/query.en;openfile (displays an Open File selection dialog)
 **target** _=xxx_ |  Used to indicate where the results of an _event=xxx_ or _link=xxx_ (or a **[[link]](Short%20Codes.htm#link)** short code) will be displayed. The value '_xxx_ ' can be one of the following: |  "_same_ " |  To have the output replace the current page.  
 ---|---  
 "_new_ " |  To create a new tab/window.  
-"_popup:ww_ _/hh_ " |  To create a popup-overlaid window whose width and height can be supplied using "_ww_ _/hh_ ". If no size is provided, the window will occupy 75% of the screen. If only one value is supplied, it will be used for width and height. Unlike **size** =_xx/xx_ , simple numeric values are considered the percentage of the screen (viewport) to occupy.  
+"_popup:ww_ _/hh_ " |  To create a popup-overlaid window whose width and height can be supplied using "_ww/hh_ ". If no size is provided, the window will occupy 75% of the screen. If only one value is supplied, it will be used for width and height. Unlike **size** =_xx/xx_ , simple numeric values are considered the percentage of the screen (viewport) to occupy.  
   
 By default, the target is "_new_ " to create a new page when processing a link and "_same_ " if processing an event.  
   
@@ -142,7 +137,7 @@ By default, the target is "_new_ " to create a new page when processing a link a
 **url** =_xxx_ |  Defines the URL name on a **[[link]](Short%20Codes.htm#link)** short code or the URL to the image for a **[[picture]](Short%20Codes.htm#picture)**.  
 **usefile** =_xxx_ |  This option can be used in an input, check box or radio button to indicate that the control should take it characteristics (format, tip, etc.) from the field of the same name in the file specified. If there is no =_xxx_ present, the system will take the file name specified in the last **[[usefile ]](Short%20Codes.htm#usefile)** short code. Often used in conjunction with the **[field=_xxx_](Short%20Code%20Options.htm#field)** option.  
 **validate** |  Can be specified on any control with an **[event=_xxx_](Short%20Code%20Options.htm#event)** or **[link=_xxx_](Short%20Code%20Options.htm#link)** option to force the system to pre-validate all the fields on the form before processing the event/link. The system will set focus to the first invalid field, if any, and display a message to assist the end user.  
-**valsep** =_x_ |  Defines the character that separates the rows of data from the value to be returned to the application when accepting data from the source HTML. If omitted, the default is $1C$. To use non-printable characters, define using (CHR(nn)) and in (CHR(1)) to use $01$ as separator character. Typical usage would be **valsep** **="="**.  
+**valsep** =_x_ |  Defines the character that separates the rows of data from the value to be returned to the application when accepting data from the source HTML. If omitted, the default is $1C$. To use non-printable characters, define using (CHR(nn)) and in (CHR(1)) to use $01$ as separator character. Typical usage would be **valsep= "="**.  
 **value** =_xxx_ |  When used on a [**[hide]**](Short%20Codes.htm#hide) short code, defines a value to be assigned to a hidden variable. When used on a radio button **[[radio]](Short%20Codes.htm#radio)**, indicates the value to be returned when the specific radio button is selected. When provided on a **[[tab]](Short%20Codes.htm#tab)** short code, defines the value used to define the currently selected folder tab. If omitted, the values are simple ordinal numbers starting at 1. When used on a **[[list]](Short%20Codes.htm#list)**, defines the source field that contains the return value for the list. If omitted, the primary key of the file or standard query return value is used. When used on a **[[data]](Short%20Codes.htm#data)** short code, values are used to define the actual data to be placed in the list box.  
 **variable** |  This option can be supplied with a **[[list]](Short%20Codes.htm#list)** short code to indicate that the user may select a value from the list or enter data directly. This will only apply to drop-down style lists.  
 **width** =_xxx_ |  Defines the column width on a **[[col]](Short%20Codes.htm#col)** short code.  
@@ -165,4 +160,13 @@ You can also include complete options as expressions by starting an option with 
 ## See Also
 
 **[Short Codes](Short%20Codes.md)  
-[Short Codes Examples](Webster%20Code%20Examples.md)**
+[Short Codes Examples](Webster%20Code%20Examples.md)  
+[How to Create Webster+ Web Page Using a Text File](../How%20To/How%20to%20Create%20Webster+%20Web%20Page%20Using%20a%20Text%20File.md)**
+
+ 
+
+ 
+
+ 
+
+ 

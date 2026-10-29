@@ -1,6 +1,6 @@
 # Data Dictionary
 
-**Data Dictionary Maintenance** |  **__**  
+**Data Dictionary Maintenance** |  **_ _**  
 ---|---  
   
 NOMADS includes the **Data Dictionary Maintenance** utility for building and maintaining the data dictionary. This utility presents all the different options and fields necessary to complete the basic steps for creating definitions in the data dictionary.
@@ -33,9 +33,9 @@ The Main panel consists of options for **[Updating the Data Dictionary](Updating
 
 Two tabbed folders, **Info** and **Elements** , are provided for specifying details about the data files and their elements:
 
-|  **[Info](Overview.htm#info)** |  Contains fields that are used to describe the physical file, including pathname, group, file type and block size.  
+  |  **[Info](Overview.htm#info)** |  Contains fields that are used to describe the physical file, including pathname, group, file type and block size.  
 ---|---|---  
-|  **[Elements](Overview.htm#elements)** |  Presents a grid with fields that are used to define all the data elements within the current definition, as well as for the Global Dictionary.  
+  |  **[Elements](Overview.htm#elements)** |  Presents a grid with fields that are used to define all the data elements within the current definition, as well as for the Global Dictionary.  
   
 The **[Menu Bar](Overview.htm#menubar)** and **[Tool Bar](Overview.htm#toolbar)** provide options for adding and maintaining the data file definitions.
 
@@ -43,7 +43,7 @@ The Main panel includes the following **_fields_** :
 
 _Name_ |  Descriptive name for your data source to identify its definition in the data dictionary; e.g. Client List. Maximum 64 characters. **_Create a new definition_** by entering a name that does not already exist. You are prompted to confirm the creation of a new definition. See **[Creating a Definition](Updating%20the%20Data%20Dictionary.htm#creatingdefinition)**.
 
-#### **Note:**  
+#### **Note:**   
 When a new table name is entered, it will be checked against the **[Reserved Words](../../Reserved%20Words.md)** list to determine if it is restricted for use in the Data Dictionary. If it is found, a warning message will display.  
   
 _(User Reserved Words Maintenance was added in PxPlus 2020.)_
@@ -87,7 +87,7 @@ After the Global Dictionary definition is loaded, new data elements can be added
 ---|---  
 _Create a new element from the beginning_ |  Enter a new element in the last blank row of the **Data Elements** grid. A new element can also be inserted **_before_** or **_after_** an existing element. Click the _Field Name_ of the existing element above or before which you want to insert the new element. Right click on this selection and choose _Insert Element_ (_Before_ or _After_) from the popup menu **_or_** use the _Insert Element Before_ (or _Insert Element After_) buttons beside the grid to insert a new row. Alternatively, create a new element by clicking the button in the _Dtl_ column to invoke the **[Element Description](Element%20Description.md)** window. When the new element is saved, it is added to the bottom of the **Data Elements** grid. Use the _Move Up/Move Down_ buttons beside the grid to reposition the new element.
 
-#### **Note:**  
+#### **Note:**   
 When a new element name is entered, it will be checked against the **[Reserved Words](../../Reserved%20Words.md)** list to determine if it is restricted for use in the Data Dictionary. If it is found, a warning message will display.  
   
 _(User Reserved Words Maintenance was added in PxPlus 2020.)_  
@@ -111,7 +111,7 @@ These tabbed folders consist of the following:
 ---  
 **Physical File** |  Pathname of the actual database file - either a _Fixed_ value (e.g. XX_AR) or an _Expression_ (e.g. %COMPANY$+"_AR"). Click the Query button to select a file.  
 **File Type** |  **_(Display Only)_** Indicates whether the current file is a _Native_ (PxPlus) file, a database **[Link](../../PxPlus%20User%20Guide/Data%20Integration/External%20Databases/Creating%20Link%20File.md)** file, or a database **[Prefix](../../PxPlus%20User%20Guide/Data%20Integration/External%20Databases/Creating%20the%20Prefix%20File.md)** file. _(The File Type was added in PxPlus 2023.)_  
-_View Prefix File Entry/Link File Contents_ __|  **_(Available when File Type is a database Prefix File or a database Link File)_** Button (beside _File Type_) that is used to display the contents of a database **[Prefix](../../PxPlus%20User%20Guide/Data%20Integration/External%20Databases/Creating%20the%20Prefix%20File.md)** file entry or **[Link](../../PxPlus%20User%20Guide/Data%20Integration/External%20Databases/Creating%20Link%20File.md)** file in view-only mode. This button is disabled for _Native_ files. **_Example:_** _(The View Prefix File Entry/Link File Contents button was added in PxPlus 2023 Update 1.)_  
+_View Prefix File Entry/Link File Contents_ __|  **_(Available when File Type is a database Prefix File or a database Link File)_** Button (beside _File Type_) that is used to display the contents of a database **[Prefix](../../PxPlus%20User%20Guide/Data%20Integration/External%20Databases/Creating%20the%20Prefix%20File.md)** file entry or **[Link](../../PxPlus%20User%20Guide/Data%20Integration/External%20Databases/Creating%20Link%20File.md)** file in view-only mode. This button is disabled for _Native_ files. **_Example:_**      _(The View Prefix File Entry/Link File Contents button was added in PxPlus 2023 Update 1.)_  
 **Options** |  |  _Notes_ |  A multi-line input control used for entering notes about the table and its use. Press Enter to start a new line. Maximum 1024 characters. When done, press the Tab key prior to exiting or using the Browse buttons; otherwise, changes to the notes will not be saved. _(The Notes input control was added in PxPlus 2021.)_  
 ---|---  
 _Group_ |  Group name for assigning files to a common theme or application; e.g. Accounting, Billing, GL.  
@@ -138,7 +138,8 @@ on WRITE/UPDATE_ |  **_(Available when_ [File Type](Overview.htm#file_type) _is 
 #### **Note:**  
 For **_Date_** validation, the system allows empty/null dates by default. To disallow empty/null dates, set the **[Required](Element%20Description.htm#Mark6)** flag for the field.  
   
-_Enable UpdatePlus logic_ |  **_(Available when_[Type](Overview.htm#type) _is Variable Length (VLR) or Fixed Length (FLR). Not Applicable to EFF Files.)_** Select this check box to enable **[UpdatePlus™](../../directives/keyed.htm#updateplus)** logic for the _Physical File_ specified. If the file was previously created with UpdatePlus™ enabled (i.e. file was created with OPT="U" - see **[KEYED](../../directives/keyed.htm#Mark9)** directive), this check box will be selected automatically. This check box is disabled when **[File Type](Overview.htm#file_type)** is _Link File_ or _Prefix File_.  
+_Enable UpdatePlus logic_ |  **_(Available when_[Type](Overview.htm#type) _is Variable Length (VLR) or Fixed Length (FLR). Not Applicable to EFF Files.)_** Select this check box to enable **[UpdatePlus™](../../directives/keyed.htm#updateplus)** logic for the _Physical File_ specified. If the file was previously created with UpdatePlus™ enabled (i.e. file was created with OPT="U" \- see **[KEYED](../../directives/keyed.htm#Mark9)** directive), this check box will be selected automatically. This check box is disabled when **[File Type](Overview.htm#file_type)** is _Link File_ or _Prefix File_.  
+_Hide Table from ODBC_ |  **_(Available when_ [File Type](Overview.htm#file_type) _is Native File)_** Check box to exclude the table from the file list in the ODBC driver. _(Hide Table from ODBC option was added in PxPlus 2026.)_  
   
 _(The Force Data Validation option was added in PxPlus 2017.)  
 (The Enable UpdatePlus logic option was added in PxPlus 2017 Update 0002.)_  
@@ -167,10 +168,10 @@ _Data Class_ |  Enter the name of an existing data class or use the Query button
 (Email and URL input field validation for generated Webster+ HTML pages was added in PxPlus 2021 Update 1.)_  
 _Description_ |  Brief description of the element, which can be a _Fixed_ value, _Expression_ or _Message Library Reference_.  
 _Type_ |  Indicate whether the element is _Numeric_ or _String_.  
-_Len_ |  Set the maximum length of the data field. The system will validate that the length specified agrees with the _Format_ selected; otherwise, a message will display. _(Length validation in the Elements grid was added in PxPlus 2021 Update 1.)_ Numeric field lengths can be defined using implied decimal format. **_Example:_** 6.2: 6 represents total length of the field, excluding explicit signs and decimals, where applicable, and 2 represents scaling factor or number of decimal places.  
+_Len_ |  Set the maximum length of the data field. The system will validate that the length specified agrees with the _Format_ selected; otherwise, a message will display. _(Length validation in the Elements grid was added in PxPlus 2021 Update 1.)_ Numeric field lengths can be defined using implied decimal format. **_Example:_**      6.2: 6 represents total length of the field, excluding explicit signs and decimals, where applicable, and 2 represents scaling factor or number of decimal places.  
 _Format_ |  Options that define the format for writing the data field to the file. See **[Format Mask](Element%20Description.htm#Mark5)** in the **Element Description** window.  
 _Display_ |  Print/input format. See **[Format Mask Options](Element%20Description.htm#Mark1)**.  
-_Ext_ |  Check box to indicate that the element forms part of an external key and is not duplicated in the data portion of the record. **_Example:_** Key: CST_ID$ Data: CST_NM$, CST_ADDR$, CST_PHONE$ In this case, CST_ID$ forms the key and is not duplicated in the data portion of the record.  
+_Ext_ |  Check box to indicate that the element forms part of an external key and is not duplicated in the data portion of the record. **_Example:_**      Key: CST_ID$ Data: CST_NM$, CST_ADDR$, CST_PHONE$ In this case, CST_ID$ forms the key and is not duplicated in the data portion of the record.  
 _Req_ |  Check box to indicate that the element is a **_required_** field and must contain data before the record can be written in File Maintenance.  
 _U/C_ |  Check box to indicate that the data should always be in uppercase letters. Used by NOMADS sub-systems.  
 _R/O_ |  Check box to indicate that the element is designated as read only or locked. Used by NOMADS sub-systems. _(The R/O check box was added in PxPlus 2021.)_  
@@ -198,13 +199,13 @@ The options below are listed in the order that they appear on the menu bar: **[F
 
 **File** |  Some of these options are also available as tool bar buttons.  
 ---|---  
-_Change/Create Dictionary_ |  Displays the **Change/Create Dictionary** window for changing or creating the pathname to a new _providex.ddf_ file. Specify a different pathname by clicking the Query button or manually entering it. If no _providex.ddf_ file exists in the pathname specified, a prompt will ask if you wish to create the dictionary. Responding _Yes_ creates the dictionary files _providex.ddf_ _/dde_ in the pathname specified. Responding _No_ does not create these files. If the _Change Directory_ check box is selected, the directory containing the dictionary becomes the current working directory. _(Support for creating a new dictionary was added in PxPlus 2019 Update 1.)_  
+_Change/Create Dictionary_ |  Displays the **Change/Create Dictionary** window for changing or creating the pathname to a new _providex.ddf_ file. Specify a different pathname by clicking the Query button or manually entering it.      If no _providex.ddf_ file exists in the pathname specified, a prompt will ask if you wish to create the dictionary. Responding _Yes_ creates the dictionary files _providex.ddf/dde_ in the pathname specified. Responding _No_ does not create these files. If the _Change Directory_ check box is selected, the directory containing the dictionary becomes the current working directory. _(Support for creating a new dictionary was added in PxPlus 2019 Update 1.)_  
 _New Table_ |  Adds a new file. Selecting this option clears the current record to allow you to enter the details for the new definition. _(The New Table option was added to the File menu in PxPlus 2023 Update 1.)_  
 _Copy Table_ |  Launches the **[Copy Data Dictionary](Copy%20Data%20Dictionary.md)** window for copying an existing data dictionary definition in the same dictionary to a new table name. _(The Copy Table option was added to the File menu in PxPlus 2023 Update 1.)_  
 _Rename Table_ |  Changes the selected table to a new name. A database link file or prefix file cannot be renamed.  
 _Delete Table_ |  Deletes the selected table.  
 _Define Keys_ |  Sets up primary and alternate keys for the physical file. See **[Defining Keys](Defining%20Keys.md)**.  
-_IO Procedure_ |  Launches the **Embedded I/O Procedures** window for entering the name of a program that contains logic for controlling file access. PxPlus provides the ability to specify an object using the syntax _obj_ _=xxxxx_.  
+_IO Procedure_ |  Launches the **Embedded I/O Procedures** window for entering the name of a program that contains logic for controlling file access. PxPlus provides the ability to specify an object using the syntax _obj=xxxxx_.         
 _Update File/Prefix/Link_ |  If the current file is a native PxPlus file, updates and/or creates the physical file. If a data conversion is required, the **Update physical** window will display. See **[Updating the Data Dictionary](Updating%20the%20Data%20Dictionary.md)**. If the current file is a database link file or prefix file, updates the link file or the entry in the prefix file. To update the external database for field/key changes, use the Database Manager program. _(The Update File/Prefix/Link option was added in PxPlus 2023.)_  
 _Update Files_ |  Launches the **[Update Physical Files](Update%20Physical%20Files.md)** utility for updating/creating physical files for multiple selected native (PxPlus) files. _(The Update Physical Files utility was added in PxPlus 2023.)  
 (The Update Files option was added to the File menu in PxPlus 2023 Update 1.)_  
@@ -217,6 +218,8 @@ _Import Dictionary_ |  Launches the **[Import Data Dictionary Definition](../Dat
 (The Import Dictionary option was added to the File menu in PxPlus 2023 Update 1.)_  
 _Exit_ |  Closes **Data Dictionary Maintenance**.  
   
+ 
+
 **Edit** |  Provides options to use in conjunction with the **[Data Elements](Overview.htm#grid)** grid (the **Elements** tab **_must_** be selected).  
 ---|---  
 _Add Element_ |  Adds a new row at the current location in the grid for adding a new data element.  
@@ -224,10 +227,14 @@ _Delete Element_ |  Deletes the selected data element. Prior to the deletion, a 
 _Bulk Edit Elements_ |  Launches the **[Bulk Edit Data Elements](Bulk%20Edit%20Elements.md)** utility for applying bulk changes to data elements in the PxPlus data dictionary. _(The Bulk Edit Data Elements utility was added in PxPlus 2023.)_  
 _Add Globally_ |  Adds the selected data element to the Global Dictionary. A message will display when the Global Dictionary is updated or if a data element with the same name already exists in the Global Dictionary.  
   
+ 
+
 **Options** |  Provides additional data dictionary options.  
 ---|---  
 _SQL Key Definition Update_ |  Determines whether the SQL Key Definition file will automatically be updated when the PxPlus Data Dictionary key definition is changed. See **[SQL Key Definition Update Options](SQL%20Key%20Definition.htm#sqlkeydef_upd)**.  
   
+ 
+
 **Utilities** |  Provides additional data dictionary tools and security control.  
 ---|---  
 _Print_ |  Launches the **[Print Data Dictionary Definition](../Data%20Dictionary%20Utilities/Print.md)** utility that is used to generate output in a standard format that lists all of the elements in the definitions that have been selected for printing.  
@@ -246,6 +253,8 @@ _View Data_ |  If the current file is a native PxPlus file, launches the **[File
 _File Splitting_ |  **_(Available when_ [File Type](Overview.htm#file_type) _is Native File)_** Launches the **[Historical File Splitting](../../Historical%20File%20Splitting/Introduction.md)** utility that is used to split larger data files into multiple independent files. This option does not apply for database link and prefix files. _(The File Splitting option was added to the Utilities menu in PxPlus 2023 Update 1.)_  
 _Security_ |  Provides access to set up and maintain the optional security system that controls user access to the system. See NOMADS **[Security Manager](../../NOMADS%20Graphical%20Application/System%20Maintenance%20Tools/Security%20Manager/Overview.md)**.  
   
+ 
+
 **Projects** |  Provides access to project-related options. _(The ability to add dictionary entries to a Project was added in PxPlus 2014 - Feature Pack 1.)_  
 ---|---  
 _Create New Project_ |  Launches the **[Create Project](../../PxPlus%20IDE/IDE%20Main%20Launcher.htm#createproject)** dialogue for entering a new project for the current working directory. Click the Query button to select a different working directory.  
@@ -254,17 +263,21 @@ _Add to Project_ |  Launches the **Add to Project** dialogue for adding the curr
 #### **Note:  
 ** When adding a Data Dictionary task to a project, make sure that the working directory for the project is the **_same_** as the working directory associated with the data dictionary. Otherwise, the selected task cannot be added to the project.  
   
+ 
+
 **NOMADS Tools** |  Provides access to NOMADS development tools for creating and editing library objects. _(The NOMADS Tools menu option was added in PxPlus 2023 Update 1.)_  
 ---|---  
 _Open Project Application Library_ |  Runs the **[Open Project Application Library](../../NOMADS%20Graphical%20Application/NOMADS%20Development/Open%20Project%20Lib.md)** task that opens Library Object Selection using the project default library. If no default library was defined for the current project, a message will display. _(The Open Project Application Library task was added in PxPlus 2023 Update 1.)_  
-_Panel Definition_ |  **(_Not Available in the_** **[PxPlus Web IDE](../../PxPlus%20IDE/IDE%20Main%20Launcher_Web.htm#webide))** Runs the **[Panel Definition](../../NOMADS%20Graphical%20Application/NOMADS%20Development/Panel%20Def_ide.md)** task for creating or editing a panel. _(The Panel Definition task was added in PxPlus 2023 Update 1.)_  
+_Panel Definition_ |  **(_Not Available in the_**  **[PxPlus Web IDE](../../PxPlus%20IDE/IDE%20Main%20Launcher_Web.htm#webide))** Runs the **[Panel Definition](../../NOMADS%20Graphical%20Application/NOMADS%20Development/Panel%20Def_ide.md)** task for creating or editing a panel. _(The Panel Definition task was added in PxPlus 2023 Update 1.)_  
 _Query Definition_ |  Runs the **[Query Definition](../../NOMADS%20Graphical%20Application/NOMADS%20Development/Query%20Def_ide.md)** task for creating or editing a Standard query or a Query List definition. _(The Query Definition task was added in PxPlus 2023 Update 1.)_  
 _Menu Bar Definition_ |  Runs the **[Menu Bar Definition](../../NOMADS%20Graphical%20Application/NOMADS%20Development/Menu%20Bar%20Def_ide.md)** task for creating or editing a menu. _(The Menu Bar Definition task was added in PxPlus 2023 Update 1.)_  
 _File Maintenance Generator_ |  Runs the **[File Maintenance Generator](../../NOMADS%20Graphical%20Application/NOMADS%20Development/File%20Maint_ide.md)** task for creating or editing a file maintenance panel. _(The File Maintenance Generator task was added in PxPlus 2023 Update 1.)_  
   
+ 
+
 **Wiki Info** |  _(The Wiki Info menu option was added in PxPlus 2023.)_  
 ---|---  
-|  **_(Not Available when running WindX)_** Spawns EZWeb for the **[PxPlus Wiki](../../PxPlus%20Wiki/PxPlus%20Wiki.md)** (if not already running) and then displays the file information for the current table in a new tab on your default Web browser. **_Example:_** When the PxPlus Wiki launches, the file information for the current table, Clients, displays:  
+  |  **_(Not Available when running WindX)_** Spawns EZWeb for the **[PxPlus Wiki](../../PxPlus%20Wiki/PxPlus%20Wiki.md)** (if not already running) and then displays the file information for the current table in a new tab on your default Web browser. **_Example:_** When the PxPlus Wiki launches, the file information for the current table, Clients, displays:       
   
 ## Tool Bar Options
 
@@ -278,13 +291,21 @@ _Copy_ |  Launches the **[Copy Data Dictionary](Copy%20Data%20Dictionary.md)** w
 _Rename_ |  **_(Available when_ [File Type](Overview.htm#file_type) _is Native File)_** Changes the selected table to a new name. This button is disabled for database link and prefix files.  
 _Delete_ |  Deletes the currently loaded table.  
 _Bulk Edit_ |  Launches the **[Bulk Edit Data Elements](Bulk%20Edit%20Elements.md)** utility for applying bulk changes to data elements in the PxPlus data dictionary. _(The Bulk Edit Data Elements utility was added in PxPlus 2023.)_  
-_SQL Keydef_ |  Opens the **SQL Key Definition** window that is used to create/remove the SQL key definition for a selected table. Button is hidden if _providex.kdf_ does not exist. To create the _providex.kdf_ file, select _File_ > _Create SQL Key Defn File_ from the menu bar. See **[SQL Key Definition](SQL%20Key%20Definition.htm#sqlkeydef)**.  
+_SQL Keydef_ |  Opens the **SQL Key Definition** window that is used to create/remove the SQL key definition for a selected table.      Button is hidden if _providex.kdf_ does not exist. To create the _providex.kdf_ file, select _File_ > _Create SQL Key Defn File_ from the menu bar. See **[SQL Key Definition](SQL%20Key%20Definition.htm#sqlkeydef)**.  
 _Define Keys_ |  Sets up primary and alternate keys for the physical file. See **[Defining Keys](Defining%20Keys.md)**.  
-_IO Procedure_ |  Launches the **Embedded I/O Procedures** window for entering the name of a program that contains logic for controlling file access. PxPlus provides the ability to specify an object using the syntax _obj_ _=xxxxx_.  
-_Export ("Database" tool bar section)_ |  If a native PxPlus file is currently selected, launches the **[Database Export Utility](Database%20Export.md)** for adding the data file to an existing database (ODB, MySQL, OCI, ADO or DB2). If no table or database link file or prefix file is currently selected, launches the **[Bulk Database Export Utility](Bulk%20Database%20Export.md)** for exporting table definitions from the PxPlus data dictionary into an existing database. _(The Database Export Utility was added in PxPlus 2023.)_  
-_Import ("Database" tool bar section)_ |  Launches the **[Database Import Utility](Database%20Import.md)** for importing table definitions from an existing database (ODB, MySQL, OCI, ADO or DB2) into the PxPlus data dictionary. _(The Database Import Utility was added in PxPlus 2023.)_  
+_IO Procedure_ |  Launches the **Embedded I/O Procedures** window for entering the name of a program that contains logic for controlling file access. PxPlus provides the ability to specify an object using the syntax _obj=xxxxx_.       
+_Export ( "Database" tool bar section)_ |  If a native PxPlus file is currently selected, launches the **[Database Export Utility](Database%20Export.md)** for adding the data file to an existing database (ODB, MySQL, OCI, ADO or DB2). If no table or database link file or prefix file is currently selected, launches the **[Bulk Database Export Utility](Bulk%20Database%20Export.md)** for exporting table definitions from the PxPlus data dictionary into an existing database. _(The Database Export Utility was added in PxPlus 2023.)_  
+_Import ( "Database" tool bar section)_ |  Launches the **[Database Import Utility](Database%20Import.md)** for importing table definitions from an existing database (ODB, MySQL, OCI, ADO or DB2) into the PxPlus data dictionary. _(The Database Import Utility was added in PxPlus 2023.)_  
 _Data_ |  If the current file is a native PxPlus file, launches the **[File View Utility](../../File%20View%20Utility.md)** for viewing data file information, such as type, record size, primary key size, current number of records, etc. If the current file is a database link file or a prefix file, any data in that file displays in a separate window for viewing only. _(The ability to view data in a database link file or prefix file was added in PxPlus 2023.)_  
 _Print_ |  Launches the **[Print Data Dictionary Definition](../Data%20Dictionary%20Utilities/Print.md)** utility that is used to generate output in a standard format that lists all of the elements in the definitions that have been selected for printing.  
-_Export ("Dictionary" tool bar section)_ |  Launches the **[Export Data Dictionary Definition](../Data%20Dictionary%20Utilities/Export%20Definition.md)** utility that is used to export the data dictionary definitions of one or more selected tables to a text file. Used in conjunction with the **[Import Data Dictionary Definition](../Data%20Dictionary%20Utilities/Import%20Definition.md)** utility. _(The Export Utility was added in PxPlus 2021.)_  
-_Import ("Dictionary" tool bar section)_ |  Launches the **[Import Data Dictionary Definition](../Data%20Dictionary%20Utilities/Import%20Definition.md)** utility that is used to import the data dictionary definitions of one or more tables selected from an export text file into a data dictionary in another location. Used in conjunction with the **[Export Data Dictionary Definition](../Data%20Dictionary%20Utilities/Export%20Definition.md)** utility. _(The Import Utility was added in PxPlus 2021.)_  
-_File Splitting_ |  **_(Available when_ [File Type](Overview.htm#file_type) _is Native File)_** Launches the **[Historical File Splitting](../../Historical%20File%20Splitting/Introduction.md)** utility that is used to split larger data files into multiple independent files. This button is disabled for database link and prefix files.
+_Export ( "Dictionary" tool bar section)_ |  Launches the **[Export Data Dictionary Definition](../Data%20Dictionary%20Utilities/Export%20Definition.md)** utility that is used to export the data dictionary definitions of one or more selected tables to a text file. Used in conjunction with the **[Import Data Dictionary Definition](../Data%20Dictionary%20Utilities/Import%20Definition.md)** utility. _(The Export Utility was added in PxPlus 2021.)_  
+_Import ( "Dictionary" tool bar section)_ |  Launches the **[Import Data Dictionary Definition](../Data%20Dictionary%20Utilities/Import%20Definition.md)** utility that is used to import the data dictionary definitions of one or more tables selected from an export text file into a data dictionary in another location. Used in conjunction with the **[Export Data Dictionary Definition](../Data%20Dictionary%20Utilities/Export%20Definition.md)** utility. _(The Import Utility was added in PxPlus 2021.)_  
+_File Splitting_ |  **_(Available when_ [File Type](Overview.htm#file_type) _is Native File)_** Launches the **[Historical File Splitting](../../Historical%20File%20Splitting/Introduction.md)** utility that is used to split larger data files into multiple independent files. This button is disabled for database link and prefix files.  
+  
+ 
+
+ 
+
+ 
+
+ 

@@ -32,6 +32,46 @@ ButtonHoverTickColour$](../properties/buttonhovertickclr_.md)** |  Color of the 
 ButtonTickColour$](../properties/buttontickclr_.md)** |  Color of the down arrow/tick on the Drop Box button. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**. _(The ButtonTickColor$ property was added in PxPlus 2024.)_  
 **[Col](../properties/col.md)** |  Screen position (column) of control.  
 **[Cols](../properties/cols.md)** |  Width of control in column units.  
+[**CornerRadius$**](../properties/cornerradius_.md) |  Sets the radius for the drop box corners. Works only in **4D** mode. Possible values are: |  _ _ |  _(Null)_ |  Property is not set.  
+---|---|---  
+_ _ |  _Round_ |  Sets the default radius of 3 for round corners.  
+_ _ |  _Square_ |  Sets the default radius of 0 for square corners.  
+_ _ |  _(Value)_ |  Enter a value from 0 to 3 inclusive.  
+  
+**_Example:_**
+
+CornerRadius$ set to **Round** :
+
+> DROP_BOX 100,@(10,15,12,8)  
+>  DROP_BOX LOAD 100,"cat/dog/horse/pig/"  
+>  y=100  
+>  y'CornerRadius$="round"  
+>   
+> 
+
+CornerRadius$ set to **Square** :
+
+> DROP_BOX 100,@(10,15,12,8)  
+>  DROP_BOX LOAD 100,"cat/dog/horse/pig/"  
+>  y=100  
+>  y'CornerRadius$="square"  
+>   
+>  
+
+CornerRadius$ set to a value of **3** :
+
+> DROP_BOX 100,@(10,15,12,8)  
+>  DROP_BOX LOAD 100,"cat/dog/horse/pig/"  
+>  y=100  
+>  y'CornerRadius$="3"  
+>   
+>  
+
+#### **Note:**  
+Corner rounding is limited based on the control type and/or the control size.
+
+_(The CornerRadius$ property was added in PxPlus 2026.)_  
+  
 **[CtlName$](../properties/ctlname_.md)** |  Control type ("DROP_BOX"). See **[DROP_BOX](../directives/drop_box.md)** directive.  
 **[CurrentItem](../properties/currentitem.md)** |  Current item with focus/selected. (**_Default_** : 1; 0 if no data)  
 **[DisableOnEmpty](../properties/disableonempty.md)** |  This property can be set to have the system automatically disable a list style control (list box, list view, report view or drop box) if the list contents are empty -- that is, there are no potential selections for the user to select. Once the list is populated (with at least one entry), the list box will be re-enabled. This setting is independent ofthe **['Enabled](../properties/enabled.md)** property; that is, if the list box is already forcibly disabled, adding entries to the list will not cause the list to be re-enabled. (**_Default:_** 0 - The list will not be automatically disabled.)  
@@ -41,7 +81,9 @@ DisableBackColour$](../properties/disablebackcolor.md)** |  Background color whe
 **[DroppedOn](../properties/droppedon.md)** |  This property indicates the index number that dragged items were dropped onto; if items are not dropped onto a specific line, 0 is returned.  
 **[Enabled](../properties/enabled.md)** |  Enabled indicator: 1 = True; 0 = False (**_Default:_** 1)  
 **[Eom$](../properties/eom_.md)** |  Last change terminator.  
-**[FindItemText$](../properties/finditemtext.md)** |  This property, when set, causes the system to search the list box or grid for the text supplied. If the text is found, the system will set the **['Column](../properties/column.md)** and **['Item](../properties/item.md)** (or **['Row](../properties/row.md)**) property for the control to the entry where the match was found. If no match is found, the 'Column and 'Item ('Row for the grid) property is set to zero. A typical use of this property would be to locate a value in the list box and then change or delete it. It can also be used to validate that an entry exists in the list box. This property is generally only written to. Reading this value will return the same as reading the **['ItemText$](../properties/itemtext_.md)** property. **Controlling the Search (List View/Grid Only):** The search is controlled by the settings found in 'FindOptions$. These options are provided as a series of characters in 'FindOptions$: |  **Char.** |  **Function**  
+[**FieldHeight**](../properties/fieldheight.md) |  Defines the height (in pixels) of the drop box input area and drop section. When set, the same height is applied to each line in the drop section, and the overall height of the expanded control is affected. Text is centered vertically within the control. **_Example:_** The following three examples show the results when the **FieldHeight** property is set to 20, 30 and 40:        
+_(The FieldHeight property was added in PxPlus 2026.)_  
+**[FindItemText$](../properties/finditemtext.md)** |  This property, when set, causes the system to search the list box or grid for the text supplied. If the text is found, the system will set the **['Column](../properties/column.md)** and **['Item](../properties/item.md)** (or **['Row](../properties/row.md)**) property for the control to the entry where the match was found. If no match is found, the 'Column and 'Item ('Row for the grid) property is set to zero. A typical use of this property would be to locate a value in the list box and then change or delete it. It can also be used to validate that an entry exists in the list box. This property is generally only written to. Reading this value will return the same as reading the **['ItemText$](../properties/itemtext_.md)** property. **Controlling the Search  (List View/Grid Only): **The search is controlled by the settings found in 'FindOptions$. These options are provided as a series of characters in 'FindOptions$: |  **Char.** |  **Function**  
 ---|---  
 C |  Search is case insensitive.  
 A |  Accents will be ignored when comparing data.  
@@ -50,7 +92,7 @@ W |  Search should start from current position and wrap around.
 S |  Data is sorted.  
 R |  Search backwards.  
   
-**Search Range (List View/Grid Only):** When searching, if the "W"rap option is not specified, the search will start from the beginning of the data in the control and proceed through the end. If the "R"everse option is set, the search starts at the end and proceeds to the beginning. If the "W"rap option is set, the search will start from the position immediately after that specified in the 'Item ('Row for Grid) and 'Column and search through all the data wrapping around the end/start back to the starting point.
+**Search Range  (List View/Grid Only): **When searching, if the "W"rap option is not specified, the search will start from the beginning of the data in the control and proceed through the end. If the "R"everse option is set, the search starts at the end and proceeds to the beginning. If the "W"rap option is set, the search will start from the position immediately after that specified in the 'Item ('Row for Grid) and 'Column and search through all the data wrapping around the end/start back to the starting point.
 
 If the property 'FindColNo (or 'Column for Grid) is set, only data in that column will be searched. If the "S"ort option is specified, only the column specified in the **['Sort](../properties/sort.md)** property will be checked and its setting (Ascending/Descending) will be used to determine the assumed sort sequence. If 'Sort is not set, the system will assume that the column specified in 'FindColNo has been pre-sorted in Ascending order. If 'FindColNo is not set, then the system will assume the first column is to be used and is in ascending sequence. 
 
@@ -65,26 +107,52 @@ Prior to PxPlus v11, this property and functionality was not available on the gr
 
 To change the value of the list box entry of "CAT" to "DOG" for list box "LIST1", you could do the following:
 
-List1'FindItemText$="CAT" ! Locate the item  
-List1'ItemText$ = "DOG" ! Change the value
+     List1'FindItemText$="CAT" ! Locate the item  
+     List1'ItemText$ = "DOG" ! Change the value
 
 **_Example 2:_ Locate and delete an item from a list box**
 
 To locate and delete a value from a list box:
 
-List1'FindItemText$="CAT" ! Locate the item to delete  
-LIST_BOX LOAD List1, List1'Item, *
+     List1'FindItemText$="CAT" ! Locate the item to delete  
+     LIST_BOX LOAD List1, List1'Item, *
 
 **_Example 3:_ Validate the existence of an item in a list**
 
 To search a list box to find a specific value, set the FindItemText$ to the desired search value then read 'Item. If zero, the item does not exist.
 
-List1'FindItemText$=X$ ! Locate the item  
-IF List1'Item=0 THEN MSGBOX X$+" is not found"  
+     List1'FindItemText$=X$ ! Locate the item  
+     IF List1'Item=0 THEN MSGBOX X$+" is not found"  
   
 **[Focus](../properties/focus.md)** |  Focus indicator: 1 = Control has focus (**_Default:_** 0)  
 **[FocusBackColor$  
 FocusBackColour$](../properties/focusbackcolor_.md)** |  Background color when the control has focus. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**.  
+[**FocusRect**](../properties/focusrect.md) |  Controls whether a dotted focus rectangle displays around the Drop Box selected text. _Default_ is On. Possible values are: |    |  0 |  No focus rectangle is shown.  
+---|---|---  
+  |  1 |  Focus rectangle is shown.  
+  
+**_Example:_**
+
+To turn Drop Box focus **_Off_** :
+
+          DROP_BOX 100,@(10,15,12,8)  
+          DROP_BOX LOAD 100,"cat/dog/horse/pig/"  
+          y=100  
+          y'FocusRect=0
+
+         
+
+To turn Drop Box focus back **_On_** :
+
+          DROP_BOX 100,@(10,15,12,8)  
+          DROP_BOX LOAD 100,"cat/dog/horse/pig/"  
+          y=100  
+          y'FocusRect=1
+
+         
+
+_(The FocusRect property was added in PxPlus 2026.)_  
+  
 **[FocusTextColor$  
 FocusTextColour$](../properties/focustextcolor_.md)** |  Foreground text color when the control has focus. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**.  
 **[Font$](../properties/font_.md)** |  This property is used to reference the font for a control. It will contain (or can be set to) a string containing three comma-separated fields of the font name, size and attributes. See **['FONT'](../mnemonics/font.md)** mnemonic. **_Example:_** To set the font to Arial, 1.5 times normal size, and Bold, the format would be xxx'Font$="Arial,1.5,B".  
@@ -117,14 +185,14 @@ This functionality allows drop boxes to be loaded a block of records at a time. 
 4 |  Windows XP/Vista/Windows 7 look.  
 **[MenuCtl](../properties/menuctl.md)** |  This property reports/sets the CTL value to generate when an object is selected on a right-click of the mouse.  
 **[Msg$](../properties/msg_.md)** |  Message line text for the control.  
-**[ObjectID](../properties/objectid.md)** |  User object method. (**_Default:_** 0 - No object specified) The 'ObjectID property allows applications to intercept property values and add methods to controls. When set to a valid Object ID by the application, you can add methods and add/override property logic for any control in the system. When set in the system, it allows the application to logically request methods against the control that, in turn, will be performed by the related Object ID. It will also first check the object for any property requests and, if the property is defined in the object, set or get that property instead of the controls. To allow the specified object to get true access to the control, while executing within the object identified by the 'ObjectID property, the system will direct any property requests directly to the control.
+**[ObjectID](../properties/objectid.md)** |  User object method. (**_Default:_**  0 - No object specified) The 'ObjectID property allows applications to intercept property values and add methods to controls. When set to a valid Object ID by the application, you can add methods and add/override property logic for any control in the system. When set in the system, it allows the application to logically request methods against the control that, in turn, will be performed by the related Object ID. It will also first check the object for any property requests and, if the property is defined in the object, set or get that property instead of the controls. To allow the specified object to get true access to the control, while executing within the object identified by the 'ObjectID property, the system will direct any property requests directly to the control.
 
 #### **Note:**  
 When a control is deleted from the system, any object identified by an 'ObjectID property will be automatically dropped.  
   
 **[OnDropOpenCtl](../properties/ondropopenctl.md)** |  Controls the CTL event that will be fired when the drop list of a DROP box (normal or variable) is opened/displayed. If the value of this property is non-zero, the system will use its value of a CTL event to fire. Setting this to zero disables the CTL event from being sent. (**_Default_** : 0)  
 **[OnFocusCtl](../properties/onfocusctl.md)** |  On Focus CTL event: 0 is returned if no On Focus CTL value is set up for the control.  
-**[OnLoadCtl](../properties/onloadctl.md)** |  This property, when set to a non-zero value, causes the system to generate an internal CTL event following any changes to a list box. It can be used to monitor changes to a list style control so that external action (such as updating screen or files) can be performed. (**_Default:_** 0) If the value of this property is non-zero, the system will use its value as a CTL event to generate. If zero (default state), no event will be generated. To avoid multiple signals being generated, the system will defer the generation for approximately 1/2 second following the last update. This means that when multiple rows/cells are being updated, the event will generally only occur once the updating is complete.  
+**[OnLoadCtl](../properties/onloadctl.md)** |  This property, when set to a non-zero value, causes the system to generate an internal CTL event following any changes to a list box. It can be used to monitor changes to a list style control so that external action (such as updating screen or files) can be performed. (**_Default:_**  0) If the value of this property is non-zero, the system will use its value as a CTL event to generate. If zero (default state), no event will be generated. To avoid multiple signals being generated, the system will defer the generation for approximately 1/2 second following the last update. This means that when multiple rows/cells are being updated, the event will generally only occur once the updating is complete.  
 **[OnTipCtl](../properties/ontipctl.md)** |  This property controls the CTL event that will be fired prior to the system displaying the Tip for any control. If the value of this property is non-zero, the system will use its value of a CTL event to fire and will defer the display of the tip until the application changes the value in 'Tip$. If the value in 'Tip$ is not changed, no tip will be displayed. Setting this to zero **_(Default)_** disables the event from being sent and the current 'Tip$ will be displayed.  
 **[Parent](../properties/parent.md)** |  Parent window handle.  
 **[ScrollWheel](../properties/scrollwheel.md)** |  Set scroll wheel increment. This property is used to define how many lines each click of the scroll wheel will move a list box or grid. Possible values are: |  0 |  Scroll wheel support (all events go to parent window).  
@@ -133,17 +201,13 @@ When a control is deleted from the system, any object identified by an 'ObjectID
 2 |  Scroll only if the control has focus (mouse must be hovered over control).  
 3 |  If control does not have focus, then scroll when mouse hovers over this control (otherwise, same as 1).  
 4 |  If control does not have focus, then scroll when mouse hovers over this control (otherwise, same as 2).  
-**[SelectBackColor$](../properties/selectbackcolor_.md)  
-[SelectBackColour$](../properties/selectbackcolor_.md)** |  Sets the background color. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**. _(The SelectBackColor$ (or SelectBackColour$) property was added in PxPlus 2018.)_  
-**[SelectTextColor$](../properties/selecttextcolor_.md)  
-[SelectTextColour$](../properties/selecttextcolor_.md)** |  Sets the text color. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**. _(The SelectTextColor$ (or SelectTextColour$) property was added in PxPlus 2018.)_  
 **[Sep$](../properties/sep_.md)** |  Separator character between each field, column or data point.  
 **[SepLoad$](../properties/sepload_.md)** |  Separator character for each row or data set.  
 **[ShowDropDown](../properties/showdropdown.md)** |  Controls the displaying of the drop down list of selections for a drop box. Setting it to 1 causes the drop list to expand/display. Setting it to 0 (zero) causes the drop list to be collapsed. It can be read to determine the current status of the drop box.  
 **[SignalOnExit](../properties/signalonexit.md)** |  This property controls whether a 'Change' signal will be generated when the control (or region of a grid control) is exited regardless of whether the control's value changes. Normally, controls only signal changes when the control loses focus **_and_** the contents have changed. Setting 'SignalOnExit allows a change signal to also be generated whenever focus leaves the control (or region for grid). |  0 |  No signal on exit unless control value has changed.  
 ---|---  
 1 |  Signal on exit regardless of whether value has changed (on grid, signals whenever changing cell).  
-2 |  Signal when changing row or on exit of grid (sets column value to 0 and row value to last row exited)._**(Grid Only)**_  
+2 |  Signal when changing row or on exit of grid (sets column value to 0 and row value to last row exited)._ **(Grid Only)**_  
 3 |  Signal when exiting the grid (sets column and row values to zero). **_(Grid Only)_**  
 **[Tbl$](../properties/tbl_.md)** |  Controls the translation of the values selected in a control and how the value will be passed to/from the application. Generally, it contains a table of single-character values representing selections from the controls with each character representing each of the values in the control in sequence. The size of each entry can be changed using the 'TblWidth property.  
 **[TblWidth](../properties/tblwidth.md)** |  This property can be used to set the length of each of the items in the 'Tbl$ property. It can be set to any positive value. (**_Default:_** 1). Setting 'TblWidth to 0 (zero) indicates that 'Tbl$ contains a delimited string with the last character of the string being the delimiter character.  
@@ -164,3 +228,9 @@ TextColour$](../properties/textcolor_.md)** |  Foreground text color. For inform
 **['COLOUR' & '_COLOUR' Mnemonic](../mnemonics/colour.md)**  
 **[Using Property Names](../control_object_properties.htm#Mark1)**  
 **[Compound Properties](compound_properties.md)**
+
+ 
+
+ 
+
+ 

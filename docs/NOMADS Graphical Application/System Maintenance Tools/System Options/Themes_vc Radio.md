@@ -5,11 +5,11 @@
   
 For the **_Radio_Button_** control type, the button's default appearance can be controlled by setting the standard properties for _Background, Foreground_ , _Border Color_ and _Border Color 2_. Additional button properties can be set that control the button's appearance when the button's **_state_** is changed, thus providing a further visual cue. Possible button states are **_Active_** , **_Disable_** , **_Focus_** and **_Hover_** :
 
-|  _Active_ |  Button is pressed down.  
+  |  _Active_ |  Button is pressed down.  
 ---|---|---  
-|  _Disable_ |  Button is disabled.  
-|  _Focus_ |  Button has focus.  
-|  _Hover_ |  Mouse is over the button.  
+  |  _Disable_ |  Button is disabled.  
+  |  _Focus_ |  Button has focus.  
+  |  _Hover_ |  Mouse is over the button.  
   
 To set the properties that control the button's appearance when the button's **_state_** is changed, see the **[Colors (States)](Themes_vc%20Radio.htm#states)** category.
 
@@ -30,7 +30,7 @@ _Bitmap Button_ |  Button has a bitmap whose width is divided into four images. 
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
   
-_Border Style_ |  Style of button border. Options are _None, Solid, Double, Groove, Ridge, Inset_ and _Outset_ : If not set, the default Windows style is used. This must be set to a non-blank value to use the _Border Width_ and various _Border Color_ settings.
+_Border Style_ |  Style of button border. Options are _None, Solid, Double, Groove, Ridge, Inset_ and _Outset_ :      If not set, the default Windows style is used. This must be set to a non-blank value to use the _Border Width_ and various _Border Color_ settings.
 
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
@@ -40,6 +40,16 @@ _Border Width_ |  Width of the button border (in pixels). Options are _None, 1, 
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
   
+_Corner Radius_ |  Sets the corner radius for a radio button only when it is drawn as a button, which occurs when a bitmap is added, whether the radio button is drawn directly or created from a data class (see **[Data Class Controls](../Introduction.htm#Mark4)**). Works only in **4D** mode. Possible values are _Null (blank)_ , _Round_ , _Square_ or a number from 0 to 255 inclusive. See **[CornerRadius$](../../../control_object_properties/radiobutton_properties.htm#cornerradius)** property. **_Example:_**        
+  
+       
+  
+     
+
+#### **Note:**  
+Corner rounding is limited based on the control type and/or the control size.
+
+_(Corner Radius property was added in PxPlus 2026.)_  
 _Drop-List Button_ |  An extra button with an arrow bitmap is attached to the right of the main button. When the arrow bitmap button is clicked, the associated popup menu is displayed.
 
 #### **Note:**  
@@ -54,6 +64,33 @@ _Flat - No Border_ |  Button has no border and shows no raised outline unless th
 
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
+  
+_Focus Rectangle_ |  Controls whether a dotted focus rectangle displays around the Radio Button text (with and without a bitmap added). Possible values are: |    |  _Default_ |  Uses the default setting.  
+---|---|---  
+  |  _Display_ |  Focus rectangle is shown (On).  
+  |  _Suppress_ |  Focus rectangle is not shown (Off).  
+  
+**_Example:_**
+
+Radio Button focus is **_Off_** :
+
+    
+
+Radio Button focus is **_On_** :
+
+    
+
+**_Example:_**
+
+Radio Button focus is  **_Off_** (when a bitmap is added):
+
+    
+
+Radio Button focus is **_On_** (when a bitmap is added):
+
+    
+
+_(Focus Rectangle property was added in PxPlus 2026.)_  
   
 _Hover Color_ |  Text on the button is highlighted when the mouse is over the button. The default color is controlled by the **['CH'](../../../parameters/ch.md)** system parameter that defaults to 'Light Blue'.
 
@@ -84,7 +121,7 @@ _Border Color_ |  Button border color. See _Border Color 2_ below. Border colors
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
   
-_Border Color 2_ |  Used in conjunction with _Border Color_ to generate a two-color button border.  _Border Color_ is applied to the top and left borders, _Border Color 2_ to the bottom and right borders. _Border Color**must** be specified_; otherwise, _Border Color 2_ will be ignored.  
+_Border Color 2_ |  Used in conjunction with _Border Color_ to generate a two-color button border. _Border Color_  is applied to the top and left borders, _Border Color 2_ to the bottom and right borders. When **[Corner Radius](Themes_vc%20Radio.htm#cornerradius)** is set to _Round_ or a value, _Border Color 2_ is applied to all the button borders when the button is selected. _Border Color**must** be specified_; otherwise, _Border Color 2_ will be ignored.  
 _Foreground_ |  Foreground text color of the control in its default state.  
 _RB Frame Color_ |  Color of the frame/outline circle of the radio button. Applies only to radio buttons that look like radio buttons (no bitmap defined), not for radio buttons that look like normal buttons. _(Radio Button Frame Color property was added in PxPlus 2024.)  
 (The name change from Radio Button Frame Color to RB Frame Color was added in PxPlus 2025.)_  
@@ -102,14 +139,14 @@ _Active Border Color_ |  Button border color when the button is pressed down. Se
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
   
-_Active Border Color 2_ |  When used in conjunction with _Active Border Color_ , these two colors represent the border colors: _Active Border Color 2_ (top and left borders) and _Active Border Color_ (bottom and right borders). _Active Border Color**must** be specified_; otherwise, _Active Border Color 2_ will be ignored.  
+_Active Border Color 2_ |  When used in conjunction with _Active Border Color_ , these two colors represent the border colors:  _Active Border Color 2_ (top and left borders) and _Active Border Color_ (bottom and right borders). When **[Corner Radius](Themes_vc%20Radio.htm#cornerradius)** is set to _Round_ or a value, _Active Border Color 2_ is applied to all the button borders when the button is selected. _Active Border Color**must** be specified_; otherwise, _Active Border Color 2_ will be ignored.  
 _Active Text Color_ |  Foreground text color when the button is pressed down.
 
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
   
 _Disable Background Color_ |  Background color when the button is disabled. See _Disable Background Color 2_ below.  
-_Disable Background Color 2_ |  Used in conjunction with _Disable Background Color_ to generate a two-color gradient fill for the button background when the button is disabled. The gradient fill starts with _Disable Background Color_ at the top and flows to _Disable Background Color 2_ at the bottom. _Disable Background Color**must**_ be specified; otherwise, _Disable Background Color 2_ will be ignored.
+_Disable Background Color 2_ |  Used in conjunction with _Disable_ _Background Color_ to generate a two-color gradient fill for the button background when the button is disabled. The gradient fill starts with _Disable_ _Background Color_ at the top and flows to _Disable Background Color 2_ at the bottom. _Disable Background Color**must**_ be specified; otherwise, _Disable Background Color 2_  will be ignored.
 
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
@@ -119,7 +156,7 @@ _Disable Border Color_ |  Button border color when the button is disabled. See _
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
   
-_Disable Border Color 2_ |  Used in conjunction with _Disable Border Color_ to generate a two-color button border when the button is disabled. _Disable Border Color_ is applied to the top and left borders, _Disable Border Color 2_ to the bottom and right borders. _Disable Border Color**must**_ be specified; otherwise, _Disable Border Color 2_ will be ignored.  
+_Disable Border Color 2_ |  Used in conjunction with _Disable_ _Border Color_ to generate a two-color button border when the button is disabled. _Disable Border Color_  is applied to the top and left borders, _Disable Border Color 2_ to the bottom and right borders. _Disable Border Color**must**_ be specified; otherwise, _Disable Border Color 2_  will be ignored. When **[Corner Radius](Themes_vc%20Radio.htm#cornerradius)** is set to _Round_ or a value, _Disable Border Color 2_ has no effect.  
 _Disable Text Color_ |  Foreground text color when the button is disabled.  
 _Focus Background Color_ |  Background color when the button has focus. See _Focus Background Color 2_ below.
 
@@ -132,15 +169,15 @@ _Focus Border Color_ |  Button border color when the button has focus. See _Focu
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
   
-_Focus Border Color 2_ |  Used in conjunction with _Focus Border Color_ to generate a two-color button border when the button has focus. _Focus Border Color_ is applied to the top and left borders, _Focus Border Color 2_ to the bottom and right borders. _Focus Border Color**must** be specified_; otherwise, _Focus Border Color 2_ will be ignored.  
+_Focus Border Color 2_ |  Used in conjunction with _Focus Border Color_ to generate a two-color button border when the button has focus. _Focus Border Color_  is applied to the top and left borders, _Focus Border Color 2_ to the bottom and right borders. _Focus Border Color**must** be specified_; otherwise, _Focus Border Color 2_ will be ignored. When **[Corner Radius](Themes_vc%20Radio.htm#cornerradius)** is set to _Round_ or a value, _Focus Border Color 2_ has no effect.  
 _Focus Text Color_ |  Foreground text color when the button has focus.
 
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
   
-_Gray Disabled Bitmap_ |  Controls how the image on the button will display when the button is disabled. Applicable only when there is a bitmap on the button. Click the drop-down arrow for available selections: _Default gray disabled setting**(Default)**_  
-_Images display as shadows_  
-_Images converted to gray scale_
+_Gray Disabled Bitmap_ |  Controls how the image on the button will display when the button is disabled. Applicable only when there is a bitmap on the button. Click the drop-down arrow for available selections:    _Default gray disabled setting**(Default)**_  
+   _Images display as shadows_  
+   _Images converted to gray scale_
 
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.
@@ -153,7 +190,7 @@ _Hover Background Color 2_ |  Used in conjunction with _Hover Background Color_ 
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
   
 _Hover Border Color_ |  Border color when the mouse is over the control. See _Hover Border Color 2_ below. Border colors are applied only if a **[Border Style](Themes_vc%20Radio.htm#border_style)** (other than the system default) is specified for the control. _(Support for standard Radio Buttons with no bitmap was added in PxPlus 2025.)_  
-_Hover Border Color 2_ |  Used in conjunction with _Hover Border Color_ to generate a two-color button border when the mouse is over the button. _Hover Border Color_ is applied to the top and left borders, _Hover Border Color 2_ to the bottom and right borders. _Hover Border Color**must** be specified_; otherwise, _Hover Border Color 2_ will be ignored.
+_Hover Border Color 2_ |  Used in conjunction with _Hover Border Color_ to generate a two-color button border when the mouse is over the button. _Hover Border Color_  is applied to the top and left borders, _Hover Border Color 2_ to the bottom and right borders. _Hover Border Color**must** be specified_; otherwise, _Hover Border Color 2_ will be ignored. When **[Corner Radius](Themes_vc%20Radio.htm#cornerradius)** is set to _Round_ or a value, _Hover Border Color 2_ has no effect.
 
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
@@ -167,9 +204,15 @@ _RB Hover Color_ |  Color of the hover circle in the radio button when the mouse
 _Font_ |  Click the dotted Query button or double click inside the cell to specify font properties and attributes, such as _Bold_ , _Italics_ , etc. In addition, _Alignment_ (default: _Center_) and _Word Wrap_ can be specified. See **[Font Properties](Font%20Properties.md)**. _(Alignment and Word Wrap options were added in PxPlus 2022.)  
 __(The Use 'Font Name' only check box option was added in PxPlus 2025.)_  
 **Other**  
-_iNomads Class_ |  Assign an iNomads class to the control. The iNomads class contains class attribute references used when defining the control in the HTML code generated in iNomads. An iNomads class reference must start with an alpha character (A-Z or a-z), followed by any combination of A-Z, a-z, 0-9, underscore or dash. Multiple references may be entered, separated by a space. For a list of pre-defined classes, see **[iNomads Classes](../../../iNOMADS/iNomads%20Classes.md)**. _(iNomads Class property was added in PxPlus 2020.)_  
+_iNomads_ _Class_ |  Assign an iNomads class to the control. The iNomads class contains class attribute references used when defining the control in the HTML code generated in iNomads. An iNomads class reference must start with an alpha character (A-Z or a-z), followed by any combination of A-Z, a-z, 0-9, underscore or dash. Multiple references may be entered, separated by a space. For a list of pre-defined classes, see **[iNomads Classes](../../../iNOMADS/iNomads%20Classes.md)**. _(iNomads Class property was added in PxPlus 2020.)_  
   
 ## See Also
 
 **[Themes](Themes.md)**  
 **[Visual Classes](Visual%20Classes.md)**
+
+ 
+
+ 
+
+ 

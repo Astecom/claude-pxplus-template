@@ -1,4 +1,4 @@
-# Webster+
+# Webster+ Web Development Toolkit
 
 **Special Webster+ Events**|   
 ---|---  
@@ -16,19 +16,19 @@ _point$_ |  This optional parameter contains the name of the variable to receive
   
 **_Example:_**
 
-*drill:customer,client$,month$
+   *drill:customer,client$,month$
 
-This would invoke the page "customer", passing it the set name in the variable Client$ and the point name in the variable Month$.
+   This would invoke the page "customer", passing it the set name in the variable Client$ and the point name in the variable Month$.
 
 _(The *drill event was added in PxPlus 2023.)_  
   
 ***eval:_javascript_** |  Locally executes the JavaScript specified on the browser. No event will be sent to the server.  
 ***link:_xxx_** |  Links to a new page or URL.  
-***** **map** ,_xxx,xxx,xxx,xxx_ |  Can be added to a button to cause the system to display a popup window presenting a Google Map based on the address provided in the parameters _xxx_. You can provide up to five values to specify the street address, city, province/state and country. These can either be variables from the page or literals. **_Example:_** event=*map,"25 Centurian Blvd","Markham","Ontario" event=*map,street$,city$,state$,country$ _(The *map event was added in PxPlus 2022.)_  
+***** **map** ,_xxx,xxx,xxx,xxx_ |  Can be added to a button to cause the system to display a popup window presenting a Google Map based on the address provided in the parameters _xxx_. You can provide up to five values to specify the street address, city, province/state and country. These can either be variables from the page or literals. **_Example:_**    event=*map,"25 Centurian Blvd","Markham","Ontario"    event=*map,street$,city$,state$,country$ _(The *map event was added in PxPlus 2022.)_  
 ***pop** |  Closes a popup window.  
 ***redraw** |  Forces a redraw of the screen using the current field contents.  
 ***reload** |  Forces a reload of the page after discarding the current data.  
-***return:_xxx_** |  Can be used in a popup window to return the value of the field named by _xxx_. This value will be returned to the input field on the parent page that initiated the popup window and its change event (if any) will be triggered. This is generally used by the Query system. Optionally, you can specify two additional comma-separated values following the field name. They are: The field on the parent page to receive the value. The event to trigger in the parent page after the current page is closed.  
+***return:_xxx_** |  Can be used in a popup window to return the value of the field named by _xxx_. This value will be returned to the input field on the parent page that initiated the popup window and its change event (if any) will be triggered. This is generally used by the Query system. Optionally, you can specify two additional comma-separated values following the field name. They are:      The field on the parent page to receive the value.      The event to trigger in the parent page after the current page is closed.  
   
 The following internal events are for **_grid use only_** :
 
@@ -44,3 +44,9 @@ You can also send an event to a program other than the one specified on the **[[
 In this example, the following event declaration would cause the event "Changed" in the program "MyProg" to be invoked:
 
 > Event=MyProg@Changed
+
+ 
+
+ 
+
+ 

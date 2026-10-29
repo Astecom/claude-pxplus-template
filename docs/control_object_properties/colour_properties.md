@@ -14,7 +14,7 @@ The **[Properties List](properties_list.md)** provides a complete alphabetically
 #### **Note:**  
 Throughout the system, property names with the word/syllable "color" can also be spelled using the alternate English spelling of "colour".
 
-## Color Names and Numbers
+##  Color Names and Numbers
 
 The following table defines the named colors in the system and their respective color numbers:
 
@@ -54,12 +54,12 @@ Each HTML color code consists of the **#** symbol followed by six letters or num
 
 This example lists the hexadecimal codes and equivalent decimal codes that produce the colors Red, Green, Blue and Cyan.
 
-**Color Name** |  **Hexadecimal Code (#RRGGBB)** |  **Decimal Code (R,G,B)** |  **Result**  
+**Color Name** |  **Hexadecimal Code (#RRGGBB)** |  **Decimal Code (R,G,B)******|  **Result**  
 ---|---|---|---  
-Red |  #FF0000 |  (255,0,0) Maximum of Red, no Green, no Blue |   
-Green |  #00FF00 |  (0,255,0) No Red, maximum of Green, no Blue |   
-Blue |  #0000FF |  (0,0,255) No Red, no Green, maximum of Blue |   
-Cyan |  #00FFFF |  (0,255,255) No Red, maximum of Green and Blue |   
+Red |  #FF0000 |  (255,0,0)  Maximum of Red, no Green, no Blue |   
+Green |  #00FF00 |  (0,255,0)  No Red, maximum of Green, no Blue |   
+Blue |  #0000FF |  (0,0,255)  No Red, no Green, maximum of Blue |   
+Cyan |  #00FFFF |  (0,255,255)  No Red, maximum of Green and Blue |   
   
 ##  HTML Named Colors
 
@@ -77,78 +77,78 @@ Any invalid name will be considered Default. For information on which colors are
 
 The following table lists all the HTML named colors:
 
-**Color Name** |  **Result** |  **Color Name** |  **Result**  
+**Color Name******|  **Result******|  **Color Name******|  **Result******  
 ---|---|---|---  
-#AliceBlue |  |  #AntiqueWhite |   
-#Aqua |  |  #Aquamarine |   
-#Azure |  |  #Beige |   
-#Bisque |  |  #Black |   
-#BlanchedAlmond |  |  #Blue |   
-#BlueViolet |  |  #Brown |   
-#Burlywood |  |  #CadetBlue |   
-#Chartreuse |  |  #Chocolate |   
-#Coral |  |  #CornflowerBlue |   
-#Cornsilk |  |  #Crimson |   
-#Cyan |  |  #DarkBlue |   
-#DarkCyan |  |  #DarkGoldenrod |   
-#DarkGray |  |  #DarkGreen |   
-#DarkKhaki |  |  #DarkMagenta |   
-#DarkOliveGreen |  |  #DarkOrange |   
-#DarkOrchid |  |  #DarkRed |   
-#DarkSalmon |  |  #DarkSeaGreen |   
-#DarkSlateBlue |  |  #DarkSlateGray |   
-#DarkTurquoise |  |  #DarkViolet |   
-#DeepPink |  |  #DeepSkyBlue |   
-#DimGray |  |  #DodgerBlue |   
-#Firebrick |  |  #FloralWhite |   
-#ForestGreen |  |  #Fuchsia |   
-#Gainsboro |  |  #GhostWhite |   
-#Gold |  |  #Goldenrod |   
-#Gray |  |  #Green |   
-#GreenYellow |  |  #Honeydew |   
-#HotPink |  |  #IndianRed |   
-#Indigo |  |  #Ivory |   
-#Khaki |  |  #Lavender |   
-#LavenderBlush |  |  #LawnGreen |   
-#LemonChiffon |  |  #LightBlue |   
-#LightCoral |  |  #LightCyan |   
-#LightGoldenrodYellow |  |  #LightGray |   
-#LightGreen |  |  #LightPink |   
-#LightSalmon |  |  #LightSeaGreen |   
-#LightSkyBlue |  |  #LightSlateGray |   
-#LightSteelBlue |  |  #LightYellow |   
-#Lime |  |  #LimeGreen |   
-#Linen |  |  #Magenta |   
-#Maroon |  |  #MediumAquamarine |   
-#MediumBlue |  |  #MediumOrchid |   
-#MediumPurple |  |  #MediumSeaGreen |   
-#MediumSlateBlue |  |  #MediumSpringGreen |   
-#MediumTurquoise |  |  #MediumVioletRed |   
-#MidnightBlue |  |  #MintCream |   
-#MistyRose |  |  #Moccasin |   
-#NavajoWhite |  |  #Navy |   
-#OldLace |  |  #Olive |   
-#OliveDrab |  |  #Orange |   
-#OrangeRed |  |  #Orchid |   
-#PaleGoldenrod |  |  #PaleGreen |   
-#PaleTurquoise |  |  #PaleVioletRed |   
-#PapayaWhip |  |  #PeachPuff |   
-#Peru |  |  #Pink |   
-#Plum |  |  #PowderBlue |   
-#Purple |  |  #Red |   
-#RosyBrown |  |  #RoyalBlue |   
-#SaddleBrown |  |  #Salmon |   
-#SandyBrown |  |  #SeaGreen |   
-#Seashell |  |  #Sienna |   
-#Silver |  |  #SkyBlue |   
-#SlateBlue |  |  #SlateGray |   
-#Snow |  |  #SpringGreen |   
-#SteelBlue |  |  #Tan |   
-#Teal |  |  #Thistle |   
-#Tomato |  |  #Turquoise |   
-#Violet |  |  #Wheat |   
-#White |  |  #WhiteSmoke |   
-#Yellow |  |  #YellowGreen |   
+#AliceBlue |    |  #AntiqueWhite |     
+#Aqua |    |  #Aquamarine |     
+#Azure |    |  #Beige |     
+#Bisque |    |  #Black |     
+#BlanchedAlmond |    |  #Blue |     
+#BlueViolet |    |  #Brown |     
+#Burlywood |    |  #CadetBlue |     
+#Chartreuse |    |  #Chocolate |     
+#Coral |    |  #CornflowerBlue |     
+#Cornsilk |    |  #Crimson |     
+#Cyan |    |  #DarkBlue |     
+#DarkCyan |    |  #DarkGoldenrod |     
+#DarkGray |    |  #DarkGreen |     
+#DarkKhaki |    |  #DarkMagenta |     
+#DarkOliveGreen |    |  #DarkOrange |     
+#DarkOrchid |    |  #DarkRed |     
+#DarkSalmon |    |  #DarkSeaGreen |     
+#DarkSlateBlue |    |  #DarkSlateGray |     
+#DarkTurquoise |    |  #DarkViolet |     
+#DeepPink |    |  #DeepSkyBlue |     
+#DimGray |    |  #DodgerBlue |     
+#Firebrick |    |  #FloralWhite |     
+#ForestGreen |    |  #Fuchsia |     
+#Gainsboro |    |  #GhostWhite |     
+#Gold |    |  #Goldenrod |     
+#Gray |    |  #Green |     
+#GreenYellow |    |  #Honeydew |     
+#HotPink |    |  #IndianRed |     
+#Indigo |    |  #Ivory |     
+#Khaki |    |  #Lavender |     
+#LavenderBlush |    |  #LawnGreen |     
+#LemonChiffon |    |  #LightBlue |     
+#LightCoral |    |  #LightCyan |     
+#LightGoldenrodYellow |    |  #LightGray |     
+#LightGreen |    |  #LightPink |     
+#LightSalmon |    |  #LightSeaGreen |     
+#LightSkyBlue |    |  #LightSlateGray |     
+#LightSteelBlue |    |  #LightYellow |     
+#Lime |    |  #LimeGreen |     
+#Linen |    |  #Magenta |     
+#Maroon |    |  #MediumAquamarine |     
+#MediumBlue |    |  #MediumOrchid |     
+#MediumPurple |    |  #MediumSeaGreen |     
+#MediumSlateBlue |    |  #MediumSpringGreen |     
+#MediumTurquoise |    |  #MediumVioletRed |     
+#MidnightBlue |    |  #MintCream |     
+#MistyRose |    |  #Moccasin |     
+#NavajoWhite |    |  #Navy |     
+#OldLace |    |  #Olive |     
+#OliveDrab |    |  #Orange |     
+#OrangeRed |    |  #Orchid |     
+#PaleGoldenrod |    |  #PaleGreen |     
+#PaleTurquoise |    |  #PaleVioletRed |     
+#PapayaWhip |    |  #PeachPuff |     
+#Peru |    |  #Pink |     
+#Plum |    |  #PowderBlue |     
+#Purple |    |  #Red |     
+#RosyBrown |    |  #RoyalBlue |     
+#SaddleBrown |    |  #Salmon |     
+#SandyBrown |    |  #SeaGreen |     
+#Seashell |    |  #Sienna |     
+#Silver |    |  #SkyBlue |     
+#SlateBlue |    |  #SlateGray |     
+#Snow |    |  #SpringGreen |     
+#SteelBlue |    |  #Tan |     
+#Teal |    |  #Thistle |     
+#Tomato |    |  #Turquoise |     
+#Violet |    |  #Wheat |     
+#White |    |  #WhiteSmoke |     
+#Yellow |    |  #YellowGreen |     
   
 ## HSL Color Specifications
 
@@ -173,7 +173,7 @@ If desired, wherever a color specification is needed, you can specify two colors
 
 The color specification of 
 
-> "LIGHT RED" + "LIGHT YELLOW"
+> "LIGHT RED" \+ "LIGHT YELLOW"
 
 will result in an Orange color due to the blending of Yellow and Red.
 
@@ -188,9 +188,15 @@ A value of *100 leaves the color alone, *120 will brighten the color by 20%, whe
 Running the following program will adjust the lightness of the color BLUE between 50 and 150 percent:
 
 > for i=50 to 150 step 10  
->  print 'fill'(1,"BLUE*"+str(i)),'rectangle'(i*5,@y(15),i*5+50,@y(17)),  
+>      print 'fill'(1,"BLUE*"+str(i)),'rectangle'(i*5,@y(15),i*5+50,@y(17)),  
 >  next
 
 This yields the following result:
 
 (HSL, Color Blending and Dynamic Color Lightening are available as of PxPlus 2014.)
+
+ 
+
+ 
+
+ 

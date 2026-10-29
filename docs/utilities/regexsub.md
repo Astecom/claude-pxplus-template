@@ -1,11 +1,11 @@
-# Utility Routines
+# Utilities
 
 ***TOOLS/REGEXSUB** |  **_Regular Expression Substitution_**  
 ---|---  
   
 ## Invocation
 
-**CALL** **"*tools/regExSub"** , _input$_ , _mask$_ , _replacement$_ , _output$_
+**CALL**  **" *tools/regExSub"**, _input$_ , _mask$_ , _replacement$_ , _output$_
 
 **_Where:_**
 
@@ -32,3 +32,9 @@ CALL "*tools\regExSub","http://www.devdaily.com/handler.php?cat=java&article=100
 **_Where:_**
 
 _output_ _$_ will be "http://www.devdaily.com/java/1001".
+
+ 
+
+ 
+
+ 

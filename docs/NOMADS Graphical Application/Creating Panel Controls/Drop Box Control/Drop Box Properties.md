@@ -1,6 +1,6 @@
 # Drop Box Control 
 
-**Drop Box Properties** |  **__**  
+**Drop Box Properties** |  **_ _**  
 ---|---  
   
 When creating or editing a _Drop Box_ control, the **Drop Box Properties** dialogue (pictured below using the **[Folder Style](../../Panel%20Designer/Folder%20Style/Using%20the%20Folder%20Style.md)** version of the NOMADS designer) is displayed.
@@ -11,7 +11,7 @@ PxPlus 2018 introduces the capability to create **_dynamic control properties_**
 
 When a data class is entered for the Drop Box control, information from the data class is loaded into the Drop Box properties. If the data class is **_dynamic_** , the dynamic control properties are **_automatically_** set to _Dynamic_ initially and assigned a **%NOMADS'class'** variable that corresponds to a data class field (i.e. **%NOMADS'class'length**).
 
-Drop Box control properties designated as **_dynamic_** can be _manually_ switched to dynamic or non-dynamic. A Drop Box control can have a combination of dynamic **_and_** non-dynamic control properties **_only_** when a data class is entered.
+Drop Box control properties designated as **_dynamic_**  can be _manually_ switched to dynamic or non-dynamic. A Drop Box control can have a combination of dynamic **_and_** non-dynamic control properties **_only_** when a data class is entered.
 
 See **[Dynamic Control Properties](../../../Data%20Dictionary/Data%20Classes/Dynamic.md)** for information and examples.
 
@@ -20,7 +20,7 @@ Dynamic control properties are supported in NOMADS **_and_** iNomads environment
 
 **_Multiple Character Search_**
 
-Drop Boxes provide a multiple character search capability that makes it easier to search for an exact match in a Drop Box list. To use this capability effectively, the characters **_must_** be entered within a second of one another and **_must_** exactly match the start of an item in the Drop Box.
+Drop Boxes provide a multiple character search capability that makes it easier to search for an exact match in a Drop Box list. To use this capability effectively, the characters **_must_** be entered within a ½ second of one another and **_must_** exactly match the start of an item in the Drop Box.
 
 **_Example:_**
 
@@ -30,7 +30,7 @@ Suppose that a Drop Box contains the following items:
 >  C30000  
 >  C50000
 
-Typing the character "c" followed within second by the number "3" would select the "C30000" item.
+Typing the character "c" followed within ½ second by the number "3" would select the "C30000" item.
 
 #### **Note:**  
 In Drop Boxes, searching always starts from the current selection and wraps.
@@ -43,7 +43,7 @@ This dialogue is divided into the following tabbed panels for viewing and/or cha
 
 _Name_ |  Unique name of the Drop Box control (NOMADS provides a default). Naming conventions for variables apply. Click the Browse Library button to copy parameters from an existing object (via the **[Library Browse](../../Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Library%20Browse.md)** dialogue).
 
-#### **Note:**  
+#### **Note:**   
 When a new control name is entered, it will be checked against the [**Reserved Words**](../../../Reserved%20Words.md) list to determine if it is restricted for use as a NOMADS control name. If it is found, a warning message will display.  
   
 _(User Reserved Words Maintenance was added in PxPlus 2020.)_  
@@ -69,7 +69,7 @@ _(The Reapply Data Class button was added in PxPlus 2018.)_
 _Dynamic Class_ |  **_(Display Only)_** Indicates whether the selected data _Class_ is Dynamic. See **[Dynamic Control Properties](../../../Data%20Dictionary/Data%20Classes/Dynamic.md)**. If using **[Property Sheets](../../Panel%20Designer/Properties%20Table/Overview.md)**, click the _Data Class_ button to display the _Dynamic Class_ check box in the **Data Class Options** dialogue. _(The Data Class Options dialogue was added in PxPlus 2018.)  
 (The Dynamic Class check box was added in PxPlus 2018.)_  
 **Preview** |  Displays how the visible properties of the control will appear at run time.  
-**Display****_( * indicates_ a _Dynamic property)_**  
+**Display**** _( * indicates_ a _Dynamic property)_**  
 ***List Values** |  List of values that NOMADS uses to preload the Drop Box. Can be a _Fixed_ value, string _Expression_ or _Dynamic_). (_Dynamic_ is available **_only_** when a data _Class_ is entered.) If a dynamic data class is entered, this property will be automatically set to _Dynamic_ and assigned a **%NOMADS'class'** variable, which is locked.
 
 #### **Note:**  
@@ -86,7 +86,7 @@ _(Support for increased Column and Line maximums was added in PxPlus 2021.)_
 ---|---  
 _Height_ |  Height of the control in number of lines - numeric expression. Format mask is ##0.00. Valid entries are 0 to 255.  
   
-#### **Note:**  
+#### **Note:**   
 If a data class is entered and the _Drop Box Width/Height_ values in the data class are subsequently changed, the size of the Drop Box will **_not_** change when the _Reapply Data Class_ button is selected.  
   
 _(This functionality was added in PxPlus 2018.)_
@@ -100,7 +100,7 @@ _(Support for increased Width and Height maximums was added in PxPlus 2021.)_
 Expressions that come from a data class **_must_** be global variables.
 
 If the data class is **_not_** dynamic, this property can be manually set to _Dynamic_. See **[Dynamic Control Properties](../../../Data%20Dictionary/Data%20Classes/Dynamic.md)**. _(Dynamic data classes and properties were added in PxPlus 2018.)_  
-**Font/Color****_( * indicates_ a _Dynamic property)_**  
+**Font/Color**** _( * indicates_ a _Dynamic property)_**  
 **Font Specification** |  |  _Font  
 Size_ |  Click the drop-down arrow for a list of selections.  
 ---|---  
@@ -129,7 +129,7 @@ _(Dynamic data classes and properties were added in PxPlus 2018.)
 Expressions that come from a data class **_must_** be global variables.
 
 If the data class is **_not_** dynamic, this property can be manually set to _Dynamic_. See **[Dynamic Control Properties](../../../Data%20Dictionary/Data%20Classes/Dynamic.md)**. The iNomads class contains class attribute references used when defining the control in the HTML code generated in iNomads. An iNomads class reference must start with an alpha character (A-Z or a-z), followed by any combination of A-Z, a-z, 0-9, underscore or dash. Multiple references may be entered, separated by a space. For a list of pre-defined iNomads classes, see **[iNomads Classes](../../../iNOMADS/iNomads%20Classes.md)**. _(Dynamic data classes and properties were added in PxPlus 2018.)_  
-**Attributes****_( * indicates_ a _Dynamic property)_**  
+**Attributes**** _( * indicates_ a _Dynamic property)_**  
 **Attributes** |  |  _Tab Stop_ |  Adds the control to the tab order list. Allows use of the **Tab** key for moving to the control.  
 ---|---  
 _Auto Tab Skip_ |  Control is skipped when tabbing forward but is still accessible via**Shift - Tab** or the mouse.  
@@ -141,21 +141,22 @@ _Enable Scrolling_ |  Allows the control to scroll in a resizable/scrollable dia
 _Signal On Exit_ |  A signal is generated when focus leaves the control whether the selection or value has changed or not. NOMADS will execute the On Change logic.  
 _Automatic (Signal All Changes)_ |  A signal is returned on any changes in the control.  
 _Strip Trailing Spaces_ |  Strips trailing spaces when reading/writing data for control.  
-_Ignore Change Flag_ |  Select this check box when you do **_not_** want the NOMADS **[CHANGE_FLG](../../Appendix/NOMADS%20Variables/Overview.htm#reserved)** variable to be updated when the control value is changed.  
-  
-_(The Ignore Change Flag property was added in PxPlus 2017.)_  
-  
+_Ignore Change Flag_ |  Select this check box when you do **_not_** want the NOMADS **[CHANGE_FLG](../../Appendix/NOMADS%20Variables/Overview.htm#reserved)** variable to be updated when the control value is changed. _(The Ignore Change Flag property was added in PxPlus 2017.)_  
 **DropBox Attributes** |  |  _Allow Variable Input_ |  Enables the user to select any element from the list or enter any other value. See **[Variable Drop Box](Variable%20Drop%20Box.md)**.  
 ---|---  
+_Corner Radius_ |  Sets the radius for the drop box corners. Works only in **4D** mode. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 3 inclusive. See **[CornerRadius$](../../../control_object_properties/dropbox_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :    Corner Radius set to **Square** :    Corner Radius set to a value of **3** :   
+
+#### **Note:**  
+Corner rounding is limited based on the control type and/or the control size.
+
+_(The Corner Radius property was added in PxPlus 2026.)_  
 **Load Options** |  |  _Smart Load  
-(formerly Auto Load)_ |  Select this button to set up a Smart control that will self-load based on a query definition. See **[Smart Controls](../../Smart%20Controls/Overview.md)**.  
+(formerly Auto Load)_ |  Select this button to set up a Smart control that will self-load based on a query definition. See **[Smart Controls](../../Smart%20Controls/Overview.md)**. _(Support for enhanced Smart Load capability was added in PxPlus 2018.)_  
 ---|---  
 _Background Loading_ |  Load logic to execute while there is no user input. Select _Background Loading_ and then click the _Logic_ button to add/edit logic. See **[Background Loading](../../Program%20Interaction/Event-Handler%20Routines/Background%20Loading.md)**.  
   
 #### **Note:**  
-Smart controls are **_not_** compatible with _Background Loading_ logic.
-
-_(Support for enhanced Smart Load capability was added in PxPlus 2018.)_  
+Smart controls are **_not_** compatible with _Background Loading_ logic.  
   
 **Other** |  |  _Alt-Key_ |  Hot key for the control. Click the drop-down arrow for a list of selections.  
 ---|---  
@@ -172,7 +173,7 @@ _Never_ |  **_Off_** , overriding global activation
   
 _(Dynamic data classes and properties were added in PxPlus 2018.)_  
   
-**Values****_( * indicates_ a _Dynamic property)_**  
+**Values**** _( * indicates_ a _Dynamic property)_**  
 ***Default Setting** |  Initial value to be highlighted when the Drop Box is drawn. Can be a _Fixed_ value or string _Expression_. If a dynamic data class is entered, this property will be automatically set to _Dynamic_ and assigned a **%NOMADS'class'** variable, which is locked. See **[Dynamic Control Properties](../../../Data%20Dictionary/Data%20Classes/Dynamic.md)**. If the **List Values** drop box (on **[Display](Drop%20Box%20Properties.htm#display)** tab) is set to _Dynamic_ , the **Default Setting** property will be set to _Dynamic_ and locked. _(Dynamic data classes and properties were added in PxPlus 2018.)_  
 ***Translation** |  Click the _Translate_ check box to set up a table of values representing Drop Box selections. Definition consists of a _Table Value Length_ (length of each of the items in the table) and the _Translation_ value (_Fixed_ or string _Expression_). If a dynamic data class is entered, this property will be automatically set to _Dynamic_ and assigned a **%NOMADS'class'** variable, which is locked. See **[Dynamic Control Properties](../../../Data%20Dictionary/Data%20Classes/Dynamic.md)**. If the dynamic data class was defined with **[Load From File](../../../Data%20Dictionary/Data%20Classes/Dropbox.htm#display)** functionality, the _Table Value Length_ will be set to 0 and locked. If the **List Values** drop box (on **[Display](Drop%20Box%20Properties.htm#display)** tab) is set to _Dynamic_ , the **Translation** properties and values will be locked. _(Dynamic data classes and properties were added in PxPlus 2018.)  
 __(The setting of Table Value Length to 0 when entering a dynamic data class with Load From File functionality was added in PxPlus 2021.)_  
@@ -182,7 +183,7 @@ _Default Program_ |  Displays the name of the **[Default Program](../../Panel%20
 **When Receiving Focus** |  Logic to execute when the control receives focus. Click the drop-down arrow for a list of selections. See **[Events Logic](../../Program%20Interaction/Events%20Logic/Overview.md)**. Click the Program Logic button beside the _Perform_ or _Call_ action to launch the default program editor, which is typically the **[*IT - Integrated Toolkit](../../../toolkit1/overview.md)**. To make **[Ed+](../../../Ed%20Program%20Editor.md)** the default program editor, change the setting for the **[%NOMADS'Program_Editor](../../Appendix/NOMADS%20Variables/Overview.htm#programeditor)** property to _Ed+_. _(The ability to set Ed+ as the default program editor was added in PxPlus 2023.)_  
 **When Entry is Selected  
 from List Box** |  Logic to be executed when focus leaves the control or the state of the control has changed. Click the drop-down arrow for a list of selections. See **[Events Logic](../../Program%20Interaction/Events%20Logic/Overview.md)**. Click the Program Logic button beside the _Perform_ or _Call_ action to launch the default program editor, which is typically the **[*IT - Integrated Toolkit](../../../toolkit1/overview.md)**. To make **[Ed+](../../../Ed%20Program%20Editor.md)** the default program editor, change the setting for the **[%NOMADS'Program_Editor](../../Appendix/NOMADS%20Variables/Overview.htm#programeditor)** property to _Ed+_. _(The ability to set Ed+ as the default program editor was added in PxPlus 2023.)_  
-**User Aid****_( * indicates_ a _Dynamic property)_**  
+**User Aid**** _( * indicates_ a _Dynamic property)_**  
 _Dynamic (from Data Class)_ |  **_(Available when a data Class is entered)_** If selected, identifies which **Help Reference** properties are dynamic. If a dynamic data class is entered, this check box is automatically selected. If the data class is **_not_** dynamic, this check box can be manually selected.
 
 #### **Note:**  
@@ -212,7 +213,7 @@ If the data class is **_not_** dynamic, this property can be manually set to _Dy
 #### **Note:**  
 The Floating Tip drop box and multi-line input _cannot_ be changed once an [**HTML**](../Defining%20an%20Info%20Tip.htm#tiptype) tip has been defined.
 
-**_NOMADS Wiki Help_** The floating tip text can be used when displaying the **[Wiki Help](../../System%20Maintenance%20Tools/Nomads%20Wiki%20Help.md)**. Info tips, however, are not supported and will be ignored. _(Support for customizing Floating Tips was added in PxPlus 2016.)  
+**_NOMADS Wiki Help_ __** The floating tip text can be used when displaying the **[Wiki Help](../../System%20Maintenance%20Tools/Nomads%20Wiki%20Help.md)**. Info tips, however, are not supported and will be ignored. _(Support for customizing Floating Tips was added in PxPlus 2016.)  
 (Dynamic data classes and properties were added in PxPlus 2018.)  
 (Support for the use of Floating Tip text in the Wiki Help was added in PxPlus 2023.)_  
 ***Message Bar** |  Text to be displayed in the panel's status bar when focus is on the control. Can be a _Fixed_ value, string _Expression_ , _Message Library Reference_ or _Dynamic_. (_Dynamic_ is available **_only_** when a data _Class_ is entered.) If a dynamic data class is entered, this property will be automatically set to _Dynamic_ and assigned a **%NOMADS'class'** variable, which is locked.
@@ -221,7 +222,7 @@ The Floating Tip drop box and multi-line input _cannot_ be changed once an [**HT
 Expressions that come from a data class **_must_** be global variables.
 
 If the data class is **_not_** dynamic, this property can be manually set to _Dynamic_. See **[Dynamic Control Properties](../../../Data%20Dictionary/Data%20Classes/Dynamic.md)**. _(Dynamic data classes and properties were added in PxPlus 2018.)_  
-**Query** ** _( * indicates_ a _Dynamic property)_**  
+**Query**  **_( * indicates_ a _Dynamic property)_**  
 _Dynamic (from Data Class)_ |  **_(Available when a data Class is entered)_** If selected, identifies which **Query Type** and its associated properties are dynamic. If a dynamic data class is entered, this check box is automatically selected. If the data class is **_not_** dynamic, this check box can be manually selected.
 
 #### **Note:**  
@@ -229,6 +230,7 @@ If the _Dynamic (from Data Class)_ check box was manually changed on the **[User
 
 _(Dynamic data classes and properties were added in PxPlus 2018.)_  
 ***Query Type** |  Type of query to associate to the control: _Panel, Query Program, Non-Query Logic_. Valid formats include a NOMADS query object or query list, a custom query panel, or user-supplied query program. Depending on the _Query Type_ selected, different information is entered. For an explanation of each type and the information to enter, see **[Query Type](../../Dictionary-Based%20Development/Query%20Subsystem/Invoking%20a%20Query.htm#querytype)**. For information on assigning a query to a control, see **[Assigning a Query](../../Dictionary-Based%20Development/Query%20Subsystem/Invoking%20a%20Query.htm#assigningquery)**. If setting up the Drop Box as a **_Smart_** control (see **[Smart Load](Drop%20Box%20Properties.htm#attributes)** attribute), you can define a query for the Smart control. See **[Defining Smart Controls](../../Smart%20Controls/Defining%20Smart%20Controls.md)**. If the _Dynamic (from Data Class)_ check box is selected, the _Query Type_ and its associated properties will be dynamic and locked. See **[Dynamic Control Properties](../../../Data%20Dictionary/Data%20Classes/Dynamic.md)**. _(Dynamic data classes and properties were added in PxPlus 2018.)_  
+   
 _Security_ |  Security restrictions. See **[Restricting Access](../../System%20Maintenance%20Tools/Security%20Manager/Restricting%20Access.md)** for information on **Object Security Definition**.  
 _Groups_ |  Assign the control to a group. See **[Group Assignment](../../NOMADS%20Development/Maintaining%20Library%20Objects/Group%20Assignment.md)**.  
 _Popup Menu_ |  Associate a popup menu that will appear when you right-click the mouse over the selected control. See **[Popup Menu](../Popup%20Menu/Overview.md)**.  
@@ -238,3 +240,9 @@ _Notes_ |  Add notes/comments for the control. Maximum 1024 characters. These no
 
 **[DROP_BOX Properties](../../../control_object_properties/dropbox_properties.md)**  
 **[DROP_BOX Directive](../../../directives/drop_box.htm#Mark3)**
+
+ 
+
+ 
+
+ 

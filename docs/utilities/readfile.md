@@ -1,11 +1,11 @@
-# Utility Routines
+# Utilities
 
 ***TOOLS/READFILE** |  **_Return Binary Data into Output String_**  
 ---|---  
   
 ## Invocation
 
-**CALL "*tools/readfile"** , _filename$_ , _outputfiledata_ _$_
+**CALL "*tools/readfile"**, _filename$_ , _outputfiledata_ _$_
 
 **_Where:_**
 
@@ -24,3 +24,9 @@ _(The ReadFile utility was added in PxPlus 2021.)_
 In this example, the utility will read the file _addresses.xml_ and output the contents of this file into _addressxml_ _$_ :
 
 > call "*tools/readfile","addresses.xml",addressxml$
+
+ 
+
+ 
+
+ 

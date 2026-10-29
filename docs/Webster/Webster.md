@@ -1,9 +1,9 @@
-# 
+#  
 
-**Webster+** |  **_HTML Page Generation_**  
+**Webster+ Web Development Toolkit** |  **_HTML Page Generation_**  
 ---|---  
   
-**Webster+** is a new toolset designed to make both the generation of Web pages and setup of Web sites easier. It is part of the Web bundle and provides the following functionality:
+**Webster+** is a new toolkit designed to make both the generation of Web pages and setup of Web sites easier. It is part of the Web bundle and provides the following functionality:
 
   * Ability to create dynamic HTML 5 compatible pages through the use of **[Short Codes](Short%20Codes.md)**
   * Site management tools to handle user registration, password control, and security
@@ -32,7 +32,7 @@ While it may seem daunting to recreate your application, Webster+ provides the a
 In situations where an existing application is being moved to a Web environment using Webster+, the **[Create Base Webster+ Page(s)](../NOMADS%20Graphical%20Application/NOMADS%20Development/Library%20Object%20Selection/Create%20Base%20Webster%20Pages.md)** utility can be used as the first step in converting existing NOMADS panels into Webster+ HTML pages.
 
 #### **Important Note:**  
-The HTML pages and programs created by the **Create Base Webster+ Pages** utility are a **_starting point only_** and will require editing to complete functioning Webster+ pages.
+The HTML pages and programs created by the **Create Base Webster+ Page(s)** utility are a **_starting point only_** and will require editing to complete functioning Webster+ pages.
 
 _(The Create Base Webster+ Page(s) utility was added in PxPlus 2025.)_
 
@@ -44,7 +44,7 @@ A base line _webster.pxp_ program is provided with PxPlus and is designed to be 
 
 While it is not mandatory, it is desirable for security reasons that this program defines data and program directories outside of the _document root_ directory. This prevents external users from having direct access to the data and programs.
 
-## Webster+ Object (%Webster)
+##  Webster+ Object (%Webster)
 
 When running a Webster+ based application, many functions and properties are provided by the Webster+ object. This object (***obj/webster**) is automatically created by the Apache and EZWeb interfaces during the initial processing of all browser requests.
 
@@ -61,4 +61,11 @@ All of these tools reside in the ***webster** system library.
 ## See Also
 
 **[Webster+ Application Design](Webster%20Application%20Design.md)**  
-**[Webster+ Setup and Configuration](Webster%20Setup.md)**
+**[Webster+ Setup and Configuration](Webster%20Setup.md)  
+[Frequently Asked Questions](Webster%20faq.md)**
+
+ 
+
+ 
+
+ 

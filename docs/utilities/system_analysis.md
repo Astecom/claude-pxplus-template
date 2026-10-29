@@ -1,4 +1,4 @@
-# Utility Routines
+# Utilities
 
 ***TOOLS/SYSTEMANALYSIS** |  **_Analyze PxPlus Installation and Setup_**  
 ---|---  
@@ -39,7 +39,7 @@ The **System Analysis** window displays. Clicking the _Execute_ button runs the 
 
   
   
-|  |  **_  
+|                |  **_  
 Results Displayed (first section has been expanded)_**  
 ---|---|---  
   
@@ -54,10 +54,16 @@ _Close_ |  Exits the **System Analysis** utility.
   
 To invoke this utility in text-based mode, use the following format:
 
-> **CALL "*tools/systemanalysis"** ,_results$,htmlOutput_
+> **CALL "*tools/systemanalysis"**,_results$,htmlOutput_
 
 **_Where:_**
 
 _results$_ |  Output string where the test results are returned.  
 ---|---  
-_htmlOutput_ |  If set, the output will be HTML. If not set or set to 0, the output is plain text.
+_htmlOutput_ |  If set, the output will be HTML. If not set or set to 0, the output is plain text.  
+  
+ 
+
+ 
+
+ 

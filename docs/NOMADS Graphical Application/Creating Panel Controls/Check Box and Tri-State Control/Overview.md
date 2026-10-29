@@ -1,6 +1,6 @@
 # Creating Panel Controls
 
-**Check Box and Tri-State Control** |  **__**  
+**Check Box and Tri-State Control** |  **_ _**  
 ---|---  
   
 The Check Box control is a button type that allows users to toggle between states: **_On_** to select it, **_Off_** to deselect it, and an optional _third_ state (_Tri-State control_). Unlike radio buttons, which are mutually exclusive, multiple Check Boxes can be selected at the same time.
@@ -42,7 +42,7 @@ PxPlus 2018 introduces the capability to create **_dynamic control properties_**
 
 When a data class is entered for the Check Box control, information from the data class is loaded into the Check Box properties. If the data class is **_dynamic_** , the dynamic control properties are **_automatically_** set to _Dynamic_ initially and assigned a **%NOMADS'class'** variable that corresponds to a data class field (i.e. **%NOMADS'class'length**).
 
-Check Box control properties designated as **_dynamic_** can be _manually_ switched to dynamic or non-dynamic. A Check Box control can have a combination of dynamic **_and_** non-dynamic control properties **_only_** when a data class is entered.
+Check Box control properties designated as **_dynamic_**  can be _manually_ switched to dynamic or non-dynamic. A Check Box control can have a combination of dynamic **_and_** non-dynamic control properties **_only_** when a data class is entered.
 
 See **[Dynamic Control Properties](../../../Data%20Dictionary/Data%20Classes/Dynamic.md)** for information and examples.
 
@@ -55,7 +55,7 @@ This dialogue is divided into the following tabbed panels for viewing and/or cha
 
 _Name_ |  Unique name of the Check Box control (NOMADS provides a default). Naming conventions for variables apply. Click the Browse Library button to copy parameters from an existing object (via the **[Library Browse](../../Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Library%20Browse.md)** dialogue).
 
-#### **Note:**  
+#### **Note:**   
 When a new control name is entered, it will be checked against the [**Reserved Words**](../../../Reserved%20Words.md) list to determine if it is restricted for use as a NOMADS control name. If it is found, a warning message will display.  
   
 _(User Reserved Words Maintenance was added in PxPlus 2020.)_  
@@ -81,7 +81,7 @@ _(The Reapply Data Class button was added in PxPlus 2018.)_
 _Dynamic Class_ |  **_(Display Only)_** Indicates whether the selected data _Class_ is Dynamic. See **[Dynamic Control Properties](../../../Data%20Dictionary/Data%20Classes/Dynamic.md)**. If using **[Property Sheets](../../Panel%20Designer/Properties%20Table/Overview.md)**, click the _Data Class_ button to display the _Dynamic Class_ check box in the **Data Class Options** dialogue. _(The Data Class Options dialogue was added in PxPlus 2018.)  
 (The Dynamic Class check box was added in PxPlus 2018.)_  
 **Preview** |  Displays how the visible properties of the control will appear at run time.  
-**Display****_( * indicates_ a _Dynamic property)_**  
+**Display**** _( * indicates_ a _Dynamic property)_**  
 ***Text** |  Sets the button text. Click the drop-down arrow for a list of selections: _Fixed_ , _Expression_ , _Message Library Reference_ or _Dynamic_. (_Dynamic_ is available **_only_** when a data _Class_ is entered.) If a dynamic data class is entered, this property will be automatically set to _Dynamic_ and assigned a **%NOMADS'class'** variable, which is locked.
 
 #### **Note:**  
@@ -91,7 +91,7 @@ If the data class is **_not_** dynamic, this property can be manually set to _Dy
 **Bitmaps** |  Sets the button bitmap. Click the Bitmap Library button to select a bitmap from the Bitmaps dialogue for the state, if applicable. |  _*Off State_ |  Bitmap shown when button is in the "Off" (normal) state.  
 ---|---  
 _*On State_ |  Bitmap shown when button is in the "On" state.  
-_*3rd State_ |  **_(Available when Tri-State Check Box attribute is selected)_** Bitmap shown when button is in an optional third state. See **[Tri-State Check Box](Overview.htm#tristate)**.  
+_*3rd State_ |  **_(Available when Tri-State Check Box attribute is selected)_**  Bitmap shown when button is in an optional third state. See **[Tri-State Check Box](Overview.htm#tristate)**.  
 _Alignment_ |  Sets the bitmap alignment. Click the drop-down arrow for a list of selections: _Left, Right, Top, Bottom, Center/Scale_. Selecting _Center/Scale_ alignment also forces the selection of the _Scale bitmap_ option.  
 _Scale bitmap_ |  Scales the bitmap to fit the button size. Any button text is forced to be aligned _Center/Scale_.
 
@@ -103,7 +103,7 @@ If a dynamic data class is entered, these properties will be set as dynamic and 
 _(Dynamic data classes and properties were added in PxPlus 2018.)  
 (The Center/Scale alignment and Scale bitmap options were added in PxPlus 2019 __Update 1_ _.)_  
   
-***Image Options** |  **_(Available when Bitmaps for Off/On/3rd States are selected)_** Sets advanced image options for the bitmap. Click the Additional Image Options button to the right of the **Image Options** multi-line to invoke the **Image Options** dialogue. This dialogue consists of the following: |  **Options** |  |  _Image Transparency_ |  Bitmap transparency option. Click the drop-down arrow for a list of selections: _None, Pixel sets transparency_ or _'Light Gray' is transparent_.  
+***Image Options** |  **_(Available when Bitmaps for Off/On/3rd States are selected)_** Sets advanced image options for the bitmap. Click the Additional Image Options button to the right of the **Image Options** multi-line to invoke the **Image Options** dialogue.      This dialogue consists of the following: |  **Options** |  |  _Image Transparency_ |  Bitmap transparency option. Click the drop-down arrow for a list of selections: _None, Pixel sets transparency_ or _'Light Gray' is transparent_.  
 ---|---  
 _Flip Image_ |  Flips the image. Click the drop-down arrow for a list of selections: _None, Flip horizontally (left/right), Flip vertically (up/down)_ or _Flip horizontally and vertically_.  
 _Rotation Angle_ |  Counter clockwise rotation angle at which to display the image. Valid entries are 0 to 359.  
@@ -127,7 +127,7 @@ _(Support for increased Column and Line maximums was added in PxPlus 2021.)_
 ---|---  
 _Height_ |  Height of the control in number of lines - numeric expression. Format mask is ##0.00. Valid entries are 0 to 255.  
   
-#### **Note:**  
+#### **Note:**   
 If a data class is entered and the _Check Box Width_ value in the data class is subsequently changed, the size of the Check Box will **_not_** change when the _Reapply Data Class_ button is selected.  
   
 _(This functionality was added in PxPlus 2018.)_
@@ -135,7 +135,7 @@ _(This functionality was added in PxPlus 2018.)_
 _(Support for increased Width and Height maximums was added in PxPlus 2021.)_  
   
 **Common Attributes** |  Optional attributes for _Tab Stop, Disabled, Button on Right, Tri-State_ and _Hidden_. See **[Attributes](Overview.htm#attributes)**.  
-**Font/Color**** _( * indicates_ a _Dynamic property)_**  
+**Font/Color  ****_( * indicates_ a _Dynamic property)_**  
 **Font Specification** |  |  _Font  
 Size_ |  Click the drop-down arrow for a list of selections.  
 ---|---  
@@ -145,7 +145,7 @@ Background_ |  Click the Query button to access **[Color Selections](../../Appen
   
 _(The Color Selections Query button and dialog were added in PxPlus 2020.)_
 
-#### **Note:**  
+#### **Note:**   
 If a background color has been assigned to a transparent button, the background color will be ignored.  
   
 _(Transparency precedence for buttons with background colors was added in PxPlus 2019 Update 1.)_  
@@ -170,7 +170,7 @@ _(The Dynamic drop box option was added in PxPlus 2018.)
 Expressions that come from a data class **_must_** be global variables.
 
 If the data class is **_not_** dynamic, this property can be manually set to _Dynamic_. See **[Dynamic Control Properties](../../../Data%20Dictionary/Data%20Classes/Dynamic.md)**. The iNomads class contains class attribute references used when defining the control in the HTML code generated in iNomads. An iNomads class reference must start with an alpha character (A-Z or a-z), followed by any combination of A-Z, a-z, 0-9, underscore or dash. Multiple references may be entered, separated by a space. For a list of pre-defined iNomads classes, see **[iNomads Classes](../../../iNOMADS/iNomads%20Classes.md)**. _(The Dynamic drop box option was added in PxPlus 2018.)_  
-**Attributes****_( * indicates_ a _Dynamic property)_**  
+**Attributes**** _( * indicates_ a _Dynamic property)_**  
 **Attributes** |  |  _Tab Stop_ |  Adds the control to the tab order list. Allows use of the **Tab** key for moving to the control.  
 ---|---  
 _Auto Tab Skip_ |  Control is skipped when tabbing forward but is still accessible via**Shift - Tab** or the mouse.  
@@ -193,17 +193,26 @@ _Transparent_ |  Button is transparent; i.e. the window contents behind the butt
 Setting a background color is not compatible with transparency. If a background color is specified, it will be ignored.  
   
 _Drop-List Button_ |  Extra button with an arrow bitmap is attached to the right of the main button. When the arrow bitmap button is clicked, the associated popup menu is displayed.  
-_Ignore Change Flag_ |  Select this check box when you do **_not_** want the NOMADS **[CHANGE_FLG](../../Appendix/NOMADS%20Variables/Overview.htm#reserved)** variable to be updated when the control value is changed.  
-  
-_(The Ignore Change Flag property was added in PxPlus 2017.)_  
-  
+_Ignore Change Flag_ |  Select this check box when you do **_not_** want the NOMADS **[CHANGE_FLG](../../Appendix/NOMADS%20Variables/Overview.htm#reserved)** variable to be updated when the control value is changed. _(The Ignore Change Flag property was added in PxPlus 2017.)_  
+_Check Box Corner Radius_ |  Sets the corner radius for a check box that looks like a check box (no bitmap added), not for a check box that looks like a normal button. Works only in **4D** mode. Possible values are _Null_ (_blank_), _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CBCornerRadius$](../../../control_object_properties/checkbox_properties.htm#cbcornerradius)** property. **_Example:_** Check Box Corner Radius set to **Round** :      Check Box Corner Radius set to **Square** :      Check Box Corner Radius set to a value of **7** :     
+
+#### **Note:**  
+Corner rounding is limited based on the control type and/or the control size.
+
+_(The Check Box Corner Radius property was added in PxPlus 2026.)_  
+_Button Corner Radius_ |  Sets the corner radius for a check box only when it is drawn as a button, which occurs when a bitmap is added. Works only in **4D** mode. Possible values are _Null_ (_blank_), _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CornerRadius$](../../../control_object_properties/checkbox_properties.htm#cornerradius)** property. **_Example:_** Button Corner Radius set to **Round** :    Button Corner Radius set to **Square** :    Button Corner Radius set to a value of **10** :   
+
+#### **Note:**  
+Corner rounding is limited based on the control type and/or the control size.
+
+_(The Button Corner Radius property was added in PxPlus 2026.)_  
 ***User-Defined Tag Field** |  For controls, data/tag field that can be used to pass information on such things as formatting, error messages or validation rules. Can be _Fixed_ , _Expression_ or _Dynamic_. (_Dynamic_ is available **_only_** when a data _Class_ is entered.) Field contents are placed in a variable using the control name with a .TAG$ extension. If a dynamic data class is entered, this property will be automatically set to _Dynamic_ and assigned a **%NOMADS'class'** variable, which is locked.
 
 #### **Note:**  
 Expressions that come from a data class **_must_** be global variables.
 
 If the data class is **_not_** dynamic, this property can be manually set to _Dynamic_. See **[Dynamic Control Properties](../../../Data%20Dictionary/Data%20Classes/Dynamic.md)**. _(The Dynamic drop box option was added in PxPlus 2018.)_  
-**Values****_( * indicates_ a _Dynamic property)_**  
+**Values**** _( * indicates_ a _Dynamic property)_**  
 _Dynamic (from Data Class)_ |  **_(Available when a data Class is entered)_** If selected, identifies the **Default Setting** and **Values** properties as dynamic. If a dynamic data class is entered, this check box is automatically selected. If the data class is **_not_** dynamic, this check box can be manually selected.
 
 #### **Note:**  
@@ -218,7 +227,7 @@ _(Dynamic data classes and properties were added in PxPlus 2018.)_
 ---|---  
 _Value in 'On' State_ |  Value to return when the Check Box is turned **_On_**. Value can be a numeric value or a single character translation value.  
 _Tri-State Check Box_ |  Creates a Check Box that includes a third state. User will be able to toggle between three states: **_On_** , **_Off_** and an optional **_Third State_**. See _Value in '3rd' State_ below. If the _Dynamic (from Data Class)_ check box is selected, the _Tri-State Check Box_ property will be locked.  
-_Value in '3rd' State_ |  **_(Available when Tri-State Check Box is selected)_** Value to return for the **_Third State_**. Can be a numeric or a single character translation value.  
+_Value in '3rd' State_ |  **_(Available when Tri-State Check Box is selected)_**  Value to return for the **_Third State_**. Can be a numeric or a single character translation value.  
   
 If the _Dynamic (from Data Class)_ check box is selected, the **Default Setting** and **Values** properties will all be set as dynamic and locked (cannot be set individually). See **[Dynamic Control Properties](../../../Data%20Dictionary/Data%20Classes/Dynamic.md)**.
 
@@ -259,7 +268,7 @@ If the data class is **_not_** dynamic, this property can be manually set to _Dy
 #### **Note:**  
 The Floating Tip drop box and multi-line input _cannot_ be changed once an [**HTML**](../Defining%20an%20Info%20Tip.htm#tiptype) tip has been defined.
 
-**_NOMADS Wiki Help_** The floating tip text can be used when displaying the **[Wiki Help](../../System%20Maintenance%20Tools/Nomads%20Wiki%20Help.md)**. Info tips, however, are not supported and will be ignored. _(Support for customizing Floating Tips was added in PxPlus 2016.)  
+**_NOMADS Wiki Help_ __** The floating tip text can be used when displaying the **[Wiki Help](../../System%20Maintenance%20Tools/Nomads%20Wiki%20Help.md)**. Info tips, however, are not supported and will be ignored. _(Support for customizing Floating Tips was added in PxPlus 2016.)  
 (Dynamic data classes and properties were added in PxPlus 2018.)  
 (Support for the use of Floating Tip text in the Wiki Help was added in PxPlus 2023.)_  
 ***Message Bar** |  Text to be displayed in the panel's status bar when focus is on the control. Can be a _Fixed_ value, string _Expression_ , _Message Library Reference_ or _Dynamic_. (_Dynamic_ is available **_only_** when a data _Class_ is entered.) If a dynamic data class is entered, this property will be automatically set to _Dynamic_ and assigned a **%NOMADS'class'** variable, which is locked.
@@ -268,6 +277,7 @@ The Floating Tip drop box and multi-line input _cannot_ be changed once an [**HT
 Expressions that come from a data class **_must_** be global variables.
 
 If the data class is **_not_** dynamic, this property can be manually set to _Dynamic_. See **[Dynamic Control Properties](../../../Data%20Dictionary/Data%20Classes/Dynamic.md)**. _(Dynamic data classes and properties were added in PxPlus 2018.)_  
+   
 _Security_ |  Security restrictions. See **[Restricting Access](../../System%20Maintenance%20Tools/Security%20Manager/Restricting%20Access.md)** for information on **Object Security Definition**.  
 _Groups_ |  Assign the control to a group. See **[Group Assignment](../../NOMADS%20Development/Maintaining%20Library%20Objects/Group%20Assignment.md)**.  
 _Popup Menu_ |  Associate a popup menu that will appear when you right-click the mouse over the selected control. See **[Popup Menu](../Popup%20Menu/Overview.md)**.  
@@ -278,3 +288,9 @@ _Notes_ |  Add notes/comments for the control. Maximum 1024 characters. These no
 **[CHECK_BOX Properties](../../../control_object_properties/checkbox_properties.md)**  
 **[CHECK_BOX Directive](../../../directives/check_box.htm#Mark3)**  
 **[TRISTATE_BOX Directive](../../../directives/tristate_box.htm#Mark3)**
+
+ 
+
+ 
+
+ 

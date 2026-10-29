@@ -38,7 +38,7 @@ BackColour$](../properties/backcolor_.md)** |  Background color. For information
   
 _(The Bitmap Centered option was added in PxPlus 2018 Update 1.)_  
   
-[**Border$**](../properties/border_.md) |  Controls the type of border that will be used when drawing a radio button. Possible values and formats are _Solid_ , _None_ , _Double_ , _Groove_ , _Ridge_ , _Inset_ and _Outset_. If not set, it will have the value of "Default" (or ""), which indicates that the system should use the system default button styling.
+[**Border$**](../properties/border_.md) |  Controls the type of border that will be used when drawing a radio button. Possible values and formats are _Solid_ , _None_ , _Double_ , _Groove_ , _Ridge_ , _Inset_ and _Outset_.      If not set, it will have the value of "Default" (or ""), which indicates that the system should use the system default button styling.
 
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
@@ -54,18 +54,55 @@ This property is effective on a radio button only when it is drawn as a button, 
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
   
-**[BringToTop](../properties/bringtotop.md)** |  This property, when set to **_any_** value, will cause the control to be moved to the top of the display order. Once at the top of the display order, the control will appear visually on top of any other control on the window. (**_Default:_**__ Not Applicable - Always returns 0)  
+**[BringToTop](../properties/bringtotop.md)** |  This property, when set to **_any_** value, will cause the control to be moved to the top of the display order. Once at the top of the display order, the control will appear visually on top of any other control on the window. (**_Default:_**_ _ Not Applicable - Always returns 0)  
 **[Col](../properties/col.md)** |  Screen position (column) of control.  
 **[Cols](../properties/cols.md)** |  Width of control in column units.  
-**[CtlName$](../properties/ctlname_.md)** |  Control type ("RADIO_BUTTON"). See **[RADIO_BUTTON](../directives/radio_button.md)** directive.  
-**[Cursor](../properties/cursor.md)** |  Controls the type of cursor to display whenever the mouse moves over the specified control. Possible values are: |  |  0 = Arrow |  7 = Rabbit in Hat  
+[**CornerRadius$**](../properties/cornerradius_.md) |  Sets the corner radius for a radio button only when it is drawn as a button, which occurs when a bitmap is added. Works only in **4D** mode.  Possible values are: |  _ _ |  _(Null)_ |  Property is not set.  
 ---|---|---  
-|  1 = Wait (Hourglass) |  8 = Happy Face  
-|  2 = I-Beam |  9 = Sad Face  
-|  3 = Movement Arrows |  10 = Resize Vertical Up/Down Arrow  
-|  4 = Sizing Arrow |  11 = Resize Horizontal Left/Right Arrow  
-|  5 = Hand |  12 = Not Allowed (Diagonal line across circle)  
-|  6 = Hand in Crossed Circle ("No" hand) |  -1 = Default Cursor **_(Default)_**  
+_ _ |  _Round_ |  Sets the default radius of 3 for round corners.  
+_ _ |  _Square_ |  Sets the default radius of 0 for square corners.  
+_ _ |  _(Value)_ |  Enter a value from 0 to 255 inclusive.  
+  
+**_Example:_**
+
+CornerRadius$ set to **Round** :
+
+> RADIO_BUTTON 100:1,@(10,15,10,2)="{!Stop}Yearly"  
+>  y=100  
+>  y'CornerRadius$="round"  
+>   
+>  
+
+CornerRadius$ set to **Square** :
+
+> RADIO_BUTTON 100:1,@(10,15,10,2)="{!Stop}Yearly"  
+>  y=100  
+>  y'CornerRadius$="square"  
+>   
+>  
+
+CornerRadius$ set to a value of **10** :
+
+> RADIO_BUTTON 100:1,@(10,15,10,2)="{!Stop}Yearly"  
+>  y=100  
+>  y'CornerRadius$="10"  
+>   
+>  
+
+#### **Note:**  
+Corner rounding is limited based on the control type and/or the control size.
+
+_(The CornerRadius$ property was added in PxPlus 2026.)_  
+  
+**[CtlName$](../properties/ctlname_.md)** |  Control type ("RADIO_BUTTON"). See **[RADIO_BUTTON](../directives/radio_button.md)** directive.  
+**[Cursor](../properties/cursor.md)** |  Controls the type of cursor to display whenever the mouse moves over the specified control. Possible values are: |    |  0 = Arrow |   7 = Rabbit in Hat  
+---|---|---  
+  |  1 = Wait (Hourglass) |   8 = Happy Face  
+  |  2 = I-Beam |   9 = Sad Face  
+  |  3 = Movement Arrows |  10 = Resize Vertical Up/Down Arrow  
+  |  4 = Sizing Arrow |  11 = Resize Horizontal Left/Right Arrow  
+  |  5 = Hand |  12 = Not Allowed (Diagonal line across circle)  
+  |  6 = Hand in Crossed Circle ("No" hand) |   -1 = Default Cursor **_(Default)_**  
 **[DisableBackColor$  
 DisableBackColour$](../properties/disablebackcolor.md)** |  Background color when the control is disabled. If the radio button is drawn as a button, which occurs when a bitmap is added, then two colors can be specified for the radio button by using the **/**  _(slash)_ as a separator (i.e. RGB:100 100 100/Light Blue). For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**. _(Support for standard Radio Buttons was added in PxPlus 2025.)_  
 **[DisableBorderColor$  
@@ -91,6 +128,46 @@ FocusBorderColour$](../properties/focusbordercolor_.md)** |  Color(s) of button 
 #### **Note:**  
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
   
+[**FocusRect**](../properties/focusrect.md) |  Controls whether a dotted focus rectangle displays around the Radio Button text. _Default_ is On. Possible values are: |    |  0 |  No focus rectangle is shown.  
+---|---|---  
+  |  1 |  Focus rectangle is shown.  
+  
+**_Example:_**
+
+To turn Radio Button focus **_Off_** :
+
+          RADIO_BUTTON 100:1,@(10,15,10,2)="Yearly"  
+          y=100  
+          y'FocusRect=0  
+  
+         
+
+To turn Radio Button focus **_On_** :
+
+          RADIO_BUTTON 100:1,@(10,15,10,2)="Yearly"  
+          y=100  
+          y'FocusRect=1  
+  
+         
+
+To turn Radio Button focus **_Off_** (when a bitmap is added):
+
+          RADIO_BUTTON 100:1,@(10,15,10,2)="{!Stop}Yearly"  
+          y=100  
+          y'FocusRect=0
+
+         
+
+To turn Radio Button focus back **_On_** (when a bitmap is added):
+
+          RADIO_BUTTON 100:1,@(10,15,10,2)="{!Stop}Yearly"  
+          y=100  
+          y'FocusRect=1
+
+         
+
+_(The FocusRect property was added in PxPlus 2026.)_  
+  
 **[FocusTextColor$  
 FocusTextColour$](../properties/focustextcolor_.md)** |  Foreground text color when the control has focus. For information on valid color names and color specifications, see **[Color Properties](colour_properties.md)**.
 
@@ -98,9 +175,9 @@ FocusTextColour$](../properties/focustextcolor_.md)** |  Foreground text color w
 This property is effective on a radio button only when it is drawn as a button, which occurs when a bitmap is added.  
   
 **[Font$](../properties/font_.md)** |  This property is used to reference the font for a control. It will contain (or can be set to) a string containing three comma-separated fields of the font name, size and attributes. See **['FONT'](../mnemonics/font.md)** mnemonic. **_Example:_** To set the font to Arial, 1.5 times normal size, and Bold, the format would be xxx'Font$="Arial,1.5,B".  
-**[GrayDisabledBmp](../properties/graydisabledbmp.md)** |  Controls how the image on the button will display when the button is disabled. Applicable only when there is a bitmap on the button. Possible values are: |  0 |  Images on the disabled buttons will display only as shadows. This means that only the shadow left by the outline of the image will be seen.  
+**[GrayDisabledBmp](../properties/graydisabledbmp.md)** |  Controls how the image on the button will display when the button is disabled. Applicable only when there is a bitmap on the button. Possible values are: |   0 |  Images on the disabled buttons will display only as shadows. This means that only the shadow left by the outline of the image will be seen.  
 ---|---  
-1 |  Images on the disabled buttons will be converted to gray scale.  
+ 1 |  Images on the disabled buttons will be converted to gray scale.  
 -1 |  Default gray disabled BMP setting. **_(Default)_**  
   
 #### **Note:**  
@@ -134,7 +211,7 @@ HoverTextColour$](../properties/hovertextcolor_.md)** |  Foreground text color w
 4 |  Windows XP/Vista/Windows 7 look.  
 **[MenuCtl](../properties/menuctl.md)** |  This property reports/sets the CTL value to generate when an object is selected on a right-click of the mouse.  
 **[Msg$](../properties/msg_.md)** |  Message line text for the control.  
-**[ObjectID](../properties/objectid.md)** |  User object method. (**_Default:_** 0 - No object specified) The 'ObjectID property allows applications to intercept property values and add methods to controls. When set to a valid Object ID by the application, you can add methods and add/override property logic for any control in the system. When set in the system, it allows the application to logically request methods against the control that, in turn, will be performed by the related Object ID. It will also first check the object for any property requests and, if the property is defined in the object, set or get that property instead of the controls. To allow the specified object to get true access to the control, while executing within the object identified by the 'ObjectID property, the system will direct any property requests directly to the control.
+**[ObjectID](../properties/objectid.md)** |  User object method. (**_Default:_**  0 - No object specified) The 'ObjectID property allows applications to intercept property values and add methods to controls. When set to a valid Object ID by the application, you can add methods and add/override property logic for any control in the system. When set in the system, it allows the application to logically request methods against the control that, in turn, will be performed by the related Object ID. It will also first check the object for any property requests and, if the property is defined in the object, set or get that property instead of the controls. To allow the specified object to get true access to the control, while executing within the object identified by the 'ObjectID property, the system will direct any property requests directly to the control.
 
 #### **Note:**  
 When a control is deleted from the system, any object identified by an 'ObjectID property will be automatically dropped.  
@@ -173,3 +250,9 @@ TextColour$](../properties/textcolor_.md)** |  Foreground text color. For inform
 **['COLOUR' & '_COLOUR' Mnemonic](../mnemonics/colour.md)**  
 **[Using Property Names](../control_object_properties.htm#Mark1)**  
 **[Compound Properties](compound_properties.md)**
+
+ 
+
+ 
+
+ 

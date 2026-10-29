@@ -3,29 +3,32 @@
 **Two-Factor Authentication Setup**|   
 ---|---  
   
-**[Two-Factor Authentication](Overview.htm#tfa)** increases system security by requiring users to validate their identity beyond entering their user name and password before they are allowed to log on. When Two-Factor Authentication is set up and a user is logging on, the system sends the user an email or text message to confirm authorization. See **[Security Sign On](Security%20Sign%20On.htm#two_factor)**.
+**[Two-Factor Authentication](Overview.htm#tfa)** (2FA) increases system security by requiring users to verify their identity using a second method in addition to their user ID and password when logging into the system.
 
-_(Two-Factor Authentication Setup was added in PxPlus 2023.)_
+When Two-Factor Authentication is set up and a user is logging on, a randomly generated six-digit security code is sent to the user via email, text message or an authenticator app to confirm authorization. See **[Security Sign On](Security%20Sign%20On.htm#two_factor)**.
 
-To set up Two-Factor Authentication, click the _Two-Factor Authentication Setup_ button in **[User Maintenance](Assigning%20Users%20to%20Classifications.md)**. This button is available only to users with the ADMIN classification.
+_(Two-Factor Authentication Setup was added in PxPlus 2023.)  
+(The ability to integrate to a third-party authenticator app was added in PxPlus 2026.)_
 
-The following window displays:
+To set up Two-Factor Authentication (2FA), click the _Two-Factor Authentication Setup_ button in **[User Maintenance](Assigning%20Users%20to%20Classifications.md)**. This button is available only to users with the **ADMIN** classification.
+
+The **Setup Two-Factor Authentication** window is displayed (shown below with a sample entry):
 
 > This window consists of the following:
 
 _Authentication Required_ |  This option controls whether Two-Factor Authentication will be set up or disabled on the system. Click the drop-down arrow for a list of selections: |  _Disabled_ |  **_(Default)_** Two-Factor Authentication is not set up.  
 ---|---  
 _Optional by user_ |  Two-Factor Authentication is determined on a user-by-user basis, depending on the **[Verify](Assigning%20Users%20to%20Classifications.htm#twofa)** drop box selection in **User Maintenance**.  
-_Mandatory_ |  Two-Factor Authentication is required for all users. All users **_must_** provide a verified email address and/or SMS phone number before they are allowed to log on.  
+_Mandatory_ |  Two-Factor Authentication is required for all users. All users **_must_** provide the necessary information for the chosen authentication methods, such as a verified email address, an SMS-compatible phone number, or a registered authenticator app, before they are allowed to log on.  
 _Application Name_ |  Enter the application name that will be used in verification emails and/or text messages sent to users.  
 **Email Server** |  Define the email server that will be used to validate the user: |  _SMTP Server_ |  Internet address of the email server to use to send out email verification requests.  
 ---|---  
 _Port Number_ |  Port number to use to connect to the email server. Generally, this will be 465 for a secure connection or 587 for a START TLS connection. **_(Default: 465)_**  
-_Use SSL/TLS_ |  Indicates if you want to connect to the email server securely, thereby encrypting all communications between your system and the server. ** _(Defaults to On - Recommended)_**  
+_Use SSL/TLS_ |  Indicates if you want to connect to the email server securely, thereby encrypting all communications between your system and the server. **_(Defaults to On - Recommended)_**  
 _Send From_ |  Email address that you want the system to use as the "From" address in any emails that are sent.  
-_Userid_ __|  User ID that is needed to sign on to the email server. Generally, this will be the same as the _Send From_ email address. **_(Defaults to the Send From address)_**  
+_Userid_ |  User ID that is needed to sign on to the email server. Generally, this will be the same as the _Send From_ email address. **_(Defaults to the Send From address)_**  
 _Password_ |  Password associated with the User ID. It will be saved in an encrypted format in the system control file to minimize the potential of it being exposed. Click the _Password_ eye button to toggle between displaying an encrypted and unencrypted password. This is useful for checking that the password is entered correctly.  
-_Test Email_ |  Button that invokes the **Test Email** window for entering an email address to send a test email to (defaults to the _Send From_ email address). It is strongly recommended to use this button to ensure the settings are correct before saving:  
+_Test Email_ |  Button that invokes the **Test Email** window for entering an email address to send a test email to (defaults to the _Send From_ email address). It is strongly recommended to use this button to ensure the settings are correct before saving:       
 **SMS Text Message Server** |  Define the SMS server that will be used to validate the user: |  _SMS Provider_ |  Service provider that will be used to issue your SMS messages.
 
 #### **Important Note:**  
@@ -37,7 +40,8 @@ _Account Information_ |  Account information as required by the selected service
 #### **Important Note:**  
 See the **[*TOOLS/SMS](../../../utilities/sms.md)** Help page for details on the format of this field when entering account information, as this varies based on the service provider chosen.  
   
-_Test SMS_ |  Button that invokes the **Test SMS** window for entering a phone number to send a test SMS message to. It is strongly recommended to use this button to ensure the settings are correct before saving:  
+_Test SMS_ |  Button that invokes the **Test SMS** window for entering a phone number to send a test SMS message to. It is strongly recommended to use this button to ensure the settings are correct before saving:       
+**Authenticator App** |  Selecting the _Enable_ check box enables the **Authenticator App**  _Setup_ button in **[User Maintenance](Assigning%20Users%20to%20Classifications.htm#authenticator)**. This button is used for setting up a third-party authenticator app for Two-Factor Authentication. _(The ability to integrate to a third-party authenticator app was added in PxPlus 2026.)_  
 **Authentication Duration New/Expired Devices** | 
 
 #### **Note:**  
@@ -52,3 +56,11 @@ _Cancel_ |  Closes the **Setup Two-Factor Authentication** window without saving
 **[User Maintenance](Assigning%20Users%20to%20Classifications.md)**  
 **[Restricting Access](Restricting%20Access.md)**  
 **[Security Sign On](Security%20Sign%20On.md)**
+
+ 
+
+ 
+
+ 
+
+ 

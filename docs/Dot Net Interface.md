@@ -1,4 +1,4 @@
-# 
+#  
 
 **.NET Interface**|   
 ---|---  
@@ -9,7 +9,7 @@ The .NET interface supports running on WindX client machines. See **Important No
 
 _(The .NET interface was added in PxPlus 2025.)_
 
-A number of ways are available to define and interact with a .NET object. A .NET object can be created in a **_PxPlus program_** or in a **_NOMADS panel_**.
+Several ways are available to define and interact with a .NET object. A .NET object can be created in a **_PxPlus program_** or in a **_NOMADS panel_**.
 
 **_PxPlus Program_**
 
@@ -19,7 +19,7 @@ The **[ON EVENT](directives/on_event.md)** directive is used to activate support
 
 **_NOMADS Panel_**
 
-The **[External Control Properties](NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/COM%20Control/COM%20Control.md)** dialogue is used to create a .NET object in a NOMADS panel where .NET properties and events can be added.
+The **[External Control Properties](NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/COM%20Control/COM%20Control.htm#extcontrol)** dialogue is used to create a .NET object in a NOMADS panel where .NET properties and events can be added.
 
 #### **Important Note:**  
 All formats are **_Windows only_** , and you must have installed **Windows Desktop Runtime 8**.  
@@ -30,4 +30,11 @@ The .NET interface can be used when running under WindX, in which case, **Window
 
 ## See Also
 
-**[How To Tutorials (for .NET Interface)](How%20To/Dot%20NET%20Tutorials%20Intro.md)**
+**[How To Tutorials (for .NET Interface)](How%20To/Dot%20NET%20Tutorials%20Intro.md)  
+[*TOOLS/DOTNETCONVERT Utility](utilities/dotnetconversion.md)**
+
+ 
+
+ 
+
+ 

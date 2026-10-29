@@ -1,5 +1,5 @@
-# System Maintenance Tools  
-  
+# System Maintenance Tools
+
 **NOMADS Wiki Help**|   
 ---|---  
   
@@ -11,11 +11,13 @@ _(The Wiki Help option for NOMADS panels was added in PxPlus 2023.)_
 
 The Wiki Help uses the following information:
 
-1\. A standard set of default values |  The Wiki Help displays information for the following panel controls: **[Buttons](../Creating%20Panel%20Controls/Button%20Control/Overview.htm#properties)**, **[Charts](../Creating%20Panel%20Controls/Chart%20Control/Chart.htm#chartproperties)**, **[Check Boxes](../Creating%20Panel%20Controls/Check%20Box%20and%20Tri-State%20Control/Overview.htm#chbxproperties)**, **[External Controls](../Creating%20Panel%20Controls/COM%20Control/COM%20Control.md)**, **[Drop Boxes](../Creating%20Panel%20Controls/Drop%20Box%20Control/Drop%20Box%20Properties.md)**, **[Folders](../Creating%20Panel%20Controls/Folder%20Controls/Folder%20Properties.md)**, **[Grids](../Creating%20Panel%20Controls/Grid%20Control/Grid%20Properties.md)**, **[List Boxes](../Creating%20Panel%20Controls/List%20Box%20Controls/List%20Box%20Type.htm#listbox_props)**, **[Multi-Lines](../Creating%20Panel%20Controls/Multi-Line%20Control/Multi-Line%20Properties.md)** and **[Radio Buttons](../Creating%20Panel%20Controls/Radio%20Button%20Control/Overview.htm#properties)**. When displaying the _Field_ name for button controls, the button text is used. For multi-lines, drop boxes and list boxes, the fonted text control in front of each control is used, if applicable; otherwise, the control name is used.  
+1.  A standard set of default values |  The Wiki Help displays information for the following panel controls:  **[Buttons](../Creating%20Panel%20Controls/Button%20Control/Overview.htm#properties)**, **[Charts](../Creating%20Panel%20Controls/Chart%20Control/Chart.htm#chartproperties)**, **[Check Boxes](../Creating%20Panel%20Controls/Check%20Box%20and%20Tri-State%20Control/Overview.htm#chbxproperties)**, **[External Controls](../Creating%20Panel%20Controls/COM%20Control/COM%20Control.md)**, **[Drop Boxes](../Creating%20Panel%20Controls/Drop%20Box%20Control/Drop%20Box%20Properties.md)**, **[Folders](../Creating%20Panel%20Controls/Folder%20Controls/Folder%20Properties.md)**, **[Grids](../Creating%20Panel%20Controls/Grid%20Control/Grid%20Properties.md)**, **[List Boxes](../Creating%20Panel%20Controls/List%20Box%20Controls/List%20Box%20Type.htm#listbox_props)**, **[Multi-Lines](../Creating%20Panel%20Controls/Multi-Line%20Control/Multi-Line%20Properties.md)** and **[Radio Buttons](../Creating%20Panel%20Controls/Radio%20Button%20Control/Overview.htm#properties)**. When displaying the _Field_ name for button controls, the button text is used. For multi-lines, drop boxes and list boxes, the fonted text control in front of each control is used, if applicable; otherwise, the control name is used.  
 ---|---  
-2\. Floating tip for individual panel controls |  A floating tip overrides the display of the standard set of default values.  
-3\. Notes entered using the _Notes_ button for individual panel controls |  Notes override the display of the floating tip. Additional information about the panel can also be entered in the panel header using the _Notes_ button.  
+2.  Floating tip for individual panel controls |  A floating tip overrides the display of the standard set of default values.  
+3.  Notes entered using the _Notes_ button for individual panel controls |  Notes override the display of the floating tip. Additional information about the panel can also be entered in the panel header using the _Notes_ button.  
   
+ 
+
 #### **Note:**  
 Panel values (i.e. floating tips, titles, initial values, etc.) defined as expressions cannot be evaluated on the generated Wiki Help page.
 
@@ -23,21 +25,21 @@ Panel values (i.e. floating tips, titles, initial values, etc.) defined as expre
 
 This example shows a NOMADS panel with Wiki Help enabled and the Wiki Help that was generated from this panel:
 
-|   
+   |   
 ---|---  
   
 The Wiki Help for this panel shows the following:
 
-**Top of page:** Shows the panel title "Customer List" and the panel header notes below it  
-**Main Panel section:** Lists the controls on the Main panel, which includes a folder with two folder tabs  
-**General Folder Tab section:** Lists the controls on the "General" folder tab  
-**Contact Folder Tab section:** Lists the controls on the "Contact" folder tab
+     **Top of page:**   Shows the panel title "Customer List" and the panel header notes below it  
+     **Main Panel section:**   Lists the controls on the Main panel, which includes a folder with two folder tabs  
+     **General Folder Tab section:**   Lists the controls on the "General" folder tab  
+     **Contact Folder Tab section:**   Lists the controls on the "Contact" folder tab
 
 Looking at the **_Details_** section:
 
-Example of a control with a set of default values: _Shipping Method_ drop box (on Main panel)  
-Example of a control with a floating tip: _Email_ multi-line (on "Contact" folder tab)  
-Example of a control with notes: _Update_ button (on Main panel)
+     Example of a control with a set of default values:  _Shipping Method_ drop box (on Main panel)  
+     Example of a control with a floating tip:  _Email_ multi-line (on "Contact" folder tab)  
+     Example of a control with notes:  _Update_ button (on Main panel)
 
 The Wiki Help window consists of the following:
 
@@ -53,10 +55,10 @@ _Folder Tab_ |  **_(Applicable when a Folder panel control is added)_** Section 
 _Grid_ |  The grid in each section shows the following: |  _Field_ |  Panel control name. When displaying the _Field_ name for button controls, the button text is used. For multi-lines, drop boxes and list boxes, the fonted text control in front of each control is used, if applicable; otherwise, the control name is used.  
 ---|---  
 _Format_ |  Format for the panel control.  
-_Details_ |  Displays information for individual panel controls that can be: |  |  A standard set of default values for the control  
+_Details_ |  Displays information for individual panel controls that can be: |   |  A standard set of default values for the control  
 ---|---  
-|  A floating tip (this overrides the display of the standard set of default values)  
-|  Notes entered using the _Notes_ button (this overrides the display of the floating tip)  
+ |  A floating tip (this overrides the display of the standard set of default values)  
+ |  Notes entered using the _Notes_ button (this overrides the display of the floating tip)  
   
 The Wiki Help displays this information for the following panel controls: **[Buttons](../Creating%20Panel%20Controls/Button%20Control/Overview.htm#properties)**, **[Charts](../Creating%20Panel%20Controls/Chart%20Control/Chart.htm#chartproperties)**, **[Check Boxes](../Creating%20Panel%20Controls/Check%20Box%20and%20Tri-State%20Control/Overview.htm#chbxproperties)**, **[External Controls](../Creating%20Panel%20Controls/COM%20Control/COM%20Control.htm#COMcontrol)**, **[Drop Boxes](../Creating%20Panel%20Controls/Drop%20Box%20Control/Drop%20Box%20Properties.md)**, **[Folders](../Creating%20Panel%20Controls/Folder%20Controls/Folder%20Properties.md)**, **[Grids](../Creating%20Panel%20Controls/Grid%20Control/Grid%20Properties.md)**, **[List Boxes](../Creating%20Panel%20Controls/List%20Box%20Controls/List%20Box%20Type.htm#listbox_props)**, **[Multi-Lines](../Creating%20Panel%20Controls/Multi-Line%20Control/Multi-Line%20Properties.md)** and **[Radio Buttons](../Creating%20Panel%20Controls/Radio%20Button%20Control/Overview.htm#properties)**.  
   
@@ -64,9 +66,15 @@ The Wiki Help displays this information for the following panel controls: **[But
 
 To add Wiki Help for a NOMADS panel, the steps are:
 
-|  1. |  In the panel header, select the **[User Aids](../Panel%20Designer/Panel%20Header/Overview.htm#useraids)** tab. Click the _Type_ drop-down arrow and select _Wiki_. The _Wiki Page_ field defaults to the panel name but this can be changed. Save the panel definition.  
+  |  1. |  In the panel header, select the **[User Aids](../Panel%20Designer/Panel%20Header/Overview.htm#useraids)** tab. Click the _Type_ drop-down arrow and select _Wiki_. The _Wiki Page_ field defaults to the panel name but this can be changed. Save the panel definition.  
 ---|---|---  
-|  2. |  To display additional information about the panel in the Wiki Help, use the _Notes_ button in the panel header.  
-|  3. |  To display additional details for individual panel controls, use a _Floating Tip_ (on the **User Aids** tab) or the _Notes_ button.  
-|  4. |  Before testing the panel, make sure that the Web Server is running and the **[%NOMADS'WikiUrl](../Appendix/NOMADS%20Variables/Overview.htm#wikiurl)** property is set.  
-|  5. |  Test the panel. Invoke the Wiki Help by pressing the F1 key or by clicking the Help button (if applicable).
+  |  2. |  To display additional information about the panel in the Wiki Help, use the _Notes_ button in the panel header.  
+  |  3. |  To display additional details for individual panel controls, use a _Floating Tip_ (on the **User Aids** tab) or the _Notes_ button.  
+  |  4. |  Before testing the panel, make sure that the Web Server is running and the **[%NOMADS'WikiUrl](../Appendix/NOMADS%20Variables/Overview.htm#wikiurl)** property is set.  
+  |  5. |  Test the panel. Invoke the Wiki Help by pressing the F1 key or by clicking the Help button (if applicable).  
+  
+ 
+
+ 
+
+ 

@@ -1,6 +1,6 @@
 # Creating Panel Controls
 
-**Button Control** |  **__**  
+**Button Control** |  **_ _**  
 ---|---  
   
 When a user clicks a Button in a graphical application, it is usually defined to send a signal to the application to perform a specific action. NOMADS allows you to customize the Button's appearance and various other characteristics; i.e. use _graphics_ that correspond to object states, create a _tool bar-style appearance_ that looks 3-D on a mouse-over, or add _hover text_ similar to links on a Web page.
@@ -21,7 +21,7 @@ When creating or editing a _Button_ control, the **Button Properties** dialogue 
 
 _Name_ |  Unique name of the Button control (NOMADS provides a default). Naming conventions for variables apply. Click the Browse Library button to copy parameters from an existing object (via the **[Library Browse](../../Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Library%20Browse.md)** dialogue).
 
-#### **Note:**  
+#### **Note:**   
 When a new control name is entered, it will be checked against the **[Reserved Words](../../../Reserved%20Words.md)** list to determine if it is restricted for use as a NOMADS control name. If it is found, a warning message will display.  
   
 _(User Reserved Words Maintenance was added in PxPlus 2020.)_  
@@ -42,7 +42,7 @@ _Top, Bottom_ and _Center/Scale_ alignments and the _Scale bitmap_ option only w
   
 _(The Center/Scale alignment and Scale bitmap options were added in PxPlus 2019_ _Update 1_ _.)_  
   
-**Image Options** |  **_(Available when Bitmaps for Normal/Pushed are selected)_** Sets advanced image options for the bitmap. Click the Additional Image Options button to the right of the **Image Options** multi-line to invoke the **Image Options** dialogue. This dialogue consists of the following: |  **Options** |  |  _Image Transparency_ |  Bitmap transparency option. Click the drop-down arrow for a list of selections: _None, Pixel sets transparency_ or _'Light Gray' is transparent_.  
+**Image Options** |  **_(Available when Bitmaps for Normal/Pushed are selected)_** Sets advanced image options for the bitmap. Click the Additional Image Options button to the right of the **Image Options** multi-line to invoke the **Image Options** dialogue.      This dialogue consists of the following: |  **Options** |  |  _Image Transparency_ |  Bitmap transparency option. Click the drop-down arrow for a list of selections: _None, Pixel sets transparency_ or _'Light Gray' is transparent_.  
 ---|---  
 _Flip Image_ |  Flips the image. Click the drop-down arrow for a list of selections: _None, Flip horizontally (left/right), Flip vertically (up/down)_ or _Flip horizontally and vertically_.  
 _Rotation Angle_ |  Counter clockwise rotation angle at which to display the image. Valid entries are 0 to 359.  
@@ -79,7 +79,7 @@ Background_ |  Click the Query button to access **[Color Selections](../../Appen
   
 _(The Color Selections Query button and dialog were added in PxPlus 2020.)_
 
-#### **Note:**  
+#### **Note:**   
 If a background color has been assigned to a transparent Button, the background color will be ignored.  
   
 _(Transparency precedence for Buttons with background colors was added in PxPlus 2019 Update 1.)_  
@@ -107,14 +107,14 @@ _Moveable_ |  Button can be moved by dragging it with the mouse. This movement w
 _Hover Cursor_ |  Controls the type of cursor to display whenever the mouse moves over the control. Options are: _Default, Arrow, Wait, Insert, Movement arrow, Sizing arrow, Hand, Crossed hand, Rabbit in hat, Happy face, Sad face, Up/down arrow, Left/right arrow and Not allowed_.  
 _Hyperlink (Web Page Style Link)_ |  Generates a Web-link style Button (no frame, underscored, and hover). Enables the ability to control text placement.  
 _Flat Button_ |  Button shows no raised outline unless the mouse is over the Button or the Button is pressed. This option is hidden if the _Hyperlink (Web Page Style Link)_ check box is selected.  
-_Flat No Border_ |  Button has no border and shows no raised outline unless the Button is pushed. This option is hidden if the _Hyperlink (Web Page Style Link)_ check box is selected.  
+_Flat  No Border_ |  Button has no border and shows no raised outline unless the Button is pushed. This option is hidden if the _Hyperlink (Web Page Style Link)_ check box is selected.  
 _Transparent_ |  Button is transparent; i.e. the window contents behind the Button show through. This style can be used to place Buttons onto bitmaps. This option is hidden if the _Hyperlink (Web Page Style Link)_ check box is selected.
 
 #### **Note:**  
 Setting a background color is not compatible with transparency. If a background color is specified, it will be ignored.  
   
 _Underscore Text_ |  Text on the Button is underscored. This option is hidden if the _Hyperlink (Web Page Style Link)_ check box is selected.  
-_Dynamic Text_ |  When set, the system will define a string variable based on the name of the control that, when changed and the screen is refreshed, will control the text shown on the button. Typical use might be a button that works as a hyperlink to a Web site where the text in the related string variable changes between records currently being displayed. This option is hidden if the _Hyperlink (Web Page Style Link)_ check box is selected. _(The Dynamic Text property was added in PxPlus 2024.)_  
+_Dynamic Text_ |  When set, the system will define a string variable based on the name of the control that, when changed and the screen is refreshed, will control the text shown on the button. Typical use might be a button that works as a hyperlink to a Web site where the text in the related string variable changes between records currently being displayed.  This option is hidden if the _Hyperlink (Web Page Style Link)_ check box is selected. _(The Dynamic Text property was added in PxPlus 2024.)_  
 _Hover Color_ |  Text on the Button is highlighted whenever the mouse is over the Button area. The default color is controlled by the **['CH'](../../../parameters/ch.md)** system parameter that defaults to 'Light Blue'. This option is hidden if the _Hyperlink (Web Page Style Link)_ check box is selected.  
 _Drop-List Button_ |  Extra button with an arrow bitmap is attached to the right of the main Button. When the arrow bitmap Button is clicked, the associated popup menu is displayed. This option is hidden if the _Hyperlink (Web Page Style Link)_ check box is selected.  
 _Special Button Style_ |  Click the drop-down arrow for a list of Button styles. Defaults to _None_ for a new button or for a button that did not have any of these attributes previously set. This option is hidden if the _Hyperlink (Web Page Style Link)_ check box is selected. Available selections are: |  _None_ |  No special button style.  
@@ -127,6 +127,12 @@ _System Tray_ |  Assigns control to be a Windows system tray icon and places a B
   
 _(The Special Button Style drop box was added in PxPlus 2024.)_  
   
+_Corner Radius_ |  Sets the radius for the button corners. Works only in **4D** mode. Possible values are _Null_ (_blank_), _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CornerRadius$](../../../control_object_properties/button_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :    Corner Radius set to **Square** :    Corner Radius set to a value of **10** :   
+
+#### **Note:**  
+Corner rounding is limited based on the control type and/or the control size.
+
+_(The Corner Radius property was added in PxPlus 2026.)_  
 **User-Defined Tag Field** |  For controls, data/tag field which can be used to pass information on such things as formatting, error messages or validation rules. Field contents are placed in a variable using the control name with a .TAG$ extension.  
 **Logic**  
 _Default Program_ |  Displays the name of the **[Default Program](../../Panel%20Designer/Panel%20Header/Overview.htm#display)** used in the Panel Header definition. _(The Default Program was added for display in PxPlus 2019.)_  
@@ -147,9 +153,10 @@ _Test_ |  Tests the current help settings.
 #### **Note:**  
 The **Floating Tip** drop box and multi-line input cannot be changed once an **[HTML](../Defining%20an%20Info%20Tip.htm#tiptype)** tip has been defined.
 
-**_NOMADS Wiki Help_** The floating tip text can be used when displaying the **[Wiki Help](../../System%20Maintenance%20Tools/Nomads%20Wiki%20Help.md)**. Info tips, however, are not supported and will be ignored. _(Support for customizing Floating Tips was added in PxPlus 2016.)  
+**_NOMADS Wiki Help_ __** The floating tip text can be used when displaying the **[Wiki Help](../../System%20Maintenance%20Tools/Nomads%20Wiki%20Help.md)**. Info tips, however, are not supported and will be ignored. _(Support for customizing Floating Tips was added in PxPlus 2016.)  
 (Support for the use of Floating Tip text in the Wiki Help was added in PxPlus 2023.)_  
 **Message Bar** |  Text to be displayed in the panel's status bar when focus is on the control (_Fixed_ value, string _Expression_ or _Message Library Reference_).  
+   
 _Security_ |  Security restrictions. See **[Restricting Access](../../System%20Maintenance%20Tools/Security%20Manager/Restricting%20Access.md)** for information on **Object Security Definition**.  
 _Groups_ |  Assign the control to a group. See **[Group Assignment](../../NOMADS%20Development/Maintaining%20Library%20Objects/Group%20Assignment.md)**.  
 _Popup Menu_ |  Associate a popup menu that will appear when you right-click the mouse over the selected control. See **[Popup Menu](../Popup%20Menu/Overview.md)**.  
@@ -159,3 +166,9 @@ _Notes_ |  Add notes/comments for the control. Maximum 1024 characters. These no
 
 **[BUTTON Properties](../../../control_object_properties/button_properties.md)**  
 **[BUTTON Directive](../../../directives/button.htm#Mark3)**
+
+ 
+
+ 
+
+ 

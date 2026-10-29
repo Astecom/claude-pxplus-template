@@ -1,13 +1,13 @@
-# Utility Routines 
+# Utilities
 
 ***TOOLS/CONVERTDATA** |  **_Convert Data File To/From Text_**  
 ---|---  
   
 ## Formats
 
-1\. _Convert Data File to Text:_ |  **CALL "*tools/ConvertData;Binary_to_Text",**_binPath_ _$_**,**_txtPath_ _$_**,**_password$_  
+1\. _Convert Data File to Text:_ |  **CALL "*tools/ConvertData;Binary_to_Text", **_binPath_ _$_**,**_txtPath_ _$_**,**_password$_  
 ---|---  
-2\. _Build Data File from Text:_ |  **CALL "*tools/ConvertData;Text_to_Binary",**_txtPath_ _$_**,**_binPath_ _$_**,**_password$, flags$, retMessage$_  
+2\. _Build Data File from Text:_ |  **CALL "*tools/ConvertData;Text_to_Binary", **_txtPath_ _$_**,**_binPath_ _$_**,**_password$, flags$, retMessage$_  
   
 **_Where:_**
 
@@ -40,3 +40,9 @@ Converting native PxPlus files to a text format can be useful when comparing dif
 The output file will be created if not already present.
 
 _(The ConvertData utility was added in PxPlus v10.20.)_
+
+ 
+
+ 
+
+ 

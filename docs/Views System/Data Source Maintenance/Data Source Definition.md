@@ -1,5 +1,5 @@
-# Views System  
-  
+# Views System
+
 **Data Source Definition Wizard**|   
 ---|---  
   
@@ -67,7 +67,7 @@ Specify the type and name of the primary data source to be accessed. Enter a des
 
 > This panel consists of the following:
 
-**Source Type** |  _Specify the type of data source to be accessed. Generally, a data source is a file or table but can also be a PxPlus object that adheres to a pre-defined interface standard. See_ **[Custom Data Source Objects](../Custom%20Data%20Source%20Objects/Overview.md)**. _Native PxPlus data files must contain embedded data dictionaries and can be identified by Logical Table Name or by physical path name. The Views System can also access external databases (e.g. ODBC, ADO, MySQL, Oracle and DB2). All data sources must have key definitions._  
+**Source Type** |  _Specify the type of data source to be accessed. Generally, a data source is a file or table but can also be a PxPlus object that adheres to a pre-defined interface standard. See_  **[Custom Data Source Objects](../Custom%20Data%20Source%20Objects/Overview.md)**. _Native PxPlus data files must contain embedded data dictionaries and can be identified by Logical Table Name or by physical path name. The Views System can also access external databases (e.g. ODBC, ADO, MySQL, Oracle and DB2). All data sources must have key definitions._  
 ---|---  
 _(Source Type Drop Box)_ |  Click the drop-down arrow for a list of source types: _Logical File_ , _Physical File_ , _Data Base Table_ , _Source Object_.  
 **Primary Data Source** |  **_(Required)_**_Specify the primary data source containing the data to be accessed._  
@@ -87,6 +87,8 @@ _Source Object_ |  |  _Source Object Name_ |  Object name.
 ---|---  
 _Argument_ |  Argument containing the file/table identifier.  
   
+ 
+
 #### **Note:**  
 If the system accesses the external database using a prefix file and there is an entry in the prefix file for the table, select _Physical File_ as the **Source Type** and enter the file name used to reference the table as the _File Path_.  
   
@@ -128,14 +130,14 @@ Define any relationship(s) between the primary data source and its related data 
   
 The data key value must start with the value derived from the expression - this allows a one-to-one or a one-to-many relationship between each data source and its related data sources. The definition also specifies any "no data" logic to follow in case the related data is not found._  
 ---|---  
-_(Select a Link Definition)_ |  **_(Available only if file link definitions for the primary data source exist)_** Button used to invoke the **Select a Link Definition** window. This window displays **_only_** if the primary data source is a data dictionary file/table **_and_** file link definitions were previously created in **[File Link Maintenance](../../Data%20Dictionary/File%20Link%20Maintenance.md)**. A list of related data sources linked to the data dictionary file/table is displayed. When a link definition is selected, its specifications are used to populate the _Relationship_ entry, which can then be modified if needed.  
+_(Select a Link Definition)_ |  **_(Available only if file link definitions for the primary data source exist)_** Button used to invoke the **Select a Link Definition** window. This window displays **_only_** if the primary data source is a data dictionary file/table **_and_** file link definitions were previously created in **[File Link Maintenance](../../Data%20Dictionary/File%20Link%20Maintenance.md)**.    A list of related data sources linked to the data dictionary file/table is displayed. When a link definition is selected, its specifications are used to populate the _Relationship_ entry, which can then be modified if needed.  
 _Linked Data Source_ |  Name of a pre-existing data source to be linked with the primary data source (i.e. you must define the data sources to be linked before you can include them as part of a relationship).  
 _Link Name_ |  Descriptive relationship name. Loads automatically with the description of the linked data source (but it can be changed). Maximum 64 characters. Must be unique.  
 _Item Prefix_ |  Descriptive prefix to be added (optionally) to the related data source element name. Maximum 10 characters. Be aware that when a relationship includes subordinate nested relationships, the prefix cascades down to those relationships as well. This results in compound prefixes for elements in subordinate relationships - a consideration since each prefix becomes part of the column name when selected in a view (and since column names are limited to 60 characters).  
 _Access Key_ |  Key (or index) to be used to read the linked data source, selected from the drop box.  
-_Key Expression_ |  PxPlus expression consisting of fields from the primary data source whose values are used to build the key value for reading the linked data source. A key expression may be string or numeric. Maximum 300 characters. If the names of the fields that make up the link key are the same as the primary data source elements used to create the key expression, then a partial key expression will be generated automatically. **_Examples:_** TRN_CUSTID$ "D"+FLD#2$(1,3) PAD(Company$,5,$00$)+PAD(Department$,10,$00$)+STR(EmployeeNum)  KEY(__fileFN,KNO=0,KEY=Company$:Department$:EmployeeNum) **_Multi-Segment Keys_** When dealing with multi-segmented keys (i.e. keys made up of more than one field), you can use a **+**  _(plus sign)_ to concatenate multiple string segments of a key when entering a free-form expression. Be sure to add the correct padding logic to the initial key segments. By default, the initial segments of native PxPlus keys are padded with $00$ characters, and the final segment is not padded. Such a key definition might look like this: PAD(Company$,5,$00$)+PAD(Department$,10,$00$)+STR(EmployeeNum) Individual applications can pad key segments with other characters, such as spaces; therefore, knowledge of the key architecture of individual files is a **_must_**. In addition, partial expressions can be entered to define the beginning of the key value in a one-to-many scenario. Knowledge of segment characteristics is not necessary; however, if the key expression uses the **KEY(__linkFN,KNO=_n_ ,KEY=FLD1$:FLD2$)** format where **__linkFN** is a special channel variable used by the system when evaluating the key, **_n_** is the key number used by the file, and **FLD1$:FLD2$** are the key segment variables. The latter format is also more flexible as it can handle changes in key segment length if keys are updated for a file. In addition, this format allows a mixture of string and numeric segments. **_Key Expression Builder_** An easy way to build a key expression is to use the key builder utility. This is invoked by clicking the dotted button in the cell associated with this option. The key expression is built by specifying key segments to match the target key definition. These segments can consist of fields from the parent file, literal values and variables. Partial items can be defined, and segments can be padded, have characters stripped, or be converted to upper/lower case. In the case of **_multi-segment_** keys, a _Generate a KEY=F1$:F2$ expression_ check box option is available: |  |  If it is not selected, the key segments will be concatenated, and individual key segments would have to be padded or manipulated appropriately.  
+_Key Expression_ |  PxPlus expression consisting of fields from the primary data source whose values are used to build the key value for reading the linked data source. A key expression may be string or numeric. Maximum 300 characters. If the names of the fields that make up the link key are the same as the primary data source elements used to create the key expression, then a partial key expression will be generated automatically. **_Examples:_**      TRN_CUSTID$      "D"+FLD#2$(1,3)     PAD(Company$,5,$00$)+PAD(Department$,10,$00$)+STR(EmployeeNum)       KEY(__fileFN,KNO=0,KEY=Company$:Department$:EmployeeNum) **_Multi-Segment Keys_** When dealing with multi-segmented keys (i.e. keys made up of more than one field), you can use a **+**  _(plus sign)_ to concatenate multiple string segments of a key when entering a free-form expression. Be sure to add the correct padding logic to the initial key segments. By default, the initial segments of native PxPlus keys are padded with $00$ characters, and the final segment is not padded. Such a key definition might look like this:      PAD(Company$,5,$00$)+PAD(Department$,10,$00$)+STR(EmployeeNum) Individual applications can pad key segments with other characters, such as spaces; therefore, knowledge of the key architecture of individual files is a **_must_**. In addition, partial expressions can be entered to define the beginning of the key value in a one-to-many scenario. Knowledge of segment characteristics is not necessary; however, if the key expression uses the **KEY(__linkFN,KNO=_n_ ,KEY=FLD1$:FLD2$)** format where **__linkFN** is a special channel variable used by the system when evaluating the key, **_n_** is the key number used by the file, and **FLD1$:FLD2$** are the key segment variables. The latter format is also more flexible as it can handle changes in key segment length if keys are updated for a file. In addition, this format allows a mixture of string and numeric segments. **_Key Expression Builder_** An easy way to build a key expression is to use the key builder utility. This is invoked by clicking the dotted button in the cell associated with this option.      The key expression is built by specifying key segments to match the target key definition. These segments can consist of fields from the parent file, literal values and variables. Partial items can be defined, and segments can be padded, have characters stripped, or be converted to upper/lower case. In the case of **_multi-segment_** keys, a _Generate a KEY=F1$:F2$ expression_ check box option is available: |   |  If it is not selected, the key segments will be concatenated, and individual key segments would have to be padded or manipulated appropriately.  
 ---|---  
-|  If it is selected, then a key expression in the format **KEY(__linkFN,KNO=_n_ ,KEY=FLD1$:FLD2$)** will be generated where the segments need not be manipulated. (For an explanation of the contents of the generated key, see **[Multi-Segment Keys](Data%20Source%20Definition.htm#multiseg_keys)**.)  
+   |  If it is selected, then a key expression in the format **KEY(__linkFN,KNO=_n_ ,KEY=FLD1$:FLD2$)** will be generated where the segments need not be manipulated. (For an explanation of the contents of the generated key, see **[Multi-Segment Keys](Data%20Source%20Definition.htm#multiseg_keys)**.)  
   
 Simple numeric keys can be built using a numeric field. Multi-segment numeric keys should be built using the _Generate a KEY=F1$:F2$ expression_ option.
 
@@ -154,7 +156,7 @@ Specify logic to be performed in the data source definition. See **[Logic Proced
 
 > This panel consists of the following:
 
-**Logic Procedures** |  _Specify initialization and closing logic. A_ **[Logic Object](https://manual.pvxplus.com/PXPLUS/Views%20System/Logic%20Procedures/Overview.htm#logicobj)**  _can also be specified_ _to supply initialization and closing logic._  
+**Logic Procedures** |  _Specify initialization and closing logic. A_  **[Logic Object](https://manual.pvxplus.com/PXPLUS/Views%20System/Logic%20Procedures/Overview.htm#logicobj)** _can also be specified_ _to supply initialization and closing logic._  
 ---|---  
 **Initialization Logic** |  Specify initialization logic to be performed.  
 **Closing Logic** |  Specify closing logic to be performed.  
@@ -192,3 +194,9 @@ After the wizard is completed, the data source definition can be recalled in **[
 ## See Also
 
 **[View Maintenance](../View%20Maintenance/Overview.md)**
+
+ 
+
+ 
+
+ 

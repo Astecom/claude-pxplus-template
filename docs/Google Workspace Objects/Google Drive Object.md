@@ -1,9 +1,9 @@
-# Google Workspace Objects
+# Google Workspace® Objects
 
-**PxPlus Google Drive Object**|   
+**PxPlus Google Drive Object (*obj/GoogleDrive)**|   
 ---|---  
   
-The PxPlus **Google Drive** object provides the ability to work with Google Workspace Drive, a cloud-based file storage application. This object consists of various properties and methods that are used to interact with Google Drive files. See **[Properties and Methods](Google%20Drive%20Object.htm#properties)** below.
+The PxPlus **Google Drive** object provides the ability to work with Google Workspace® Drive, a cloud-based file storage application. This object consists of various properties and methods that are used to interact with Google Drive files. See **[Properties and Methods](Google%20Drive%20Object.htm#properties)** below.
 
 The Google Drive object allows more than one file to be opened at one time.
 
@@ -59,9 +59,9 @@ The **_properties_** used by the Google Drive object are listed below.
   
 The **_methods_** used by the Google Drive object are listed below. To make it easier to locate information for a particular method, this list has been broken into smaller groups as follows:
 
-|  **[Authentication Methods](Google%20Drive%20Object.htm#methodsauth)** |  For logging into Google and confirming logged in status  
+  |  **[Authentication Methods](Google%20Drive%20Object.htm#methodsauth)** |  For logging into Google and confirming logged in status  
 ---|---|---  
-|  **[File Methods](Google%20Drive%20Object.htm#methodsfile)** |  For working with Google Drive files  
+  |  **[File Methods](Google%20Drive%20Object.htm#methodsfile)** |  For working with Google Drive files  
   
 **_Common Parameters_**
 
@@ -69,6 +69,8 @@ The following is a list of some of the common parameters used by multiple method
 
 #### **Note:**  
 The _file_ , _fileID_ _$_ and _file_path_ _$_ parameters can refer to a Google Drive directory, as well as a file. All methods that work with these parameters can accept properties that point to directories, as well as files, with the exception of **[Copy](Google%20Drive%20Object.htm#copyfile)**, **[Download](Google%20Drive%20Object.htm#downloadfile)** and **[Export](Google%20Drive%20Object.htm#exportfile)**.
+
+ 
 
 **Parameter** |  **Description**  
 ---|---  
@@ -102,7 +104,7 @@ When closing a file, any file opened after the closed file was opened (any file 
 Returns '1' if successful. Returns '0' if any error is encountered while closing the file.  
 **CloseFiles( )** |  Closes all open files. Returns '1' if successful. Returns '0' if any error is encountered while closing the files.  
 **CopyFile(**_copy_path_ _$_**)** **CopyFile(**_copy_path$,file_**)** **CopyFileByID(**_copy_path$,fileID$_**)** **CopyFileByPath(**_copy_path$,file_path$_**)** |  Makes a copy with the given path of the file specified by an open file index number, a Google Drive file ID, or a Google Drive path. If no file is specified, the active file will be copied. Returns '1' if successful. Returns '0' if any error is encountered while copying the file.  
-**CreateFile(**_file_path$,mime_type$_**)** |  Creates a new blank Google Drive file with the path _file_path_ _$_. The file type is determined by the _mime_type_ _$_. For a list of common mime types, visit: <https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types> The new file is opened and becomes the **[ACTIVE_FILE](Google%20Drive%20Object.htm#properties)**. If the _file_path_ _$_ parameter is null, the file is named "Untitled".
+**CreateFile(**_file_path$,mime_type$_**)** |  Creates a new blank Google Drive file with the path _file_path_ _$_. The file type is determined by the _mime_type_ _$_. For a list of common mime types, visit:      <https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types> The new file is opened and becomes the **[ACTIVE_FILE](Google%20Drive%20Object.htm#properties)**. If the _file_path_ _$_ parameter is null, the file is named "Untitled".
 
 #### **Important Note:**  
 It is possible to have multiple files with the same path. They have different file IDs.
@@ -116,18 +118,18 @@ It is possible to have multiple folders with the same path. They have different 
 Returns '1' if successful. Returns '0' if any error is encountered while creating the folder.  
 **DeleteFile( )** **DeleteFile(**_file_**)** **DeleteFileByID(**_fileID_ _$_**)** **DeleteFileByPath(**_file_path_ _$_**)** |  Deletes the file from Google Drive specified by an open file index number, a Google Drive file ID, or a Google Drive path. If no file is specified, the active file will be deleted. The file is closed as well. Returns '1' if successful. Returns '0' if any error is encountered while deleting the file.  
 **DownloadFile(**_output_path_ _$_**)** **DownloadFile(**_output_path$,file_**)** **DownloadFileByID(**_output_path$,fileID$_**)** **DownloadFileByPath(**_output_path$,file_path$_**)** |  Downloads the Google Drive file specified by the **[ACTIVE_FILE](Google%20Drive%20Object.htm#properties)** or the file specified by the open file index number, a Google Drive file ID, or a Google Drive path. The path of the downloaded file is determined by _output_path_ _$_. Returns '1' if successful. Returns '0' if any error is encountered while downloading the file.  
-**ExportFile(**_output_path_ _$_**)** **ExportFile(**_output_path$,file_**)** **ExportFileByID(**_output_path$,fileID$_**)** **ExportFileByPath(**_output_path$,file_path$_**)** |  Converts the **[ACTIVE_FILE](Google%20Drive%20Object.htm#properties)** or the file specified by the open file index number, a Google Drive file ID, or a Google Drive path from a Google Workspace file (document, sheet, etc.) to a local file, and then downloads the file to the local file system. The type of local file and the path of the file is determined by _output_path_ _$_. For supported _output_path_ _$_ file types, see **[Cloud-Based Files](Google%20Drive%20Object.htm#cloudbased)**. Returns '1' if successful. Returns '0' if any error is encountered while converting and downloading the file.  
+**ExportFile(**_output_path_ _$_**)** **ExportFile(**_output_path$,file_**)** **ExportFileByID(**_output_path$,fileID$_**)** **ExportFileByPath(**_output_path$,file_path$_**)** |  Converts the **[ACTIVE_FILE](Google%20Drive%20Object.htm#properties)** or the file specified by the open file index number, a Google Drive file ID, or a Google Drive path from a Google Workspace® file (document, sheet, etc.) to a local file, and then downloads the file to the local file system. The type of local file and the path of the file is determined by _output_path_ _$_. For supported _output_path_ _$_ file types, see **[Cloud-Based Files](Google%20Drive%20Object.htm#cloudbased)**. Returns '1' if successful. Returns '0' if any error is encountered while converting and downloading the file.  
 **GetFileID$( )** **GetFileID$(**_file_**)** **GetFileID$(**_file_path_ _$_**)** |  Returns a Google Drive file ID of the file specified by an open file index number or a Google Drive path. If no file is specified, the Google Drive file ID of the active file is returned. Before getting a file ID, the file must be opened first. Returns "" if unable to locate the file.  
 **GetMimeType$( )** **GetMimeType$(**_file_**)** |  Returns the mime type of the file specified by an open file index number. If no file is specified, the mime type of the active file is returned. Returns "" if unable to locate the file.  
 **GetPath$( )** **GetPath$(**_file_**)** |  Returns a Google Drive path of the file specified by an open file index number. If no file is specified, the Google Drive path of the active file is returned. Returns "" if unable to locate the file.  
-**ListFiles( )** |  Returns a handle to a memory file loaded with the directory and file information from Google Drive. The IOL of the memory file is: _file_name$  
-fileID$  
-directory_path$  
-mime_type$  
-file_size$  
-created_time$  
-modified_time$  
-viewed_by_me_time$_ Returns "" if any error is encountered while listing files.  
+**ListFiles( )** |  Returns a handle to a memory file loaded with the directory and file information from Google Drive. The IOL of the memory file is: _    file_name$  
+   fileID$  
+   directory_path$  
+   mime_type$  
+   file_size$  
+   created_time$  
+   modified_time$  
+   viewed_by_me_time$_ Returns "" if any error is encountered while listing files.  
 **OpenFileByID(**_fileID_ _$_**)** **OpenFileByPath(**_file_path_ _$_**)** |  Opens the Google Drive file specified by either a Google Drive file ID or a Google Drive path. After opening a file, the **[ACTIVE_FILE](Google%20Drive%20Object.htm#properties)** property is set to the file index corresponding to the file just opened.
 
 #### **Note:**  
@@ -190,4 +192,10 @@ This example program tests the Google Drive object.
 **[PxPlus Google Docs Object](Google%20Docs%20Object.md)**  
 **[PxPlus Google Sheets Object](Google%20Sheets%20Object.md)**
 
-Google Workspace is a registered trademark of Google LLC
+Google Workspace® is a registered trademark of Google LLC
+
+ 
+
+ 
+
+ 

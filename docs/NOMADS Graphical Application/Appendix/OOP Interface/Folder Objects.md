@@ -1,6 +1,6 @@
 # OOP Interface 
 
-**Folder Objects** |  **__**  
+**Folder Objects** |  **_ _**  
 ---|---  
   
 The purpose of the **Folder** object **(*obj/folder.pvc)** is to define information pertaining to a folder. A **Tab** object **(*obj/tab.pvc)** is created for each tab within a Folder. The **[Folder Properties](Folder%20Objects.htm#fldr_props)** and **[Folder Methods](Folder%20Objects.htm#fldr_methods)** are listed below.
@@ -18,8 +18,8 @@ Below is a list of Folder properties.
 **DefaultProg$** |  Default program for tab.  
 **Designer** |  **_(Internal Use Only)_** Designer mode.  
   
-**0** \- No  
-**1** \- Yes  
+  **0** \- No  
+  **1** \- Yes  
   
 When editing a folder definition in NOMADS, this property will be set to 1. At run time, this property is set to 0 by *winproc.  
 **DispTabCount** |  **_(Read Only)_** Contains the number of tabs that will display on the panel. This value is assigned to the **TabCount** property.  
@@ -28,20 +28,20 @@ When editing a folder definition in NOMADS, this property will be set to 1. At r
 **Nomads** |  Set to 0 if the folder object will be used outside NOMADS; otherwise, the default is 1.  
 **OneTimePostLogic$** |  **_(Internal Use Only)_** Post-Load logic indicators for tabs.  
   
-**0** \- Always execute Post-Load logic **_(Default)_**  
-**1** \- Execute Post-Load logic one time only  
+  **0** \- Always execute Post-Load logic **_(Default)_**  
+  **1** \- Execute Post-Load logic one time only  
 **OneTimePreLogic$** |  **_(Internal Use Only)_** Pre-Load logic indicators for tabs.  
   
-**0** \- Always execute Pre-Load logic **_(Default)_**  
-**1** \- Execute Pre-Load logic one time only  
+  **0** \- Always execute Pre-Load logic **_(Default)_**  
+  **1** \- Execute Pre-Load logic one time only  
 **OrigColumn** |  **_(Read Only)_** Contains the original starting column for the folder region.  
 **OrigColumns** |  **_(Read Only)_** Contains the original overall width of the folder in terms of columns.  
 **OrigLine** |  **_(Read Only)_** Contains the original starting line number for the folder region.  
 **OrigLines** |  **_(Read Only)_** Contains the original overall height of the folder in terms of lines.  
 **PreserveControls** |  **_(Internal Use Only)_** Property indicating whether controls will be redrawn or not when moving between tabs.  
   
-**0** \- Destroy and redraw controls **_(Default)_**  
-**1** \- Rename and hide/show controls  
+  **0** \- Destroy and redraw controls **_(Default)_**  
+  **1** \- Rename and hide/show controls  
 **ScrollCol** |  **_(Read Only)_** Contains starting column for scroll region.  
 **ScrollHeight** |  **_(Read Only)_** Contains the height of scroll region.  
 **ScrollLn** |  **_(Read Only)_** Contains starting line of scroll region.  
@@ -67,7 +67,7 @@ Below is a list of Folder methods.
 ---|---  
 **AddTab**(_Text$_ ,_PanelName$_ ,_Suppress_ ,_FillClr1$_ ,_FillClr2$_ ,_FillPattern_) |  Add tab at run time (to the end of the current tab list).  
 _  
-Text$_ \- Text for the tab. Fixed value or expression (**"="**  _equals sign_ must precede expression).  
+Text$_ \- Text for the tab. Fixed value or expression (**" ="** _equals sign_ must precede expression).  
   
 _PanelName_ _$_ \- Name of sub-panel.  
   
@@ -79,13 +79,13 @@ _FillClr2$_ \- Second fill colour for the tab. **_(Optional)_**
   
 _FillPattern_ \- Possible values are:  
   
-**1** \- Solid fill **_(Default)_**  
-**2** \- Top to bottom  
-**3** \- Left to right  
-**4** \- Crossed line  
-**5** \- Top-left to bottom-right  
-**6** \- Bottom-left to top-right  
-**7** \- Diagonal crossed lines  
+   **1** \- Solid fill **_(Default)_**  
+   **2** \- Top to bottom  
+   **3** \- Left to right  
+   **4** \- Crossed line  
+   **5** \- Top-left to bottom-right  
+   **6** \- Bottom-left to top-right  
+   **7** \- Diagonal crossed lines  
 **ClearTabs**( ) |  **_(Internal Use Only)_** This method drops all tab objects.  
 **DisableActiveTab**( ) |  Used to disable all the controls on the current active tab and the folder tab button.
 
@@ -104,11 +104,11 @@ These methods can also be used for tab-less folders. Only the controls in the fo
 **DisableTab**(_idx_) |  Disable tab. (The colour setting in the **'GetDisabledColour$( )** method will be applied to the tab title.)   
   
 _idx_ \- Contains the sequential number of the tab.  
-**Draw**( ) |  This method causes the complete folder to be drawn. It is called to draw the initial folder once the tabs have been defined and is automatically invoked by the **Redraw(** **)** method after any change to the tab or folder information (such as a screen resize or dropping/adding a tab).  
-**DrawTab**(_Tab_) |  **_(Internal Use Only)_** Method that draws a tab (invoked through the **ProcessTabs(** **)** method).   
+**Draw**( ) |  This method causes the complete folder to be drawn. It is called to draw the initial folder once the tabs have been defined and is automatically invoked by the **Redraw(**  **)** method after any change to the tab or folder information (such as a screen resize or dropping/adding a tab).  
+**DrawTab**(_Tab_) |  **_(Internal Use Only)_** Method that draws a tab (invoked through the **ProcessTabs(**  **)** method).   
   
 _Tab_ \- Contains the object identifier.  
-**DropTab**(_idx_) |  Drops a tab from the folder and invokes the **ReDraw(** **)** method.  
+**DropTab**(_idx_) |  Drops a tab from the folder and invokes the **ReDraw(**  **)** method.  
   
 _idx_ \- Contains the sequential number of the tab.  
 **EnableActiveTab**( ) |  Used to enable all the controls on the current active tab and the folder tab button.
@@ -128,7 +128,7 @@ These methods can also be used for tab-less folders. Only the controls in the fo
 **EnableTab**(_idx_) |  Enable tab (the original tab title colour is applied).  
   
 _idx_ \- Contains the sequential number of the tab.  
-**FldrInit**( ) |  **_(Internal Use Only)_** Invokes folder initialization method. Parses and builds tab information, calculates tab count, tab width, tab height, folder coordinates (_col_ , _ln_ , _width_ and _height_) and so on. This is invoked via the **Draw(** **)** method.  
+**FldrInit**( ) |  **_(Internal Use Only)_** Invokes folder initialization method. Parses and builds tab information, calculates tab count, tab width, tab height, folder coordinates (_col_ , _ln_ , _width_ and _height_) and so on. This is invoked via the **Draw(**  **)** method.  
 **GetActiveTabWidth**( ) |  Returns the tab width of the active tab. See **[SetActiveTabWidth(AW)](Folder%20Objects.htm#setactivetabwid)**. _(Added in PxPlus 2024)_  
 **GetBackColour$**( )   
 **GetBackColor$**( ) |  Returns default background colour for all tabs. See **[Valid Colour Assignments](Tab.htm#assignments)**.  
@@ -148,10 +148,10 @@ _idx_ \- Contains the sequential number of the tab.
 **GetFont$**( ) |  Returns a comma-separated string denoting the default font name, its point size and attributes (such as **C** for Centered, **B** for Bold, **I** for Italics).  
 **GetFrameType$**( ) |  Returns a numeric value of the frame type that is used for a tab-less folder.  
   
-**0** \- None   
-**2** \- Raised   
-**3** \- Recessed   
-**4** \- 3D **_(Default)_**  
+  **0** \- None   
+  **2** \- Raised   
+  **3** \- Recessed   
+  **4** \- 3D **_(Default)_**  
 **GetIdLst**(_Idlst_) |  Returns sequential number of the folder control on the panel. This number represents the control placement on the panel.  
 **GetLine**( ) |  Returns the starting line number of the folder region.  
 **GetLines**( ) |  Returns the overall height of the folder in terms of lines.  
@@ -163,19 +163,19 @@ _idx_ \- Contains the sequential number of the tab.
 **GetScrolling**( ) |  Returns either a 0 or 1 indicating whether the folder is being scrolled.  
 **GetShowArrows**( ) |  Returns a 0 or 1 indicating the scroll button setting.  
   
-**0** \- Hide scroll buttons  
-**1** \- Show scroll buttons  
+  **0** \- Hide scroll buttons  
+  **1** \- Show scroll buttons  
 **GetTab**(_idx_) |  Returns the object identifier for the specified tab index.  
   
 _idx_ \- Contains the sequential number of the tab.  
 **GetTabAlignment$**( ) |  Returns the tab alignment setting (placement of tabs).  
   
-**T** \- Top **_(Default)_**  
-**B** \- Bottom  
-**L** \- Left  
-**R** \- Right  
+  **T** \- Top **_(Default)_**  
+  **B** \- Bottom  
+  **L** \- Left  
+  **R** \- Right  
 **GetTabHeight**( ) |  Returns the height of the tabs (or width if the tabs are horizontal). If 0, then no tabs are drawn (tab-less folder). System will default to 1.5 lines high, which is the current NOMADS size.  
-**GetTabInfo$**( ) |  Returns a $00$-separated string containing tab information. Each tab definition consists of _panelname_ +"**=** "+ _title_ +$01$+ _suppress tab option_.  
+**GetTabInfo$**( ) |  Returns a $00$-separated string containing tab information. Each tab definition consists of _panelname_ +"**=** "\+ _title_ +$01$+ _suppress tab option_.  
 **GetTabless**( ) |  Returns a 0 or 1 indicating whether tabs are drawn or not. **_Default_** is 0.  
 **GetTextColour$**( )  
 **GetTextColor$**( ) |  Returns the default text colour assigned to all tabs. See **[Valid Colour Assignments](Tab.htm#assignments)**.  
@@ -198,25 +198,25 @@ _FillClr2$_ \- Second fill colour for the tab. **_(Optional)_**
   
 _FillPattern_ \- Possible values are:  
   
-**1** \- Solid fill **_(Default)_**  
-**2** \- Top to bottom  
-**3** \- Left to right  
-**4** \- Crossed line  
-**5** \- Top-left to bottom-right  
-**6** \- Bottom-left to top-right  
-**7** \- Diagonal crossed lines  
+  **1** \- Solid fill **_(Default)_**  
+  **2** \- Top to bottom  
+  **3** \- Left to right  
+  **4** \- Crossed line  
+  **5** \- Top-left to bottom-right  
+  **6** \- Bottom-left to top-right  
+  **7** \- Diagonal crossed lines  
 **NewTab**(_Tab_) |  **_(Internal Use Only)_** Add a tab to the folder. Used by folder.pvc.  
 _  
 Tab -_ Contains the object identifier.  
 **ProcessTabs**( ) |  **_(Internal Use Only)_** Method that invokes the **DrawTab**(_tab_) method.  
-**ReDraw**( ) |  Redraw folder. Resets scroll region and invokes **Draw(** **)** method. This must be executed after changing any folder or tab properties.  
+**ReDraw**( ) |  Redraw folder. Resets scroll region and invokes **Draw(**  **)** method. This must be executed after changing any folder or tab properties.  
   
 **_Example:  
   
 _** To change the font at run time:  
   
-SetFont("Comic Sans MS,1,&CS")  
-Redraw( )  
+  SetFont("Comic Sans MS,1,&CS")  
+  Redraw( )  
 **RemoveTab**(_idx_) |  **_(Internal Use Only)_** Get object identifier for the current tab index and drop the corresponding tab object.  
   
 _idx_ \- Contains the sequential number of the tab.  
@@ -224,7 +224,7 @@ _idx_ \- Contains the sequential number of the tab.
 **SetBackColour**(_Bclr_ _$_)  
 **SetBackColor**(_Bclr_ _$_) |  Sets default background colour for all tabs. Returns 1 if successful, 0 if unsuccessful.   
   
- _Bclr_ _$ -_ String containing one of four possible colour selections. See **[Valid Colour Assignments](Tab.htm#assignments)**.  
+_Bclr_ _$ -_ String containing one of four possible colour selections. See **[Valid Colour Assignments](Tab.htm#assignments)**.  
 **SetColourNumbers**(_Cnums_ _$_)  
 **SetColorNumbers**(_Cnums_ _$_) |  Sets colour numbers (used with older panels). Returns 1 if successful, 0 if unsuccessful. This must be a value between 0 - 15.  
 **SetColours**(_Clrs_ _$_)  
@@ -259,10 +259,10 @@ _F$ -_ Comma-separated string containing font name, point size and attributes.
   
 _FT$_ \- Possible values are:  
   
-**0** = None  
-**2** = Raised  
-**3** = Recessed  
-**4** = 3D **_(Default)_**  
+  **0** = None  
+  **2** = Raised  
+  **3** = Recessed  
+  **4** = 3D **_(Default)_**  
 **SetIdLst**(_IdLst_) |  Sets the sequential number for the folder control. This number represents the control placement on the panel.  
 **SetLine**(_L_) |  Sets the starting line number for the folder. Returns 1 if successful, 0 if unsuccessful.  
 **SetLines**(_Lns_) |  Sets the overall height of the folder in terms of lines. Returns 1 if successful, 0 if unsuccessful.  
@@ -273,12 +273,12 @@ _FT$_ \- Possible values are:
 **SetScrolling**(_S_) |  **_(Internal Use Only)_** Sets the scrolling indicator (0 or 1). Returns 1 if successful, 0 if unsuccessful.  
 **SetShowArrows**(_SA_) |  Sets the scroll buttons option. Returns 1 if successful, 0 if unsuccessful.  
   
-**0** \- Hide scroll buttons  
-**1** \- Show scroll buttons  
-**SetTabAlignment**(_Align$_) |  Sets the tab alignment (placement of tabs). **T** \- Top  
-**L** \- Left  
-**B** \- Bottom  
-**R** \- Right  
+  **0** \- Hide scroll buttons  
+  **1** \- Show scroll buttons  
+**SetTabAlignment**(_Align$_) |  Sets the tab alignment (placement of tabs).   **T** \- Top  
+  **L** \- Left  
+  **B** \- Bottom  
+  **R** \- Right  
 **SetTabHeight**(_Theight_) |  Sets the height in lines of a tab (or width in columns if tabs are on the right/left).  
   
 If 0, then no tabs are displayed (tab-less folder). System default is 1.5 lines high if tab alignment is top or bottom or 2.5 for left/right tabs.  
@@ -294,4 +294,10 @@ _Info$ -_ String containing tab info for the folder. A $00$ separates each tab d
 _TC$ -_ String containing one of four possible colour selections. See **[Valid Colour Assignments](Tab.htm#assignments)**.  
 **ShufflePanels**(_GetNextTab_) |  **_(Internal Use Only)_** Method to change the order of the tabs (invoked when next/prior scroll buttons are pressed).  
   
-_GetNextTab_ \- Will contain a value of 1 if the next button is pressed or a value of 0 if the prior button is pressed.
+_GetNextTab_ \- Will contain a value of 1 if the next button is pressed or a value of 0 if the prior button is pressed.  
+  
+ 
+
+ 
+
+ 

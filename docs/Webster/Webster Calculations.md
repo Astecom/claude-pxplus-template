@@ -1,4 +1,4 @@
-# Webster+
+# Webster+ Web Development Toolkit
 
 **Webster+ Calculations**|   
 ---|---  
@@ -9,7 +9,7 @@ Within Webster+, you can specify fields (inputs or hidden fields) that can be se
 
 > You may want to create a field that will have the discounted price. This field might have a calculation assigned to it:
 
-> UnitPrice - (UnitPrice * DiscountPct / 100)
+>           UnitPrice - (UnitPrice * DiscountPct / 100)
 
 > This calculation could be assigned a field called TruePrice that could be a display-only field on your screen. The system will automatically execute this calculation and set the value accordingly.
 
@@ -33,4 +33,11 @@ The calculations themselves are basically done using JavaScript; however, a numb
   
 ## See Also
 
-**[Using Grids in Webster+](Using%20Grids%20in%20Webster.md)**
+**[Using Grids in Webster+](Using%20Grids%20in%20Webster.md)  
+[Using Functions and Operators](Using%20Functions%20and%20Operators.md)**
+
+ 
+
+ 
+
+ 

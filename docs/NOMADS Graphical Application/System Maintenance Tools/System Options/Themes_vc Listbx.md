@@ -12,12 +12,41 @@ See **[Query Colors](../../Dictionary-Based%20Development/Query%20Subsystem/Quer
 ---|---  
 **Attributes**  
 _Borderless_ |  Control has no border or frame.  
+_Corner Radius_ |  Sets the radius for the list box corners. Works only in **4D** mode. This option is available for all **[List Box Types](../../Creating%20Panel%20Controls/List%20Box%20Controls/List%20Box%20Type.htm#types)** **_except_** Report View and Variable List Boxes. Possible values are _Null (blank)_ , _Round_ , _Square_ or a value from 0 to 8 inclusive. See **[CornerRadius$](../../../control_object_properties/listbox_properties.htm#cornerradius)** property. **_Example:_** Corner Radius set to **Round** :  
+  
+     Corner Radius set to **Square** :  
+  
+     Corner Radius set to a value of **8** :  
+  
+    
+
+#### **Note:**  
+Corner rounding is limited based on the control type and/or the control size.
+
+_(Corner Radius property was added in PxPlus 2026.)_  
 _Disable Sorting_ |  Clicking on the column heading does not cause list box elements to be sorted. The column headings will not have the 3D button look but will appear flat. Column resizing is still allowed. _(Disable Sorting property was added in PxPlus 2018.)_  
+_Focus Rectangle_ |  Controls whether a dotted focus rectangle displays around the List Box selected row. Possible values are: |    |  _Default_ |  Uses the default setting.  
+---|---|---  
+  |  _Display_ |  Focus rectangle is shown (On).  
+  |  _Suppress_ |  Focus rectangle is not shown (Off).  
+  
+**_Example:_**
+
+List Box focus is **_Off_** :
+
+    
+
+List Box focus is **_On_** :
+
+    
+
+_(Focus Rectangle property was added in PxPlus 2026.)_  
+  
 **Attributes (ReportView)**  
 _Auto Column Size_ |  When selected, columns will automatically be proportionally resized when the list box is resized. Default is **_Off_**. _(Auto Column Size property was added in PxPlus 2018.)_  
-_Center Text Vertically_ |  When selected, text will be centered vertically in the list box row **_only_** when **[Lines Per Row](Themes_vc%20Listbx.htm#linesperrow)** is > 1\. Text that exceeds the column width is truncated and an _ellipsis_ () is displayed. When this check box is **_not_** selected (_Default_), text is aligned to the top of the list box row, and text that exceeds the column width is word wrapped. _(Center Text Vertically property was added in PxPlus 2019.)_  
+_Center Text Vertically_ |  When selected, text will be centered vertically in the list box row **_only_** when **[Lines Per Row](Themes_vc%20Listbx.htm#linesperrow)** is > 1\. Text that exceeds the column width is truncated and an _ellipsis_ ( ) is displayed. When this check box is **_not_** selected (_Default_), text is aligned to the top of the list box row, and text that exceeds the column width is word wrapped. _(Center Text Vertically property was added in PxPlus 2019.)_  
 _Column Size Lock_ |  When selected, the report view column headers cannot be resized by dragging. Default is **_Off_**. _(Column Size Lock property was added in PxPlus 2018.)_  
-_Grid lines_ |  Controls the display of grid lines between the rows and columns. Options are _No lines**(Default)**_ , _Full grid_ , _Vertical lines_ , _Horizontal_ _lines_. _(Grid lines property was added in PxPlus 2018.)_  
+_Grid lines_ |  Controls the display of grid lines between the rows and columns. Options are _No lines**(Default)**_ , _Full grid_ , _Vertical lines_ , _Horizontal lines_. _(Grid lines property was added in PxPlus 2018.)_  
 _Header Height_ |  Controls the height of the header in report view lists in pixels. Setting this property to -1 restores the height to its default size. Setting this property to 0 results in no header. _(Header Height property was added in PxPlus 2020.)_  
 _Header Lock_ |  Locks the column headers so that the user is unable to click on them or drag them. Default is **_Off_**. _(Header Lock property was added in PxPlus 2018.)_  
 _Lines Per Row_ |  Number of lines high per row. Valid values are >= 1. Allows for word-wrap. Can also be set to -1 to use the default lines per row for the list box. _(Lines Per Row property was added in PxPlus 2018.)  
@@ -27,22 +56,22 @@ _Sort Options_ |  Controls how column data is sorted. Click the drop-down arrow 
 _None (Raw binary sort)_ |  _Ignore case/Nulls last_  
 _Ignore case_ |  _Ignore accents/Nulls last_  
 _Ignore accents_ |  _Ignore case & accents/Nulls last_  
-_Ignore case & accents_ |  __  
+_Ignore case & accents_ |  _ _  
   
 The _Default_ setting will use the system _StdSortOrder_ setting. See the **'[OPTION](../../../mnemonics/option.md)'** mnemonic or the ['**SortOrder$**](../../../properties/sortorder.md) property.
 
 _(Sort Options property was added in PxPlus 2018.)_  
   
 **Colors**  
-_Click the dotted_ _Query button or double click inside the cell to access_ **[Color Selections](../../Appendix/Color%20Selections.md)** _. Valid formats for color selections include predefined system colors (e.g. Light Red), Custom (RGB codes), HTML Hex Color Codes, User Defined colors (e.g. Color17) and string Expressions._ _After a color property is set, a tick in the selected color displays in the top left corner. A floating tip with a sample of the selected color displays when hovering the mouse over the color setting._ _(The color tick and color tip were added in PxPlus 2018.)  
+_Click the dotted_ _Query button or double click inside the cell to access_**[Color Selections](../../Appendix/Color%20Selections.md)** _. Valid formats for color selections include predefined system colors (e.g. Light Red), Custom (RGB codes), HTML Hex Color Codes, User Defined colors (e.g. Color17) and string Expressions._ _After a color property is set, a tick in the selected color displays in the top left corner. A floating tip with a sample of the selected color displays when hovering the mouse over the color setting._ _(The color tick and color tip were added in PxPlus 2018.)  
 __(The Color Selections Query button and dialog were added in PxPlus 2020.)_  
 _Background_ |  Background color of the control in its default state.  
 _Foreground_ |  Foreground text color of the control in its default state.  
 _Frame Color_ |  Color of the frame/border around the control. _(Frame Color property was added in PxPlus 2024.)_  
-_Header Background Color_ |  Sets the background color for the list view header. _(Header Background Color was added in PxPlus 2016.)_  
-_Header Text Color_ |  Sets the color of the text for the list view header. _Header Text Color property was added in PxPlus 2016.)_  
-_Hilight_ _Color 1_ |  Background color - alternating lines. _(Hilight Color 1 property was added in PxPlus 2016.)_  
-_Hilight_ _Color 2_ |  Background color - alternating _three_ lines. _(Hilight Color 2 property was added in PxPlus 2016.)_  
+_Header Background Color_ |  Sets the background color for the report view header. _(Header Background Color was added in PxPlus 2016.)_  
+_Header Text Color_ |  Sets the color of the text for the report view header. _Header Text Color property was added in PxPlus 2016.)_  
+_Hilight Color 1_ |  Background color - alternating lines. _(Hilight Color 1 property was added in PxPlus 2016.)_  
+_Hilight Color 2_ |  Background color - alternating _three_ lines. _(Hilight Color 2 property was added in PxPlus 2016.)_  
 _Hotlink Color_ |  Color applied to the text of a column defined as a hotlink to provide a visual cue. For information on defining a hotlink column, see **[Hotlink](../../Creating%20Panel%20Controls/List%20Box%20Controls/List%20Box%20Type.htm#listviewdef)**. _(Hotlink Color property was added in PxPlus 2018.)_  
 _Line Color_ |  **_(Applicable to Report View and Tree View Only)_** Color of the lines drawn between rows and columns of a report view list box or between entries of a tree view list box. _(Line Color property was added in PxPlus 2020.)_  
 **Colors (States)**  
@@ -63,3 +92,9 @@ _iNomads Class_ |  Assign an iNomads class to the control. The iNomads class con
 **[VarList_Box Properties](Themes_vc%20Varlist.md)  
 [Themes](Themes.md)**  
 **[Visual Classes](Visual%20Classes.md)**
+
+ 
+
+ 
+
+ 

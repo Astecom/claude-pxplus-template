@@ -1,11 +1,11 @@
 # Panel Designer
 
-**Panel Header** |  **__**  
+**Panel Header** |  **_ _**  
 ---|---  
   
 By default, Panel _Header_ properties are loaded when the **[Panel Designer](../Introduction.md)** is first launched. These are the overall properties used to define the panel itself, rather than the specific controls within the panel. Some changes to panel header properties (e.g. font and background/foreground colors) are automatically applied to all the controls within the panel. To reverse any changes you make, click the Undo button on the toolbar or select _Edit_ > _Undo_ from the menu bar.
 
-The NOMADS **[Custom Title Bar](../../Custom%20Title%20Bars.md)** feature allows you to design your own title bar to customize the look and feel of your application. A _TitleBar_ _Option_ is available on the **TitleBar** tab in the **[Panel Header](Overview.htm#titlebar)** and in **[Library Defaults](../../NOMADS%20Development/Maintaining%20Library%20Objects/Library%20Defaults.htm#titlebar)**. In addition, a custom title bar can be applied system wide by defining the **[%NOMADS'TitleBar$](../../Appendix/NOMADS%20Variables/Overview.htm#titlebar)** property. See **[Assigning Custom Title Bars](../../Custom%20Title%20Bars.htm#assigning)**.
+The NOMADS **[Custom Title Bar](../../Custom%20Title%20Bars.md)** feature allows you to design your own title bar to customize the look and feel of your application. A _TitleBar Option_ is available on the **TitleBar** tab in the **[Panel Header](Overview.htm#titlebar)** and in **[Library Defaults](../../NOMADS%20Development/Maintaining%20Library%20Objects/Library%20Defaults.htm#titlebar)**. In addition, a custom title bar can be applied system wide by defining the **[%NOMADS'TitleBar$](../../Appendix/NOMADS%20Variables/Overview.htm#titlebar)** property. See **[Assigning Custom Title Bars](../../Custom%20Title%20Bars.htm#assigning)**.
 
 _(The Custom Title Bar feature was added in PxPlus 2017.)_
 
@@ -32,7 +32,7 @@ The design properties displayed on each folder panel are explained below.
 _Panel_ |  Display-only field that contains the name of the panel object.  
 ---|---  
 _Last update_ |  Display-only information consisting of a date stamp and User ID. This information is shown when editing an existing panel.  
-**Display** |   
+**Display** |     
 **Title** |  Panel title to be displayed (_Fixed_ value, string _Expression_ or _Message Library Reference_).  
 **Default Program** |  Default program name to be used for panel and control events (_Fixed_ value or string _Expression_). |  _Tag Field_ |  Free-form information field (_Fixed_ value or string _Expression_).  
 ---|---  
@@ -69,7 +69,7 @@ _(Support for increased Width and Height maximums was added in PxPlus 2021.)_
 **Background Image** |  **_(NOMADS Only)_** Name of the picture (_Fixed_ or string _Expression_). Click the Bitmap Library button to select a bitmap from the Bitmaps dialogue. |  _Widget_ |  Panel is to be used as a Widget with the panel's defined background color transparent. Generally, a bitmap is associated with the panel.  
 ---|---  
 **Image Alignment** |  Alignment options for the background image. Available selections are _Top Left, Centered, Tiled, Scaled_.  
-**Font/Color** |   
+**Font/Color** |     
 **Font Specification** |  |  _Font  
 Size_ |  Click the drop-down arrow for a list of selections.  
 ---|---  
@@ -101,8 +101,8 @@ A Theme assigned to the [**%NOMADS'ThemeOverride$**](../../Appendix/NOMADS%20Var
 _(Theme support was added in PxPlus 2017.)  
 (The Theme Maintenance button was added in PxPlus 2019.)  
 (The ability to select a predefined PxPlus Theme was added in PxPlus 2024.)_  
-**Attributes** |   
-**Attributes** |  |  _Dialogue_ |  Panel is created as a freestanding dialogue box and is not constrained by the main PxPlus window. **_(Default)_** See **[Note](Overview.htm#note)** at the bottom of this page.  
+**Attributes** |     
+**Attributes** |  |  _Dialogue_ |  Default type when a new panel object is created. The panel object is created as a freestanding dialogue box and is not constrained by the main PxPlus window.  See **[Note](Overview.htm#note)** at the bottom of this page.  
 ---|---  
 _Child Window_ |  Window is a child of the current window. See **[Note](Overview.htm#note)** at the bottom of this page.  
 _Suppress.VAL_ |  If this option is **_Off_** , a suffix of .VAL$ or .VAL (numeric controls) will be added to all control names.  
@@ -170,7 +170,7 @@ _Enter = Tab_ |  Determines behaviour of the <Enter> key. Click the drop-down ar
 ---  
 _On - <Enter> key behaves like <Tab> key_ (Focus moves to the next control and 'On Change' only fires if the value has changed.)  
 _Off - <Enter> fires 'On change' and maintains focus_  
-**Logic** |   
+**Logic** |     
 _Default Program_ |  **_(NOMADS+ and Folder Style)_** Displays the name of the **[Default Program](Overview.htm#display)** (from the **Display** tab). _(The Default Program on the Logic tab was added for display in PxPlus 2019.)_  
 **Pre-Display** |  Logic to process before the panel is drawn. Click the drop-down arrow for a list of selections. See **[Events Logic](../../Program%20Interaction/Events%20Logic/Overview.md)**. Click the Program Logic button beside the _Perform_ or _Call_ action to launch the default program editor, which is typically the **[*IT - Integrated Toolkit](../../../toolkit1/overview.md)**. To make **[Ed+](../../../Ed%20Program%20Editor.md)** the default program editor, change the setting for the **[%NOMADS'Program_Editor](../../Appendix/NOMADS%20Variables/Overview.htm#programeditor)** property to _Ed+_. _(The ability to set Ed+ as the default program editor was added in PxPlus 2023.)_  
 **Post-Display** |  Logic to be processed after the panel and all the controls are drawn. Click the drop-down arrow for a list of selections. See **[Events Logic](../../Program%20Interaction/Events%20Logic/Overview.md)**. Click the Program Logic button beside the _Perform_ or _Call_ action to launch the default program editor, which is typically the **[*IT - Integrated Toolkit](../../../toolkit1/overview.md)**. To make **[Ed+](../../../Ed%20Program%20Editor.md)** the default program editor, change the setting for the **[%NOMADS'Program_Editor](../../Appendix/NOMADS%20Variables/Overview.htm#programeditor)** property to _Ed+_. _(The ability to set Ed+ as the default program editor was added in PxPlus 2023.)_  
@@ -180,20 +180,20 @@ _Default Program_ |  **_(NOMADS+ and Folder Style)_** Displays the name of the *
 #### **Note:**  
 The existing timer logic using the [**%NOMAD_Timeout**](../../Appendix/NOMADS%20Variables/Overview.htm#timeout) variable and User CTL -1900 is still supported.  
   
-**User Aids** |   
+**User Aids** |     
 **Help Reference** |  |  _Type_ |  Available selections are:  
 ---|---  
-|  _External_ |  Standard windows Help system consisting of a Help file name and an optional keyword or reference number (_Fixed_ or _Expression_).  
-|  _Internal_ |  Application supplied message text (_Fixed_ value, string _Expression_ or _Message Library Reference_).  
-|  _Wiki_ |  Generates Help documentation directly from a NOMADS panel and displays it in the PxPlus Wiki. See **[NOMADS Wiki Help](../../System%20Maintenance%20Tools/Nomads%20Wiki%20Help.md)**. In the _Wiki Page_ field, enter a title for the Wiki page (defaults to the name of the panel). Can be a Fixed value or a string Expression.  
+  |  _External_ |  Standard windows Help system consisting of a Help file name and an optional keyword or reference number (_Fixed_ or _Expression_).  
+  |  _Internal_ |  Application supplied message text (_Fixed_ value, string _Expression_ or _Message Library Reference_).  
+  |  _Wiki_ |  Generates Help documentation directly from a NOMADS panel and displays it in the PxPlus Wiki. See **[NOMADS Wiki Help](../../System%20Maintenance%20Tools/Nomads%20Wiki%20Help.md)**. In the _Wiki Page_ field, enter a title for the Wiki page (defaults to the name of the panel). Can be a Fixed value or a string Expression.  
   
 _(The Wiki option was added in PxPlus 2023.)_  
   
 **Message Bar** |  Text to be displayed in the panel's status bar when focus is on the control (_Fixed_ value, string _Expression_ or _Message Library Reference_).  
-**iNomads Settings** |   
+**iNomads Settings** |     
 **iNomads Class** |  The iNomads class contains class attribute references associated with the panel in the HTML code generated in iNomads. An iNomads class reference must start with an alpha character (A-Z or a-z), followed by any combination of A-Z, a-z, 0-9, underscore or dash. Multiple references may be entered, separated by a space. For a list of predefined classes, see **[iNomads Classes](../../../iNOMADS/iNomads%20Classes.md)**. _(The iNomads Class option was added in PxPlus 2016.)_  
 **iNomads Template** |  If specified, the iNomads template will be applied to the panel, overriding the template specified for the session. See **[iNomads Templates](../../../iNOMADS/Templates.md)**. _(The iNomads Template option was added in PxPlus 2016.)_  
-**TitleBar** |   
+**TitleBar** |     
 **TitleBar Option** |  **_(NOMADS Only)_** Set the _TitleBar_ option for the panel. See **[Custom Title Bars](../../Custom%20Title%20Bars.md)**. Available selections are: |  _Default_ |  Use the current default _Title Bar_ setting for the panel based on the **[%NOMADS'TitleBar$](../../Appendix/NOMADS%20Variables/Overview.htm#titlebar)** and **[Library Defaults](../../NOMADS%20Development/Maintaining%20Library%20Objects/Library%20Defaults.md)** settings.  
 ---|---  
 _TitleBar_ |  Use the panel defined in _Panel Information_ as the title bar for the panel.  
@@ -204,9 +204,9 @@ The _TitleBar_ and _None_ settings **_override_** the system-wide setting in [**
 
 _(TitleBar Option was added in PxPlus 2017.)_  
   
-**Panel Information** |  **_(Available when TitleBar Option is TitleBar)_** |  _Fixed**or** Expression_ |  The Custom Title Bar panel information can be entered as a _Fixed_ value or as an _Expression_ : |  |  If **_Fixed_** , enter the _Library_ and _Panel_ information (see below).  
+**Panel Information** |  **_(Available when TitleBar Option is TitleBar)_** |  _Fixed**or** Expression_ |  The Custom Title Bar panel information can be entered as a _Fixed_ value or as an _Expression_ : |   |  If **_Fixed_** , enter the _Library_ and _Panel_ information (see below).  
 ---|---  
-|  If the information is an **_Expression_** , select _Expression_ from the drop-down list and enter an expression that can be evaluated to a value consisting of the panel name and library, separated by a comma; e.g. _PanelName,LibraryName_.  
+ |  If the information is an **_Expression_** , select _Expression_ from the drop-down list and enter an expression that can be evaluated to a value consisting of the panel name and library, separated by a comma; e.g. _PanelName,LibraryName_.  
 _Library_ |  Enter the path to the library containing the Title Bar panel definition. Click the drop-down arrow for a list of recently used libraries. Click the Browse button to look through the directory structure to find the library. Be sure to use the simplest form of the path for your application.
 
 #### **Note:**  
@@ -216,7 +216,7 @@ _Panel_ |  Name of the panel definition to use as the Title Bar for the panel. C
   
 _(Panel Information was added in PxPlus 2017.)_  
   
-|   
+  |     
 _Security_ |  Assign security classifications and access levels for the panel header. See **[Restricting Access](../../System%20Maintenance%20Tools/Security%20Manager/Restricting%20Access.md)** for information on **Object Security Definition**.  
 _Popup Menu_ |  Associate a floating menu that will appear when right clicking the mouse over a control or a blank area on a panel. Valid formats are a NOMADS popup object or a user-supplied program (_Fixed_ value or string _Expression_). See **[Popup Menu](../../Creating%20Panel%20Controls/Popup%20Menu/Overview.md)**.  
 _Notes_ |  Add notes/comments for the panel. Maximum 1024 characters. These notes also display in the Wiki Help documentation for the panel. See **[NOMADS Wiki Help](../../System%20Maintenance%20Tools/Nomads%20Wiki%20Help.md)**.  
@@ -229,3 +229,9 @@ When testing a panel that has been defined with the attributes _Child Window_ tu
 **[Panel Bulk Edit Utility](../Options%20and%20Utilities/Bulk%20Edit%20Utility.md)**  
 **[Library Bulk Edit and Search Utility](../../NOMADS%20Development/Maintaining%20Library%20Objects/Library%20Bulk%20Edit.md)**  
 **[Custom Title Bars](../../Custom%20Title%20Bars.md)**
+
+ 
+
+ 
+
+ 

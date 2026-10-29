@@ -5,7 +5,7 @@
   
 ##  Format
 
-**OPEN (**_chan_**[,**_fileopt_**]) "*QUERY*;**_query_**;**_library_**[;**_option_**] [...]"**
+**OPEN (**_chan_**[,**_fileopt_**]) "*QUERY*;**_query_**;**_library_**[;**_option_**] [...] "**
 
 **_Where:_**
 
@@ -21,7 +21,7 @@ _options_ |  Supported parameters (see **[File Parameters](~query~.htm#fileparam
   
 ##  Description
 
-The ***QUERY*** interface allows a NOMADS query to be used to define the contents of a logical file for use by an application program. It allows the program to access the contents of a query as if it was a standard read-only file.
+The ***QUERY*** interface allows a NOMADS query to be used to define the contents of a logical file for use by an application program. It allows the program to access the contents of a query as if it were a standard read-only file.
 
 _(The *QUERY* logical file name was added in PxPlus v9.00.)_
 
@@ -106,3 +106,9 @@ SEQPFX=Y |  Causes a 10-digit sequence number to be prefixed to the key value. T
 **_Example:_**
 
 > open (channel,opt="BADDATA=SKIP;KNO=1;SEQPFX=Y")"*QUERY*;CUSTQRY;scrnlib.en"
+
+ 
+
+ 
+
+ 

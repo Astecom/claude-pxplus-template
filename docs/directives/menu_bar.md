@@ -5,17 +5,17 @@
   
 ##  Formats
 
-1\. _Define/Create:_ |  **MENU_BAR** _ctl_id_**,**_menu_def_ _$_[,**ERR=**_stmtref_]  
+ 1.  _Define/Create:_ |  **MENU_BAR** _ctl_id_**,**_menu_def_ _$_[,**ERR=**_stmtref_]  
 ---|---  
-2\. _Read Selected Item_ _:_ |  **MENU_BAR READ** _var_ _$_[,**ERR=**_stmtref_]  
-3\. _Clear Menu Bar_ _:_ |  **MENU_BAR CLEAR**[,**ERR=**_stmtref_]  
-4\. _Restore Default Help:_ |  **MENU_BAR RESET**[,**ERR=**_stmtref_]  
-5\. _Set Focus_ _:_ |  **MENU_BAR GOTO**[,**ERR=**_stmtref_]  
-6\. _'Check'/'Uncheck' Item_ _:_ |  **MENU_BAR**{**ON** | **OFF**} _element_[$][,**ERR=**_stmtref_]  
-7\. _Disable/Enable Item_ _:_ |  **MENU_BAR** {**DISABLE** |**ENABLE**} _element_[$][,**ERR=**_stmtref_]  
-8\. _Remove Menu Bar_ _:_ |  **MENU_BAR REMOVE**[,**ERR=**_stmtref_]  
+ 2.  _Read Selected Item_ _:_ |  **MENU_BAR READ** _var_ _$_[,**ERR=**_stmtref_]  
+ 3.  _Clear Menu Bar_ _:_ |  **MENU_BAR CLEAR**[,**ERR=**_stmtref_]  
+ 4.  _Restore Default Help:_ |  **MENU_BAR RESET**[,**ERR=**_stmtref_]  
+ 5.  _Set Focus_ _:_ |  **MENU_BAR GOTO**[,**ERR=**_stmtref_]  
+ 6.  _'Check'/'Uncheck' Item_ _:_ |  **MENU_BAR**{**ON** | **OFF**} _element_[$][,**ERR=**_stmtref_]  
+ 7.  _Disable/Enable Item_ _:_ |  **MENU_BAR** {**DISABLE** |**ENABLE**} _element_[$][,**ERR=**_stmtref_]  
+ 8.  _Remove Menu Bar_ _:_ |  **MENU_BAR REMOVE**[,**ERR=**_stmtref_]  
 _The following were added in PxPlus 2020:_  
-9\. _[Return Menu Bar Character Codes](menu_bar.htm#Mark22):_ |  **MENU_BAR FIND X$**  
+ 9.  _[Return Menu Bar Character Codes](menu_bar.htm#Mark22):_ |  **MENU_BAR FIND X$**  
 10\. _[Set Menu Bar Entries](menu_bar.htm#Mark23):_ |  **MENU_BAR LOAD X$**  
   
 **_Where:_**
@@ -54,7 +54,7 @@ Define the _menu_def_ _$_ of menu groups and elements and identify each item uni
 
 **_Example:_**
 
-The example below shows a menu string containing **File** and **Edit** , each with a sub-menu (**File:** **Open** , **Save** and **Quit** / **Edit:** **Add** and **Delete**). Each item has a shortcut key. **Quit** has both the shortcut key **(Q)** and a control ID value **(4)**.
+The example below shows a menu string containing **File** and **Edit** , each with a sub-menu (**File:**  **Open** , **Save** and **Quit** / **Edit:**  **Add** and **Delete**). Each item has a shortcut key. **Quit** has both the shortcut key **(Q)** and a control ID value **(4)**.
 
 > menu_bar 100,"-[&File,&Edit],F:[&Open,&Save,&Quit=4],E:[&Add,&Delete]"
 
@@ -94,7 +94,7 @@ For information on internal/external images and recognized image file types, see
 
 **_Inclusion of Special Characters_**
 
-If the text you want to include has any of the characters used to define the menu bar, which is **{, }** , **[,** **]** , **=** (_equals sign_), **&** (_ampersand_), **:** (_colon_) or **,** (_comma_), you will need to escape these characters with the backslash and put a backslash as the first character of the menu definition string.
+If the text you want to include has any of the characters used to define the menu bar, which is **{,  }**, **[,**  **]** , **=** (_equals sign_), **&** (_ampersand_), **:** (_colon_) or **,** (_comma_), you will need to escape these characters with the backslash and put a backslash as the first character of the menu definition string.
 
 **_Example:_**
 
@@ -123,7 +123,7 @@ This table lists the parameters that can be used:
 **HTEXT**(_arg_) |  Text color for hovered over menu items. Must be placed outside "[...]" menu definitions. _(The HTEXT parameter was added in PxPlus 2024.)_  
 **TEXT**(_arg_) |  Text color for the menu text. If placed outside "[...]" menu definitions, it will serve as the default text color for all menu text. If placed within "[...]" separated from the menu item with an **=** (_equals sign_), it will be considered the text color associated with a specific menu item. _(The TEXT parameter was added in PxPlus 2024.)_  
   
-**_Apply Color to Top Menu_**
+**_Apply Color to Top Menu_** 
 
 If the first character of the menu definition is an **!** (_exclamation_ _point_), or a first or second character of **-** (_dash_) is also specified, then the specified colors will also be applied to the top level menu (the horizontal menu at the top of the window).
 
@@ -157,7 +157,7 @@ _(Support to allow more control when applying top-level menu colors was added in
 
 **MENU_BAR READ** _var_ _$_[,**ERR=**_stmtref_]
 
-When a user selects any of the items from a menu bar, PxPlus generates the _ctl_id_ __ you assigned to the menu bar.
+When a user selects any of the items from a menu bar, PxPlus generates the _ctl_id_ _ _ you assigned to the menu bar.
 
 You can return the selected CTL value in a string variable by using the **MENU_BAR READ** directive. A program does not receive the CTL value for the menu item the user has chosen until it is read.
 
@@ -261,3 +261,9 @@ This format sets the enabled/disabled and optionally the _On_ /_Off_ status of m
 > menu_bar load "M:D,B:E,BP:EC"
 
 _(The MENU_BAR LOAD format was added in PxPlus 2020.)_
+
+ 
+
+ 
+
+ 

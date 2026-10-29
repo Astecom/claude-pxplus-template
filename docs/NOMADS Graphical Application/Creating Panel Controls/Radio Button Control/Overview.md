@@ -1,6 +1,6 @@
 # Creating Panel Controls
 
-**Radio Button Control** |  **__**  
+**Radio Button Control** |  **_ _**  
 ---|---  
   
 Radio Buttons are laid out in a group of one or more related button controls, each representing one possible value for the variable the group represents. Only one button can be active at a time; i.e. when one Radio Button is selected, no other buttons in the group are selected.
@@ -11,7 +11,7 @@ For more information on this control type, see **[RADIO_BUTTON](../../../directi
 
 To draw a new Radio Button on your panel, select the Radio Button control tool from the **[Controls Toolbar](../../Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Controls%20Toolbox.md)**. Hold down the left-mouse button and drag the mouse to create a rectangle to the desired size. Release the mouse button to create the new object. You can also include text and/or pictures on Radio Buttons.
 
-You can copy the first Radio Button to create identical Radio Buttons for the group (see **[Duplicating Components](../../Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Modifying%20Objects.htm#Duplicating_Components)**). Unlike other controls, a group of Radio Buttons **_must_** share the same name. When defining Radio Buttons, use the same control name but apply a **_different_ [Index Value](Overview.htm#value)** for each of the Radio Buttons in the group. In addition, only one button in a group can have the **[Tab Stop Attribute](Overview.htm#attributes)** set.
+You can copy the first Radio Button to create identical Radio Buttons for the group (see **[Duplicating Components](../../Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Modifying%20Objects.htm#Duplicating_Components)**). Unlike other controls, a group of Radio Buttons **_must_** share the same name. When defining Radio Buttons, use the same control name but apply a **_different_  [Index Value](Overview.htm#value)** for each of the Radio Buttons in the group. In addition, only one button in a group can have the **[Tab Stop Attribute](Overview.htm#attributes)** set.
 
 **_Example:_**
 
@@ -29,7 +29,7 @@ When creating or editing a _Radio Button_ control, the **Radio Button Properties
 
 _Name_ |  Radio Button name (NOMADS provides a default). Naming conventions for variables apply. Click the Browse Library button to copy parameters from an existing object (via the **[Library Browse](../../Panel%20Designer/Drawing%20and%20Modifying%20Panel%20Objects/Library%20Browse.md)** dialogue). The same name is used for each Radio Button in the group; however, each requires a different **[Index Value](Overview.htm#value)**.
 
-#### **Note:**  
+#### **Note:**   
 When a new control name is entered, it will be checked against the **[Reserved Words](../../../Reserved%20Words.md)** list to determine if it is restricted for use as a NOMADS control name. If it is found, a warning message will display.  
   
 _(User Reserved Words Maintenance was added in PxPlus 2020.)_  
@@ -49,7 +49,7 @@ _Top, Bottom_ and _Center/Scale_ alignments and the _Scale bitmap_ option only w
   
 _(The Center/Scale alignment and Scale bitmap options were added in PxPlus 2019_ _Update 1_ _.)_  
   
-**Image Options** |  **_(Available when Bitmaps for Normal/Pushed are selected)_** Sets advanced image options for the bitmap. Click the Additional Image Options button to the right of the **Image Options** multi-line to invoke the **Image Options** dialogue. This dialogue consists of the following: |  **Options** |  |  _Image Transparency_ |  Bitmap transparency option. Click the drop-down arrow for a list of selections: _None, Pixel sets transparency_ or _'Light Gray' is transparent_.  
+**Image Options** |  **_(Available when Bitmaps for Normal/Pushed are selected)_** Sets advanced image options for the bitmap. Click the Additional Image Options button to the right of the **Image Options** multi-line to invoke the **Image Options** dialogue.      This dialogue consists of the following: |  **Options** |  |  _Image Transparency_ |  Bitmap transparency option. Click the drop-down arrow for a list of selections: _None, Pixel sets transparency_ or _'Light Gray' is transparent_.  
 ---|---  
 _Flip Image_ |  Flips the image. Click the drop-down arrow for a list of selections: _None, Flip horizontally (left/right), Flip vertically (up/down)_ or _Flip horizontally and vertically_.  
 _Rotation Angle_ |  Counter clockwise rotation angle at which to display the image. Valid entries are 0 to 359.  
@@ -84,13 +84,10 @@ Size_ |  Click the drop-down arrow for a list of selections.
 **Color** |  |  _Foreground  
 Background_ |  Click the Query button to access **[Color Selections](../../Appendix/Color%20Selections.md)**. Valid formats for color selections include predefined system colors (e.g. Light Red), Custom (RGB codes), HTML Hex Color Codes, User Defined colors (e.g. Color17) and string Expressions.  
 ---|---  
-**Color** |  |  _Foreground  
-Background_ |  Click the Query button to access **[Color Selections](../../Appendix/Color%20Selections.md)**. Valid formats for color selections include predefined system colors (e.g. Light Red), Custom (RGB codes), HTML Hex Color Codes, User Defined colors (e.g. Color17) and string Expressions.  
----|---  
   
 _(The Color Selections Query button and dialog were added in PxPlus 2020.)_
 
-#### **Note:**  
+#### **Note:**   
 If a background color has been assigned to a transparent button, the background color will be ignored.  
   
 _(Transparency precedence for buttons with background colors was added in PxPlus 2019 Update 1.)_  
@@ -122,11 +119,14 @@ _Transparent_ |  Button is transparent; i.e. the window contents behind the butt
 Setting a background color is not compatible with transparency. If a background color is specified, it will be ignored.  
   
 _Drop-List Button_ |  Extra button with an arrow bitmap is attached to the right of the main button. When the arrow bitmap button is clicked, the associated popup menu is displayed.  
-_Ignore Change Flag_ |  Select this check box when you do **_not_** want the NOMADS **[CHANGE_FLG](../../Appendix/NOMADS%20Variables/Overview.htm#reserved)** variable to be updated when the control value is changed.  
+_Ignore Change Flag_ |  Select this check box when you do **_not_** want the NOMADS **[CHANGE_FLG](../../Appendix/NOMADS%20Variables/Overview.htm#reserved)** variable to be updated when the control value is changed. _(The Ignore Change Flag property was added in PxPlus 2017.)_  
 _Signal Only (No Focus)_ |  PxPlus generates a CTL value but does not shift focus to the button automatically **_(Default)_** unless focus is explicitly passed.  
-  
-_(The Ignore Change Flag property was added in PxPlus 2017.)_  
-  
+_Button Corner Radius_ |  Sets the corner radius for a radio button only when it is drawn as a button, which occurs when a bitmap is added. Works only in **4D** mode. When no bitmap is added, this option is hidden. Possible values are _Null_ (_blank_), _Round_ , _Square_ or a value from 0 to 255 inclusive. See **[CornerRadius$](../../../control_object_properties/radiobutton_properties.htm#cornerradius)** property. **_Example:_** Button Corner Radius set to **Round** :    Button Corner Radius set to **Square** :    Button Corner Radius set to a value of **10** :   
+
+#### **Note:**  
+Corner rounding is limited based on the control type and/or the control size.
+
+_(The Button Corner Radius property was added in PxPlus 2026.)_  
 **User-Defined Tag Field** |  **_(Accessible via Index Value 1 Only)_** For controls, data/tag field which can be used to pass information on such things as formatting, error messages or validation rules. Field contents are placed in a variable using the control name with a .TAG$ extension.  
 **Value**  
 **Values** |  |  _Index Value_ |  Unique individual index. Integer, range from 1 to 127. Used in applications to identify which Radio Button the user selects.  
@@ -152,9 +152,10 @@ _Test_ |  Tests the current help settings.
 #### **Note:**  
 The **Floating Tip** drop box and multi-line input cannot be changed once an **[HTML](../Defining%20an%20Info%20Tip.htm#tiptype)** tip has been defined.
 
-**_NOMADS Wiki Help_** The floating tip text can be used when displaying the **[Wiki Help](../../System%20Maintenance%20Tools/Nomads%20Wiki%20Help.md)**. Info tips, however, are not supported and will be ignored. _(Support for customizing Floating Tips was added in PxPlus 2016.)  
+**_NOMADS Wiki Help_ __** The floating tip text can be used when displaying the **[Wiki Help](../../System%20Maintenance%20Tools/Nomads%20Wiki%20Help.md)**. Info tips, however, are not supported and will be ignored. _(Support for customizing Floating Tips was added in PxPlus 2016.)  
 (Support for the use of Floating Tip text in the Wiki Help was added in PxPlus 2023.)_  
 **Message Bar** |  Text to be displayed in the panel's status bar when focus is on the control (_Fixed_ value, string _Expression_ or _Message Library Reference_).  
+   
 _Security_ |  Security restrictions. See **[Restricting Access](../../System%20Maintenance%20Tools/Security%20Manager/Restricting%20Access.md)** for information on **Object Security Definition**.  
 _Groups_ |  Assign the control to a group. See **[Group Assignment](../../NOMADS%20Development/Maintaining%20Library%20Objects/Group%20Assignment.md)**.  
 _Popup Menu_ |  Associate a popup menu that will appear when you right-click the mouse over the selected control. See **[Popup Menu](../Popup%20Menu/Overview.md)**.  
@@ -164,3 +165,9 @@ _Notes_ |  Add notes/comments for the control. Maximum 1024 characters. These no
 
 **[RADIO_BUTTON Properties](../../../control_object_properties/radiobutton_properties.md)**  
 **[RADIO_BUTTON Directive](../../../directives/radio_button.htm#Mark3)**
+
+ 
+
+ 
+
+ 

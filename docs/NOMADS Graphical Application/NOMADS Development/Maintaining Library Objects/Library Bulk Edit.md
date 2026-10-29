@@ -32,15 +32,15 @@ The **Library Bulk Edit and Search** utility is displayed. Below is a sample ent
 
 _Type_ |  Select _Library_ to specify the pathname of a particular library file. _(**Default:** Library)_ Select _Directory_ to specify the pathname of a particular directory in which the library files are located. If accessing this utility from the **[PxPlus IDE Main Launcher](../../../PxPlus%20IDE/IDE%20Main%20Launcher.md)** or **[NOMADS Session Manager](../Getting%20Started.htm#sessionmgr)**: Enter the pathname of the library file or directory in the adjacent input control or click the Query button. If accessing this utility from **[NOMADS Library Object Selection](../Library%20Object%20Selection/Overview.md)**: The _Type_ drop box defaults to _Library_ , and the pathname of the current library file is displayed in the adjacent input control. (Both are set to _view only_.)  
 ---|---  
-_Search Library_ |  Button that invokes a **Search** window for defining filter criteria to search the records in the selected library file. This window consists of the following: |  **File** |  **_(Display Only)_** Full pathname of the selected file.  
+_Search Library_ |  Button that invokes a **Search** window for defining filter criteria to search the records in the selected library file.      This window consists of the following: |  **File** |  **_(Display Only)_** Full pathname of the selected file.  
 ---|---  
-**Filter** |  **_(Optional)_** Filter options used to define the search criteria. |  _Expression_ |  Select this check box to enter an expression as the filter value in the multi-line input. If the expression evaluates to 1 (true), the records are loaded into the list box. **_Examples:_** _Example 1_ \- Find all Multi-Line controls with the Locked attribute set: _OBJ_TYPE$="M" and POS("L"=_OBJ_STS$) _Example 2_ \- Find all Fonted Text controls that do not have the "TEST" Visual Class: _OBJ_TYPE$="F" and NOT(UCS(_OBJ_VISUAL_CLASS$)="TEST") _Example 3_ \- Find all dialog or window panels with a height greater than or equal to 35: POS(_OBJ_TYPE$="DW") and _OBJ_H>=35
+**Filter** |  **_(Optional)_** Filter options used to define the search criteria. |  _Expression_ |  Select this check box to enter an expression as the filter value in the multi-line input. If the expression evaluates to 1 (true), the records are loaded into the list box. **_Examples:_** _Example 1_ \- Find all Multi-Line controls with the Locked attribute set:      _OBJ_TYPE$="M" and POS("L"=_OBJ_STS$) _Example 2_ \- Find all Fonted Text controls that do not have the "TEST" Visual Class:      _OBJ_TYPE$="F" and NOT(UCS(_OBJ_VISUAL_CLASS$)="TEST") _Example 3_ \- Find all dialog or window panels with a height greater than or equal to 35:      POS(_OBJ_TYPE$="DW") and _OBJ_H>=35
 
 #### **Note:**  
 When the _Expression_ check box is selected, the _Regular Expression_ , _Case-Sensitive_ and _Is Not_ check boxes are disabled.  
   
 ---|---  
-_Regular Expression_ |  Select this check box to enter a regular expression as the filter value in the multi-line input. This value will be used as the _mask$_ parameter in the **[MSK( )](../../../functions/msk.md)** function (along with the entire record string as the _string$_ parameter). If the **MSK( )** function evaluates to 1 (true), the records are loaded into the list box. **_Examples:_** _Example 1_ \- Find any records containing BUTTON_ or BT_ (this may find all button controls if naming convention starts control names with BUTTON_ or BT_): BUTTON_**|** BT_ _Example 2_ \- Find any records containing Hex code 01 ($01$): \x01
+_Regular Expression_ |  Select this check box to enter a regular expression as the filter value in the multi-line input. This value will be used as the _mask$_ parameter in the **[MSK( )](../../../functions/msk.md)** function (along with the entire record string as the _string$_ parameter). If the **MSK( )** function evaluates to 1 (true), the records are loaded into the list box. **_Examples:_** _Example 1_ \- Find any records containing BUTTON_ or BT_ (this may find all button controls if naming convention starts control names with BUTTON_ or BT_):      BUTTON_**|** BT_ _Example 2_ \- Find any records containing Hex code 01 ($01$):      \x01
 
 #### **Note:**  
 When the _Regular Expression_ check box is selected, the _Expression_ , _Case-Sensitive_ and _Is Not_ check boxes are disabled.  
@@ -49,7 +49,7 @@ _Case-Sensitive_ |  **_(Available when Expression check box is not selected)_** 
 _Is Not_ |  **_(Available when Expression check box is not selected)_** Select this check box if you want the search to exclude records in which the filter value was found. (By default, this check box is not selected.)  
 _(Multi-line input)_ |  Used for entering a free-form filter value. If either the _Expression_ or _Regular Expression_ check box is selected, enter an expression. If the filter value is case-sensitive, select the _Case-Sensitive_ check box.  
 _Search_ |  Launches the search process for the specified criteria. If matches are found, the list box will be populated with records matching the search criteria. If no matches are found, the list box will be blank and a message will display.  
-_Customize_ |  Launches the **Customize Search** window for selecting (or deselecting) the columns to display in the Search list box based on any variables in the library file IOList. The _Key_ value is always displayed in the first column. By default, the __obj_nme$_ , __obj_type$_ and __init_val$_ variables display in the subsequent columns. _(The Customize button was added in PxPlus 2024.)_ This window consists of the following: |  _Select/Deselect All_ |  Check box that is used to either select or deselect all the check boxes (in the _Select_ column) beside the listed variables.  
+_Customize_ |  Launches the **Customize Search** window for selecting (or deselecting) the columns to display in the Search list box based on any variables in the library file IOList. The _Key_ value is always displayed in the first column. By default, the __obj_nme$_ , __obj_type$_ and __init_val$_ variables display in the subsequent columns. _(The Customize button was added in PxPlus 2024.)_      This window consists of the following: |  _Select/Deselect All_ |  Check box that is used to either select or deselect all the check boxes (in the _Select_ column) beside the listed variables.  
 ---|---  
 _(Variables Grid)_ |  Lists all the variables in the library file IOList. Variables that display in the Search list box by default will show the _Select_ check box as checked. To select (or deselect) variables, click the _Select_ check box beside individual variables or use the _Select/Deselect All_ check box.  
 _OK_ |  Exits the **Customize Search** window and updates the columns in the Searc**h** list box based on the selected variables. If no variables were selected, the Search list box will display four columns for the _Key_ and the defaulted variables.  
@@ -61,7 +61,7 @@ _List Options_ |  Invokes the **[List Box and Grid System Popup Menu](../../Crea
   
 _(The Search list box right click popup menu was added in PxPlus 2024.)_  
   
-_Details_ |  If matching records are found, click on a record inside the list box and then click the _Details_ button to invoke the **Record Details** window. This concurrent window displays the details for the selected record and stays open when another record in the list box is selected for viewing. Double clicking on a record also invokes this window. The columns in the **Record Details** window can be sorted in ascending/descending order by clicking on the column headings.  
+_Details_ |  If matching records are found, click on a record inside the list box and then click the _Details_ button to invoke the **Record Details** window. This concurrent window displays the details for the selected record and stays open when another record in the list box is selected for viewing. Double clicking on a record also invokes this window. The columns in the **Record Details** window can be sorted in ascending/descending order by clicking on the column headings.       
 _Exit_ |  Closes the **Search** window.  
   
 #### **Note:**  
@@ -75,37 +75,37 @@ _Control Type_ |  Select the type of control. _(Default is All Controls.)_
 #### **Note:**  
 When a _Control Type_ is selected, the **Properties to Edit** grid is automatically loaded with a list of related properties.
 
-Available selections are listed alphabetically below (except for _Panel Header_ and _Library Defaults_ , which are listed last). Click the link for information about the control type. |  |  _All Controls_ |  **_(Default)_**  
+Available selections are listed alphabetically below (except for _Panel Header_ and _Library Defaults_ , which are listed last). Click the link for information about the control type. |    |  _All Controls_ |  **_(Default)_**  
 ---|---|---  
-|  _Button_ |  See **[Button Control](../../Creating%20Panel%20Controls/Button%20Control/Overview.md)**.  
-|  _Chart_ |  See **[Chart Control](../../Creating%20Panel%20Controls/Chart%20Control/Chart.md)**.  
-|  _Check Box_ |  See **[Check Box and Tri-State Control](../../Creating%20Panel%20Controls/Check%20Box%20and%20Tri-State%20Control/Overview.md)**.  
-|  _External Control_ |  See **[External Control](../../Creating%20Panel%20Controls/COM%20Control/COM%20Control.md)**.  
-|  _Drop Box_ |  See **[Drop Box Control](../../Creating%20Panel%20Controls/Drop%20Box%20Control/Drop%20Box%20Properties.md)**.  
-|  _Embedded Panel_ |  See **[Embedded Panels](../../Creating%20Panel%20Controls/Embedded%20Panels/Overview.md)**.  
-|  _Folder_ |  See **[Folder Controls](../../Creating%20Panel%20Controls/Folder%20Controls/Folder%20Properties.md)**.  
-|  _Fonted Text_ |  See **[Fonted/Fixed Text Control](../../Creating%20Panel%20Controls/Text%20Control/Text.md)**.  
-|  _Frame_ |  See **[Box/Frame Control](../../Creating%20Panel%20Controls/Frame%20Control/Frame.md)**.  
-|  _Grid_ |  See **[Grid Control](../../Creating%20Panel%20Controls/Grid%20Control/Grid%20Properties.md)**.  
-|  _Horizontal Scroll Bar_ |  See **[Scrollbar Controls](../../Creating%20Panel%20Controls/Scrollbar%20Controls/Overview.md)**.  
-|  _Image_ |  See **[Image/Picture Control](../../Creating%20Panel%20Controls/Image%20Control/Image.md)**.  
-|  _List Box_ |  See **[List Box Controls](../../Creating%20Panel%20Controls/List%20Box%20Controls/List%20Box%20Type.md)**.  
-|  _Multi Line_ |  See **[Multi-Line Control](../../Creating%20Panel%20Controls/Multi-Line%20Control/Multi-Line%20Properties.md)**.  
-|  _Radio Button_ |  See **[Radio Button Control](../../Creating%20Panel%20Controls/Radio%20Button%20Control/Overview.md)**.  
-|  _Shape_ |  See **[Shape Control](../../Creating%20Panel%20Controls/Shape%20Control/Shape.md)**.  
-|  _Text_ |  See **[Fonted/Fixed Text Control](../../Creating%20Panel%20Controls/Text%20Control/Text.md)**.  
-|  _Tristate Box_ |  See **[Check Box and Tri-State Control](../../Creating%20Panel%20Controls/Check%20Box%20and%20Tri-State%20Control/Overview.md)**.  
-|  _Variable Drop Box_ |  See **[Drop Box Control](../../Creating%20Panel%20Controls/Drop%20Box%20Control/Drop%20Box%20Properties.md)**.  
-|  _Variable List Box_ |  See **[List Box Controls](../../Creating%20Panel%20Controls/List%20Box%20Controls/List%20Box%20Type.md)**.  
-|  _Vertical Scroll Bar_ |  See **[Scrollbar Controls](../../Creating%20Panel%20Controls/Scrollbar%20Controls/Overview.md)**.  
-|  _Panel Header_ |  See **[Panel Header](../../Panel%20Designer/Panel%20Header/Overview.md)**.  
-|  _Library Defaults_ |  See **[Library Defaults](Library%20Defaults.md)**. _(The Library Defaults selection was added in PxPlus 2017 Update 0002.)_  
+  |  _Button_ |  See **[Button Control](../../Creating%20Panel%20Controls/Button%20Control/Overview.md)**.  
+  |  _Chart_ |  See **[Chart Control](../../Creating%20Panel%20Controls/Chart%20Control/Chart.md)**.  
+  |  _Check Box_ |  See **[Check Box and Tri-State Control](../../Creating%20Panel%20Controls/Check%20Box%20and%20Tri-State%20Control/Overview.md)**.  
+  |  _External Control_ |  See **[External Control](../../Creating%20Panel%20Controls/COM%20Control/COM%20Control.md)**.  
+  |  _Drop Box_ |  See **[Drop Box Control](../../Creating%20Panel%20Controls/Drop%20Box%20Control/Drop%20Box%20Properties.md)**.  
+  |  _Embedded Panel_ |  See **[Embedded Panels](../../Creating%20Panel%20Controls/Embedded%20Panels/Overview.md)**.  
+  |  _Folder_ |  See **[Folder Controls](../../Creating%20Panel%20Controls/Folder%20Controls/Folder%20Properties.md)**.  
+  |  _Fonted Text_ |  See **[Fonted/Fixed Text Control](../../Creating%20Panel%20Controls/Text%20Control/Text.md)**.  
+  |  _Frame_ |  See **[Box/Frame Control](../../Creating%20Panel%20Controls/Frame%20Control/Frame.md)**.  
+  |  _Grid_ |  See **[Grid Control](../../Creating%20Panel%20Controls/Grid%20Control/Grid%20Properties.md)**.  
+  |  _Horizontal Scroll Bar_ |  See **[Scrollbar Controls](../../Creating%20Panel%20Controls/Scrollbar%20Controls/Overview.md)**.  
+  |  _Image_ |  See **[Image/Picture Control](../../Creating%20Panel%20Controls/Image%20Control/Image.md)**.  
+  |  _List Box_ |  See **[List Box Controls](../../Creating%20Panel%20Controls/List%20Box%20Controls/List%20Box%20Type.md)**.  
+  |  _Multi Line_ |  See **[Multi-Line Control](../../Creating%20Panel%20Controls/Multi-Line%20Control/Multi-Line%20Properties.md)**.  
+  |  _Radio Button_ |  See **[Radio Button Control](../../Creating%20Panel%20Controls/Radio%20Button%20Control/Overview.md)**.  
+  |  _Shape_ |  See **[Shape Control](../../Creating%20Panel%20Controls/Shape%20Control/Shape.md)**.  
+  |  _Text_ |  See **[Fonted/Fixed Text Control](../../Creating%20Panel%20Controls/Text%20Control/Text.md)**.  
+  |  _Tristate Box_ |  See **[Check Box and Tri-State Control](../../Creating%20Panel%20Controls/Check%20Box%20and%20Tri-State%20Control/Overview.md)**.  
+  |  _Variable Drop Box_ |  See **[Drop Box Control](../../Creating%20Panel%20Controls/Drop%20Box%20Control/Drop%20Box%20Properties.md)**.  
+  |  _Variable List Box_ |  See **[List Box Controls](../../Creating%20Panel%20Controls/List%20Box%20Controls/List%20Box%20Type.md)**.  
+  |  _Vertical Scroll Bar_ |  See **[Scrollbar Controls](../../Creating%20Panel%20Controls/Scrollbar%20Controls/Overview.md)**.  
+  |  _Panel Header_ |  See **[Panel Header](../../Panel%20Designer/Panel%20Header/Overview.md)**.  
+  |  _Library Defaults_ |  See **[Library Defaults](Library%20Defaults.md)**. _(The Library Defaults selection was added in PxPlus 2017 Update 0002.)_  
 _Filter_ |  **_(Optional)_** The filter options below are used to further define the search criteria for filtering your selections. All the filter options are disabled when the selected _Control Type_ is _Library Defaults_.
 
 #### **Note:**  
 When a _Control Type_ is selected, the **Properties to Edit** grid is automatically loaded with a list of related properties.
 
-|  _Expression_ |  Select this check box to enter an expression as the filter value in the multi-line input. If the expression evaluates to 1 (true), the control(s) are loaded into the **Selected Controls** tree view list box.
+|  _Expression_ |  Select this check box to enter an expression as the filter value in the multi-line input. If the expression evaluates to 1 (true), the control(s) are loaded into the **Selected Controls**  tree view list box.
 
 #### **Note:**  
 When the _Expression_ check box is selected, the _Case-Sensitive_ and _Is Not_ check boxes are disabled.  
@@ -131,7 +131,7 @@ Fonted Text |  Selected |  N/A |  N/A |  NOT(UCS(_OBJ_VISUAL_CLASS$)="TEST") |  
 #### **Note:**  
 When the filter value entered is **_not_** an expression, **_all fields_** in the library file record will be searched. This could result in a larger than expected list of controls in the **Selected Controls** tree view list box, as the search will display all controls in which a filter value match was found.  
   
-You can try redefining your search criteria to narrow down the search results or exclude unwanted controls from the Library Bulk Edit process by not selecting them in the **Selected Controls** tree view list box.  
+You can try redefining your search criteria to narrow down the search results or exclude unwanted controls from the Library Bulk Edit process by not selecting them in the **Selected Controls**  tree view list box.  
   
 _Find Controls_ |  Button that launches the search process for filtering your selections. If the search process is expected to take several minutes, an _Abort Load_ button will display in the **Selected Controls** list box. Clicking this button halts the search process but does **_not_** clear the selection criteria or any property changes entered in the **Properties to Edit** grid. This allows any necessary modifications to be made before launching another search. _(The Abort Load button was added in PxPlus 2018 Update 0001.)_ If matches are found, the **Selected Controls** tree view list box will be populated with controls matching your search criteria. If no matches are found, the **Selected Controls** tree view list box will be blank and a message will display. _(The Search button was renamed to Find Controls in PxPlus 2023 Update 1.)_  
 **Selected Controls** |  Tree view list box that is used to display a list of controls that match the search criteria, if any are found. Use this list to select the controls to which the properties changes will be applied. See **[Selected Controls](Library%20Bulk%20Edit.htm#controls)**.  
@@ -199,7 +199,7 @@ The same properties changes can be consecutively applied to controls in other li
 
 > This grid consists of the following:
 
-_Property_ |  Lists the properties for the selected _Control Type_. If _Control Type_ is a specific type (i.e. Button, Check Box, etc.), the grid is loaded with the properties for that control. Position the mouse pointer over the property name to display a floating tip with the variable name. _(The floating tip with the variable name was added in PxPlus 2018.)_ If _Control Type_ is _All Controls_ , the grid is loaded with all properties for **_all_** control types; however, not all properties apply to every control. To find out which controls use a particular property, position the mouse pointer over the property name to display a floating tip with a list of applicable controls. If _Control Type_ is _Panel Header_ , the grid is loaded with **[Panel Header](../../Panel%20Designer/Panel%20Header/Overview.htm#properties)** properties. Position the mouse pointer over the property name to display a floating tip with the variable name. _(The floating tip with the variable name was added in PxPlus 2018.)_ If _Control Type_ is _Library Defaults_ , the grid is loaded with properties found in **[Library Defaults](Library%20Defaults.md)**. Position the mouse pointer over the property name to display a floating tip with the variable name. _(The floating tip with the variable name was added in PxPlus 2018.)_ The properties are grouped into categories and sorted alphabetically within each group by default. These categories can be expanded/collapsed by clicking the **+**_(plus)_ or **-**  _(minus)_ button adjacent to the category name. By default, the categories are displayed in the following order: _Name/Type, Events, Coordinates, Display, Attributes, Colors, Font, User Aids, Other_. Only the categories that apply to the selected _Control Type_ are displayed. |  _Name/Type_ |  **_(Available When Control Type is Check Box, Drop Box, List Box, Multi-Line, Tristate Box, Variable Drop Box or Variable List Box)_**  
+_Property_ |  Lists the properties for the selected _Control Type_. If _Control Type_ is a specific type (i.e. Button, Check Box, etc.), the grid is loaded with the properties for that control. Position the mouse pointer over the property name to display a floating tip with the variable name. _(The floating tip with the variable name was added in PxPlus 2018.)_ If _Control Type_ is _All Controls_ , the grid is loaded with all properties for **_all_** control types; however, not all properties apply to every control. To find out which controls use a particular property, position the mouse pointer over the property name to display a floating tip with a list of applicable controls. If _Control Type_ is _Panel Header_ , the grid is loaded with **[Panel Header](../../Panel%20Designer/Panel%20Header/Overview.htm#properties)** properties. Position the mouse pointer over the property name to display a floating tip with the variable name. _(The floating tip with the variable name was added in PxPlus 2018.)_ If _Control Type_ is _Library Defaults_ , the grid is loaded with properties found in **[Library Defaults](Library%20Defaults.md)**. Position the mouse pointer over the property name to display a floating tip with the variable name. _(The floating tip with the variable name was added in PxPlus 2018.)_ The properties are grouped into categories and sorted alphabetically within each group by default. These categories can be expanded/collapsed by clicking the **+**_(plus)_ or **-**  _(minus)_ button adjacent to the category name. By default, the categories are displayed in the following order: _Name/Type, Events, Coordinates, Display, Attributes, Colors, Font, User Aids, Other_. Only the categories that apply to the selected _Control Type_  are displayed. |  _Name/Type_ |  **_(Available When Control Type is Check Box, Drop Box, List Box, Multi-Line, Tristate Box, Variable Drop Box or Variable List Box)_**  
   
 Used to apply and reapply **[Data Classes](../../../Data%20Dictionary/Data%20Classes/Overview.md)** to applicable control types. See **[Applying Data Classes](Library%20Bulk%20Edit.htm#dataclasses)**.  
   
@@ -228,11 +228,11 @@ Select the _Data Class_ (three-dotted) button to launch the **Data Class Options
 
 > This dialog allows you to:
 
-|  Reapply the current data class assigned to a control _As is_ to update control properties with the current information in the data class. With the _As is_ check box selected, click the _Reapply Class_ check box, and then click _OK_.  
+ |  Reapply the current data class assigned to a control _As is_ to update control properties with the current information in the data class. With the _As is_ check box selected, click the _Reapply Class_ check box, and then click _OK_.  
 ---|---  
-|  Choose an _existing_ data class to be applied. Deselect the _As is_ check box. In the _Class_ field, enter an existing data class by using the Query button (binoculars) or typing a valid data class name.  
-|  Create a _new_ data class on-the-fly (either dynamic or not dynamic) to be applied. Deselect the _As is_ check box. In the _Class_ field, enter a new data class name and respond _Yes_ to the displayed message, which launches **[Data Class Definitions](../../../Data%20Dictionary/Data%20Classes/Overview.htm#Mark1)** maintenance.  
-|  Clear the current data class assigned to a control. Deselect the _As is_ check box and leave the _Class_ field blank. When the _Apply_ button is selected, the data class will be cleared from selected controls.  
+ |  Choose an _existing_ data class to be applied. Deselect the _As is_ check box. In the _Class_ field, enter an existing data class by using the Query button (binoculars) or typing a valid data class name.  
+ |  Create a _new_ data class on-the-fly (either dynamic or not dynamic) to be applied. Deselect the _As is_ check box. In the _Class_ field, enter a new data class name and respond _Yes_ to the displayed message, which launches **[Data Class Definitions](../../../Data%20Dictionary/Data%20Classes/Overview.htm#Mark1)** maintenance.  
+ |  Clear the current data class assigned to a control. Deselect the _As is_ check box and leave the _Class_ field blank. When the _Apply_ button is selected, the data class will be cleared from selected controls.  
   
 If a data class (either dynamic or not dynamic) is selected in the **Data Class Options** dialog, individual control properties in the **Properties to Edit** grid can be manually changed to _Dynamic_ (or a different setting) and then applied to selected controls. See **[Dynamic Control Properties](../../../Data%20Dictionary/Data%20Classes/Dynamic.md)**.
 
@@ -242,10 +242,10 @@ _(Support for applying data classes was added in PxPlus 2018 Update 0001.)_
 
 Once you have selected the controls to edit (in the **[Selected Controls](Library%20Bulk%20Edit.htm#controls)** tree view list box) and have edited the properties (in the **[Properties to Edit](Library%20Bulk%20Edit.htm#properties)** grid), you are now ready to process the changes. To do this, use either of the following options:
 
-|  Click the _Apply_ button to apply the changes and keep the utility open to make any additional changes (i.e. for a different library or directory).  
+ |  Click the _Apply_ button to apply the changes and keep the utility open to make any additional changes (i.e. for a different library or directory).  
 ---|---  
-|  **_OR_**  
-|  Click the _OK_ button to apply the changes and close the utility.  
+  |  **_OR_**  
+ |  Click the _OK_ button to apply the changes and close the utility.  
   
 To verify that the properties have been changed, access the library/panel using the **[NOMADS Panel Designer](../../Panel%20Designer/Introduction.md)**, which can be invoked from the right-click popup menu within the **[Selected Controls](Library%20Bulk%20Edit.htm#treeview)** tree view.
 
@@ -253,3 +253,9 @@ To verify that the properties have been changed, access the library/panel using 
 
 **[Panel Bulk Edit Utility](../../Panel%20Designer/Options%20and%20Utilities/Bulk%20Edit%20Utility.md)**  
 **[NOMADS Library Variables](../../../appendix/Nomads%20Library%20Variables.md)**
+
+ 
+
+ 
+
+ 

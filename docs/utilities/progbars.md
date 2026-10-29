@@ -1,4 +1,4 @@
-# Utility Routines
+# Utilities
 
 ***PROGBAR** |  **_Progress Bar Display_**  
 ---|---  
@@ -13,10 +13,10 @@ _(The updated appearance of the progress bar and the ability to customize the pr
 
 ## Invocation
 
-_Initialization:_ |  **CALL "*progbar;Init"** , _title$_ , _barsize_ , **[** , _column_ ,  _row_ , _options$_ , _ctlno_ __**]**  
+_Initialization:_ |  **CALL "*progbar;Init"**, _title$_ , _barsize_ , **[** , _column_ , _row_ , _options$_ , _ctlno_ _ _**]**  
 ---|---  
-_Advance Bar:_ |  **CALL "*progbar;Update"** [, **ERR=**_stmtref_], _text$_ **[** , _image$_ **]**  
-_Show % Complete:_ |  **CALL "*progbar;Update_percent"** [, **ERR=**_stmtref_], _text$_ , _percent_ , **[** , _image$_ **]**  
+_Advance Bar:_ |  **CALL "*progbar;Update"** [, **ERR=**_stmtref_], _text$_  **[** , _image$_  **]**  
+_Show % Complete:_ |  **CALL "*progbar;Update_percent"** [, **ERR=**_stmtref_], _text$_ , _percent_ , **[** , _image$_  **]**  
 _Wrapup_ _:_ |  **CALL "*progbar;Wrap_up"**  
   
 **_Where:_**
@@ -62,3 +62,9 @@ If this program exists, the **Init** , **Update** , **Update_percent** and **Wra
 
 #### **Note:**  
 A ***plus/progbar** program is also available, which functions the same as ***progbar** but does not have the ability to pass an image (_image$_ parameter).
+
+ 
+
+ 
+
+ 

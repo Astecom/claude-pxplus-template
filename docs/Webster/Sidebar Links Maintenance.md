@@ -11,9 +11,12 @@ To run the **Links Maintenance** utility, select **Links** from the top menu of 
 
 _Text_ |  Text to display for the link. This should be no more than 12-15 characters (dependent on the font size). Use three dashes (i.e. minus signs) to denote a solid line separator (the rest of the link definition in that row will be ignored).  
 ---|---  
-_Security Group_ |  Security group required to display the link. A drop box with all the known groups in the system will be provided, along with two auto-generated options: |  _Any_ |  Indicates as long as the user is signed on and belongs to a group.  
+_Security Group_ |  Security group required to display the link. A drop box with all the known groups in the system will be provided, along with two auto-generated options: |  _Any_ |  No security is enabled. Anyone can access.  
 ---|---  
-_Not On_ |  Indicates only show when not signed on.  
+_Not on_ |  Only show when not signed on.  
+_Admin_ |  Only show for Admin users.  
+_Dev_ |  Only show for Dev users.  
+_Guest_ |  Only show for Guest users. When users sign up, they are automatically set up as a Guest.  
 _Window_ |  The targeted window/tab in which to display the link. Select one of the following values: |  _New_ |  Link output will display in a new tab (default, if not set).  
 ---|---  
 _Same_ |  Link output replaces current window contents.  
@@ -40,4 +43,10 @@ _Drag_ |  The triple bar symbol can be used to drag the line up/down in the grid
 _Del_ |  The trash can symbol can be clicked to delete a row. The delete logic fades the line out over the course of a couple of seconds during which time clicking again on the row will cancel the deletion.  
 _Reload_ |  Click this icon in the page to restore the values in the grid to the previously saved contents.  
 _Save_ |  Click this button to record the Sidebar entries.  
-_Restore to Default_ |  Click this button to load the grid with the original system default links (shown above).
+_Restore to Default_ |  Click this button to load the grid with the original system default links (shown above).  
+  
+ 
+
+ 
+
+ 

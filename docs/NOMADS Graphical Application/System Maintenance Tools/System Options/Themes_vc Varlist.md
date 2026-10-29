@@ -22,11 +22,16 @@ _Focus Text Color_ |  Text color when the control has focus. _(Focus Text Color 
 **Font**  
 _Font_ |  Click the dotted Query button or double click inside the cell to specify font properties and attributes such as _Bold_ , _Italics_ , etc. See **[Font Properties](Font%20Properties.md)**. _(The Use 'Font Name' only check box option was added in PxPlus 2025.)_  
 **Other**  
-_iNomads Class_ |  Assign an iNomads class to the control. The iNomads class contains class attribute references used when defining the control in the HTML code generated in iNomads. An iNomads class reference must start with an alpha character (A-Z or a-z), followed by any combination of A-Z, a-z, 0-9, underscore or dash. Multiple references may be entered, separated by a space. For a list of pre-defined classes, see [**iNomads Classes**](../../../iNOMADS/iNomads%20Classes.md). _(iNomads Class property was added in PxPlus 2020.)_  
-| |   
+_iNomads_ _Class_ |  Assign an iNomads class to the control. The iNomads class contains class attribute references used when defining the control in the HTML code generated in iNomads. An iNomads class reference must start with an alpha character (A-Z or a-z), followed by any combination of A-Z, a-z, 0-9, underscore or dash. Multiple references may be entered, separated by a space. For a list of pre-defined classes, see [**iNomads Classes**](../../../iNOMADS/iNomads%20Classes.md). _(iNomads Class property was added in PxPlus 2020.)_  
   
 ## See Also
 
 **[List_Box Properties](Themes_vc%20Listbx.md)  
 [Themes](Themes.md)**  
 **[Visual Classes](Visual%20Classes.md)**
+
+ 
+
+ 
+
+ 
