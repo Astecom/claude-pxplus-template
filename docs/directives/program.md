@@ -7,7 +7,7 @@
 
 1. |  _Create Program File:_ |  **PROGRAM** _filename$_[,_prog_size_][,**ERR=**_stmtref_]  
 ---|---|---  
-2. |  _[Assign Default Program (OOP)](program.htm#Mark6):_ |  **PROGRAM** _"interface_prog"_  
+2. |  _[Assign Default Program (OOP)](program.htm#Mark6):_ |  **PROGRAM** _ "interface_prog"_  
   
 **_Where_** _:_
 
@@ -24,7 +24,7 @@ The **PROGRAM** directive can be used to create a program file or it can be used
 ##  Format 1
 
 **_Create Program File_**  
-  
+   
 **PROGRAM** _filename$_**[** ,_prog_ __size_][,**ERR=**_stmtref_**]**
 
 This format of the **PROGRAM** directive is used to create a PxPlus program file. The file size is for documentation purposes only and is ignored by the system.
@@ -38,14 +38,14 @@ Program files have a special header format indicating that the file contains PxP
 If a given filename already exists, PxPlus returns an Error #12: File does not exist (or already exists).
 
 #### **Note:  
-** WindX in PxPlus supports the use of this directive via the [WDX] or [LCL] tags; e.g. PROGRAM "[WDX]somefile.ext". Non-PxPlus versions require you to encapsulate the command in an EXECUTE directive with a [WDX] tag (i.e. EXECUTE "[WDX]..."). See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.htm) or **[[LCL] Access to Users Local Machine](../command_tags/lcl.htm)**.
+** WindX in PxPlus supports the use of this directive via the [WDX] or [LCL] tags; e.g. PROGRAM "[WDX]somefile.ext". Non-PxPlus versions require you to encapsulate the command in an EXECUTE directive with a [WDX] tag (i.e. EXECUTE "[WDX]..."). See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.md) or **[[LCL] Access to Users Local Machine](../command_tags/lcl.md)**.
 
 ##  Format 2
 
 **_Assign Default Program in Object-Oriented Programming_**  
-  
-**PROGRAM** _"interface_prog"_  
-  
+   
+**PROGRAM** _ "interface_prog"_  
+   
 In Object Oriented Programming, the **PROGRAM** directive is used to define the default program name that is going to service an object. This can be used to override the program that contains the **DEF CLASS**.
 
 If this clause is specified for an object class:
@@ -79,6 +79,8 @@ The following class definitions are effectively the same:
 **[NEW( ) Create New Object](../functions/new.md)**  
 **[REF( ) Control Reference Count](../functions/ref.md)**
 
-****
+** **
 
-****
+** **
+
+ 

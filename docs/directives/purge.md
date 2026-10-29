@@ -20,7 +20,7 @@ Use the **PURGE** directive to erase all data from a given file number. Before y
 Using **PURGE** (or **REFILE**) is faster than deleting the file and recreating it.
 
 #### **Note:**  
-Under WindX, you can use EXECUTE "[WDX]..." to encapsulate a directive that is not supported across a WindX connection. See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.htm).
+Under WindX, you can use EXECUTE "[WDX]..." to encapsulate a directive that is not supported across a WindX connection. See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.md).
 
 ## Multi-Segment Files
 
@@ -40,3 +40,9 @@ open (2)"PRNTFL"
 lock (2)  
 purge (2)  
 write (2)tim,day
+
+ 
+
+ 
+
+ 

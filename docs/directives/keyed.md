@@ -5,7 +5,7 @@
   
 ##  Format
 
-**KEYED** _filename$_ ,[,_extkey_len_][,_key_def$_][,_max_recs_[,_rec_size_]][_,fileopt_]
+**KEYED** _filename$,[_ ,_extkey_len][_ ,_key_def$][_ ,_max_recs_[,_rec_ __size_]][_,fileopt_]
 
 **_Where:_**
 
@@ -14,8 +14,8 @@ _filename$_ |  Name of the Keyed file to create. String expression.
 _extkey_len_ |  Numeric expression. Length of the external key for all records in the file.  
 _key_def_ _$_ |  String expression defining the key. The Keyed file can be single or multi-keyed. A key definition is made up of one or more key field definitions ranging from 0 to 15 for FLR/VLR files or 0 to 255 for EFF files. Use integers for specific field numbers, 0 (zero for record-based offsets) or KEY to reference a value based on an external key. The key definition formats are as follows: |  **_Single Key Field:_** |  **[**["_keyname_ _"_**:**]_field_**:**_offset_**:**_len_[**:** "_attr_ "] **]**  
 ---|---  
-**_Composite Key Fields (Using the + Operator):_** |  **[**[_"keyname"_**:**]_field_**:**_offset_**:**_len_[**:**_"attr"_] ]**_+_**[_field_**:**_offset_**:**_len_[**:**_"attr"_] **]**  
-**_Multi-Keyed Alternate Key Fields are Comma-Delimited:_** |  **[**[_"keyname"_**:**]_field_**:**_offset_**:**_len_[**:**_"attr"_] ]**_,_**[[_"keyname"_**:**]_field_**:**_offset_**:**_len_[**:**_"attr"_] **]**  
+**_Composite Key Fields (Using the + Operator):_** |  **[**[_" keyname"_**:**]_field_**:**_offset_**:**_len_[**:**_" attr"_] ]**_+_**[_field_**:**_offset_**:**_len_[**:**_" attr"_] **]**  
+**_Multi-Keyed Alternate Key Fields are Comma-Delimited:_** |  **[**[_" keyname"_**:**]_field_**:**_offset_**:**_len_[**:**_" attr"_] ]**_,_**[[_" keyname"_**:**]_field_**:**_offset_**:**_len_[**:**_" attr"_] **]**  
   
 #### **Note:**  
 The outer set of square brackets in the above formats are part of the syntax; the inner brackets indicate optional syntax items (i.e. the brackets enclosing the optional [:"attr"] are not part of the syntax).  
@@ -37,19 +37,19 @@ _max_recs_ |  Maximum number of records the file is allowed. Optional numeric ex
 _rec_size_ |  Maximum size of the data portion of the record (excluding the key). A negative value creates a variable length record (VLR) data file with the maximum record length equal to the positive value of this field. A positive value creates a fixed length record (FLR) formatted file. If you do not specify size, the default is VLR with a maximum record size of 256. The maximum block size for a VLR file is 31KB, and the maximum record size is 31000 bytes. Attempting to create a VLR file with a record size more than 31000 bytes results in an FLR file with the requested record size.  
 _fileopt_ |  Supported file options (see **[File Options](../appendix/input~output_and_control_options.htm#Mark1)**): |  **BSZ=**_num_ |  Block size. Numeric expression (1 - 63).  
 ---|---  
-**ERR=**_stmtref_ __ |  Error transfer.  
+**ERR=**_stmtref_ _ _ |  Error transfer.  
 **SEP=**_char$_**_| *_** |  Default field separator character. Hex or ASCII string value.  
 **OPT=**_char$_ |  Single character parameter: |  "C" |  Compressed. Adds simple compression to record data.  
 ---|---  
 "N" **_or_** "n" |  OPT="N" enables the **['NK'](../parameters/nk.md)** system parameter on the file and OPT="n" disables it. If neither "N" nor "n" is included, the setting of the 'NK' system variable will control the setting on the file. This value ("N" or "n") will also be returned in the FIN(_nn_ , "KEY_OPTIONS") value; however, for compatibility reasons, it will **_not_** be included in the FILE_CREATE FIN ( ) value. _(The "N" and "n" options were added in PxPlus 2020.)_  
-"U" |  Enable **UpdatePlus™** logic for file.  _(Only supported on VLR and FLR files as of build 9180 - No EFF support)_  
+"U" |  Enable **UpdatePlus ™** logic for file. _(Only supported on VLR and FLR files as of build 9180 - No EFF support)_  
   
-_(The UpdatePlus™ capability was added to PxPlus in version 7.65.)_
+_(The UpdatePlus ™ capability was added to PxPlus in version 7.65.)_
 
 #### **Note:**  
 Data Dictionary Maintenance provides a check box option to enable UpdatePlus™ logic for a specified file. See **[Data Dictionary Maintenance](../Data%20Dictionary/Data%20Dictionary%20Maintenance/Overview.htm#options)**.  
   
-_(The Enable UpdatePlus™ logic option in Data Dictionary Maintenance was added in PxPlus 2017 Update 0002.)_  
+_(The Enable UpdatePlus ™ logic option in Data Dictionary Maintenance was added in PxPlus 2017 Update 0002.)_  
   
 "X" |  Extended Record Size. Extends record sizes up to 2GB per record. See **[Extended Length Records](keyed.htm#Mark10)**.  
 "Z" |  Set ZLib Compression for VLR and EFF Files.
@@ -64,7 +64,7 @@ _(The Enable UpdatePlus™ logic option in Data Dictionary Maintenance was added
 #### **Note:   
 **OPT="2" generates Error #99: Feature not supported on platforms that do not offer Large File Support (LFS).  
   
-**_Key Definition Attributes_**
+**_Key Definition Attributes_** 
 
 Optional key definition segment attribute characters "_attr_ " can be used to refine key segment definitions.
 
@@ -74,65 +74,65 @@ Optional key definition segment attribute characters "_attr_ " can be used to re
 
 The following table defines the various attribute definition characters:
 
-> **Character** |  **Definition**  
-> ---|---  
-> "#" |  Auto-increment - Space filled string.
-> 
-> #### **Note:**  
->  Only one of the auto-increment options ("#", "+" or "I") can be used per file.  
->   
-> "+" |  Auto-increment - Zero filled string.
-> 
-> #### **Note:**  
->  Only one of the auto-increment options ("#", "+" or "I") can be used per file.  
->   
-> "-" |  Signed binary integers key segments.
-> 
-> #### **Note:**  
->  This option cannot be used in conjunction with the following segment options on the same segment: "#", "+", "B", "C", "D", "I", "L", "T", "U", "Z" string.  
->   
-> "A" |  Ascending key (_assumed_).  
-> "B[.n]" |  Indicates that the segment contains a numeric value. Field will internally be converted to its binary equivalent and stored into the data file. Negative numbers will occur before position numbers in ordinary numeric value sequence.  
->   
->  If '.n' is provided, the value 'n' is assumed to be the number of digits to the right of the decimal point that are to be maintained. Before the internal value is created, the value will be TRUNCATED to the number of decimal places specified. See **Numeric Key Segments**. _(The "B" segment attribute was added in PxPlus v6.30.)_  
-> "C" |  Force uppercase for individual key segments to create case insensitive keys.  
->   
-> **_Example:_**  
->   
->  keyed "_filename_ ",[1:1:10:"C"],[2:1:40:"L"]+[1:1:10:"C"]
-> 
-> #### **Note:  
-> ** The conversion tables for upper/lowercase conversions are located in the PxPlus message file **[*MLFILE.EN](../PxPlus%20System%20Programs%20and%20Files/Message%20Library/Overview.md)**. You can set these tables using the **[DEF UCS and DEF LCS](def_cvs~dte~lcs~ucs.htm#Mark8)** directives and retrieve values using the **[UCS(*)](../functions/ucs.md)** and **[LCS(*)](../functions/lcs.md)** functions.  
->   
-> "D" |  Descending order (**_Default_ :** Ascending).  
-> "I" |  Binary auto-increment. Field (1, 2, or 4 bytes in length) will be auto-incremented as records are added to the file. Key must be record-based; i.e. field is 0 and offset is location in record.
-> 
-> #### **Note:**  
->  Only one of the auto-increment options ("#", "+" or "I") can be used per file.  
->   
-> "K[:_n_]" |  Null key suppression. _n_ is the Hex value of the character to suppress if all characters match (defaults to $00$ if not specified). If the entire key evaluates to null, the key will not be a part of this key tree. This cannot be used on a primary key or in conjunction with the "N" option, nor with numeric keys.  
-> "L" |  Force lowercase for individual key segments to create case insensitive keys. (See the **_Example_** and **Note** in "C" above.)  
-> "N[:_n_]" |  Null segment suppression.  _n_ __ is the Hex value of the character to suppress if all characters match. If any segment within the key evaluates to null, the key will not be a part of this key tree. This cannot be used on a primary key or in conjunction with the "K" option, nor with a numeric key segment.  
-> "S" |  Swapped (same as **SWP( )** type 7, Intel x86 style swapping only).  
-> "T" |  Force automatic accent translation for individual key segments (i.e. to translate accented/extended characters to their non-accented counterparts). You will find this useful for sorting multilingual characters into a single unified sort sequence.  
->   
-> **_Example:_**  
->   
->  keyed "_filename_ ",[1:1:40:"T"],[2:1:40:"TCD"]
-> 
-> #### **Note:  
-> ** The conversion tables for accent translations are located in the PxPlus message file **[*MLFILE.EN](../PxPlus%20System%20Programs%20and%20Files/Message%20Library/Overview.md)**. You can set this table using the **[DEF CVS](def_cvs~dte~lcs~ucs.md)** directive and retrieve values using the **[CVS(*)](../functions/cvs.md)** function.  
->   
-> "U" |  If you declare an alternate key segment as _unique_ , then no duplicate keys are allowed on writing a record. PxPlus generates Error #11: Record not found or Duplicate key on write. If you designate any segment in a key definition as unique, then the entire key will be unique.
-> 
-> #### **Note:  
-> ** The primary key must always be unique.  
->   
-> "Z" |  Zero terminated strings. This will consider a null byte ($00$) in a string as the end of the data within the field and will ignore any data between the null byte and the end of the key field. (Also known in C as a Z-String.)  
+**Character** |  **Definition**  
+---|---  
+"#" |  Auto-increment - Space filled string.
+
+#### **Note:**  
+Only one of the auto-increment options ("#", "+" or "I") can be used per file.  
+  
+"+" |  Auto-increment - Zero filled string.
+
+#### **Note:**  
+Only one of the auto-increment options ("#", "+" or "I") can be used per file.  
+  
+"-" |  Signed binary integers key segments.
+
+#### **Note:**  
+This option cannot be used in conjunction with the following segment options on the same segment: "#", "+", "B", "C", "D", "I", "L", "T", "U", "Z" string.  
+  
+"A" |  Ascending key (_assumed_).  
+"B[.n]" |  Indicates that the segment contains a numeric value. Field will internally be converted to its binary equivalent and stored into the data file. Negative numbers will occur before position numbers in ordinary numeric value sequence.  
+  
+If '.n' is provided, the value 'n' is assumed to be the number of digits to the right of the decimal point that are to be maintained. Before the internal value is created, the value will be TRUNCATED to the number of decimal places specified. See **Numeric Key Segments**. _(The "B" segment attribute was added in PxPlus v6.30.)_  
+"C" |  Force uppercase for individual key segments to create case insensitive keys.  
+  
+**_Example:_**  
+  
+keyed "_filename_ ",[1:1:10:"C"],[2:1:40:"L"]+[1:1:10:"C"]
+
+#### **Note:  
+** The conversion tables for upper/lowercase conversions are located in the PxPlus message file **[*MLFILE.EN](../PxPlus%20System%20Programs%20and%20Files/Message%20Library/Overview.md)**. You can set these tables using the **[DEF UCS and DEF LCS](def_cvs~dte~lcs~ucs.htm#Mark8)** directives and retrieve values using the **[UCS(*)](../functions/ucs.md)** and **[LCS(*)](../functions/lcs.md)** functions.  
+  
+"D" |  Descending order (**_Default_ :** Ascending).  
+"I" |  Binary auto-increment. Field (1, 2, or 4 bytes in length) will be auto-incremented as records are added to the file. Key must be record-based; i.e. field is 0 and offset is location in record.
+
+#### **Note:**  
+Only one of the auto-increment options ("#", "+" or "I") can be used per file.  
+  
+"K[:_n_]" |  Null key suppression. _n_ is the Hex value of the character to suppress if all characters match (defaults to $00$ if not specified). If the entire key evaluates to null, the key will not be a part of this key tree. This cannot be used on a primary key or in conjunction with the "N" option, nor with numeric keys.  
+"L" |  Force lowercase for individual key segments to create case insensitive keys. (See the **_Example_** and **Note** in "C" above.)  
+"N[:_n_]" |  Null segment suppression. _n  _is the Hex value of the character to suppress if all characters match. If any segment within the key evaluates to null, the key will not be a part of this key tree. This cannot be used on a primary key or in conjunction with the "K" option, nor with a numeric key segment.  
+"S" |  Swapped (same as **SWP( )** type 7, Intel x86 style swapping only).  
+"T" |  Force automatic accent translation for individual key segments (i.e. to translate accented/extended characters to their non-accented counterparts). You will find this useful for sorting multilingual characters into a single unified sort sequence.  
+  
+**_Example:_**  
+  
+keyed "_filename_ ",[1:1:40:"T"],[2:1:40:"TCD"]
+
+#### **Note:  
+** The conversion tables for accent translations are located in the PxPlus message file **[*MLFILE.EN](../PxPlus%20System%20Programs%20and%20Files/Message%20Library/Overview.md)**. You can set this table using the **[DEF CVS](def_cvs~dte~lcs~ucs.md)** directive and retrieve values using the **[CVS(*)](../functions/cvs.md)** function.  
+  
+"U" |  If you declare an alternate key segment as _unique_ , then no duplicate keys are allowed on writing a record. PxPlus generates Error #11: Record not found or Duplicate key on write. If you designate any segment in a key definition as unique, then the entire key will be unique.
+
+#### **Note:  
+** The primary key must always be unique.  
+  
+"Z" |  Zero terminated strings. This will consider a null byte ($00$) in a string as the end of the data within the field and will ignore any data between the null byte and the end of the key field. (Also known in C as a Z-String.)  
   
 ##  Description
 
-Use the **KEYED** directive to create a file with one or more keys. If the first field in the directive after the filename is a number, PxPlus creates an _external_ file key (i.e. an index to the file). If the first field in the directive is a key definition enclosed in square brackets [ ], then PxPlus uses only _internal_ key fields instead. 
+Use the **KEYED** directive to create a file with one or more keys. If the first field in the directive after the filename is a number, PxPlus creates an _external_ file key (i.e. an index to the file). If the first field in the directive is a key definition enclosed in square brackets [ ], then PxPlus uses only _internal_ key fields instead.
 
 PxPlus considers the first key specified for a Keyed file to be the primary key. Every record must have a unique primary key. You can have duplicate secondary keys from record to record.
 
@@ -150,7 +150,7 @@ If a given filename already exists, PxPlus returns Error #12: File does not exis
 Use the **SEP=** option to set the default separator for a given file. Use any character from $00$ to $FF$, or use **SEP=***. When the asterisk is your value, the fields will not be delimited. PxPlus writes records to the file with field type and length headers. This feature can provide better results in overall file performance. 
 
 #### **Note:  
-** WindX in PxPlus supports the use of this directive via the [WDX] or [LCL] tags; e.g. KEYED "[WDX]somefile.ext". Non-PxPlus versions require you to encapsulate the command in an EXECUTE directive with a [WDX] tag (i.e. EXECUTE "[WDX]..."). See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.htm) or **[[LCL] Access to Users Local Machine](../command_tags/lcl.htm)**.
+** WindX in PxPlus supports the use of this directive via the [WDX] or [LCL] tags; e.g. KEYED "[WDX]somefile.ext". Non-PxPlus versions require you to encapsulate the command in an EXECUTE directive with a [WDX] tag (i.e. EXECUTE "[WDX]..."). See [**[WDX] Direct Action to Client Machine**](../command_tags/wdx.md) or **[[LCL] Access to Users Local Machine](../command_tags/lcl.md)**.
 
 See [**DIRECT Create File with Keyed Access**](direct.md) and **[Multi-Keyed Files](../PxPlus%20User%20Guide/File%20Handling/Data%20Files/Keyed%20Files.htm#multi_keyed)**.
 
@@ -159,7 +159,7 @@ If you see the message _Corrected Missing Key_ when PxPlus attempts to **INSERT*
 #### **Note:**  
 **_As of PxPlus 2016_** , the *UFAC file check utility no longer supports split files, multi-segmented files and files greater than 2GB, as rebuilding the entire file is a more efficient process.
 
-**_Key Block Size and Performance_**
+**_Key Block Size and Performance_** 
 
 PxPlus stores a maximum of 16 keys per block, with block sizes ranging from 1Kb to 32Kb. The maximum key block size for a variable record length file is 31Kb, while the maximum for a fixed record length file is 32Kb and an EFF file is 63Kb. The size of the key block also governs the size of the blocks used to store data records. As with key blocks, the maximum number of records per data block is limited to 255.
 
@@ -177,8 +177,11 @@ Keys have the following limits:
 
 
 
-#### **Note:**  
-For VLR and EFF files, the **BSZ=** must be large enough to accommodate the record size; e.g. 4Kb block size for a 4000-byte record. As of Version 4.20, you no longer have to use **BSZ=** in a Keyed file definition if defining record sizes over 4000 bytes. PxPlus now calculates the minimum block size necessary.
+#### **Note 1:**  
+For VLR and EFF files, the **BSZ=** must be large enough to accommodate the record size; e.g. 4Kb block size for a 4000-byte record. As of Version 4.20, you no longer have to use **BSZ=** in a Keyed file definition if defining record sizes over 4000 bytes. PxPlus now calculates the minimum block size necessary.  
+  
+**Note 2:  
+** The keys must always reside within the defined record size. For example, if a file is defined with a record size of 1000, then all keys must be located within the first 1000 bytes, regardless of whether the _Extended Record Size_ flag is enabled. The reason for this is that extended records are stored in multiple linked chunks, but internally, the key segments can only be built from the first chunk.
 
 **_Variable Length Records_**
 
@@ -196,7 +199,7 @@ When a file is created with the _Extended Record Size_ option enabled ("X"), the
 
 > If you create an extended record size file with a 2000-byte record size, storing a 9000-byte record would result in 5 physical segments being written to the file. These segments will be reconstructed into the full record when read, and all segments will be modified (or deleted) when the record is changed (or deleted).
 
-**_Numeric Key Segment_**** _s_**
+**_Numeric Key Segment_**** _s_**  
 
 Key segments can be numeric in which case the system will maintain the keys in sorted numeric order starting with the lowest negative value through the highest positive value. The key itself will be generated by taking the numeric value indicated in the segment descriptor and right justifying it in the key. The number of decimal places will be adjusted to match the scale specified in the descriptor or zero if not specified. Invalid/non-numeric values will result in a key value of zero.
 
@@ -213,7 +216,7 @@ When reading a file using a numeric key segment, a null key is considered the lo
 > "000022" |  "XYZ Mortgages" |  0.00  
 > "000033" |  "DEF Ping Pong Tables" |  250.11  
 > "000044" |  "IOU World Bank" |  -1.15  
-> |  **Data order using Key number 1** |  **Custno** |  **Name** |  **Owed**  
+>   |  **Data order using Key number 1** |  **Custno** |  **Name** |  **Owed**  
 > ---|---|---  
 > "000044" |  "IOU World Bank" |  -1.15  
 > "000022" |  "XYZ Mortgages" |  0.00  
@@ -228,56 +231,56 @@ For instance, if a record on the file currently has 10 fields and a WRITE direct
 
 **_Example:_**
 
-> erase "testfile",err=*next  
->  keyed "testfile",[1:1:6],0,0,opt="U" ! Create with UpdatePlus enabled  
+>      erase "testfile",err=*next  
+>      keyed "testfile",[1:1:6],0,0,opt="U" ! Create with UpdatePlus enabled  
 >  !  
 >  ! This IOLIST defines the record as having five fields which  
 >  ! includes a new field CST_EMAIL$ that may not have existed before  
 >  !  
 >  NEW_IOL: \  
->  iolist CST_ID$,CST_NAME$,CST_ADDR$,CST_AMT,CST_EMAIL$  
+>      iolist CST_ID$,CST_NAME$,CST_ADDR$,CST_AMT,CST_EMAIL$  
 >  !  
->  open (1)"testfile"  
->  CST_ID$="123456"  
->  CST_NAME$="ABC Corp"  
->  CST_ADDR$="123 Main Street"  
->  CST_AMT=1000.00  
->  CST_EMAIL$="john.doe@abc_corp.com"  
->  write (1)iol=NEW_IOL ! Write 5 fields  
->  close (1)  
+>      open (1)"testfile"  
+>      CST_ID$="123456"  
+>      CST_NAME$="ABC Corp"  
+>      CST_ADDR$="123 Main Street"  
+>      CST_AMT=1000.00  
+>      CST_EMAIL$="john.doe@abc_corp.com"  
+>      write (1)iol=NEW_IOL ! Write 5 fields  
+>      close (1)  
 >  !  
 >  ! This following represents the original IOLIST in older programs  
 >  ! that only defines four fields -- no CST_EMAIL$ is defined  
 >  !  
 >  OLD_IOL: \  
->  iolist CST_ID$,CST_NAME$,CST_ADDR$,CST_AMT ! ** Four fields  
+>      iolist CST_ID$,CST_NAME$,CST_ADDR$,CST_AMT ! ** Four fields  
 >  !  
->  begin ! Clear everything  
->  open (1)"testfile"  
->  read (1,key="123456")iol=OLD_IOL ! Read four fields  
->  CST_AMT=CST_AMT+500  
->  write (1)iol=OLD_IOL ! Write four fields  
->  close (1)  
+>      begin ! Clear everything  
+>      open (1)"testfile"  
+>      read (1,key="123456")iol=OLD_IOL ! Read four fields  
+>      CST_AMT=CST_AMT+500  
+>      write (1)iol=OLD_IOL ! Write four fields  
+>      close (1)  
 >  !  
 >  ! Now if we re-read back the 'updated' record requesting all five  
 >  ! fields using the new iolist, we see that the fifth field (CST_EMAIL$)  
 >  ! has been preserved  
 >  !  
->  begin  
->  open (1)"testfile"  
->  read (1,key="123456")iol=NEW_IOL ! Read five field  
->  print "Cst_id :",CST_ID$  
->  print "Cst_amt :",CST_AMT  
->  print "Cst_email:",CST_EMAIL$ ! Fifth field preserved
+>      begin  
+>      open (1)"testfile"  
+>      read (1,key="123456")iol=NEW_IOL ! Read five field  
+>      print "Cst_id :",CST_ID$  
+>      print "Cst_amt :",CST_AMT  
+>      print "Cst_email:",CST_EMAIL$ ! Fifth field preserved
 
 To enable UpdatePlus™ for a file, it needs to be defined with an OPT="U" and is only supported on VLR and FLR files as of build 9180 (no EFF support).
 
-_(The UpdatePlus™ capability was added in PxPlus v7.65.)_
+_(The UpdatePlus ™ capability was added in PxPlus v7.65.)_
 
 #### **Note:**  
 Data Dictionary Maintenance provides a check box option to enable UpdatePlus™ logic for a specified file. See **[Data Dictionary Maintenance](../Data%20Dictionary/Data%20Dictionary%20Maintenance/Overview.htm#options)**.  
   
-_(The Enable UpdatePlus™ logic option in Data Dictionary Maintenance was added in PxPlus 2017 Update 0002.)_
+_(The Enable UpdatePlus ™ logic option in Data Dictionary Maintenance was added in PxPlus 2017 Update 0002.)_
 
 ## Enhanced File Format (EFF)
 
@@ -285,12 +288,12 @@ EFF records are always variable length. In future, EFF files will support transa
 
 The following file limitations exist for EFF files:
 
-|  1. |  63 Kb (64512 bytes) is the maximum block size.  
+  |  1. |  63 Kb (64512 bytes) is the maximum block size.  
 ---|---|---  
-|  2. |  The default block size of 4K generates a file with an 8 GB limit.  
-|  3. |  The maximum record size is 64000 bytes. When using extended records, the record size is limited to 32000 bytes when created, although records can be as large as 2GB.  
-|  4. |  EFF files do not support the multi-segmented techniques available for VLR files.  
-|  5. |  **_Refer to the chart below for sample file size limitations._** (The block size determines the maximum file size.) |  **Block Size** |  **3-Byte Pointers** _(current implementation)_  
+  |  2. |  The default block size of 4K generates a file with an 8 GB limit.  
+  |  3. |  The maximum record size is 64000 bytes. When using extended records, the record size is limited to 32000 bytes when created, although records can be as large as 2GB.  
+  |  4. |  EFF files do not support the multi-segmented techniques available for VLR files.  
+  |  5. |  **_Refer to the chart below for sample file size limitations._** (The block size determines the maximum file size.) |  **Block Size** |  **3-Byte Pointers** _(current implementation)_  
 ---|---  
 (KB) |  Max Pages per Inventory Segment |  Max Addressable Pages |  Size of File in MB  
 4 |  1,022 |  2,056,264 |  8,032  
@@ -357,12 +360,12 @@ keyed A$+"_"+B$,10,100,50,err=1090
 
 Creates a Keyed file with this structure:
 
-|  Maximum Record Size: |  50  
+  |  Maximum Record Size: |  50  
 ---|---|---  
-|  Maximum # Records: |  100  
-|  Current # Records: |  0  
-|  Size of Key Block: |  3072 bytes  
-|  External Key Size: |  10  
+  |  Maximum # Records: |  100  
+  |  Current # Records: |  0  
+  |  Size of Key Block: |  3072 bytes  
+  |  External Key Size: |  10  
   
 **_Example 2:_**
 
@@ -384,13 +387,13 @@ Creates a multi-keyed file with 2 internal alternate keys. Note that alternate k
 
 Keyed file: C:\OTHER\MANUALS\PVX\CST\CSTFLE3  
 ---  
-|  Maximum Record Size: |  500  
-|  Maximum # Records: |  (No limit)  
-|  Current # Records: |  0  
-|  Size of Key Block: |  2048 bytes  
-|  External Key Size: |  0  
-|  Alt. Key 0: |  [1:1:6]  
-|  Alt. Key 1: |  [2:1:10]  
+  |  Maximum Record Size: |  500  
+  |  Maximum # Records: |  (No limit)  
+  |  Current # Records: |  0  
+  |  Size of Key Block: |  2048 bytes  
+  |  External Key Size: |  0  
+  |  Alt. Key 0: |  [1:1:6]  
+  |  Alt. Key 1: |  [2:1:10]  
   
 **_Example 5:_**
 
@@ -400,18 +403,26 @@ Creates a file with an external primary key and a composite internal alternate k
 
 Keyed file: C:\OTHER\MANUALS\PVX\CST\CSTFLE4  
 ---  
-|  Maximum Record Size: |  256 (Variable)  
-|  Maximum # Records: |  (No limit)  
-|  Current # Records: |  0  
-|  Size of Key Block: |  2048 bytes  
-|  Record Expansion Factor: |  10%  
-|  External Key Size: |  6  
-|  Alt. Key 1: |  [2:1:10]+[1:1:6]  
+  |  Maximum Record Size: |  256 (Variable)  
+  |  Maximum # Records: |  (No limit)  
+  |  Current # Records: |  0  
+  |  Size of Key Block: |  2048 bytes  
+  |  Record Expansion Factor: |  10%  
+  |  External Key Size: |  6  
+  |  Alt. Key 1: |  [2:1:10]+[1:1:6]  
   
 To use a variable for the key definition:
 
-X$="[1:1:6],[2:1:10]"  
-keyed "CSTFLE",X$,,500
+          X$="[1:1:6],[2:1:10]"  
+          keyed "CSTFLE",X$,,500
 
-X$="6,[1:1:6],[2:1:10]"  
-keyed "CSTFLE",X$,,500
+          X$="6,[1:1:6],[2:1:10]"  
+          keyed "CSTFLE",X$,,500
+
+ 
+
+ 
+
+ 
+
+ 

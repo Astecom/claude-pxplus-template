@@ -15,7 +15,7 @@
 7. |  _Copy Password to Data File from Data File_: |  **PASSWORD**(_chan1_[,**ERR=**_stmtref_]) **FROM**(_chan2_[,**ERR=**_stmtref_]) [,**ERR=**_stmtref_]  
 8. |  _Remove Password from Data File_ _:_ |  **PASSWORD**(_chan_[,**ERR=**_stmtref_]) **REMOVE**  
   
-**_Where:_**
+**_Where:_** 
 
 ***** |  An a _sterisk_ defines a password as common to all programs.  
 ---|---  
@@ -32,7 +32,7 @@ When encryption is enabled on a data file, all key and data blocks will be encry
 
 ##  Formats 1 and 2
 
-**_Assign or Remove Passwords on Programs_**
+**_Assign or Remove Passwords on Programs_** 
 
 The formats described in this section assign/remove password protection on **_programs_**. Passworded programs cannot be listed or edited in PxPlus in any way unless the correct password is used.
 
@@ -40,7 +40,7 @@ The formats described in this section assign/remove password protection on **_pr
 
 **_Apply to Program_**
 
-To assign a password, load the program, enter the **PASSWORD** directive followed by the new password _pswd_ _$_ , and then save the program.
+To assign a password, load the program, enter the **PASSWORD**  directive followed by the new password _pswd_ _$_ , and then save the program.
 
 **_Example:_**
 
@@ -79,9 +79,9 @@ File passwords are only available for VLR and EFF files.
 
 The maximum length for a file password is determined by the **['EA'](../parameters/ea.md)** system parameter:
 
-> If the **'EA'** system parameter is **_Off_** or is not supported by the PxPlus version being used (i.e. PxPlus 2018 and prior), the maximum password length is 8 characters, and any data beyond that is simply ignored.
+>   If the **'EA'** system parameter is **_Off_** or is not supported by the PxPlus version being used (i.e. PxPlus 2018 and prior), the maximum password length is 8 characters, and any data beyond that is simply ignored.
 
-> If the **'EA'** system parameter is **_On_** , the maximum password length is 128 characters, and any data beyond that is simply ignored.
+>   If the **'EA'** system parameter is **_On_** , the maximum password length is 128 characters, and any data beyond that is simply ignored.
 
 In **_both_** cases, a password longer than 240 characters will result in an error.
 
@@ -126,7 +126,7 @@ _(The 'EA' system parameter and the use of industry standard encryption algorith
 
 PxPlus includes a generic program called **_get_pswd_** that will prompt for a password when **KEY=** is invalid or missing when a passworded file is opened. PxPlus checks the existence of the **_get_pswd_** program in the ***ext** sub-directory first, and then in ***ext/system** if the former is not found. This feature also allows the developer to customize the interface. As the prompt will be handled by a called program, it is also WindX-aware.
 
-An embedded I/O (EIO) processing entry point called **Get_Password** provides the ability to prompt the user for a password based on logic associated with the EIO program. Provided the EIO program is valid and the entry point **Get_Password** exists, it will be used instead of the generic ***ext/system/get_pswd** or custom ***ext/get_pswd**. As the file is not in an **OPEN** state at the point when the entry point is called, the LFO and LFA values do not contain meaningful information. For this reason, the name of the file will be passed in the fourth parameter, normally referred to as **Value$**.
+An embedded I/O (EIO) processing entry point called **Get_Password** provides the ability to prompt the user for a password based on logic associated with the EIO program. Provided the EIO program is valid and the entry point **Get_Password  **exists, it will be used instead of the generic ***ext/system/get_pswd** or custom ***ext/get_pswd**. As the file is not in an **OPEN** state at the point when the entry point is called, the LFO and LFA values do not contain meaningful information. For this reason, the name of the file will be passed in the fourth parameter, normally referred to as **Value$**.
 
 **_Example:_**
 
@@ -143,20 +143,20 @@ An embedded I/O (EIO) processing entry point called **Get_Password** provides th
 >  close (1)  
 >  open (1,key="XYZ")"MyFile"
 
-**_Monitoring Attempts_**
+**_Monitoring Attempts_** 
 
 **TCB(68)** reports the number of attempts that have been made to prompt for the password. This value is incremented prior to PxPlus calling the embedded I/O or **_get_pswd_** routine; therefore, the first attempt will have a **TCB(68)** value of 1.
 
 By default, the first three attempts to access a passworded file using an invalid password will result in a prompt to re-enter the password. The fourth attempt generates an Error #53: Invalid password. This behavior is controlled via the [**'PP'**](../parameters/pp.md) system parameter.
 
-**_Password Error Reporting_**
+**_Password Error Reporting_** 
 
 The following error conditions will be trapped and reported:
 
 **Error #13: File access mode invalid** |  Attempt to apply or remove a password when the file is in READ only mode, not locked or not empty.  
 ---|---  
-**Error #14: Invalid I/O request for file state** |  Attempt to apply a password to an unopened channel.  
-**Error #17: Invalid file type or contents** |  Attempt to apply a password to a non-Keyed file or to encrypt a non-VLR formatted file.  
+**Error #14: Invalid I/O request for file state**  |  Attempt to apply a password to an unopened channel.  
+**Error #17: Invalid file type or contents**  |  Attempt to apply a password to a non-Keyed file or to encrypt a non-VLR formatted file.  
 **Error #46: Length of string invalid** |  Attempt to assign a password longer than 240 characters.  
 **Error #53: Invalid password** |  Attempt to open a file using invalid password.  
 **Error #61: Authorization failure** |  Password record failed the internal CRC check.  
@@ -176,7 +176,7 @@ An Error #13: File access mode invalid will occur if the destination file has an
 
 **_Remove Password from Data File_**
 
-**PASSWORD**(_chan_) _pswd_ _$_ **REMOVE**
+**PASSWORD**(_chan_) _pswd_ _$_  **REMOVE**
 
 This format removes password protection from a data file. To remove a password, you must have exclusive access to the file, and it must be empty.
 
@@ -188,3 +188,9 @@ This format removes password protection from a data file. To remove a password, 
 [**'PP' Prompt for Password**](../parameters/pp.md)  
 [**'PQ' Password Queue**](../parameters/pq.md)  
 [**OPEN Open a File for Processing**](open.md)
+
+ 
+
+ 
+
+ 

@@ -7,8 +7,8 @@
 
 1. |  _Search Subject String for Pattern:_ |  **MSK(**_string$,mask_ _$_[,**ERR** =_stmtref_]**)**  
 ---|---|---  
-2. |  _Return Captured Sub-Pattern (**'OM'=0** Only):_ |  **MSK(**_index_[,**ERR** =_stmtref_]**)** _(added in PxPlus 2014)_  
-**_Where:_** |   
+2. |  _Return Captured Sub-Pattern (**'OM'=0** Only):_ |  **MSK(**_index_[,**ERR** =_stmtref_]**)**   _(added in PxPlus 2014)_  
+**_Where:_** |     
 ---|---  
 _mask$_ |  String containing the pattern/mask definition. If this value is null, then the previously used pattern is reused. String expression.  
 _stmtref_ |  Program line number or statement label to which to transfer control.  
@@ -17,9 +17,9 @@ _index_ |  Index of the captured sub-pattern to return, with 1-n being the captu
   
 ##  Returns
 
-**_Format 1:_** Integer reporting the starting offset of the matched pattern _mask$_ in the subject string _string_ _$_.
+**_Format 1:_**   Integer reporting the starting offset of the matched pattern _mask$_ in the subject string _string_ _$_.
 
-**_Format 2:_** Integer reporting the starting offset of the captured sub-pattern from the previous **MSK( )**_Format 1_ call.
+**_Format 2:_**   Integer reporting the starting offset of the captured sub-pattern from the previous **MSK( )**_Format 1_ call.
 
 The **[MSL](../variables/msl.md)** system variable and **TCB(16)** return the length of the string found for both formats.
 
@@ -27,14 +27,16 @@ The **[MSL](../variables/msl.md)** system variable and **TCB(16)** return the le
 
 Use the **MSK( )** function to scan a string looking for a specific pattern of characters. The values returned are the starting offset and length of the string matching the given mask or pattern. The return value of the **MSK( )** function is the offset while the length is returned via the **MSL** system variable and **TCB(16)**. The pattern defines the mask as a regular expression. The types of regular expressions that are supported are dependent on the **['OM'](../parameters/om.md)** parameter:
 
-|  **'OM'=0** |  _(Default)_ Perl compatible regular expressions (PCRE) are supported. This supports everything below and will match the first match of the pattern unless otherwise specified. This mode supports UTF-8.  
+  |  **'OM'=0** |  _(Default)_ Perl compatible regular expressions (PCRE) are supported. This supports everything below and will match the first match of the pattern unless otherwise specified. This mode supports UTF-8.  
 ---|---|---  
-|  **'OM' >1** |  Mostly POSIX compatible regular expressions are supported. This supports some features below and will match the longest match of the pattern. This mode does **_not_** support UTF-8.  
+  |  **'OM' >1** |  Mostly POSIX compatible regular expressions are supported. This supports some features below and will match the longest match of the pattern. This mode does **_not_** support UTF-8.  
   
 The following table displays a summary of the supported regular expression syntax:
 
 #### **Note:  
 ** This table does not list all allowed syntax for '**OM'=0** regular expressions. Only the ones most often used are listed. See **<http://manual.pvxplus.com/pcresyntax.html>**.
+
+ 
 
 **Mask Character** |  **Format in Pattern$** |  **Search**  
 ---|---|---  
@@ -102,6 +104,8 @@ my ((cat)|(dog)) matches my cat or my dog.
 _**  
 To search for multiple asterisks, use **\\****.  
   
+ 
+
 **ASCII Character Classes**  
 ---  
 The following can be used anywhere in the pattern to match common types of characters:
@@ -139,6 +143,8 @@ This only works for **'OM'=0** on PxPlus 2014.
 \z |  Matches only at the end of the subject  
 \G |  Matches at the first matching position in the subject  
   
+ 
+
 **ASCII Character Classes**  
 ---  
 The following can be used as part of any string enclosed in square brackets to match common types of characters (i.e. [[:digit:]%] will match any digit or percent sign character):
@@ -161,6 +167,8 @@ This only works for **'OM'=0** on PxPlus 2014.
 [:word:] |  Word characters (Letters, Numbers and Underscores)  
 [:xdigit:] |  Hexadecimal digits  
   
+ 
+
 **UTF-8 Character Classes**  
 ---  
 The following can be used anywhere in the pattern to match common types of characters:
@@ -174,38 +182,38 @@ This only works for **'OM'=0** on PxPlus 2014.
   
 **_Where_** xx can be:
 
-|  **C** |  Other |  **No** |  Other number  
+  |  **C** |  Other |  **No** |  Other number  
 ---|---|---|---|---  
-|  **Cc** |  Control |  **P** |  Punctuation  
-|  **Cf** |  Format |  **Pc** |  Connector punctuation  
-|  **Cn** |  Unassigned |  **Pd** |  Dash punctuation  
-|  **Co** |  Private use |  **Pe** |  Close punctuation  
-|  **Cs** |  Surrogate |  **Pf** |  Final punctuation  
-|  **L** |  Letter |  **Pi** |  Initial punctuation  
-|  **Ll** |  Lowercase letter |  **Po** |  Other punctuation  
-|  **Lm** |  Modifier letter |  **Ps** |  Open punctuation  
-|  **Lo** |  Other letter |  **S** |  Symbol  
-|  **Lt** |  Title case letter |  **Sc** |  Currency symbol  
-|  **Lu** |  Uppercase letter |  **Sk** |  Modifier symbol  
-|  **M** |  Mark |  **Sm** |  Mathematical symbol  
-|  **Mc** |  Spacing mark |  **So** |  Other symbol  
-|  **Me** |  Enclosing mark |  **Z** |  Separator  
-|  **Mn** |  Non-spacing mark |  **Zl** |  Line separator  
-|  **N** |  Number |  **Zp** |  Paragraph separator  
-|  **Nd** |  Decimal number |  **Zs** |  Space separator  
-|  **Nl** |  Letter number |  **** |   
+  |  **Cc** |  Control |  **P** |  Punctuation  
+  |  **Cf** |  Format |  **Pc** |  Connector punctuation  
+  |  **Cn** |  Unassigned |  **Pd** |  Dash punctuation  
+  |  **Co** |  Private use |  **Pe** |  Close punctuation  
+  |  **Cs** |  Surrogate |  **Pf** |  Final punctuation  
+  |  **L** |  Letter |  **Pi** |  Initial punctuation  
+  |  **Ll** |  Lowercase letter |  **Po** |  Other punctuation  
+  |  **Lm** |  Modifier letter |  **Ps** |  Open punctuation  
+  |  **Lo** |  Other letter |  **S** |  Symbol  
+  |  **Lt** |  Title case letter |  **Sc** |  Currency symbol  
+  |  **Lu** |  Uppercase letter |  **Sk** |  Modifier symbol  
+  |  **M** |  Mark |  **Sm** |  Mathematical symbol  
+  |  **Mc** |  Spacing mark |  **So** |  Other symbol  
+  |  **Me** |  Enclosing mark |  **Z** |  Separator  
+  |  **Mn** |  Non-spacing mark |  **Zl** |  Line separator  
+  |  **N** |  Number |  **Zp** |  Paragraph separator  
+  |  **Nd** |  Decimal number |  **Zs** |  Space separator  
+  |  **Nl** |  Letter number |  ** ** |     
   
 ## Format 2
 
-Return the starting offset and length of a captured sub-pattern as specified by index from a previous _Format 1_ **MSK( )** function call or if the index is 0, then return the starting offset and length returned by the previous _Format 1_ **MSK( )** function. If there was no previous _Format 1_ **MSK(** **)** function call or the pattern did not include the specified sub-pattern, then this call will result in an Error #42: Subscript out of range/Invalid subscript.
+Return the starting offset and length of a captured sub-pattern as specified by index from a previous _Format 1_  **MSK( )** function call or if the index is 0, then return the starting offset and length returned by the previous _Format 1_  **MSK( )** function. If there was no previous _Format 1_  **MSK(**  **)** function call or the pattern did not include the specified sub-pattern, then this call will result in an Error #42: Subscript out of range/Invalid subscript.
 
 If the **['OM'](../parameters/om.md)** parameter is not equal to 0, then this call will always return an Error #42: Subscript out of range/Invalid subscript if _index_ > 0.
 
 Sub-patterns are parts of a mask/pattern string that are enclosed by parentheses (round brackets), which can be nested. Including a sub-pattern in a mask/pattern string does two things:
 
-|  1. |  It defines the sub-pattern as a group where operators, such as **+** , will apply to the whole group instead of just the character that preceded it.  
+  |  1. |  It defines the sub-pattern as a group where operators, such as **+** , will apply to the whole group instead of just the character that preceded it.  
 ---|---|---  
-|  2. |  It allows _Format 2_ of the **MSK( )** function to return the portion of the matched mask/pattern string that matched the sub-pattern. Opening parentheses are counted from left to right (starting from 1) to obtain indexes for the captured sub-patterns. **_Example:_** For the string "the small fox" and the pattern "the ((small|large) (raccoon|fox))", the captured sub-patterns are 1: "small fox", 2: "small", 3: "fox".  
+  |  2. |  It allows _Format 2_ of the **MSK( )** function to return the portion of the matched mask/pattern string that matched the sub-pattern. Opening parentheses are counted from left to right (starting from 1) to obtain indexes for the captured sub-patterns. **_Example:_** For the string "the small fox" and the pattern "the ((small|large) (raccoon|fox))", the captured sub-patterns are 1: "small fox", 2: "small", 3: "fox".  
   
 See **<http://manual.pvxplus.com/pcrepattern.html>**.
 
@@ -215,13 +223,13 @@ _(Format 2 was added in PxPlus 2014.)_
 
 **[MSL Length of String Matching Last MSK](../variables/msl.md)**  
 **[TCB( ) Return Task Information](tcb.md)**  
-**['TL' LIKE Emulates Thoroughbred](../parameters/tl.md)**  
+**['TL' LIKE Emulates Thoroughbred®](../parameters/tl.md)**  
 **['OM' Old Style Mask](../parameters/om.md)**  
 **[Operators](../appendix/operators.md)**
 
 ## Example
 
-Below is an example of using the **MSK(** **)** function and the **MSL** variable to do pattern and sub-pattern matching:
+Below is an example of using the **MSK(**  **)** function and the **MSL** variable to do pattern and sub-pattern matching:
 
 > ?prm('OM')  
 >  0  
@@ -238,7 +246,7 @@ Below is an example of using the **MSK(** **)** function and the **MSL** variabl
 >  ?msk(3),msl  
 >  11 3
 
-Below is another example of using the **MSK(** **)** function to do a more complicated pattern search. In this example, we are matching any whole number in some text. We also use sub-patterns to get just the number from the match without white space:
+Below is another example of using the **MSK(**  **)** function to do a more complicated pattern search. In this example, we are matching any whole number in some text. We also use sub-patterns to get just the number from the match without white space:
 
 > ?prm('OM')  
 >  0  
@@ -250,6 +258,14 @@ Below is another example of using the **MSK(** **)** function to do a more compl
 >  1 2
 
 #### **Note:**  
-When the **['TL'](../parameters/tl.md)** system parameter (Thoroughbred **LIKE**) is **_Off_** , the **LIKE** operator uses the same pattern matching as specified by the **['OM'](../parameters/om.md)** parameter.
+When the **['TL'](../parameters/tl.md)** system parameter (Thoroughbred® **LIKE**) is **_Off_** , the **LIKE** operator uses the same pattern matching as specified by the **['OM'](../parameters/om.md)** parameter.
 
-Thoroughbred is a registered trademark of Thoroughbred Software International Inc.
+ 
+
+ 
+
+ 
+
+Thoroughbred® is a registered trademark of Thoroughbred Software International Inc.
+
+ 
