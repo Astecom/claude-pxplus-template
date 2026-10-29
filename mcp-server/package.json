@@ -10,7 +10,8 @@
     "start": "node dist/index.js",
     "dev": "tsc && node dist/index.js",
     "build-docs-index": "node scripts/buildDocsIndex.js",
-    "check-docs-search": "node scripts/checkDocsSearch.js"
+    "check-docs-search": "node scripts/checkDocsSearch.js",
+    "check-dict": "node scripts/checkDict.js"
   },
   "keywords": [
     "mcp",

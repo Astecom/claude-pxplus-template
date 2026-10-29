@@ -1,0 +1,1123 @@
+! dict.pxprg - data dictionary (providex.ddf/.dde) for the MCP tools pxplus_dict_*
+! ============================================================================
+! Started by the MCP server: pxplus dict.pxprg -arg <request file>
+! The request file has one line per step, fields separated by TAB:
+!   DIR      <folder of providex.ddf>       (first; the folder becomes CWDIR)
+!   DRYRUN   1                              (check every step, change nothing)
+!   CONFIRM  1                              (allowed to change a file with records)
+!   PREFIX   <search paths>                 (optional: PREFIX, e.g. to find an
+!   PREFIXPROGRAM <search paths>             embedded IO program; PREFIX PROGRAM)
+!   SETUP    <program>                      (optional: CALLed first, e.g. globals)
+!   <op>     <table> <target> [NAME=value ...]
+! The ops are those of pxplus_dict_apply plus read_tables, read_table and
+! read_embedded and read_records. All changes go through the *dict objects, as in Data
+! Dictionary Maintenance. The output lines start with MARK$ and a TAB:
+!   OK <step> <text> / FAIL <step> <text> (the run stops) / DONE
+!   and for reading TABLE, COLUMN, INDEX, IOLIST, FILE and RECORD lines.
+! ============================================================================
+!
+SETERR ERRH
+MARK$="@@DICT@@",TB$=$09$,FS$=$01$
+ddir$="",dryrun=0,confirm=0,halted=0,stepno=0,db=0
+planned$=SEP
+DIM f$[1:60]
+OPEN INPUT (1)ARG(1)
+WHILE halted=0
+rq$="",more=0
+READ (1,END=*NEXT)rq$; more=1
+IF NOT(more) \
+THEN BREAK
+rq$=SUB(rq$,$0D$,"")
+IF rq$<>"" \
+THEN GOSUB HANDLE_LINE
+WEND
+CLOSE (1)
+IF halted=0 \
+THEN PRINT MARK$+TB$+"DONE"
+QUIT
+!
+! Any error: report it with the step, stop
+ERRH:
+PRINT MARK$+TB$+"FAIL"+TB$+STR(stepno)+TB$+MSG(ERR)+" (dict.pxprg line "+STR(TCB(5))+")"
+QUIT
+!
+! --- One line of the request -------------------------------------------------
+HANDLE_LINE:
+GOSUB SPLIT
+op$=LCS(f$[1]),tname$=f$[2],target$=f$[3]
+SWITCH op$
+CASE "dir"
+ddir$=tname$
+CWDIR ddir$
+BREAK
+CASE "dryrun"
+dryrun=(tname$="1")
+BREAK
+CASE "confirm"
+confirm=(tname$="1")
+BREAK
+CASE "prefix"
+PREFIX tname$
+BREAK
+CASE "prefixprogram"
+PREFIX PROGRAM tname$
+BREAK
+CASE "setup"
+CALL tname$
+BREAK
+DEFAULT
+stepno++
+GOSUB DO_STEP
+BREAK
+END SWITCH
+RETURN
+!
+! line$ -> f$[1..nf]
+SPLIT:
+DIM f$[1:60]
+nf=0,rest$=rq$+TB$
+WHILE rest$<>"" AND nf<60
+p=POS(TB$=rest$)
+nf++
+f$[nf]=rest$(1,p-1)
+rest$=rest$(p+1)
+WEND
+RETURN
+!
+! Value of NAME=value among the fields from 4 on ("" when not there)
+PROP_OF:
+found$="",ph=0
+FOR fi=4 TO nf
+fv$=f$[fi]
+GOSUB PROP_SPLIT
+IF pk$=UCS(pn$) THEN {
+found$=pv$,ph=1
+}
+NEXT
+pv$=found$
+RETURN
+!
+! fv$ "NAME=value" -> pk$ (upper case) and pv$; without "=" the whole field is the name
+PROP_SPLIT:
+sv$=fv$+"="
+pk$=UCS(sv$(1,POS("="=sv$)-1)),pv$=sv$(POS("="=sv$)+1)
+IF pv$<>"" \
+THEN pv$=pv$(1,LEN(pv$)-1)
+RETURN
+!
+OK:
+PRINT MARK$+TB$+"OK"+TB$+STR(stepno)+TB$+TBL(dryrun,"","would: ")+note$
+RETURN
+!
+FAIL:
+PRINT MARK$+TB$+"FAIL"+TB$+STR(stepno)+TB$+note$
+halted=1
+RETURN
+!
+! An output line: no TAB or line break inside a field; the fields are built
+! with FS$ between them, which becomes the TAB
+CLEAN:
+cv$=SUB(SUB(SUB(cv$,TB$," "),$0A$," "),$0D$," ")
+cv$=SUB(cv$,FS$,TB$)
+RETURN
+!
+! --- The steps -----------------------------------------------------------------
+DO_STEP:
+IF ddir$="" THEN {
+note$="no DIR given"
+GOSUB FAIL
+RETURN
+}
+IF op$<>"create_dictionary" AND op$<>"read_embedded" AND db=0 AND NOT(op$="read_records" AND f$[3]="file") THEN {
+GOSUB OPEN_DB
+IF halted \
+THEN RETURN
+}
+SWITCH op$
+CASE "create_dictionary"
+GOSUB CREATE_DICTIONARY
+BREAK
+CASE "read_tables"
+GOSUB READ_TABLES
+BREAK
+CASE "read_table"
+GOSUB READ_TABLE
+BREAK
+CASE "read_embedded"
+GOSUB READ_EMBEDDED
+BREAK
+CASE "read_records"
+GOSUB READ_RECORDS
+BREAK
+CASE "add_table"
+GOSUB ADD_TABLE
+BREAK
+CASE "update_table"
+GOSUB UPDATE_TABLE
+BREAK
+CASE "rename_table"
+GOSUB RENAME_TABLE
+BREAK
+CASE "drop_table"
+GOSUB DROP_TABLE
+BREAK
+CASE "add_column"
+GOSUB ADD_COLUMN
+BREAK
+CASE "update_column"
+GOSUB UPDATE_COLUMN
+BREAK
+CASE "rename_column"
+GOSUB RENAME_COLUMN
+BREAK
+CASE "drop_column"
+GOSUB DROP_COLUMN
+BREAK
+CASE "add_index"
+GOSUB ADD_INDEX
+BREAK
+CASE "update_index"
+GOSUB UPDATE_INDEX
+BREAK
+CASE "rename_index"
+GOSUB RENAME_INDEX
+BREAK
+CASE "drop_index"
+GOSUB DROP_INDEX
+BREAK
+CASE "create_file"
+GOSUB CREATE_FILE
+BREAK
+CASE "adjust_file"
+GOSUB ADJUST_FILE
+BREAK
+CASE "load_definition"
+GOSUB LOAD_DEFINITION
+BREAK
+CASE "delete_file"
+GOSUB DELETE_FILE
+BREAK
+DEFAULT
+note$="unknown operation: "+op$
+GOSUB FAIL
+BREAK
+END SWITCH
+RETURN
+!
+OPEN_DB:
+GOSUB DDF_THERE
+IF NOT(ok) THEN {
+note$="no providex.ddf in "+ddir$+" (create_dictionary makes one)"
+GOSUB FAIL
+RETURN
+}
+db=NEW("*dict/database")
+IF db'SetDataBase(ddir$)=0 THEN {
+note$="cannot use the dictionary in "+ddir$
+GOSUB FAIL
+}
+RETURN
+!
+CREATE_DICTIONARY:
+GOSUB DDF_THERE
+IF ok THEN {
+note$="there is already a providex.ddf in "+ddir$
+GOSUB FAIL
+RETURN
+}
+IF NOT(dryrun) THEN {
+db=NEW("*dict/database")
+IF db'CreateDataBase(ddir$)=0 OR db'SetDataBase(ddir$)=0 THEN {
+note$="CreateDataBase failed in "+ddir$
+GOSUB FAIL
+RETURN
+}
+}
+note$="create providex.ddf and providex.dde in "+ddir$
+GOSUB OK
+RETURN
+!
+DDF_THERE:
+ok=0
+OPEN INPUT (9,ERR=*NEXT)ddir$+"/providex.ddf"; ok=1
+IF ok \
+THEN CLOSE (9)
+RETURN
+!
+! --- Is it there? (the dictionary, plus what this request adds in a dry run) ---
+TABLE_THERE:
+GOSUB IN_DB
+there=indb OR POS(SEP+"T:"+UCS(tname$)+SEP=planned$)>0
+RETURN
+!
+! Is table tname$ in the dictionary itself (not only planned in a dry run)?
+IN_DB:
+indb=(POS(SEP+UCS(tname$)+SEP=SEP+UCS(db'GetTableList$(SEP))+SEP)>0)
+RETURN
+!
+NEED_TABLE:
+GOSUB TABLE_THERE
+IF NOT(there) THEN {
+note$="no table "+tname$+" in the dictionary"
+GOSUB FAIL
+}
+RETURN
+!
+COLUMN_THERE:
+there=(POS(SEP+"C:"+UCS(tname$+"."+col$)+SEP=planned$)>0)
+GOSUB IN_DB
+IF NOT(there) AND indb \
+THEN there=(POS(SEP+UCS(col$)+SEP=SEP+UCS(db'GetColumnList$(tname$,SEP))+SEP)>0)
+RETURN
+!
+INDEX_THERE:
+there=(POS(SEP+"I:"+UCS(tname$+"."+idx$)+SEP=planned$)>0)
+GOSUB IN_DB
+IF NOT(there) AND indb \
+THEN there=(POS(SEP+UCS(idx$)+SEP=SEP+UCS(db'GetIndexList$(tname$,SEP))+SEP)>0)
+RETURN
+!
+! The table's physical file: pf$, exists, records, openerr$ (it is there but
+! does not open, e.g. Error #121 when its embedded IO program is not found)
+FILE_STATE:
+pf$="",exists=0,records=0,openerr$="",iop$="",full$=""
+GOSUB IN_DB
+IF NOT(indb) \
+THEN RETURN
+ti=db'GetTableInfo(tname$)
+pf$=ti'PhysicalFile$,iop$=ti'IOProgram$,full$=""
+IF STP(pf$)="" \
+THEN RETURN
+GOSUB OPEN_STATE
+RETURN
+!
+! Open pf$ read-only on channel 9: exists, records, openerr$, full$ (where it
+! is: a relative name is found through PREFIX, as in the application)
+OPEN_STATE:
+exists=0,records=0,openerr$="",opened=0,full$=""
+OPEN INPUT (9,ERR=*NEXT)pf$; opened=1
+IF opened THEN {
+exists=1,full$=PTH(9,ERR=*NEXT)
+records=NUM(FIN(9,"NUMREC",ERR=*NEXT),ERR=*NEXT)
+CLOSE (9)
+} ELSE {
+oe=ERR
+IF oe<>12 \
+THEN exists=1,records=-1,openerr$=MSG(oe)
+}
+RETURN
+!
+! A file with records changes only with CONFIRM
+NEED_CONFIRM:
+GOSUB FILE_STATE
+IF openerr$<>"" THEN {
+note$=pf$+" does not open ("+openerr$+"); set prefix or setup so its embedded IO program is found"
+GOSUB FAIL
+RETURN
+}
+IF exists AND records>0 AND NOT(confirm) THEN {
+note$=pf$+" has "+STR(records)+" record(s); "+what$+" needs confirm"
+GOSUB FAIL
+}
+RETURN
+!
+! --- Tables ------------------------------------------------------------------
+ADD_TABLE:
+GOSUB TABLE_THERE
+IF there THEN {
+note$="table "+tname$+" already exists"
+GOSUB FAIL
+RETURN
+}
+t=NEW("*dict/tblinfo")
+t'Name$=tname$
+GOSUB SET_TABLE
+IF NOT(dryrun) THEN {
+IF db'AddTable(t)=0 THEN {
+note$="AddTable "+tname$+" failed"
+GOSUB FAIL
+RETURN
+}
+}
+planned$=planned$+"T:"+UCS(tname$)+SEP
+note$="add table "+tname$+" (file "+t'PhysicalFile$+")"
+GOSUB OK
+DROP OBJECT t
+RETURN
+!
+UPDATE_TABLE:
+GOSUB NEED_TABLE
+IF halted \
+THEN RETURN
+IF POS(SEP+"T:"+UCS(tname$)+SEP=planned$)>0 THEN {
+note$="update table "+tname$+" (added in this request)"
+GOSUB OK
+RETURN
+}
+t=db'GetTableInfo(tname$)
+GOSUB SET_TABLE
+IF NOT(dryrun) THEN {
+IF db'UpdateTable(t)=0 THEN {
+note$="UpdateTable "+tname$+" failed"
+GOSUB FAIL
+RETURN
+}
+}
+note$="update table "+tname$
+GOSUB OK
+RETURN
+!
+RENAME_TABLE:
+GOSUB NEED_TABLE
+IF halted \
+THEN RETURN
+pn$="NEWNAME"
+GOSUB PROP_OF
+IF pv$="" THEN {
+note$="rename_table needs newName"
+GOSUB FAIL
+RETURN
+}
+old$=tname$,tname$=pv$
+GOSUB TABLE_THERE
+tname$=old$
+IF there THEN {
+note$="table "+pv$+" already exists"
+GOSUB FAIL
+RETURN
+}
+IF NOT(dryrun) THEN {
+IF db'RenameTable(tname$,pv$)=0 THEN {
+note$="RenameTable "+tname$+" failed"
+GOSUB FAIL
+RETURN
+}
+}
+note$="rename table "+tname$+" to "+pv$+" (the file keeps its name)"
+GOSUB OK
+RETURN
+!
+! The definition goes; the physical file stays
+DROP_TABLE:
+GOSUB NEED_TABLE
+IF halted \
+THEN RETURN
+IF NOT(dryrun) THEN {
+IF db'DropTable(tname$)=0 THEN {
+note$="DropTable "+tname$+" failed"
+GOSUB FAIL
+RETURN
+}
+}
+note$="remove table "+tname$+" from the dictionary (the physical file stays)"
+GOSUB OK
+RETURN
+!
+SET_TABLE:
+FOR fi=4 TO nf
+fv$=f$[fi]
+GOSUB PROP_SPLIT
+SWITCH pk$
+CASE "GROUP"
+t'Group$=pv$
+BREAK
+CASE "DESCRIPTION"
+t'Description$=pv$
+BREAK
+CASE "PHYSICALFILE"
+t'PhysicalFile$=pv$
+BREAK
+CASE "NOTES"
+t'Notes$=pv$
+BREAK
+CASE "OPTIONS"
+t'Options$=pv$
+BREAK
+CASE "EXTENSION"
+t'Extension$=pv$
+BREAK
+CASE "IOPROGRAM"
+t'IOProgram$=pv$
+BREAK
+CASE "BLOCKSIZE"
+t'BlockSize$=pv$
+BREAK
+CASE "SECURITY"
+t'Security$=pv$
+BREAK
+CASE "ISDATACOMPRESSION"
+t'IsDataCompression=NUM(pv$)
+BREAK
+CASE "ISEXTENDEDRECORDS"
+t'IsExtendedRecords=NUM(pv$)
+BREAK
+CASE "ISZLIBCOMPRESSION"
+t'IsZlibCompression=NUM(pv$)
+BREAK
+END SWITCH
+NEXT
+RETURN
+!
+! --- Columns -----------------------------------------------------------------
+ADD_COLUMN:
+GOSUB NEED_TABLE
+IF halted \
+THEN RETURN
+col$=target$
+GOSUB COLUMN_THERE
+IF there THEN {
+note$="column "+col$+" already exists in "+tname$
+GOSUB FAIL
+RETURN
+}
+c=NEW("*dict/colinfo")
+c'InitValues()
+c'Name$=col$,c'Type$="S",c'InternalFormat$="D"
+GOSUB SET_COLUMN
+IF NOT(dryrun) THEN {
+IF db'AddColumn(tname$,c)=0 THEN {
+note$="AddColumn "+col$+" failed"
+GOSUB FAIL
+RETURN
+}
+}
+planned$=planned$+"C:"+UCS(tname$+"."+col$)+SEP
+note$="add column "+col$+" to "+tname$+" ("+c'Type$+" "+STR(c'Length)+TBL(c'Scale<>0,"",","+STR(c'Scale))+")"
+GOSUB OK
+DROP OBJECT c
+RETURN
+!
+UPDATE_COLUMN:
+GOSUB NEED_TABLE
+IF halted \
+THEN RETURN
+col$=target$
+GOSUB COLUMN_THERE
+IF NOT(there) THEN {
+note$="no column "+col$+" in "+tname$
+GOSUB FAIL
+RETURN
+}
+IF NOT(dryrun) THEN {
+c=db'GetColumnInfo(tname$,col$)
+GOSUB SET_COLUMN
+IF db'UpdateColumn(tname$,c)=0 THEN {
+note$="UpdateColumn "+col$+" failed"
+GOSUB FAIL
+RETURN
+}
+}
+note$="update column "+col$+" of "+tname$+" (the file follows with adjust_file)"
+GOSUB OK
+RETURN
+!
+RENAME_COLUMN:
+GOSUB NEED_TABLE
+IF halted \
+THEN RETURN
+col$=target$
+GOSUB COLUMN_THERE
+IF NOT(there) THEN {
+note$="no column "+col$+" in "+tname$
+GOSUB FAIL
+RETURN
+}
+pn$="NEWNAME"
+GOSUB PROP_OF
+IF pv$="" THEN {
+note$="rename_column needs newName"
+GOSUB FAIL
+RETURN
+}
+col$=pv$
+GOSUB COLUMN_THERE
+col$=target$
+IF there THEN {
+note$="column "+pv$+" already exists in "+tname$
+GOSUB FAIL
+RETURN
+}
+IF NOT(dryrun) THEN {
+IF db'RenameColumn(tname$,col$,pv$)=0 THEN {
+note$="RenameColumn "+col$+" failed"
+GOSUB FAIL
+RETURN
+}
+}
+note$="rename column "+col$+" of "+tname$+" to "+pv$+" (the file follows with adjust_file)"
+GOSUB OK
+RETURN
+!
+DROP_COLUMN:
+GOSUB NEED_TABLE
+IF halted \
+THEN RETURN
+col$=target$
+GOSUB COLUMN_THERE
+IF NOT(there) THEN {
+note$="no column "+col$+" in "+tname$
+GOSUB FAIL
+RETURN
+}
+IF NOT(dryrun) THEN {
+IF db'DropColumn(tname$,col$)=0 THEN {
+note$="DropColumn "+col$+" failed"
+GOSUB FAIL
+RETURN
+}
+}
+note$="remove column "+col$+" from "+tname$+" (the file follows with adjust_file; its data for this column is then gone)"
+GOSUB OK
+RETURN
+!
+SET_COLUMN:
+FOR fi=4 TO nf
+fv$=f$[fi]
+GOSUB PROP_SPLIT
+SWITCH pk$
+CASE "DESCRIPTION"
+c'Description$=pv$
+BREAK
+CASE "TYPE"
+c'Type$=pv$
+BREAK
+CASE "LENGTH"
+c'Length=NUM(pv$)
+BREAK
+CASE "SCALE"
+c'Scale=NUM(pv$)
+BREAK
+CASE "INTERNALFORMAT"
+c'InternalFormat$=pv$
+BREAK
+CASE "EXTERNALFORMAT"
+c'ExternalFormat$=pv$
+BREAK
+CASE "CLASS"
+c'Class$=pv$
+BREAK
+CASE "DEFAULTVALUE"
+c'DefaultValue$=pv$
+BREAK
+CASE "HELP"
+c'Help$=pv$
+BREAK
+CASE "NOTES"
+c'Notes$=pv$
+BREAK
+CASE "QUERY"
+c'Query$=pv$
+BREAK
+CASE "VALIDATION"
+c'Validation$=pv$
+BREAK
+CASE "OCCURS"
+c'Occurs$=pv$
+BREAK
+CASE "SHORTNAME"
+c'ShortName$=pv$
+BREAK
+CASE "ALTERNATENAME"
+c'AlternateName$=pv$
+BREAK
+CASE "TAG"
+c'Tag$=pv$
+BREAK
+CASE "SECURITY"
+c'Security$=pv$
+BREAK
+CASE "INPUTLENGTH"
+c'InputLength=NUM(pv$)
+BREAK
+CASE "ISREQUIRED"
+c'IsRequired=NUM(pv$)
+BREAK
+CASE "ISUPPERCASE"
+c'IsUppercase=NUM(pv$)
+BREAK
+CASE "ISREADONLY"
+c'IsReadOnly=NUM(pv$)
+BREAK
+END SWITCH
+NEXT
+RETURN
+!
+! --- Indexes -----------------------------------------------------------------
+ADD_INDEX:
+GOSUB NEED_TABLE
+IF halted \
+THEN RETURN
+idx$=target$
+GOSUB INDEX_THERE
+IF there THEN {
+note$="index "+idx$+" already exists in "+tname$
+GOSUB FAIL
+RETURN
+}
+i=NEW("*dict/idxinfo")
+i'Name$=idx$
+GOSUB SET_INDEX
+IF halted \
+THEN RETURN
+IF NOT(dryrun) THEN {
+IF db'AddIndex(tname$,i)=0 THEN {
+note$="AddIndex "+idx$+" failed"+TBL(db'GetIndexCount(tname$)=0 AND i'IsUnique=0,"",": the first index (the primary key) must be unique")
+GOSUB FAIL
+RETURN
+}
+}
+planned$=planned$+"I:"+UCS(tname$+"."+idx$)+SEP
+note$="add index "+idx$+" to "+tname$+" ("+segs$+TBL(i'IsUnique<>0,"",", unique")+"; the file follows with adjust_file)"
+GOSUB OK
+DROP OBJECT i
+RETURN
+!
+UPDATE_INDEX:
+GOSUB NEED_TABLE
+IF halted \
+THEN RETURN
+idx$=target$
+GOSUB INDEX_THERE
+IF NOT(there) THEN {
+note$="no index "+idx$+" in "+tname$
+GOSUB FAIL
+RETURN
+}
+i=NEW("*dict/idxinfo")
+IF NOT(dryrun) \
+THEN i=db'GetIndexInfo(tname$,idx$)
+GOSUB SET_INDEX
+IF halted \
+THEN RETURN
+IF NOT(dryrun) THEN {
+IF db'UpdateIndex(tname$,i)=0 THEN {
+note$="UpdateIndex "+idx$+" failed"
+GOSUB FAIL
+RETURN
+}
+}
+note$="update index "+idx$+" of "+tname$+TBL(segs$="",": "+segs$,"")+" (the file follows with adjust_file)"
+GOSUB OK
+RETURN
+!
+RENAME_INDEX:
+GOSUB NEED_TABLE
+IF halted \
+THEN RETURN
+idx$=target$
+GOSUB INDEX_THERE
+IF NOT(there) THEN {
+note$="no index "+idx$+" in "+tname$
+GOSUB FAIL
+RETURN
+}
+pn$="NEWNAME"
+GOSUB PROP_OF
+IF pv$="" THEN {
+note$="rename_index needs newName"
+GOSUB FAIL
+RETURN
+}
+IF NOT(dryrun) THEN {
+IF db'RenameIndex(tname$,idx$,pv$)=0 THEN {
+note$="RenameIndex "+idx$+" failed"
+GOSUB FAIL
+RETURN
+}
+}
+note$="rename index "+idx$+" of "+tname$+" to "+pv$
+GOSUB OK
+RETURN
+!
+DROP_INDEX:
+GOSUB NEED_TABLE
+IF halted \
+THEN RETURN
+idx$=target$
+GOSUB INDEX_THERE
+IF NOT(there) THEN {
+note$="no index "+idx$+" in "+tname$
+GOSUB FAIL
+RETURN
+}
+IF NOT(dryrun) THEN {
+IF db'DropIndex(tname$,idx$)=0 THEN {
+note$="DropIndex "+idx$+" failed"
+GOSUB FAIL
+RETURN
+}
+}
+note$="remove index "+idx$+" from "+tname$+" (the file follows with adjust_file)"
+GOSUB OK
+RETURN
+!
+! UNIQUE=0/1 and SEG=column:A|D (in order; given segments replace the old ones)
+SET_INDEX:
+segs$="",nseg=0
+FOR fi=4 TO nf
+fv$=f$[fi]
+GOSUB PROP_SPLIT
+IF pk$="UNIQUE" \
+THEN i'IsUnique=NUM(pv$)
+IF pk$="SEG" \
+THEN nseg++
+NEXT
+IF nseg>0 THEN {
+tries=i'SEGCOUNT
+WHILE i'SEGCOUNT>0 AND tries>0
+r=i'DropSegment(i'SEGCOUNT)
+tries--
+WEND
+}
+FOR fi=4 TO nf
+fv$=f$[fi]
+GOSUB PROP_SPLIT
+IF pk$="SEG" THEN {
+sv$=pv$+":"
+col$=sv$(1,POS(":"=sv$)-1),attr$=UCS(SUB(sv$(POS(":"=sv$)+1),":",""))
+IF attr$="" \
+THEN attr$="A"
+GOSUB COLUMN_THERE
+IF NOT(there) THEN {
+note$="index "+idx$+": no column "+col$+" in "+tname$
+GOSUB FAIL
+BREAK
+}
+r=i'AddSegment()
+i'ColumnName$=col$,i'ColumnAttr$=attr$
+segs$=segs$+TBL(segs$="","+","")+col$+TBL(attr$="D","","/d")
+}
+NEXT
+IF halted \
+THEN RETURN
+IF op$="add_index" AND segs$="" THEN {
+note$="index "+idx$+" needs at least one segment"
+GOSUB FAIL
+}
+RETURN
+!
+! --- Physical files ------------------------------------------------------------
+CREATE_FILE:
+GOSUB NEED_TABLE
+IF halted \
+THEN RETURN
+GOSUB FILE_STATE
+IF exists THEN {
+note$=pf$+" already exists"
+GOSUB FAIL
+RETURN
+}
+IF NOT(dryrun) THEN {
+IF db'CreateTable(tname$)=0 THEN {
+note$="CreateTable "+tname$+" failed"+TBL(STP(iop$)="",": is its embedded IO program "+iop$+" found? (prefixProgram or setup)","")
+GOSUB FAIL
+RETURN
+}
+}
+planned$=planned$+"F:"+UCS(tname$)+SEP
+IF NOT(dryrun) \
+THEN GOSUB OPEN_STATE
+note$="create the file of "+tname$+TBL(full$="",": "+full$,"")
+GOSUB OK
+RETURN
+!
+ADJUST_FILE:
+GOSUB NEED_TABLE
+IF halted \
+THEN RETURN
+what$="adjust_file"
+GOSUB NEED_CONFIRM
+IF halted \
+THEN RETURN
+IF NOT(exists) AND POS(SEP+"F:"+UCS(tname$)+SEP=planned$)=0 THEN {
+note$="the file of "+tname$+" does not exist (create_file makes it)"
+GOSUB FAIL
+RETURN
+}
+! AdjustTable takes the fields over by name: a field of the file that the
+! dictionary no longer has (dropped, or renamed) loses its data
+GOSUB LOST_FIELDS
+pn$="ALLOWDATALOSS"
+GOSUB PROP_OF
+IF lost$<>"" AND records>0 AND pv$<>"1" THEN {
+note$="adjust_file would lose the data of "+lost$+" in "+pf$+" (not in the dictionary: dropped, or renamed - for a rename use load_definition); allowDataLoss to go on"
+GOSUB FAIL
+RETURN
+}
+IF NOT(dryrun) THEN {
+IF db'AdjustTable(tname$)=0 THEN {
+note$="AdjustTable "+tname$+" failed"
+GOSUB FAIL
+RETURN
+}
+}
+note$="bring "+pf$+" in line with the dictionary ("+STR(records)+" record(s) kept"+TBL(lost$="",", without the data of "+lost$,"")+")"
+GOSUB OK
+RETURN
+!
+! The fields of the file that the dictionary does not have: lost$ ("A$,B")
+LOST_FIELDS:
+lost$="",fiol$="",diol$=""
+IF exists AND openerr$="" THEN {
+OPEN INPUT (9,IOL=*,ERR=*NEXT)pf$
+TRY
+fiol$=LST(IOL(9))
+CATCH
+END_TRY
+CLOSE (9,ERR=*NEXT)
+}
+diol$=","+UCS(SUB(db'GetIOList$(tname$),"IOLIST ",""))+","
+rest$=UCS(SUB(fiol$,"IOLIST ",""))+","
+WHILE rest$<>"" AND rest$<>","
+fld$=rest$(1,POS(","=rest$)-1),rest$=rest$(POS(","=rest$)+1)
+IF fld$<>"" AND POS(","+fld$+","=diol$)=0 \
+THEN lost$=lost$+TBL(lost$="",",","")+fld$
+WEND
+RETURN
+!
+! The dictionary's definition into the file, the records as they are: for a
+! rename or other descriptions, with the same fields in the same order
+LOAD_DEFINITION:
+GOSUB NEED_TABLE
+IF halted \
+THEN RETURN
+what$="load_definition"
+GOSUB NEED_CONFIRM
+IF halted \
+THEN RETURN
+IF NOT(exists) THEN {
+note$="the file of "+tname$+" does not exist"
+GOSUB FAIL
+RETURN
+}
+GOSUB LOST_FIELDS
+nfile=0,ndict=0
+IF fiol$<>"" \
+THEN nfile=1+LEN(fiol$)-LEN(SUB(fiol$,",",""))
+diol$=db'GetIOList$(tname$)
+IF diol$<>"" \
+THEN ndict=1+LEN(diol$)-LEN(SUB(diol$,",",""))
+! In a dry run the columns this request adds are not in the dictionary yet
+IF dryrun THEN {
+pc$=SEP+"C:"+UCS(tname$)+"."
+ndict=ndict+(LEN(planned$)-LEN(SUB(planned$,pc$,"")))/LEN(pc$)
+}
+IF nfile<>ndict THEN {
+note$="load_definition keeps the records as they are, so the number of fields must stay the same (file "+STR(nfile)+", dictionary "+STR(ndict)+"); use adjust_file"
+GOSUB FAIL
+RETURN
+}
+IF NOT(dryrun) THEN {
+IF db'LoadDictionary(tname$,pf$)=0 THEN {
+note$="LoadDictionary "+tname$+" failed"
+GOSUB FAIL
+RETURN
+}
+}
+note$="write the definition of "+tname$+" into "+pf$+" ("+STR(records)+" record(s) as they are"+TBL(lost$="",", "+lost$+" renamed","")+")"
+GOSUB OK
+RETURN
+!
+! The physical file goes; the definition stays
+DELETE_FILE:
+GOSUB NEED_TABLE
+IF halted \
+THEN RETURN
+what$="delete_file"
+GOSUB NEED_CONFIRM
+IF halted \
+THEN RETURN
+IF NOT(exists) THEN {
+note$="the file of "+tname$+" does not exist"
+GOSUB FAIL
+RETURN
+}
+IF NOT(dryrun) THEN {
+IF db'DeleteTable(tname$)=0 THEN {
+note$="DeleteTable "+tname$+" failed"
+GOSUB FAIL
+RETURN
+}
+}
+note$="delete "+pf$+" ("+STR(records)+" record(s)); the definition stays"
+GOSUB OK
+RETURN
+!
+! --- Reading -----------------------------------------------------------------
+READ_TABLES:
+tlist$=db'GetTableList$(SEP)
+WHILE tlist$<>""
+tname$=tlist$(1,POS(SEP=tlist$+SEP)-1),tlist$=tlist$(POS(SEP=tlist$+SEP)+1)
+IF tname$<>"" THEN {
+GOSUB FILE_STATE
+ti=db'GetTableInfo(tname$)
+cv$=tname$+FS$+ti'Group$+FS$+ti'Description$+FS$+pf$+FS$+ti'IOProgram$+FS$+STR(exists)+FS$+STR(records)+FS$+openerr$+FS$+full$
+GOSUB CLEAN
+PRINT MARK$+TB$+"TABLE"+TB$+cv$
+}
+WEND
+note$="read tables"
+GOSUB OK
+RETURN
+!
+READ_TABLE:
+GOSUB NEED_TABLE
+IF halted \
+THEN RETURN
+GOSUB FILE_STATE
+ti=db'GetTableInfo(tname$)
+cv$=ti'Name$+FS$+ti'Group$+FS$+ti'Description$+FS$+pf$+FS$+ti'IOProgram$+FS$+STR(exists)+FS$+STR(records)+FS$+openerr$+FS$+full$
+GOSUB CLEAN
+PRINT MARK$+TB$+"TABLE"+TB$+cv$
+src=db,emb=0
+GOSUB EMIT_COLUMNS
+GOSUB EMIT_INDEXES
+cv$=db'GetIOList$(tname$)
+GOSUB CLEAN
+PRINT MARK$+TB$+"IOLIST"+TB$+cv$
+IF exists AND openerr$="" THEN {
+fiol$="",keys$=""
+OPEN INPUT (9,IOL=*,ERR=*NEXT)pf$
+TRY
+fiol$=LST(IOL(9))
+CATCH
+END_TRY
+keys$=FIN(9,"KEY_NAMES",ERR=*NEXT)
+CLOSE (9,ERR=*NEXT)
+cv$=fiol$+FS$+SUB(keys$,SEP,",")
+GOSUB CLEAN
+PRINT MARK$+TB$+"FILE"+TB$+cv$
+}
+note$="read table "+tname$
+GOSUB OK
+RETURN
+!
+! The definition inside a file (PVXDb), without a providex.ddf
+READ_EMBEDDED:
+src=NEW("*dict/pvxdb"),emb=0
+TRY
+emb=src'Open(tname$)
+CATCH
+emb=0
+END_TRY
+IF emb=0 THEN {
+note$="cannot open "+tname$+" or it has no embedded definition (an embedded IO program needs prefix or setup)"
+GOSUB FAIL
+RETURN
+}
+pf$=tname$
+GOSUB OPEN_STATE
+cv$=pf$+FS$+FS$+FS$+pf$+FS$+FS$+STR(exists)+FS$+STR(records)+FS$+openerr$+FS$+full$
+GOSUB CLEAN
+PRINT MARK$+TB$+"TABLE"+TB$+cv$
+GOSUB EMIT_COLUMNS
+GOSUB EMIT_INDEXES
+cv$=src'GetIOList$(emb)
+GOSUB CLEAN
+PRINT MARK$+TB$+"IOLIST"+TB$+cv$
+note$="read embedded definition of "+tname$
+GOSUB OK
+RETURN
+!
+! Columns of src (database: table tbl$; pvxdb: handle emb)
+EMIT_COLUMNS:
+IF emb \
+THEN ncol=src'GetColumnCount(emb) \
+ELSE ncol=src'GetColumnCount(tname$)
+FOR ci=1 TO ncol
+IF emb \
+THEN c=src'GetColumnInfo(emb,ci) \
+ELSE c=src'GetColumnInfo(tname$,ci)
+cv$=STR(ci)+FS$+c'Name$+FS$+c'Variable$+FS$+c'Type$+FS$+STR(c'Length)+FS$+STR(c'Scale)+FS$+c'Description$
+cv$=cv$+FS$+c'InternalFormat$+FS$+c'ExternalFormat$+FS$+c'Class$+FS$+STR(c'IsRequired)+FS$+STR(c'IsUppercase)+FS$+c'DefaultValue$
+GOSUB CLEAN
+PRINT MARK$+TB$+"COLUMN"+TB$+cv$
+NEXT
+RETURN
+!
+EMIT_INDEXES:
+IF emb \
+THEN nidx=src'GetIndexCount(emb) \
+ELSE nidx=src'GetIndexCount(tname$)
+FOR xi=1 TO nidx
+IF emb \
+THEN i=src'GetIndexInfo(emb,xi) \
+ELSE i=src'GetIndexInfo(tname$,xi)
+segs$=""
+FOR si=1 TO i'SEGCOUNT
+r=i'Segment(si)
+segs$=segs$+FS$+i'ColumnName$+":"+i'ColumnAttr$
+NEXT
+cv$=STR(xi)+FS$+i'Name$+FS$+STR(i'IsUnique)+segs$
+GOSUB CLEAN
+PRINT MARK$+TB$+"INDEX"+TB$+cv$
+NEXT
+RETURN
+!
+! Records, read-only: from a table of the dictionary or (target "file") a file
+! KEY=start (first key >= start), KNO=key number, MAX=number of records
+READ_RECORDS:
+IF f$[3]="file" THEN {
+pf$=tname$
+} ELSE {
+GOSUB NEED_TABLE
+IF halted \
+THEN RETURN
+GOSUB FILE_STATE
+}
+pn$="KEY"
+GOSUB PROP_OF
+start$=pv$
+pn$="KNO"
+GOSUB PROP_OF
+kno=NUM("0"+pv$)
+pn$="MAX"
+GOSUB PROP_OF
+maxrec=NUM("0"+pv$)
+IF maxrec<=0 \
+THEN maxrec=20
+opened=0
+OPEN INPUT (9,IOL=*,ERR=*NEXT)pf$; opened=1
+IF NOT(opened) THEN {
+note$="cannot open "+pf$+" ("+MSG(ERR)+")"
+GOSUB FAIL
+RETURN
+}
+fiol$=""
+TRY
+fiol$=LST(IOL(9))
+CATCH
+END_TRY
+cv$=fiol$
+GOSUB CLEAN
+PRINT MARK$+TB$+"IOLIST"+TB$+cv$
+! Position on the first key >= start; then read on
+r$="",got=0
+READ RECORD (9,KNO=kno,KEY=start$,DOM=*NEXT)r$; got=1
+nrec=0,more=1
+WHILE nrec<maxrec AND more
+IF NOT(got) THEN {
+more=0
+READ RECORD (9,END=*NEXT)r$; more=1
+}
+IF more THEN {
+got=0
+nrec++
+k$=KEC(9,ERR=*NEXT)
+cv$=k$
+GOSUB CLEAN
+rk$=cv$
+cv$=SUB(r$,TB$," ")
+cv$=SUB(SUB(cv$,$0A$," "),$0D$," ")
+PRINT MARK$+TB$+"RECORD"+TB$+rk$+TB$+SUB(cv$,SEP,TB$)
+}
+WEND
+nextkey$=""
+IF more \
+THEN nextkey$=KEY(9,END=*NEXT)
+CLOSE (9)
+cv$=nextkey$
+GOSUB CLEAN
+note$="read "+STR(nrec)+" record(s) of "+pf$+TBL(nextkey$="",", next key: "+cv$,"")
+GOSUB OK
+RETURN
